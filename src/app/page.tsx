@@ -1,8 +1,29 @@
 import PlantingTool from "@/components/PlantingTool";
+import { crops } from "@/data/crops";
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "What To Sow",
+    url: "https://whattosow.co.uk",
+    description:
+      "Free UK planting calendar. Enter your postcode to find your local frost date and get personalised advice on what to sow this week.",
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "GBP",
+    },
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header */}
       <header className="border-b border-stone-200 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
@@ -128,6 +149,28 @@ export default function Home() {
                 protect your seedlings.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Crop index */}
+        <section className="py-12 border-t border-stone-200">
+          <h2 className="text-2xl font-bold text-stone-900 mb-4">
+            Explore crops
+          </h2>
+          <p className="text-stone-600 text-sm mb-4">
+            Tap any crop for detailed UK planting times based on your local
+            frost date.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {crops.map((crop) => (
+              <a
+                key={crop.slug}
+                href={`/crops/${crop.slug}`}
+                className="px-3 py-1.5 bg-white border border-stone-200 rounded-full text-sm text-stone-700 hover:border-green-300 hover:text-green-800 transition-colors"
+              >
+                {crop.name}
+              </a>
+            ))}
           </div>
         </section>
 
