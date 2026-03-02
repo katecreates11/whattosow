@@ -15,6 +15,7 @@ export default function Footer() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <path d="M7 20h10" />
                 <path d="M10 20c5.5-2.5.8-6.4 3-10" />
@@ -30,8 +31,15 @@ export default function Footer() {
               Frost data calibrated against Met Office HadUK-Grid climate observations. Forecasts from Open-Meteo.
             </p>
           </div>
-          <div className="hidden sm:block opacity-30">
-            <LeafSprig className="w-16 h-20" />
+          <div className="space-y-3 text-sm">
+            <nav className="flex flex-col gap-2">
+              <a href="/" className="text-white/70 hover:text-white transition-colors">Home</a>
+              <a href="/#explore-crops" className="text-white/70 hover:text-white transition-colors">Explore crops</a>
+              <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
+            </nav>
+            <div className="hidden sm:block opacity-30 mt-4" aria-hidden="true">
+              <LeafSprig className="w-16 h-20" />
+            </div>
           </div>
         </div>
       </div>

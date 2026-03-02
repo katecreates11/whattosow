@@ -34,9 +34,9 @@ function isSowableNow(crop: Crop): boolean {
 function CropCard({ crop, dimmed }: { crop: Crop; dimmed: boolean }) {
   const Icon = getCropIcon(crop.slug);
   const categoryStyles: Record<string, string> = {
-    hardy: "bg-leaf-bg/60 border-l-3 border-leaf",
-    "half-hardy": "bg-amber-bg border-l-3 border-amber",
-    tender: "bg-tomato-bg border-l-3 border-tomato",
+    hardy: "bg-leaf-bg/60 border-l-[3px] border-leaf",
+    "half-hardy": "bg-amber-bg border-l-[3px] border-amber",
+    tender: "bg-tomato-bg border-l-[3px] border-tomato",
   };
 
   return (
@@ -80,7 +80,8 @@ export default function CropIndex({ crops }: { crops: Crop[] }) {
         </div>
         <button
           onClick={() => setShowInSeason(!showInSeason)}
-          className={`shrink-0 ml-4 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+          aria-pressed={showInSeason}
+          className={`shrink-0 ml-4 text-xs font-medium px-4 py-2 rounded-full border transition-colors ${
             showInSeason
               ? "bg-allotment text-white border-allotment"
               : "bg-white text-earth-light border-earth/15 hover:border-allotment/30"
@@ -89,6 +90,12 @@ export default function CropIndex({ crops }: { crops: Crop[] }) {
           {showInSeason ? "Showing in season" : "In season now"}
         </button>
       </div>
+
+      {showInSeason && (
+        <p className="text-xs text-earth-lighter mb-4 -mt-3">
+          Based on UK average frost date (mid-April). Enter your postcode above for personalised results.
+        </p>
+      )}
 
       {/* Hardy */}
       <div className="mb-6">

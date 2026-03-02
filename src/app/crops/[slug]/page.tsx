@@ -67,11 +67,11 @@ function weeksToText(weeks: number): string {
 function cropCategoryBorder(cat: Crop["category"]): string {
   switch (cat) {
     case "hardy":
-      return "border-l-3 border-leaf bg-leaf-bg/60";
+      return "border-l-[3px] border-leaf bg-leaf-bg/60";
     case "half-hardy":
-      return "border-l-3 border-amber bg-amber-bg";
+      return "border-l-[3px] border-amber bg-amber-bg";
     case "tender":
-      return "border-l-3 border-tomato bg-tomato-bg";
+      return "border-l-[3px] border-tomato bg-tomato-bg";
   }
 }
 
@@ -121,7 +121,7 @@ export default async function CropPage({
 
   return (
     <div className="min-h-screen">
-      <Header backLink={{ href: "/", label: "\u2190 All crops" }} />
+      <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Crop Header */}
@@ -151,7 +151,7 @@ export default async function CropPage({
         {/* Key Info Cards — color-block style */}
         <div className="grid sm:grid-cols-2 gap-4 my-8">
           {crop.sowIndoorsWeeks !== null && (
-            <div className="bg-amber-bg rounded-xl p-5 border-l-3 border-amber">
+            <div className="bg-amber-bg rounded-xl p-5 border-l-[3px] border-amber">
               <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
                 Sow indoors
               </p>
@@ -165,7 +165,7 @@ export default async function CropPage({
           )}
 
           {crop.directSowWeeks !== null && (
-            <div className="bg-allotment-bg rounded-xl p-5 border-l-3 border-leaf">
+            <div className="bg-allotment-bg rounded-xl p-5 border-l-[3px] border-leaf">
               <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
                 Direct sow outdoors
               </p>
@@ -179,7 +179,7 @@ export default async function CropPage({
           )}
 
           {crop.plantOutWeeks !== null && (
-            <div className="bg-leaf-bg rounded-xl p-5 border-l-3 border-allotment">
+            <div className="bg-leaf-bg rounded-xl p-5 border-l-[3px] border-allotment">
               <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
                 Plant out
               </p>
@@ -192,7 +192,7 @@ export default async function CropPage({
             </div>
           )}
 
-          <div className="bg-cream rounded-xl p-5 border-l-3 border-earth-lighter">
+          <div className="bg-cream rounded-xl p-5 border-l-[3px] border-earth-lighter">
             <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
               Harvest
             </p>

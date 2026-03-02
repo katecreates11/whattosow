@@ -21,24 +21,30 @@ export interface FrostForecast {
   nextThreeDays: { date: string; min: number; frostRisk: boolean }[];
 }
 
+export type LookupError = "invalid" | "network";
+
 /**
- * Look up a UK postcode using the free postcodes.io API
+ * Look up a UK postcode using the free postcodes.io API.
+ * Returns LocationData on success, or a LookupError string on failure.
  */
 export async function lookupPostcode(
   postcode: string
-): Promise<LocationData | null> {
+): Promise<LocationData | LookupError> {
   const cleaned = postcode.replace(/\s/g, "").toUpperCase();
 
   try {
     const res = await fetch(
       `https://api.postcodes.io/postcodes/${encodeURIComponent(cleaned)}`
     );
-    if (!res.ok) return null;
+    if (!res.ok) return "invalid";
 
     const data = await res.json();
-    if (data.status !== 200 || !data.result) return null;
+    if (data.status !== 200 || !data.result) return "invalid";
 
     const r = data.result;
+    if (typeof r.latitude !== "number" || typeof r.longitude !== "number") {
+      return "invalid";
+    }
     return {
       postcode: r.postcode,
       latitude: r.latitude,
@@ -47,7 +53,7 @@ export async function lookupPostcode(
       adminDistrict: r.admin_district || "Unknown",
     };
   } catch {
-    return null;
+    return "network";
   }
 }
 
@@ -149,10 +155,15 @@ export async function getFrostForecast(
 }
 
 /**
- * Calculate full frost data for a location
+ * Calculate full frost data for a location.
+ * If we're past this year's autumn frost date, show next spring's frost date
+ * so the countdown is always forward-looking.
  */
 export function calculateFrostData(location: LocationData): FrostData {
-  const lastFrost = calculateLastFrostDate(
+  const now = new Date();
+  const msPerDay = 24 * 60 * 60 * 1000;
+
+  let lastFrost = calculateLastFrostDate(
     location.latitude,
     location.longitude
   );
@@ -161,14 +172,23 @@ export function calculateFrostData(location: LocationData): FrostData {
     location.longitude
   );
 
-  const now = new Date();
-  const msPerDay = 24 * 60 * 60 * 1000;
+  // If we're past the autumn frost date, show next year's spring frost
+  if (now > firstAutumn) {
+    const nextYear = new Date(lastFrost);
+    nextYear.setFullYear(nextYear.getFullYear() + 1);
+    lastFrost = nextYear;
+  }
+
   const daysUntilSafe = Math.ceil(
     (lastFrost.getTime() - now.getTime()) / msPerDay
   );
 
   const growingSeasonDays = Math.round(
-    (firstAutumn.getTime() - lastFrost.getTime()) / msPerDay
+    (firstAutumn.getTime() -
+      (now > firstAutumn
+        ? calculateLastFrostDate(location.latitude, location.longitude)
+        : lastFrost
+      ).getTime()) / msPerDay
   );
 
   return {

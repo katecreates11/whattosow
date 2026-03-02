@@ -15,11 +15,23 @@ import { SnowflakeIcon, SunIcon, getCropIcon } from "@/components/SVGIllustratio
 
 const STORAGE_KEY = "whattosow_location";
 
+function isValidLocation(data: unknown): data is LocationData {
+  if (!data || typeof data !== "object") return false;
+  const d = data as Record<string, unknown>;
+  return (
+    typeof d.postcode === "string" && d.postcode.length > 0 && d.postcode.length < 10 &&
+    typeof d.latitude === "number" && isFinite(d.latitude) &&
+    typeof d.longitude === "number" && isFinite(d.longitude) &&
+    typeof d.region === "string" &&
+    typeof d.adminDistrict === "string"
+  );
+}
+
 function saveLocation(location: LocationData) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
   } catch {
-    // localStorage unavailable — ignore
+    // localStorage unavailable
   }
 }
 
@@ -27,7 +39,9 @@ function loadLocation(): LocationData | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as LocationData;
+    const parsed: unknown = JSON.parse(raw);
+    if (!isValidLocation(parsed)) return null;
+    return parsed;
   } catch {
     return null;
   }
@@ -58,17 +72,18 @@ function categoryColor(cat: Crop["category"]): string {
 function categoryBorder(cat: Crop["category"]): string {
   switch (cat) {
     case "hardy":
-      return "border-l-3 border-leaf bg-leaf-bg/40";
+      return "border-l-[3px] border-leaf bg-leaf-bg/40";
     case "half-hardy":
-      return "border-l-3 border-amber bg-amber-bg";
+      return "border-l-[3px] border-amber bg-amber-bg";
     case "tender":
-      return "border-l-3 border-tomato bg-tomato-bg";
+      return "border-l-[3px] border-tomato bg-tomato-bg";
   }
 }
 
 function CropCard({ crop, action }: { crop: Crop; action?: string }) {
   const [expanded, setExpanded] = useState(false);
   const Icon = getCropIcon(crop.slug);
+  const detailsId = `crop-details-${crop.slug}`;
 
   return (
     <div
@@ -77,6 +92,8 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full text-left"
+        aria-expanded={expanded}
+        aria-controls={detailsId}
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
@@ -101,6 +118,7 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -111,7 +129,7 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
         </div>
       </button>
       {expanded && (
-        <div className="mt-3 pt-3 border-t border-earth/10 space-y-2">
+        <div id={detailsId} className="mt-3 pt-3 border-t border-earth/10 space-y-2">
           <p className="text-sm text-earth-light">{crop.tip}</p>
           <p className="text-sm text-earth-lighter">
             <span className="font-medium text-earth-light">Needs:</span> {crop.needs}
@@ -208,9 +226,9 @@ function ShareButton({ frostData }: { frostData: FrostData }) {
   return (
     <button
       onClick={handleShare}
-      className="inline-flex items-center gap-1.5 text-xs font-medium text-white/60 hover:text-white/90 transition-colors"
+      className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-white transition-colors"
     >
-      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="18" cy="5" r="3" />
         <circle cx="6" cy="12" r="3" />
         <circle cx="18" cy="19" r="3" />
@@ -229,7 +247,8 @@ export default function PlantingTool() {
   const [frostData, setFrostData] = useState<FrostData | null>(null);
   const [forecast, setForecast] = useState<FrostForecast | null>(null);
   const [showForm, setShowForm] = useState(true);
-  const [autoLoaded, setAutoLoaded] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const submitWithLocation = useCallback(async (location: LocationData, shouldScroll: boolean) => {
@@ -249,47 +268,64 @@ export default function PlantingTool() {
     }
   }, []);
 
-  // Auto-load saved location on mount
+  // Check localStorage on mount — prevents form flash (H2)
   useEffect(() => {
     const saved = loadLocation();
     if (saved) {
-      setAutoLoaded(true);
       submitWithLocation(saved, false);
     }
+    setReady(true);
   }, [submitWithLocation]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    // Basic rate limiting (M3) — 2s cooldown
+    const now = Date.now();
+    if (now - lastSubmitTime < 2000) return;
+    setLastSubmitTime(now);
+
     setLoading(true);
     setError("");
     setFrostData(null);
     setForecast(null);
 
-    const location = await lookupPostcode(postcode);
-    if (!location) {
+    const result = await lookupPostcode(postcode);
+
+    if (typeof result === "string") {
       setError(
-        "Couldn't find that postcode. Please check and try again."
+        result === "network"
+          ? "Could not reach the postcode service. Please check your connection and try again."
+          : "Couldn't find that postcode. Please check and try again."
       );
       setLoading(false);
       return;
     }
 
-    saveLocation(location);
+    saveLocation(result);
     setLoading(false);
-    submitWithLocation(location, true);
+    submitWithLocation(result, true);
   }
 
   function handleChangeLocation() {
     setShowForm(true);
     setFrostData(null);
     setForecast(null);
-    setAutoLoaded(false);
   }
 
   const today = new Date();
   const cropActions = frostData
     ? getCropsByAction(crops, today, frostData.lastFrostDate)
     : null;
+
+  // Don't render until localStorage check is done — prevents form flash (H2)
+  if (!ready) {
+    return (
+      <div className="w-full max-w-md mx-auto lg:mx-0">
+        <div className="h-[72px]" />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
@@ -325,6 +361,7 @@ export default function PlantingTool() {
                       className="animate-spin w-4 h-4"
                       viewBox="0 0 24 24"
                       fill="none"
+                      aria-hidden="true"
                     >
                       <circle
                         className="opacity-25"
@@ -348,15 +385,15 @@ export default function PlantingTool() {
               </button>
             </div>
             {error && (
-              <p className="mt-2 text-sm text-tomato">{error}</p>
+              <p className="mt-2 text-sm text-tomato" role="alert">{error}</p>
             )}
           </form>
 
-          {/* Sample result for first-time visitors */}
-          {!autoLoaded && !frostData && (
+          {/* Sample result for first-time visitors (M13: generic, not season-dependent) */}
+          {!frostData && (
             <div className="max-w-md mx-auto lg:mx-0 mt-4">
               <p className="text-xs text-earth-lighter text-center lg:text-left">
-                e.g. <span className="text-earth-light font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season &middot; sow broad beans, peas, lettuce now
+                e.g. <span className="text-earth-light font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season &middot; personalised sowing advice
               </p>
             </div>
           )}
@@ -366,14 +403,14 @@ export default function PlantingTool() {
         <div className="max-w-md mx-auto lg:mx-0 mb-2">
           <div className="flex items-center justify-between gap-3 px-4 py-2.5 bg-allotment-bg rounded-xl">
             <div className="flex items-center gap-2 min-w-0">
-              <svg className="w-4 h-4 text-allotment shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-4 h-4 text-allotment shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
               <p className="text-sm text-earth font-medium truncate">
                 {frostData.location.adminDistrict}, {frostData.location.region}
               </p>
-              <span className="text-xs text-earth-lighter">
+              <span className="text-xs text-earth-lighter shrink-0">
                 ({frostData.location.postcode})
               </span>
             </div>
@@ -394,7 +431,7 @@ export default function PlantingTool() {
           <div className="bg-allotment-dark rounded-2xl shadow-sm overflow-hidden text-white">
             <div className="p-5 sm:p-6">
               <div className="flex items-start justify-between">
-                <p className="text-sm text-white/60 mb-1">
+                <p className="text-sm text-white/70 mb-1">
                   {frostData.location.adminDistrict},{" "}
                   {frostData.location.region}
                 </p>
@@ -417,7 +454,7 @@ export default function PlantingTool() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="bg-white/10 rounded-xl p-4">
-                  <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-1">
+                  <p className="text-xs font-medium text-white/70 uppercase tracking-wide mb-1">
                     Last frost date
                   </p>
                   <p className="text-lg font-semibold text-white">
@@ -425,7 +462,7 @@ export default function PlantingTool() {
                   </p>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4">
-                  <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-1">
+                  <p className="text-xs font-medium text-white/70 uppercase tracking-wide mb-1">
                     First autumn frost
                   </p>
                   <p className="text-lg font-semibold text-white">
@@ -433,7 +470,7 @@ export default function PlantingTool() {
                   </p>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4">
-                  <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-1">
+                  <p className="text-xs font-medium text-white/70 uppercase tracking-wide mb-1">
                     Growing season
                   </p>
                   <p className="text-lg font-semibold text-white">
@@ -463,7 +500,13 @@ export default function PlantingTool() {
           </div>
 
           {/* Frost Risk */}
-          {forecast && <FrostRiskBadge forecast={forecast} />}
+          {forecast ? (
+            <FrostRiskBadge forecast={forecast} />
+          ) : frostData ? (
+            <p className="text-xs text-earth-lighter italic">
+              Live frost forecast unavailable — check your local weather for tonight&apos;s temperatures.
+            </p>
+          ) : null}
 
           {/* What to sow NOW */}
           {(cropActions.sowIndoorsNow.length > 0 ||
@@ -471,14 +514,14 @@ export default function PlantingTool() {
             cropActions.plantOutNow.length > 0) && (
             <div>
               <h3 className="text-xl font-bold text-earth mb-4">
-                What to sow this week
+                What to sow now
               </h3>
 
               {cropActions.sowIndoorsNow.length > 0 && (
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-1 h-6 bg-amber rounded-full" />
-                    <svg className="w-5 h-5 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                       <polyline points="9,22 9,12 15,12 15,22" />
                     </svg>
@@ -502,7 +545,7 @@ export default function PlantingTool() {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-1 h-6 bg-leaf rounded-full" />
-                    <svg className="w-5 h-5 text-leaf" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 text-leaf" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M12 22V8" />
                       <path d="M5 12H2a10 10 0 0020 0h-3" />
                       <path d="M12 8a4 4 0 00-4-4c-1.5 0-2.5 1-3 2" />
@@ -528,7 +571,7 @@ export default function PlantingTool() {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-1 h-6 bg-allotment rounded-full" />
-                    <svg className="w-5 h-5 text-allotment" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 text-allotment" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M12 22V12" />
                       <path d="M12 12c-3-4-6-5-9-3 3-4 6-4 9-1" />
                       <path d="M12 12c3-4 6-5 9-3-3-4-6-4-9-1" />

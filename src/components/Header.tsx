@@ -11,6 +11,7 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            aria-hidden="true"
           >
             <path d="M7 20h10" />
             <path d="M10 20c5.5-2.5.8-6.4 3-10" />

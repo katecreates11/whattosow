@@ -28,6 +28,18 @@ export const metadata: Metadata = {
       "Enter your UK postcode. Get your local frost date. See what to sow this week. Free, personalised, and simple.",
     type: "website",
     locale: "en_GB",
+    url: "https://whattosow.co.uk",
+    siteName: "What To Sow",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What To Sow — UK Planting Calendar by Postcode",
+    description:
+      "Enter your UK postcode. Get your local frost date. See what to sow this week.",
+  },
+  metadataBase: new URL("https://whattosow.co.uk"),
+  alternates: {
+    canonical: "/",
   },
 };
 

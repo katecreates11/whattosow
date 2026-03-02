@@ -29,11 +29,54 @@ export default function Home() {
     },
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "When is the last frost date in the UK?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "It varies hugely depending on where you live. In the far south-west of England, the last frost is typically in early April. In London and the south-east, it's mid-to-late April. The Midlands and north of England see their last frost in early May. Scotland ranges from mid-May to early June.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What can I plant before the last frost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Hardy crops like broad beans, peas, onion sets, potatoes, lettuce, spinach, radishes, and kale can all go out before your last frost date. Tender crops like tomatoes, courgettes, runner beans, and peppers must wait until after the last frost.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How accurate are these frost dates?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our estimates are calibrated against Met Office climate data and are typically accurate to within 5-7 days. However, frost dates are long-term averages — in any given year, the actual last frost could be earlier or later.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is this tool free?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, completely free. No signup, no subscription, no paywall.",
+        },
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       <Header />
@@ -44,7 +87,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
             {/* Text column */}
             <div className="lg:w-[60%] text-center lg:text-left">
-              <div className="flex justify-center lg:justify-start mb-4">
+              <div className="flex justify-center lg:justify-start mb-4" aria-hidden="true">
                 <LeafSprig className="w-6 h-8 animate-leaf-sway lg:hidden" />
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold text-earth tracking-tight leading-tight mb-4">
@@ -106,13 +149,13 @@ export default function Home() {
 
         {/* Crop index — category-grouped with season filter */}
         <LeafDivider className="my-4" />
-        <section className="py-12">
+        <section id="explore-crops" className="py-12 scroll-mt-20">
           <CropIndex crops={crops} />
         </section>
 
         {/* FAQ / SEO block */}
         <LeafDivider className="my-4" />
-        <section className="py-12 space-y-8 pb-20">
+        <section id="common-questions" className="py-12 space-y-8 pb-20 scroll-mt-20">
           <h2 className="text-2xl font-bold text-earth">
             Common questions
           </h2>
@@ -137,7 +180,7 @@ export default function Home() {
                 What can I plant before the last frost?
               </h3>
               <p className="text-earth-light text-sm">
-                Hardy crops like broad beans, peas, garlic, onion sets, potatoes,
+                Hardy crops like broad beans, peas, onion sets, potatoes,
                 lettuce, spinach, radishes, and kale can all go out before your
                 last frost date. They can tolerate cold nights and light frosts.
                 Tender crops like tomatoes, courgettes, runner beans, and peppers
