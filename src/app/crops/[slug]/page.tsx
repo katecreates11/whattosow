@@ -12,6 +12,48 @@ import {
   getCropIcon,
 } from "@/components/SVGIllustrations";
 
+function CompanionSection({ crop }: { crop: Crop }) {
+  if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
+
+  return (
+    <div className="grid sm:grid-cols-2 gap-4 mb-8">
+      {crop.companionPlants && crop.companionPlants.length > 0 && (
+        <div className="bg-leaf-bg rounded-xl p-5">
+          <h2 className="font-semibold text-allotment mb-2">Good companions</h2>
+          <ul className="space-y-1">
+            {crop.companionPlants.map((name) => {
+              const companion = crops.find((c) => c.name === name);
+              return (
+                <li key={name} className="text-sm text-earth-light">
+                  {companion ? (
+                    <a href={`/crops/${companion.slug}`} className="text-allotment hover:underline">
+                      {name}
+                    </a>
+                  ) : (
+                    name
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+      {crop.avoidPlants && crop.avoidPlants.length > 0 && (
+        <div className="bg-tomato-bg rounded-xl p-5">
+          <h2 className="font-semibold text-tomato mb-2">Keep apart from</h2>
+          <ul className="space-y-1">
+            {crop.avoidPlants.map((name) => (
+              <li key={name} className="text-sm text-earth-light">
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {
     case "hardy":
@@ -212,6 +254,9 @@ export default async function CropPage({
           </h2>
           <p className="text-earth-light">{crop.needs}</p>
         </div>
+
+        {/* Companion planting */}
+        <CompanionSection crop={crop} />
 
         {/* Personalise CTA */}
         <LeafDivider className="my-4" />

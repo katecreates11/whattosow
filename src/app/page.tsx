@@ -153,6 +153,16 @@ export default function Home() {
           <CropIndex crops={crops} />
         </section>
 
+        {/* Calendar link */}
+        <div className="text-center py-4">
+          <a
+            href="/calendar"
+            className="inline-block bg-allotment-bg text-allotment font-medium px-5 py-3 rounded-full hover:bg-allotment hover:text-white transition-colors text-sm"
+          >
+            View full sowing calendar &rarr;
+          </a>
+        </div>
+
         {/* FAQ / SEO block */}
         <LeafDivider className="my-4" />
         <section id="common-questions" className="py-12 space-y-8 pb-20 scroll-mt-20">

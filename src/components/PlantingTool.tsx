@@ -431,10 +431,18 @@ export default function PlantingTool() {
           <div className="bg-allotment-dark rounded-2xl shadow-sm overflow-hidden text-white">
             <div className="p-5 sm:p-6">
               <div className="flex items-start justify-between">
-                <p className="text-sm text-white/70 mb-1">
-                  {frostData.location.adminDistrict},{" "}
-                  {frostData.location.region}
-                </p>
+                <div>
+                  <p className="text-sm text-white/70 mb-0.5">
+                    {frostData.location.adminDistrict},{" "}
+                    {frostData.location.region}
+                  </p>
+                  <p className="text-xs text-white/40 font-mono">
+                    {Math.abs(frostData.location.latitude).toFixed(2)}&deg;{" "}
+                    {frostData.location.latitude >= 0 ? "N" : "S"},{" "}
+                    {Math.abs(frostData.location.longitude).toFixed(2)}&deg;{" "}
+                    {frostData.location.longitude >= 0 ? "E" : "W"}
+                  </p>
+                </div>
                 <ShareButton frostData={frostData} />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">

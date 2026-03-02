@@ -72,3 +72,19 @@ button:focus {
   animation: leaf-sway 4s ease-in-out infinite;
   transform-origin: bottom center;
 }
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 10pt;
+  }
+
+  .print-page table {
+    page-break-inside: auto;
+  }
+
+  .print-page tr {
+    page-break-inside: avoid;
+  }
+}

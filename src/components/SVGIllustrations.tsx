@@ -159,6 +159,158 @@ export function PotatoIcon({ className = "" }: { className?: string }) {
   );
 }
 
+export function BroccoliIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,22 L12,12" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <circle cx="12" cy="8" r="5" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <circle cx="8" cy="9" r="3" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <circle cx="16" cy="9" r="3" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <circle cx="12" cy="5" r="3" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function CabbageIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <circle cx="12" cy="13" r="8" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M8,11 Q12,7 16,11" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+      <path d="M9,14 Q12,10 15,14" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function CauliflowerIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M6,16 Q4,12 6,10 Q7,6 12,5 Q17,6 18,10 Q20,12 18,16" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <circle cx="10" cy="10" r="2.5" stroke="#F5EFE0" {...shared} strokeWidth={1.5} />
+      <circle cx="14" cy="10" r="2.5" stroke="#F5EFE0" {...shared} strokeWidth={1.5} />
+      <circle cx="12" cy="13" r="2.5" stroke="#F5EFE0" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function BrusselsSproutsIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,3 L12,21" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <circle cx="10" cy="8" r="2.5" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <circle cx="14" cy="12" r="2.5" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <circle cx="10" cy="16" r="2.5" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,3 C10,1 8,2 9,4" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,3 C14,1 16,2 15,4" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function GarlicIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,3 L12,7" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M8,10 Q8,7 12,7 Q16,7 16,10 Q16,20 12,22 Q8,20 8,10" stroke="#D4943A" {...shared} strokeWidth={2} />
+      <path d="M12,7 L12,16" stroke="#D4943A" {...shared} strokeWidth={1.5} />
+      <path d="M10,9 L10,14" stroke="#D4943A" {...shared} strokeWidth={1} />
+      <path d="M14,9 L14,14" stroke="#D4943A" {...shared} strokeWidth={1} />
+    </svg>
+  );
+}
+
+export function ParsleyIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,22 L12,10" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M12,10 C8,6 4,6 5,2 C9,3 10,6 12,10" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,10 C16,6 20,6 19,2 C15,3 14,6 12,10" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,14 C8,11 6,9 8,6" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function CorianderIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,22 L12,8" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M12,8 C8,4 6,2 8,1" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,8 C12,3 11,1 12,0" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,8 C16,4 18,2 16,1" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,14 C9,11 7,10 9,8" stroke="#A8D49A" {...shared} strokeWidth={1.5} />
+      <path d="M12,14 C15,11 17,10 15,8" stroke="#A8D49A" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function RocketIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,22 L12,6" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M12,6 C8,4 5,6 6,10 L12,8 L18,10 C19,6 16,4 12,6" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,12 C9,11 7,12 8,15 L12,14" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+      <path d="M12,12 C15,11 17,12 16,15 L12,14" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function PakChoiIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M8,22 Q6,14 8,10 Q10,6 12,4 Q14,6 16,10 Q18,14 16,22" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M10,22 Q10,14 12,8 Q14,14 14,22" stroke="#F5EFE0" {...shared} strokeWidth={2} />
+    </svg>
+  );
+}
+
+export function FennelIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <ellipse cx="12" cy="18" rx="6" ry="4" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,14 L12,4" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M12,6 C8,2 6,1 7,0" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,6 C16,2 18,1 17,0" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,10 C9,7 7,7 8,5" stroke="#A8D49A" {...shared} strokeWidth={1.5} />
+      <path d="M12,10 C15,7 17,7 16,5" stroke="#A8D49A" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function CeleryIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M9,22 L9,8 C9,4 10,2 11,1" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,22 L12,6 C12,3 12,1 12,0" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M15,22 L15,8 C15,4 14,2 13,1" stroke="#7BB369" {...shared} strokeWidth={2} />
+    </svg>
+  );
+}
+
+export function BasilIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,22 L12,10" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M12,10 C8,8 6,4 8,2 C10,3 11,6 12,10" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,10 C16,8 18,4 16,2 C14,3 13,6 12,10" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M12,16 C9,14 8,11 10,9" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+      <path d="M12,16 C15,14 16,11 14,9" stroke="#3D7A52" {...shared} strokeWidth={1.5} />
+    </svg>
+  );
+}
+
+export function DillIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M12,22 L12,4" stroke="#3D7A52" {...shared} strokeWidth={2} />
+      <path d="M12,4 C9,2 8,1 9,0" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,4 C15,2 16,1 15,0" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,4 L12,1" stroke="#7BB369" {...shared} strokeWidth={1.5} />
+      <path d="M12,10 C9,8 8,7 9,5" stroke="#A8D49A" {...shared} strokeWidth={1.5} />
+      <path d="M12,10 C15,8 16,7 15,5" stroke="#A8D49A" {...shared} strokeWidth={1.5} />
+      <path d="M12,16 C10,14 9,13 10,11" stroke="#7BB369" {...shared} strokeWidth={1} />
+      <path d="M12,16 C14,14 15,13 14,11" stroke="#7BB369" {...shared} strokeWidth={1} />
+    </svg>
+  );
+}
+
 // Map crop slugs to icons
 const cropIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   tomatoes: TomatoIcon,
@@ -169,6 +321,19 @@ const cropIconMap: Record<string, React.ComponentType<{ className?: string }>> =
   "runner-beans": RunnerBeanIcon,
   courgettes: CourgetteIcon,
   "early-potatoes": PotatoIcon,
+  broccoli: BroccoliIcon,
+  cabbage: CabbageIcon,
+  cauliflower: CauliflowerIcon,
+  "brussels-sprouts": BrusselsSproutsIcon,
+  garlic: GarlicIcon,
+  parsley: ParsleyIcon,
+  coriander: CorianderIcon,
+  rocket: RocketIcon,
+  "pak-choi": PakChoiIcon,
+  fennel: FennelIcon,
+  celery: CeleryIcon,
+  basil: BasilIcon,
+  dill: DillIcon,
 };
 
 export function getCropIcon(slug: string): React.ComponentType<{ className?: string }> | null {

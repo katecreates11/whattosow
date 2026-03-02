@@ -50,6 +50,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
+      <head>
+        <link rel="preconnect" href="https://api.postcodes.io" />
+        <link rel="preconnect" href="https://api.open-meteo.com" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#2D5F3E" />
+      </head>
       <body className={`${dmSans.variable} font-sans antialiased`}>
         {children}
       </body>

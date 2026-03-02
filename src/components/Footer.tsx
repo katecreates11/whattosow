@@ -35,6 +35,8 @@ export default function Footer() {
             <nav className="flex flex-col gap-2">
               <a href="/" className="text-white/70 hover:text-white transition-colors">Home</a>
               <a href="/#explore-crops" className="text-white/70 hover:text-white transition-colors">Explore crops</a>
+              <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
+              <a href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</a>
               <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
             </nav>
             <div className="hidden sm:block opacity-30 mt-4" aria-hidden="true">
