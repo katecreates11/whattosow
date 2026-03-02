@@ -1,6 +1,7 @@
 import PlantingTool from "@/components/PlantingTool";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CropIndex from "@/components/CropIndex";
 import { crops } from "@/data/crops";
 import {
   HeroIllustration,
@@ -9,7 +10,6 @@ import {
   MapPinPlantIcon,
   CalendarSeedlingIcon,
   SnowflakeShieldIcon,
-  getCropIcon,
 } from "@/components/SVGIllustrations";
 
 export default function Home() {
@@ -28,10 +28,6 @@ export default function Home() {
       priceCurrency: "GBP",
     },
   };
-
-  const hardyCrops = crops.filter((c) => c.category === "hardy");
-  const halfHardyCrops = crops.filter((c) => c.category === "half-hardy");
-  const tenderCrops = crops.filter((c) => c.category === "tender");
 
   return (
     <div className="min-h-screen">
@@ -108,109 +104,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Crop index — category-grouped */}
+        {/* Crop index — category-grouped with season filter */}
         <LeafDivider className="my-4" />
         <section className="py-12">
-          <h2 className="text-2xl font-bold text-earth mb-2">
-            Explore crops
-          </h2>
-          <p className="text-earth-light text-sm mb-8">
-            Tap any crop for detailed UK planting times based on your local frost date.
-          </p>
-
-          {/* Hardy */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-allotment uppercase tracking-wide mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 bg-leaf rounded-full" />
-              Hardy crops
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {hardyCrops.map((crop) => {
-                const Icon = getCropIcon(crop.slug);
-                return (
-                  <a
-                    key={crop.slug}
-                    href={`/crops/${crop.slug}`}
-                    className="bg-leaf-bg/60 border-l-3 border-leaf rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      {Icon && <Icon className="w-5 h-5 shrink-0" />}
-                      <span className="font-medium text-sm text-earth">{crop.name}</span>
-                    </div>
-                    <p className="text-xs text-earth-lighter">
-                      {crop.directSowWeeks !== null
-                        ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
-                        : crop.sowIndoorsWeeks !== null
-                          ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
-                          : ""}
-                    </p>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Half-hardy */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-amber uppercase tracking-wide mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 bg-amber rounded-full" />
-              Half-hardy crops
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {halfHardyCrops.map((crop) => {
-                const Icon = getCropIcon(crop.slug);
-                return (
-                  <a
-                    key={crop.slug}
-                    href={`/crops/${crop.slug}`}
-                    className="bg-amber-bg border-l-3 border-amber rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      {Icon && <Icon className="w-5 h-5 shrink-0" />}
-                      <span className="font-medium text-sm text-earth">{crop.name}</span>
-                    </div>
-                    <p className="text-xs text-earth-lighter">
-                      {crop.sowIndoorsWeeks !== null
-                        ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
-                        : crop.directSowWeeks !== null
-                          ? `Direct sow ${crop.directSowWeeks}w after frost`
-                          : ""}
-                    </p>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Tender */}
-          <div>
-            <h3 className="text-sm font-semibold text-tomato uppercase tracking-wide mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 bg-tomato rounded-full" />
-              Tender crops
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {tenderCrops.map((crop) => {
-                const Icon = getCropIcon(crop.slug);
-                return (
-                  <a
-                    key={crop.slug}
-                    href={`/crops/${crop.slug}`}
-                    className="bg-tomato-bg border-l-3 border-tomato rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      {Icon && <Icon className="w-5 h-5 shrink-0" />}
-                      <span className="font-medium text-sm text-earth">{crop.name}</span>
-                    </div>
-                    <p className="text-xs text-earth-lighter">
-                      {crop.sowIndoorsWeeks !== null
-                        ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
-                        : ""}
-                    </p>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
+          <CropIndex crops={crops} />
         </section>
 
         {/* FAQ / SEO block */}
