@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { crops, type Crop } from "@/data/crops";
 import type { Metadata } from "next";
 import PlantingTool from "@/components/PlantingTool";
+import PersonalisedCropDates from "@/components/PersonalisedCropDates";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -98,14 +100,6 @@ function CategoryIllustration({ category, className }: { category: Crop["categor
   }
 }
 
-function weeksToText(weeks: number): string {
-  const absWeeks = Math.abs(weeks);
-  const weekText = absWeeks === 1 ? "week" : "weeks";
-  if (weeks < 0) return `${absWeeks} ${weekText} before your last frost date`;
-  if (weeks === 0) return "around your last frost date";
-  return `${absWeeks} ${weekText} after your last frost date`;
-}
-
 function cropCategoryBorder(cat: Crop["category"]): string {
   switch (cat) {
     case "hardy":
@@ -144,6 +138,9 @@ export async function generateMetadata({
       description: `Personalised planting times for ${crop.name.toLowerCase()} based on your UK postcode and local frost date.`,
       type: "article",
       locale: "en_GB",
+      ...(crop.unsplashId && {
+        images: [`https://images.unsplash.com/photo-${crop.unsplashId}?w=1200&h=630&fit=crop&auto=format&q=80`],
+      }),
     },
   };
 }
@@ -166,8 +163,26 @@ export default async function CropPage({
       <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6">
+        {/* Hero photo */}
+        {crop.unsplashId && (
+          <div className="-mx-4 sm:-mx-6 relative h-48 sm:h-64 overflow-hidden">
+            <Image
+              src={`https://images.unsplash.com/photo-${crop.unsplashId}?w=1200&h=400&fit=crop&auto=format&q=75`}
+              alt={`${crop.name} growing`}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <p className="absolute bottom-2 right-3 text-[10px] text-white/50">
+              Photo: Unsplash
+            </p>
+          </div>
+        )}
+
         {/* Crop Header */}
-        <div className={`-mx-4 sm:-mx-6 px-4 sm:px-6 pt-10 sm:pt-16 pb-8 ${categoryBg(crop.category)}`}>
+        <div className={`-mx-4 sm:-mx-6 px-4 sm:px-6 ${crop.unsplashId ? "pt-6" : "pt-10 sm:pt-16"} pb-8 ${categoryBg(crop.category)}`}>
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
               <div className="mb-4">
@@ -190,62 +205,8 @@ export default async function CropPage({
           </div>
         </div>
 
-        {/* Key Info Cards — color-block style */}
-        <div className="grid sm:grid-cols-2 gap-4 my-8">
-          {crop.sowIndoorsWeeks !== null && (
-            <div className="bg-amber-bg rounded-xl p-5 border-l-[3px] border-amber">
-              <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
-                Sow indoors
-              </p>
-              <p className="text-lg font-semibold text-earth">
-                {weeksToText(crop.sowIndoorsWeeks)}
-              </p>
-              <p className="text-sm text-earth-lighter mt-1">
-                Use a warm windowsill or propagator
-              </p>
-            </div>
-          )}
-
-          {crop.directSowWeeks !== null && (
-            <div className="bg-allotment-bg rounded-xl p-5 border-l-[3px] border-leaf">
-              <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
-                Direct sow outdoors
-              </p>
-              <p className="text-lg font-semibold text-earth">
-                {weeksToText(crop.directSowWeeks)}
-              </p>
-              <p className="text-sm text-earth-lighter mt-1">
-                Sow directly into prepared soil
-              </p>
-            </div>
-          )}
-
-          {crop.plantOutWeeks !== null && (
-            <div className="bg-leaf-bg rounded-xl p-5 border-l-[3px] border-allotment">
-              <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
-                Plant out
-              </p>
-              <p className="text-lg font-semibold text-earth">
-                {weeksToText(crop.plantOutWeeks)}
-              </p>
-              <p className="text-sm text-earth-lighter mt-1">
-                Transplant seedlings to their final position
-              </p>
-            </div>
-          )}
-
-          <div className="bg-cream rounded-xl p-5 border-l-[3px] border-earth-lighter">
-            <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
-              Harvest
-            </p>
-            <p className="text-lg font-semibold text-earth">
-              ~{crop.harvestWeeks} weeks from sowing
-            </p>
-            <p className="text-sm text-earth-lighter mt-1">
-              Space plants {crop.spacingCm}cm apart
-            </p>
-          </div>
-        </div>
+        {/* Key Info Cards — personalised when postcode is saved */}
+        <PersonalisedCropDates crop={crop} />
 
         {/* Growing needs */}
         <div className="bg-allotment-bg rounded-xl p-5 mb-8">
@@ -260,7 +221,7 @@ export default async function CropPage({
 
         {/* Personalise CTA */}
         <LeafDivider className="my-4" />
-        <div className="pt-6 pb-8">
+        <div id="get-dates" className="pt-6 pb-8 scroll-mt-20">
           <h2 className="text-2xl font-bold text-earth mb-2">
             Get your exact dates
           </h2>

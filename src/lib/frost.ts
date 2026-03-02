@@ -19,6 +19,8 @@ export interface FrostForecast {
   tonight: { min: number; frostRisk: boolean };
   tomorrow: { min: number; frostRisk: boolean };
   nextThreeDays: { date: string; min: number; frostRisk: boolean }[];
+  soilTemp?: number; // current soil temperature at 0-7cm depth (°C)
+  rainfall3Days?: number; // total precipitation over next 3 days (mm)
 }
 
 export type LookupError = "invalid" | "network";
@@ -130,13 +132,14 @@ export async function getFrostForecast(
 ): Promise<FrostForecast | null> {
   try {
     const res = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_min&timezone=Europe%2FLondon&forecast_days=3`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_min,precipitation_sum&hourly=soil_temperature_0cm&timezone=Europe%2FLondon&forecast_days=3`
     );
     if (!res.ok) return null;
 
     const data = await res.json();
     const dates: string[] = data.daily.time;
     const mins: number[] = data.daily.temperature_2m_min;
+    const precip: number[] = data.daily.precipitation_sum ?? [];
 
     const days = dates.map((date: string, i: number) => ({
       date,
@@ -144,10 +147,29 @@ export async function getFrostForecast(
       frostRisk: mins[i] <= 2,
     }));
 
+    // Current soil temp: use the most recent hourly reading
+    let soilTemp: number | undefined;
+    const soilTemps: (number | null)[] = data.hourly?.soil_temperature_0cm ?? [];
+    const hourTimes: string[] = data.hourly?.time ?? [];
+    const nowIso = new Date().toISOString().slice(0, 13); // "2026-03-02T23"
+    for (let i = hourTimes.length - 1; i >= 0; i--) {
+      if (hourTimes[i] <= nowIso && soilTemps[i] !== null) {
+        soilTemp = Math.round(soilTemps[i]! * 10) / 10;
+        break;
+      }
+    }
+
+    // Total rainfall over next 3 days
+    const rainfall3Days = precip.length > 0
+      ? Math.round(precip.reduce((a, b) => a + (b ?? 0), 0) * 10) / 10
+      : undefined;
+
     return {
       tonight: days[0],
       tomorrow: days[1],
       nextThreeDays: days,
+      soilTemp,
+      rainfall3Days,
     };
   } catch {
     return null;

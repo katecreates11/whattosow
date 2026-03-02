@@ -30,6 +30,8 @@ function isValidLocation(data: unknown): data is LocationData {
 function saveLocation(location: LocationData) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
+    // Notify other components on the same page (e.g. PersonalisedCropDates)
+    window.dispatchEvent(new Event("whattosow:location-updated"));
   } catch {
     // localStorage unavailable
   }
@@ -516,6 +518,60 @@ export default function PlantingTool() {
             </p>
           ) : null}
 
+          {/* Soil & Rainfall — gardening conditions */}
+          {forecast && (forecast.soilTemp !== undefined || forecast.rainfall3Days !== undefined) && (
+            <div className="grid grid-cols-2 gap-3">
+              {forecast.soilTemp !== undefined && (
+                <div className="bg-amber-bg rounded-xl p-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg className="w-4 h-4 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M14 4v10.54a4 4 0 11-4 0V4a2 2 0 014 0z" />
+                    </svg>
+                    <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
+                      Soil temp
+                    </p>
+                  </div>
+                  <p className="text-xl font-bold text-earth">
+                    {forecast.soilTemp}&deg;C
+                  </p>
+                  <p className="text-xs text-earth-lighter mt-1">
+                    {forecast.soilTemp >= 10
+                      ? "Warm enough for most seeds"
+                      : forecast.soilTemp >= 7
+                        ? "OK for hardy crops"
+                        : forecast.soilTemp >= 5
+                          ? "Too cold for most seeds"
+                          : "Soil is very cold — wait to sow"}
+                  </p>
+                </div>
+              )}
+              {forecast.rainfall3Days !== undefined && (
+                <div className="bg-frost-bg rounded-xl p-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg className="w-4 h-4 text-frost" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+                    </svg>
+                    <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
+                      Rain (3 days)
+                    </p>
+                  </div>
+                  <p className="text-xl font-bold text-earth">
+                    {forecast.rainfall3Days}mm
+                  </p>
+                  <p className="text-xs text-earth-lighter mt-1">
+                    {forecast.rainfall3Days === 0
+                      ? "No rain forecast — water if dry"
+                      : forecast.rainfall3Days < 5
+                        ? "Light rain — may still need watering"
+                        : forecast.rainfall3Days < 15
+                          ? "Good rainfall expected"
+                          : "Heavy rain — avoid sowing outdoors"}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* What to sow NOW */}
           {(cropActions.sowIndoorsNow.length > 0 ||
             cropActions.directSowNow.length > 0 ||
@@ -621,8 +677,8 @@ export default function PlantingTool() {
             </div>
           )}
 
-          {/* Info */}
-          <div className="bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-2">
+          {/* Info + Sources */}
+          <div className="bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-3">
             <p>
               <strong className="text-earth">How this works:</strong> We estimate your local frost
               dates based on your location&apos;s latitude and proximity to the
@@ -635,6 +691,20 @@ export default function PlantingTool() {
               your local forecast and wait for settled weather before planting
               tender crops outside.
             </p>
+            <div className="pt-2 border-t border-allotment/10">
+              <p className="text-xs text-earth-lighter mb-1.5 font-medium">Data sources — verify for yourself:</p>
+              <ul className="text-xs text-earth-lighter space-y-1">
+                <li>
+                  <a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer" className="text-allotment hover:underline">Met Office UK climate averages</a> — frost date calibration
+                </li>
+                <li>
+                  <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" className="text-allotment hover:underline">Open-Meteo</a> — live frost forecast &amp; soil temperature
+                </li>
+                <li>
+                  <a href="https://postcodes.io/" target="_blank" rel="noopener noreferrer" className="text-allotment hover:underline">Postcodes.io</a> — postcode geolocation (open data)
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       )}

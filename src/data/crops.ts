@@ -24,6 +24,8 @@ export interface Crop {
   companionPlants?: string[];
   /** Crops to keep apart from this one */
   avoidPlants?: string[];
+  /** Unsplash photo ID for hero image */
+  unsplashId?: string;
 }
 
 export const crops: Crop[] = [
@@ -41,7 +43,8 @@ export const crops: Crop[] = [
     spacingCm: 23,
     companionPlants: ["Lettuce", "Spinach", "Carrots"],
     avoidPlants: ["Onion sets", "Garlic"],
-  },
+      unsplashId: "8eJPcAuqIhY",
+},
   {
     name: "Peas",
     slug: "peas",
@@ -55,7 +58,8 @@ export const crops: Crop[] = [
     spacingCm: 8,
     companionPlants: ["Carrots", "Radishes", "Turnips", "Sweetcorn"],
     avoidPlants: ["Onion sets", "Garlic"],
-  },
+      unsplashId: "DW-iZYLjYco",
+},
   {
     name: "Lettuce",
     slug: "lettuce",
@@ -68,7 +72,8 @@ export const crops: Crop[] = [
     needs: "Partial shade in summer. Regular water.",
     spacingCm: 25,
     companionPlants: ["Radishes", "Carrots", "Spring onions", "Strawberries"],
-  },
+      unsplashId: "X_0eZ5GXtMg",
+},
   {
     name: "Spinach",
     slug: "spinach",
@@ -81,7 +86,8 @@ export const crops: Crop[] = [
     needs: "Partial shade. Moist, rich soil.",
     spacingCm: 15,
     companionPlants: ["Broad beans", "Peas", "Strawberries"],
-  },
+      unsplashId: "Ljv6vwaFwdQ",
+},
   {
     name: "Radishes",
     slug: "radishes",
@@ -94,7 +100,8 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Light soil.",
     spacingCm: 3,
     companionPlants: ["Lettuce", "Peas", "Carrots"],
-  },
+      unsplashId: "j-lq47oHUvw",
+},
   {
     name: "Carrots",
     slug: "carrots",
@@ -108,7 +115,8 @@ export const crops: Crop[] = [
     spacingCm: 8,
     companionPlants: ["Onion sets", "Spring onions", "Leeks", "Lettuce"],
     avoidPlants: ["Dill"],
-  },
+      unsplashId: "a-F2ncTyqfw",
+},
   {
     name: "Beetroot",
     slug: "beetroot",
@@ -121,7 +129,8 @@ export const crops: Crop[] = [
     needs: "Sun or light shade. Any reasonable soil.",
     spacingCm: 10,
     companionPlants: ["Lettuce", "Onion sets"],
-  },
+      unsplashId: "XYKWqUZOND0",
+},
   {
     name: "Onion sets",
     slug: "onion-sets",
@@ -135,7 +144,8 @@ export const crops: Crop[] = [
     spacingCm: 10,
     companionPlants: ["Carrots", "Beetroot", "Lettuce"],
     avoidPlants: ["Peas", "Broad beans"],
-  },
+      unsplashId: "qpJvImEGsTk",
+},
   {
     name: "Potatoes (early)",
     slug: "early-potatoes",
@@ -147,7 +157,8 @@ export const crops: Crop[] = [
     tip: "Chit (sprout) seed potatoes on a windowsill before planting. Earth up as they grow.",
     needs: "Sun. Rich soil. Regular watering once flowers appear.",
     spacingCm: 30,
-  },
+      unsplashId: "qi8HAxXLsfM",
+},
   {
     name: "Kale",
     slug: "kale",
@@ -160,7 +171,8 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Firm, fertile soil. Net against pigeons.",
     spacingCm: 45,
     companionPlants: ["Beetroot", "Onion sets"],
-  },
+      unsplashId: "B3ZAI26YDN4",
+},
   {
     name: "Parsnips",
     slug: "parsnips",
@@ -172,7 +184,8 @@ export const crops: Crop[] = [
     tip: "Very slow to germinate (2-4 weeks). Use fresh seed every year. Sow radishes alongside to mark the row.",
     needs: "Sun. Deep, stone-free soil. Patience.",
     spacingCm: 15,
-  },
+      unsplashId: "nITRT0QsMPA",
+},
   {
     name: "Spring onions",
     slug: "spring-onions",
@@ -184,7 +197,8 @@ export const crops: Crop[] = [
     tip: "Sow little and often, every few weeks, for a continuous supply.",
     needs: "Sun or partial shade. Any soil.",
     spacingCm: 2,
-  },
+      unsplashId: "7CcXR5wIhEY",
+},
   {
     name: "Swiss chard",
     slug: "swiss-chard",
@@ -196,7 +210,8 @@ export const crops: Crop[] = [
     tip: "Beautiful and productive. Pick outer leaves and it keeps going for months. Rainbow chard looks stunning.",
     needs: "Sun or partial shade. Moist soil.",
     spacingCm: 30,
-  },
+      unsplashId: "RUfniEUlYSs",
+},
   {
     name: "Turnips",
     slug: "turnips",
@@ -208,7 +223,8 @@ export const crops: Crop[] = [
     tip: "Harvest when golf-ball sized for the sweetest flavour. Quick-growing gap filler.",
     needs: "Sun or partial shade. Moist soil.",
     spacingCm: 15,
-  },
+      unsplashId: "nITRT0QsMPA",
+},
   {
     name: "Leeks",
     slug: "leeks",
@@ -221,7 +237,8 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Rich, well-drained soil.",
     spacingCm: 15,
     companionPlants: ["Carrots", "Celery"],
-  },
+      unsplashId: "CU8MdyE4pG4",
+},
   {
     name: "Broccoli",
     slug: "broccoli",
@@ -235,7 +252,8 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Beetroot", "Onion sets", "Celery"],
     avoidPlants: ["Tomatoes", "Runner beans"],
-  },
+      unsplashId: "NXkasRqhEmk",
+},
   {
     name: "Cabbage",
     slug: "cabbage",
@@ -249,7 +267,8 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Onion sets", "Celery", "Beetroot"],
     avoidPlants: ["Tomatoes", "Runner beans"],
-  },
+      unsplashId: "AS3M6jI1fP0",
+},
   {
     name: "Cauliflower",
     slug: "cauliflower",
@@ -263,7 +282,8 @@ export const crops: Crop[] = [
     spacingCm: 60,
     companionPlants: ["Celery", "Onion sets"],
     avoidPlants: ["Tomatoes"],
-  },
+      unsplashId: "y4j_bKe0b6Q",
+},
   {
     name: "Brussels sprouts",
     slug: "brussels-sprouts",
@@ -277,7 +297,8 @@ export const crops: Crop[] = [
     spacingCm: 60,
     companionPlants: ["Onion sets", "Beetroot"],
     avoidPlants: ["Tomatoes", "Runner beans"],
-  },
+      unsplashId: "IbVPMNn8_ao",
+},
   {
     name: "Garlic",
     slug: "garlic",
@@ -291,7 +312,8 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Carrots", "Beetroot", "Tomatoes"],
     avoidPlants: ["Peas", "Broad beans"],
-  },
+      unsplashId: "WCSLPuh5NZ4",
+},
   {
     name: "Parsley",
     slug: "parsley",
@@ -304,7 +326,8 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Moist, rich soil. Grows well in pots.",
     spacingCm: 20,
     companionPlants: ["Tomatoes", "Carrots", "Broad beans"],
-  },
+      unsplashId: "UzaIeuLilnM",
+},
 
   // === HALF-HARDY (need some protection) ===
   {
@@ -319,7 +342,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Sheltered spot. Rich soil.",
     spacingCm: 45,
     companionPlants: ["Squash", "French beans", "Pumpkins"],
-  },
+      unsplashId: "aglLffkAPxc",
+},
   {
     name: "Courgettes",
     slug: "courgettes",
@@ -332,7 +356,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Rich soil. Lots of water.",
     spacingCm: 90,
     companionPlants: ["Sweetcorn", "French beans"],
-  },
+      unsplashId: "A5i6R0hcFL4",
+},
   {
     name: "French beans",
     slug: "french-beans",
@@ -345,7 +370,8 @@ export const crops: Crop[] = [
     needs: "Sun. Sheltered spot. Decent soil.",
     spacingCm: 15,
     companionPlants: ["Sweetcorn", "Squash", "Carrots"],
-  },
+      unsplashId: "BAQPTB2D5NM",
+},
   {
     name: "Squash",
     slug: "squash",
@@ -358,7 +384,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Rich soil. Space — they spread.",
     spacingCm: 90,
     companionPlants: ["Sweetcorn", "French beans"],
-  },
+      unsplashId: "qzWTl0zn9EE",
+},
   {
     name: "Pumpkins",
     slug: "pumpkins",
@@ -371,7 +398,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Very rich soil. Lots of water.",
     spacingCm: 120,
     companionPlants: ["Sweetcorn", "French beans"],
-  },
+      unsplashId: "W0ZSsx575Og",
+},
   {
     name: "Coriander",
     slug: "coriander",
@@ -384,7 +412,8 @@ export const crops: Crop[] = [
     needs: "Partial shade in summer. Moist soil. Grows well in pots.",
     spacingCm: 15,
     companionPlants: ["Tomatoes", "Spinach"],
-  },
+      unsplashId: "Gx8WLeRRUEM",
+},
   {
     name: "Rocket",
     slug: "rocket",
@@ -397,7 +426,8 @@ export const crops: Crop[] = [
     needs: "Partial shade in summer to slow bolting. Any reasonable soil.",
     spacingCm: 15,
     companionPlants: ["Lettuce", "Spinach"],
-  },
+      unsplashId: "VxQKNqRZux4",
+},
   {
     name: "Pak choi",
     slug: "pak-choi",
@@ -410,7 +440,8 @@ export const crops: Crop[] = [
     needs: "Partial shade. Moist soil. Protection from slugs.",
     spacingCm: 25,
     companionPlants: ["Onion sets", "Garlic"],
-  },
+      unsplashId: "xoBhyl6EQmA",
+},
   {
     name: "Fennel",
     slug: "fennel",
@@ -423,7 +454,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Well-drained, fertile soil. Regular water.",
     spacingCm: 30,
     avoidPlants: ["Tomatoes", "Carrots"],
-  },
+      unsplashId: "RmGHACxqe6M",
+},
   {
     name: "Celery",
     slug: "celery",
@@ -436,7 +468,8 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Rich, moist soil. Regular watering and feeding.",
     spacingCm: 25,
     companionPlants: ["Leeks", "Cabbage", "Cauliflower"],
-  },
+      unsplashId: "vcsct-4sdfk",
+},
   {
     name: "Dill",
     slug: "dill",
@@ -450,7 +483,8 @@ export const crops: Crop[] = [
     spacingCm: 25,
     companionPlants: ["Lettuce", "Cucumbers"],
     avoidPlants: ["Carrots"],
-  },
+      unsplashId: "SFfSGRLxZzw",
+},
 
   // === TENDER (need warmth, start indoors) ===
   {
@@ -466,7 +500,8 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Basil", "Parsley", "Carrots", "Garlic"],
     avoidPlants: ["Broccoli", "Cabbage", "Cauliflower", "Fennel"],
-  },
+      unsplashId: "j0ZiKn3Xu_o",
+},
   {
     name: "Peppers",
     slug: "peppers",
@@ -479,7 +514,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Warmth. Sheltered spot or greenhouse.",
     spacingCm: 45,
     companionPlants: ["Basil", "Tomatoes", "Carrots"],
-  },
+      unsplashId: "ykGSr4AhASE",
+},
   {
     name: "Chillies",
     slug: "chillies",
@@ -491,7 +527,8 @@ export const crops: Crop[] = [
     tip: "Need heat to germinate — use a propagator or warm windowsill. The more sun, the hotter the chilli.",
     needs: "Full sun. Warmth. Sheltered or under cover.",
     spacingCm: 40,
-  },
+      unsplashId: "mmtEVjJ-ozc",
+},
   {
     name: "Cucumbers",
     slug: "cucumbers",
@@ -504,7 +541,8 @@ export const crops: Crop[] = [
     needs: "Sun. Shelter. Rich moist soil.",
     spacingCm: 45,
     companionPlants: ["Dill", "Lettuce", "Peas"],
-  },
+      unsplashId: "b6nwRCV-WuU",
+},
   {
     name: "Runner beans",
     slug: "runner-beans",
@@ -518,7 +556,8 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Sweetcorn", "Squash"],
     avoidPlants: ["Broccoli", "Cabbage"],
-  },
+      unsplashId: "SZOx0LhxBDw",
+},
   {
     name: "Aubergine",
     slug: "aubergine",
@@ -531,7 +570,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Warmth. Best under cover in most of the UK.",
     spacingCm: 60,
     companionPlants: ["Peppers", "Tomatoes"],
-  },
+      unsplashId: "BgAKXWsl3zg",
+},
   {
     name: "Basil",
     slug: "basil",
@@ -544,7 +584,8 @@ export const crops: Crop[] = [
     needs: "Full sun. Warmth. Sheltered spot. Rich, moist soil. Perfect for pots.",
     spacingCm: 20,
     companionPlants: ["Tomatoes", "Peppers"],
-  },
+      unsplashId: "si0fsVD0uZo",
+},
 ];
 
 export function getCropsByAction(

@@ -27,9 +27,16 @@ export default function Footer() {
             <p className="text-sm text-white/70 max-w-xs">
               Free UK planting calendar by postcode. Know exactly what to sow, right now, where you are.
             </p>
-            <p className="text-xs text-white/50">
-              Frost data calibrated against Met Office HadUK-Grid climate observations. Forecasts from Open-Meteo.
-            </p>
+            <div className="text-xs text-white/50 space-y-1">
+              <p>Data sources:</p>
+              <ul className="space-y-0.5 ml-2">
+                <li><a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Met Office</a> — frost date calibration</li>
+                <li><a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Open-Meteo</a> — forecasts &amp; soil temperature</li>
+                <li><a href="https://postcodes.io/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Postcodes.io</a> — postcode geolocation</li>
+                <li><a href="https://environment.data.gov.uk/flood-monitoring/doc/rainfall" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Environment Agency</a> — rainfall data</li>
+              </ul>
+              <p>Photos from <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Unsplash</a>.</p>
+            </div>
           </div>
           <div className="space-y-3 text-sm">
             <nav className="flex flex-col gap-2">
