@@ -10,6 +10,7 @@ import {
   type FrostForecast,
 } from "@/lib/frost";
 import { crops, getCropsByAction, type Crop } from "@/data/crops";
+import { SnowflakeIcon, SunIcon, getCropIcon } from "@/components/SVGIllustrations";
 
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {
@@ -33,17 +34,30 @@ function categoryColor(cat: Crop["category"]): string {
   }
 }
 
+function categoryBorder(cat: Crop["category"]): string {
+  switch (cat) {
+    case "hardy":
+      return "border-l-3 border-leaf bg-leaf-bg/40";
+    case "half-hardy":
+      return "border-l-3 border-amber bg-amber-bg";
+    case "tender":
+      return "border-l-3 border-tomato bg-tomato-bg";
+  }
+}
+
 function CropCard({ crop, action }: { crop: Crop; action?: string }) {
   const [expanded, setExpanded] = useState(false);
+  const Icon = getCropIcon(crop.slug);
 
   return (
     <button
       onClick={() => setExpanded(!expanded)}
-      className="w-full text-left bg-white rounded-xl border border-earth/10 p-4 hover:border-allotment/30 hover:shadow-sm transition-all"
+      className={`w-full text-left rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 ${categoryBorder(crop.category)}`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
+            {Icon && <Icon className="w-5 h-5 shrink-0" />}
             <h4 className="font-semibold text-earth">{crop.name}</h4>
             <span
               className={`text-xs font-medium px-2 py-0.5 rounded-full ${categoryColor(crop.category)}`}
@@ -72,7 +86,7 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
         </svg>
       </div>
       {expanded && (
-        <div className="mt-3 pt-3 border-t border-earth/5 space-y-2">
+        <div className="mt-3 pt-3 border-t border-earth/10 space-y-2">
           <p className="text-sm text-earth-light">{crop.tip}</p>
           <p className="text-sm text-earth-lighter">
             <span className="font-medium text-earth-light">Needs:</span> {crop.needs}
@@ -95,9 +109,9 @@ function FrostRiskBadge({ forecast }: { forecast: FrostForecast }) {
   if (hasRisk) {
     const riskDays = forecast.nextThreeDays.filter((d) => d.frostRisk);
     return (
-      <div className="bg-frost-light border border-frost/30 rounded-xl p-4">
+      <div className="bg-frost-bg border border-frost/30 rounded-xl p-4">
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-3 h-3 bg-frost rounded-full animate-pulse" />
+          <SnowflakeIcon className="w-5 h-5 animate-pulse" />
           <h3 className="font-semibold text-earth">Frost risk ahead</h3>
         </div>
         <div className="space-y-1">
@@ -121,9 +135,9 @@ function FrostRiskBadge({ forecast }: { forecast: FrostForecast }) {
   }
 
   return (
-    <div className="bg-leaf-bg border border-leaf/30 rounded-xl p-4">
+    <div className="bg-allotment-bg border border-leaf/30 rounded-xl p-4">
       <div className="flex items-center gap-2 mb-1">
-        <div className="w-3 h-3 bg-leaf rounded-full" />
+        <SunIcon className="w-5 h-5" />
         <h3 className="font-semibold text-allotment">No frost expected</h3>
       </div>
       <p className="text-sm text-earth-light">
@@ -182,7 +196,7 @@ export default function PlantingTool() {
   return (
     <div className="w-full">
       {/* Search */}
-      <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+      <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto lg:mx-0">
         <label
           htmlFor="postcode"
           className="block text-sm font-medium text-earth-light mb-2"
@@ -240,21 +254,21 @@ export default function PlantingTool() {
       {/* Results */}
       {frostData && cropActions && (
         <div ref={resultsRef} className="mt-10 space-y-6">
-          {/* Location + Frost Date */}
-          <div className="bg-white rounded-2xl border border-earth/10 shadow-sm overflow-hidden">
+          {/* Location + Frost Date — dark allotment card */}
+          <div className="bg-allotment-dark rounded-2xl shadow-sm overflow-hidden text-white">
             <div className="p-5 sm:p-6">
-              <p className="text-sm text-earth-lighter mb-1">
+              <p className="text-sm text-white/60 mb-1">
                 {frostData.location.adminDistrict},{" "}
                 {frostData.location.region}
               </p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-earth mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 {frostData.isSafe ? (
                   <>
                     Frost season is over
                   </>
                 ) : (
                   <>
-                    <span className="text-allotment">
+                    <span className="text-leaf-light">
                       {frostData.daysUntilSafe} days
                     </span>{" "}
                     until it&apos;s safe to plant out
@@ -263,27 +277,27 @@ export default function PlantingTool() {
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-cream rounded-xl p-4">
-                  <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
+                <div className="bg-white/10 rounded-xl p-4">
+                  <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-1">
                     Last frost date
                   </p>
-                  <p className="text-lg font-semibold text-earth">
+                  <p className="text-lg font-semibold text-white">
                     {formatDate(frostData.lastFrostDate)}
                   </p>
                 </div>
-                <div className="bg-cream rounded-xl p-4">
-                  <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
+                <div className="bg-white/10 rounded-xl p-4">
+                  <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-1">
                     First autumn frost
                   </p>
-                  <p className="text-lg font-semibold text-earth">
+                  <p className="text-lg font-semibold text-white">
                     {formatDate(frostData.firstAutumnFrostDate)}
                   </p>
                 </div>
-                <div className="bg-cream rounded-xl p-4">
-                  <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
+                <div className="bg-white/10 rounded-xl p-4">
+                  <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-1">
                     Growing season
                   </p>
-                  <p className="text-lg font-semibold text-earth">
+                  <p className="text-lg font-semibold text-white">
                     {frostData.growingSeasonDays} days
                   </p>
                 </div>
@@ -292,13 +306,13 @@ export default function PlantingTool() {
               {/* Frost countdown bar */}
               {!frostData.isSafe && (
                 <div className="mt-4">
-                  <div className="flex justify-between text-xs text-earth-lighter mb-1">
+                  <div className="flex justify-between text-xs text-white/50 mb-1">
                     <span>Today</span>
                     <span>Safe to plant out</span>
                   </div>
-                  <div className="h-3 bg-cream rounded-full overflow-hidden">
+                  <div className="h-3 bg-white/10 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-frost via-leaf to-allotment rounded-full transition-all duration-1000"
+                      className="h-full bg-gradient-to-r from-frost via-leaf-light to-leaf rounded-full transition-all duration-1000"
                       style={{
                         width: `${Math.max(5, Math.min(95, 100 - (frostData.daysUntilSafe / 90) * 100))}%`,
                       }}
@@ -322,11 +336,17 @@ export default function PlantingTool() {
               </h3>
 
               {cropActions.sowIndoorsNow.length > 0 && (
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-earth-light mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-amber rounded-full" />
-                    Sow indoors on a windowsill
-                  </p>
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-1 h-6 bg-amber rounded-full" />
+                    <svg className="w-5 h-5 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                      <polyline points="9,22 9,12 15,12 15,22" />
+                    </svg>
+                    <p className="text-sm font-semibold text-earth">
+                      Sow indoors on a windowsill
+                    </p>
+                  </div>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {cropActions.sowIndoorsNow.map((crop) => (
                       <CropCard
@@ -340,11 +360,19 @@ export default function PlantingTool() {
               )}
 
               {cropActions.directSowNow.length > 0 && (
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-earth-light mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-leaf rounded-full" />
-                    Sow directly outdoors
-                  </p>
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-1 h-6 bg-leaf rounded-full" />
+                    <svg className="w-5 h-5 text-leaf" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22V8" />
+                      <path d="M5 12H2a10 10 0 0020 0h-3" />
+                      <path d="M12 8a4 4 0 00-4-4c-1.5 0-2.5 1-3 2" />
+                      <path d="M12 8a4 4 0 014-4c1.5 0 2.5 1 3 2" />
+                    </svg>
+                    <p className="text-sm font-semibold text-earth">
+                      Sow directly outdoors
+                    </p>
+                  </div>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {cropActions.directSowNow.map((crop) => (
                       <CropCard
@@ -358,11 +386,19 @@ export default function PlantingTool() {
               )}
 
               {cropActions.plantOutNow.length > 0 && (
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-earth-light mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-allotment rounded-full" />
-                    Plant out (transplant outdoors)
-                  </p>
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-1 h-6 bg-allotment rounded-full" />
+                    <svg className="w-5 h-5 text-allotment" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22V12" />
+                      <path d="M12 12c-3-4-6-5-9-3 3-4 6-4 9-1" />
+                      <path d="M12 12c3-4 6-5 9-3-3-4-6-4-9-1" />
+                      <path d="M7 22h10" />
+                    </svg>
+                    <p className="text-sm font-semibold text-earth">
+                      Plant out (transplant outdoors)
+                    </p>
+                  </div>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {cropActions.plantOutNow.map((crop) => (
                       <CropCard
@@ -396,7 +432,7 @@ export default function PlantingTool() {
           )}
 
           {/* Info */}
-          <div className="bg-cream rounded-xl p-4 text-sm text-earth-light space-y-2">
+          <div className="bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-2">
             <p>
               <strong className="text-earth">How this works:</strong> We estimate your local frost
               dates based on your location&apos;s latitude and proximity to the

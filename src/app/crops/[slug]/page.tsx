@@ -2,6 +2,15 @@ import { notFound } from "next/navigation";
 import { crops, type Crop } from "@/data/crops";
 import type { Metadata } from "next";
 import PlantingTool from "@/components/PlantingTool";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import {
+  LeafDivider,
+  HardyIllustration,
+  HalfHardyIllustration,
+  TenderIllustration,
+  getCropIcon,
+} from "@/components/SVGIllustrations";
 
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {
@@ -25,12 +34,45 @@ function categoryColor(cat: Crop["category"]): string {
   }
 }
 
+function categoryBg(cat: Crop["category"]): string {
+  switch (cat) {
+    case "hardy":
+      return "bg-allotment-bg";
+    case "half-hardy":
+      return "bg-amber-bg";
+    case "tender":
+      return "bg-tomato-bg";
+  }
+}
+
+function CategoryIllustration({ category, className }: { category: Crop["category"]; className?: string }) {
+  switch (category) {
+    case "hardy":
+      return <HardyIllustration className={className} />;
+    case "half-hardy":
+      return <HalfHardyIllustration className={className} />;
+    case "tender":
+      return <TenderIllustration className={className} />;
+  }
+}
+
 function weeksToText(weeks: number): string {
   const absWeeks = Math.abs(weeks);
   const weekText = absWeeks === 1 ? "week" : "weeks";
   if (weeks < 0) return `${absWeeks} ${weekText} before your last frost date`;
   if (weeks === 0) return "around your last frost date";
   return `${absWeeks} ${weekText} after your last frost date`;
+}
+
+function cropCategoryBorder(cat: Crop["category"]): string {
+  switch (cat) {
+    case "hardy":
+      return "border-l-3 border-leaf bg-leaf-bg/60";
+    case "half-hardy":
+      return "border-l-3 border-amber bg-amber-bg";
+    case "tender":
+      return "border-l-3 border-tomato bg-tomato-bg";
+  }
 }
 
 export async function generateStaticParams() {
@@ -73,58 +115,43 @@ export default async function CropPage({
   const crop = crops.find((c) => c.slug === slug);
   if (!crop) notFound();
 
+  const otherCrops = crops.filter((c) => c.slug !== crop.slug);
+  const sameCategoryCrops = otherCrops.filter((c) => c.category === crop.category);
+  const otherCategoryCrops = otherCrops.filter((c) => c.category !== crop.category);
+
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="border-b border-earth/10 bg-cream/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <svg
-              className="w-7 h-7 text-allotment"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M7 20h10" />
-              <path d="M10 20c5.5-2.5.8-6.4 3-10" />
-              <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
-              <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
-            </svg>
-            <span className="font-bold text-lg text-earth">
-              What To Sow
-            </span>
-          </a>
-          <a href="/" className="text-sm text-allotment hover:text-allotment-dark">
-            &larr; All crops
-          </a>
-        </div>
-      </header>
+      <Header backLink={{ href: "/", label: "\u2190 All crops" }} />
 
-      <main className="max-w-3xl mx-auto px-4 sm:px-6">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Crop Header */}
-        <div className="pt-10 sm:pt-16 pb-8">
-          <div className="mb-4">
-            <span
-              className={`text-sm font-medium px-3 py-1 rounded-full ${categoryColor(crop.category)}`}
-            >
-              {categoryLabel(crop.category)}
-            </span>
+        <div className={`-mx-4 sm:-mx-6 px-4 sm:px-6 pt-10 sm:pt-16 pb-8 ${categoryBg(crop.category)}`}>
+          <div className="flex items-start justify-between gap-6">
+            <div className="flex-1">
+              <div className="mb-4">
+                <span
+                  className={`text-sm font-medium px-3 py-1 rounded-full ${categoryColor(crop.category)}`}
+                >
+                  {categoryLabel(crop.category)}
+                </span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-earth tracking-tight mb-4">
+                When to plant {crop.name.toLowerCase()} in the UK
+              </h1>
+              <p className="text-lg text-earth-light">
+                {crop.tip}
+              </p>
+            </div>
+            <div className="hidden sm:block shrink-0 opacity-70">
+              <CategoryIllustration category={crop.category} className="w-28 h-20" />
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-earth tracking-tight mb-4">
-            When to plant {crop.name.toLowerCase()} in the UK
-          </h1>
-          <p className="text-lg text-earth-light">
-            {crop.tip}
-          </p>
         </div>
 
-        {/* Key Info Cards */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+        {/* Key Info Cards — color-block style */}
+        <div className="grid sm:grid-cols-2 gap-4 my-8">
           {crop.sowIndoorsWeeks !== null && (
-            <div className="bg-white rounded-xl border border-earth/10 p-5">
+            <div className="bg-amber-bg rounded-xl p-5 border-l-3 border-amber">
               <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
                 Sow indoors
               </p>
@@ -138,7 +165,7 @@ export default async function CropPage({
           )}
 
           {crop.directSowWeeks !== null && (
-            <div className="bg-white rounded-xl border border-earth/10 p-5">
+            <div className="bg-allotment-bg rounded-xl p-5 border-l-3 border-leaf">
               <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
                 Direct sow outdoors
               </p>
@@ -152,7 +179,7 @@ export default async function CropPage({
           )}
 
           {crop.plantOutWeeks !== null && (
-            <div className="bg-white rounded-xl border border-earth/10 p-5">
+            <div className="bg-leaf-bg rounded-xl p-5 border-l-3 border-allotment">
               <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
                 Plant out
               </p>
@@ -165,7 +192,7 @@ export default async function CropPage({
             </div>
           )}
 
-          <div className="bg-white rounded-xl border border-earth/10 p-5">
+          <div className="bg-cream rounded-xl p-5 border-l-3 border-earth-lighter">
             <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
               Harvest
             </p>
@@ -179,7 +206,7 @@ export default async function CropPage({
         </div>
 
         {/* Growing needs */}
-        <div className="bg-cream rounded-xl p-5 mb-8">
+        <div className="bg-allotment-bg rounded-xl p-5 mb-8">
           <h2 className="font-semibold text-earth mb-2">
             What {crop.name.toLowerCase()} need
           </h2>
@@ -187,7 +214,8 @@ export default async function CropPage({
         </div>
 
         {/* Personalise CTA */}
-        <div className="border-t border-earth/10 pt-10 pb-8">
+        <LeafDivider className="my-4" />
+        <div className="pt-6 pb-8">
           <h2 className="text-2xl font-bold text-earth mb-2">
             Get your exact dates
           </h2>
@@ -198,33 +226,60 @@ export default async function CropPage({
           <PlantingTool />
         </div>
 
-        {/* Other crops */}
-        <div className="border-t border-earth/10 py-10 pb-20">
-          <h2 className="text-xl font-bold text-earth mb-4">
+        {/* Other crops — grouped by category with color-coded cards */}
+        <LeafDivider className="my-4" />
+        <div className="py-10 pb-20">
+          <h2 className="text-xl font-bold text-earth mb-6">
             Other crops to explore
           </h2>
-          <div className="flex flex-wrap gap-2">
-            {crops
-              .filter((c) => c.slug !== crop.slug)
-              .map((c) => (
-                <a
-                  key={c.slug}
-                  href={`/crops/${c.slug}`}
-                  className="px-3 py-1.5 bg-white border border-earth/10 rounded-full text-sm text-earth-light hover:border-allotment/30 hover:text-allotment transition-colors"
-                >
-                  {c.name}
-                </a>
-              ))}
-          </div>
+
+          {/* Same category first */}
+          {sameCategoryCrops.length > 0 && (
+            <div className="mb-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {sameCategoryCrops.map((c) => {
+                  const Icon = getCropIcon(c.slug);
+                  return (
+                    <a
+                      key={c.slug}
+                      href={`/crops/${c.slug}`}
+                      className={`${cropCategoryBorder(c.category)} rounded-xl p-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
+                    >
+                      <div className="flex items-center gap-2">
+                        {Icon && <Icon className="w-4 h-4 shrink-0" />}
+                        <span className="font-medium text-sm text-earth">{c.name}</span>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Other categories */}
+          {otherCategoryCrops.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {otherCategoryCrops.map((c) => {
+                const Icon = getCropIcon(c.slug);
+                return (
+                  <a
+                    key={c.slug}
+                    href={`/crops/${c.slug}`}
+                    className={`${cropCategoryBorder(c.category)} rounded-xl p-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
+                  >
+                    <div className="flex items-center gap-2">
+                      {Icon && <Icon className="w-4 h-4 shrink-0" />}
+                      <span className="font-medium text-sm text-earth">{c.name}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          )}
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-earth/10 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 text-center text-sm text-earth-lighter">
-          <p>What To Sow &mdash; free UK planting calendar by postcode.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

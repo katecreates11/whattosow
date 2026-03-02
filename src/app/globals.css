@@ -18,6 +18,11 @@
   --color-tomato: #C9543E;
   --color-tomato-light: #F2DDD9;
 
+  --color-allotment-bg: #E8F0EB;
+  --color-amber-bg: #FDF6EC;
+  --color-frost-bg: #EDF4F8;
+  --color-tomato-bg: #FDF0EE;
+
   --background: var(--color-cream);
   --foreground: var(--color-earth);
 }
@@ -41,6 +46,10 @@
   --color-frost-light: #D4E5EF;
   --color-tomato: #C9543E;
   --color-tomato-light: #F2DDD9;
+  --color-allotment-bg: #E8F0EB;
+  --color-amber-bg: #FDF6EC;
+  --color-frost-bg: #EDF4F8;
+  --color-tomato-bg: #FDF0EE;
   --font-sans: var(--font-dm-sans);
 }
 
@@ -52,4 +61,14 @@ body {
 input:focus,
 button:focus {
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.animate-leaf-sway {
+  animation: leaf-sway 4s ease-in-out infinite;
+  transform-origin: bottom center;
 }

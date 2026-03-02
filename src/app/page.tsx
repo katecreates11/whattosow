@@ -1,5 +1,16 @@
 import PlantingTool from "@/components/PlantingTool";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { crops } from "@/data/crops";
+import {
+  HeroIllustration,
+  LeafSprig,
+  LeafDivider,
+  MapPinPlantIcon,
+  CalendarSeedlingIcon,
+  SnowflakeShieldIcon,
+  getCropIcon,
+} from "@/components/SVGIllustrations";
 
 export default function Home() {
   const jsonLd = {
@@ -18,6 +29,10 @@ export default function Home() {
     },
   };
 
+  const hardyCrops = crops.filter((c) => c.category === "hardy");
+  const halfHardyCrops = crops.filter((c) => c.category === "half-hardy");
+  const tenderCrops = crops.filter((c) => c.category === "tender");
+
   return (
     <div className="min-h-screen">
       <script
@@ -25,126 +40,66 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Header */}
-      <header className="border-b border-earth/10 bg-cream/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <svg
-              className="w-7 h-7 text-allotment"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M7 20h10" />
-              <path d="M10 20c5.5-2.5.8-6.4 3-10" />
-              <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
-              <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
-            </svg>
-            <span className="font-bold text-lg text-earth">
-              What To Sow
-            </span>
-          </a>
-          <nav className="text-sm text-earth-lighter">
-            <span>Free UK planting tool</span>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero */}
-      <main className="max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="pt-12 sm:pt-20 pb-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-earth tracking-tight leading-tight mb-4">
-            Know exactly what to plant,
-            <br />
-            <span className="text-allotment">right now, where you are</span>
-          </h1>
-          <p className="text-lg text-earth-light max-w-xl mx-auto mb-10">
-            Enter your postcode and we&apos;ll calculate your local frost date,
-            then tell you exactly what to sow this week. Personalised for your
-            location. No signup needed.
-          </p>
+      <main className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="pt-12 sm:pt-20 pb-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
+            {/* Text column */}
+            <div className="lg:w-[60%] text-center lg:text-left">
+              <div className="flex justify-center lg:justify-start mb-4">
+                <LeafSprig className="w-6 h-8 animate-leaf-sway lg:hidden" />
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-earth tracking-tight leading-tight mb-4">
+                Know exactly what to plant,
+                <br />
+                <span className="text-allotment">right now, where you are</span>
+              </h1>
+              <p className="text-lg text-earth-light max-w-xl mx-auto lg:mx-0 mb-10">
+                Enter your postcode and we&apos;ll calculate your local frost date,
+                then tell you exactly what to sow this week. Personalised for your
+                location. No signup needed.
+              </p>
 
-          <PlantingTool />
+              <PlantingTool />
+            </div>
+
+            {/* Illustration column — hidden on mobile */}
+            <div className="hidden lg:flex lg:w-[40%] justify-center items-center">
+              <HeroIllustration className="w-full max-w-[280px] opacity-90" />
+            </div>
+          </div>
         </div>
 
         {/* Features */}
-        <section className="py-12 border-t border-earth/10">
-          <div className="grid sm:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="w-12 h-12 bg-leaf-bg rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-6 h-6 text-allotment"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-earth mb-1">
-                Localised to you
-              </h3>
+        <LeafDivider className="my-4" />
+        <section className="py-12">
+          <div className="grid sm:grid-cols-3 gap-6">
+            {/* Localised */}
+            <div className="bg-allotment-bg rounded-2xl p-6 relative overflow-hidden">
+              <MapPinPlantIcon className="w-10 h-10 text-allotment mb-4" />
+              <h3 className="font-semibold text-earth mb-2">Localised to you</h3>
               <p className="text-sm text-earth-light">
                 Your frost date is calculated from your postcode, not a generic
                 national average. Cornwall and Scotland get different advice.
               </p>
             </div>
-            <div>
-              <div className="w-12 h-12 bg-leaf-bg rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-6 h-6 text-allotment"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-earth mb-1">
-                Updated weekly
-              </h3>
+
+            {/* Updated weekly */}
+            <div className="bg-amber-bg rounded-2xl p-6 border-l-4 border-amber relative overflow-hidden">
+              <CalendarSeedlingIcon className="w-10 h-10 text-earth mb-4" />
+              <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
               <p className="text-sm text-earth-light">
                 Recommendations change as the season progresses. Check back each
                 week to see what&apos;s new.
               </p>
             </div>
-            <div>
-              <div className="w-12 h-12 bg-frost-light rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-6 h-6 text-frost"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-earth mb-1">
-                Live frost alerts
-              </h3>
+
+            {/* Frost alerts */}
+            <div className="bg-frost-bg rounded-2xl p-6 relative overflow-hidden">
+              <SnowflakeShieldIcon className="w-10 h-10 text-frost mb-4" />
+              <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
               <p className="text-sm text-earth-light">
                 Real-time frost risk for the next 3 nights, so you know when to
                 protect your seedlings.
@@ -153,30 +108,114 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Crop index */}
-        <section className="py-12 border-t border-earth/10">
-          <h2 className="text-2xl font-bold text-earth mb-4">
+        {/* Crop index — category-grouped */}
+        <LeafDivider className="my-4" />
+        <section className="py-12">
+          <h2 className="text-2xl font-bold text-earth mb-2">
             Explore crops
           </h2>
-          <p className="text-earth-light text-sm mb-4">
-            Tap any crop for detailed UK planting times based on your local
-            frost date.
+          <p className="text-earth-light text-sm mb-8">
+            Tap any crop for detailed UK planting times based on your local frost date.
           </p>
-          <div className="flex flex-wrap gap-2">
-            {crops.map((crop) => (
-              <a
-                key={crop.slug}
-                href={`/crops/${crop.slug}`}
-                className="px-3 py-1.5 bg-white border border-earth/10 rounded-full text-sm text-earth-light hover:border-allotment/30 hover:text-allotment transition-colors"
-              >
-                {crop.name}
-              </a>
-            ))}
+
+          {/* Hardy */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-allotment uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 bg-leaf rounded-full" />
+              Hardy crops
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {hardyCrops.map((crop) => {
+                const Icon = getCropIcon(crop.slug);
+                return (
+                  <a
+                    key={crop.slug}
+                    href={`/crops/${crop.slug}`}
+                    className="bg-leaf-bg/60 border-l-3 border-leaf rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      {Icon && <Icon className="w-5 h-5 shrink-0" />}
+                      <span className="font-medium text-sm text-earth">{crop.name}</span>
+                    </div>
+                    <p className="text-xs text-earth-lighter">
+                      {crop.directSowWeeks !== null
+                        ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
+                        : crop.sowIndoorsWeeks !== null
+                          ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
+                          : ""}
+                    </p>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Half-hardy */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-amber uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 bg-amber rounded-full" />
+              Half-hardy crops
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {halfHardyCrops.map((crop) => {
+                const Icon = getCropIcon(crop.slug);
+                return (
+                  <a
+                    key={crop.slug}
+                    href={`/crops/${crop.slug}`}
+                    className="bg-amber-bg border-l-3 border-amber rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      {Icon && <Icon className="w-5 h-5 shrink-0" />}
+                      <span className="font-medium text-sm text-earth">{crop.name}</span>
+                    </div>
+                    <p className="text-xs text-earth-lighter">
+                      {crop.sowIndoorsWeeks !== null
+                        ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
+                        : crop.directSowWeeks !== null
+                          ? `Direct sow ${crop.directSowWeeks}w after frost`
+                          : ""}
+                    </p>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Tender */}
+          <div>
+            <h3 className="text-sm font-semibold text-tomato uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 bg-tomato rounded-full" />
+              Tender crops
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {tenderCrops.map((crop) => {
+                const Icon = getCropIcon(crop.slug);
+                return (
+                  <a
+                    key={crop.slug}
+                    href={`/crops/${crop.slug}`}
+                    className="bg-tomato-bg border-l-3 border-tomato rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      {Icon && <Icon className="w-5 h-5 shrink-0" />}
+                      <span className="font-medium text-sm text-earth">{crop.name}</span>
+                    </div>
+                    <p className="text-xs text-earth-lighter">
+                      {crop.sowIndoorsWeeks !== null
+                        ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
+                        : ""}
+                    </p>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         {/* FAQ / SEO block */}
-        <section className="py-12 border-t border-earth/10 space-y-8 pb-20">
+        <LeafDivider className="my-4" />
+        <section className="py-12 space-y-8 pb-20">
           <h2 className="text-2xl font-bold text-earth">
             Common questions
           </h2>
@@ -237,18 +276,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-earth/10 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 text-center text-sm text-earth-lighter">
-          <p>
-            What To Sow &mdash; free UK planting calendar by postcode.
-          </p>
-          <p className="mt-1">
-            Frost data calibrated against Met Office HadUK-Grid climate
-            observations. Forecasts from Open-Meteo.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
