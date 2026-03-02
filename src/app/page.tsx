@@ -24,12 +24,13 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       {/* Header */}
-      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
+      <header className="border-b border-earth/10 bg-cream/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <svg
-              className="w-7 h-7 text-green-700"
+              className="w-7 h-7 text-allotment"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -42,11 +43,11 @@ export default function Home() {
               <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
               <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
             </svg>
-            <span className="font-bold text-lg text-stone-900">
+            <span className="font-bold text-lg text-earth">
               What To Sow
             </span>
           </a>
-          <nav className="text-sm text-stone-500">
+          <nav className="text-sm text-earth-lighter">
             <span>Free UK planting tool</span>
           </nav>
         </div>
@@ -55,12 +56,12 @@ export default function Home() {
       {/* Hero */}
       <main className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="pt-12 sm:pt-20 pb-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-stone-900 tracking-tight leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-earth tracking-tight leading-tight mb-4">
             Know exactly what to plant,
             <br />
-            <span className="text-green-700">right now, where you are</span>
+            <span className="text-allotment">right now, where you are</span>
           </h1>
-          <p className="text-lg text-stone-600 max-w-xl mx-auto mb-10">
+          <p className="text-lg text-earth-light max-w-xl mx-auto mb-10">
             Enter your postcode and we&apos;ll calculate your local frost date,
             then tell you exactly what to sow this week. Personalised for your
             location. No signup needed.
@@ -69,13 +70,13 @@ export default function Home() {
           <PlantingTool />
         </div>
 
-        {/* SEO content */}
-        <section className="py-12 border-t border-stone-200">
+        {/* Features */}
+        <section className="py-12 border-t border-earth/10">
           <div className="grid sm:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-leaf-bg rounded-full flex items-center justify-center mx-auto mb-3">
                 <svg
-                  className="w-6 h-6 text-green-700"
+                  className="w-6 h-6 text-allotment"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -93,18 +94,18 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 Localised to you
               </h3>
-              <p className="text-sm text-stone-600">
+              <p className="text-sm text-earth-light">
                 Your frost date is calculated from your postcode, not a generic
                 national average. Cornwall and Scotland get different advice.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-leaf-bg rounded-full flex items-center justify-center mx-auto mb-3">
                 <svg
-                  className="w-6 h-6 text-green-700"
+                  className="w-6 h-6 text-allotment"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -117,18 +118,18 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 Updated weekly
               </h3>
-              <p className="text-sm text-stone-600">
+              <p className="text-sm text-earth-light">
                 Recommendations change as the season progresses. Check back each
                 week to see what&apos;s new.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-frost-light rounded-full flex items-center justify-center mx-auto mb-3">
                 <svg
-                  className="w-6 h-6 text-green-700"
+                  className="w-6 h-6 text-frost"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -141,10 +142,10 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 Live frost alerts
               </h3>
-              <p className="text-sm text-stone-600">
+              <p className="text-sm text-earth-light">
                 Real-time frost risk for the next 3 nights, so you know when to
                 protect your seedlings.
               </p>
@@ -153,11 +154,11 @@ export default function Home() {
         </section>
 
         {/* Crop index */}
-        <section className="py-12 border-t border-stone-200">
-          <h2 className="text-2xl font-bold text-stone-900 mb-4">
+        <section className="py-12 border-t border-earth/10">
+          <h2 className="text-2xl font-bold text-earth mb-4">
             Explore crops
           </h2>
-          <p className="text-stone-600 text-sm mb-4">
+          <p className="text-earth-light text-sm mb-4">
             Tap any crop for detailed UK planting times based on your local
             frost date.
           </p>
@@ -166,7 +167,7 @@ export default function Home() {
               <a
                 key={crop.slug}
                 href={`/crops/${crop.slug}`}
-                className="px-3 py-1.5 bg-white border border-stone-200 rounded-full text-sm text-stone-700 hover:border-green-300 hover:text-green-800 transition-colors"
+                className="px-3 py-1.5 bg-white border border-earth/10 rounded-full text-sm text-earth-light hover:border-allotment/30 hover:text-allotment transition-colors"
               >
                 {crop.name}
               </a>
@@ -175,17 +176,17 @@ export default function Home() {
         </section>
 
         {/* FAQ / SEO block */}
-        <section className="py-12 border-t border-stone-200 space-y-8 pb-20">
-          <h2 className="text-2xl font-bold text-stone-900">
+        <section className="py-12 border-t border-earth/10 space-y-8 pb-20">
+          <h2 className="text-2xl font-bold text-earth">
             Common questions
           </h2>
 
           <div className="space-y-6">
             <div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 When is the last frost date in the UK?
               </h3>
-              <p className="text-stone-600 text-sm">
+              <p className="text-earth-light text-sm">
                 It varies hugely depending on where you live. In the far
                 south-west of England, the last frost is typically in early
                 April. In London and the south-east, it&apos;s mid-to-late
@@ -196,10 +197,10 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 What can I plant before the last frost?
               </h3>
-              <p className="text-stone-600 text-sm">
+              <p className="text-earth-light text-sm">
                 Hardy crops like broad beans, peas, garlic, onion sets, potatoes,
                 lettuce, spinach, radishes, and kale can all go out before your
                 last frost date. They can tolerate cold nights and light frosts.
@@ -209,10 +210,10 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 How accurate are these frost dates?
               </h3>
-              <p className="text-stone-600 text-sm">
+              <p className="text-earth-light text-sm">
                 Our estimates are calibrated against Met Office climate data and
                 are typically accurate to within 5-7 days. However, frost dates
                 are long-term averages — in any given year, the actual last frost
@@ -223,10 +224,10 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="font-semibold text-stone-900 mb-1">
+              <h3 className="font-semibold text-earth mb-1">
                 Is this tool free?
               </h3>
-              <p className="text-stone-600 text-sm">
+              <p className="text-earth-light text-sm">
                 Yes, completely free. No signup, no subscription, no paywall. We
                 built this because we were frustrated by how hard it is to get
                 simple, personalised planting advice in the UK.
@@ -237,8 +238,8 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-stone-200 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 text-center text-sm text-stone-500">
+      <footer className="border-t border-earth/10 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 text-center text-sm text-earth-lighter">
           <p>
             What To Sow &mdash; free UK planting calendar by postcode.
           </p>
