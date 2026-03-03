@@ -26,6 +26,8 @@ export interface Crop {
   avoidPlants?: string[];
   /** Unsplash photo ID for hero image */
   unsplashId?: string;
+  /** Seed suppliers — affiliate-ready links */
+  seedSuppliers?: { name: string; url: string }[];
 }
 
 export const crops: Crop[] = [
@@ -44,6 +46,11 @@ export const crops: Crop[] = [
     companionPlants: ["Lettuce", "Spinach", "Carrots"],
     avoidPlants: ["Onion sets", "Garlic"],
       unsplashId: "8eJPcAuqIhY",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=broad+beans+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=broad+beans+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=broad+beans+seeds" },
+    ],
 },
   {
     name: "Peas",
@@ -59,6 +66,11 @@ export const crops: Crop[] = [
     companionPlants: ["Carrots", "Radishes", "Turnips", "Sweetcorn"],
     avoidPlants: ["Onion sets", "Garlic"],
       unsplashId: "DW-iZYLjYco",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=peas+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=peas+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=peas+seeds" },
+    ],
 },
   {
     name: "Lettuce",
@@ -73,6 +85,11 @@ export const crops: Crop[] = [
     spacingCm: 25,
     companionPlants: ["Radishes", "Carrots", "Spring onions", "Strawberries"],
       unsplashId: "X_0eZ5GXtMg",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=lettuce+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=lettuce+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=lettuce+seeds" },
+    ],
 },
   {
     name: "Spinach",
@@ -87,6 +104,11 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Broad beans", "Peas", "Strawberries"],
       unsplashId: "Ljv6vwaFwdQ",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=spinach+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=spinach+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=spinach+seeds" },
+    ],
 },
   {
     name: "Radishes",
@@ -101,6 +123,11 @@ export const crops: Crop[] = [
     spacingCm: 3,
     companionPlants: ["Lettuce", "Peas", "Carrots"],
       unsplashId: "j-lq47oHUvw",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=radishes+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=radishes+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=radishes+seeds" },
+    ],
 },
   {
     name: "Carrots",
@@ -116,6 +143,11 @@ export const crops: Crop[] = [
     companionPlants: ["Onion sets", "Spring onions", "Leeks", "Lettuce"],
     avoidPlants: ["Dill"],
       unsplashId: "a-F2ncTyqfw",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=carrots+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=carrots+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=carrots+seeds" },
+    ],
 },
   {
     name: "Beetroot",
@@ -130,6 +162,11 @@ export const crops: Crop[] = [
     spacingCm: 10,
     companionPlants: ["Lettuce", "Onion sets"],
       unsplashId: "XYKWqUZOND0",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=beetroot+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=beetroot+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=beetroot+seeds" },
+    ],
 },
   {
     name: "Onion sets",
@@ -145,6 +182,11 @@ export const crops: Crop[] = [
     companionPlants: ["Carrots", "Beetroot", "Lettuce"],
     avoidPlants: ["Peas", "Broad beans"],
       unsplashId: "qpJvImEGsTk",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=onion+sets+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=onion+sets+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=onion+sets+seeds" },
+    ],
 },
   {
     name: "Potatoes (early)",
@@ -158,6 +200,11 @@ export const crops: Crop[] = [
     needs: "Sun. Rich soil. Regular watering once flowers appear.",
     spacingCm: 30,
       unsplashId: "qi8HAxXLsfM",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=early+potatoes+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=early+potatoes+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=early+potatoes+seeds" },
+    ],
 },
   {
     name: "Kale",
@@ -172,6 +219,11 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Beetroot", "Onion sets"],
       unsplashId: "B3ZAI26YDN4",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=kale+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=kale+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=kale+seeds" },
+    ],
 },
   {
     name: "Parsnips",
@@ -185,6 +237,11 @@ export const crops: Crop[] = [
     needs: "Sun. Deep, stone-free soil. Patience.",
     spacingCm: 15,
       unsplashId: "nITRT0QsMPA",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=parsnips+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=parsnips+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=parsnips+seeds" },
+    ],
 },
   {
     name: "Spring onions",
@@ -198,6 +255,11 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Any soil.",
     spacingCm: 2,
       unsplashId: "7CcXR5wIhEY",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=spring+onions+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=spring+onions+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=spring+onions+seeds" },
+    ],
 },
   {
     name: "Swiss chard",
@@ -211,6 +273,11 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Moist soil.",
     spacingCm: 30,
       unsplashId: "RUfniEUlYSs",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=swiss+chard+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=swiss+chard+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=swiss+chard+seeds" },
+    ],
 },
   {
     name: "Turnips",
@@ -224,6 +291,11 @@ export const crops: Crop[] = [
     needs: "Sun or partial shade. Moist soil.",
     spacingCm: 15,
       unsplashId: "nITRT0QsMPA",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=turnips+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=turnips+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=turnips+seeds" },
+    ],
 },
   {
     name: "Leeks",
@@ -238,6 +310,11 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Carrots", "Celery"],
       unsplashId: "CU8MdyE4pG4",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=leeks+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=leeks+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=leeks+seeds" },
+    ],
 },
   {
     name: "Broccoli",
@@ -253,6 +330,11 @@ export const crops: Crop[] = [
     companionPlants: ["Beetroot", "Onion sets", "Celery"],
     avoidPlants: ["Tomatoes", "Runner beans"],
       unsplashId: "NXkasRqhEmk",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=broccoli+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=broccoli+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=broccoli+seeds" },
+    ],
 },
   {
     name: "Cabbage",
@@ -268,6 +350,11 @@ export const crops: Crop[] = [
     companionPlants: ["Onion sets", "Celery", "Beetroot"],
     avoidPlants: ["Tomatoes", "Runner beans"],
       unsplashId: "AS3M6jI1fP0",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cabbage+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=cabbage+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cabbage+seeds" },
+    ],
 },
   {
     name: "Cauliflower",
@@ -283,6 +370,11 @@ export const crops: Crop[] = [
     companionPlants: ["Celery", "Onion sets"],
     avoidPlants: ["Tomatoes"],
       unsplashId: "y4j_bKe0b6Q",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cauliflower+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=cauliflower+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cauliflower+seeds" },
+    ],
 },
   {
     name: "Brussels sprouts",
@@ -298,6 +390,11 @@ export const crops: Crop[] = [
     companionPlants: ["Onion sets", "Beetroot"],
     avoidPlants: ["Tomatoes", "Runner beans"],
       unsplashId: "IbVPMNn8_ao",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=brussels+sprouts+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=brussels+sprouts+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=brussels+sprouts+seeds" },
+    ],
 },
   {
     name: "Garlic",
@@ -313,6 +410,11 @@ export const crops: Crop[] = [
     companionPlants: ["Carrots", "Beetroot", "Tomatoes"],
     avoidPlants: ["Peas", "Broad beans"],
       unsplashId: "WCSLPuh5NZ4",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=garlic+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=garlic+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=garlic+seeds" },
+    ],
 },
   {
     name: "Parsley",
@@ -327,6 +429,11 @@ export const crops: Crop[] = [
     spacingCm: 20,
     companionPlants: ["Tomatoes", "Carrots", "Broad beans"],
       unsplashId: "UzaIeuLilnM",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=parsley+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=parsley+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=parsley+seeds" },
+    ],
 },
 
   // === HALF-HARDY (need some protection) ===
@@ -343,6 +450,11 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Squash", "French beans", "Pumpkins"],
       unsplashId: "aglLffkAPxc",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=sweetcorn+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=sweetcorn+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=sweetcorn+seeds" },
+    ],
 },
   {
     name: "Courgettes",
@@ -357,6 +469,11 @@ export const crops: Crop[] = [
     spacingCm: 90,
     companionPlants: ["Sweetcorn", "French beans"],
       unsplashId: "A5i6R0hcFL4",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=courgettes+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=courgettes+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=courgettes+seeds" },
+    ],
 },
   {
     name: "French beans",
@@ -371,6 +488,11 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Sweetcorn", "Squash", "Carrots"],
       unsplashId: "BAQPTB2D5NM",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=french+beans+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=french+beans+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=french+beans+seeds" },
+    ],
 },
   {
     name: "Squash",
@@ -385,6 +507,11 @@ export const crops: Crop[] = [
     spacingCm: 90,
     companionPlants: ["Sweetcorn", "French beans"],
       unsplashId: "qzWTl0zn9EE",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=squash+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=squash+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=squash+seeds" },
+    ],
 },
   {
     name: "Pumpkins",
@@ -399,6 +526,11 @@ export const crops: Crop[] = [
     spacingCm: 120,
     companionPlants: ["Sweetcorn", "French beans"],
       unsplashId: "W0ZSsx575Og",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=pumpkins+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=pumpkins+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=pumpkins+seeds" },
+    ],
 },
   {
     name: "Coriander",
@@ -413,6 +545,11 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Tomatoes", "Spinach"],
       unsplashId: "Gx8WLeRRUEM",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=coriander+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=coriander+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=coriander+seeds" },
+    ],
 },
   {
     name: "Rocket",
@@ -427,6 +564,11 @@ export const crops: Crop[] = [
     spacingCm: 15,
     companionPlants: ["Lettuce", "Spinach"],
       unsplashId: "VxQKNqRZux4",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=rocket+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=rocket+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=rocket+seeds" },
+    ],
 },
   {
     name: "Pak choi",
@@ -441,6 +583,11 @@ export const crops: Crop[] = [
     spacingCm: 25,
     companionPlants: ["Onion sets", "Garlic"],
       unsplashId: "xoBhyl6EQmA",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=pak+choi+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=pak+choi+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=pak+choi+seeds" },
+    ],
 },
   {
     name: "Fennel",
@@ -455,6 +602,11 @@ export const crops: Crop[] = [
     spacingCm: 30,
     avoidPlants: ["Tomatoes", "Carrots"],
       unsplashId: "RmGHACxqe6M",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=fennel+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=fennel+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=fennel+seeds" },
+    ],
 },
   {
     name: "Celery",
@@ -469,6 +621,11 @@ export const crops: Crop[] = [
     spacingCm: 25,
     companionPlants: ["Leeks", "Cabbage", "Cauliflower"],
       unsplashId: "vcsct-4sdfk",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=celery+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=celery+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=celery+seeds" },
+    ],
 },
   {
     name: "Dill",
@@ -484,6 +641,11 @@ export const crops: Crop[] = [
     companionPlants: ["Lettuce", "Cucumbers"],
     avoidPlants: ["Carrots"],
       unsplashId: "SFfSGRLxZzw",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=dill+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=dill+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=dill+seeds" },
+    ],
 },
 
   // === TENDER (need warmth, start indoors) ===
@@ -501,6 +663,11 @@ export const crops: Crop[] = [
     companionPlants: ["Basil", "Parsley", "Carrots", "Garlic"],
     avoidPlants: ["Broccoli", "Cabbage", "Cauliflower", "Fennel"],
       unsplashId: "j0ZiKn3Xu_o",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=tomatoes+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=tomatoes+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=tomatoes+seeds" },
+    ],
 },
   {
     name: "Peppers",
@@ -515,6 +682,11 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Basil", "Tomatoes", "Carrots"],
       unsplashId: "ykGSr4AhASE",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=peppers+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=peppers+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=peppers+seeds" },
+    ],
 },
   {
     name: "Chillies",
@@ -528,6 +700,11 @@ export const crops: Crop[] = [
     needs: "Full sun. Warmth. Sheltered or under cover.",
     spacingCm: 40,
       unsplashId: "mmtEVjJ-ozc",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=chillies+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=chillies+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=chillies+seeds" },
+    ],
 },
   {
     name: "Cucumbers",
@@ -542,6 +719,11 @@ export const crops: Crop[] = [
     spacingCm: 45,
     companionPlants: ["Dill", "Lettuce", "Peas"],
       unsplashId: "b6nwRCV-WuU",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cucumbers+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=cucumbers+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cucumbers+seeds" },
+    ],
 },
   {
     name: "Runner beans",
@@ -557,6 +739,11 @@ export const crops: Crop[] = [
     companionPlants: ["Sweetcorn", "Squash"],
     avoidPlants: ["Broccoli", "Cabbage"],
       unsplashId: "SZOx0LhxBDw",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=runner+beans+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=runner+beans+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=runner+beans+seeds" },
+    ],
 },
   {
     name: "Aubergine",
@@ -571,6 +758,11 @@ export const crops: Crop[] = [
     spacingCm: 60,
     companionPlants: ["Peppers", "Tomatoes"],
       unsplashId: "BgAKXWsl3zg",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=aubergine+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=aubergine+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=aubergine+seeds" },
+    ],
 },
   {
     name: "Basil",
@@ -585,6 +777,11 @@ export const crops: Crop[] = [
     spacingCm: 20,
     companionPlants: ["Tomatoes", "Peppers"],
       unsplashId: "si0fsVD0uZo",
+    seedSuppliers: [
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=basil+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=basil+seeds" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=basil+seeds" },
+    ],
 },
 ];
 

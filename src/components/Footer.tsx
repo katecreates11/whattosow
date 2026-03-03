@@ -45,12 +45,16 @@ export default function Footer() {
               <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
               <a href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</a>
               <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
+              <a href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</a>
             </nav>
             <div className="hidden sm:block opacity-30 mt-4" aria-hidden="true">
               <LeafSprig className="w-16 h-20" />
             </div>
           </div>
         </div>
+        <p className="text-xs text-white/40 mt-6 pt-4 border-t border-white/10">
+          Some links on this site are affiliate links. We may earn a small commission at no extra cost to you.
+        </p>
       </div>
     </footer>
   );

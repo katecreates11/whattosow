@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { crops } from "@/data/crops";
 import { getCropActionMonths, MONTH_NAMES, getAvgFrostDate, type SowingAction } from "@/lib/calendar";
 import PrintButton from "@/components/PrintButton";
+import EmailCapture from "@/components/EmailCapture";
 
 export const metadata: Metadata = {
   title: "Printable UK Sowing Chart — What To Sow",
@@ -37,6 +38,9 @@ export default function PrintPage() {
           Based on UK average frost date (mid-April {year})
         </p>
         <PrintButton />
+        <div className="mt-6 max-w-sm mx-auto">
+          <EmailCapture variant="compact" />
+        </div>
         <a
           href="/calendar"
           className="block mt-4 text-sm text-allotment hover:text-allotment-dark"

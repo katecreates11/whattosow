@@ -12,6 +12,7 @@ import {
 } from "@/lib/frost";
 import { crops, getCropsByAction, type Crop } from "@/data/crops";
 import { SnowflakeIcon, SunIcon, getCropIcon } from "@/components/SVGIllustrations";
+import EmailCapture from "@/components/EmailCapture";
 
 const STORAGE_KEY = "whattosow_location";
 
@@ -355,6 +356,7 @@ export default function PlantingTool() {
               <button
                 type="submit"
                 disabled={loading}
+                data-umami-event="postcode-search"
                 className="px-6 py-3 bg-allotment text-white font-semibold rounded-xl hover:bg-allotment-dark focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-50 transition-colors text-base whitespace-nowrap"
               >
                 {loading ? (
@@ -676,6 +678,9 @@ export default function PlantingTool() {
               </div>
             </div>
           )}
+
+          {/* Email signup */}
+          <EmailCapture />
 
           {/* Info + Sources */}
           <div className="bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-3">

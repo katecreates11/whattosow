@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -58,6 +59,11 @@ export default function RootLayout({
       </head>
       <body className={`${dmSans.variable} font-sans antialiased`}>
         {children}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="54a74708-a2ec-421a-8943-b1967227f48e"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
