@@ -291,6 +291,23 @@ export default async function CropPage({
           <p className="text-earth-light">{crop.needs}</p>
         </div>
 
+        {/* Recommended varieties */}
+        {crop.varieties && crop.varieties.length > 0 && (
+          <div className="bg-cream rounded-xl border border-earth/10 p-5 mb-8">
+            <h2 className="font-semibold text-earth mb-3">
+              Varieties to try
+            </h2>
+            <div className="space-y-2">
+              {crop.varieties.map((v) => (
+                <div key={v.name} className="flex items-baseline gap-2">
+                  <span className="font-medium text-sm text-earth">{v.name}</span>
+                  <span className="text-sm text-earth-lighter">{v.note}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Companion planting */}
         <CompanionSection crop={crop} />
 
