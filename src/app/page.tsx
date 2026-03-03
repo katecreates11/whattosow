@@ -2,6 +2,7 @@ import PlantingTool from "@/components/PlantingTool";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CropIndex from "@/components/CropIndex";
+import ScrollReveal from "@/components/ScrollReveal";
 import { crops } from "@/data/crops";
 import {
   HeroIllustration,
@@ -112,60 +113,71 @@ export default function Home() {
         </div>
 
         {/* Features */}
-        <LeafDivider className="my-4" />
-        <section className="py-12" aria-label="Features">
+        <LeafDivider className="my-6" />
+        <section className="py-14" aria-label="Features">
           <div className="grid sm:grid-cols-3 gap-6">
             {/* Localised */}
-            <div className="bg-allotment-bg rounded-2xl p-6 relative overflow-hidden">
-              <MapPinPlantIcon className="w-10 h-10 text-allotment mb-4" />
-              <h3 className="font-semibold text-earth mb-2">Localised to you</h3>
-              <p className="text-sm text-earth-light">
-                Your frost date is calculated from your postcode, not a generic
-                national average. Cornwall and Scotland get different advice.
-              </p>
-            </div>
+            <ScrollReveal>
+              <div className="bg-allotment-bg rounded-2xl p-6 relative overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                <MapPinPlantIcon className="w-10 h-10 text-allotment mb-4" />
+                <h3 className="font-semibold text-earth mb-2">Localised to you</h3>
+                <p className="text-sm text-earth-light">
+                  Your frost date is calculated from your postcode, not a generic
+                  national average. Cornwall and Scotland get different advice.
+                </p>
+              </div>
+            </ScrollReveal>
 
             {/* Updated weekly */}
-            <div className="bg-amber-bg rounded-2xl p-6 border-l-4 border-amber relative overflow-hidden">
-              <CalendarSeedlingIcon className="w-10 h-10 text-earth mb-4" />
-              <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
-              <p className="text-sm text-earth-light">
-                Recommendations change as the season progresses. Check back each
-                week to see what&apos;s new.
-              </p>
-            </div>
+            <ScrollReveal delay={100}>
+              <div className="bg-amber-bg rounded-2xl p-6 border-l-4 border-amber relative overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                <CalendarSeedlingIcon className="w-10 h-10 text-earth mb-4" />
+                <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
+                <p className="text-sm text-earth-light">
+                  Recommendations change as the season progresses. Check back each
+                  week to see what&apos;s new.
+                </p>
+              </div>
+            </ScrollReveal>
 
             {/* Frost alerts */}
-            <div className="bg-frost-bg rounded-2xl p-6 relative overflow-hidden">
-              <SnowflakeShieldIcon className="w-10 h-10 text-frost mb-4" />
-              <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
-              <p className="text-sm text-earth-light">
-                Real-time frost risk for the next 3 nights, so you know when to
-                protect your seedlings.
-              </p>
-            </div>
+            <ScrollReveal delay={200}>
+              <div className="bg-frost-bg rounded-2xl p-6 relative overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                <SnowflakeShieldIcon className="w-10 h-10 text-frost mb-4" />
+                <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
+                <p className="text-sm text-earth-light">
+                  Real-time frost risk for the next 3 nights, so you know when to
+                  protect your seedlings.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Crop index — category-grouped with season filter */}
-        <LeafDivider className="my-4" />
-        <section id="explore-crops" className="py-12 scroll-mt-20">
-          <CropIndex crops={crops} />
-        </section>
+        <LeafDivider className="my-6" />
+        <ScrollReveal>
+          <section id="explore-crops" className="py-14 scroll-mt-20">
+            <CropIndex crops={crops} />
+          </section>
+        </ScrollReveal>
 
         {/* Calendar link */}
-        <div className="text-center py-4">
-          <a
-            href="/calendar"
-            className="inline-block bg-allotment-bg text-allotment font-medium px-5 py-3 rounded-full hover:bg-allotment hover:text-white transition-colors text-sm"
-          >
-            View full sowing calendar &rarr;
-          </a>
-        </div>
+        <ScrollReveal>
+          <div className="text-center py-6">
+            <a
+              href="/calendar"
+              className="inline-block bg-allotment-bg text-allotment font-medium px-6 py-3 rounded-full hover:bg-allotment hover:text-white hover:shadow-md transition-all duration-200 text-sm"
+            >
+              View full sowing calendar &rarr;
+            </a>
+          </div>
+        </ScrollReveal>
 
         {/* FAQ / SEO block */}
-        <LeafDivider className="my-4" />
-        <section id="common-questions" className="py-12 space-y-8 pb-20 scroll-mt-20" aria-labelledby="faq-heading">
+        <LeafDivider className="my-6" />
+        <ScrollReveal>
+          <section id="common-questions" className="py-14 space-y-8 pb-20 scroll-mt-20" aria-labelledby="faq-heading">
           <h2 id="faq-heading" className="text-2xl font-bold text-earth">
             Common questions
           </h2>
@@ -224,6 +236,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </ScrollReveal>
       </main>
 
       <Footer />
