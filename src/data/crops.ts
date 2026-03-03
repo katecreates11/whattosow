@@ -30,6 +30,8 @@ export interface Crop {
   seedSuppliers?: { name: string; url: string }[];
   /** Recommended varieties for UK growing */
   varieties?: { name: string; note: string }[];
+  /** Min soil temp for germination (°C) — overrides category default */
+  minSoilTempC?: number;
 }
 
 export const crops: Crop[] = [
@@ -983,6 +985,11 @@ export const crops: Crop[] = [
     ],
 },
 ];
+
+export function getMinSoilTemp(crop: Crop): number {
+  if (crop.minSoilTempC !== undefined) return crop.minSoilTempC;
+  return crop.category === "hardy" ? 5 : crop.category === "half-hardy" ? 8 : 12;
+}
 
 export function getCropsByAction(
   crops: Crop[],

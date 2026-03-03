@@ -10,8 +10,9 @@ import {
   type FrostData,
   type FrostForecast,
 } from "@/lib/frost";
-import { crops, getCropsByAction, type Crop } from "@/data/crops";
+import { crops, getCropsByAction, getMinSoilTemp, type Crop } from "@/data/crops";
 import { SnowflakeIcon, SunIcon, getCropIcon } from "@/components/SVGIllustrations";
+import { getSoilType, type SoilData } from "@/lib/soil";
 import EmailCapture from "@/components/EmailCapture";
 
 const STORAGE_KEY = "whattosow_location";
@@ -249,6 +250,7 @@ export default function PlantingTool() {
   const [error, setError] = useState("");
   const [frostData, setFrostData] = useState<FrostData | null>(null);
   const [forecast, setForecast] = useState<FrostForecast | null>(null);
+  const [soilData, setSoilData] = useState<SoilData | null>(null);
   const [showForm, setShowForm] = useState(true);
   const [ready, setReady] = useState(false);
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
@@ -262,6 +264,10 @@ export default function PlantingTool() {
 
     getFrostForecast(location.latitude, location.longitude).then((f) => {
       setForecast(f);
+    });
+
+    getSoilType(location.latitude, location.longitude).then((s) => {
+      setSoilData(s);
     });
 
     if (shouldScroll) {
@@ -389,16 +395,22 @@ export default function PlantingTool() {
               </button>
             </div>
             {error && (
-              <p className="mt-2 text-sm text-tomato" role="alert">{error}</p>
+              <p className="mt-2 text-sm text-tomato-light" role="alert">{error}</p>
             )}
           </form>
 
-          {/* Sample result for first-time visitors (M13: generic, not season-dependent) */}
+          {/* Sample result preview for first-time visitors */}
           {!frostData && (
             <div className="max-w-md mx-auto lg:mx-0 mt-4">
-              <p className="text-xs text-earth-lighter text-center lg:text-left">
-                e.g. <span className="text-earth-light font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season &middot; personalised sowing advice
-              </p>
+              <div className="flex items-center gap-3 px-4 py-3 border border-white/10">
+                <svg className="w-4 h-4 shrink-0 text-leaf-light/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span className="text-sm text-white/50">
+                  e.g. <span className="text-white/70 font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season
+                </span>
+              </div>
             </div>
           )}
         </div>
@@ -430,7 +442,7 @@ export default function PlantingTool() {
 
       {/* Results */}
       {frostData && cropActions && (
-        <div ref={resultsRef} className="mt-6 space-y-6 scroll-mt-20">
+        <div ref={resultsRef} className="mt-6 space-y-6 scroll-mt-20" aria-live="polite">
           {/* Location + Frost Date — dark allotment card */}
           <div className="bg-allotment-dark rounded-2xl shadow-sm overflow-hidden text-white">
             <div className="p-5 sm:p-6">
@@ -440,7 +452,7 @@ export default function PlantingTool() {
                     {frostData.location.adminDistrict},{" "}
                     {frostData.location.region}
                   </p>
-                  <p className="text-xs text-white/40 font-mono">
+                  <p className="text-xs text-white/60 font-mono">
                     {Math.abs(frostData.location.latitude).toFixed(2)}&deg;{" "}
                     {frostData.location.latitude >= 0 ? "N" : "S"},{" "}
                     {Math.abs(frostData.location.longitude).toFixed(2)}&deg;{" "}
@@ -494,11 +506,18 @@ export default function PlantingTool() {
               {/* Frost countdown bar */}
               {!frostData.isSafe && (
                 <div className="mt-4">
-                  <div className="flex justify-between text-xs text-white/50 mb-1">
+                  <div className="flex justify-between text-xs text-white/60 mb-1">
                     <span>Today</span>
                     <span>Safe to plant out</span>
                   </div>
-                  <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className="h-3 bg-white/10 rounded-full overflow-hidden"
+                    role="progressbar"
+                    aria-label="Days until safe to plant out"
+                    aria-valuenow={Math.max(0, 90 - frostData.daysUntilSafe)}
+                    aria-valuemin={0}
+                    aria-valuemax={90}
+                  >
                     <div
                       className="h-full bg-gradient-to-r from-frost via-leaf-light to-leaf rounded-full transition-all duration-1000"
                       style={{
@@ -520,57 +539,177 @@ export default function PlantingTool() {
             </p>
           ) : null}
 
-          {/* Soil & Rainfall — gardening conditions */}
-          {forecast && (forecast.soilTemp !== undefined || forecast.rainfall3Days !== undefined) && (
-            <div className="grid grid-cols-2 gap-3">
-              {forecast.soilTemp !== undefined && (
-                <div className="bg-amber-bg rounded-xl p-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-4 h-4 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M14 4v10.54a4 4 0 11-4 0V4a2 2 0 014 0z" />
-                    </svg>
-                    <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
-                      Soil temp
-                    </p>
-                  </div>
-                  <p className="text-xl font-bold text-earth">
-                    {forecast.soilTemp}&deg;C
-                  </p>
-                  <p className="text-xs text-earth-lighter mt-1">
-                    {forecast.soilTemp >= 10
-                      ? "Warm enough for most seeds"
-                      : forecast.soilTemp >= 7
-                        ? "OK for hardy crops"
-                        : forecast.soilTemp >= 5
-                          ? "Too cold for most seeds"
-                          : "Soil is very cold — wait to sow"}
-                  </p>
-                </div>
-              )}
-              {forecast.rainfall3Days !== undefined && (
-                <div className="bg-frost-bg rounded-xl p-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-4 h-4 text-frost" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Allotment conditions dashboard */}
+          {forecast && (
+            <div className="space-y-3">
+              {/* Hero: watering calculator */}
+              {forecast.rainfall3Days !== undefined && forecast.evapotranspiration !== undefined && (
+                <div className="bg-frost-bg rounded-xl p-4 sm:p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="w-5 h-5 text-frost" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
                     </svg>
-                    <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
-                      Rain (3 days)
-                    </p>
+                    <h3 className="font-semibold text-earth">Do I need to water?</h3>
                   </div>
-                  <p className="text-xl font-bold text-earth">
-                    {forecast.rainfall3Days}mm
-                  </p>
-                  <p className="text-xs text-earth-lighter mt-1">
-                    {forecast.rainfall3Days === 0
-                      ? "No rain forecast — water if dry"
-                      : forecast.rainfall3Days < 5
-                        ? "Light rain — may still need watering"
-                        : forecast.rainfall3Days < 15
-                          ? "Good rainfall expected"
-                          : "Heavy rain — avoid sowing outdoors"}
-                  </p>
+                  {(() => {
+                    const netBalance = forecast.rainfall3Days! - (forecast.evapotranspiration! * 3);
+                    const gaining = netBalance > 0;
+                    return (
+                      <div>
+                        <p className={`text-sm font-medium ${gaining ? "text-allotment" : "text-amber"}`}>
+                          {gaining
+                            ? "Your soil is gaining moisture — no need to water"
+                            : "Your soil is drying out — water if you've sown recently"}
+                        </p>
+                        <p className="text-xs text-earth-lighter mt-1.5">
+                          {forecast.rainfall3Days}mm rain expected
+                          {" "}&minus;{" "}{Math.round(forecast.evapotranspiration! * 3 * 10) / 10}mm evaporation
+                          {" "}={" "}<span className="font-medium">{netBalance > 0 ? "+" : ""}{Math.round(netBalance * 10) / 10}mm net</span> over 3 days
+                        </p>
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
+
+              {/* 4-card conditions grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {/* Soil temp at seed depth */}
+                {(forecast.soilTemp6cm !== undefined || forecast.soilTemp !== undefined) && (
+                  <div className="bg-amber-bg rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <svg className="w-4 h-4 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M14 4v10.54a4 4 0 11-4 0V4a2 2 0 014 0z" />
+                      </svg>
+                      <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
+                        Soil temp (seed depth)
+                      </p>
+                    </div>
+                    <p className="text-xl font-bold text-earth">
+                      {forecast.soilTemp6cm ?? forecast.soilTemp}&deg;C
+                    </p>
+                    <p className="text-xs text-earth-lighter mt-1">
+                      {(() => {
+                        const temp = forecast.soilTemp6cm ?? forecast.soilTemp!;
+                        const sowNow = cropActions ? [
+                          ...cropActions.sowIndoorsNow,
+                          ...cropActions.directSowNow,
+                        ] : [];
+                        const warmEnough = sowNow.filter(c => temp >= getMinSoilTemp(c));
+                        const tooCold = sowNow.filter(c => temp < getMinSoilTemp(c));
+                        if (warmEnough.length > 0 && tooCold.length > 0) {
+                          return `Warm enough for ${warmEnough.slice(0, 2).map(c => c.name.toLowerCase()).join(", ")} but not ${tooCold.slice(0, 2).map(c => c.name.toLowerCase()).join(", ")}`;
+                        }
+                        if (temp >= 12) return "Warm enough for most seeds";
+                        if (temp >= 8) return "OK for hardy and half-hardy crops";
+                        if (temp >= 5) return "Hardy crops only — too cold for most seeds";
+                        return "Soil is very cold — wait to sow";
+                      })()}
+                    </p>
+                  </div>
+                )}
+
+                {/* Wind */}
+                {forecast.windMax !== undefined && (
+                  <div className="bg-allotment-bg rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <svg className="w-4 h-4 text-allotment" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2" />
+                      </svg>
+                      <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
+                        Wind
+                      </p>
+                    </div>
+                    <p className="text-xl font-bold text-earth">
+                      {forecast.windMax} km/h
+                    </p>
+                    <p className="text-xs text-earth-lighter mt-1">
+                      {forecast.windMax < 20
+                        ? "Calm enough to direct sow"
+                        : forecast.windMax < 40
+                          ? "Breezy — stake tall plants"
+                          : "Strong wind — hold off outdoors"}
+                      {forecast.windGustsMax !== undefined && forecast.windGustsMax > forecast.windMax + 10
+                        ? ` (gusts ${forecast.windGustsMax} km/h)`
+                        : ""}
+                    </p>
+                  </div>
+                )}
+
+                {/* Sunshine */}
+                {forecast.sunshineDuration !== undefined && (
+                  <div className="bg-amber-bg rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <SunIcon className="w-4 h-4" />
+                      <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
+                        Sunshine
+                      </p>
+                    </div>
+                    <p className="text-xl font-bold text-earth">
+                      {forecast.sunshineDuration} hrs
+                    </p>
+                    <p className="text-xs text-earth-lighter mt-1">
+                      {forecast.sunshineDuration >= 8
+                        ? "Great growing day"
+                        : forecast.sunshineDuration >= 4
+                          ? "Decent light for the plot"
+                          : "Overcast — focus on indoor tasks"}
+                      {forecast.tempMax !== undefined ? ` · High of ${forecast.tempMax}°C` : ""}
+                    </p>
+                  </div>
+                )}
+
+                {/* Rainfall + probability */}
+                {forecast.rainfall3Days !== undefined && (
+                  <div className="bg-frost-bg rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <svg className="w-4 h-4 text-frost" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+                      </svg>
+                      <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide">
+                        Rain (3 days)
+                      </p>
+                    </div>
+                    <p className="text-xl font-bold text-earth">
+                      {forecast.rainfall3Days}mm
+                    </p>
+                    <p className="text-xs text-earth-lighter mt-1">
+                      {forecast.rainfall3Days === 0
+                        ? "No rain forecast — water if dry"
+                        : forecast.rainfall3Days < 5
+                          ? "Light rain — may still need watering"
+                          : forecast.rainfall3Days < 15
+                            ? "Good rainfall expected"
+                            : "Heavy rain — avoid sowing outdoors"}
+                      {forecast.precipProbability !== undefined
+                        ? ` (${forecast.precipProbability}% chance)`
+                        : ""}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Soil type info bar */}
+          {soilData && (
+            <div className="flex items-start gap-3 bg-amber-bg rounded-xl px-4 py-3">
+              <svg className="w-5 h-5 text-amber mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M2 22h20" />
+                <path d="M12 2v6" />
+                <path d="M12 12a4 4 0 0 0-4 4c0 2 4 6 4 6s4-4 4-6a4 4 0 0 0-4-4z" />
+              </svg>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-earth">
+                  {soilData.friendlyName}
+                </p>
+                <p className="text-xs text-earth-lighter mt-0.5">
+                  {soilData.gardeningAdvice}
+                </p>
+                <p className="text-[10px] text-earth-lighter/70 mt-1">
+                  Source: Cranfield Soilscapes — England &amp; Wales only
+                </p>
+              </div>
             </div>
           )}
 

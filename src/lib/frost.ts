@@ -19,7 +19,15 @@ export interface FrostForecast {
   tonight: { min: number; frostRisk: boolean };
   tomorrow: { min: number; frostRisk: boolean };
   nextThreeDays: { date: string; min: number; frostRisk: boolean }[];
-  soilTemp?: number; // current soil temperature at 0-7cm depth (°C)
+  soilTemp?: number; // current soil temperature at surface (°C)
+  soilTemp6cm?: number; // seed-depth soil temp (°C)
+  soilMoisture?: number; // volumetric moisture 0-7cm (m³/m³)
+  evapotranspiration?: number; // daily ET₀ in mm
+  windMax?: number; // max wind km/h
+  windGustsMax?: number; // max gusts km/h
+  precipProbability?: number; // max precip probability %
+  sunshineDuration?: number; // sunshine hours today
+  tempMax?: number; // today's high °C
   rainfall3Days?: number; // total precipitation over next 3 days (mm)
 }
 
@@ -131,8 +139,17 @@ export async function getFrostForecast(
   long: number
 ): Promise<FrostForecast | null> {
   try {
+    const dailyParams = [
+      "temperature_2m_min", "temperature_2m_max", "precipitation_sum",
+      "et0_fao_evapotranspiration", "wind_speed_10m_max", "wind_gusts_10m_max",
+      "precipitation_probability_max", "sunshine_duration",
+    ].join(",");
+    const hourlyParams = [
+      "soil_temperature_0cm", "soil_temperature_6cm", "soil_moisture_0_to_7cm",
+    ].join(",");
+
     const res = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_min,precipitation_sum&hourly=soil_temperature_0cm&timezone=Europe%2FLondon&forecast_days=3`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=${dailyParams}&hourly=${hourlyParams}&timezone=Europe%2FLondon&forecast_days=3`
     );
     if (!res.ok) return null;
 
@@ -147,17 +164,42 @@ export async function getFrostForecast(
       frostRisk: mins[i] <= 2,
     }));
 
-    // Current soil temp: use the most recent hourly reading
-    let soilTemp: number | undefined;
-    const soilTemps: (number | null)[] = data.hourly?.soil_temperature_0cm ?? [];
+    // Helper: get most recent hourly value up to now
     const hourTimes: string[] = data.hourly?.time ?? [];
-    const nowIso = new Date().toISOString().slice(0, 13); // "2026-03-02T23"
-    for (let i = hourTimes.length - 1; i >= 0; i--) {
-      if (hourTimes[i] <= nowIso && soilTemps[i] !== null) {
-        soilTemp = Math.round(soilTemps[i]! * 10) / 10;
-        break;
+    const nowIso = new Date().toISOString().slice(0, 13);
+    function latestHourly(arr: (number | null)[] | undefined): number | undefined {
+      if (!arr) return undefined;
+      for (let i = hourTimes.length - 1; i >= 0; i--) {
+        if (hourTimes[i] <= nowIso && arr[i] !== null) {
+          return Math.round(arr[i]! * 10) / 10;
+        }
       }
+      return undefined;
     }
+
+    const soilTemp = latestHourly(data.hourly?.soil_temperature_0cm);
+    const soilTemp6cm = latestHourly(data.hourly?.soil_temperature_6cm);
+    const soilMoisture = latestHourly(data.hourly?.soil_moisture_0_to_7cm);
+
+    // Daily values — today is index 0
+    const daily = data.daily;
+    const evapotranspiration = daily.et0_fao_evapotranspiration?.[0] != null
+      ? Math.round(daily.et0_fao_evapotranspiration[0] * 10) / 10
+      : undefined;
+    const windMax = daily.wind_speed_10m_max?.[0] != null
+      ? Math.round(daily.wind_speed_10m_max[0])
+      : undefined;
+    const windGustsMax = daily.wind_gusts_10m_max?.[0] != null
+      ? Math.round(daily.wind_gusts_10m_max[0])
+      : undefined;
+    const precipProbability = daily.precipitation_probability_max?.[0] ?? undefined;
+    const tempMax = daily.temperature_2m_max?.[0] != null
+      ? Math.round(daily.temperature_2m_max[0] * 10) / 10
+      : undefined;
+    // sunshine_duration comes in seconds — convert to hours
+    const sunshineDuration = daily.sunshine_duration?.[0] != null
+      ? Math.round((daily.sunshine_duration[0] / 3600) * 10) / 10
+      : undefined;
 
     // Total rainfall over next 3 days
     const rainfall3Days = precip.length > 0
@@ -169,6 +211,14 @@ export async function getFrostForecast(
       tomorrow: days[1],
       nextThreeDays: days,
       soilTemp,
+      soilTemp6cm,
+      soilMoisture,
+      evapotranspiration,
+      windMax,
+      windGustsMax,
+      precipProbability,
+      sunshineDuration,
+      tempMax,
       rainfall3Days,
     };
   } catch {
