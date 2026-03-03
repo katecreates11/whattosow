@@ -179,6 +179,7 @@ export const crops: Crop[] = [
       { name: "Nantes", note: "Sweet, blunt-tipped, easy to grow" },
       { name: "Resistafly", note: "Bred to resist carrot fly — the clue's in the name" },
       { name: "Autumn King", note: "Big maincrops for storing" },
+      { name: "Eskimo", note: "Winter-hardy — Simon Rogan leaves these in the ground year-round" },
     ],
 },
   {
@@ -251,6 +252,7 @@ export const crops: Crop[] = [
       { name: "Swift", note: "First early — potatoes by June" },
       { name: "Charlotte", note: "Waxy salad potato, amazing flavour" },
       { name: "Maris Piper", note: "The all-rounder for chips, mash, roasting" },
+      { name: "Jazzy", note: "Waxy salad type — L'Enclume grow these tiny for maximum flavour" },
     ],
 },
   {
