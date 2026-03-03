@@ -9,7 +9,6 @@ import SkyTonight from "@/components/SkyTonight";
 import EmailCapture from "@/components/EmailCapture";
 import Image from "next/image";
 import {
-  LeafSprig,
   MapPinPlantIcon,
   CalendarSeedlingIcon,
   SnowflakeShieldIcon,
@@ -117,48 +116,39 @@ export default function Home() {
       <Header />
 
       <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Hero — full-bleed dark */}
-        <FullWidthSection className="relative overflow-hidden" innerClassName="relative z-10 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24">
-          {/* Hero background illustration */}
-          <div className="absolute inset-0 z-0">
+        {/* Hero — illustration banner with overlaid text */}
+        <FullWidthSection className="relative overflow-hidden" innerClassName="relative">
+          <div className="relative">
             <Image
               src="/images/headers/hero-allotment.png"
-              alt=""
-              fill
-              className="object-cover object-center"
+              alt="Illustrated allotment scene with raised beds, shed and vegetables"
+              width={1200}
+              height={669}
+              className="w-full h-auto"
               priority
-              aria-hidden="true"
             />
-            <div className="absolute inset-0 bg-[#003b44]/75" />
-          </div>
-
-          <div className="relative z-10 mb-10 text-center lg:text-left max-w-2xl">
-            <div className="flex justify-center lg:justify-start mb-6" aria-hidden="true">
-              <LeafSprig className="w-6 h-8 animate-leaf-sway lg:hidden text-leaf-light" />
+            {/* Text overlaid on the empty left side of the illustration */}
+            <div className="absolute inset-0 flex items-center">
+              <div className="px-6 sm:px-10 lg:px-16 max-w-[60%] sm:max-w-[55%]">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
+                  Sowing season is underway
+                </span>
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extralight text-earth tracking-tighter leading-[0.92] mb-3 sm:mb-5">
+                  Know exactly
+                  <br />
+                  what to plant,
+                  <br />
+                  <span className="text-allotment">right now</span>
+                </h1>
+                <p className="text-sm sm:text-base text-earth-light/80 max-w-sm leading-relaxed hidden sm:block">
+                  Enter your postcode for personalised sowing dates, based on your local frost date.
+                </p>
+              </div>
             </div>
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-leaf-light/70 mb-4 flex items-center gap-2 justify-center lg:justify-start">
-              <span className="w-1.5 h-1.5 rounded-full bg-leaf-light animate-pulse" aria-hidden="true" />
-              Sowing season is underway
-            </span>
-            <p className="text-xs text-white/40 italic mb-5 -mt-2">
-              {getCurrentMicroSeason().name}
-            </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extralight text-white tracking-tighter leading-[0.92] mb-6">
-              Know exactly
-              <br />
-              what to plant,
-              <br />
-              <span className="text-leaf-light">right now</span>
-            </h1>
-            <p className="text-base sm:text-lg text-white/70 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              The sooner you know your frost date, the more you can grow.
-            </p>
-            <p className="text-sm text-white/50 mt-3 max-w-lg mx-auto lg:mx-0">
-              Enter your postcode for personalised sowing dates. Free, instant, no signup.
-            </p>
           </div>
 
-          <div className="relative z-10">
+          <div className="pt-10 sm:pt-14 pb-8 sm:pb-12">
             <PlantingTool />
           </div>
         </FullWidthSection>
