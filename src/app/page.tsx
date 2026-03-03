@@ -116,8 +116,27 @@ export default function Home() {
       <Header />
 
       <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Hero — illustration banner with overlaid text */}
+        {/* Hero — illustration banner with text */}
         <FullWidthSection className="relative overflow-hidden" innerClassName="relative">
+          {/* Mobile: stacked text above image */}
+          <div className="sm:hidden pt-10 pb-6 px-1">
+            <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
+              Sowing season is underway
+            </span>
+            <h1 className="text-4xl font-extralight text-earth tracking-tighter leading-[0.92] mb-3">
+              Know exactly
+              <br />
+              what to plant,
+              <br />
+              <span className="text-allotment">right now</span>
+            </h1>
+            <p className="text-sm text-earth-light/70 leading-relaxed">
+              Enter your postcode for personalised sowing dates, based on your local frost date.
+            </p>
+          </div>
+
+          {/* Image — full width on all sizes, with overlaid text on sm+ */}
           <div className="relative">
             <Image
               src="/images/headers/hero-allotment.png"
@@ -127,21 +146,21 @@ export default function Home() {
               className="w-full h-auto"
               priority
             />
-            {/* Text overlaid on the empty left side of the illustration */}
-            <div className="absolute inset-0 flex items-center">
-              <div className="px-6 sm:px-10 lg:px-16 max-w-[50%] sm:max-w-[42%]">
-                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 sm:mb-4 flex items-center gap-2">
+            {/* Desktop/tablet: text overlaid on the empty left side */}
+            <div className="absolute inset-0 hidden sm:flex items-center">
+              <div className="px-10 lg:px-16 max-w-[42%]">
+                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
                   Sowing season is underway
                 </span>
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extralight text-earth tracking-tighter leading-[0.92] mb-3 sm:mb-5">
+                <h1 className="text-5xl lg:text-6xl font-extralight text-earth tracking-tighter leading-[0.92] mb-5">
                   Know exactly
                   <br />
                   what to plant,
                   <br />
                   <span className="text-allotment">right now</span>
                 </h1>
-                <p className="text-xs sm:text-sm text-earth-light/70 max-w-[220px] leading-relaxed hidden sm:block">
+                <p className="text-sm text-earth-light/70 max-w-[220px] leading-relaxed">
                   Enter your postcode for personalised sowing dates, based on your local frost date.
                 </p>
               </div>

@@ -800,6 +800,9 @@ export default function PlantingTool() {
             </div>
           )}
 
+          {/* Email signup — positioned at peak motivation, right after sowing recommendations */}
+          <EmailCapture />
+
           {/* Coming Soon */}
           {cropActions.comingSoon.length > 0 && (
             <div>
@@ -817,9 +820,6 @@ export default function PlantingTool() {
               </div>
             </div>
           )}
-
-          {/* Email signup */}
-          <EmailCapture />
 
           {/* Info + Sources */}
           <div className="bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-3">
