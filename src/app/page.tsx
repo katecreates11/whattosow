@@ -82,7 +82,7 @@ export default function Home() {
       <Header />
 
       {/* Hero */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6">
+      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="pt-12 sm:pt-20 pb-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
             {/* Text column */}
@@ -113,7 +113,7 @@ export default function Home() {
 
         {/* Features */}
         <LeafDivider className="my-4" />
-        <section className="py-12">
+        <section className="py-12" aria-label="Features">
           <div className="grid sm:grid-cols-3 gap-6">
             {/* Localised */}
             <div className="bg-allotment-bg rounded-2xl p-6 relative overflow-hidden">
@@ -165,8 +165,8 @@ export default function Home() {
 
         {/* FAQ / SEO block */}
         <LeafDivider className="my-4" />
-        <section id="common-questions" className="py-12 space-y-8 pb-20 scroll-mt-20">
-          <h2 className="text-2xl font-bold text-earth">
+        <section id="common-questions" className="py-12 space-y-8 pb-20 scroll-mt-20" aria-labelledby="faq-heading">
+          <h2 id="faq-heading" className="text-2xl font-bold text-earth">
             Common questions
           </h2>
 

@@ -155,11 +155,89 @@ export default async function CropPage({
   const sameCategoryCrops = otherCrops.filter((c) => c.category === crop.category);
   const otherCategoryCrops = otherCrops.filter((c) => c.category !== crop.category);
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://whattosow.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Crops",
+        item: "https://whattosow.co.uk/#explore-crops",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: crop.name,
+        item: `https://whattosow.co.uk/crops/${crop.slug}`,
+      },
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to Grow ${crop.name} in the UK`,
+    description: crop.tip,
+    step: [
+      ...(crop.sowIndoorsWeeks
+        ? [
+            {
+              "@type": "HowToStep",
+              name: "Start seeds indoors",
+              text: `Sow ${crop.name.toLowerCase()} seeds indoors ${crop.sowIndoorsWeeks} weeks before your last frost date.`,
+            },
+          ]
+        : []),
+      ...(crop.directSowWeeks != null
+        ? [
+            {
+              "@type": "HowToStep",
+              name: "Direct sow outdoors",
+              text: `Direct sow ${crop.name.toLowerCase()} seeds outdoors ${crop.directSowWeeks >= 0 ? `${crop.directSowWeeks} weeks after` : `${Math.abs(crop.directSowWeeks)} weeks before`} your last frost date.`,
+            },
+          ]
+        : []),
+      ...(crop.plantOutWeeks != null
+        ? [
+            {
+              "@type": "HowToStep",
+              name: "Plant out",
+              text: `Plant out ${crop.name.toLowerCase()} ${crop.plantOutWeeks >= 0 ? `${crop.plantOutWeeks} weeks after` : `${Math.abs(crop.plantOutWeeks)} weeks before`} your last frost date.`,
+            },
+          ]
+        : []),
+      ...(crop.harvestWeeks
+        ? [
+            {
+              "@type": "HowToStep",
+              name: "Harvest",
+              text: `Harvest ${crop.name.toLowerCase()} approximately ${crop.harvestWeeks} weeks after planting.`,
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
       <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6">
+      <article id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Hero photo */}
         {crop.unsplashId && (
           <div className="-mx-4 sm:-mx-6 relative h-48 sm:h-64 overflow-hidden">
@@ -312,7 +390,7 @@ export default async function CropPage({
             </div>
           )}
         </div>
-      </main>
+      </article>
 
       <Footer />
     </div>

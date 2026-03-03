@@ -24,11 +24,34 @@ export const metadata: Metadata = {
 };
 
 export default function CalendarPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://whattosow.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Sowing Calendar",
+        item: "https://whattosow.co.uk/calendar",
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         <h1 className="text-4xl font-bold text-earth mb-2">Sowing calendar</h1>
         <p className="text-earth-light mb-1">
           When to sow, plant out, and harvest across the year.

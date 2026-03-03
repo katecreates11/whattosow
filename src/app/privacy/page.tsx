@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <div className="min-h-screen">
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
-      <main className="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-12">
         <h1 className="text-3xl sm:text-4xl font-bold text-earth mb-8">
           Privacy policy
         </h1>

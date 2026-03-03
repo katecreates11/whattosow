@@ -1,13 +1,19 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { LeafSprig } from "@/components/SVGIllustrations";
+
+export const metadata: Metadata = {
+  title: "Page Not Found — What To Sow",
+  description: "Sorry, we couldn't find that page. Head back to What To Sow for personalised UK planting advice.",
+};
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1 flex items-center justify-center px-4">
+      <main id="main-content" className="flex-1 flex items-center justify-center px-4">
         <div className="text-center max-w-md py-20">
           <LeafSprig className="w-10 h-14 mx-auto mb-6 text-allotment opacity-60" />
           <h1 className="text-3xl font-bold text-earth mb-3">

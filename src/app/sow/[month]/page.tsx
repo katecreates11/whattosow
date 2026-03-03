@@ -71,10 +71,11 @@ function MonthNav({ idx }: { idx: number }) {
   const next = (idx + 1) % 12;
 
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex justify-between items-center" aria-label="Month navigation">
       <a
         href={`/sow/${MONTH_SLUGS[prev]}`}
         className="text-allotment hover:text-allotment-dark text-sm"
+        aria-label={`Previous month: ${MONTH_NAMES[prev]}`}
       >
         &larr; {MONTH_NAMES[prev]}
       </a>
@@ -87,6 +88,7 @@ function MonthNav({ idx }: { idx: number }) {
       <a
         href={`/sow/${MONTH_SLUGS[next]}`}
         className="text-allotment hover:text-allotment-dark text-sm"
+        aria-label={`Next month: ${MONTH_NAMES[next]}`}
       >
         {MONTH_NAMES[next]} &rarr;
       </a>
@@ -108,11 +110,40 @@ export default async function MonthPage({
   const { sowIndoors, directSow, plantOut } = getCropsForMonth(idx, frostDate);
   const hasAnyCrops = sowIndoors.length > 0 || directSow.length > 0 || plantOut.length > 0;
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://whattosow.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Sowing Calendar",
+        item: "https://whattosow.co.uk/calendar",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: name,
+        item: `https://whattosow.co.uk/sow/${month}`,
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6">
+      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="pt-10 sm:pt-16 pb-8">
           <MonthNav idx={idx} />
 
