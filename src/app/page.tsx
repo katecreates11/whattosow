@@ -7,8 +7,8 @@ import FullWidthSection from "@/components/FullWidthSection";
 import { crops } from "@/data/crops";
 import SkyTonight from "@/components/SkyTonight";
 import EmailCapture from "@/components/EmailCapture";
+import Image from "next/image";
 import {
-  HeroIllustration,
   LeafSprig,
   MapPinPlantIcon,
   CalendarSeedlingIcon,
@@ -147,7 +147,14 @@ export default function Home() {
             </div>
 
             <div className="hidden lg:flex lg:w-[45%] justify-center items-center">
-              <HeroIllustration className="w-full max-w-[380px] opacity-[0.12] text-white" />
+              <Image
+                src="/images/headers/hero-allotment.png"
+                alt="Illustrated allotment scene with raised beds, tools and flowers"
+                width={1200}
+                height={669}
+                className="w-full max-w-[440px] rounded-lg opacity-90"
+                priority
+              />
             </div>
           </div>
 
