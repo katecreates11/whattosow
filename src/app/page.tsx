@@ -118,47 +118,49 @@ export default function Home() {
 
       <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Hero — full-bleed dark */}
-        <FullWidthSection className="bg-allotment-dark" innerClassName="pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 relative">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 mb-10">
-            <div className="lg:w-[55%] text-center lg:text-left">
-              <div className="flex justify-center lg:justify-start mb-6" aria-hidden="true">
-                <LeafSprig className="w-6 h-8 animate-leaf-sway lg:hidden text-leaf-light" />
-              </div>
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-leaf-light/70 mb-4 flex items-center gap-2 justify-center lg:justify-start">
-                <span className="w-1.5 h-1.5 rounded-full bg-leaf-light animate-pulse" aria-hidden="true" />
-                Sowing season is underway
-              </span>
-              <p className="text-xs text-white/40 italic mb-5 -mt-2">
-                {getCurrentMicroSeason().name}
-              </p>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extralight text-white tracking-tighter leading-[0.92] mb-6">
-                Know exactly
-                <br />
-                what to plant,
-                <br />
-                <span className="text-leaf-light">right now</span>
-              </h1>
-              <p className="text-base sm:text-lg text-white/70 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                The sooner you know your frost date, the more you can grow.
-              </p>
-              <p className="text-sm text-white/50 mt-3 max-w-lg mx-auto lg:mx-0">
-                Enter your postcode for personalised sowing dates. Free, instant, no signup.
-              </p>
-            </div>
-
-            <div className="hidden lg:flex lg:w-[45%] justify-center items-center">
-              <Image
-                src="/images/headers/hero-allotment.png"
-                alt="Illustrated allotment scene with raised beds, tools and flowers"
-                width={1200}
-                height={669}
-                className="w-full max-w-[440px] rounded-lg opacity-90"
-                priority
-              />
-            </div>
+        <FullWidthSection className="relative overflow-hidden" innerClassName="relative z-10 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24">
+          {/* Hero background illustration */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/headers/hero-allotment.png"
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-[#003b44]/75" />
           </div>
 
-          <PlantingTool />
+          <div className="relative z-10 mb-10 text-center lg:text-left max-w-2xl">
+            <div className="flex justify-center lg:justify-start mb-6" aria-hidden="true">
+              <LeafSprig className="w-6 h-8 animate-leaf-sway lg:hidden text-leaf-light" />
+            </div>
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-leaf-light/70 mb-4 flex items-center gap-2 justify-center lg:justify-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-leaf-light animate-pulse" aria-hidden="true" />
+              Sowing season is underway
+            </span>
+            <p className="text-xs text-white/40 italic mb-5 -mt-2">
+              {getCurrentMicroSeason().name}
+            </p>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extralight text-white tracking-tighter leading-[0.92] mb-6">
+              Know exactly
+              <br />
+              what to plant,
+              <br />
+              <span className="text-leaf-light">right now</span>
+            </h1>
+            <p className="text-base sm:text-lg text-white/70 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              The sooner you know your frost date, the more you can grow.
+            </p>
+            <p className="text-sm text-white/50 mt-3 max-w-lg mx-auto lg:mx-0">
+              Enter your postcode for personalised sowing dates. Free, instant, no signup.
+            </p>
+          </div>
+
+          <div className="relative z-10">
+            <PlantingTool />
+          </div>
         </FullWidthSection>
 
         {/* Trust strip */}

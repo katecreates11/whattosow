@@ -114,7 +114,7 @@ export default function FrostZoneMap() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (typeof parsed?.latitude === "number") {
+        if (typeof parsed?.latitude === "number" && typeof parsed?.longitude === "number") {
           setUserLocation(parsed);
         }
       }
