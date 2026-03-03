@@ -129,7 +129,7 @@ export default function Home() {
             />
             {/* Text overlaid on the empty left side of the illustration */}
             <div className="absolute inset-0 flex items-center">
-              <div className="px-6 sm:px-10 lg:px-16 max-w-[60%] sm:max-w-[55%]">
+              <div className="px-6 sm:px-10 lg:px-16 max-w-[50%] sm:max-w-[42%]">
                 <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 sm:mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
                   Sowing season is underway
@@ -141,7 +141,7 @@ export default function Home() {
                   <br />
                   <span className="text-allotment">right now</span>
                 </h1>
-                <p className="text-sm sm:text-base text-earth-light/80 max-w-sm leading-relaxed hidden sm:block">
+                <p className="text-xs sm:text-sm text-earth-light/70 max-w-[220px] leading-relaxed hidden sm:block">
                   Enter your postcode for personalised sowing dates, based on your local frost date.
                 </p>
               </div>
