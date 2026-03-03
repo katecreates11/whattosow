@@ -37,7 +37,7 @@ export default function SowingTimeline() {
 
   return (
     <div>
-      <div className="overflow-x-auto -mx-4 sm:mx-0">
+      <div className="overflow-x-auto -mx-4 sm:mx-0" role="region" aria-label="Sowing timeline — scroll horizontally to view all months" tabIndex={0}>
         <div className="min-w-[800px] px-4 sm:px-0">
           <div
             className="grid"

@@ -52,34 +52,40 @@ function weeksToText(weeks: number): string {
   return `${absWeeks} ${weekText} after last frost`;
 }
 
+const dotColors: Record<string, string> = {
+  "Sow indoors": "bg-amber",
+  "Direct sow outdoors": "bg-leaf",
+  "Plant out": "bg-allotment",
+  "Harvest": "bg-earth-lighter",
+};
+
 function DateCard({
   label,
   weeks,
   frostDate,
   location,
   subtitle,
-  bgClass,
-  borderClass,
 }: {
   label: string;
   weeks: number;
   frostDate: Date | null;
   location: LocationData | null;
   subtitle: string;
-  bgClass: string;
-  borderClass: string;
 }) {
   const hasPersonalised = frostDate && location;
   const targetDate = frostDate ? weeksToDate(frostDate, weeks) : null;
 
   return (
-    <div className={`${bgClass} rounded-xl p-5 ${borderClass}`}>
-      <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
-        {label}
-      </p>
+    <div className="border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300">
+      <div className="flex items-center gap-2 mb-1">
+        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColors[label] || "bg-earth-lighter"}`} />
+        <p className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.1em]">
+          {label}
+        </p>
+      </div>
       {hasPersonalised && targetDate ? (
         <>
-          <p className="text-lg font-semibold text-earth">
+          <p className="text-lg font-semibold text-earth mt-2">
             From around {formatDateShort(targetDate)}
           </p>
           <p className="text-xs text-earth-lighter mt-1">
@@ -87,13 +93,11 @@ function DateCard({
           </p>
         </>
       ) : (
-        <>
-          <p className="text-lg font-semibold text-earth">
-            {weeksToText(weeks)}
-          </p>
-        </>
+        <p className="text-lg font-semibold text-earth mt-2">
+          {weeksToText(weeks)}
+        </p>
       )}
-      <p className="text-sm text-earth-lighter mt-1">
+      <p className="text-sm text-earth-lighter mt-1 leading-relaxed">
         {subtitle}
       </p>
     </div>
@@ -130,19 +134,19 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
   // Skeleton while loading
   if (!ready) {
     return (
-      <div className="grid sm:grid-cols-2 gap-4 my-8">
+      <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 my-8">
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="bg-cream/50 rounded-xl p-5 h-28 animate-pulse" />
+          <div key={i} className="border border-earth/6 p-5 h-28 animate-pulse" />
         ))}
       </div>
     );
   }
 
   return (
-    <div className="my-8 space-y-4">
+    <div className="my-8 space-y-5" aria-live="polite">
       {/* Personalisation banner */}
       {location ? (
-        <div className="flex items-center gap-2 text-xs text-allotment bg-allotment-bg rounded-lg px-3 py-2">
+        <div className="flex items-center gap-2 text-xs text-allotment border border-allotment/15 px-4 py-2.5">
           <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
             <circle cx="12" cy="10" r="3" />
@@ -152,7 +156,7 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
           </span>
         </div>
       ) : (
-        <div className="flex items-center gap-2 text-xs text-earth-lighter bg-cream rounded-lg px-3 py-2">
+        <div className="flex items-center gap-2 text-xs text-earth-lighter border border-earth/6 px-4 py-2.5">
           <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10" />
             <path d="M12 16v-4M12 8h.01" />
@@ -164,7 +168,7 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
       )}
 
       {/* Date cards */}
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
         {crop.sowIndoorsWeeks !== null && (
           <DateCard
             label="Sow indoors"
@@ -172,8 +176,6 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
             frostDate={frostDate}
             location={location}
             subtitle="Use a warm windowsill or propagator"
-            bgClass="bg-amber-bg"
-            borderClass="border-l-[3px] border-amber"
           />
         )}
 
@@ -184,8 +186,6 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
             frostDate={frostDate}
             location={location}
             subtitle="Sow directly into prepared soil"
-            bgClass="bg-allotment-bg"
-            borderClass="border-l-[3px] border-leaf"
           />
         )}
 
@@ -196,18 +196,19 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
             frostDate={frostDate}
             location={location}
             subtitle="Transplant seedlings to their final position"
-            bgClass="bg-leaf-bg"
-            borderClass="border-l-[3px] border-allotment"
           />
         )}
 
-        <div className="bg-cream rounded-xl p-5 border-l-[3px] border-earth-lighter">
-          <p className="text-xs font-medium text-earth-lighter uppercase tracking-wide mb-1">
-            Harvest
-          </p>
+        <div className="border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-earth-lighter" />
+            <p className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.1em]">
+              Harvest
+            </p>
+          </div>
           {frostDate && crop.sowIndoorsWeeks !== null ? (
             <>
-              <p className="text-lg font-semibold text-earth">
+              <p className="text-lg font-semibold text-earth mt-2">
                 From around {formatDateShort(
                   weeksToDate(frostDate, crop.sowIndoorsWeeks + crop.harvestWeeks)
                 )}
@@ -218,7 +219,7 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
             </>
           ) : frostDate && crop.directSowWeeks !== null ? (
             <>
-              <p className="text-lg font-semibold text-earth">
+              <p className="text-lg font-semibold text-earth mt-2">
                 From around {formatDateShort(
                   weeksToDate(frostDate, crop.directSowWeeks + crop.harvestWeeks)
                 )}
@@ -228,11 +229,11 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
               </p>
             </>
           ) : (
-            <p className="text-lg font-semibold text-earth">
+            <p className="text-lg font-semibold text-earth mt-2">
               ~{crop.harvestWeeks} weeks from sowing
             </p>
           )}
-          <p className="text-sm text-earth-lighter mt-1">
+          <p className="text-sm text-earth-lighter mt-1 leading-relaxed">
             Space plants {crop.spacingCm}cm apart
           </p>
         </div>

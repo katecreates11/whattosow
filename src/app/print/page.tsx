@@ -115,19 +115,19 @@ export default function PrintPage() {
       <div className="mt-4 text-xs text-earth-lighter">
         <div className="flex gap-4 flex-wrap">
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-amber" /> Sow
+            <span className="inline-block w-2 h-2 rounded-full bg-amber" aria-hidden="true" /> Sow
             indoors
           </span>
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-leaf" /> Direct
+            <span className="inline-block w-2 h-2 rounded-full bg-leaf" aria-hidden="true" /> Direct
             sow
           </span>
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-allotment" />{" "}
+            <span className="inline-block w-2 h-2 rounded-full bg-allotment" aria-hidden="true" />{" "}
             Plant out
           </span>
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-amber-light" />{" "}
+            <span className="inline-block w-2 h-2 rounded-full bg-amber-light" aria-hidden="true" />{" "}
             Harvest
           </span>
         </div>

@@ -12,7 +12,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "What To Sow — UK Planting Calendar by Postcode",
   description:
-    "Enter your UK postcode to find your local frost date and get personalised planting advice. Know exactly what to sow this week based on where you live.",
+    "The sooner you know your frost date, the more you can grow. Enter your UK postcode for personalised sowing dates — free, instant, no signup.",
   keywords: [
     "what to sow",
     "UK planting calendar",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "What To Sow — Know exactly what to plant, right now, where you are",
     description:
-      "Enter your UK postcode. Get your local frost date. See what to sow this week. Free, personalised, and simple.",
+      "The sooner you know your frost date, the more you can grow. Free personalised sowing dates for every UK postcode.",
     type: "website",
     locale: "en_GB",
     url: "https://whattosow.co.uk",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "What To Sow — UK Planting Calendar by Postcode",
     description:
-      "Enter your UK postcode. Get your local frost date. See what to sow this week.",
+      "The sooner you know your frost date, the more you can grow. Free personalised sowing dates for every UK postcode.",
   },
   metadataBase: new URL("https://whattosow.co.uk"),
   alternates: {

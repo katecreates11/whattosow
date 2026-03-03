@@ -45,7 +45,7 @@ export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
 
   if (status === "success") {
     return (
-      <div className={`bg-leaf-bg rounded-xl p-5 ${variant === "compact" ? "text-center" : ""}`}>
+      <div role="status" className={`bg-leaf-bg rounded-xl p-5 ${variant === "compact" ? "text-center" : ""}`}>
         <p className="font-semibold text-allotment">You&apos;re in!</p>
         <p className="text-sm text-earth-light mt-1">
           Check your email to confirm your subscription.
@@ -68,6 +68,7 @@ export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
+              aria-label="Email address"
               required
               className="flex-1 px-3 py-2 rounded-lg border border-earth/15 bg-white text-earth placeholder:text-earth-lighter text-sm focus:outline-none focus:ring-2 focus:ring-allotment focus:border-transparent"
             />
@@ -119,6 +120,7 @@ export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
+            aria-label="Email address"
             required
             className="flex-1 px-4 py-3 rounded-xl border border-earth/15 bg-white text-earth placeholder:text-earth-lighter focus:outline-none focus:ring-2 focus:ring-allotment focus:border-transparent text-base"
           />

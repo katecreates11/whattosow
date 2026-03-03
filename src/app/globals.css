@@ -4,7 +4,7 @@
   --color-cream: #F5EFE0;
   --color-earth: #3B2F28;
   --color-earth-light: #6B5D54;
-  --color-earth-lighter: #9A8D85;
+  --color-earth-lighter: #756A62;
   --color-allotment: #2D5F3E;
   --color-allotment-light: #3D7A52;
   --color-allotment-dark: #1E4A2D;
@@ -33,7 +33,7 @@
   --color-cream: #F5EFE0;
   --color-earth: #3B2F28;
   --color-earth-light: #6B5D54;
-  --color-earth-lighter: #9A8D85;
+  --color-earth-lighter: #756A62;
   --color-allotment: #2D5F3E;
   --color-allotment-light: #3D7A52;
   --color-allotment-dark: #1E4A2D;
@@ -83,6 +83,12 @@ body::before {
   transform: translateY(0);
 }
 
+/* Visible focus indicator for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-allotment);
+  outline-offset: 2px;
+}
+
 /* Better focus states */
 input:focus,
 button:focus {
@@ -120,9 +126,27 @@ button[type="submit"]:active:not(:disabled) {
   50% { transform: rotate(3deg); }
 }
 
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
 .animate-leaf-sway {
   animation: leaf-sway 4s ease-in-out infinite;
   transform-origin: bottom center;
+}
+
+/* Hide scrollbar on horizontal scroll containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Respect reduced motion */
@@ -133,7 +157,8 @@ button[type="submit"]:active:not(:disabled) {
     transition: none;
   }
 
-  .animate-leaf-sway {
+  .animate-leaf-sway,
+  .animate-slide-up {
     animation: none;
   }
 

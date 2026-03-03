@@ -67,7 +67,7 @@ export default function OGImage() {
               margin: 0,
             }}
           >
-            Free UK planting calendar by postcode
+            The sooner you know your frost date, the more you can grow
           </p>
         </div>
 

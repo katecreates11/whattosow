@@ -31,9 +31,9 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
             {backLink.label}
           </a>
         ) : (
-          <nav className="text-sm text-earth-lighter">
-            <span>Free UK planting tool</span>
-          </nav>
+          <p className="text-sm text-earth-lighter">
+            Free UK planting tool
+          </p>
         )}
       </div>
     </header>
