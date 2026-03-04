@@ -40,6 +40,7 @@ function categoryColor(cat: string): string {
 export default function RegionPanel({ region, onClose }: RegionPanelProps) {
   const [forecast, setForecast] = useState<FrostForecast | null>(null);
   const [loadingForecast, setLoadingForecast] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const name = region.LAD24NM || region.LAD23NM || "Unknown area";
   const springFrost = region.frostDate;
@@ -81,15 +82,46 @@ export default function RegionPanel({ region, onClose }: RegionPanelProps) {
       {/* Header */}
       <div className="bg-allotment px-5 py-4 flex items-center justify-between">
         <h3 className="text-white font-semibold text-lg">{name}</h3>
-        <button
-          onClick={onClose}
-          className="text-white/70 hover:text-white transition-colors"
-          aria-label="Close panel"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={async () => {
+              const text = `The last frost in ${name} is around ${springFrost} — check yours at whattosow.co.uk/frost-map`;
+              try {
+                if (navigator.share) {
+                  await navigator.share({ text, url: "https://whattosow.co.uk/frost-map" });
+                } else {
+                  await navigator.clipboard.writeText(text);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }
+              } catch {
+                // User cancelled share sheet
+              }
+            }}
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Share this region"
+            title="Share"
+          >
+            {copied ? (
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" />
+              </svg>
+            )}
+          </button>
+          <button
+            onClick={onClose}
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Close panel"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div className="p-5 space-y-5">
@@ -240,6 +272,20 @@ export default function RegionPanel({ region, onClose }: RegionPanelProps) {
             <p className="text-xs text-earth-lighter italic">Live conditions unavailable for this region.</p>
           )}
         </div>
+
+        {/* Cross-link CTA — bounce rate reducer */}
+        <a
+          href="/"
+          className="flex items-center justify-between bg-allotment-bg rounded-xl px-4 py-3 group hover:bg-allotment/10 transition-colors"
+        >
+          <div>
+            <p className="text-sm font-medium text-earth">See what to sow this month</p>
+            <p className="text-xs text-earth-lighter">Personalised to {name}&apos;s frost dates</p>
+          </div>
+          <svg className="w-5 h-5 text-allotment group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
       </div>
     </div>
   );
