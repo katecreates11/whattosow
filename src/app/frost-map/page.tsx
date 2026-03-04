@@ -41,16 +41,9 @@ export default function FrostMapPage() {
             UK frost date map
           </h1>
           <p className="text-earth-light max-w-xl">
-            See when spring arrives across the UK. Green areas enjoy an earlier
-            last frost (late March), while blue areas wait until late May or June.
-            Click any region to see its estimated last frost date.
-          </p>
-          <p className="text-sm text-earth-lighter mt-2">
-            If you&apos;ve already entered your postcode on the{" "}
-            <a href="/" className="text-allotment underline">
-              homepage
-            </a>
-            , your location will be highlighted with a pin.
+            Search your postcode to see your local frost dates, or click any
+            region for a detailed breakdown. Toggle between spring frost, autumn
+            frost, and growing season views.
           </p>
         </div>
 
@@ -74,7 +67,7 @@ export default function FrostMapPage() {
             >
               ONS Open Geography Portal
             </a>{" "}
-            (OGL v3.0). Map tiles &copy; OpenStreetMap contributors.
+            (OGL v3.0). Map tiles &copy; CARTO / OpenStreetMap contributors.
           </p>
         </div>
       </main>

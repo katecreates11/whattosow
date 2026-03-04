@@ -158,7 +158,9 @@ button[type="submit"]:active:not(:disabled) {
   }
 
   .animate-leaf-sway,
-  .animate-slide-up {
+  .animate-slide-up,
+  .animate-slide-in-right,
+  .animate-slide-in-bottom {
     animation: none;
   }
 
@@ -167,6 +169,41 @@ button[type="submit"]:active:not(:disabled) {
     transition: none;
     transform: none !important;
   }
+}
+
+/* Frost map tooltips */
+.frost-tooltip {
+  background-color: #3B2F28 !important;
+  color: #F5EFE0 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  box-shadow: 0 4px 12px rgba(59, 47, 40, 0.25) !important;
+}
+
+.frost-tooltip::before {
+  border-top-color: #3B2F28 !important;
+}
+
+/* Region panel slide-in */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-bottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+.animate-slide-in-bottom {
+  animation: slide-in-bottom 0.3s ease-out;
 }
 
 @media print {

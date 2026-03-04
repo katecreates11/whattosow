@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const FrostZoneMap = dynamic(() => import("@/components/FrostZoneMap"), {
   ssr: false,
-  loading: () => <div className="h-[600px] bg-allotment-bg rounded-2xl animate-pulse" />,
+  loading: () => <div className="h-[400px] sm:h-[550px] lg:h-[650px] bg-allotment-bg rounded-2xl animate-pulse" />,
 });
 
 export default function FrostZoneMapLoader() {
