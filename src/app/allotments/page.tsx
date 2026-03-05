@@ -27,8 +27,31 @@ export const metadata: Metadata = {
 };
 
 export default function AllotmentsPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://whattosow.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Find Allotments",
+        item: "https://whattosow.co.uk/allotments",
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <div className="mb-8">
           <a

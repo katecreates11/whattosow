@@ -97,7 +97,7 @@ export const crops: Crop[] = [
     tip: "Sow a short row every 2 weeks and you'll never buy a supermarket bag again. Pick outer leaves to keep it going.",
     needs: "Partial shade in summer stops it bolting. Regular water.",
     spacingCm: 25,
-    companionPlants: ["Radishes", "Carrots", "Spring onions", "Strawberries"],
+    companionPlants: ["Radishes", "Carrots", "Spring onions"],
       unsplashId: "1760990438397-80ec7e41f6e6",
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=lettuce+seeds" },
@@ -121,7 +121,7 @@ export const crops: Crop[] = [
     tip: "Bolts the moment it gets hot. Best in spring and autumn. Pick little and often — a whole plant cooks down to about two mouthfuls.",
     needs: "Partial shade. Moist, rich soil.",
     spacingCm: 15,
-    companionPlants: ["Broad beans", "Peas", "Strawberries"],
+    companionPlants: ["Broad beans", "Peas"],
       unsplashId: "1634731201932-9bd92839bea2",
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=spinach+seeds" },

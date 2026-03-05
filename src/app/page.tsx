@@ -230,6 +230,38 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Secondary links — frost map + still-time */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pb-14 sm:pb-20">
+          <a
+            href="/still-time"
+            className="group border border-earth/6 p-6 hover:border-earth/15 transition-colors duration-300"
+          >
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber/80 mb-2 block">
+              Closing soon
+            </span>
+            <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
+              What can you still sow? &rarr;
+            </span>
+            <p className="text-sm text-earth-light mt-1">
+              Crops with closing sowing windows this week.
+            </p>
+          </a>
+          <a
+            href="/frost-map"
+            className="group border border-earth/6 p-6 hover:border-earth/15 transition-colors duration-300"
+          >
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost/80 mb-2 block">
+              Interactive map
+            </span>
+            <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
+              UK frost date map &rarr;
+            </span>
+            <p className="text-sm text-earth-light mt-1">
+              See frost dates across every region of the UK.
+            </p>
+          </a>
+        </div>
+
         {/* Sky tonight — moon phase + daylight */}
         <section className="pb-14 sm:pb-20" aria-label="Today at the allotment">
           <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
