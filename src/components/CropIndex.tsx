@@ -37,13 +37,19 @@ const dotColor: Record<string, string> = {
   tender: "bg-tomato",
 };
 
+const borderColor: Record<string, string> = {
+  hardy: "border-l-[3px] border-l-leaf",
+  "half-hardy": "border-l-[3px] border-l-amber",
+  tender: "border-l-[3px] border-l-tomato",
+};
+
 function CropCard({ crop, dimmed }: { crop: Crop; dimmed: boolean }) {
   const Icon = getCropIcon(crop.slug);
 
   return (
     <a
       href={`/crops/${crop.slug}`}
-      className={`group block border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300 ${dimmed ? "opacity-40" : ""}`}
+      className={`group block border border-earth/6 ${borderColor[crop.category]} p-5 hover:border-earth/15 hover:shadow-sm transition-all duration-300 ${dimmed ? "opacity-40" : ""}`}
     >
       <div className="flex items-center gap-2.5 mb-1.5">
         <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor[crop.category]}`} />
@@ -81,7 +87,7 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-2 block">
             Crop index
           </span>
-          <h2 className="text-2xl sm:text-3xl font-light text-earth tracking-tight">Explore crops</h2>
+          <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight">Explore crops</h2>
           <p className="text-earth-lighter text-sm mt-2 leading-relaxed">
             Select any crop for a personalised growing guide.
           </p>

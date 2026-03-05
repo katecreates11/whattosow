@@ -268,7 +268,7 @@ export default async function CropPage({
                   {categoryLabel(crop.category)}
                 </span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extralight text-earth tracking-tight leading-[0.95] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-6">
                 When to plant<br />
                 <span className="font-normal">{crop.name.toLowerCase()}</span> in the UK
               </h1>
@@ -305,7 +305,7 @@ export default async function CropPage({
             <SeedSupplierLinks crop={crop} variant="inline" />
 
             {/* Growing needs */}
-            <div className="border border-earth/6 p-6 sm:p-8 mb-10">
+            <div className="bg-leaf-bg/60 p-6 sm:p-8 mb-10">
               <h2 className="font-semibold text-earth mb-3">
                 What {crop.name.toLowerCase()} need
               </h2>
@@ -318,7 +318,7 @@ export default async function CropPage({
                 <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
                   Varieties
                 </span>
-                <h2 className="text-2xl font-light text-earth tracking-tight mb-6">
+                <h2 className="text-2xl font-serif text-earth tracking-tight mb-6">
                   Varieties to try
                 </h2>
                 <div className="space-y-3">
@@ -373,7 +373,7 @@ export default async function CropPage({
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
             Keep exploring
           </span>
-          <h2 className="text-2xl sm:text-3xl font-light text-earth tracking-tight mb-8">
+          <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-8">
             Other crops to grow
           </h2>
 

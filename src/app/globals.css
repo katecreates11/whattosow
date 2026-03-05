@@ -51,6 +51,7 @@
   --color-frost-bg: #EDF4F8;
   --color-tomato-bg: #FDF0EE;
   --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-dm-serif);
 }
 
 body {

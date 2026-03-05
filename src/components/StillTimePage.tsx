@@ -99,7 +99,7 @@ export default function StillTimePage() {
         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-tomato/70 mb-3 sm:mb-4 block">
           Closing windows
         </span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-earth tracking-tighter leading-tight mb-3">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-earth tracking-tight leading-tight mb-3">
           You have{" "}
           <span className="text-allotment font-normal">{urgent.length} crop{urgent.length !== 1 ? "s" : ""}</span>{" "}
           you can still sow this week

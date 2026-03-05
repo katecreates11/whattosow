@@ -229,7 +229,7 @@ export default async function CityPage({
               {city.region}
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-earth tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-earth tracking-tight leading-[1.1] mb-6">
             What to sow in{" "}
             <span className="font-normal">{city.name}</span>
           </h1>
@@ -274,7 +274,7 @@ export default async function CityPage({
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
             {monthName} {year}
           </span>
-          <h2 className="text-2xl sm:text-3xl font-light text-earth tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-2">
             What to sow in {city.name} right now
           </h2>
           <p className="text-earth-light mb-8">
@@ -336,7 +336,7 @@ export default async function CityPage({
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
             Full year
           </span>
-          <h2 className="text-2xl sm:text-3xl font-light text-earth tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-2">
             {city.name} sowing calendar
           </h2>
           <p className="text-earth-light mb-8">

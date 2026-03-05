@@ -57,7 +57,7 @@ export default function SowInIndexPage() {
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
       <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <h1 className="text-3xl sm:text-4xl font-extralight text-earth tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
           What to sow by location
         </h1>
         <p className="text-earth-light leading-relaxed max-w-2xl mb-12">

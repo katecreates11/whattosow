@@ -58,7 +58,7 @@ export default function ProductsPage() {
         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
           For your shed wall
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extralight text-earth tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
           Printable planting resources
         </h1>
         <p className="text-earth-light leading-relaxed mb-12">

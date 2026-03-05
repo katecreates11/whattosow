@@ -52,7 +52,7 @@ export default function AboutPage() {
       />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <h1 className="text-3xl sm:text-4xl font-extralight text-earth tracking-tight mb-10">
+        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-10">
           About What To Sow
         </h1>
 

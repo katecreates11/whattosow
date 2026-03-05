@@ -180,7 +180,7 @@ export default async function MonthPage({
             </span>
             <h1 className="tracking-tight">
               <span className="block text-earth-lighter text-lg sm:text-xl font-normal mb-2">What to sow in</span>
-              <span className={`block text-7xl sm:text-8xl lg:text-9xl font-extralight ${seasonal.text} leading-[0.85] tracking-tighter`}>{name}</span>
+              <span className={`block text-7xl sm:text-8xl lg:text-9xl font-serif ${seasonal.text} leading-[0.85] tracking-tighter`}>{name}</span>
             </h1>
             <p className="text-earth-light mt-6 max-w-lg leading-relaxed">
               Based on UK average frost date (mid-April). Enter your postcode on
@@ -208,7 +208,7 @@ export default async function MonthPage({
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="w-2.5 h-2.5 bg-amber rounded-full" aria-hidden="true" />
-                    <h2 className="text-xl sm:text-2xl font-light text-earth tracking-tight">
+                    <h2 className="text-xl sm:text-2xl font-serif text-earth tracking-tight">
                       Sow indoors
                     </h2>
                   </div>
@@ -224,7 +224,7 @@ export default async function MonthPage({
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="w-2.5 h-2.5 bg-leaf rounded-full" aria-hidden="true" />
-                    <h2 className="text-xl sm:text-2xl font-light text-earth tracking-tight">
+                    <h2 className="text-xl sm:text-2xl font-serif text-earth tracking-tight">
                       Direct sow outdoors
                     </h2>
                   </div>
@@ -240,7 +240,7 @@ export default async function MonthPage({
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="w-2.5 h-2.5 bg-allotment rounded-full" aria-hidden="true" />
-                    <h2 className="text-xl sm:text-2xl font-light text-earth tracking-tight">
+                    <h2 className="text-xl sm:text-2xl font-serif text-earth tracking-tight">
                       Plant out
                     </h2>
                   </div>

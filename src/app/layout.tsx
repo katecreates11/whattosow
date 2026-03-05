@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
@@ -57,7 +64,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2D5F3E" />
       </head>
-      <body className={`${dmSans.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} ${dmSerif.variable} font-sans antialiased`}>
         {children}
         <Script
           src="https://cloud.umami.is/script.js"

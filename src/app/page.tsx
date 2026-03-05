@@ -124,7 +124,7 @@ export default function Home() {
               <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
               Sowing season is underway
             </span>
-            <h1 className="text-4xl font-extralight text-earth tracking-tighter leading-[0.92] mb-3">
+            <h1 className="text-4xl font-serif text-earth tracking-tight leading-[0.95] mb-3">
               Know exactly
               <br />
               what to plant,
@@ -153,7 +153,7 @@ export default function Home() {
                   <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
                   Sowing season is underway
                 </span>
-                <h1 className="text-5xl lg:text-6xl font-extralight text-earth tracking-tighter leading-[0.92] mb-5">
+                <h1 className="text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-5">
                   Know exactly
                   <br />
                   what to plant,
@@ -234,9 +234,9 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pb-14 sm:pb-20">
           <a
             href="/still-time"
-            className="group border border-earth/6 p-6 hover:border-earth/15 transition-colors duration-300"
+            className="group border border-earth/6 border-l-4 border-l-amber bg-amber-bg/50 p-6 hover:border-earth/15 transition-colors duration-300"
           >
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber/80 mb-2 block">
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber mb-2 block">
               Closing soon
             </span>
             <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
@@ -248,9 +248,9 @@ export default function Home() {
           </a>
           <a
             href="/frost-map"
-            className="group border border-earth/6 p-6 hover:border-earth/15 transition-colors duration-300"
+            className="group border border-earth/6 border-l-4 border-l-frost bg-frost-bg/50 p-6 hover:border-earth/15 transition-colors duration-300"
           >
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost/80 mb-2 block">
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost mb-2 block">
               Interactive map
             </span>
             <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
@@ -263,7 +263,7 @@ export default function Home() {
         </div>
 
         {/* Sky tonight — moon phase + daylight */}
-        <section className="pb-14 sm:pb-20" aria-label="Today at the allotment">
+        <section className="pb-14 sm:pb-20 -mx-4 sm:-mx-6 px-4 sm:px-6 bg-frost-bg/40" aria-label="Today at the allotment">
           <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
             Today at the allotment
           </h2>
@@ -287,7 +287,7 @@ export default function Home() {
                 <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/70 mb-4 block">
                   Sowing calendar
                 </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
                   Plan your whole season
                 </h2>
                 <p className="text-white/70 mt-3 leading-relaxed">
@@ -305,7 +305,7 @@ export default function Home() {
         </FullWidthSection>
 
         {/* Email capture — standalone for visitors who don't use the tool */}
-        <FullWidthSection className="bg-allotment-bg/40" innerClassName="py-14 sm:py-20">
+        <FullWidthSection className="bg-allotment-bg" innerClassName="py-14 sm:py-20">
           <ScrollReveal>
             <section aria-label="Newsletter signup">
               <div className="max-w-lg mx-auto">
@@ -324,12 +324,12 @@ export default function Home() {
             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-4 block">
               FAQ
             </span>
-            <h2 id="faq-heading" className="text-3xl sm:text-4xl font-light text-earth tracking-tight mb-10 sm:mb-12">
+            <h2 id="faq-heading" className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-10 sm:mb-12">
               Common questions
             </h2>
 
             <div className="space-y-8 sm:space-y-10">
-              <div className="pl-6 sm:pl-8 border-l border-earth/10 py-1">
+              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
                 <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
                   When is the last frost date in the UK?
                 </h3>
@@ -343,7 +343,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l border-earth/10 py-1">
+              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
                 <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
                   What can I plant before the last frost?
                 </h3>
@@ -356,7 +356,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l border-earth/10 py-1">
+              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
                 <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
                   How accurate are these frost dates?
                 </h3>
@@ -370,7 +370,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l border-earth/10 py-1">
+              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
                 <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
                   Is this tool free?
                 </h3>
@@ -381,7 +381,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l border-earth/10 py-1">
+              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
                 <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
                   Who made this?
                 </h3>

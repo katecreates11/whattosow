@@ -58,7 +58,7 @@ export default function PrintPage() {
         {/* Soft email capture gate — screen only, hidden when printing */}
         <div className="print:hidden pt-10 sm:pt-14 pb-6">
           <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-extralight text-earth tracking-tight mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-3">
               Want a printable PDF emailed to you?
             </h2>
             <p className="text-earth-light text-sm sm:text-base mb-6 leading-relaxed">
@@ -79,7 +79,7 @@ export default function PrintPage() {
               <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
                 Printable chart
               </span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-earth tracking-tighter leading-tight mb-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-earth tracking-tight leading-tight mb-3">
                 UK Sowing Chart <span className="text-allotment">{year}</span>
               </h1>
               <p className="text-earth-light leading-relaxed max-w-lg">
