@@ -144,6 +144,22 @@ function MapFlyTo({ center, zoom }: { center: [number, number]; zoom: number }) 
   return null;
 }
 
+function ScrollZoomOnClick() {
+  const map = useMap();
+  useEffect(() => {
+    map.scrollWheelZoom.disable();
+    const enable = () => map.scrollWheelZoom.enable();
+    const disable = () => map.scrollWheelZoom.disable();
+    map.on("click", enable);
+    map.on("mouseout", disable);
+    return () => {
+      map.off("click", enable);
+      map.off("mouseout", disable);
+    };
+  }, [map]);
+  return null;
+}
+
 // === Legend ===
 function Legend({ activeLayer }: { activeLayer: ActiveLayer }) {
   if (activeLayer === "autumn") {
@@ -371,7 +387,7 @@ export default function FrostZoneMap() {
           center={[54.5, -2.5]}
           zoom={6}
           style={{ height: "100%", width: "100%" }}
-          scrollWheelZoom={true}
+          scrollWheelZoom={false}
           maxBounds={UK_BOUNDS}
           maxBoundsViscosity={1.0}
           minZoom={5}
@@ -440,6 +456,7 @@ export default function FrostZoneMap() {
             </>
           )}
           {flyTarget && <MapFlyTo center={flyTarget.center} zoom={flyTarget.zoom} />}
+          <ScrollZoomOnClick />
         </MapContainer>
 
         {/* Layer toggle — top right */}
