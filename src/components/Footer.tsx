@@ -46,6 +46,7 @@ export default function Footer() {
               <a href="/allotments" className="text-white/80 hover:text-white transition-colors py-1.5">Find allotments</a>
               <a href="/frost-map" className="text-white/80 hover:text-white transition-colors py-1.5">Frost map</a>
               <a href="/print" className="text-white/80 hover:text-white transition-colors py-1.5">Print chart</a>
+              <a href="/guides" className="text-white/80 hover:text-white transition-colors py-1.5">Guides</a>
               <a href="/#common-questions" className="text-white/80 hover:text-white transition-colors py-1.5">FAQ</a>
               <a href="/about" className="text-white/80 hover:text-white transition-colors py-1.5">About</a>
               <a href="/privacy" className="text-white/80 hover:text-white transition-colors py-1.5">Privacy</a>
