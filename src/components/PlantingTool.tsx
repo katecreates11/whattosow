@@ -244,7 +244,7 @@ function ShareButton({ frostData }: { frostData: FrostData }) {
   );
 }
 
-export default function PlantingTool() {
+export default function PlantingTool({ hideCropList }: { hideCropList?: boolean } = {}) {
   const [postcode, setPostcode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -714,7 +714,7 @@ export default function PlantingTool() {
           )}
 
           {/* What to sow NOW */}
-          {(cropActions.sowIndoorsNow.length > 0 ||
+          {!hideCropList && (cropActions.sowIndoorsNow.length > 0 ||
             cropActions.directSowNow.length > 0 ||
             cropActions.plantOutNow.length > 0) && (
             <div>
@@ -801,15 +801,17 @@ export default function PlantingTool() {
           )}
 
           {/* Email signup — positioned at peak motivation, right after sowing recommendations */}
-          <EmailCapture
-            context={frostData ? {
-              district: frostData.location.adminDistrict,
-              frostDate: formatDate(frostData.lastFrostDate),
-            } : undefined}
-          />
+          {!hideCropList && (
+            <EmailCapture
+              context={frostData ? {
+                district: frostData.location.adminDistrict,
+                frostDate: formatDate(frostData.lastFrostDate),
+              } : undefined}
+            />
+          )}
 
           {/* Coming Soon */}
-          {cropActions.comingSoon.length > 0 && (
+          {!hideCropList && cropActions.comingSoon.length > 0 && (
             <div>
               <h3 className="text-xl font-bold text-earth mb-4">
                 Coming up next

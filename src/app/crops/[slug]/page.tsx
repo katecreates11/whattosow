@@ -3,6 +3,7 @@ import Image from "next/image";
 import { crops, type Crop } from "@/data/crops";
 import type { Metadata } from "next";
 
+import PlantingTool from "@/components/PlantingTool";
 import PersonalisedCropDates from "@/components/PersonalisedCropDates";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -349,6 +350,18 @@ export default async function CropPage({
             <div className="lg:sticky lg:top-20 space-y-8">
               {/* Seeds — sidebar variant (desktop) */}
               <SeedSupplierLinks crop={crop} variant="sidebar" />
+
+              {/* Personalise CTA */}
+              <div id="get-dates" className="bg-allotment-dark p-6 sm:p-8 scroll-mt-20">
+                <h2 className="text-lg font-semibold text-white mb-2">
+                  Get your exact dates
+                </h2>
+                <p className="text-white/60 text-sm mb-5 leading-relaxed">
+                  Enter your postcode for personalised planting dates for{" "}
+                  {crop.name.toLowerCase()}.
+                </p>
+                <PlantingTool hideCropList />
+              </div>
             </div>
           </div>
         </div>
