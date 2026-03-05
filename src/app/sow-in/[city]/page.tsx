@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PlantingTool from "@/components/PlantingTool";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import { cities, getNearbyCities } from "@/data/cities";
+import UKCityMap from "@/components/UKCityMap";
 import { crops, type Crop } from "@/data/crops";
 import {
   calculateLastFrostDate,
@@ -224,18 +225,25 @@ export default async function CityPage({
       <article id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Hero */}
         <div className="py-12 sm:py-20 pb-10 sm:pb-14">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter">
-              {city.region}
-            </span>
+          <div className="flex gap-8 items-start">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter">
+                  {city.region}
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-earth tracking-tight leading-[1.1] mb-6">
+                What to sow in{" "}
+                <span className="font-normal">{city.name}</span>
+              </h1>
+              <p className="text-lg text-earth-light leading-relaxed max-w-2xl">
+                {city.growingNotes}
+              </p>
+            </div>
+            <div className="hidden md:block shrink-0 pt-6">
+              <UKCityMap highlightSlug={city.slug} size="mini" />
+            </div>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-earth tracking-tight leading-[1.1] mb-6">
-            What to sow in{" "}
-            <span className="font-normal">{city.name}</span>
-          </h1>
-          <p className="text-lg text-earth-light leading-relaxed max-w-2xl">
-            {city.growingNotes}
-          </p>
         </div>
 
         {/* Frost stats */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cities, getCitiesByRegion, regions } from "@/data/cities";
+import UKCityMap from "@/components/UKCityMap";
 
 export const metadata: Metadata = {
   title: "What to Sow by Location — UK Sowing Guides by City",
@@ -57,19 +58,32 @@ export default function SowInIndexPage() {
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
       <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          What to sow by location
-        </h1>
-        <p className="text-earth-light leading-relaxed max-w-2xl mb-12">
-          The UK stretches from the Scilly Isles to Shetland — your last frost
-          date could be weeks earlier or later than someone a few hundred miles
-          away. Pick your nearest city for a sowing guide tailored to your local
-          frost date, or{" "}
-          <a href="/" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">
-            enter your postcode
-          </a>{" "}
-          for the most accurate results.
-        </p>
+        <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start mb-12">
+          <div className="flex-1">
+            <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
+              What to sow by location
+            </h1>
+            <p className="text-earth-light leading-relaxed max-w-2xl">
+              The UK stretches from the Scilly Isles to Shetland — your last frost
+              date could be weeks earlier or later than someone a few hundred miles
+              away. Pick your nearest city for a sowing guide tailored to your local
+              frost date, or{" "}
+              <a href="/" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">
+                enter your postcode
+              </a>{" "}
+              for the most accurate results.
+            </p>
+            <p className="text-xs text-earth-lighter mt-4">
+              Dots show estimated last frost date:{" "}
+              <span className="inline-block w-2 h-2 rounded-full bg-leaf align-middle mr-0.5" /> early{" "}
+              <span className="inline-block w-2 h-2 rounded-full bg-amber align-middle mx-0.5" /> mid{" "}
+              <span className="inline-block w-2 h-2 rounded-full bg-frost align-middle mx-0.5" /> late
+            </p>
+          </div>
+          <div className="shrink-0 hidden sm:block">
+            <UKCityMap />
+          </div>
+        </div>
 
         <div className="space-y-10">
           {regions.map((region) => {
