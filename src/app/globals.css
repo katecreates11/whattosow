@@ -161,21 +161,8 @@ button[type="submit"]:active:not(:disabled) {
   .animate-slide-up,
   .animate-slide-in-right,
   .animate-slide-in-bottom,
-  .animate-pulse,
-  .frost-scroll-indicator {
+  .animate-pulse {
     animation: none;
-  }
-
-  .frost-hero-content,
-  .frost-step-content,
-  .frost-scroll-indicator {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .frost-bar-fill {
-    transition: none;
   }
 
   button[type="submit"],
@@ -183,51 +170,6 @@ button[type="submit"]:active:not(:disabled) {
     transition: none;
     transform: none !important;
   }
-}
-
-/* Frost map intro — hero reveal */
-.frost-hero-content {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.frost-hero-revealed.frost-hero-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Scroll indicator bounce */
-.frost-scroll-indicator {
-  opacity: 0;
-  transition: opacity 0.6s ease-out 0.8s;
-  animation: bounce-subtle 2s ease-in-out infinite 1.5s;
-}
-
-.frost-hero-revealed.frost-scroll-indicator {
-  opacity: 1;
-}
-
-@keyframes bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-
-/* Frost map intro — step transitions */
-.frost-step-content {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.frost-step-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Frost map intro — gradient bar */
-.frost-bar-fill {
-  transition: width 0.7s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 /* Frost map tooltips */
