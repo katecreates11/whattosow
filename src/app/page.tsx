@@ -113,7 +113,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <Header />
+      <Header showNav />
 
       <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Hero — illustration banner with text */}

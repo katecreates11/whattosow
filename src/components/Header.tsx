@@ -1,4 +1,4 @@
-export default function Header({ backLink }: { backLink?: { href: string; label: string } }) {
+export default function Header({ backLink, showNav }: { backLink?: { href: string; label: string }; showNav?: boolean }) {
   return (
     <header className="border-b border-allotment-bg bg-cream/80 backdrop-blur-sm sticky top-0 z-10">
       <a
@@ -30,6 +30,14 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
           <a href={backLink.href} className="text-sm text-allotment hover:text-allotment-dark">
             {backLink.label}
           </a>
+        ) : showNav ? (
+          <nav aria-label="Main" className="flex items-center gap-1 sm:gap-4">
+            <a href="/#explore-crops" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Crops</a>
+            <a href="/calendar" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Calendar</a>
+            <a href="/frost-map" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Frost map</a>
+            <a href="/guides" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Guides</a>
+            <a href="/still-time" className="text-xs sm:text-sm font-medium text-allotment hover:text-allotment-dark transition-colors px-3 py-1.5 border border-allotment/20 rounded-full">Still time to sow</a>
+          </nav>
         ) : (
           <p className="text-sm text-earth-lighter">
             Free UK planting tool
