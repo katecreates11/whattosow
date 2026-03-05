@@ -38,6 +38,7 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
           <a href="/calendar" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Calendar</a>
           <a href="/frost-map" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Frost map</a>
           <a href="/guides" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Guides</a>
+          <a href="/sow-in" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">By location</a>
           <a href="/still-time" className="text-xs sm:text-sm font-medium text-allotment hover:text-allotment-dark transition-colors px-3 py-1.5 border border-allotment/20 rounded-full">Still time to sow</a>
         </nav>
       </div>

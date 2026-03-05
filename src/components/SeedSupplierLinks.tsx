@@ -16,6 +16,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
         rel="noopener noreferrer"
         data-umami-event="affiliate-click"
         data-umami-event-supplier={crop.seedSuppliers[0].name}
+        data-umami-event-crop={crop.name}
         data-umami-event-position="variety-card"
         className="inline-flex items-center gap-1 text-xs text-allotment hover:text-allotment-dark transition-colors"
       >
@@ -45,6 +46,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
               rel="noopener noreferrer"
               data-umami-event="affiliate-click"
               data-umami-event-supplier={supplier.name}
+              data-umami-event-crop={crop.name}
               data-umami-event-position="sidebar"
               className="group inline-flex items-center gap-1.5 px-4 py-2.5 border border-earth/8 text-sm font-medium text-earth hover:border-allotment hover:text-allotment transition-colors duration-300"
             >
@@ -79,6 +81,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
             rel="noopener noreferrer"
             data-umami-event="affiliate-click"
             data-umami-event-supplier={supplier.name}
+            data-umami-event-crop={crop.name}
             data-umami-event-position="inline"
             className="group inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-earth/8 text-sm font-medium text-earth hover:border-allotment hover:text-allotment transition-colors duration-200"
           >

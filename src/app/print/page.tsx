@@ -5,6 +5,7 @@ import PrintButton from "@/components/PrintButton";
 import EmailCapture from "@/components/EmailCapture";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PrintTracker from "@/components/PrintTracker";
 
 export const metadata: Metadata = {
   title: "Printable UK Sowing Chart — What To Sow",
@@ -48,11 +49,28 @@ export default function PrintPage() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <PrintTracker />
       <div className="print:hidden">
         <Header backLink={{ href: "/calendar", label: "\u2190 Sowing calendar" }} />
       </div>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Soft email capture gate — screen only, hidden when printing */}
+        <div className="print:hidden pt-10 sm:pt-14 pb-6">
+          <div className="max-w-xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl font-extralight text-earth tracking-tight mb-3">
+              Want a printable PDF emailed to you?
+            </h2>
+            <p className="text-earth-light text-sm sm:text-base mb-6 leading-relaxed">
+              Enter your email below and we&apos;ll send you a ready-to-print PDF of the full sowing chart — or scroll down to print straight from your browser.
+            </p>
+            <div className="max-w-md mx-auto">
+              <EmailCapture variant="compact" />
+            </div>
+          </div>
+          <div className="mt-10 border-b border-earth/10" />
+        </div>
+
         {/* Screen-only premium preview */}
         <div className="print:hidden py-12 sm:py-16">
           {/* Preview card */}
@@ -193,6 +211,8 @@ export default function PrintPage() {
               href="https://ko-fi.com/whattosow"
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="ko-fi-click"
+              data-umami-event-location="print-page"
               className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
             >
               buy us a coffee

@@ -17,6 +17,7 @@ import {
 import { getCropImagePath } from "@/lib/crop-images";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
+import CropScrollDepth from "@/components/CropScrollDepth";
 
 function CompanionSection({ crop }: { crop: Crop }) {
   if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
@@ -224,6 +225,7 @@ export default async function CropPage({
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <CropScrollDepth slug={crop.slug} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

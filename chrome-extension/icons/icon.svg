@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#1E4A2D"/>
+  <!-- Seedling -->
+  <path d="M64,100 L64,58" stroke="#A8D49A" fill="none" stroke-width="5" stroke-linecap="round"/>
+  <path d="M64,65 C50,52 46,38 54,30 C60,36 62,50 64,65" stroke="#7BB369" fill="#7BB369" fill-opacity="0.3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64,55 C78,42 82,28 74,20 C68,26 66,40 64,55" stroke="#A8D49A" fill="#A8D49A" fill-opacity="0.3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

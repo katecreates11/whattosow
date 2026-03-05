@@ -44,6 +44,15 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
       }
 
       setStatus("success");
+
+      // Track successful email signup with context
+      if (typeof window !== 'undefined' && window.umami) {
+        window.umami.track('email-signup', {
+          variant: variant,
+          location: context?.district || 'unknown',
+          crop: context?.cropName || 'none',
+        });
+      }
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       setStatus("error");

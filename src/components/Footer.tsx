@@ -10,12 +10,15 @@ function StickyNavBar() {
             <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Calendar</a>
             <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
             <a href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</a>
+            <a href="/sow-in" className="text-white/70 hover:text-white transition-colors">By location</a>
             <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Allotments</a>
           </div>
           <a
             href="https://ko-fi.com/whattosow"
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="ko-fi-click"
+            data-umami-event-location="sticky-nav"
             className="text-white/50 hover:text-white transition-colors"
           >
             Support this tool &rarr;
@@ -76,6 +79,7 @@ export default function Footer() {
               <a href="/print" className="text-white/80 hover:text-white transition-colors py-1.5">Print chart</a>
 
               <a href="/guides" className="text-white/80 hover:text-white transition-colors py-1.5">Guides</a>
+              <a href="/sow-in" className="text-white/80 hover:text-white transition-colors py-1.5">Sow by location</a>
               <a href="/#common-questions" className="text-white/80 hover:text-white transition-colors py-1.5">FAQ</a>
               <a href="/about" className="text-white/80 hover:text-white transition-colors py-1.5">About</a>
               <a href="/privacy" className="text-white/80 hover:text-white transition-colors py-1.5">Privacy</a>
@@ -93,6 +97,8 @@ export default function Footer() {
             href="https://ko-fi.com/whattosow"
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="ko-fi-click"
+            data-umami-event-location="footer"
             className="text-white/60 hover:text-white transition-colors whitespace-nowrap"
           >
             Support this tool &rarr;

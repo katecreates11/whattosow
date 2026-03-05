@@ -148,6 +148,8 @@ export default function AboutPage() {
               href="https://ko-fi.com/whattosow"
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="ko-fi-click"
+              data-umami-event-location="about-page"
               className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
             >
               buy us a coffee

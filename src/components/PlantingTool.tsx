@@ -313,6 +313,13 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
 
     saveLocation(result);
     setLoading(false);
+
+    // Track postcode search with prefix only (GDPR compliant)
+    if (typeof window !== 'undefined' && window.umami) {
+      const prefix = result.postcode.trim().split(/\s+/)[0] || '';
+      window.umami.track('postcode-search', { prefix });
+    }
+
     submitWithLocation(result, true);
   }
 

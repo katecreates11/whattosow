@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What To Sow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="screen-loading" class="screen">
+    <div class="loading-container">
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- Setup screen (no saved postcode) -->
+  <div id="screen-setup" class="screen" style="display:none;">
+    <div class="setup-wrapper">
+      <div class="setup-card">
+        <div class="setup-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+            <path d="M24,44 L24,20" stroke="#3D7A52" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M24,24 C18,18 16,12 20,8" stroke="#7BB369" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24,24 C30,18 32,12 28,8" stroke="#7BB369" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24,32 C19,28 17,23 20,20" stroke="#A8D49A" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24,32 C29,28 31,23 28,20" stroke="#A8D49A" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="setup-title">What To Sow</h1>
+        <p class="setup-subtitle">Personalised sowing recommendations based on your local frost date.</p>
+        <form id="postcode-form" class="postcode-form">
+          <label for="postcode-input" class="postcode-label">Enter your UK postcode</label>
+          <div class="postcode-row">
+            <input
+              id="postcode-input"
+              type="text"
+              placeholder="e.g. SW1A 1AA"
+              autocomplete="postal-code"
+              required
+              class="postcode-input"
+            >
+            <button type="submit" id="postcode-btn" class="postcode-btn">Go</button>
+          </div>
+          <p id="postcode-error" class="postcode-error" role="alert"></p>
+        </form>
+        <p class="setup-hint">
+          e.g. <strong>Bristol</strong> — last frost 18 Apr &middot; 179-day growing season
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard screen -->
+  <div id="screen-dashboard" class="screen" style="display:none;">
+    <div class="dashboard-wrapper">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <svg viewBox="0 0 24 32" width="20" height="26" aria-hidden="true" class="header-logo">
+            <path d="M12,30 C12,20 12,12 12,4" stroke="#3D7A52" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12,8 C7,4 5,0 8,-2" stroke="#7BB369" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12,8 C17,4 19,0 16,-2" stroke="#7BB369" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12,16 C7,12 5,8 8,6" stroke="#A8D49A" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12,16 C17,12 19,8 16,6" stroke="#A8D49A" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="header-title">What To Sow</span>
+        </div>
+        <a href="https://whattosow.co.uk" target="_blank" rel="noopener noreferrer" class="header-link">
+          Full site &rarr;
+        </a>
+      </header>
+
+      <!-- Location bar -->
+      <div id="location-bar" class="location-bar">
+        <div class="location-info">
+          <svg class="location-pin" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span id="location-name" class="location-name"></span>
+          <span id="location-postcode" class="location-postcode"></span>
+        </div>
+        <div class="location-right">
+          <span id="location-coords" class="location-coords"></span>
+          <button id="change-btn" class="change-btn">Change</button>
+        </div>
+      </div>
+
+      <!-- Frost hero card -->
+      <div id="frost-card" class="frost-card">
+        <div class="frost-card-header">
+          <div>
+            <p id="frost-location" class="frost-location"></p>
+          </div>
+        </div>
+        <h2 id="frost-headline" class="frost-headline"></h2>
+        <div class="frost-stats">
+          <div class="frost-stat">
+            <p class="frost-stat-label">Last frost date</p>
+            <p id="frost-last" class="frost-stat-value"></p>
+          </div>
+          <div class="frost-stat">
+            <p class="frost-stat-label">First autumn frost</p>
+            <p id="frost-autumn" class="frost-stat-value"></p>
+          </div>
+          <div class="frost-stat">
+            <p class="frost-stat-label">Growing season</p>
+            <p id="frost-season" class="frost-stat-value"></p>
+          </div>
+        </div>
+        <div id="frost-progress" class="frost-progress" style="display:none;">
+          <div class="frost-progress-labels">
+            <span>Today</span>
+            <span>Safe to plant out</span>
+          </div>
+          <div class="frost-progress-track">
+            <div id="frost-progress-bar" class="frost-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conditions row -->
+      <div id="conditions-row" class="conditions-row" style="display:none;">
+        <div id="condition-frost" class="condition-card" style="display:none;"></div>
+        <div id="condition-soil" class="condition-card condition-soil" style="display:none;"></div>
+        <div id="condition-rain" class="condition-card condition-rain" style="display:none;"></div>
+      </div>
+
+      <!-- What to sow now -->
+      <div id="sow-now-section" style="display:none;">
+        <h3 class="section-title">What to sow now</h3>
+
+        <div id="sow-indoors-group" class="crop-group" style="display:none;">
+          <div class="crop-group-header">
+            <div class="crop-group-bar" style="background:#D4943A;"></div>
+            <svg class="crop-group-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" fill="none" stroke="#D4943A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="9,22 9,12 15,12 15,22" fill="none" stroke="#D4943A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="crop-group-label">Sow indoors on a windowsill</span>
+          </div>
+          <div id="sow-indoors-tiles" class="crop-tiles"></div>
+        </div>
+
+        <div id="direct-sow-group" class="crop-group" style="display:none;">
+          <div class="crop-group-header">
+            <div class="crop-group-bar" style="background:#7BB369;"></div>
+            <svg class="crop-group-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M12 22V8" fill="none" stroke="#7BB369" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 12H2a10 10 0 0020 0h-3" fill="none" stroke="#7BB369" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 8a4 4 0 00-4-4c-1.5 0-2.5 1-3 2" fill="none" stroke="#7BB369" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 8a4 4 0 014-4c1.5 0 2.5 1 3 2" fill="none" stroke="#7BB369" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="crop-group-label">Sow directly outdoors</span>
+          </div>
+          <div id="direct-sow-tiles" class="crop-tiles"></div>
+        </div>
+
+        <div id="plant-out-group" class="crop-group" style="display:none;">
+          <div class="crop-group-header">
+            <div class="crop-group-bar" style="background:#2D5F3E;"></div>
+            <svg class="crop-group-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M12 22V12" fill="none" stroke="#2D5F3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 12c-3-4-6-5-9-3 3-4 6-4 9-1" fill="none" stroke="#2D5F3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 12c3-4 6-5 9-3-3-4-6-4-9-1" fill="none" stroke="#2D5F3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 22h10" fill="none" stroke="#2D5F3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="crop-group-label">Plant out (transplant outdoors)</span>
+          </div>
+          <div id="plant-out-tiles" class="crop-tiles"></div>
+        </div>
+      </div>
+
+      <!-- Coming up next -->
+      <div id="coming-soon-section" style="display:none;">
+        <h3 class="section-title">Coming up next</h3>
+        <div id="coming-soon-tiles" class="crop-tiles"></div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="dashboard-footer">
+        <p class="footer-heading">Data sources — verify for yourself:</p>
+        <ul class="footer-sources">
+          <li><a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer">Met Office UK climate averages</a> — frost date calibration</li>
+          <li><a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> — live frost forecast &amp; soil temperature</li>
+          <li><a href="https://postcodes.io/" target="_blank" rel="noopener noreferrer">Postcodes.io</a> — postcode geolocation (open data)</li>
+        </ul>
+        <p class="footer-link"><a href="https://whattosow.co.uk" target="_blank" rel="noopener noreferrer">whattosow.co.uk</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

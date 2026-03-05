@@ -1,4 +1,5 @@
 import { crops } from "@/data/crops";
+import { cities } from "@/data/cities";
 import { MONTH_SLUGS } from "@/lib/calendar";
 import type { MetadataRoute } from "next";
 
@@ -10,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  const cityPages = cities.map((city) => ({
+    url: `${baseUrl}/sow-in/${city.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
   }));
 
   const monthlyPages = MONTH_SLUGS.map((month) => ({
@@ -74,6 +82,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/sow-in`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...cityPages,
     ...cropPages,
     ...monthlyPages,
   ];

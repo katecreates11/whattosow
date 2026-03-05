@@ -134,6 +134,16 @@ export default function StillTimePage() {
             <Link
               key={`${item.crop.slug}-${item.action}`}
               href={`/crops/${item.crop.slug}`}
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.umami) {
+                  window.umami.track('urgency-crop-click', {
+                    crop: item.crop.name,
+                    action: item.action,
+                    daysLeft: item.daysLeft,
+                    level: item.level,
+                  });
+                }
+              }}
               className="block border border-earth/8 hover:border-earth/20 transition-colors duration-200 p-5 sm:p-6 group"
             >
               <div className="flex items-start justify-between gap-4">
