@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cities, getCitiesByRegion, regions } from "@/data/cities";
 import UKCityMap from "@/components/UKCityMap";
+import LocationSearch from "@/components/LocationSearch";
 
 export const metadata: Metadata = {
   title: "What to Sow by Location — UK Sowing Guides by City",
@@ -73,6 +74,7 @@ export default function SowInIndexPage() {
               </a>{" "}
               for the most accurate results.
             </p>
+            <LocationSearch />
             <p className="text-xs text-earth-lighter mt-4">
               Dots show estimated last frost date:{" "}
               <span className="inline-block w-2 h-2 rounded-full bg-leaf align-middle mr-0.5" /> early{" "}
