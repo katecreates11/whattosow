@@ -183,6 +183,16 @@ export default function Home() {
           <span>Every UK postcode</span>
         </div>
 
+        {/* Pull quote — editorial breathing room */}
+        <aside className="relative py-10 sm:py-14 my-4 border-y border-earth/8">
+          <p className="font-serif text-2xl sm:text-3xl text-earth leading-[1.3] max-w-[30rem]">
+            &ldquo;March in Cornwall and March in Edinburgh are completely different.&rdquo;
+          </p>
+          <span className="block mt-3 text-sm text-earth-lighter">
+            &mdash; Why we built this tool
+          </span>
+        </aside>
+
         {/* Features — consistent ghost cards */}
         <section className="py-14 sm:py-20" aria-label="Features">
           <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
@@ -305,14 +315,20 @@ export default function Home() {
         </FullWidthSection>
 
         {/* Email capture — standalone for visitors who don't use the tool */}
-        <FullWidthSection className="bg-allotment-bg" innerClassName="py-14 sm:py-20">
+        <FullWidthSection className="bg-allotment-dark" innerClassName="py-14 sm:py-20">
           <ScrollReveal>
             <section aria-label="Newsletter signup">
-              <div className="max-w-lg mx-auto">
-                <p className="text-center text-sm text-earth-lighter mb-4">
-                  Don&apos;t miss what&apos;s coming up next month
+              <div className="max-w-lg mx-auto text-center">
+                <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/50 mb-3 block">
+                  Monthly sowing reminders
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-white tracking-tight mb-3">
+                  Don&apos;t miss what&apos;s coming up
+                </h2>
+                <p className="text-sm text-white/60 mb-6 leading-relaxed">
+                  A short email each month with what to sow, when to sow it, and the odd practical tip. No spam.
                 </p>
-                <EmailCapture />
+                <EmailCapture variant="dark" />
               </div>
             </section>
           </ScrollReveal>

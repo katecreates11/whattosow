@@ -29,15 +29,28 @@ function StickyNavBar() {
   );
 }
 
+function SeasonalTagline() {
+  const month = new Date().getMonth();
+  if (month >= 2 && month <= 4) return "It\u2019s spring \u2014 the soil is waking up.";
+  if (month >= 5 && month <= 7) return "It\u2019s summer \u2014 keep sowing, keep watering.";
+  if (month >= 8 && month <= 10) return "It\u2019s autumn \u2014 harvest and plan ahead.";
+  return "It\u2019s winter \u2014 rest, plan, dream.";
+}
+
 export default function Footer() {
   return (
     <>
     <StickyNavBar />
     <footer className="bg-allotment-dark text-white/90">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
+      {/* Gradient transition from page to footer */}
+      <div className="h-px bg-gradient-to-r from-allotment via-leaf to-amber" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        {/* Top: brand + columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-2 mb-3">
               <svg
                 className="w-7 h-7 text-leaf-light"
                 viewBox="0 0 24 24"
@@ -55,54 +68,78 @@ export default function Footer() {
               </svg>
               <span className="font-serif text-xl text-white">What To Sow</span>
             </div>
-            <p className="text-sm text-white/70 max-w-xs">
+            <p className="text-sm text-white/60 max-w-xs leading-relaxed mb-4">
               Free UK planting calendar by postcode. Know exactly what to sow, right now, where you are.
             </p>
-            <div className="text-xs text-white/70 space-y-1">
-              <p>Data sources:</p>
-              <ul className="space-y-0.5 ml-2">
-                <li><a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Met Office</a> — frost date calibration</li>
-                <li><a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Open-Meteo</a> — forecasts &amp; soil temperature</li>
-                <li><a href="https://postcodes.io/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Postcodes.io</a> — postcode geolocation</li>
-                <li><a href="https://environment.data.gov.uk/flood-monitoring/doc/rainfall" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Environment Agency</a> — rainfall data</li>
-              </ul>
-              <p>Photos from <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Unsplash</a>.</p>
-            </div>
+            <p className="text-xs text-white/40 italic">
+              <SeasonalTagline />
+            </p>
           </div>
-          <div className="space-y-3 text-sm">
-            <nav aria-label="Footer" className="flex flex-col gap-1">
-              <a href="/" className="text-white/80 hover:text-white transition-colors py-1.5">Home</a>
-              <a href="/#explore-crops" className="text-white/80 hover:text-white transition-colors py-1.5">Explore crops</a>
-              <a href="/calendar" className="text-white/80 hover:text-white transition-colors py-1.5">Sowing calendar</a>
-              <a href="/allotments" className="text-white/80 hover:text-white transition-colors py-1.5">Find allotments</a>
-              <a href="/frost-map" className="text-white/80 hover:text-white transition-colors py-1.5">Frost map</a>
-              <a href="/print" className="text-white/80 hover:text-white transition-colors py-1.5">Print chart</a>
 
-              <a href="/guides" className="text-white/80 hover:text-white transition-colors py-1.5">Guides</a>
-              <a href="/sow-in" className="text-white/80 hover:text-white transition-colors py-1.5">Sow by location</a>
-              <a href="/#common-questions" className="text-white/80 hover:text-white transition-colors py-1.5">FAQ</a>
-              <a href="/about" className="text-white/80 hover:text-white transition-colors py-1.5">About</a>
-              <a href="/privacy" className="text-white/80 hover:text-white transition-colors py-1.5">Privacy</a>
+          {/* Grow */}
+          <div>
+            <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/40 mb-4">Grow</h3>
+            <nav aria-label="Grow links" className="flex flex-col gap-2 text-sm">
+              <a href="/#explore-crops" className="text-white/70 hover:text-white transition-colors">Explore crops</a>
+              <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
+              <a href="/still-time" className="text-white/70 hover:text-white transition-colors">Still time to sow</a>
+              <a href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</a>
+              <a href="/sow-in" className="text-white/70 hover:text-white transition-colors">Sow by location</a>
+              <a href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</a>
             </nav>
-            <div className="hidden sm:block opacity-30 mt-4" aria-hidden="true">
-              <LeafSprig className="w-16 h-20" />
+          </div>
+
+          {/* Explore */}
+          <div>
+            <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/40 mb-4">Explore</h3>
+            <nav aria-label="Explore links" className="flex flex-col gap-2 text-sm">
+              <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
+              <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Find allotments</a>
+              <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
+              <a href="/about" className="text-white/70 hover:text-white transition-colors">About</a>
+              <a href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</a>
+              <a
+                href="https://ko-fi.com/whattosow"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="ko-fi-click"
+                data-umami-event-location="footer"
+                className="text-white/70 hover:text-white transition-colors"
+              >
+                Support this tool
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        {/* Data sources */}
+        <div className="mt-10 pt-6 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div className="text-xs text-white/40 space-y-1">
+              <p className="text-white/50 font-medium mb-1">Data sources</p>
+              <p>
+                <a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors underline decoration-white/20">Met Office</a>
+                {" \u00B7 "}
+                <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors underline decoration-white/20">Open-Meteo</a>
+                {" \u00B7 "}
+                <a href="https://postcodes.io/" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors underline decoration-white/20">Postcodes.io</a>
+                {" \u00B7 "}
+                <a href="https://environment.data.gov.uk/flood-monitoring/doc/rainfall" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors underline decoration-white/20">Environment Agency</a>
+                {" \u00B7 Photos from "}
+                <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors underline decoration-white/20">Unsplash</a>
+              </p>
+            </div>
+            <div className="hidden sm:block opacity-20" aria-hidden="true">
+              <LeafSprig className="w-12 h-16" />
             </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-6 pt-4 border-t border-white/10 text-xs text-white/70">
+
+        {/* Bottom bar */}
+        <div className="mt-6 pt-4 border-t border-white/10 text-xs text-white/40">
           <p>
-            Some links on this site are affiliate links. We may earn a small commission at no extra cost to you.
+            Some links are affiliate links. We may earn a small commission at no extra cost to you.
           </p>
-          <a
-            href="https://ko-fi.com/whattosow"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-umami-event="ko-fi-click"
-            data-umami-event-location="footer"
-            className="text-white/60 hover:text-white transition-colors whitespace-nowrap"
-          >
-            Support this tool &rarr;
-          </a>
         </div>
       </div>
     </footer>

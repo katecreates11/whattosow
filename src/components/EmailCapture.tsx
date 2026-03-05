@@ -9,7 +9,7 @@ interface EmailCaptureContext {
 }
 
 interface EmailCaptureProps {
-  variant?: "full" | "compact";
+  variant?: "full" | "compact" | "dark";
   context?: EmailCaptureContext;
 }
 
@@ -60,13 +60,59 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
   }
 
   if (status === "success") {
+    const isDark = variant === "dark";
     return (
-      <div role="status" className={`bg-leaf-bg rounded-xl p-5 ${variant === "compact" ? "text-center" : ""}`}>
-        <p className="font-semibold text-allotment">You&apos;re in!</p>
-        <p className="text-sm text-earth-light mt-1">
+      <div role="status" className={`${isDark ? "text-center" : "bg-leaf-bg rounded-xl p-5"} ${variant === "compact" ? "text-center" : ""}`}>
+        <p className={`font-semibold ${isDark ? "text-white" : "text-allotment"}`}>You&apos;re in!</p>
+        <p className={`text-sm mt-1 ${isDark ? "text-white/60" : "text-earth-light"}`}>
           Check your email to confirm your subscription.
         </p>
       </div>
+    );
+  }
+
+  if (variant === "dark") {
+    return (
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <div className="flex gap-2 max-w-md mx-auto">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="your@email.com"
+            aria-label="Email address"
+            autoComplete="email"
+            required
+            className="flex-1 px-4 py-3 border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-leaf focus:border-transparent text-base"
+          />
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            data-umami-event="email-signup"
+            data-umami-event-variant="dark"
+            className="px-6 py-3 bg-white text-allotment-dark font-semibold hover:bg-leaf-bg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-allotment-dark disabled:opacity-50 transition-colors whitespace-nowrap"
+          >
+            {status === "submitting" ? "Signing up..." : "Sign up"}
+          </button>
+        </div>
+        <label className="flex items-center justify-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            className="rounded border-white/30"
+          />
+          <span className="text-xs text-white/50">
+            I agree to receive monthly sowing emails.{" "}
+            <a href="/privacy" className="text-white/60 hover:text-white underline">
+              Privacy policy
+            </a>
+          </span>
+        </label>
+        {status === "error" && (
+          <p className="text-sm text-amber-light text-center" role="alert">{errorMsg}</p>
+        )}
+      </form>
     );
   }
 
