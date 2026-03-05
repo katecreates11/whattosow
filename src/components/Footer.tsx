@@ -1,7 +1,35 @@
 import { LeafSprig } from "./SVGIllustrations";
 
+function StickyNavBar() {
+  return (
+    <div className="hidden sm:block sticky bottom-0 z-10 bg-allotment-dark/95 backdrop-blur-sm border-t border-white/10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <nav aria-label="Quick navigation" className="flex items-center justify-between py-2.5 text-xs">
+          <div className="flex items-center gap-4">
+            <a href="/" className="text-white/70 hover:text-white transition-colors">Home</a>
+            <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Calendar</a>
+            <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
+            <a href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</a>
+            <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Allotments</a>
+          </div>
+          <a
+            href="https://ko-fi.com/whattosow"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/50 hover:text-white transition-colors"
+          >
+            Support this tool &rarr;
+          </a>
+        </nav>
+      </div>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
+    <>
+    <StickyNavBar />
     <footer className="bg-allotment-dark text-white/90">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
@@ -72,5 +100,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
