@@ -138,8 +138,21 @@ export default function AboutPage() {
             subscription. The data is open, the tool is free, and it always
             will be. Some links on the site are affiliate links to seed
             suppliers &mdash; if you buy through them, we earn a small
-            commission at no extra cost to you. That&apos;s how the lights stay
-            on.
+            commission at no extra cost to you.
+          </p>
+
+          <p>
+            If the tool&apos;s been useful and you&apos;d like to help keep it
+            running, you can{" "}
+            <a
+              href="https://ko-fi.com/whattosow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+            >
+              buy us a coffee
+            </a>
+            . Completely optional &mdash; the site stays free either way.
           </p>
 
           <h2 className="text-xl font-semibold text-earth pt-4">

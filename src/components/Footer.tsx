@@ -46,7 +46,7 @@ export default function Footer() {
               <a href="/allotments" className="text-white/80 hover:text-white transition-colors py-1.5">Find allotments</a>
               <a href="/frost-map" className="text-white/80 hover:text-white transition-colors py-1.5">Frost map</a>
               <a href="/print" className="text-white/80 hover:text-white transition-colors py-1.5">Print chart</a>
-              <a href="/products" className="text-white/80 hover:text-white transition-colors py-1.5">Printable resources</a>
+
               <a href="/guides" className="text-white/80 hover:text-white transition-colors py-1.5">Guides</a>
               <a href="/#common-questions" className="text-white/80 hover:text-white transition-colors py-1.5">FAQ</a>
               <a href="/about" className="text-white/80 hover:text-white transition-colors py-1.5">About</a>
@@ -57,9 +57,19 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <p className="text-xs text-white/70 mt-6 pt-4 border-t border-white/10">
-          Some links on this site are affiliate links. We may earn a small commission at no extra cost to you.
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-6 pt-4 border-t border-white/10 text-xs text-white/70">
+          <p>
+            Some links on this site are affiliate links. We may earn a small commission at no extra cost to you.
+          </p>
+          <a
+            href="https://ko-fi.com/whattosow"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 hover:text-white transition-colors whitespace-nowrap"
+          >
+            Support this tool &rarr;
+          </a>
+        </div>
       </div>
     </footer>
   );

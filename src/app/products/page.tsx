@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import EmailCapture from "@/components/EmailCapture";
 
 export const metadata: Metadata = {
+  robots: "noindex",
   title: "Printable Planting Resources — What To Sow",
   description:
     "Premium printable growing calendars, allotment planners, and seed labels for UK gardeners. Designed for the shed wall, not the screen.",

@@ -160,22 +160,6 @@ export default function PrintPage() {
           </table>
         </div>
 
-        {/* Upsell — screen only */}
-        <div className="print:hidden mb-10 p-5 border border-earth/8 bg-leaf-bg/20">
-          <p className="text-sm text-earth-light">
-            <strong className="text-earth">Want a proper wall chart?</strong>{" "}
-            The{" "}
-            <a
-              href="/products"
-              className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
-            >
-              UK Sowing Wall Chart
-            </a>{" "}
-            is designed specifically for print &mdash; A3 landscape, easy to
-            read from across the shed. &pound;3.50 PDF.
-          </p>
-        </div>
-
         {/* Legend */}
         <div className="text-xs text-earth-lighter mb-12 print:mb-4">
           <div className="flex gap-5 flex-wrap">
@@ -198,6 +182,22 @@ export default function PrintPage() {
           </div>
           <p className="mt-2 hidden print:block">
             whattosow.co.uk — Enter your postcode for personalised dates.
+          </p>
+        </div>
+
+        {/* Ko-fi — screen only */}
+        <div className="print:hidden mb-12 text-center text-sm text-earth-lighter">
+          <p>
+            This chart is free and always will be. If it&apos;s useful, you can{" "}
+            <a
+              href="https://ko-fi.com/whattosow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+            >
+              buy us a coffee
+            </a>{" "}
+            to help keep the site running.
           </p>
         </div>
       </main>
