@@ -15,6 +15,7 @@ import {
 } from "@/components/SVGIllustrations";
 import { getCurrentMicroSeason, getSeasonName } from "@/lib/seasons";
 import StickyPostcodeCTA from "@/components/StickyPostcodeCTA";
+import CountUp from "@/components/CountUp";
 
 export default function Home() {
   const jsonLd = {
@@ -174,7 +175,7 @@ export default function Home() {
 
         {/* Trust strip */}
         <div className="flex items-center justify-center gap-3 sm:gap-5 py-5 text-xs text-earth-lighter flex-wrap">
-          <span className="font-medium text-earth-light">{sowableNowCount} crops to sow right now</span>
+          <span className="font-medium text-earth-light"><CountUp target={sowableNowCount} /> crops to sow right now</span>
           <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
           <span>Met Office data</span>
           <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>

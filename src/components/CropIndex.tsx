@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { type Crop } from "@/data/crops";
 import { getCropIcon } from "@/components/SVGIllustrations";
 
@@ -31,39 +31,111 @@ function isSowableNow(crop: Crop): boolean {
   return false;
 }
 
-const dotColor: Record<string, string> = {
-  hardy: "bg-leaf",
-  "half-hardy": "bg-amber",
-  tender: "bg-tomato",
-};
-
 const borderColor: Record<string, string> = {
   hardy: "border-l-[3px] border-l-leaf",
   "half-hardy": "border-l-[3px] border-l-amber",
   tender: "border-l-[3px] border-l-tomato",
 };
 
-function CropCard({ crop, dimmed }: { crop: Crop; dimmed: boolean }) {
+const hoverBg: Record<string, string> = {
+  hardy: "group-hover:bg-leaf-bg/40",
+  "half-hardy": "group-hover:bg-amber-bg/40",
+  tender: "group-hover:bg-tomato-bg/40",
+};
+
+// Known crop PNGs — checked at build time on server, but CropIndex is client-side
+// so we hardcode the slugs that have images
+const CROP_IMAGES = new Set([
+  "beetroot", "broad-beans", "carrots", "courgette", "kale",
+  "lettuce", "onions", "peas", "potato", "radishes", "spinach", "tomatoes",
+]);
+
+function CropCard({ crop, dimmed, isSowable, index }: { crop: Crop; dimmed: boolean; isSowable: boolean; index: number }) {
   const Icon = getCropIcon(crop.slug);
+  const hasImage = CROP_IMAGES.has(crop.slug);
 
   return (
     <a
       href={`/crops/${crop.slug}`}
-      className={`group block border border-earth/6 ${borderColor[crop.category]} p-5 hover:border-earth/15 hover:shadow-sm transition-all duration-300 ${dimmed ? "opacity-40" : ""}`}
+      className={`group block border border-earth/6 ${borderColor[crop.category]} ${hoverBg[crop.category]} p-4 sm:p-5 hover:border-earth/15 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ${dimmed ? "opacity-40" : ""}`}
+      style={{ animationDelay: `${index * 50}ms` }}
     >
-      <div className="flex items-center gap-2.5 mb-1.5">
-        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor[crop.category]}`} />
-        {Icon && <Icon className="w-4 h-4 shrink-0 text-earth-lighter group-hover:text-allotment transition-colors duration-300" />}
-        <span className="font-medium text-earth">{crop.name}</span>
+      <div className="flex items-start gap-3">
+        {/* Crop image or icon */}
+        {hasImage ? (
+          <img
+            src={`/images/crops/${crop.slug}.png`}
+            alt=""
+            width={40}
+            height={40}
+            className="shrink-0 object-contain group-hover:scale-110 transition-transform duration-300"
+          />
+        ) : Icon ? (
+          <div className="w-10 h-10 shrink-0 flex items-center justify-center">
+            <Icon className="w-6 h-6 text-earth-lighter group-hover:text-allotment transition-colors duration-300" />
+          </div>
+        ) : null}
+
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2 mb-0.5">
+            <span className="font-medium text-earth group-hover:text-allotment transition-colors duration-300">{crop.name}</span>
+            {isSowable && (
+              <span className="inline-block bg-allotment text-white text-[10px] font-semibold px-1.5 py-0.5 leading-none tracking-wide uppercase shrink-0">
+                Sow now
+              </span>
+            )}
+          </div>
+          <p className="text-sm text-earth-lighter leading-relaxed">
+            {crop.directSowWeeks !== null
+              ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
+              : crop.sowIndoorsWeeks !== null
+                ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
+                : ""}
+          </p>
+        </div>
       </div>
-      <p className="text-sm text-earth-lighter leading-relaxed ml-4">
-        {crop.directSowWeeks !== null
-          ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
-          : crop.sowIndoorsWeeks !== null
-            ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
-            : ""}
-      </p>
     </a>
+  );
+}
+
+function StaggerGrid({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Respect reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        // Children animate in via CSS when visible class is added
+      }}
+      data-visible={visible ? "true" : "false"}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -77,7 +149,8 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
 
   const limit = expanded ? undefined : initialLimit;
 
-  const sowableNow = showInSeason ? new Set(crops.filter(isSowableNow).map(c => c.slug)) : null;
+  const sowableSet = new Set(crops.filter(isSowableNow).map(c => c.slug));
+  const sowableNow = showInSeason ? sowableSet : null;
 
   return (
     <div>
@@ -117,15 +190,17 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
           <span className="w-2 h-2 bg-leaf rounded-full" />
           Hardy crops
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
-          {(limit ? hardyCrops.slice(0, limit) : hardyCrops).map((crop) => (
+        <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
+          {(limit ? hardyCrops.slice(0, limit) : hardyCrops).map((crop, i) => (
             <CropCard
               key={crop.slug}
               crop={crop}
               dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
+              isSowable={sowableSet.has(crop.slug)}
+              index={i}
             />
           ))}
-        </div>
+        </StaggerGrid>
       </div>
 
       {/* Half-hardy */}
@@ -134,15 +209,17 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
           <span className="w-2 h-2 bg-amber rounded-full" />
           Half-hardy crops
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
-          {(limit ? halfHardyCrops.slice(0, limit) : halfHardyCrops).map((crop) => (
+        <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
+          {(limit ? halfHardyCrops.slice(0, limit) : halfHardyCrops).map((crop, i) => (
             <CropCard
               key={crop.slug}
               crop={crop}
               dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
+              isSowable={sowableSet.has(crop.slug)}
+              index={i}
             />
           ))}
-        </div>
+        </StaggerGrid>
       </div>
 
       {/* Tender */}
@@ -151,15 +228,17 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
           <span className="w-2 h-2 bg-tomato rounded-full" />
           Tender crops
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
-          {(limit ? tenderCrops.slice(0, limit) : tenderCrops).map((crop) => (
+        <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
+          {(limit ? tenderCrops.slice(0, limit) : tenderCrops).map((crop, i) => (
             <CropCard
               key={crop.slug}
               crop={crop}
               dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
+              isSowable={sowableSet.has(crop.slug)}
+              index={i}
             />
           ))}
-        </div>
+        </StaggerGrid>
       </div>
 
       {/* Show all toggle */}
