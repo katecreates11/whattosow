@@ -4,7 +4,7 @@
   --color-cream: #F5EFE0;
   --color-earth: #3B2F28;
   --color-earth-light: #6B5D54;
-  --color-earth-lighter: #756A62;
+  --color-earth-lighter: #5E5249;
   --color-allotment: #2D5F3E;
   --color-allotment-light: #3D7A52;
   --color-allotment-dark: #1E4A2D;
@@ -33,7 +33,7 @@
   --color-cream: #F5EFE0;
   --color-earth: #3B2F28;
   --color-earth-light: #6B5D54;
-  --color-earth-lighter: #756A62;
+  --color-earth-lighter: #5E5249;
   --color-allotment: #2D5F3E;
   --color-allotment-light: #3D7A52;
   --color-allotment-dark: #1E4A2D;
@@ -58,7 +58,7 @@ body {
   color: var(--foreground);
 }
 
-/* Subtle grain texture — adds tactile quality to flat backgrounds */
+/* Subtle grain texture — pre-rendered PNG tile (replaces SVG feTurbulence for perf) */
 body::before {
   content: "";
   position: fixed;
@@ -66,7 +66,7 @@ body::before {
   z-index: 9999;
   pointer-events: none;
   opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-image: url("/images/grain.png");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
@@ -160,8 +160,22 @@ button[type="submit"]:active:not(:disabled) {
   .animate-leaf-sway,
   .animate-slide-up,
   .animate-slide-in-right,
-  .animate-slide-in-bottom {
+  .animate-slide-in-bottom,
+  .animate-pulse,
+  .frost-scroll-indicator {
     animation: none;
+  }
+
+  .frost-hero-content,
+  .frost-step-content,
+  .frost-scroll-indicator {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .frost-bar-fill {
+    transition: none;
   }
 
   button[type="submit"],
@@ -169,6 +183,51 @@ button[type="submit"]:active:not(:disabled) {
     transition: none;
     transform: none !important;
   }
+}
+
+/* Frost map intro — hero reveal */
+.frost-hero-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.frost-hero-revealed.frost-hero-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll indicator bounce */
+.frost-scroll-indicator {
+  opacity: 0;
+  transition: opacity 0.6s ease-out 0.8s;
+  animation: bounce-subtle 2s ease-in-out infinite 1.5s;
+}
+
+.frost-hero-revealed.frost-scroll-indicator {
+  opacity: 1;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Frost map intro — step transitions */
+.frost-step-content {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.frost-step-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Frost map intro — gradient bar */
+.frost-bar-fill {
+  transition: width 0.7s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 /* Frost map tooltips */

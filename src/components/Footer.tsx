@@ -27,7 +27,7 @@ export default function Footer() {
             <p className="text-sm text-white/70 max-w-xs">
               Free UK planting calendar by postcode. Know exactly what to sow, right now, where you are.
             </p>
-            <div className="text-xs text-white/60 space-y-1">
+            <div className="text-xs text-white/70 space-y-1">
               <p>Data sources:</p>
               <ul className="space-y-0.5 ml-2">
                 <li><a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline decoration-white/20">Met Office</a> — frost date calibration</li>
@@ -39,22 +39,23 @@ export default function Footer() {
             </div>
           </div>
           <div className="space-y-3 text-sm">
-            <nav aria-label="Footer" className="flex flex-col gap-2">
-              <a href="/" className="text-white/70 hover:text-white transition-colors">Home</a>
-              <a href="/#explore-crops" className="text-white/70 hover:text-white transition-colors">Explore crops</a>
-              <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
-              <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Find allotments</a>
-              <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
-              <a href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</a>
-              <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
-              <a href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</a>
+            <nav aria-label="Footer" className="flex flex-col gap-1">
+              <a href="/" className="text-white/80 hover:text-white transition-colors py-1.5">Home</a>
+              <a href="/#explore-crops" className="text-white/80 hover:text-white transition-colors py-1.5">Explore crops</a>
+              <a href="/calendar" className="text-white/80 hover:text-white transition-colors py-1.5">Sowing calendar</a>
+              <a href="/allotments" className="text-white/80 hover:text-white transition-colors py-1.5">Find allotments</a>
+              <a href="/frost-map" className="text-white/80 hover:text-white transition-colors py-1.5">Frost map</a>
+              <a href="/print" className="text-white/80 hover:text-white transition-colors py-1.5">Print chart</a>
+              <a href="/#common-questions" className="text-white/80 hover:text-white transition-colors py-1.5">FAQ</a>
+              <a href="/about" className="text-white/80 hover:text-white transition-colors py-1.5">About</a>
+              <a href="/privacy" className="text-white/80 hover:text-white transition-colors py-1.5">Privacy</a>
             </nav>
             <div className="hidden sm:block opacity-30 mt-4" aria-hidden="true">
               <LeafSprig className="w-16 h-20" />
             </div>
           </div>
         </div>
-        <p className="text-xs text-white/60 mt-6 pt-4 border-t border-white/10">
+        <p className="text-xs text-white/70 mt-6 pt-4 border-t border-white/10">
           Some links on this site are affiliate links. We may earn a small commission at no extra cost to you.
         </p>
       </div>

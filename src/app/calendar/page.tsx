@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
   },
+  alternates: {
+    canonical: "/calendar",
+  },
 };
 
 export default function CalendarPage() {

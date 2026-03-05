@@ -83,7 +83,7 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
           </span>
           <h2 className="text-2xl sm:text-3xl font-light text-earth tracking-tight">Explore crops</h2>
           <p className="text-earth-lighter text-sm mt-2 leading-relaxed">
-            Tap any crop for a personalised growing guide.
+            Select any crop for a personalised growing guide.
           </p>
         </div>
         <button

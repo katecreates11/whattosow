@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 
-interface EmailCaptureProps {
-  variant?: "full" | "compact";
+interface EmailCaptureContext {
+  district?: string;
+  frostDate?: string;
+  cropName?: string;
 }
 
-export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
+interface EmailCaptureProps {
+  variant?: "full" | "compact";
+  context?: EmailCaptureContext;
+}
+
+export default function EmailCapture({ variant = "full", context }: EmailCaptureProps) {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -69,6 +76,7 @@ export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               aria-label="Email address"
+              autoComplete="email"
               required
               className="flex-1 px-3 py-2 rounded-lg border border-earth/15 bg-white text-earth placeholder:text-earth-lighter text-sm focus:outline-none focus:ring-2 focus:ring-allotment focus:border-transparent"
             />
@@ -107,11 +115,16 @@ export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
   return (
     <div className="bg-allotment-bg rounded-xl p-5 sm:p-6">
       <h3 className="text-lg font-bold text-earth mb-1">
-        Get monthly sowing reminders for your area
+        {context?.cropName
+          ? `Get reminders about ${context.cropName.toLowerCase()}`
+          : context?.district
+            ? `Get monthly reminders for ${context.district}`
+            : "Get monthly sowing reminders for your area"}
       </h3>
       <p className="text-sm text-earth-light mb-4">
-        We&apos;ll send you what to sow each month, personalised to your frost
-        date. No spam, unsubscribe anytime.
+        {context?.frostDate
+          ? `We'll remind you when it's safe to plant out in ${context.district ?? "your area"} (around ${context.frostDate}). No spam, unsubscribe anytime.`
+          : "We\u2019ll send you what to sow each month, personalised to your frost date. No spam, unsubscribe anytime."}
       </p>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div className="flex gap-2">
@@ -121,6 +134,7 @@ export default function EmailCapture({ variant = "full" }: EmailCaptureProps) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             aria-label="Email address"
+            autoComplete="email"
             required
             className="flex-1 px-4 py-3 rounded-xl border border-earth/15 bg-white text-earth placeholder:text-earth-lighter focus:outline-none focus:ring-2 focus:ring-allotment focus:border-transparent text-base"
           />

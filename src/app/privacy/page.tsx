@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy — What To Sow",
   description:
     "How What To Sow handles your data. No cookies, no tracking pixels, no data sold.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

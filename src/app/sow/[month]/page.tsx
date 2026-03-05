@@ -46,6 +46,9 @@ export async function generateMetadata({
       type: "article",
       locale: "en_GB",
     },
+    alternates: {
+      canonical: `/sow/${month}`,
+    },
   };
 }
 

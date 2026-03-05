@@ -14,6 +14,8 @@ import {
   getCropIcon,
 } from "@/components/SVGIllustrations";
 import { getCropImagePath } from "@/lib/crop-images";
+import SeedSupplierLinks from "@/components/SeedSupplierLinks";
+import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 
 function CompanionSection({ crop }: { crop: Crop }) {
   if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
@@ -129,6 +131,9 @@ export async function generateMetadata({
       description: `Personalised planting times for ${crop.name.toLowerCase()} based on your UK postcode and local frost date.`,
       type: "article",
       locale: "en_GB",
+    },
+    alternates: {
+      canonical: `/crops/${slug}`,
     },
   };
 }
@@ -293,6 +298,9 @@ export default async function CropPage({
           <div className="lg:w-[58%]">
             <PersonalisedCropDates crop={crop} />
 
+            {/* Inline seed CTA — mobile-visible, high engagement position */}
+            <SeedSupplierLinks crop={crop} variant="inline" />
+
             {/* Growing needs */}
             <div className="border border-earth/6 p-6 sm:p-8 mb-10">
               <h2 className="font-semibold text-earth mb-3">
@@ -313,8 +321,15 @@ export default async function CropPage({
                 <div className="space-y-3">
                   {crop.varieties.map((v) => (
                     <div key={v.name} className="border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300">
-                      <span className="font-medium text-earth">{v.name}</span>
-                      <p className="text-sm text-earth-lighter mt-1 leading-relaxed">{v.note}</p>
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <span className="font-medium text-earth">{v.name}</span>
+                          <p className="text-sm text-earth-lighter mt-1 leading-relaxed">{v.note}</p>
+                        </div>
+                        <div className="shrink-0 mt-0.5">
+                          <SeedSupplierLinks crop={crop} variant="compact" />
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -322,45 +337,18 @@ export default async function CropPage({
             )}
 
             <CompanionSection crop={crop} />
+
+            {/* Contextual email capture */}
+            <div className="mb-10">
+              <ContextualEmailCapture cropName={crop.name} />
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:w-[42%]">
             <div className="lg:sticky lg:top-8 space-y-8">
-              {/* Seeds */}
-              {crop.seedSuppliers && crop.seedSuppliers.length > 0 && (
-                <div className="border border-earth/6 p-6 sm:p-8">
-                  <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
-                    Seeds
-                  </span>
-                  <h2 className="font-semibold text-earth mb-4">
-                    Where to buy {crop.name.toLowerCase()} seeds
-                  </h2>
-                  <div className="flex flex-wrap gap-3">
-                    {crop.seedSuppliers.map((supplier) => (
-                      <a
-                        key={supplier.name}
-                        href={supplier.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-umami-event="affiliate-click"
-                        data-umami-event-supplier={supplier.name}
-                        className="group inline-flex items-center gap-1.5 px-4 py-2.5 border border-earth/8 text-sm font-medium text-earth hover:border-allotment hover:text-allotment transition-colors duration-300"
-                      >
-                        {supplier.name}
-                        <svg className="w-3.5 h-3.5 opacity-30 group-hover:opacity-60 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                          <polyline points="15,3 21,3 21,9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                      </a>
-                    ))}
-                  </div>
-                  <p className="text-xs text-earth-lighter mt-4">
-                    Links may be affiliate links. We may earn a small commission at no extra cost to you.
-                  </p>
-                </div>
-              )}
+              {/* Seeds — sidebar variant (desktop) */}
+              <SeedSupplierLinks crop={crop} variant="sidebar" />
 
               {/* Personalise CTA */}
               <div id="get-dates" className="bg-allotment-dark p-6 sm:p-8 scroll-mt-20">

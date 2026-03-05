@@ -96,7 +96,7 @@ export default function StickyPostcodeCTA() {
           </a>
           <button
             onClick={handleDismiss}
-            className="text-white/40 hover:text-white/70 transition-colors p-1"
+            className="text-white/40 hover:text-white/70 transition-colors p-3 -mr-2"
             aria-label="Dismiss"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

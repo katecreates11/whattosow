@@ -185,16 +185,16 @@ export default function Home() {
 
         {/* Features — consistent ghost cards */}
         <section className="py-14 sm:py-20" aria-label="Features">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
+          <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
             How it works
-          </span>
+          </h2>
 
           <div className="grid grid-cols-12 gap-4 sm:gap-5">
             {/* Large card — 8 columns */}
             <ScrollReveal className="col-span-12 lg:col-span-8">
               <div className="border border-earth/6 bg-leaf-bg/30 p-8 sm:p-10 lg:p-12 h-full hover:border-earth/15 transition-colors duration-300">
                 <MapPinPlantIcon className="w-10 h-10 text-allotment/60 mb-6" />
-                <h2 className="font-semibold text-earth text-xl mb-3">Localised to you</h2>
+                <h3 className="font-semibold text-earth text-xl mb-3">Localised to you</h3>
                 <p className="text-earth-light leading-relaxed max-w-lg">
                   Your frost date is calculated from your postcode — not a national
                   average. A grower in Cornwall and a grower in Edinburgh get
@@ -208,7 +208,7 @@ export default function Home() {
               <ScrollReveal delay={100}>
                 <div className="border border-earth/6 p-6 sm:p-8 hover:border-earth/15 transition-colors duration-300">
                   <CalendarSeedlingIcon className="w-8 h-8 text-amber/60 mb-4" />
-                  <h2 className="font-semibold text-earth mb-2">Updated weekly</h2>
+                  <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
                   <p className="text-sm text-earth-light leading-relaxed">
                     Sowing windows open and close every week. Miss one and you
                     wait a whole year. Check back each Monday.
@@ -219,7 +219,7 @@ export default function Home() {
               <ScrollReveal delay={200}>
                 <div className="border border-earth/6 p-6 sm:p-8 hover:border-earth/15 transition-colors duration-300">
                   <SnowflakeShieldIcon className="w-8 h-8 text-frost/60 mb-4" />
-                  <h2 className="font-semibold text-earth mb-2">Live frost alerts</h2>
+                  <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
                   <p className="text-sm text-earth-light leading-relaxed">
                     Real-time frost risk for the next 3 nights, so you can cover
                     your seedlings before it&apos;s too late.
@@ -232,9 +232,9 @@ export default function Home() {
 
         {/* Sky tonight — moon phase + daylight */}
         <section className="pb-14 sm:pb-20" aria-label="Today at the allotment">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
+          <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
             Today at the allotment
-          </span>
+          </h2>
           <SkyTonight />
         </section>
 
@@ -252,13 +252,13 @@ export default function Home() {
           <ScrollReveal>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div>
-                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/60 mb-4 block">
+                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/70 mb-4 block">
                   Sowing calendar
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-tight">
                   Plan your whole season
                 </h2>
-                <p className="text-white/50 mt-3 leading-relaxed">
+                <p className="text-white/70 mt-3 leading-relaxed">
                   40 crops across 12 months — at a glance. Never miss a sowing window.
                 </p>
               </div>

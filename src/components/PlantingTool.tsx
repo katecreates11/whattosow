@@ -230,7 +230,7 @@ function ShareButton({ frostData }: { frostData: FrostData }) {
   return (
     <button
       onClick={handleShare}
-      className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-white transition-colors"
+      className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-white transition-colors min-w-[44px] min-h-[44px] justify-center"
     >
       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="18" cy="5" r="3" />
@@ -801,7 +801,12 @@ export default function PlantingTool() {
           )}
 
           {/* Email signup — positioned at peak motivation, right after sowing recommendations */}
-          <EmailCapture />
+          <EmailCapture
+            context={frostData ? {
+              district: frostData.location.adminDistrict,
+              frostDate: formatDate(frostData.lastFrostDate),
+            } : undefined}
+          />
 
           {/* Coming Soon */}
           {cropActions.comingSoon.length > 0 && (

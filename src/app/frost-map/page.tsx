@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import FrostZoneMapLoader from "@/components/FrostZoneMapLoader";
+import FrostMapIntro from "@/components/FrostMapIntro";
+import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -29,14 +31,17 @@ export const metadata: Metadata = {
 export default function FrostMapPage() {
   return (
     <>
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
-        <div className="mb-8">
-          <a
-            href="/"
-            className="inline-flex items-center gap-1 text-sm text-allotment hover:text-allotment-dark mb-4"
-          >
-            &larr; Back to What To Sow
-          </a>
+      <FrostMapIntro />
+
+      <main id="frost-map" className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <a
+          href="/"
+          className="inline-flex items-center gap-1 text-sm text-allotment hover:text-allotment-dark mb-4"
+        >
+          &larr; Back to What To Sow
+        </a>
+
+        <ScrollReveal className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-earth mb-3">
             UK frost date map
           </h1>
@@ -45,7 +50,7 @@ export default function FrostMapPage() {
             region for a detailed breakdown. Toggle between spring frost, autumn
             frost, and growing season views.
           </p>
-        </div>
+        </ScrollReveal>
 
         <FrostZoneMapLoader />
 
