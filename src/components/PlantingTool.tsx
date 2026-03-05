@@ -76,11 +76,11 @@ function categoryColor(cat: Crop["category"]): string {
 function categoryBorder(cat: Crop["category"]): string {
   switch (cat) {
     case "hardy":
-      return "border-l-[3px] border-leaf bg-leaf-bg/40";
+      return "border-l-[3px] border-l-leaf";
     case "half-hardy":
-      return "border-l-[3px] border-amber bg-amber-bg";
+      return "border-l-[3px] border-l-amber";
     case "tender":
-      return "border-l-[3px] border-tomato bg-tomato-bg";
+      return "border-l-[3px] border-l-tomato";
   }
 }
 
@@ -91,7 +91,7 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
 
   return (
     <div
-      className={`w-full text-left rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 ${categoryBorder(crop.category)}`}
+      className={`w-full text-left p-4 border border-earth/6 hover:border-earth/15 transition-colors duration-200 ${categoryBorder(crop.category)}`}
     >
       <button
         onClick={() => setExpanded(!expanded)}
@@ -105,7 +105,7 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
               {Icon && <Icon className="w-5 h-5 shrink-0" />}
               <h4 className="font-semibold text-earth">{crop.name}</h4>
               <span
-                className={`text-xs font-medium px-2 py-0.5 rounded-full ${categoryColor(crop.category)}`}
+                className={`text-xs font-medium px-1.5 py-0.5 ${categoryColor(crop.category)}`}
               >
                 {categoryLabel(crop.category)}
               </span>
