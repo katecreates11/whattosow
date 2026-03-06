@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 :root {
   --color-cream: #F5EFE0;
@@ -17,11 +18,21 @@
   --color-frost-light: #D4E5EF;
   --color-tomato: #C9543E;
   --color-tomato-light: #F2DDD9;
+  --color-rust: #B85C38;
+  --color-rust-light: #D4A088;
 
   --color-allotment-bg: #E8F0EB;
   --color-amber-bg: #FDF6EC;
   --color-frost-bg: #EDF4F8;
   --color-tomato-bg: #FDF0EE;
+
+  /* Ghibli-inspired section backgrounds */
+  --color-blush: #EEDBD6;
+  --color-sage: #D6E0CE;
+  --color-sky: #D4E3EC;
+  --color-ochre: #F0E1C8;
+  --color-lavender: #DDD6E8;
+  --color-moss: #4A6B52;
 
   --background: var(--color-cream);
   --foreground: var(--color-earth);
@@ -46,12 +57,20 @@
   --color-frost-light: #D4E5EF;
   --color-tomato: #C9543E;
   --color-tomato-light: #F2DDD9;
+  --color-rust: #B85C38;
+  --color-rust-light: #D4A088;
   --color-allotment-bg: #E8F0EB;
   --color-amber-bg: #FDF6EC;
   --color-frost-bg: #EDF4F8;
   --color-tomato-bg: #FDF0EE;
-  --font-sans: var(--font-dm-sans);
-  --font-serif: var(--font-dm-serif);
+  --color-blush: #EEDBD6;
+  --color-sage: #D6E0CE;
+  --color-sky: #D4E3EC;
+  --color-ochre: #F0E1C8;
+  --color-lavender: #DDD6E8;
+  --color-moss: #4A6B52;
+  --font-sans: var(--font-instrument);
+  --font-serif: var(--font-newsreader);
 }
 
 body {
@@ -59,7 +78,7 @@ body {
   color: var(--foreground);
 }
 
-/* Subtle grain texture — pre-rendered PNG tile (replaces SVG feTurbulence for perf) */
+/* Subtle grain texture */
 body::before {
   content: "";
   position: fixed;
@@ -70,6 +89,96 @@ body::before {
   background-image: url("/images/grain.png");
   background-repeat: repeat;
   background-size: 256px 256px;
+}
+
+/* Mesh gradient backgrounds — layered radial gradients for organic depth */
+.mesh-garden {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(168, 212, 154, 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(74, 107, 82, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(123, 179, 105, 0.2) 0%, transparent 70%),
+    #2D5F3E;
+}
+
+.mesh-sunset {
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 30%, rgba(238, 219, 214, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 85% 70%, rgba(240, 225, 200, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 90%, rgba(184, 92, 56, 0.15) 0%, transparent 60%),
+    #3B2F28;
+}
+
+.mesh-morning {
+  background:
+    radial-gradient(ellipse 80% 50% at 5% 50%, rgba(212, 227, 236, 0.7) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(221, 214, 232, 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 60% 90%, rgba(214, 224, 206, 0.4) 0%, transparent 50%),
+    #2A3D4E;
+}
+
+.mesh-deep {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 20%, rgba(61, 122, 82, 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(184, 92, 56, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(74, 107, 82, 0.3) 0%, transparent 60%),
+    #1E4A2D;
+}
+
+.mesh-sage {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 30%, rgba(237, 245, 234, 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 70% at 90% 70%, rgba(240, 225, 200, 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 40% 80%, rgba(212, 227, 236, 0.3) 0%, transparent 50%),
+    #D6E0CE;
+}
+
+.mesh-ochre {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(238, 219, 214, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 85% 80%, rgba(214, 224, 206, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(240, 223, 196, 0.3) 0%, transparent 60%),
+    #F0E1C8;
+}
+
+/* Time-of-day mesh gradients for frost map */
+.mesh-dawn {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 80%, rgba(240, 225, 200, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(238, 219, 214, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 50% 50%, rgba(221, 214, 232, 0.3) 0%, transparent 60%),
+    #3B2F28;
+}
+
+.mesh-midday {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(212, 227, 236, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 70% 60%, rgba(214, 224, 206, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 40% 90%, rgba(168, 212, 154, 0.3) 0%, transparent 50%),
+    #2D5F3E;
+}
+
+.mesh-afternoon {
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 30%, rgba(240, 225, 200, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 20% 70%, rgba(214, 224, 206, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212, 163, 58, 0.15) 0%, transparent 60%),
+    #2D5F3E;
+}
+
+.mesh-dusk {
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 80%, rgba(184, 92, 56, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(221, 214, 232, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 50% 50%, rgba(240, 225, 200, 0.2) 0%, transparent 60%),
+    #3B2F28;
+}
+
+.mesh-night {
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 20%, rgba(42, 61, 78, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(221, 214, 232, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(123, 167, 194, 0.1) 0%, transparent 60%),
+    #1a2a1e;
 }
 
 /* Scroll reveal animations */
@@ -248,5 +357,22 @@ button[type="submit"]:active:not(:disabled) {
 
   .print-page tr {
     page-break-inside: avoid;
+  }
+
+  /* Harvest planner print styles */
+  .harvest-card {
+    break-inside: avoid;
+    border: 1px solid #ddd !important;
+    margin-bottom: 8pt;
+    padding: 8pt !important;
+  }
+
+  .harvest-card h3 {
+    font-size: 11pt;
+  }
+
+  .harvest-card .text-xs,
+  .harvest-card .text-sm {
+    font-size: 9pt;
   }
 }
