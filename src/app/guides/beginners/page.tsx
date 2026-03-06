@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider, FullBleedSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -242,26 +242,29 @@ export default function BeginnersGuide() {
             ]} />
           </section>
 
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <FullBleedSection color="allotment">
+            <h2 className="text-xl font-semibold text-white mb-3">
               Don&apos;t spend a fortune
             </h2>
-            <p>
+            <p className="text-white/80">
               You don&apos;t need a greenhouse, a raised bed system, or an
               irrigation setup. You need a fork, a trowel, some seeds, and
               water. Everything else is nice to have, not need to have.
             </p>
-            <p className="mt-3">
+            <p className="mt-3 text-white/80">
               Seeds are cheap. A packet of lettuce seeds costs about &pound;2
               and contains enough for an entire season. A bag of seed potatoes
               is under &pound;4.
             </p>
-            <TipBox title="Starter kit (under &pound;20)">
-              Fork, trowel, watering can, 5 packets of seeds, labels, string.
-              That&apos;s genuinely all you need for your first season. Everything
-              else can wait.
-            </TipBox>
-          </section>
+            <div className="mt-6 bg-white/10 border-l-4 border-leaf-light p-5">
+              <span className="text-sm font-bold text-leaf-light block mb-1.5">Starter kit (under &pound;20)</span>
+              <p className="text-sm text-white/80">
+                Fork, trowel, watering can, 5 packets of seeds, labels, string.
+                That&apos;s genuinely all you need for your first season. Everything
+                else can wait.
+              </p>
+            </div>
+          </FullBleedSection>
 
           {/* FAQ — visible version */}
           <section className="border-t border-earth/6 pt-10">

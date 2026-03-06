@@ -1,9 +1,9 @@
 /**
  * Visual components for guide pages.
- * Editorial-style callouts, diagrams, and decorative elements.
+ * Bold, editorial-style — dark heroes, full-bleed quotes, solid callouts.
  */
 
-// ─── Hero banner for guide pages ────────────────────────────────────────────
+// ─── Hero banner — dark, dramatic, full-bleed ───────────────────────────────
 export function GuideHero({
   eyebrow,
   title,
@@ -17,43 +17,45 @@ export function GuideHero({
   icon?: React.ReactNode;
   color?: "allotment" | "amber" | "frost" | "tomato";
 }) {
-  const bgMap = {
-    allotment: "bg-allotment-bg/40",
-    amber: "bg-amber-bg/40",
-    frost: "bg-frost-bg/40",
-    tomato: "bg-tomato-bg/40",
-  };
+  // Dark backgrounds for real impact
+  const heroBg = color === "allotment" ? "bg-allotment" : "bg-earth";
   const accentMap = {
-    allotment: "text-allotment",
+    allotment: "text-leaf-light",
     amber: "text-amber",
     frost: "text-frost",
     tomato: "text-tomato",
   };
 
   return (
-    <div className={`${bgMap[color]} -mx-4 sm:-mx-6 px-4 sm:px-6 py-10 sm:py-14 mb-10 relative overflow-hidden`}>
-      {/* Decorative dots pattern */}
-      <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true">
-        <svg width="100%" height="100%">
-          <pattern id="guide-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1" fill="currentColor" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#guide-dots)" />
-        </svg>
-      </div>
+    <div className={`${heroBg} -mx-4 sm:-mx-6 px-6 sm:px-8 py-14 sm:py-20 mb-12 relative overflow-hidden`}>
+      {/* Large decorative botanical silhouette */}
+      <svg
+        className="absolute -right-6 -bottom-6 w-52 h-52 sm:w-72 sm:h-72 text-white opacity-[0.06]"
+        viewBox="0 0 200 200"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        aria-hidden="true"
+      >
+        <path d="M100 190 C100 130, 85 90, 65 50 C55 30, 70 10, 100 25 C130 10, 145 30, 135 50 C115 90, 100 130, 100 190Z" />
+        <path d="M100 150 C115 130, 140 115, 160 110" />
+        <path d="M100 150 C85 130, 60 115, 40 110" />
+        <path d="M100 110 C112 98, 130 90, 150 87" />
+        <path d="M100 110 C88 98, 70 90, 50 87" />
+      </svg>
       <div className="relative">
         {icon && (
-          <div className={`${accentMap[color]} opacity-60 mb-4`}>
+          <div className={`${accentMap[color]} mb-5 opacity-80`}>
             {icon}
           </div>
         )}
-        <span className={`text-[10px] font-semibold tracking-[0.2em] uppercase ${accentMap[color]} opacity-70 mb-3 block`}>
+        <span className={`text-[10px] font-semibold tracking-[0.25em] uppercase ${accentMap[color]} opacity-70 mb-4 block`}>
           {eyebrow}
         </span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-earth tracking-tight leading-[0.95] mb-4">
+        <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-serif text-white tracking-tight leading-[0.95] mb-5">
           {title}
         </h1>
-        <p className="text-earth-light leading-relaxed max-w-lg text-base sm:text-lg">
+        <p className="text-white/65 leading-relaxed max-w-lg text-base sm:text-lg">
           {subtitle}
         </p>
       </div>
@@ -61,14 +63,17 @@ export function GuideHero({
   );
 }
 
-// ─── Pull quote — breaks text density ───────────────────────────────────────
+// ─── Pull quote — full-bleed dark strip ─────────────────────────────────────
 export function PullQuote({ children }: { children: React.ReactNode }) {
   return (
-    <aside className="relative py-8 sm:py-10 my-8 border-y border-earth/8">
-      <div className="absolute -top-4 left-0 text-6xl text-allotment/10 font-serif leading-none select-none" aria-hidden="true">
+    <aside className="relative -mx-4 sm:-mx-6 px-6 sm:px-8 py-10 sm:py-14 my-10 bg-earth overflow-hidden">
+      <div
+        className="absolute top-0 left-2 sm:left-4 text-[8rem] sm:text-[10rem] leading-none text-white/[0.06] font-serif select-none"
+        aria-hidden="true"
+      >
         &ldquo;
       </div>
-      <p className="font-serif text-xl sm:text-2xl text-earth leading-[1.3] pl-2 max-w-[28rem]">
+      <p className="relative font-serif text-xl sm:text-2xl text-white/90 leading-[1.35] max-w-[28rem]">
         {children}
       </p>
     </aside>
@@ -78,63 +83,74 @@ export function PullQuote({ children }: { children: React.ReactNode }) {
 // ─── Section divider with optional label ────────────────────────────────────
 export function SectionDivider({ label }: { label?: string }) {
   return (
-    <div className="flex items-center gap-4 my-10 sm:my-14">
-      <div className="flex-1 h-px bg-earth/8" />
+    <div className="flex items-center gap-4 my-12 sm:my-16" role="separator">
+      <div className="flex-1 h-px bg-earth/12" />
       {label && (
-        <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-earth-lighter shrink-0">
+        <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-earth/30 shrink-0">
           {label}
         </span>
       )}
-      <div className="flex-1 h-px bg-earth/8" />
-      <svg className="w-4 h-4 text-allotment/30 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <div className="flex-1 h-px bg-earth/12" />
+      <svg className="w-4 h-4 text-allotment/25 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
         <path d="M7 20h10M10 20c5.5-2.5.8-6.4 3-10M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8zM14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
       </svg>
     </div>
   );
 }
 
-// ─── Tip callout — prominent card with icon ─────────────────────────────────
+// ─── Tip callout — solid green, bold presence ───────────────────────────────
 export function TipBox({ children, title = "Top tip" }: { children: React.ReactNode; title?: string }) {
   return (
-    <div className="relative bg-allotment-bg/40 p-5 sm:p-6 my-8 overflow-hidden">
-      {/* Decorative corner accent */}
-      <div className="absolute top-0 left-0 w-16 h-16 overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full bg-allotment/8" />
-      </div>
-      <div className="relative flex items-start gap-4">
-        <div className="w-9 h-9 rounded-full bg-allotment/15 flex items-center justify-center shrink-0 mt-0.5">
-          <svg className="w-4 h-4 text-allotment" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <div className="bg-allotment-bg border-l-4 border-allotment p-5 sm:p-6 my-8">
+      <div className="flex items-start gap-4">
+        <div className="w-9 h-9 rounded-full bg-allotment text-white flex items-center justify-center shrink-0 mt-0.5">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M7 20h10" />
             <path d="M10 20c5.5-2.5.8-6.4 3-10" />
             <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
           </svg>
         </div>
         <div className="min-w-0">
-          <span className="text-sm font-semibold text-allotment-dark block mb-1.5">{title}</span>
-          <div className="text-sm text-earth-light leading-relaxed">{children}</div>
+          <span className="text-sm font-bold text-allotment-dark block mb-1.5">{title}</span>
+          <div className="text-sm text-earth leading-relaxed">{children}</div>
         </div>
       </div>
     </div>
   );
 }
 
-// ─── Warning callout — amber accent ─────────────────────────────────────────
+// ─── Warning callout — solid amber, bold presence ───────────────────────────
 export function WarningBox({ children, title = "Watch out" }: { children: React.ReactNode; title?: string }) {
   return (
-    <div className="relative bg-amber-bg/40 border-l-4 border-amber p-5 sm:p-6 my-8">
+    <div className="bg-amber-bg border-l-4 border-amber p-5 sm:p-6 my-8">
       <div className="flex items-start gap-4">
-        <div className="w-9 h-9 rounded-full bg-amber/15 flex items-center justify-center shrink-0 mt-0.5">
-          <svg className="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <div className="w-9 h-9 rounded-full bg-amber text-white flex items-center justify-center shrink-0 mt-0.5">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
         </div>
         <div className="min-w-0">
-          <span className="text-sm font-semibold text-earth block mb-1.5">{title}</span>
-          <div className="text-sm text-earth-light leading-relaxed">{children}</div>
+          <span className="text-sm font-bold text-earth block mb-1.5">{title}</span>
+          <div className="text-sm text-earth leading-relaxed">{children}</div>
         </div>
       </div>
+    </div>
+  );
+}
+
+// ─── Full-bleed dark section — breaks the cream monotony ────────────────────
+export function FullBleedSection({
+  children,
+  color = "earth",
+}: {
+  children: React.ReactNode;
+  color?: "earth" | "allotment";
+}) {
+  return (
+    <div className={`${color === "allotment" ? "bg-allotment" : "bg-earth"} -mx-4 sm:-mx-6 px-6 sm:px-8 py-10 sm:py-14 my-10`}>
+      {children}
     </div>
   );
 }
@@ -163,7 +179,7 @@ export function StepList({ steps }: { steps: { title: string; description: strin
   );
 }
 
-// ─── Process diagram — horizontal flow with visual weight ───────────────────
+// ─── Process diagram — horizontal flow ──────────────────────────────────────
 export function ProcessDiagram({ steps }: { steps: { label: string; detail: string }[] }) {
   return (
     <div className="my-8 -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto">
@@ -171,17 +187,14 @@ export function ProcessDiagram({ steps }: { steps: { label: string; detail: stri
         {steps.map((step, i) => (
           <div key={i} className="flex items-stretch">
             <div className="text-center w-32 sm:w-36 flex flex-col items-center">
-              {/* Circle with number */}
               <div className="w-14 h-14 rounded-full bg-allotment text-white flex items-center justify-center text-lg font-bold shadow-md shadow-allotment/20 mb-3">
                 {i + 1}
               </div>
-              {/* Label card */}
-              <div className="bg-white/60 border border-earth/8 px-3 py-2.5 w-full">
+              <div className="bg-allotment-bg border border-allotment/15 px-3 py-2.5 w-full">
                 <span className="text-xs font-bold text-earth block tracking-wide">{step.label}</span>
                 <span className="text-[10px] text-earth-lighter block mt-1 leading-snug">{step.detail}</span>
               </div>
             </div>
-            {/* Arrow connector */}
             {i < steps.length - 1 && (
               <div className="flex items-start pt-5 px-2">
                 <svg className="w-8 h-5 text-allotment/40" viewBox="0 0 32 20" fill="none" aria-hidden="true">
@@ -208,7 +221,7 @@ export function ComparisonCard({
   color?: string;
 }) {
   const borderColor = color === "allotment" ? "border-allotment/20" : color === "amber" ? "border-amber/20" : "border-earth/10";
-  const bgColor = color === "allotment" ? "bg-allotment-bg/20" : color === "amber" ? "bg-amber-bg/20" : "bg-white/40";
+  const bgColor = color === "allotment" ? "bg-allotment-bg" : color === "amber" ? "bg-amber-bg" : "bg-white/40";
   const dotColor = color === "allotment" ? "bg-allotment" : color === "amber" ? "bg-amber" : "bg-earth/40";
 
   return (
@@ -257,15 +270,15 @@ export function SeverityBadge({ level }: { level: "low" | "medium" | "high" }) {
   );
 }
 
-// ─── Numbered fact/stat — big number with label ─────────────────────────────
+// ─── Big number stat ────────────────────────────────────────────────────────
 export function BigNumber({ number, label, suffix }: { number: string; label: string; suffix?: string }) {
   return (
     <div className="text-center py-6">
-      <div className="text-5xl sm:text-6xl font-serif text-allotment/80 leading-none">
+      <div className="text-5xl sm:text-7xl font-serif text-allotment leading-none">
         {number}
-        {suffix && <span className="text-2xl text-allotment/50">{suffix}</span>}
+        {suffix && <span className="text-2xl sm:text-3xl text-allotment/50">{suffix}</span>}
       </div>
-      <div className="text-xs text-earth-lighter mt-2 tracking-wide uppercase font-semibold">{label}</div>
+      <div className="text-[10px] text-earth-lighter mt-2.5 tracking-[0.2em] uppercase font-bold">{label}</div>
     </div>
   );
 }

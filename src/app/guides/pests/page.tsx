@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -473,53 +473,51 @@ export default function PestsGuide() {
             </div>
           </section>
 
-          <SectionDivider label="The bigger picture" />
+          <FullBleedSection color="earth">
+            <section>
+              <h2 className="text-xl font-semibold text-white mb-3">
+                Organic vs chemical
+              </h2>
+              <div className="space-y-3 text-white/80">
+                <p>
+                  This guide is deliberately biased toward organic methods. Not
+                  because chemicals never work &mdash; they often do, in the short
+                  term &mdash; but because on an allotment, you&apos;re building a
+                  long-term ecosystem. Chemicals that kill aphids also kill
+                  ladybirds. Slug pellets with metaldehyde poison hedgehogs and
+                  birds. You solve one problem and create three more.
+                </p>
+                <p>
+                  Organic pest control is slower. It requires patience. But after
+                  two or three years of encouraging natural predators, improving
+                  your soil, and rotating crops, you&apos;ll find the balance tips
+                  in your favour. The plot does more of the work for you.
+                </p>
+              </div>
+            </section>
 
-          {/* Organic vs chemical */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
-              Organic vs chemical
-            </h2>
-            <div className="space-y-3">
-              <p>
-                This guide is deliberately biased toward organic methods. Not
-                because chemicals never work &mdash; they often do, in the short
-                term &mdash; but because on an allotment, you&apos;re building a
-                long-term ecosystem. Chemicals that kill aphids also kill
-                ladybirds. Slug pellets with metaldehyde poison hedgehogs and
-                birds. You solve one problem and create three more.
-              </p>
-              <p>
-                Organic pest control is slower. It requires patience. But after
-                two or three years of encouraging natural predators, improving
-                your soil, and rotating crops, you&apos;ll find the balance tips
-                in your favour. The plot does more of the work for you.
-              </p>
-            </div>
-          </section>
-
-          {/* Accept some losses */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
-              When to accept the losses
-            </h2>
-            <div className="space-y-3">
-              <p>
-                Some damage is normal. A few holes in your cabbage leaves, the
-                odd slug-nibbled lettuce, a courgette with mildew spots &mdash;
-                this is not failure. This is what real food looks like.
-                Supermarkets reject anything less than cosmetically perfect, but
-                you don&apos;t have to.
-              </p>
-              <p>
-                The goal is a healthy, productive plot &mdash; not a sterile
-                one. If you&apos;re harvesting armfuls of food and only losing a
-                small percentage, you&apos;re winning. Sow a bit extra, share
-                the surplus with the wildlife, and save yourself the stress of
-                trying to control every last creature on your patch.
-              </p>
-            </div>
-          </section>
+            <section className="mt-10 pt-8 border-t border-white/10">
+              <h2 className="text-xl font-semibold text-white mb-3">
+                When to accept the losses
+              </h2>
+              <div className="space-y-3 text-white/80">
+                <p>
+                  Some damage is normal. A few holes in your cabbage leaves, the
+                  odd slug-nibbled lettuce, a courgette with mildew spots &mdash;
+                  this is not failure. This is what real food looks like.
+                  Supermarkets reject anything less than cosmetically perfect, but
+                  you don&apos;t have to.
+                </p>
+                <p>
+                  The goal is a healthy, productive plot &mdash; not a sterile
+                  one. If you&apos;re harvesting armfuls of food and only losing a
+                  small percentage, you&apos;re winning. Sow a bit extra, share
+                  the surplus with the wildlife, and save yourself the stress of
+                  trying to control every last creature on your patch.
+                </p>
+              </div>
+            </section>
+          </FullBleedSection>
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">

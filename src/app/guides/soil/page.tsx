@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon, FullBleedSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -362,12 +362,11 @@ export default function SoilGuide() {
             </div>
           </section>
 
-          {/* No-dig */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <FullBleedSection color="earth">
+            <h2 className="text-xl font-semibold text-white mb-3">
               The no-dig approach
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 text-white/80">
               <p>
                 No-dig is exactly what it sounds like. Instead of turning the
                 soil each year, you spread a thick layer of compost on top
@@ -383,13 +382,16 @@ export default function SoilGuide() {
                 far less effort.
               </p>
             </div>
-            <TipBox title="Starting no-dig on a new plot">
-              Lay cardboard over weeds, cover with 10&ndash;15cm of compost,
-              and plant straight into it. The cardboard smothers weeds
-              underneath while worms break everything down. You can plant
-              into it the same day.
-            </TipBox>
-          </section>
+            <div className="mt-6 bg-white/10 border-l-4 border-leaf-light p-5">
+              <span className="text-sm font-bold text-leaf-light block mb-1.5">Starting no-dig on a new plot</span>
+              <p className="text-sm text-white/80">
+                Lay cardboard over weeds, cover with 10&ndash;15cm of compost,
+                and plant straight into it. The cardboard smothers weeds
+                underneath while worms break everything down. You can plant
+                into it the same day.
+              </p>
+            </div>
+          </FullBleedSection>
 
           {/* Raised beds */}
           <section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, WateringCanIcon } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, WateringCanIcon } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -288,12 +288,11 @@ export default function WateringGuide() {
 
           <SectionDivider label="Saving water" />
 
-          {/* Mulching */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <FullBleedSection color="allotment">
+            <h2 className="text-xl font-semibold text-white mb-3">
               Mulching: the single best thing you can do
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 text-white/80">
               <p>
                 If you take one thing from this guide, make it this: mulch
                 your beds. A 5cm layer of compost, straw, or grass clippings
@@ -305,12 +304,12 @@ export default function WateringGuide() {
                 evaporation. Mulched soil stays moist for days longer. It&apos;s
                 free if you use your own compost or grass clippings, and it
                 improves the{" "}
-                <a href="/guides/soil" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">soil</a>{" "}
+                <a href="/guides/soil" className="text-cream underline decoration-cream/30 hover:text-white">soil</a>{" "}
                 as it breaks down. Apply it after watering, once the soil is
                 already moist.
               </p>
             </div>
-          </section>
+          </FullBleedSection>
 
           {/* Water butts */}
           <section>
