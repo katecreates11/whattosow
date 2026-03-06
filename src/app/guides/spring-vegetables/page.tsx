@@ -115,7 +115,7 @@ export default function SpringVegetablesGuide() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Header backLink={{ href: "/", label: "\u2190 Home" }} />
+      <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
           Growing guide

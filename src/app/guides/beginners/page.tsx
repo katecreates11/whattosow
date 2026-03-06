@@ -95,7 +95,7 @@ export default function BeginnersGuide() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <Header backLink={{ href: "/", label: "\u2190 Home" }} />
+      <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
           Growing guide
@@ -323,25 +323,47 @@ export default function BeginnersGuide() {
                 </p>
               </a>
               <a
-                href="/guides/spring-vegetables"
+                href="/guides/seed-starting"
                 className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
               >
                 <span className="font-semibold text-earth">
-                  Spring vegetables guide &rarr;
+                  Starting from seed &rarr;
                 </span>
                 <p className="text-sm text-earth-light mt-1">
-                  Every crop you can sow this season.
+                  Compost, temperature, light &mdash; the full guide.
                 </p>
               </a>
               <a
-                href="/allotments"
+                href="/guides/soil"
                 className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
               >
                 <span className="font-semibold text-earth">
-                  Find allotments near you &rarr;
+                  Understanding your soil &rarr;
                 </span>
                 <p className="text-sm text-earth-light mt-1">
-                  Interactive map of UK allotment sites.
+                  Clay, sand, or loam &mdash; and how to improve it.
+                </p>
+              </a>
+              <a
+                href="/guides/companion-planting"
+                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+              >
+                <span className="font-semibold text-earth">
+                  Companion planting &rarr;
+                </span>
+                <p className="text-sm text-earth-light mt-1">
+                  What to plant together and what to keep apart.
+                </p>
+              </a>
+              <a
+                href="/guides/crop-rotation"
+                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+              >
+                <span className="font-semibold text-earth">
+                  Crop rotation &rarr;
+                </span>
+                <p className="text-sm text-earth-light mt-1">
+                  The 4-year system that prevents disease and builds soil.
                 </p>
               </a>
               <a

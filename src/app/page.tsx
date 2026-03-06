@@ -291,6 +291,34 @@ export default function Home() {
           </ScrollReveal>
         </FullWidthSection>
 
+        {/* Guides — editorial links */}
+        <section className="py-14 sm:py-20" aria-label="Growing guides">
+          <ScrollReveal>
+            <div className="flex items-baseline justify-between mb-6">
+              <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment">
+                Growing guides
+              </h2>
+              <a href="/guides" className="text-xs font-medium text-allotment hover:text-allotment-dark transition-colors">
+                View all &rarr;
+              </a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <a href="/guides/beginners" className="group border border-earth/6 p-5 hover:border-earth/15 transition-colors">
+                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
+                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Allotment for beginners &rarr;</span>
+              </a>
+              <a href="/guides/seed-starting" className="group border border-earth/6 p-5 hover:border-earth/15 transition-colors">
+                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
+                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Starting from seed &rarr;</span>
+              </a>
+              <a href="/guides/companion-planting" className="group border border-earth/6 p-5 hover:border-earth/15 transition-colors">
+                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Planning</span>
+                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Companion planting &rarr;</span>
+              </a>
+            </div>
+          </ScrollReveal>
+        </section>
+
         {/* Calendar CTA — full-width dark */}
         <FullWidthSection className="bg-allotment-dark" innerClassName="py-12 sm:py-16 lg:py-20">
           <ScrollReveal>

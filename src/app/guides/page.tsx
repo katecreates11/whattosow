@@ -33,10 +33,31 @@ const guides = [
     tag: "Getting started",
   },
   {
+    title: "Starting from seed",
+    description:
+      "Everything you need to know about sowing seeds indoors — compost, temperature, light, watering, and hardening off.",
+    href: "/guides/seed-starting",
+    tag: "Getting started",
+  },
+  {
+    title: "Understanding your soil",
+    description:
+      "Clay, sand, or loam? How to identify your soil type, test pH, and improve it for better crops.",
+    href: "/guides/soil",
+    tag: "Getting started",
+  },
+  {
     title: "Companion planting guide",
     description:
       "What grows well together and what to keep apart. A crop-by-crop chart for 40 UK vegetables.",
     href: "/guides/companion-planting",
+    tag: "Planning",
+  },
+  {
+    title: "Crop rotation",
+    description:
+      "The 4-year rotation system that prevents disease, builds soil, and improves your harvest year after year.",
+    href: "/guides/crop-rotation",
     tag: "Planning",
   },
   {
@@ -104,7 +125,9 @@ export default function GuidesIndex() {
         </div>
 
         <div className="mt-14 pt-10 border-t border-earth/6 text-center">
-          <p className="text-earth-light mb-3">More guides coming soon.</p>
+          <p className="text-earth-light mb-3">
+            Need personalised sowing dates? Enter your postcode on the homepage.
+          </p>
           <a
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
