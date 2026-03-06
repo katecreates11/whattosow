@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, ProcessDiagram } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, ProcessDiagram, GuideHero, PullQuote, SectionDivider, RotationIcon } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -164,18 +164,13 @@ export default function CropRotationGuide() {
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Crop rotation for allotments
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Crop rotation is one of the simplest things you can do to keep your
-          soil healthy and your yields up. The idea is straightforward: move
-          your vegetables around so the same family doesn&apos;t grow in the
-          same spot two years running. Here&apos;s how to do it.
-        </p>
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Crop rotation for allotments"
+          subtitle="Move your vegetables around so the same family doesn't grow in the same spot two years running. Here's the simple system."
+          icon={<RotationIcon className="w-10 h-10" />}
+          color="allotment"
+        />
 
         <div className="space-y-12 text-earth-light leading-relaxed">
           {/* Why rotate */}
@@ -231,6 +226,12 @@ export default function CropRotationGuide() {
               </ul>
             </div>
           </section>
+
+          <PullQuote>
+            Once clubroot gets in your soil, it can persist for 20 years. Rotation is your best defence.
+          </PullQuote>
+
+          <SectionDivider label="The system" />
 
           {/* The four groups */}
           <section>
@@ -371,6 +372,8 @@ export default function CropRotationGuide() {
               </ul>
             </div>
           </section>
+
+          <SectionDivider label="Common pitfalls" />
 
           {/* Common mistakes */}
           <section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, ProcessDiagram } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -98,17 +98,12 @@ export default function BeginnersGuide() {
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Allotment for beginners
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          You&apos;ve got the keys. The plot is a mess. Everyone on the site
-          seems to know what they&apos;re doing. Deep breath. Here&apos;s how
-          to start.
-        </p>
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Allotment for beginners"
+          subtitle="You've got the keys. The plot is a mess. Everyone on the site seems to know what they're doing. Deep breath. Here's how to start."
+          color="allotment"
+        />
 
         <div className="space-y-10 text-earth-light leading-relaxed">
           <section>
@@ -194,6 +189,12 @@ export default function BeginnersGuide() {
               </li>
             </ol>
           </section>
+
+          <PullQuote>
+            Start small. Get some food on the table. Expand next year when you know the soil, the sun, and the slugs.
+          </PullQuote>
+
+          <SectionDivider label="Planning" />
 
           <section>
             <h2 className="text-xl font-semibold text-earth mb-3">

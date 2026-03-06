@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -117,18 +117,13 @@ export default function SoilGuide() {
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Understanding your soil
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Everything you grow starts in the soil. Get to know what you&apos;re
-          working with and you&apos;ll waste less time, less money, and grow
-          better food. This guide covers how to identify your soil type, test
-          its pH, and improve it &mdash; no science degree required.
-        </p>
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Understanding your soil"
+          subtitle="Get to know what you're working with. Less wasted time, less money, better food."
+          icon={<SoilIcon className="w-10 h-10" />}
+          color="amber"
+        />
 
         <div className="space-y-12 text-earth-light leading-relaxed">
           {/* Why soil matters */}

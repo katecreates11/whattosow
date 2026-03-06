@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, ProcessDiagram } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, ProcessDiagram, GuideHero, PullQuote, SectionDivider, SeedIcon, BigNumber } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -115,19 +115,13 @@ export default function SeedStartingGuide() {
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          How to start seeds
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Growing from seed is the cheapest, most satisfying way to fill your
-          plot. You get access to hundreds of varieties you&apos;ll never find
-          as plug plants, and there&apos;s something genuinely brilliant about
-          eating food you grew from a tiny speck. Here&apos;s everything you
-          need to know to get it right.
-        </p>
+        <GuideHero
+          eyebrow="Growing guide"
+          title="How to start seeds"
+          subtitle="The cheapest, most satisfying way to fill your plot. Here's everything you need to know."
+          icon={<SeedIcon className="w-10 h-10" />}
+          color="allotment"
+        />
 
         <div className="space-y-12 text-earth-light leading-relaxed">
           {/* Why grow from seed */}
@@ -166,6 +160,14 @@ export default function SeedStartingGuide() {
               </ul>
             </div>
           </section>
+
+          <div className="grid grid-cols-3 gap-4 my-8">
+            <BigNumber number="10" suffix="x" label="cheaper than plug plants" />
+            <BigNumber number="100" suffix="s" label="more varieties to choose" />
+            <BigNumber number="1" label="packet fills a bed" />
+          </div>
+
+          <SectionDivider label="Getting started" />
 
           {/* What you need */}
           <section>

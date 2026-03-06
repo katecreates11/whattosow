@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -118,19 +118,13 @@ export default function PestsGuide() {
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Common pests &amp; diseases
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Every allotment has them. Slugs, aphids, blight &mdash; they come with
-          the territory. The good news is that most problems are manageable
-          without reaching for chemicals. This guide covers the pests and
-          diseases you&apos;re most likely to meet on a UK plot, and the organic
-          methods that actually work.
-        </p>
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Common pests & diseases"
+          subtitle="Every allotment has them. Slugs, aphids, blight — they come with the territory. The good news is that most problems are manageable without reaching for chemicals."
+          icon={<BugIcon className="w-10 h-10" />}
+          color="tomato"
+        />
 
         <div className="space-y-12 text-earth-light leading-relaxed">
           {/* Prevention first */}
@@ -176,6 +170,12 @@ export default function PestsGuide() {
               </ul>
             </div>
           </section>
+
+          <PullQuote>
+            Healthy plants on healthy soil shrug off problems that would flatten a stressed crop.
+          </PullQuote>
+
+          <SectionDivider label="The big hitters" />
 
           {/* The big hitters */}
           <section>
@@ -472,6 +472,8 @@ export default function PestsGuide() {
               </div>
             </div>
           </section>
+
+          <SectionDivider label="The bigger picture" />
 
           {/* Organic vs chemical */}
           <section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, WateringCanIcon } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -117,19 +117,13 @@ export default function WateringGuide() {
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Watering vegetables
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Watering sounds simple enough, but getting it wrong causes more
-          problems than most people realise. Blossom end rot on{" "}
-          <a href="/crops/tomatoes" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">tomatoes</a>,
-          bolting lettuce, split carrots &mdash; half the time the culprit
-          is inconsistent watering. Here&apos;s how to do it properly.
-        </p>
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Watering vegetables"
+          subtitle="Watering sounds simple enough, but getting it wrong causes more problems than most people realise. Blossom end rot, bolting lettuce, split carrots — half the time the culprit is inconsistent watering."
+          icon={<WateringCanIcon className="w-10 h-10" />}
+          color="frost"
+        />
 
         <div className="space-y-12 text-earth-light leading-relaxed">
           {/* Why it matters */}
@@ -154,6 +148,12 @@ export default function WateringGuide() {
               </p>
             </div>
           </section>
+
+          <PullQuote>
+            The goal isn&apos;t to water constantly. It&apos;s to water consistently.
+          </PullQuote>
+
+          <SectionDivider label="Timing & technique" />
 
           {/* When to water */}
           <section>
@@ -204,6 +204,8 @@ export default function WateringGuide() {
               </p>
             </div>
           </section>
+
+          <SectionDivider label="By crop" />
 
           {/* Crop needs */}
           <section>
@@ -283,6 +285,8 @@ export default function WateringGuide() {
               for more on raising strong seedlings.
             </WarningBox>
           </section>
+
+          <SectionDivider label="Saving water" />
 
           {/* Mulching */}
           <section>
