@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TipBox, WarningBox, ProcessDiagram } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -276,7 +277,7 @@ export default function CropRotationGuide() {
             <h2 className="text-xl font-semibold text-earth mb-3">
               How the 4-year cycle works
             </h2>
-            <p className="mb-6">
+            <p className="mb-4">
               The order matters. Legumes go first because they fix nitrogen in
               the soil. Brassicas follow because they&apos;re hungry for
               nitrogen. Roots come next as light feeders that benefit from the
@@ -284,6 +285,13 @@ export default function CropRotationGuide() {
               you&apos;d typically add compost or manure before this group to
               reset the bed.
             </p>
+
+            <ProcessDiagram steps={[
+              { label: "Legumes", detail: "Fix nitrogen in soil" },
+              { label: "Brassicas", detail: "Use that nitrogen" },
+              { label: "Roots", detail: "Light feeders" },
+              { label: "Alliums", detail: "Add compost, reset" },
+            ]} />
 
             {/* Rotation chart */}
             <div className="overflow-x-auto -mx-4 sm:mx-0">
@@ -473,17 +481,19 @@ export default function CropRotationGuide() {
             </div>
           </section>
 
-          {/* Tip callout */}
-          <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light">
-            <p className="font-semibold text-earth mb-2">Keep a simple record</p>
-            <p>
-              The biggest barrier to crop rotation is forgetting what you grew
-              where. Take a photo of each bed at the start of the season, or
-              sketch a quick plan on paper. It doesn&apos;t need to be
-              fancy &mdash; just enough to jog your memory in February when
-              you&apos;re planning the next year.
-            </p>
-          </div>
+          <TipBox title="Keep a simple record">
+            The biggest barrier to crop rotation is forgetting what you grew
+            where. Take a photo of each bed at the start of the season, or
+            sketch a quick plan on paper. It doesn&apos;t need to be
+            fancy &mdash; just enough to jog your memory in February when
+            you&apos;re planning the next year.
+          </TipBox>
+
+          <WarningBox title="The nightshade trap">
+            Tomatoes, potatoes, peppers, and aubergines are all in the same family.
+            Growing tomatoes where your potatoes were last year defeats the point of rotation.
+            Treat them as one group.
+          </WarningBox>
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">

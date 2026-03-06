@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TipBox, WarningBox, StepList, ProcessDiagram } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -124,6 +125,10 @@ export default function BeginnersGuide() {
               things well. Get some food on the table. Expand next year when
               you know the soil, the sun, and the slugs.
             </p>
+            <WarningBox title="The #1 mistake">
+              Clearing the whole plot, planting 20 different crops, and burning out by July.
+              Start with one bed and five crops. You can always expand next year.
+            </WarningBox>
           </section>
 
           <section>
@@ -216,31 +221,24 @@ export default function BeginnersGuide() {
             <h2 className="text-xl font-semibold text-earth mb-3">
               What to do in your first month
             </h2>
-            <ol className="list-decimal pl-5 space-y-3">
-              <li>
-                <strong className="text-earth">Walk the plot.</strong> Notice
-                where the sun falls, where water pools, which areas have the
-                best soil. Talk to your neighbours &mdash; they know the site.
-              </li>
-              <li>
-                <strong className="text-earth">Clear one bed.</strong> Remove
-                weeds, fork the soil, add compost if you have it. One
-                well-prepared bed is all you need to start.
-              </li>
-              <li>
-                <strong className="text-earth">Sow something today.</strong>{" "}
-                Even if it&apos;s just radishes in a pot. The sooner you start,
-                the sooner you learn.
-              </li>
-              <li>
-                <strong className="text-earth">Check what to sow this week.</strong>{" "}
-                <a href="/" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">
-                  Use the tool
-                </a>{" "}
-                &mdash; it&apos;ll give you a personalised list based on your
-                location and the time of year.
-              </li>
-            </ol>
+            <StepList steps={[
+              {
+                title: "Walk the plot",
+                description: "Notice where the sun falls, where water pools, which areas have the best soil. Talk to your neighbours \u2014 they know the site."
+              },
+              {
+                title: "Clear one bed",
+                description: "Remove weeds, fork the soil, add compost if you have it. One well-prepared bed is all you need to start."
+              },
+              {
+                title: "Sow something today",
+                description: "Even if it\u2019s just radishes in a pot. The sooner you start, the sooner you learn."
+              },
+              {
+                title: "Check what to sow this week",
+                description: "Enter your postcode at whattosow.co.uk for a personalised list based on your location and the time of year."
+              },
+            ]} />
           </section>
 
           <section>
@@ -257,6 +255,11 @@ export default function BeginnersGuide() {
               and contains enough for an entire season. A bag of seed potatoes
               is under &pound;4.
             </p>
+            <TipBox title="Starter kit (under &pound;20)">
+              Fork, trowel, watering can, 5 packets of seeds, labels, string.
+              That&apos;s genuinely all you need for your first season. Everything
+              else can wait.
+            </TipBox>
           </section>
 
           {/* FAQ — visible version */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TipBox, WarningBox } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -227,12 +228,12 @@ export default function PestsGuide() {
                     contact.
                   </li>
                 </ul>
-                <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light mt-3">
+                <TipBox title="The slug strategy">
                   No single method will solve slugs. Use several at once &mdash;
                   barriers plus patrols plus nematodes is a strong combination.
                   And accept that you&apos;ll still lose a few seedlings. Sow
                   extras.
-                </div>
+                </TipBox>
               </div>
 
               {/* Aphids */}
@@ -384,12 +385,12 @@ export default function PestsGuide() {
                     resistant varieties and good practice are better.
                   </li>
                 </ul>
-                <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light mt-3">
-                  Check the{" "}
-                  <strong className="text-earth">Blightwatch</strong> forecast
-                  at the start of each summer. It tracks weather conditions that
-                  favour blight so you can act before it hits.
-                </div>
+                <WarningBox title="Blight watch">
+                  Check the Blightwatch forecast at the start of each summer.
+                  It tracks weather conditions that favour blight so you can
+                  act before it hits. Once you see brown patches on leaves,
+                  remove affected foliage immediately.
+                </WarningBox>
               </div>
 
               {/* Powdery mildew */}

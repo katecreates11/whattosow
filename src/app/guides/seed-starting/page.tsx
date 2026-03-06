@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TipBox, WarningBox, StepList, ProcessDiagram } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -241,11 +242,12 @@ export default function SeedStartingGuide() {
                   peas, squash, sweetcorn) &mdash; 2&ndash;3cm deep
                 </li>
               </ul>
-              <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light">
-                If in doubt, check the seed packet. But if you&apos;ve lost
-                the packet, &ldquo;twice the seed&apos;s size&rdquo; will get
-                you close enough.
-              </div>
+              <TipBox title="Lost the packet?">
+                The rule &ldquo;twice the seed&apos;s size&rdquo; will get you
+                close enough for almost everything. The only exception is seeds
+                that need light to germinate (like celery) &mdash; scatter those
+                on top and press gently.
+              </TipBox>
             </div>
           </section>
 
@@ -397,29 +399,19 @@ export default function SeedStartingGuide() {
                 scorched by sun, and shocked by cold nights.
               </p>
               <p>
-                Hardening off takes 7&ndash;10 days. Here&apos;s the process:
+                Hardening off takes 7&ndash;10 days:
               </p>
-              <ol className="list-decimal list-inside space-y-2 text-earth-light">
-                <li>
-                  <strong className="text-earth">Days 1&ndash;2:</strong> Place
-                  plants outside in a sheltered, shaded spot for 2&ndash;3 hours.
-                  Bring them back inside.
-                </li>
-                <li>
-                  <strong className="text-earth">Days 3&ndash;4:</strong> Increase
-                  to 4&ndash;5 hours with some direct sunlight.
-                </li>
-                <li>
-                  <strong className="text-earth">Days 5&ndash;7:</strong> Leave
-                  them out most of the day. Bring in at night if frost is
-                  forecast.
-                </li>
-                <li>
-                  <strong className="text-earth">Days 8&ndash;10:</strong> Leave
-                  out day and night, as long as overnight temperatures are safe
-                  for the crop.
-                </li>
-              </ol>
+              <ProcessDiagram steps={[
+                { label: "Days 1-2", detail: "2-3 hrs outside, sheltered shade" },
+                { label: "Days 3-4", detail: "4-5 hrs, some direct sun" },
+                { label: "Days 5-7", detail: "Most of the day outside" },
+                { label: "Days 8-10", detail: "Out day and night" },
+              ]} />
+              <WarningBox title="Don&apos;t skip this">
+                Putting indoor seedlings straight outside is the #1 cause of
+                transplant failure. Even two days of gradual exposure makes a
+                huge difference.
+              </WarningBox>
               <p>
                 A cold frame makes this much easier &mdash; just prop the lid
                 open a bit more each day. If you don&apos;t have one, a

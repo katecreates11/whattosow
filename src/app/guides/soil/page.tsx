@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TipBox, WarningBox } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -387,13 +388,12 @@ export default function SoilGuide() {
                 far less effort.
               </p>
             </div>
-            <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light mt-4">
-              <strong className="text-earth">Starting no-dig on a new
-              plot:</strong> Lay cardboard over weeds, cover with 10&ndash;15cm
-              of compost, and plant straight into it. The cardboard smothers
-              weeds underneath while worms break everything down. You can plant
+            <TipBox title="Starting no-dig on a new plot">
+              Lay cardboard over weeds, cover with 10&ndash;15cm of compost,
+              and plant straight into it. The cardboard smothers weeds
+              underneath while worms break everything down. You can plant
               into it the same day.
-            </div>
+            </TipBox>
           </section>
 
           {/* Raised beds */}

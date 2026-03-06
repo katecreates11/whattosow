@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TipBox, WarningBox } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -174,12 +175,11 @@ export default function WateringGuide() {
                 morning. Consistency beats timing every time.
               </p>
             </div>
-            <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light mt-4">
-              <strong className="text-earth">Avoid midday watering</strong> in
-              summer &mdash; not because it &quot;burns leaves&quot; (that&apos;s
-              largely a myth) but because so much evaporates before it reaches
-              the roots that you&apos;re wasting water and effort.
-            </div>
+            <TipBox title="Avoid midday watering">
+              Not because it &quot;burns leaves&quot; (that&apos;s largely a myth)
+              but because so much evaporates before it reaches the roots that
+              you&apos;re wasting water and effort.
+            </TipBox>
           </section>
 
           {/* How much */}
@@ -275,14 +275,13 @@ export default function WateringGuide() {
                 transplanting, once you can see new growth coming through.
               </p>
             </div>
-            <div className="bg-allotment-bg/30 p-4 text-sm text-earth-light mt-4">
-              <strong className="text-earth">Newly transplanted seedlings</strong>{" "}
-              need extra care. Water them in thoroughly when you plant them out,
-              then keep the soil moist for the first week or two while roots
-              establish. After that, gradually reduce frequency. See our{" "}
+            <WarningBox title="Newly transplanted seedlings">
+              Water them in thoroughly when you plant them out, then keep the
+              soil moist for the first week or two while roots establish. After
+              that, gradually reduce frequency. See our{" "}
               <a href="/guides/seed-starting" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">seed starting guide</a>{" "}
               for more on raising strong seedlings.
-            </div>
+            </WarningBox>
           </section>
 
           {/* Mulching */}
