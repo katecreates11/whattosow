@@ -307,6 +307,142 @@ export default function CompanionPlantingGuide() {
             </div>
           </section>
 
+          {/* Flower companions */}
+          <section>
+            <h2 className="text-xl font-semibold text-earth mb-3">
+              Flowers that belong on the veg patch
+            </h2>
+            <p className="mb-6">
+              Flowers aren&apos;t just decorative on an allotment &mdash;
+              they&apos;re some of the hardest-working companions you can
+              plant. They attract pollinators, repel pests, and make the
+              whole plot look better.
+            </p>
+            <div className="space-y-4">
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Marigolds <span className="text-xs font-normal text-earth-lighter">(Tagetes)</span>
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  The allotment essential. French marigolds repel whitefly from
+                  tomatoes and deter aphids. Their roots also release a
+                  chemical that discourages root-knot nematodes. Plant them
+                  around the edges of beds or between rows of tomatoes,
+                  peppers, and brassicas.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Tomatoes, peppers, aubergines, beans, courgettes, cucumbers, brassicas
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Nasturtiums <span className="text-xs font-normal text-earth-lighter">(Tropaeolum)</span>
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  Brilliant as a &ldquo;trap crop&rdquo; &mdash; blackfly and
+                  caterpillars prefer nasturtiums to your actual vegetables.
+                  Plant them near brassicas to lure cabbage whites away. The
+                  leaves and flowers are edible too &mdash; peppery in salads.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Brassicas, courgettes, beans, cucumbers, squash
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Borage
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  A pollinator magnet with striking blue flowers. Bees can&apos;t
+                  resist it. Plant near courgettes, squash, and runner beans to
+                  boost pollination rates. It also attracts hoverflies, whose
+                  larvae eat aphids. Self-seeds generously &mdash; you&apos;ll
+                  only need to plant it once.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Courgettes, squash, runner beans, strawberries, tomatoes
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Lavender
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  Attracts pollinators and repels carrot fly, moths, and fleas.
+                  Best planted along paths or bed edges where you&apos;ll brush
+                  past it, releasing the scent. Works well as a semi-permanent
+                  border plant.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Carrots, brassicas, lettuce. Good as a bed border plant
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Calendula <span className="text-xs font-normal text-earth-lighter">(Pot marigold)</span>
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  Not the same as French marigolds but equally useful. Attracts
+                  hoverflies and ladybirds (aphid predators), and acts as a
+                  trap crop for aphids. The petals are edible and make a
+                  natural food colouring. Easy from seed, self-sows freely.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Tomatoes, peppers, asparagus, broad beans
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Sweet alyssum
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  Low-growing (5&ndash;10cm) ground cover that attracts
+                  parasitic wasps and hoverflies. Excellent sown as a living
+                  mulch under taller crops. Flowers all summer with minimal
+                  care.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Brassicas, potatoes, onions. Use as ground cover between rows
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Sunflowers
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  Tall varieties act as a windbreak and support for climbing
+                  beans. They attract pollinators and seed-eating birds that
+                  also eat pests. Plant at the back of beds or along
+                  north-facing edges where they won&apos;t shade other crops.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Sweetcorn, runner beans, courgettes, squash
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Phacelia
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  One of the best bee plants you can grow. Purple flowers
+                  attract a huge range of pollinators. Also works as a green
+                  manure &mdash; sow in autumn on empty beds, dig in before
+                  spring planting. Fast-growing and unfussy.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Any crop. Brilliant as a bed border or green manure
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Tips */}
           <section>
             <h2 className="text-xl font-semibold text-earth mb-3">
