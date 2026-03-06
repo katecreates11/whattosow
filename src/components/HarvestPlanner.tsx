@@ -1,0 +1,289 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { crops } from "@/data/crops";
+import { type Crop } from "@/data/crops";
+import {
+  lookupPostcode,
+  calculateLastFrostDate,
+  formatDate,
+  type LocationData,
+} from "@/lib/frost";
+import { getAvgFrostDate } from "@/lib/calendar";
+import {
+  calculateHarvest,
+  getValidMethods,
+  type HarvestEntry,
+  type SowingMethod,
+} from "@/lib/harvest";
+import CropCombobox from "@/components/CropCombobox";
+import HarvestCard from "@/components/HarvestCard";
+
+const STORAGE_KEY = "whattosow_location";
+
+function loadLocation(): LocationData | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function saveLocation(location: LocationData) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
+    window.dispatchEvent(new Event("whattosow:location-updated"));
+  } catch {
+    // localStorage unavailable
+  }
+}
+
+function todayString(): string {
+  const d = new Date();
+  return d.toISOString().split("T")[0];
+}
+
+export default function HarvestPlanner() {
+  const [location, setLocation] = useState<LocationData | null>(null);
+  const [postcodeInput, setPostcodeInput] = useState("");
+  const [postcodeError, setPostcodeError] = useState("");
+  const [postcodeLoading, setPostcodeLoading] = useState(false);
+  const [editingPostcode, setEditingPostcode] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  const [selectedCrop, setSelectedCrop] = useState<Crop | null>(null);
+  const [method, setMethod] = useState<SowingMethod>("outdoors");
+  const [dateStr, setDateStr] = useState(todayString());
+
+  const [entries, setEntries] = useState<HarvestEntry[]>([]);
+
+  const loadLoc = useCallback(() => {
+    const loc = loadLocation();
+    if (loc) setLocation(loc);
+    setReady(true);
+  }, []);
+
+  useEffect(() => {
+    loadLoc();
+    window.addEventListener("whattosow:location-updated", loadLoc);
+    return () => window.removeEventListener("whattosow:location-updated", loadLoc);
+  }, [loadLoc]);
+
+  const lastFrostDate = location
+    ? calculateLastFrostDate(location.latitude, location.longitude)
+    : getAvgFrostDate();
+
+  async function handlePostcodeLookup() {
+    if (!postcodeInput.trim()) return;
+    setPostcodeLoading(true);
+    setPostcodeError("");
+    const result = await lookupPostcode(postcodeInput);
+    setPostcodeLoading(false);
+    if (typeof result === "string") {
+      setPostcodeError(result === "invalid" ? "That doesn't look like a valid UK postcode." : "Network error — try again.");
+    } else {
+      setLocation(result);
+      saveLocation(result);
+      setEditingPostcode(false);
+    }
+  }
+
+  const validMethods = selectedCrop ? getValidMethods(selectedCrop) : [];
+
+  useEffect(() => {
+    if (!selectedCrop) return;
+    const methods = getValidMethods(selectedCrop);
+    const current = methods.find((m) => m.method === method);
+    if (current?.disabled) {
+      const first = methods.find((m) => !m.disabled);
+      if (first) setMethod(first.method);
+    }
+  }, [selectedCrop, method]);
+
+  function handleAdd() {
+    if (!selectedCrop || !dateStr) return;
+    const sowDate = new Date(dateStr + "T12:00:00");
+    const entry = calculateHarvest(selectedCrop, method, sowDate, lastFrostDate);
+    setEntries((prev) => [...prev, entry]);
+    setSelectedCrop(null);
+    setDateStr(todayString());
+  }
+
+  function handleRemove(index: number) {
+    setEntries((prev) => prev.filter((_, i) => i !== index));
+  }
+
+  if (!ready) {
+    return <div className="py-20 text-center text-earth-lighter text-sm">Loading...</div>;
+  }
+
+  return (
+    <div>
+      {/* Postcode bar */}
+      <div className="mb-8">
+        {location && !editingPostcode ? (
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="text-sm text-earth">
+              <strong>{location.adminDistrict}</strong> ({location.postcode})
+              &middot; Last frost: <strong>{formatDate(lastFrostDate)}</strong>
+            </span>
+            <button
+              onClick={() => setEditingPostcode(true)}
+              className="text-xs text-allotment hover:text-allotment-dark underline decoration-allotment/30 transition-colors"
+            >
+              Change
+            </button>
+          </div>
+        ) : (
+          <div>
+            <label htmlFor="postcode" className="text-xs font-semibold text-earth-light mb-1.5 block">
+              Your postcode
+            </label>
+            <div className="flex gap-2 max-w-xs">
+              <input
+                id="postcode"
+                type="text"
+                value={postcodeInput}
+                onChange={(e) => setPostcodeInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handlePostcodeLookup()}
+                placeholder="e.g. SE15 3AB"
+                className="flex-1 bg-white border border-earth/15 text-earth text-sm px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-allotment/20 focus:border-allotment/40 transition-all"
+              />
+              <button
+                onClick={handlePostcodeLookup}
+                disabled={postcodeLoading}
+                className="bg-allotment text-white text-sm font-medium px-4 py-2.5 hover:bg-allotment-dark transition-colors disabled:opacity-50"
+              >
+                {postcodeLoading ? "..." : "Set"}
+              </button>
+            </div>
+            {postcodeError && (
+              <p className="text-xs text-tomato mt-1.5">{postcodeError}</p>
+            )}
+            {!location && (
+              <p className="text-xs text-earth-lighter mt-2">
+                Using UK average frost date until you enter your postcode.
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Add crop form */}
+      <div className="bg-white border border-earth/10 p-4 sm:p-6 mb-8">
+        <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-4">
+          Add a crop
+        </h2>
+        <div className="flex flex-col sm:flex-row gap-4 items-end">
+          <CropCombobox
+            crops={crops}
+            onSelect={setSelectedCrop}
+            selectedCrop={selectedCrop}
+          />
+
+          <div className="min-w-[240px]">
+            <span className="text-xs font-semibold text-earth-light mb-1.5 block">
+              Method
+            </span>
+            <div className="flex gap-1">
+              {(["indoors", "outdoors", "planted-out"] as SowingMethod[]).map((m) => {
+                const v = validMethods.find((vm) => vm.method === m);
+                const disabled = v?.disabled ?? false;
+                const active = method === m && !disabled;
+                const labels: Record<SowingMethod, string> = {
+                  indoors: "Indoors",
+                  outdoors: "Outdoors",
+                  "planted-out": "Planted out",
+                };
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => !disabled && setMethod(m)}
+                    disabled={disabled}
+                    title={v?.reason}
+                    className={`text-xs px-3 py-2 font-medium transition-colors ${
+                      active
+                        ? "bg-allotment text-white"
+                        : disabled
+                          ? "bg-earth/5 text-earth/30 cursor-not-allowed"
+                          : "bg-earth/5 text-earth-light hover:bg-earth/10"
+                    }`}
+                  >
+                    {labels[m]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="min-w-[150px]">
+            <label htmlFor="sow-date" className="text-xs font-semibold text-earth-light mb-1.5 block">
+              Date
+            </label>
+            <input
+              id="sow-date"
+              type="date"
+              value={dateStr}
+              onChange={(e) => setDateStr(e.target.value)}
+              className="w-full bg-white border border-earth/15 text-earth text-sm px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-allotment/20 focus:border-allotment/40 transition-all"
+            />
+          </div>
+
+          <button
+            onClick={handleAdd}
+            disabled={!selectedCrop || !dateStr}
+            className="bg-allotment text-white text-sm font-medium px-6 py-2.5 hover:bg-allotment-dark transition-colors disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
+          >
+            Add crop
+          </button>
+        </div>
+      </div>
+
+      {/* Results */}
+      {entries.length > 0 && (
+        <div>
+          <div className="flex items-baseline justify-between mb-4">
+            <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment">
+              Your harvest dates
+            </h2>
+            <span className="text-xs text-earth-lighter">
+              {entries.length} crop{entries.length !== 1 ? "s" : ""}
+            </span>
+          </div>
+
+          <div className="space-y-3">
+            {entries.map((entry, i) => (
+              <HarvestCard
+                key={`${entry.crop.slug}-${i}`}
+                entry={entry}
+                onRemove={() => handleRemove(i)}
+              />
+            ))}
+          </div>
+
+          <div className="mt-8 flex justify-center print:hidden">
+            <button
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 bg-allotment-dark text-white text-sm font-medium px-6 py-3 hover:bg-allotment transition-colors"
+              data-umami-event="harvest-planner-print"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Print my harvest dates
+            </button>
+          </div>
+        </div>
+      )}
+
+      {entries.length === 0 && (
+        <div className="text-center py-12 text-earth-lighter">
+          <p className="text-sm">Add your first crop above to see your personalised harvest dates.</p>
+        </div>
+      )}
+    </div>
+  );
+}
