@@ -61,6 +61,20 @@ const guides = [
     tag: "Planning",
   },
   {
+    title: "Watering your crops",
+    description:
+      "How much, how often, and when. The practical guide to watering vegetables without wasting water or drowning roots.",
+    href: "/guides/watering",
+    tag: "Growing",
+  },
+  {
+    title: "Pests & diseases",
+    description:
+      "Slugs, aphids, blight, and the rest. How to deal with common UK garden pests without reaching for chemicals.",
+    href: "/guides/pests",
+    tag: "Problem solving",
+  },
+  {
     title: "Spring vegetables to plant in the UK",
     description:
       "Every crop you can sow this spring — hardy, half-hardy, and tender — with tips on when to start.",

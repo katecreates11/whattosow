@@ -257,6 +257,28 @@ export default function SpringVegetablesGuide() {
                   Pin it to the shed wall.
                 </p>
               </a>
+              <a
+                href="/guides/seed-starting"
+                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+              >
+                <span className="font-semibold text-earth">
+                  Starting from seed &rarr;
+                </span>
+                <p className="text-sm text-earth-light mt-1">
+                  Compost, temperature, light &mdash; the full guide.
+                </p>
+              </a>
+              <a
+                href="/guides/companion-planting"
+                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+              >
+                <span className="font-semibold text-earth">
+                  Companion planting &rarr;
+                </span>
+                <p className="text-sm text-earth-light mt-1">
+                  What to plant together and what to keep apart.
+                </p>
+              </a>
             </div>
           </section>
         </div>
