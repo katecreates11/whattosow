@@ -14,6 +14,8 @@ export interface Crop {
   plantOutWeeks: number | null;
   /** Weeks from sowing/planting to harvest */
   harvestWeeks: number;
+  /** Weeks between successional sowings. Omit for one-off crops */
+  successionWeeks?: number;
   /** Quick growing tip */
   tip: string;
   /** What the crop needs in simple terms */
@@ -69,6 +71,7 @@ export const crops: Crop[] = [
     directSowWeeks: -6,
     plantOutWeeks: -3,
     harvestWeeks: 12,
+    successionWeeks: 3,
     tip: "Sow every 3 weeks for a continuous harvest. Pick regularly to keep them producing — leave one pod on and the whole plant slows down.",
     needs: "Sun. Something to climb — sticks, netting, or a trellis.",
     spacingCm: 8,
@@ -94,6 +97,7 @@ export const crops: Crop[] = [
     directSowWeeks: -4,
     plantOutWeeks: -2,
     harvestWeeks: 8,
+    successionWeeks: 2,
     tip: "Sow a short row every 2 weeks and you'll never buy a supermarket bag again. Pick outer leaves to keep it going.",
     needs: "Partial shade in summer stops it bolting. Regular water.",
     spacingCm: 25,
@@ -118,6 +122,7 @@ export const crops: Crop[] = [
     directSowWeeks: -6,
     plantOutWeeks: null,
     harvestWeeks: 7,
+    successionWeeks: 3,
     tip: "Bolts the moment it gets hot. Best in spring and autumn. Pick little and often — a whole plant cooks down to about two mouthfuls.",
     needs: "Partial shade. Moist, rich soil.",
     spacingCm: 15,
@@ -142,6 +147,7 @@ export const crops: Crop[] = [
     directSowWeeks: -4,
     plantOutWeeks: null,
     harvestWeeks: 4,
+    successionWeeks: 2,
     tip: "The quickest crop you can grow — seed to plate in 4 weeks. Sow between slower crops to use the space while you wait.",
     needs: "Sun or partial shade. Light soil. Not fussy.",
     spacingCm: 3,
@@ -192,6 +198,7 @@ export const crops: Crop[] = [
     directSowWeeks: -2,
     plantOutWeeks: 0,
     harvestWeeks: 9,
+    successionWeeks: 3,
     tip: "Each seed cluster produces several seedlings — thin to the strongest. Don't chuck the leaves, they're delicious wilted with butter.",
     needs: "Sun or light shade. Any reasonable soil. One of the easiest root veg.",
     spacingCm: 10,
@@ -312,6 +319,7 @@ export const crops: Crop[] = [
     directSowWeeks: -4,
     plantOutWeeks: null,
     harvestWeeks: 10,
+    successionWeeks: 3,
     tip: "Sow a pinch every few weeks and you'll have spring onions all season. Dead easy — one of the best crops for beginners.",
     needs: "Sun or partial shade. Any soil. Genuinely unfussy.",
     spacingCm: 2,
@@ -604,6 +612,7 @@ export const crops: Crop[] = [
     directSowWeeks: 1,
     plantOutWeeks: 2,
     harvestWeeks: 9,
+    successionWeeks: 3,
     tip: "Dwarf varieties need no support. Pick every few days — once they start producing, they don't stop (unless you let pods go to seed).",
     needs: "Sun. Sheltered spot. Decent soil.",
     spacingCm: 15,
@@ -676,6 +685,7 @@ export const crops: Crop[] = [
     directSowWeeks: 0,
     plantOutWeeks: null,
     harvestWeeks: 6,
+    successionWeeks: 3,
     tip: "Bolts at the slightest excuse. Sow every 3-4 weeks, pick frequently, and choose slow-bolt varieties. It's a race you can win if you stay on top of it.",
     needs: "Partial shade in summer. Moist soil. Grows well in pots on a windowsill.",
     spacingCm: 15,
@@ -795,6 +805,7 @@ export const crops: Crop[] = [
     directSowWeeks: 1,
     plantOutWeeks: null,
     harvestWeeks: 8,
+    successionWeeks: 3,
     tip: "Sow direct — dill absolutely hates being transplanted. Short rows every few weeks for continuous supply. Gets to 90cm, so give it a sheltered spot.",
     needs: "Full sun. Sheltered spot. Well-drained soil.",
     spacingCm: 25,
