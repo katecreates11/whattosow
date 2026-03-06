@@ -710,6 +710,7 @@ export const crops: Crop[] = [
     directSowWeeks: -2,
     plantOutWeeks: null,
     harvestWeeks: 4,
+    successionWeeks: 2,
     tip: "Dead easy and fast. Gets spicier in hot weather — which is either a feature or a bug depending on your taste. Pick leaves small for salads.",
     needs: "Partial shade in summer to slow bolting. Any reasonable soil.",
     spacingCm: 15,
