@@ -5,7 +5,7 @@ import CropIndex from "@/components/CropIndex";
 import ScrollReveal from "@/components/ScrollReveal";
 import FullWidthSection from "@/components/FullWidthSection";
 import { crops } from "@/data/crops";
-import SkyTonight from "@/components/SkyTonight";
+import SkyTonightLoader from "@/components/SkyTonightLoader";
 import EmailCapture from "@/components/EmailCapture";
 import Image from "next/image";
 import {
@@ -279,7 +279,7 @@ export default function Home() {
           <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
             Today at the allotment
           </h2>
-          <SkyTonight />
+          <SkyTonightLoader />
         </section>
 
         {/* Crop index — subtle band */}

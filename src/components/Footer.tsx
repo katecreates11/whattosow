@@ -2,16 +2,16 @@ import { LeafSprig } from "./SVGIllustrations";
 
 function StickyNavBar() {
   return (
-    <div className="hidden sm:block sticky bottom-0 z-10 bg-allotment-dark/95 backdrop-blur-sm border-t border-white/10">
+    <div className="sticky bottom-0 z-10 bg-allotment-dark/95 backdrop-blur-sm border-t border-white/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <nav aria-label="Quick navigation" className="flex items-center justify-between py-2.5 text-xs">
-          <div className="flex items-center gap-4">
-            <a href="/" className="text-white/70 hover:text-white transition-colors">Home</a>
-            <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Calendar</a>
-            <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
-            <a href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</a>
-            <a href="/sow-in" className="text-white/70 hover:text-white transition-colors">By location</a>
-            <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Allotments</a>
+        <nav aria-label="Quick navigation" className="flex items-center justify-between py-2.5 text-xs overflow-x-auto gap-4">
+          <div className="flex items-center gap-4 shrink-0">
+            <a href="/" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Home</a>
+            <a href="/calendar" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Calendar</a>
+            <a href="/frost-map" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Frost map</a>
+            <a href="/guides" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Guides</a>
+            <a href="/sow-in" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">By location</a>
+            <a href="/allotments" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Allotments</a>
           </div>
           <a
             href="https://ko-fi.com/whattosow"
@@ -19,7 +19,7 @@ function StickyNavBar() {
             rel="noopener noreferrer"
             data-umami-event="ko-fi-click"
             data-umami-event-location="sticky-nav"
-            className="text-white/70 hover:text-white transition-colors"
+            className="text-white/70 hover:text-white transition-colors whitespace-nowrap shrink-0 hidden sm:block"
           >
             Support this tool &rarr;
           </a>

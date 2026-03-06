@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getFrostForecast, calculateLastFrostDate, calculateFirstAutumnFrostDate } from "@/lib/frost";
 import { crops, getCropsByAction } from "@/data/crops";
 import type { FrostForecast } from "@/lib/frost";
@@ -41,6 +41,16 @@ export default function RegionPanel({ region, onClose }: RegionPanelProps) {
   const [forecast, setForecast] = useState<FrostForecast | null>(null);
   const [loadingForecast, setLoadingForecast] = useState(false);
   const [copied, setCopied] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    closeRef.current?.focus();
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [region, onClose]);
 
   const name = region.LAD24NM || region.LAD23NM || "Unknown area";
   const springFrost = region.frostDate;
@@ -78,7 +88,7 @@ export default function RegionPanel({ region, onClose }: RegionPanelProps) {
   const comingSoon = cropActions.comingSoon.slice(0, 6);
 
   return (
-    <div className="bg-white rounded-2xl border border-earth/10 shadow-lg overflow-hidden animate-slide-in-bottom sm:animate-slide-in-right">
+    <div role="dialog" aria-label={`Frost details for ${name}`} className="bg-white rounded-2xl border border-earth/10 shadow-lg overflow-hidden animate-slide-in-bottom sm:animate-slide-in-right">
       {/* Header */}
       <div className="bg-allotment px-5 py-4 flex items-center justify-between">
         <h3 className="text-white font-semibold text-lg">{name}</h3>
@@ -113,6 +123,7 @@ export default function RegionPanel({ region, onClose }: RegionPanelProps) {
             )}
           </button>
           <button
+            ref={closeRef}
             onClick={onClose}
             className="text-white/70 hover:text-white transition-colors"
             aria-label="Close panel"
