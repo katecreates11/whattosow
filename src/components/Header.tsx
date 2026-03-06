@@ -1,4 +1,19 @@
+"use client";
+
+import { useState } from "react";
+
+const NAV_LINKS = [
+  { href: "/#explore-crops", label: "Crops" },
+  { href: "/calendar", label: "Calendar" },
+  { href: "/frost-map", label: "Frost map" },
+  { href: "/guides", label: "Guides" },
+  { href: "/sow-in", label: "By location" },
+  { href: "/allotments", label: "Allotments" },
+];
+
 export default function Header({ backLink }: { backLink?: { href: string; label: string } }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="border-b border-allotment-bg bg-cream/80 backdrop-blur-sm sticky top-0 z-10">
       <div className="h-0.5 bg-gradient-to-r from-allotment via-leaf to-amber" />
@@ -34,15 +49,43 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
             </a>
           )}
         </div>
-        <nav aria-label="Main" className="flex items-center gap-1 sm:gap-4">
-          <a href="/#explore-crops" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Crops</a>
-          <a href="/calendar" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Calendar</a>
-          <a href="/frost-map" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Frost map</a>
-          <a href="/guides" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">Guides</a>
-          <a href="/sow-in" className="hidden sm:block text-sm text-earth-light hover:text-allotment transition-colors">By location</a>
+        <div className="flex items-center gap-1 sm:gap-4">
+          <nav aria-label="Main" className="hidden sm:flex items-center gap-4">
+            {NAV_LINKS.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-earth-light hover:text-allotment transition-colors">
+                {link.label}
+              </a>
+            ))}
+          </nav>
           <a href="/still-time" className="text-xs sm:text-sm font-medium text-allotment hover:text-allotment-dark transition-colors px-3 py-1.5 border border-allotment/20 rounded-full">Still time to sow</a>
-        </nav>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden p-2 text-earth-light hover:text-allotment transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
+      {menuOpen && (
+        <nav aria-label="Mobile navigation" className="sm:hidden border-t border-earth/6 bg-cream">
+          <div className="max-w-4xl mx-auto px-4 py-3 flex flex-col gap-2">
+            {NAV_LINKS.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-earth-light hover:text-allotment transition-colors py-1.5">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

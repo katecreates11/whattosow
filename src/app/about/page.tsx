@@ -97,7 +97,11 @@ export default function AboutPage() {
             </a>{" "}
             climate averages. Altitude, latitude, and coastal proximity all
             factor in &mdash; a sheltered coastal garden in Devon gets a very
-            different date from an exposed hilltop in the Pennines.
+            different date from an exposed hilltop in the Pennines. You can
+            see how frost dates vary across the country on the{" "}
+            <a href="/frost-map" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">
+              frost date map
+            </a>.
           </p>
 
           <p>

@@ -32,7 +32,7 @@ export default function FrostMapPage() {
     <div className="min-h-screen overflow-x-hidden">
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
-      <main id="frost-map" className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <div className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-earth mb-3">
             UK frost date map
@@ -45,6 +45,21 @@ export default function FrostMapPage() {
         </div>
 
         <FrostZoneMapLoader />
+
+        <div className="mt-10 border border-earth/6 p-6">
+          <h2 className="font-semibold text-earth mb-2">
+            Sowing guides by location
+          </h2>
+          <p className="text-sm text-earth-light mb-4">
+            Get personalised sowing calendars for 50 UK cities, tailored to local frost dates.
+          </p>
+          <a
+            href="/sow-in"
+            className="inline-block text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
+          >
+            Browse all city guides &rarr;
+          </a>
+        </div>
 
         <div className="mt-10 bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-2">
           <p>

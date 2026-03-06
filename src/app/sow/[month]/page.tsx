@@ -254,7 +254,19 @@ export default async function MonthPage({
             </div>
           )}
 
-          <div className="mt-16 sm:mt-20 pt-10 border-t border-earth/6">
+          {/* Cross-links */}
+          <div className="mt-16 sm:mt-20 grid sm:grid-cols-2 gap-4">
+            <a href="/still-time" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">
+              <span className="font-medium text-sm text-earth">Still time to sow?</span>
+              <span className="block text-xs text-earth-lighter mt-1">See which sowing windows are closing soon.</span>
+            </a>
+            <a href="/sow-in" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">
+              <span className="font-medium text-sm text-earth">Sow by location</span>
+              <span className="block text-xs text-earth-lighter mt-1">Dates vary across the UK. Find your nearest city guide.</span>
+            </a>
+          </div>
+
+          <div className="mt-10 pt-10 border-t border-earth/6">
             <MonthNav idx={idx} />
           </div>
         </div>

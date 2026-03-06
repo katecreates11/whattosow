@@ -256,6 +256,7 @@ function LayerToggle({ activeLayer, onChange }: { activeLayer: ActiveLayer; onCh
         <button
           key={key}
           onClick={() => onChange(key)}
+          aria-pressed={activeLayer === key}
           className={`px-3 py-2 font-medium transition-colors ${
             activeLayer === key
               ? "bg-allotment text-white"
@@ -358,7 +359,7 @@ export default function FrostZoneMap() {
   }
 
   if (error) {
-    return <p className="text-sm text-tomato-light">{error}</p>;
+    return <p className="text-sm text-tomato" role="alert">{error}</p>;
   }
 
   return (
@@ -370,6 +371,7 @@ export default function FrostZoneMap() {
           value={postcode}
           onChange={(e) => setPostcode(e.target.value)}
           placeholder="Enter your postcode"
+          aria-label="UK postcode"
           className="flex-1 px-4 py-2.5 rounded-lg border border-earth/15 bg-white text-earth placeholder:text-earth-lighter text-sm focus:outline-none focus:ring-2 focus:ring-allotment/30 focus:border-allotment"
         />
         <button
@@ -380,7 +382,7 @@ export default function FrostZoneMap() {
           {searching ? "Searching..." : "Search"}
         </button>
       </form>
-      {postcodeError && <p className="text-sm text-tomato">{postcodeError}</p>}
+      {postcodeError && <p className="text-sm text-tomato" role="alert">{postcodeError}</p>}
 
       <div className="rounded-2xl overflow-hidden border border-earth/10 relative h-[400px] sm:h-[550px] lg:h-[650px]">
         <MapContainer

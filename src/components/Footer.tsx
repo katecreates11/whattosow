@@ -19,7 +19,7 @@ function StickyNavBar() {
             rel="noopener noreferrer"
             data-umami-event="ko-fi-click"
             data-umami-event-location="sticky-nav"
-            className="text-white/50 hover:text-white transition-colors"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Support this tool &rarr;
           </a>
@@ -71,14 +71,14 @@ export default function Footer() {
             <p className="text-sm text-white/60 max-w-xs leading-relaxed mb-4">
               Free UK planting calendar by postcode. Know exactly what to sow, right now, where you are.
             </p>
-            <p className="text-xs text-white/40 italic">
+            <p className="text-xs text-white/60 italic">
               <SeasonalTagline />
             </p>
           </div>
 
           {/* Grow */}
           <div>
-            <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/40 mb-4">Grow</h3>
+            <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/60 mb-4">Grow</h3>
             <nav aria-label="Grow links" className="flex flex-col gap-2 text-sm">
               <a href="/#explore-crops" className="text-white/70 hover:text-white transition-colors">Explore crops</a>
               <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/40 mb-4">Explore</h3>
+            <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/60 mb-4">Explore</h3>
             <nav aria-label="Explore links" className="flex flex-col gap-2 text-sm">
               <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
               <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Find allotments</a>
@@ -115,8 +115,8 @@ export default function Footer() {
         {/* Data sources */}
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div className="text-xs text-white/40 space-y-1">
-              <p className="text-white/50 font-medium mb-1">Data sources</p>
+            <div className="text-xs text-white/60 space-y-1">
+              <p className="text-white/70 font-medium mb-1">Data sources</p>
               <p>
                 <a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-averages" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors underline decoration-white/20">Met Office</a>
                 {" \u00B7 "}
@@ -136,7 +136,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-6 pt-4 border-t border-white/10 text-xs text-white/40">
+        <div className="mt-6 pt-4 border-t border-white/10 text-xs text-white/60">
           <p>
             Some links are affiliate links. We may earn a small commission at no extra cost to you.
           </p>

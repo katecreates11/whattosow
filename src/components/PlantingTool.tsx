@@ -402,7 +402,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
               </button>
             </div>
             {error && (
-              <p className="mt-2 text-sm text-tomato-light" role="alert">{error}</p>
+              <p className="mt-2 text-sm text-tomato" role="alert">{error}</p>
             )}
           </form>
 

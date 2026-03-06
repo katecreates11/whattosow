@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AllotmentMapLoader from "@/components/AllotmentMapLoader";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -47,19 +48,14 @@ export default function AllotmentsPage() {
   };
 
   return (
-    <>
+    <div className="min-h-screen overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <Header backLink={{ href: "/", label: "\u2190 Home" }} />
+      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <div className="mb-8">
-          <a
-            href="/"
-            className="inline-flex items-center gap-1 text-sm text-allotment hover:text-allotment-dark mb-4"
-          >
-            &larr; Back to What To Sow
-          </a>
           <h1 className="text-3xl sm:text-4xl font-bold text-earth mb-3">
             Find allotments near you
           </h1>
@@ -81,6 +77,24 @@ export default function AllotmentsPage() {
 
         <AllotmentMapLoader />
 
+        <div className="mt-10 border border-earth/6 p-6">
+          <h2 className="font-semibold text-earth mb-2">
+            New to growing?
+          </h2>
+          <p className="text-sm text-earth-light mb-3">
+            Got your plot and not sure where to start? Our beginner&apos;s guide covers
+            what to grow, when to sow, and how to make the most of your first season.
+          </p>
+          <div className="flex gap-4 flex-wrap">
+            <a href="/guides/beginners" className="text-sm font-medium text-allotment hover:text-allotment-dark transition-colors">
+              Beginner&apos;s guide &rarr;
+            </a>
+            <a href="/sow-in" className="text-sm font-medium text-allotment hover:text-allotment-dark transition-colors">
+              Find your local sowing guide &rarr;
+            </a>
+          </div>
+        </div>
+
         <div className="mt-10 bg-allotment-bg rounded-xl p-4 text-sm text-earth-light space-y-2">
           <p>
             <strong className="text-earth">How to get an allotment:</strong>{" "}
@@ -99,6 +113,6 @@ export default function AllotmentsPage() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

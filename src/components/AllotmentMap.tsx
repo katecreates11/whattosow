@@ -124,6 +124,7 @@ export default function AllotmentMap() {
           value={postcode}
           onChange={(e) => setPostcode(e.target.value.toUpperCase())}
           placeholder="Enter your postcode"
+          aria-label="UK postcode"
           className="flex-1 px-4 py-3 rounded-xl border border-earth/15 bg-white text-earth placeholder:text-earth-lighter focus:outline-none focus:ring-2 focus:ring-allotment focus:border-transparent text-base uppercase"
           autoComplete="postal-code"
           required
@@ -137,7 +138,7 @@ export default function AllotmentMap() {
         </button>
       </form>
 
-      {error && <p className="text-sm text-tomato-light">{error}</p>}
+      {error && <p className="text-sm text-tomato" role="alert">{error}</p>}
 
       {location && (
         <>

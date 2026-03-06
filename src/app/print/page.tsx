@@ -54,7 +54,7 @@ export default function PrintPage() {
         <Header backLink={{ href: "/calendar", label: "\u2190 Sowing calendar" }} />
       </div>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6">
+      <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Soft email capture gate — screen only, hidden when printing */}
         <div className="print:hidden pt-10 sm:pt-14 pb-6">
           <div className="max-w-xl mx-auto text-center">

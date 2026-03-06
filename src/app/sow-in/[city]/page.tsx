@@ -15,6 +15,7 @@ import {
 import {
   getCropActionMonths,
   MONTH_NAMES,
+  MONTH_SLUGS,
 } from "@/lib/calendar";
 
 // --- Static generation ---
@@ -363,7 +364,7 @@ export default async function CityPage({
                 }`}
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <h3 className="font-semibold text-earth">{name}</h3>
+                  <a href={`/sow/${MONTH_SLUGS[monthIdx]}`} className="font-semibold text-earth hover:text-allotment transition-colors">{name}</a>
                   {monthIdx === currentMonth && (
                     <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-allotment/15 text-allotment-dark">
                       Now

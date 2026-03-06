@@ -18,6 +18,7 @@ import { getCropImagePath } from "@/lib/crop-images";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import CropScrollDepth from "@/components/CropScrollDepth";
+import { getCropActionMonths, getAvgFrostDate, MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 
 function CompanionSection({ crop }: { crop: Crop }) {
   if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
@@ -104,6 +105,47 @@ function CategoryIllustration({ category, className }: { category: Crop["categor
     case "tender":
       return <TenderIllustration className={className} />;
   }
+}
+
+const actionLabels: Record<string, string> = {
+  sowIndoors: "Sow indoors",
+  directSow: "Direct sow",
+  plantOut: "Plant out",
+};
+
+function SowingMonths({ crop }: { crop: Crop }) {
+  const frostDate = getAvgFrostDate();
+  const actions = getCropActionMonths(crop, frostDate).filter(a => a.action !== "harvest");
+  if (actions.length === 0) return null;
+
+  return (
+    <div className="mb-10">
+      <h2 className="font-semibold text-earth mb-4">
+        When to sow {crop.name.toLowerCase()}
+      </h2>
+      <div className="space-y-3">
+        {actions.map(({ action, months }) => (
+          <div key={action} className="flex flex-wrap items-center gap-2">
+            <span className="text-sm text-earth-lighter w-24 shrink-0">
+              {actionLabels[action]}
+            </span>
+            {months.map(m => (
+              <a
+                key={m}
+                href={`/sow/${MONTH_SLUGS[m]}`}
+                className="text-sm text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+              >
+                {MONTH_NAMES[m]}
+              </a>
+            ))}
+          </div>
+        ))}
+      </div>
+      <p className="text-xs text-earth-lighter mt-3">
+        Based on UK average frost date. <a href="/" className="text-allotment hover:underline">Enter your postcode</a> for exact dates, or <a href="/sow-in" className="text-allotment hover:underline">find your city</a>.
+      </p>
+    </div>
+  );
 }
 
 export async function generateStaticParams() {
@@ -340,6 +382,9 @@ export default async function CropPage({
             )}
 
             <CompanionSection crop={crop} />
+
+            {/* When to sow — month links */}
+            <SowingMonths crop={crop} />
 
             {/* Contextual email capture */}
             <div className="mb-10">

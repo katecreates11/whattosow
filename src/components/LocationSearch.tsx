@@ -61,7 +61,7 @@ export default function LocationSearch() {
         {loading ? "..." : "Find my area"}
       </button>
       {error && (
-        <span className="self-center text-xs text-tomato">{error}</span>
+        <span className="self-center text-xs text-tomato" role="alert">{error}</span>
       )}
     </form>
   );

@@ -144,6 +144,7 @@ export default function Home() {
               alt="Illustrated allotment scene with raised beds, shed and vegetables"
               width={1200}
               height={669}
+              sizes="100vw"
               className="w-full h-auto"
               priority
             />

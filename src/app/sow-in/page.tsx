@@ -127,12 +127,20 @@ export default function SowInIndexPage() {
             frost date depends on your exact location. Enter your postcode on
             the homepage for a personalised sowing calendar.
           </p>
-          <a
-            href="/"
-            className="inline-block text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
-          >
-            Go to the postcode tool &rarr;
-          </a>
+          <div className="flex gap-4 flex-wrap">
+            <a
+              href="/"
+              className="text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
+            >
+              Go to the postcode tool &rarr;
+            </a>
+            <a
+              href="/frost-map"
+              className="text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
+            >
+              View the frost date map &rarr;
+            </a>
+          </div>
         </div>
       </main>
 
