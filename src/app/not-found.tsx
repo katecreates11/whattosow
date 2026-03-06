@@ -29,6 +29,18 @@ export default function NotFound() {
           >
             Back to What To Sow
           </a>
+
+          <div className="mt-10 pt-8 border-t border-earth/6 text-left">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3">
+              Or try one of these
+            </p>
+            <div className="space-y-2">
+              <a href="/calendar" className="block text-sm text-allotment hover:text-allotment-dark">Sowing calendar &rarr;</a>
+              <a href="/guides" className="block text-sm text-allotment hover:text-allotment-dark">Growing guides &rarr;</a>
+              <a href="/frost-map" className="block text-sm text-allotment hover:text-allotment-dark">UK frost map &rarr;</a>
+              <a href="/sow-in" className="block text-sm text-allotment hover:text-allotment-dark">Sow by location &rarr;</a>
+            </div>
+          </div>
         </div>
       </main>
 
