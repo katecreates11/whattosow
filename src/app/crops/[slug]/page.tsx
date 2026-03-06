@@ -18,6 +18,7 @@ import { getCropImagePath } from "@/lib/crop-images";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import CropScrollDepth from "@/components/CropScrollDepth";
+import SpacingDiagram from "@/components/SpacingDiagram";
 import { getCropActionMonths, getAvgFrostDate, MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 
 function CompanionSection({ crop }: { crop: Crop }) {
@@ -353,6 +354,9 @@ export default async function CropPage({
               </h2>
               <p className="text-earth-light leading-relaxed">{crop.needs}</p>
             </div>
+
+            {/* Spacing diagram */}
+            <SpacingDiagram crop={crop} />
 
             {/* Varieties */}
             {crop.varieties && crop.varieties.length > 0 && (

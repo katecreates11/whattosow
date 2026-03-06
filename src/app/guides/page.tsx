@@ -33,6 +33,13 @@ const guides = [
     tag: "Getting started",
   },
   {
+    title: "Companion planting guide",
+    description:
+      "What grows well together and what to keep apart. A crop-by-crop chart for 40 UK vegetables.",
+    href: "/guides/companion-planting",
+    tag: "Planning",
+  },
+  {
     title: "Spring vegetables to plant in the UK",
     description:
       "Every crop you can sow this spring — hardy, half-hardy, and tender — with tips on when to start.",
