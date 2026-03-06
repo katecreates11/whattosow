@@ -155,6 +155,125 @@ export function FullBleedSection({
   );
 }
 
+// ─── Editorial photo break — full-bleed image with caption ──────────────────
+export function GuideImage({
+  src,
+  alt,
+  caption,
+  credit,
+  aspect = "cinematic",
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  aspect?: "cinematic" | "landscape" | "square";
+}) {
+  const aspectMap = {
+    cinematic: "aspect-[2.2/1]",
+    landscape: "aspect-[3/2]",
+    square: "aspect-square",
+  };
+
+  return (
+    <figure className="-mx-4 sm:-mx-6 my-10 sm:my-14">
+      <div className={`${aspectMap[aspect]} overflow-hidden bg-earth/5`}>
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      {(caption || credit) && (
+        <figcaption className="px-4 sm:px-6 mt-3 flex justify-between items-baseline gap-4">
+          {caption && <span className="text-xs text-earth-light italic">{caption}</span>}
+          {credit && <span className="text-[10px] text-earth-lighter shrink-0">{credit}</span>}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+// ─── "In this guide" summary — scannable anchor links at top ────────────────
+export function InThisGuide({ items }: { items: { label: string; anchor: string }[] }) {
+  return (
+    <nav className="bg-allotment-bg border border-allotment/10 p-5 sm:p-6 my-8" aria-label="In this guide">
+      <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-allotment/60 block mb-3">
+        In this guide
+      </span>
+      <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+        {items.map((item, i) => (
+          <li key={i}>
+            <a
+              href={`#${item.anchor}`}
+              className="text-sm text-earth hover:text-allotment transition-colors flex items-center gap-2 py-1"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-allotment/30 shrink-0" />
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+// ─── Pest/topic card with optional image and threat level ───────────────────
+export function TopicCard({
+  children,
+  title,
+  image,
+  imageAlt,
+  level,
+}: {
+  children: React.ReactNode;
+  title: string;
+  image?: string;
+  imageAlt?: string;
+  level?: "low" | "medium" | "high";
+}) {
+  const levelColors = {
+    low: "bg-allotment text-white",
+    medium: "bg-amber text-white",
+    high: "bg-tomato text-white",
+  };
+  const levelLabels = { low: "Manageable", medium: "Common", high: "Major threat" };
+  const borderColors = {
+    low: "border-allotment/20",
+    medium: "border-amber/20",
+    high: "border-tomato/20",
+  };
+
+  return (
+    <div className={`border ${level ? borderColors[level] : "border-earth/8"} overflow-hidden`}>
+      {image && (
+        <div className="aspect-[3/1] overflow-hidden bg-earth/5">
+          <img
+            src={image}
+            alt={imageAlt || title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )}
+      <div className="p-4 sm:p-5">
+        <div className="flex items-center justify-between gap-3 mb-2">
+          <h3 className="font-semibold text-earth">{title}</h3>
+          {level && (
+            <span className={`text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full ${levelColors[level]} shrink-0`}>
+              {levelLabels[level]}
+            </span>
+          )}
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 // ─── Numbered step indicator — vertical timeline ────────────────────────────
 export function StepList({ steps }: { steps: { title: string; description: string }[] }) {
   return (

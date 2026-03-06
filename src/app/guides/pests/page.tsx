@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection, InThisGuide, TopicCard, GuideImage } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -126,9 +126,21 @@ export default function PestsGuide() {
           color="tomato"
         />
 
+        <InThisGuide items={[
+          { label: "Prevention first", anchor: "prevention" },
+          { label: "Slugs & snails", anchor: "slugs" },
+          { label: "Aphids", anchor: "aphids" },
+          { label: "Carrot fly", anchor: "carrot-fly" },
+          { label: "Cabbage white", anchor: "cabbage-white" },
+          { label: "Blight", anchor: "blight" },
+          { label: "Powdery mildew", anchor: "mildew" },
+          { label: "Clubroot", anchor: "clubroot" },
+          { label: "Organic vs chemical", anchor: "organic" },
+        ]} />
+
         <div className="space-y-12 text-earth-light leading-relaxed">
           {/* Prevention first */}
-          <section>
+          <section id="prevention">
             <h2 className="text-xl font-semibold text-earth mb-3">
               Prevention beats cure
             </h2>
@@ -178,16 +190,18 @@ export default function PestsGuide() {
           <SectionDivider label="The big hitters" />
 
           {/* The big hitters */}
-          <section>
+          <section id="slugs">
             <h2 className="text-xl font-semibold text-earth mb-6">
               The big hitters
             </h2>
             <div className="space-y-6">
               {/* Slugs & snails */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">
-                  Slugs &amp; snails
-                </h3>
+              <TopicCard
+                title="Slugs & snails"
+                image="/images/guides/slug.webp"
+                imageAlt="Close-up of a garden slug on soil"
+                level="high"
+              >
                 <p className="text-sm mb-3">
                   The number one pest on UK allotments, bar none. They work at
                   night, love wet weather, and can demolish a row of lettuce
@@ -234,13 +248,15 @@ export default function PestsGuide() {
                   And accept that you&apos;ll still lose a few seedlings. Sow
                   extras.
                 </TipBox>
-              </div>
+              </TopicCard>
 
               {/* Aphids */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">
-                  Aphids (greenfly &amp; blackfly)
-                </h3>
+              <TopicCard
+                title="Aphids (greenfly & blackfly)"
+                image="/images/guides/aphids.webp"
+                imageAlt="Macro photograph of a green aphid on a leaf"
+                level="medium"
+              >
                 <p className="text-sm mb-3">
                   Tiny sap-sucking insects that cluster on soft new growth. Greenfly
                   go for almost anything. Blackfly are notorious on broad beans
@@ -273,11 +289,10 @@ export default function PestsGuide() {
                     don&apos;t climb back.
                   </li>
                 </ul>
-              </div>
+              </TopicCard>
 
               {/* Carrot fly */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">Carrot fly</h3>
+              <TopicCard title="Carrot fly" level="medium">
                 <p className="text-sm mb-3">
                   A low-flying pest that&apos;s attracted to the scent of carrot
                   foliage &mdash; especially when you thin seedlings. The larvae
@@ -310,13 +325,15 @@ export default function PestsGuide() {
                     a still evening and water afterward to settle the smell.
                   </li>
                 </ul>
-              </div>
+              </TopicCard>
 
               {/* Cabbage white butterfly */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">
-                  Cabbage white butterfly
-                </h3>
+              <TopicCard
+                title="Cabbage white butterfly"
+                image="/images/guides/caterpillar.webp"
+                imageAlt="Green caterpillar on a leaf"
+                level="medium"
+              >
                 <p className="text-sm mb-3">
                   The green caterpillars of the large and small cabbage white
                   butterfly can strip brassica plants to skeletons. They lay
@@ -343,11 +360,10 @@ export default function PestsGuide() {
                     Plant them nearby to lure butterflies away from your brassicas.
                   </li>
                 </ul>
-              </div>
+              </TopicCard>
 
               {/* Blight */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">Blight</h3>
+              <TopicCard title="Blight" level="high">
                 <p className="text-sm mb-3">
                   The big one for tomato and potato growers. Caused by a
                   water-mould (Phytophthora infestans) that thrives in warm,
@@ -391,13 +407,10 @@ export default function PestsGuide() {
                   act before it hits. Once you see brown patches on leaves,
                   remove affected foliage immediately.
                 </WarningBox>
-              </div>
+              </TopicCard>
 
               {/* Powdery mildew */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">
-                  Powdery mildew
-                </h3>
+              <TopicCard title="Powdery mildew" level="low">
                 <p className="text-sm mb-3">
                   A white, powdery coating on leaves &mdash; particularly common
                   on courgettes, squash, and cucumbers from midsummer onward. It
@@ -424,11 +437,10 @@ export default function PestsGuide() {
                     often keep cropping regardless.
                   </li>
                 </ul>
-              </div>
+              </TopicCard>
 
               {/* Clubroot */}
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-2">Clubroot</h3>
+              <TopicCard title="Clubroot" level="high">
                 <p className="text-sm mb-3">
                   A soil-borne disease that causes swollen, distorted roots in
                   brassicas &mdash; cabbages, broccoli, cauliflower, kale.
@@ -469,7 +481,7 @@ export default function PestsGuide() {
                     heavy clay sites.
                   </li>
                 </ul>
-              </div>
+              </TopicCard>
             </div>
           </section>
 

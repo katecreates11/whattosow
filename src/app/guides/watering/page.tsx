@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, WateringCanIcon } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, WateringCanIcon } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -285,6 +285,13 @@ export default function WateringGuide() {
               for more on raising strong seedlings.
             </WarningBox>
           </section>
+
+          <GuideImage
+            src="/images/guides/watering.webp"
+            alt="Person watering a garden with a metal watering can"
+            caption="A good watering can with a fine rose is the single most useful tool on any allotment."
+            aspect="landscape"
+          />
 
           <SectionDivider label="Saving water" />
 

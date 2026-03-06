@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, ProcessDiagram, GuideHero, PullQuote, SectionDivider, SeedIcon, BigNumber } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, ProcessDiagram, GuideHero, PullQuote, SectionDivider, SeedIcon, BigNumber, GuideImage } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -166,6 +166,12 @@ export default function SeedStartingGuide() {
             <BigNumber number="100" suffix="s" label="more varieties to choose" />
             <BigNumber number="1" label="packet fills a bed" />
           </div>
+
+          <GuideImage
+            src="/images/guides/seedlings.webp"
+            alt="Young seedlings growing in biodegradable pots and seed trays"
+            caption="Start seeds in modules or small pots — they transplant better with an established root system."
+          />
 
           <SectionDivider label="Getting started" />
 

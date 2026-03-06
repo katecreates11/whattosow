@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider, FullBleedSection } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -193,6 +193,12 @@ export default function BeginnersGuide() {
           <PullQuote>
             Start small. Get some food on the table. Expand next year when you know the soil, the sun, and the slugs.
           </PullQuote>
+
+          <GuideImage
+            src="/images/guides/mulch.webp"
+            alt="Inside a polytunnel with tomatoes and leafy vegetables growing"
+            caption="You don't need a polytunnel to start — but it helps extend the season."
+          />
 
           <SectionDivider label="Planning" />
 

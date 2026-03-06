@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon, FullBleedSection } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon, FullBleedSection, GuideImage } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -147,6 +147,12 @@ export default function SoilGuide() {
               </p>
             </div>
           </section>
+
+          <GuideImage
+            src="/images/guides/soil.webp"
+            alt="Garden trowel lifting rich dark soil"
+            caption="Get to know your soil — pick up a handful and feel it. Clay is sticky, sand is gritty, loam crumbles."
+          />
 
           {/* UK soil types */}
           <section>
