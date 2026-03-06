@@ -15,10 +15,12 @@ import {
   getCropIcon,
 } from "@/components/SVGIllustrations";
 import { getCropImagePath } from "@/lib/crop-images";
+import { getMinSoilTemp } from "@/data/crops";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import CropScrollDepth from "@/components/CropScrollDepth";
 import SpacingDiagram from "@/components/SpacingDiagram";
+import GrowingJourney from "@/components/GrowingJourney";
 import { getCropActionMonths, getAvgFrostDate, MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 
 function CompanionSection({ crop }: { crop: Crop }) {
@@ -342,7 +344,42 @@ export default async function CropPage({
         <div className="py-12 sm:py-16 lg:flex lg:gap-12">
           {/* Main content */}
           <div className="lg:w-[58%]">
+            {/* Quick stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+              <div className="border border-earth/6 p-3 text-center">
+                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-lg font-semibold text-earth block">{crop.harvestWeeks}w</span>
+                <span className="text-[10px] text-earth-lighter">to harvest</span>
+              </div>
+              <div className="border border-earth/6 p-3 text-center">
+                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                </svg>
+                <span className="text-lg font-semibold text-earth block">{crop.spacingCm}cm</span>
+                <span className="text-[10px] text-earth-lighter">spacing</span>
+              </div>
+              <div className="border border-earth/6 p-3 text-center">
+                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                </svg>
+                <span className="text-lg font-semibold text-earth block">{getMinSoilTemp(crop)}&deg;C</span>
+                <span className="text-[10px] text-earth-lighter">min soil temp</span>
+              </div>
+              <div className="border border-earth/6 p-3 text-center">
+                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                </svg>
+                <span className="text-lg font-semibold text-earth block capitalize">{crop.category}</span>
+                <span className="text-[10px] text-earth-lighter">hardiness</span>
+              </div>
+            </div>
+
             <PersonalisedCropDates crop={crop} />
+
+            {/* Growing journey timeline */}
+            <GrowingJourney crop={crop} />
 
             {/* Inline seed CTA — mobile-visible, high engagement position */}
             <SeedSupplierLinks crop={crop} variant="inline" />
