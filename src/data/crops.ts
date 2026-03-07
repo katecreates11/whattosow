@@ -34,6 +34,16 @@ export interface Crop {
   varieties?: { name: string; note: string }[];
   /** Min soil temp for germination (°C) — overrides category default */
   minSoilTempC?: number;
+  /** Susceptible to blight in warm humid conditions */
+  blightRisk?: boolean;
+  /** Needs dry weather to cure after harvest (onions, garlic, squash) */
+  needsCuring?: boolean;
+  /** Bolts in heat — harvest earlier or sow in shade */
+  boltsInHeat?: boolean;
+  /** Harvested by lifting from soil — affected by soil moisture */
+  liftFromSoil?: boolean;
+  /** Tall crop vulnerable to wind damage before harvest */
+  tallCrop?: boolean;
 }
 
 export const crops: Crop[] = [
@@ -62,6 +72,7 @@ export const crops: Crop[] = [
       { name: "The Sutton", note: "Dwarf — brilliant for containers and small plots" },
       { name: "Crimson Flowered", note: "Heritage beauty with edible flowers" },
     ],
+    tallCrop: true,
 },
   {
     name: "Peas",
@@ -113,6 +124,7 @@ export const crops: Crop[] = [
       { name: "Lollo Rosso", note: "Frilly red leaves, looks great in a bed" },
       { name: "All Year Round", note: "Does what it says on the packet" },
     ],
+    boltsInHeat: true,
 },
   {
     name: "Spinach",
@@ -138,6 +150,7 @@ export const crops: Crop[] = [
       { name: "Perpetual Spinach", note: "Actually a chard — but brilliant and long-lasting" },
       { name: "Bloomsdale", note: "Thick crinkly leaves, slow to bolt" },
     ],
+    boltsInHeat: true,
 },
   {
     name: "Radishes",
@@ -163,6 +176,7 @@ export const crops: Crop[] = [
       { name: "Cherry Belle", note: "Round, red, ready in 4 weeks" },
       { name: "Sparkler", note: "Red and white — kids love them" },
     ],
+    liftFromSoil: true,
 },
   {
     name: "Carrots",
@@ -189,6 +203,7 @@ export const crops: Crop[] = [
       { name: "Autumn King", note: "Big maincrops for storing" },
       { name: "Eskimo", note: "Winter-hardy — Simon Rogan leaves these in the ground year-round" },
     ],
+    liftFromSoil: true,
 },
   {
     name: "Beetroot",
@@ -214,6 +229,7 @@ export const crops: Crop[] = [
       { name: "Chioggia", note: "Candy-stripe rings inside, stunning" },
       { name: "Detroit Dark Red", note: "Deep colour, classic flavour" },
     ],
+    liftFromSoil: true,
 },
   {
     name: "Onion sets",
@@ -239,6 +255,7 @@ export const crops: Crop[] = [
       { name: "Red Baron", note: "Red variety, sweet in salads" },
       { name: "Centurion", note: "Early, good yields, keeps well" },
     ],
+    needsCuring: true,
 },
   {
     name: "Potatoes (early)",
@@ -263,6 +280,8 @@ export const crops: Crop[] = [
       { name: "Maris Piper", note: "The all-rounder for chips, mash, roasting" },
       { name: "Jazzy", note: "Waxy salad type — L'Enclume grow these tiny for maximum flavour" },
     ],
+    blightRisk: true,
+    liftFromSoil: true,
 },
   {
     name: "Kale",
@@ -310,6 +329,7 @@ export const crops: Crop[] = [
       { name: "Gladiator", note: "Vigorous and canker-resistant" },
       { name: "Guernsey", note: "Heritage variety, sweet after frost" },
     ],
+    liftFromSoil: true,
 },
   {
     name: "Spring onions",
@@ -380,6 +400,7 @@ export const crops: Crop[] = [
       { name: "Snowball", note: "White, mild, golf-ball sized" },
       { name: "Golden Ball", note: "Heritage yellow, good keeper" },
     ],
+    liftFromSoil: true,
 },
   {
     name: "Leeks",
@@ -529,6 +550,7 @@ export const crops: Crop[] = [
       { name: "Sprint", note: "Early bulbing, reliable" },
       { name: "Elephant", note: "Huge mild cloves — technically a leek!" },
     ],
+    needsCuring: true,
 },
   {
     name: "Parsley",
@@ -579,6 +601,7 @@ export const crops: Crop[] = [
       { name: "Golden Bantam", note: "Heritage, deep yellow, sweet" },
       { name: "Lark", note: "Supersweet type, reliable" },
     ],
+    tallCrop: true,
 },
   {
     name: "Courgettes",
@@ -652,6 +675,7 @@ export const crops: Crop[] = [
       { name: "Uchiki Kuri", note: "Orange onion squash, sweet and easy" },
       { name: "Butternut", note: "The shop staple — grow your own for half the price" },
     ],
+    needsCuring: true,
 },
   {
     name: "Pumpkins",
@@ -676,6 +700,7 @@ export const crops: Crop[] = [
       { name: "Atlantic Giant", note: "If you fancy growing a monster" },
       { name: "Rouge Vif d'Etampes", note: "The Cinderella pumpkin — flat, gorgeous, edible" },
     ],
+    needsCuring: true,
 },
   {
     name: "Coriander",
@@ -701,6 +726,7 @@ export const crops: Crop[] = [
       { name: "Leisure", note: "Leafy and long-lasting" },
       { name: "Confetti", note: "Feathery fine leaves, decorative" },
     ],
+    boltsInHeat: true,
 },
   {
     name: "Rocket",
@@ -725,6 +751,7 @@ export const crops: Crop[] = [
       { name: "Wild Rocket", note: "Perennial, peppery, stronger flavour" },
       { name: "Salad Rocket", note: "Fast, mild, classic for leaves" },
     ],
+    boltsInHeat: true,
 },
   {
     name: "Pak choi",
@@ -749,6 +776,7 @@ export const crops: Crop[] = [
       { name: "Canton Dwarf", note: "Compact — good for tight spaces" },
       { name: "Tatsoi", note: "Rosette-forming, mild and versatile" },
     ],
+    boltsInHeat: true,
 },
   {
     name: "Fennel",
@@ -823,6 +851,7 @@ export const crops: Crop[] = [
       { name: "Mammoth", note: "Tall, great for seeds and pickles" },
       { name: "Fernleaf", note: "Dwarf variety, perfect for pots" },
     ],
+    boltsInHeat: true,
 },
 
   // === TENDER (need warmth, start indoors) ===
@@ -851,6 +880,7 @@ export const crops: Crop[] = [
       { name: "Moneymaker", note: "Classic, does what it says" },
       { name: "Tigerella", note: "Stripey — great flavour, good conversation starter" },
     ],
+    blightRisk: true,
 },
   {
     name: "Peppers",
@@ -947,6 +977,7 @@ export const crops: Crop[] = [
       { name: "Enorma", note: "Exhibition-length pods" },
       { name: "White Lady", note: "White flowers, stringless beans" },
     ],
+    tallCrop: true,
 },
   {
     name: "Aubergine",
