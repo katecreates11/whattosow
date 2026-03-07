@@ -115,6 +115,54 @@ export default function HarvestPlanner() {
     setEntries((prev) => prev.filter((_, i) => i !== index));
   }
 
+  // Find the best harvest day — a date where the most crops are within picking range
+  function getHarvestDayRecommendation() {
+    if (entries.length < 2) return null;
+
+    const harvestDates = entries.map((e) => ({
+      name: e.crop.name,
+      date: e.harvestDate,
+      time: e.harvestDate.getTime(),
+    }));
+
+    const sorted = [...harvestDates].sort((a, b) => a.time - b.time);
+
+    // For each harvest date, count how many other crops are within 10 days
+    const WINDOW = 10 * 24 * 60 * 60 * 1000;
+    let bestDate = sorted[0];
+    let bestCount = 0;
+    let bestCrops: string[] = [];
+
+    for (const target of sorted) {
+      const nearby = sorted.filter(
+        (d) => Math.abs(d.time - target.time) <= WINDOW
+      );
+      if (nearby.length > bestCount) {
+        bestCount = nearby.length;
+        bestCrops = nearby.map((d) => d.name);
+        const midTime =
+          nearby.reduce((sum, d) => sum + d.time, 0) / nearby.length;
+        bestDate = { ...target, date: new Date(midTime), time: midTime };
+      }
+    }
+
+    if (bestCount < 2) return null;
+
+    // Snap to nearest Saturday (a good allotment day)
+    const day = bestDate.date.getDay();
+    const daysToSat = (6 - day + 7) % 7;
+    const saturday = new Date(bestDate.time + daysToSat * 24 * 60 * 60 * 1000);
+
+    return {
+      date: saturday,
+      crops: bestCrops,
+      count: bestCount,
+      total: entries.length,
+    };
+  }
+
+  const harvestDay = getHarvestDayRecommendation();
+
   if (!ready) {
     return <div className="py-20 text-center text-earth-lighter text-sm">Loading...</div>;
   }
@@ -263,6 +311,39 @@ export default function HarvestPlanner() {
               />
             ))}
           </div>
+
+          {/* Harvest day recommendation */}
+          {harvestDay && (
+            <div className="mt-6 bg-sage border-l-[3px] border-l-allotment p-5 sm:p-6">
+              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-2 block">
+                Mark your calendar
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-2">
+                {harvestDay.date.toLocaleDateString("en-GB", {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                })}
+              </h3>
+              <p className="text-sm text-earth-light leading-relaxed">
+                {harvestDay.count === harvestDay.total ? (
+                  <>Everything you&apos;ve planted comes into harvest around the same window. Head to the plot and pick the lot.</>
+                ) : (
+                  <>{harvestDay.count} of your {harvestDay.total} crops come into harvest within the same week or so. A good day to clear the plot and fill the kitchen.</>
+                )}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {harvestDay.crops.map((name) => (
+                  <span
+                    key={name}
+                    className="text-xs bg-allotment/10 text-allotment px-2 py-0.5 font-medium"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-8 flex justify-center print:hidden">
             <button
