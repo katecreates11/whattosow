@@ -6,6 +6,7 @@ import { type Crop } from "@/data/crops";
 import {
   lookupPostcode,
   calculateLastFrostDate,
+  calculateFirstAutumnFrostDate,
   formatDate,
   type LocationData,
 } from "@/lib/frost";
@@ -16,6 +17,9 @@ import {
   type HarvestEntry,
   type SowingMethod,
 } from "@/lib/harvest";
+import { fetchWeekWeatherProfile, type WeekWeatherProfile } from "@/lib/weather-history";
+import { generateHarvestAdvice, type HarvestWeatherAdvice } from "@/lib/harvest-weather";
+import { generateICS, downloadICS } from "@/lib/calendar-export";
 import CropCombobox from "@/components/CropCombobox";
 import HarvestCard from "@/components/HarvestCard";
 
@@ -45,6 +49,33 @@ function todayString(): string {
   return d.toISOString().split("T")[0];
 }
 
+function nearestWeekend(date: Date): { saturday: Date; sunday: Date } {
+  const day = date.getDay();
+  const satOffset = (6 - day + 7) % 7 || 7; // days until next Saturday
+  const satBefore = satOffset - 7; // days since last Saturday
+  // Pick whichever Saturday is closer
+  const closerOffset = Math.abs(satBefore) <= satOffset ? satBefore : satOffset;
+  const saturday = new Date(date.getTime() + closerOffset * 24 * 60 * 60 * 1000);
+  const sunday = new Date(saturday.getTime() + 24 * 60 * 60 * 1000);
+  return { saturday, sunday };
+}
+
+function fmtDay(date: Date): string {
+  return date.toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+}
+
+function fmtDayShort(date: Date): string {
+  return date.toLocaleDateString("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  });
+}
+
 export default function HarvestPlanner() {
   const [location, setLocation] = useState<LocationData | null>(null);
   const [postcodeInput, setPostcodeInput] = useState("");
@@ -58,6 +89,11 @@ export default function HarvestPlanner() {
   const [dateStr, setDateStr] = useState(todayString());
 
   const [entries, setEntries] = useState<HarvestEntry[]>([]);
+
+  // Weather state
+  const [weatherProfile, setWeatherProfile] = useState<WeekWeatherProfile | null>(null);
+  const [weatherAdvice, setWeatherAdvice] = useState<HarvestWeatherAdvice | null>(null);
+  const [weatherLoading, setWeatherLoading] = useState(false);
 
   const loadLoc = useCallback(() => {
     const loc = loadLocation();
@@ -74,6 +110,10 @@ export default function HarvestPlanner() {
   const lastFrostDate = location
     ? calculateLastFrostDate(location.latitude, location.longitude)
     : getAvgFrostDate();
+
+  const firstAutumnFrostDate = location
+    ? calculateFirstAutumnFrostDate(location.latitude, location.longitude)
+    : new Date(new Date().getFullYear(), 9, 20); // Oct 20 default
 
   async function handlePostcodeLookup() {
     if (!postcodeInput.trim()) return;
@@ -115,7 +155,7 @@ export default function HarvestPlanner() {
     setEntries((prev) => prev.filter((_, i) => i !== index));
   }
 
-  // Find the best harvest day — a date where the most crops are within picking range
+  // Find the best harvest day
   function getHarvestDayRecommendation() {
     if (entries.length < 2) return null;
 
@@ -127,11 +167,11 @@ export default function HarvestPlanner() {
 
     const sorted = [...harvestDates].sort((a, b) => a.time - b.time);
 
-    // For each harvest date, count how many other crops are within 10 days
     const WINDOW = 10 * 24 * 60 * 60 * 1000;
     let bestDate = sorted[0];
     let bestCount = 0;
     let bestCrops: string[] = [];
+    let bestEntries: HarvestEntry[] = [];
 
     for (const target of sorted) {
       const nearby = sorted.filter(
@@ -143,20 +183,84 @@ export default function HarvestPlanner() {
         const midTime =
           nearby.reduce((sum, d) => sum + d.time, 0) / nearby.length;
         bestDate = { ...target, date: new Date(midTime), time: midTime };
+        bestEntries = entries.filter((e) =>
+          nearby.some((n) => n.name === e.crop.name)
+        );
       }
     }
 
     if (bestCount < 2) return null;
 
+    const weekend = nearestWeekend(bestDate.date);
+
     return {
       date: bestDate.date,
+      weekend,
       crops: bestCrops,
+      entries: bestEntries,
       count: bestCount,
       total: entries.length,
     };
   }
 
   const harvestDay = getHarvestDayRecommendation();
+
+  // Fetch weather when we have a harvest day and location
+  useEffect(() => {
+    if (!harvestDay || !location) {
+      setWeatherProfile(null);
+      setWeatherAdvice(null);
+      return;
+    }
+
+    let cancelled = false;
+    setWeatherLoading(true);
+
+    fetchWeekWeatherProfile(
+      location.latitude,
+      location.longitude,
+      harvestDay.date
+    ).then((profile) => {
+      if (cancelled) return;
+      setWeatherProfile(profile);
+      setWeatherLoading(false);
+
+      if (profile) {
+        const advice = generateHarvestAdvice(
+          harvestDay.entries,
+          profile,
+          location.latitude,
+          harvestDay.date,
+          firstAutumnFrostDate
+        );
+        setWeatherAdvice(advice);
+      }
+    });
+
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    // Re-fetch when entries change or location changes
+    entries.length,
+    location?.postcode,
+    harvestDay?.date.getTime(),
+  ]);
+
+  // Calendar download handler
+  function handleCalendarDownload() {
+    if (!harvestDay) return;
+    const weatherNote = weatherAdvice
+      ? `${weatherAdvice.summary}\n\nHistorical weather for this week: ${weatherAdvice.tempHigh}°C high, ${weatherAdvice.rainMm}mm rain, ${weatherAdvice.sunshineHours}hrs sunshine.${weatherAdvice.details.length > 0 ? "\n\n" + weatherAdvice.details.join("\n") : ""}`
+      : undefined;
+
+    const ics = generateICS({
+      date: harvestDay.date,
+      cropNames: harvestDay.crops,
+      locationName: location?.adminDistrict,
+      weatherNote,
+    });
+    downloadICS(ics);
+  }
 
   if (!ready) {
     return <div className="py-20 text-center text-earth-lighter text-sm">Loading...</div>;
@@ -307,19 +411,21 @@ export default function HarvestPlanner() {
             ))}
           </div>
 
-          {/* Harvest day recommendation */}
+          {/* Harvest day recommendation + weather */}
           {harvestDay && (
             <div className="mt-6 bg-sage border-l-[3px] border-l-allotment p-5 sm:p-6">
               <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-2 block">
                 Mark your calendar
               </span>
-              <h3 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-2">
-                {harvestDay.date.toLocaleDateString("en-GB", {
-                  weekday: "long",
-                  day: "numeric",
-                  month: "long",
-                })}
+              <h3 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-1">
+                {fmtDay(harvestDay.date)}
               </h3>
+              {/* Weekend suggestion */}
+              {harvestDay.date.getDay() !== 0 && harvestDay.date.getDay() !== 6 && (
+                <p className="text-xs text-earth-lighter mb-2">
+                  Nearest weekend: {fmtDayShort(harvestDay.weekend.saturday)} &ndash; {fmtDayShort(harvestDay.weekend.sunday)}
+                </p>
+              )}
               <p className="text-sm text-earth-light leading-relaxed">
                 {harvestDay.count === harvestDay.total ? (
                   <>Everything you&apos;ve planted comes into harvest around the same window. Head to the plot and pick the lot.</>
@@ -337,21 +443,104 @@ export default function HarvestPlanner() {
                   </span>
                 ))}
               </div>
+
+              {/* Weather intelligence */}
+              {weatherLoading && (
+                <div className="mt-5 pt-5 border-t border-allotment/10">
+                  <p className="text-xs text-earth-lighter animate-pulse">Loading historical weather data...</p>
+                </div>
+              )}
+
+              {weatherAdvice && !weatherLoading && (
+                <div className="mt-5 pt-5 border-t border-allotment/10">
+                  <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
+                    What to expect in {location?.adminDistrict}
+                  </span>
+                  <p className="text-sm font-medium text-earth mb-3">
+                    {weatherAdvice.summary}
+                  </p>
+
+                  {/* Weather stats grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                    <div className="bg-white/60 px-3 py-2">
+                      <span className="text-[10px] text-earth-lighter block">Avg high</span>
+                      <span className="text-sm font-semibold text-earth">{weatherAdvice.tempHigh}°C</span>
+                    </div>
+                    <div className="bg-white/60 px-3 py-2">
+                      <span className="text-[10px] text-earth-lighter block">Rainfall</span>
+                      <span className="text-sm font-semibold text-earth">{weatherAdvice.rainMm}mm</span>
+                    </div>
+                    <div className="bg-white/60 px-3 py-2">
+                      <span className="text-[10px] text-earth-lighter block">Sunshine</span>
+                      <span className="text-sm font-semibold text-earth">{weatherAdvice.sunshineHours}hrs/day</span>
+                    </div>
+                    <div className="bg-white/60 px-3 py-2">
+                      <span className="text-[10px] text-earth-lighter block">Daylight</span>
+                      <span className="text-sm font-semibold text-earth">{weatherAdvice.daylightHours}hrs</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-earth-lighter mb-3 italic">
+                    Based on 5 years of weather data for this week in your area. {weatherAdvice.daylightNote}.
+                  </p>
+
+                  {/* Crop-specific advice */}
+                  {weatherAdvice.details.length > 0 && (
+                    <div className="space-y-2">
+                      {weatherAdvice.details.map((detail, i) => (
+                        <div
+                          key={i}
+                          className="text-xs text-earth-light bg-white/50 border-l-2 border-l-allotment/30 px-3 py-2 leading-relaxed"
+                        >
+                          {detail}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Actions */}
+              <div className="mt-5 pt-4 border-t border-allotment/10 flex flex-wrap gap-3 print:hidden">
+                <button
+                  onClick={handleCalendarDownload}
+                  className="inline-flex items-center gap-2 bg-allotment text-white text-xs font-medium px-4 py-2.5 hover:bg-allotment-dark transition-colors"
+                  data-umami-event="harvest-planner-calendar"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Add to calendar
+                </button>
+                <button
+                  onClick={() => window.print()}
+                  className="inline-flex items-center gap-2 bg-white text-earth text-xs font-medium px-4 py-2.5 border border-earth/15 hover:bg-earth/5 transition-colors"
+                  data-umami-event="harvest-planner-print"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  Print harvest dates
+                </button>
+              </div>
             </div>
           )}
 
-          <div className="mt-8 flex justify-center print:hidden">
-            <button
-              onClick={() => window.print()}
-              className="inline-flex items-center gap-2 bg-allotment-dark text-white text-sm font-medium px-6 py-3 hover:bg-allotment transition-colors"
-              data-umami-event="harvest-planner-print"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-              </svg>
-              Print my harvest dates
-            </button>
-          </div>
+          {/* Print button fallback when no harvest day recommendation */}
+          {!harvestDay && (
+            <div className="mt-8 flex justify-center print:hidden">
+              <button
+                onClick={() => window.print()}
+                className="inline-flex items-center gap-2 bg-allotment-dark text-white text-sm font-medium px-6 py-3 hover:bg-allotment transition-colors"
+                data-umami-event="harvest-planner-print"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                Print my harvest dates
+              </button>
+            </div>
+          )}
         </div>
       )}
 
