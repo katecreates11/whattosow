@@ -15,6 +15,11 @@ export default function CropCombobox({ crops, onSelect, selectedCrop }: CropComb
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
+  // Clear query when parent resets selectedCrop (e.g. after adding)
+  useEffect(() => {
+    if (!selectedCrop) setQuery("");
+  }, [selectedCrop]);
+
   const filtered = query.length === 0
     ? crops
     : crops.filter((c) => c.name.toLowerCase().includes(query.toLowerCase()));
