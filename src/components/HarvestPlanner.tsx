@@ -148,13 +148,8 @@ export default function HarvestPlanner() {
 
     if (bestCount < 2) return null;
 
-    // Snap to nearest Saturday (a good allotment day)
-    const day = bestDate.date.getDay();
-    const daysToSat = (6 - day + 7) % 7;
-    const saturday = new Date(bestDate.time + daysToSat * 24 * 60 * 60 * 1000);
-
     return {
-      date: saturday,
+      date: bestDate.date,
       crops: bestCrops,
       count: bestCount,
       total: entries.length,
