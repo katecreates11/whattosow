@@ -7,7 +7,7 @@ import PlantingTool from "@/components/PlantingTool";
 import PersonalisedCropDates from "@/components/PersonalisedCropDates";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FullWidthSection from "@/components/FullWidthSection";
+
 import {
   HardyIllustration,
   HalfHardyIllustration,
@@ -29,7 +29,7 @@ function CompanionSection({ crop }: { crop: Crop }) {
   return (
     <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 mb-10">
       {crop.companionPlants && crop.companionPlants.length > 0 && (
-        <div className="border border-earth/6 p-6 hover:border-earth/15 transition-colors duration-300">
+        <div className="bg-sage p-6">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-leaf" />
             <h2 className="font-semibold text-earth">Good companions</h2>
@@ -53,7 +53,7 @@ function CompanionSection({ crop }: { crop: Crop }) {
         </div>
       )}
       {crop.avoidPlants && crop.avoidPlants.length > 0 && (
-        <div className="border border-earth/6 p-6 hover:border-earth/15 transition-colors duration-300">
+        <div className="bg-blush p-6">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-tomato" />
             <h2 className="font-semibold text-earth">Keep apart from</h2>
@@ -91,11 +91,11 @@ const categoryDot: Record<string, string> = {
 function categoryHeaderBg(cat: Crop["category"]): string {
   switch (cat) {
     case "hardy":
-      return "bg-allotment-bg";
+      return "bg-sage";
     case "half-hardy":
-      return "bg-amber-bg";
+      return "bg-ochre";
     case "tender":
-      return "bg-tomato-bg";
+      return "bg-blush";
   }
 }
 
@@ -136,7 +136,7 @@ function SowingMonths({ crop }: { crop: Crop }) {
               <a
                 key={m}
                 href={`/sow/${MONTH_SLUGS[m]}`}
-                className="text-sm text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                className="text-sm text-rust hover:text-earth underline decoration-rust/30 transition-colors"
               >
                 {MONTH_NAMES[m]}
               </a>
@@ -145,7 +145,7 @@ function SowingMonths({ crop }: { crop: Crop }) {
         ))}
       </div>
       <p className="text-xs text-earth-lighter mt-3">
-        Based on UK average frost date. <a href="/" className="text-allotment hover:underline">Enter your postcode</a> for exact dates, or <a href="/sow-in" className="text-allotment hover:underline">find your city</a>.
+        Based on UK average frost date. <a href="/" className="text-rust hover:underline">Enter your postcode</a> for exact dates, or <a href="/sow-in" className="text-rust hover:underline">find your city</a>.
       </p>
     </div>
   );
@@ -281,10 +281,10 @@ export default async function CropPage({
       />
       <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
-      <article id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
+      <article id="main-content">
         {/* Hero photo — full bleed */}
         {crop.unsplashId && (
-          <FullWidthSection className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+          <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
             <Image
               src={`https://images.unsplash.com/photo-${crop.unsplashId}?w=1600&h=600&fit=crop&auto=format&q=75`}
               alt={`${crop.name} growing`}
@@ -297,77 +297,78 @@ export default async function CropPage({
             <p className="absolute bottom-3 right-4 text-[10px] text-white/40">
               Photo: Unsplash
             </p>
-          </FullWidthSection>
+          </div>
         )}
 
         {/* Crop Header — overlaps photo */}
-        <FullWidthSection
-          className={`${categoryHeaderBg(crop.category)} ${crop.unsplashId ? "-mt-16 relative z-10" : ""}`}
-          innerClassName={`${crop.unsplashId ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}
+        <div
+          className={`${categoryHeaderBg(crop.category)} ${crop.unsplashId ? "-mt-16 relative z-10" : ""} px-6 sm:px-10 lg:px-16`}
         >
-          <div className="flex items-start justify-between gap-8">
-            <div className="flex-1">
-              <div className="flex items-center gap-2.5 mb-6">
-                <span className={`w-2 h-2 rounded-full ${categoryDot[crop.category]}`} />
-                <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter">
-                  {categoryLabel(crop.category)}
-                </span>
+          <div className={`max-w-4xl mx-auto ${crop.unsplashId ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}>
+            <div className="flex items-start justify-between gap-8">
+              <div className="flex-1">
+                <div className="flex items-center gap-2.5 mb-6">
+                  <span className={`w-2 h-2 rounded-full ${categoryDot[crop.category]}`} />
+                  <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter">
+                    {categoryLabel(crop.category)}
+                  </span>
+                </div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-6">
+                  When to plant<br />
+                  <span className="font-normal">{crop.name.toLowerCase()}</span> in the UK
+                </h1>
+                <p className="text-lg text-earth-light leading-relaxed max-w-2xl">
+                  {crop.tip}
+                </p>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-6">
-                When to plant<br />
-                <span className="font-normal">{crop.name.toLowerCase()}</span> in the UK
-              </h1>
-              <p className="text-lg text-earth-light leading-relaxed max-w-2xl">
-                {crop.tip}
-              </p>
+              {getCropImagePath(crop.slug) ? (
+                <div className="hidden md:block shrink-0">
+                  <Image
+                    src={getCropImagePath(crop.slug)!}
+                    alt={crop.name}
+                    width={120}
+                    height={120}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              ) : (
+                <div className="hidden md:block shrink-0 opacity-[0.15]">
+                  <CategoryIllustration category={crop.category} className="w-36 h-28" />
+                </div>
+              )}
             </div>
-            {getCropImagePath(crop.slug) ? (
-              <div className="hidden md:block shrink-0">
-                <Image
-                  src={getCropImagePath(crop.slug)!}
-                  alt={crop.name}
-                  width={120}
-                  height={120}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            ) : (
-              <div className="hidden md:block shrink-0 opacity-[0.15]">
-                <CategoryIllustration category={crop.category} className="w-36 h-28" />
-              </div>
-            )}
           </div>
-        </FullWidthSection>
+        </div>
 
         {/* Two-column layout */}
-        <div className="py-12 sm:py-16 lg:flex lg:gap-12">
+        <div className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16"><div className="max-w-4xl mx-auto lg:flex lg:gap-12">
           {/* Main content */}
           <div className="lg:w-[58%]">
             {/* Quick stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
-              <div className="border border-earth/6 p-3 text-center">
+              <div className="bg-sage p-3 text-center">
                 <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span className="text-lg font-semibold text-earth block">{crop.harvestWeeks}w</span>
                 <span className="text-[10px] text-earth-lighter">to harvest</span>
               </div>
-              <div className="border border-earth/6 p-3 text-center">
+              <div className="bg-sage p-3 text-center">
                 <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
                 </svg>
                 <span className="text-lg font-semibold text-earth block">{crop.spacingCm}cm</span>
                 <span className="text-[10px] text-earth-lighter">spacing</span>
               </div>
-              <div className="border border-earth/6 p-3 text-center">
+              <div className="bg-sage p-3 text-center">
                 <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
                 </svg>
                 <span className="text-lg font-semibold text-earth block">{getMinSoilTemp(crop)}&deg;C</span>
                 <span className="text-[10px] text-earth-lighter">min soil temp</span>
               </div>
-              <div className="border border-earth/6 p-3 text-center">
+              <div className="bg-sage p-3 text-center">
                 <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                 </svg>
@@ -385,7 +386,7 @@ export default async function CropPage({
             <SeedSupplierLinks crop={crop} variant="inline" />
 
             {/* Growing needs */}
-            <div className="bg-leaf-bg/60 p-6 sm:p-8 mb-10">
+            <div className="bg-sage p-6 sm:p-8 mb-10">
               <h2 className="font-semibold text-earth mb-3">
                 What {crop.name.toLowerCase()} need
               </h2>
@@ -406,7 +407,7 @@ export default async function CropPage({
                 </h2>
                 <div className="space-y-3">
                   {crop.varieties.map((v) => (
-                    <div key={v.name} className="border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300">
+                    <div key={v.name} className="bg-ochre/60 p-5">
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <span className="font-medium text-earth">{v.name}</span>
@@ -452,28 +453,58 @@ export default async function CropPage({
               </div>
             </div>
           </div>
-        </div>
+        </div></div>
 
         {/* Other crops — horizontal scroll */}
-        <FullWidthSection className="border-t border-earth/6" innerClassName="py-16 sm:py-20 pb-20">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
-            Keep exploring
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-8">
-            Other crops to grow
-          </h2>
+        <div className="border-t border-earth/6 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto py-16 sm:py-20 pb-20">
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
+              Keep exploring
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-8">
+              Other crops to grow
+            </h2>
 
-          {sameCategoryCrops.length > 0 && (
-            <div className="mb-6">
-              <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6" role="region" aria-label="Similar crops" tabIndex={0}>
-                {sameCategoryCrops.map((c) => {
+            {sameCategoryCrops.length > 0 && (
+              <div className="mb-6">
+                <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2" role="region" aria-label="Similar crops" tabIndex={0}>
+                  {sameCategoryCrops.map((c) => {
+                    const cImage = getCropImagePath(c.slug);
+                    const Icon = getCropIcon(c.slug);
+                    return (
+                      <a
+                        key={c.slug}
+                        href={`/crops/${c.slug}`}
+                        className="group block bg-sage/60 p-5 hover:bg-sage transition-colors duration-300 shrink-0 w-48"
+                      >
+                        {cImage ? (
+                          <div className="flex justify-center mb-3">
+                            <Image src={cImage} alt="" width={48} height={48} className="object-contain" />
+                          </div>
+                        ) : null}
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${categoryDot[c.category]}`} />
+                          {!cImage && Icon && <Icon className="w-4 h-4 shrink-0 text-earth-lighter" />}
+                          <span className="font-medium text-sm text-earth">{c.name}</span>
+                        </div>
+                        <p className="text-xs text-earth-lighter leading-relaxed line-clamp-2">{c.tip.slice(0, 80)}</p>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {otherCategoryCrops.length > 0 && (
+              <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2" role="region" aria-label="Other crops to grow" tabIndex={0}>
+                {otherCategoryCrops.map((c) => {
                   const cImage = getCropImagePath(c.slug);
                   const Icon = getCropIcon(c.slug);
                   return (
                     <a
                       key={c.slug}
                       href={`/crops/${c.slug}`}
-                      className="group block border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300 shrink-0 w-48"
+                      className="group block bg-sage/60 p-5 hover:bg-sage transition-colors duration-300 shrink-0 w-48"
                     >
                       {cImage ? (
                         <div className="flex justify-center mb-3">
@@ -490,37 +521,9 @@ export default async function CropPage({
                   );
                 })}
               </div>
-            </div>
-          )}
-
-          {otherCategoryCrops.length > 0 && (
-            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6" role="region" aria-label="Other crops to grow" tabIndex={0}>
-              {otherCategoryCrops.map((c) => {
-                const cImage = getCropImagePath(c.slug);
-                const Icon = getCropIcon(c.slug);
-                return (
-                  <a
-                    key={c.slug}
-                    href={`/crops/${c.slug}`}
-                    className="group block border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300 shrink-0 w-48"
-                  >
-                    {cImage ? (
-                      <div className="flex justify-center mb-3">
-                        <Image src={cImage} alt="" width={48} height={48} className="object-contain" />
-                      </div>
-                    ) : null}
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${categoryDot[c.category]}`} />
-                      {!cImage && Icon && <Icon className="w-4 h-4 shrink-0 text-earth-lighter" />}
-                      <span className="font-medium text-sm text-earth">{c.name}</span>
-                    </div>
-                    <p className="text-xs text-earth-lighter leading-relaxed line-clamp-2">{c.tip.slice(0, 80)}</p>
-                  </a>
-                );
-              })}
-            </div>
-          )}
-        </FullWidthSection>
+            )}
+          </div>
+        </div>
       </article>
 
       <Footer />

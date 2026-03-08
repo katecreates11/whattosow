@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection, InThisGuide, TopicCard, GuideImage } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection, InThisGuide, TopicCard, GuideImage, ColorSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -117,7 +117,7 @@ export default function PestsGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content">
         <GuideHero
           eyebrow="Growing guide"
           title="Common pests & diseases"
@@ -138,10 +138,10 @@ export default function PestsGuide() {
           { label: "Organic vs chemical", anchor: "organic" },
         ]} />
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Prevention first */}
-          <section id="prevention">
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <ColorSection color="sage">
+            <h2 id="prevention" className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Prevention beats cure
             </h2>
             <div className="space-y-3">
@@ -173,7 +173,7 @@ export default function PestsGuide() {
                   See our{" "}
                   <a
                     href="/guides/companion-planting"
-                    className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                    className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     companion planting guide
                   </a>{" "}
@@ -181,7 +181,7 @@ export default function PestsGuide() {
                 </li>
               </ul>
             </div>
-          </section>
+          </ColorSection>
 
           <PullQuote>
             Healthy plants on healthy soil shrug off problems that would flatten a stressed crop.
@@ -190,8 +190,8 @@ export default function PestsGuide() {
           <SectionDivider label="The big hitters" />
 
           {/* The big hitters */}
-          <section id="slugs">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+          <ColorSection color="ochre">
+            <h2 id="slugs" className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               The big hitters
             </h2>
             <div className="space-y-6">
@@ -469,7 +469,7 @@ export default function PestsGuide() {
                     years. See our{" "}
                     <a
                       href="/guides/crop-rotation"
-                      className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                      className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                     >
                       crop rotation guide
                     </a>
@@ -483,11 +483,11 @@ export default function PestsGuide() {
                 </ul>
               </TopicCard>
             </div>
-          </section>
+          </ColorSection>
 
           <FullBleedSection color="earth">
             <section>
-              <h2 className="text-xl font-semibold text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-serif text-white mb-4 tracking-tight">
                 Organic vs chemical
               </h2>
               <div className="space-y-3 text-white/80">
@@ -509,7 +509,7 @@ export default function PestsGuide() {
             </section>
 
             <section className="mt-10 pt-8 border-t border-white/10">
-              <h2 className="text-xl font-semibold text-white mb-3">
+              <h2 className="text-2xl sm:text-3xl font-serif text-white mb-4 tracking-tight">
                 When to accept the losses
               </h2>
               <div className="space-y-3 text-white/80">
@@ -532,13 +532,13 @@ export default function PestsGuide() {
           </FullBleedSection>
 
           {/* FAQ */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+          <ColorSection color="sky">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
             <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What is the best way to get rid of slugs on an allotment?
                 </h3>
                 <p className="text-sm">
@@ -549,8 +549,8 @@ export default function PestsGuide() {
                   solves slugs &mdash; a combination is key.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How do I stop carrot fly without chemicals?
                 </h3>
                 <p className="text-sm">
@@ -561,8 +561,8 @@ export default function PestsGuide() {
                   extra protection.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What does blight look like on tomatoes?
                 </h3>
                 <p className="text-sm">
@@ -574,8 +574,8 @@ export default function PestsGuide() {
                   varieties for next year.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Is organic pest control effective?
                 </h3>
                 <p className="text-sm">
@@ -587,8 +587,8 @@ export default function PestsGuide() {
                   balance establishes itself.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How do I stop cabbage white butterflies eating my brassicas?
                 </h3>
                 <p className="text-sm">
@@ -600,57 +600,67 @@ export default function PestsGuide() {
                 </p>
               </div>
             </div>
-          </section>
+          </ColorSection>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
-              Next steps
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+          <SectionDivider label="Next" />
+          <section>
+            <div>
               <a
                 href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Companion planting &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Flowers that deter pests.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Companion planting
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Flowers that deter pests.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/crop-rotation"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Crop rotation &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Break pest cycles.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Crop rotation
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Break pest cycles.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/soil"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Healthy soil &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Healthy soil = healthy plants.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Healthy soil
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Healthy soil = healthy plants.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised to your postcode.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    What to sow this week
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Personalised to your postcode.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

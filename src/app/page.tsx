@@ -116,7 +116,7 @@ export default function Home() {
 
       <Header />
 
-      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
+      <main id="main-content">
         {/* Hero — illustration banner with text */}
         <FullWidthSection className="relative overflow-hidden" innerClassName="relative">
           {/* Mobile: stacked text above image */}
@@ -175,28 +175,33 @@ export default function Home() {
         </FullWidthSection>
 
         {/* Trust strip */}
-        <div className="flex items-center justify-center gap-3 sm:gap-5 py-5 text-xs text-earth-lighter flex-wrap">
-          <span className="font-medium text-earth-light"><CountUp target={sowableNowCount} /> crops to sow right now</span>
-          <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
-          <span>Met Office data</span>
-          <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
-          <span>Updated weekly</span>
-          <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
-          <span>Every UK postcode</span>
+        <div className="px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto flex items-center justify-center gap-3 sm:gap-5 py-5 text-xs text-earth-lighter flex-wrap">
+            <span className="font-medium text-earth-light"><CountUp target={sowableNowCount} /> crops to sow right now</span>
+            <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
+            <span>Met Office data</span>
+            <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
+            <span>Updated weekly</span>
+            <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
+            <span>Every UK postcode</span>
+          </div>
         </div>
 
         {/* Pull quote — editorial breathing room */}
-        <aside className="relative py-10 sm:py-14 my-4 border-y border-earth/8">
-          <p className="font-serif text-2xl sm:text-3xl text-earth leading-[1.3] max-w-[30rem]">
-            &ldquo;March in Cornwall and March in Edinburgh are completely different.&rdquo;
-          </p>
-          <span className="block mt-3 text-sm text-earth-lighter">
-            &mdash; Why we built this tool
-          </span>
+        <aside className="relative px-6 sm:px-10 lg:px-16 py-10 sm:py-14 my-4 bg-blush">
+          <div className="max-w-4xl mx-auto">
+            <p className="font-serif text-2xl sm:text-3xl text-earth leading-[1.3] max-w-[30rem]">
+              &ldquo;March in Cornwall and March in Edinburgh are completely different.&rdquo;
+            </p>
+            <span className="block mt-3 text-sm text-earth-lighter">
+              &mdash; Why we built this tool
+            </span>
+          </div>
         </aside>
 
         {/* Features — consistent ghost cards */}
-        <section className="py-14 sm:py-20" aria-label="Features">
+        <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16" aria-label="Features">
+          <div className="max-w-4xl mx-auto">
           <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
             How it works
           </h2>
@@ -204,7 +209,7 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-4 sm:gap-5">
             {/* Large card — 8 columns */}
             <ScrollReveal className="col-span-12 lg:col-span-8">
-              <div className="border border-earth/6 bg-leaf-bg/30 p-8 sm:p-10 lg:p-12 h-full hover:border-earth/15 transition-colors duration-300">
+              <div className="bg-sage p-8 sm:p-10 lg:p-12 h-full transition-colors duration-300">
                 <MapPinPlantIcon className="w-10 h-10 text-allotment/60 mb-6" />
                 <h3 className="font-semibold text-earth text-xl mb-3">Localised to you</h3>
                 <p className="text-earth-light leading-relaxed max-w-lg">
@@ -218,7 +223,7 @@ export default function Home() {
             {/* Two stacked cards — 4 columns */}
             <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-5">
               <ScrollReveal delay={100}>
-                <div className="border border-earth/6 p-6 sm:p-8 hover:border-earth/15 transition-colors duration-300">
+                <div className="bg-ochre p-6 sm:p-8 transition-colors duration-300">
                   <CalendarSeedlingIcon className="w-8 h-8 text-amber/60 mb-4" />
                   <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
                   <p className="text-sm text-earth-light leading-relaxed">
@@ -229,7 +234,7 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <div className="border border-earth/6 p-6 sm:p-8 hover:border-earth/15 transition-colors duration-300">
+                <div className="bg-sky p-6 sm:p-8 transition-colors duration-300">
                   <SnowflakeShieldIcon className="w-8 h-8 text-frost/60 mb-4" />
                   <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
                   <p className="text-sm text-earth-light leading-relaxed">
@@ -240,13 +245,15 @@ export default function Home() {
               </ScrollReveal>
             </div>
           </div>
+          </div>
         </section>
 
         {/* Secondary links — frost map + still-time */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pb-14 sm:pb-20">
+        <div className="px-6 sm:px-10 lg:px-16">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pb-14 sm:pb-20">
           <a
             href="/still-time"
-            className="group border border-earth/6 border-l-4 border-l-amber bg-amber-bg/50 p-6 hover:border-earth/15 transition-colors duration-300"
+            className="group border border-earth/6 border-l-4 border-l-amber bg-ochre p-6 hover:border-earth/15 transition-colors duration-300"
           >
             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber mb-2 block">
               Closing soon
@@ -260,7 +267,7 @@ export default function Home() {
           </a>
           <a
             href="/frost-map"
-            className="group border border-earth/6 border-l-4 border-l-frost bg-frost-bg/50 p-6 hover:border-earth/15 transition-colors duration-300"
+            className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300"
           >
             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost mb-2 block">
               Interactive map
@@ -273,13 +280,16 @@ export default function Home() {
             </p>
           </a>
         </div>
+        </div>
 
         {/* Sky tonight — moon phase + daylight */}
-        <section className="pb-14 sm:pb-20 -mx-4 sm:-mx-6 px-4 sm:px-6 bg-frost-bg/40" aria-label="Today at the allotment">
-          <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
-            Today at the allotment
-          </h2>
-          <SkyTonightLoader />
+        <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-sky" aria-label="Today at the allotment">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
+              Today at the allotment
+            </h2>
+            <SkyTonightLoader />
+          </div>
         </section>
 
         {/* Crop index — subtle band */}
@@ -292,7 +302,8 @@ export default function Home() {
         </FullWidthSection>
 
         {/* Guides — editorial links */}
-        <section className="py-14 sm:py-20" aria-label="Growing guides">
+        <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16" aria-label="Growing guides">
+          <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="flex items-baseline justify-between mb-6">
               <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment">
@@ -303,20 +314,21 @@ export default function Home() {
               </a>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <a href="/guides/beginners" className="group border border-earth/6 p-5 hover:border-earth/15 transition-colors">
+              <a href="/guides/beginners" className="group bg-sage p-5 transition-colors">
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Allotment for beginners &rarr;</span>
               </a>
-              <a href="/guides/seed-starting" className="group border border-earth/6 p-5 hover:border-earth/15 transition-colors">
+              <a href="/guides/seed-starting" className="group bg-sage p-5 transition-colors">
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Starting from seed &rarr;</span>
               </a>
-              <a href="/guides/companion-planting" className="group border border-earth/6 p-5 hover:border-earth/15 transition-colors">
+              <a href="/guides/companion-planting" className="group bg-sage p-5 transition-colors">
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Planning</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Companion planting &rarr;</span>
               </a>
             </div>
           </ScrollReveal>
+          </div>
         </section>
 
         {/* Calendar CTA — full-width dark */}
@@ -365,7 +377,8 @@ export default function Home() {
         </FullWidthSection>
 
         {/* FAQ */}
-        <section id="common-questions" className="py-14 sm:py-20 scroll-mt-20" aria-labelledby="faq-heading">
+        <section id="common-questions" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 scroll-mt-20 bg-ochre" aria-labelledby="faq-heading">
+          <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-4 block">
               FAQ
@@ -375,8 +388,8 @@ export default function Home() {
             </h2>
 
             <div className="space-y-8 sm:space-y-10">
-              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
-                <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
+              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
+                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
                   When is the last frost date in the UK?
                 </h3>
                 <p className="text-earth-light leading-relaxed max-w-2xl">
@@ -389,8 +402,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
-                <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
+              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
+                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
                   What can I plant before the last frost?
                 </h3>
                 <p className="text-earth-light leading-relaxed max-w-2xl">
@@ -402,8 +415,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
-                <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
+              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
+                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
                   How accurate are these frost dates?
                 </h3>
                 <p className="text-earth-light leading-relaxed max-w-2xl">
@@ -416,8 +429,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
-                <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
+              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
+                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
                   Is this tool free?
                 </h3>
                 <p className="text-earth-light leading-relaxed max-w-2xl">
@@ -427,8 +440,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pl-6 sm:pl-8 border-l-4 border-l-allotment/60 py-1">
-                <h3 className="text-lg sm:text-xl font-medium text-earth mb-3">
+              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
+                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
                   Who made this?
                 </h3>
                 <p className="text-earth-light leading-relaxed max-w-2xl">
@@ -440,21 +453,24 @@ export default function Home() {
               </div>
             </div>
           </ScrollReveal>
+          </div>
         </section>
 
         {/* Repeat CTA */}
-        <div className="py-10 sm:py-14 text-center border-t border-earth/6">
-          <p className="text-earth-light mb-2">Ready to find out what to sow?</p>
-          <p className="text-sm text-earth-lighter mb-4">{sowableNowCount} crops are in season right now.</p>
-          <a
-            href="#main-content"
-            className="inline-flex items-center gap-2 text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M12 19V5M5 12l7-7 7 7" />
-            </svg>
-            Enter your postcode
-          </a>
+        <div className="py-10 sm:py-14 text-center border-t border-earth/6 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-earth-light mb-2">Ready to find out what to sow?</p>
+            <p className="text-sm text-earth-lighter mb-4">{sowableNowCount} crops are in season right now.</p>
+            <a
+              href="#main-content"
+              className="inline-flex items-center gap-2 text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+              Enter your postcode
+            </a>
+          </div>
         </div>
       </main>
 

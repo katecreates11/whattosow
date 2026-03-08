@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { crops } from "@/data/crops";
 import Image from "next/image";
 import { getCropImagePath } from "@/lib/crop-images";
+import { SectionDivider } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -162,24 +163,26 @@ export default function CompanionPlantingGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Companion planting guide
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Some crops grow better together. Others are best kept apart. This
-          chart covers all 40 vegetables in our database &mdash; what to plant
-          next to each one and what to avoid. Scroll down or jump to a
-          specific crop.
-        </p>
+      <main id="main-content">
+        <div className="px-6 sm:px-10 lg:px-16">
+          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
+            Growing guide
+          </span>
+          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
+            Companion planting guide
+          </h1>
+          <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
+            Some crops grow better together. Others are best kept apart. This
+            chart covers all 40 vegetables in our database &mdash; what to plant
+            next to each one and what to avoid. Scroll down or jump to a
+            specific crop.
+          </p>
+        </div>
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Quick explanation */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Why companion planting works
             </h2>
             <div className="space-y-3">
@@ -217,7 +220,7 @@ export default function CompanionPlantingGuide() {
                 <a
                   key={crop.slug}
                   href={`#${crop.slug}`}
-                  className="text-xs text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                  className="text-xs text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   {crop.name}
                 </a>
@@ -227,7 +230,7 @@ export default function CompanionPlantingGuide() {
 
           {/* Crop-by-crop companion chart */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-6">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Companion planting chart
             </h2>
             <div className="space-y-6">
@@ -309,7 +312,7 @@ export default function CompanionPlantingGuide() {
 
           {/* Flower companions */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Flowers that belong on the veg patch
             </h2>
             <p className="mb-6">
@@ -445,7 +448,7 @@ export default function CompanionPlantingGuide() {
 
           {/* Tips */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Practical tips
             </h2>
             <div className="space-y-3">
@@ -464,7 +467,7 @@ export default function CompanionPlantingGuide() {
                 If you&apos;re new to growing, focus on{" "}
                 <a
                   href="/guides/beginners"
-                  className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   getting things in the ground
                 </a>{" "}
@@ -475,12 +478,12 @@ export default function CompanionPlantingGuide() {
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
             <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What is companion planting?
                 </h3>
                 <p className="text-sm">
@@ -490,8 +493,8 @@ export default function CompanionPlantingGuide() {
                   sharing.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What vegetables should not be planted together?
                 </h3>
                 <p className="text-sm">
@@ -501,8 +504,8 @@ export default function CompanionPlantingGuide() {
                   growth), and brassicas near strawberries.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Does companion planting actually work?
                 </h3>
                 <p className="text-sm">
@@ -518,54 +521,44 @@ export default function CompanionPlantingGuide() {
           </section>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
-              More tools
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+          <SectionDivider label="Next" />
+          <section>
+            <div>
               <a
                 href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  What to sow this week
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised to your postcode.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/calendar"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Sowing calendar &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  Sowing calendar
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  All 40 crops across 12 months at a glance.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/spring-vegetables"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Spring vegetables &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  Spring vegetables
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Every crop you can sow this season.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/frost-map"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  UK frost map &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  UK frost map
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  See frost dates across every region.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

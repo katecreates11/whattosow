@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import { lookupPostcode, getFrostForecast, calculateLastFrostDate, calculateFirstAutumnFrostDate } from "@/lib/frost";
 import { crops, getCropsByAction, getMinSoilTemp } from "@/data/crops";

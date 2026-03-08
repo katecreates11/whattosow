@@ -54,7 +54,8 @@ export default function ProductsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
+        <div className="max-w-2xl">
         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
           For your shed wall
         </span>
@@ -170,6 +171,7 @@ export default function ProductsPage() {
           <div className="max-w-sm mx-auto">
             <EmailCapture variant="compact" />
           </div>
+        </div>
         </div>
       </main>
       <Footer />

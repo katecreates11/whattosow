@@ -9,9 +9,9 @@ export default function FullWidthSection({
 }) {
   return (
     <div
-      className={`relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] ${className}`}
+      className={`${className}`}
     >
-      <div className={`max-w-4xl mx-auto px-4 sm:px-6 ${innerClassName}`}>
+      <div className={`max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 ${innerClassName}`}>
         {children}
       </div>
     </div>

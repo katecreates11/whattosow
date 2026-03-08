@@ -223,9 +223,9 @@ export default async function CityPage({
       />
       <Header backLink={{ href: "/sow-in", label: "\u2190 All locations" }} />
 
-      <article id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
+      <article id="main-content">
         {/* Hero */}
-        <div className="py-12 sm:py-20 pb-10 sm:pb-14">
+        <div className="px-6 sm:px-10 lg:px-16 py-12 sm:py-20 pb-10 sm:pb-14"><div className="max-w-4xl mx-auto">
           <div className="flex gap-8 items-start">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4">
@@ -245,9 +245,10 @@ export default async function CityPage({
               <UKCityMap highlightSlug={city.slug} size="mini" />
             </div>
           </div>
-        </div>
+        </div></div>
 
         {/* Frost stats */}
+        <div className="px-6 sm:px-10 lg:px-16"><div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           <div className="border border-earth/6 p-5">
             <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter block mb-1">
@@ -410,9 +411,11 @@ export default async function CityPage({
           </div>
         </section>
 
+        </div></div>
+
         {/* Personalise with postcode */}
-        <section className="mb-16">
-          <div className="bg-allotment-dark p-6 sm:p-8">
+        <div className="bg-allotment-dark px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto py-10 sm:py-14">
             <h2 className="text-lg font-semibold text-white mb-2">
               Get more precise dates for {city.name}
             </h2>
@@ -423,10 +426,11 @@ export default async function CityPage({
             </p>
             <PlantingTool hideCropList />
           </div>
-        </section>
+        </div>
 
+        <div className="px-6 sm:px-10 lg:px-16"><div className="max-w-4xl mx-auto">
         {/* Email capture */}
-        <div className="mb-16">
+        <div className="mb-16 mt-16">
           <ContextualEmailCapture />
         </div>
 
@@ -479,6 +483,7 @@ export default async function CityPage({
             </div>
           </div>
         </section>
+        </div></div>
       </article>
 
       <Footer />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, ColorSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -97,7 +97,7 @@ export default function BeginnersGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content">
         <GuideHero
           eyebrow="Growing guide"
           title="Allotment for beginners"
@@ -105,17 +105,17 @@ export default function BeginnersGuide() {
           color="allotment"
         />
 
-        <div className="space-y-10 text-earth-light leading-relaxed">
+        <div className="text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Don&apos;t try to do everything at once
             </h2>
-            <p>
+            <p className="text-[15px]">
               The single biggest mistake new allotment holders make is clearing
               the whole plot in the first month, planting everything they can
               think of, and burning out by July. Don&apos;t do this.
             </p>
-            <p className="mt-3">
+            <p className="mt-4 text-[15px]">
               Start small. Clear one bed &mdash; maybe two. Grow a handful of
               things well. Get some food on the table. Expand next year when
               you know the soil, the sun, and the slugs.
@@ -126,69 +126,86 @@ export default function BeginnersGuide() {
             </WarningBox>
           </section>
 
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <SectionDivider label="The crops" />
+
+          <ColorSection color="ochre">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-2 tracking-tight">
               The 5 easiest crops to start with
             </h2>
-            <p className="mb-4">
+            <p className="mb-8 text-[15px]">
               These are forgiving, fast, and satisfying. They&apos;ll give you
               results even if you get things slightly wrong.
             </p>
-            <ol className="space-y-4 list-none">
-              <li className="pl-6 border-l-2 border-allotment/20">
-                <a href="/crops/radishes" className="font-semibold text-earth hover:text-allotment">
-                  1. Radishes
-                </a>
-                <p className="text-sm mt-1">
-                  Ready in 4 weeks. Sow directly, thin to 3cm apart, harvest.
-                  The instant gratification crop. Sow a short row every
-                  fortnight and you&apos;ll never run out.
-                </p>
+            <ol className="space-y-8 list-none">
+              <li className="flex gap-5">
+                <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">1</span>
+                <div>
+                  <a href="/crops/radishes" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                    Radishes
+                  </a>
+                  <p className="text-sm mt-1.5">
+                    Ready in 4 weeks. Sow directly, thin to 3cm apart, harvest.
+                    The instant gratification crop. Sow a short row every
+                    fortnight and you&apos;ll never run out.
+                  </p>
+                </div>
               </li>
-              <li className="pl-6 border-l-2 border-allotment/20">
-                <a href="/crops/lettuce" className="font-semibold text-earth hover:text-allotment">
-                  2. Lettuce
-                </a>
-                <p className="text-sm mt-1">
-                  Pick outer leaves and it keeps growing. Sow from March to
-                  August for months of salad. Partial shade is fine &mdash; it
-                  actually prefers it in summer.
-                </p>
+              <li className="flex gap-5">
+                <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">2</span>
+                <div>
+                  <a href="/crops/lettuce" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                    Lettuce
+                  </a>
+                  <p className="text-sm mt-1.5">
+                    Pick outer leaves and it keeps growing. Sow from March to
+                    August for months of salad. Partial shade is fine &mdash; it
+                    actually prefers it in summer.
+                  </p>
+                </div>
               </li>
-              <li className="pl-6 border-l-2 border-allotment/20">
-                <a href="/crops/courgette" className="font-semibold text-earth hover:text-allotment">
-                  3. Courgettes
-                </a>
-                <p className="text-sm mt-1">
-                  One plant produces more courgettes than you can eat. Sow
-                  indoors in April, plant out after frost. The problem
-                  isn&apos;t growing them &mdash; it&apos;s keeping up with
-                  them.
-                </p>
+              <li className="flex gap-5">
+                <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">3</span>
+                <div>
+                  <a href="/crops/courgette" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                    Courgettes
+                  </a>
+                  <p className="text-sm mt-1.5">
+                    One plant produces more courgettes than you can eat. Sow
+                    indoors in April, plant out after frost. The problem
+                    isn&apos;t growing them &mdash; it&apos;s keeping up with
+                    them.
+                  </p>
+                </div>
               </li>
-              <li className="pl-6 border-l-2 border-allotment/20">
-                <a href="/crops/runner-beans" className="font-semibold text-earth hover:text-allotment">
-                  4. Runner beans
-                </a>
-                <p className="text-sm mt-1">
-                  Spectacular plants &mdash; tall, lush, covered in flowers.
-                  Sow after frost, give them a wigwam of canes, and pick every
-                  few days. They stop producing if you let the pods get big.
-                </p>
+              <li className="flex gap-5">
+                <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">4</span>
+                <div>
+                  <a href="/crops/runner-beans" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                    Runner beans
+                  </a>
+                  <p className="text-sm mt-1.5">
+                    Spectacular plants &mdash; tall, lush, covered in flowers.
+                    Sow after frost, give them a wigwam of canes, and pick every
+                    few days. They stop producing if you let the pods get big.
+                  </p>
+                </div>
               </li>
-              <li className="pl-6 border-l-2 border-allotment/20">
-                <a href="/crops/potato" className="font-semibold text-earth hover:text-allotment">
-                  5. Potatoes
-                </a>
-                <p className="text-sm mt-1">
-                  Nothing beats digging up your own potatoes. Plant in March or
-                  April, earth them up as they grow, harvest from June. First
-                  earlies are the quickest &mdash; 10&ndash;12 weeks from
-                  planting.
-                </p>
+              <li className="flex gap-5">
+                <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">5</span>
+                <div>
+                  <a href="/crops/potato" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                    Potatoes
+                  </a>
+                  <p className="text-sm mt-1.5">
+                    Nothing beats digging up your own potatoes. Plant in March or
+                    April, earth them up as they grow, harvest from June. First
+                    earlies are the quickest &mdash; 10&ndash;12 weeks from
+                    planting.
+                  </p>
+                </div>
               </li>
             </ol>
-          </section>
+          </ColorSection>
 
           <PullQuote>
             Start small. Get some food on the table. Expand next year when you know the soil, the sun, and the slugs.
@@ -203,18 +220,18 @@ export default function BeginnersGuide() {
           <SectionDivider label="Planning" />
 
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Know your frost date
             </h2>
-            <p>
+            <p className="text-[15px]">
               Half of knowing when to plant is knowing when frost stops. Every
               seed packet says &ldquo;sow after last frost&rdquo; &mdash; but
               when is that, exactly, for where you are?
             </p>
-            <p className="mt-3">
+            <p className="mt-4 text-[15px]">
               <a
                 href="/"
-                className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
               >
                 Enter your postcode
               </a>{" "}
@@ -224,8 +241,8 @@ export default function BeginnersGuide() {
             </p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <ColorSection color="sage" className="mt-12">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               What to do in your first month
             </h2>
             <StepList steps={[
@@ -246,40 +263,40 @@ export default function BeginnersGuide() {
                 description: "Enter your postcode at whattosow.co.uk for a personalised list based on your location and the time of year."
               },
             ]} />
-          </section>
+          </ColorSection>
 
           <FullBleedSection color="allotment">
-            <h2 className="text-xl font-semibold text-white mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-white mb-4 tracking-tight">
               Don&apos;t spend a fortune
             </h2>
-            <p className="text-white/80">
+            <p className="text-white/70 text-[15px]">
               You don&apos;t need a greenhouse, a raised bed system, or an
               irrigation setup. You need a fork, a trowel, some seeds, and
               water. Everything else is nice to have, not need to have.
             </p>
-            <p className="mt-3 text-white/80">
+            <p className="mt-4 text-white/70 text-[15px]">
               Seeds are cheap. A packet of lettuce seeds costs about &pound;2
               and contains enough for an entire season. A bag of seed potatoes
               is under &pound;4.
             </p>
-            <div className="mt-6 bg-white/10 border-l-4 border-leaf-light p-5">
-              <span className="text-sm font-bold text-leaf-light block mb-1.5">Starter kit (under &pound;20)</span>
-              <p className="text-sm text-white/80">
+            <div className="mt-6 pl-5 sm:pl-6 border-l-2 border-leaf-light">
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-leaf-light block mb-2">Starter kit — under £20</span>
+              <div className="text-[15px] text-white/80 leading-relaxed">
                 Fork, trowel, watering can, 5 packets of seeds, labels, string.
                 That&apos;s genuinely all you need for your first season. Everything
                 else can wait.
-              </p>
+              </div>
             </div>
           </FullBleedSection>
 
-          {/* FAQ — visible version */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+          {/* FAQ */}
+          <ColorSection color="sky" className="mt-14">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
-            <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What should I grow first on a new allotment?
                 </h3>
                 <p className="text-sm">
@@ -289,8 +306,8 @@ export default function BeginnersGuide() {
                   keep you motivated.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div>
+                <h3 className="font-serif text-lg text-earth mb-2">
                   When should I start planting on my allotment?
                 </h3>
                 <p className="text-sm">
@@ -299,13 +316,13 @@ export default function BeginnersGuide() {
                   Tender crops like tomatoes and courgettes must wait until
                   after your last frost date, typically late April to early June
                   depending on your location.{" "}
-                  <a href="/" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">
+                  <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
                     Check your frost date.
                   </a>
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div>
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How big should my first allotment bed be?
                 </h3>
                 <p className="text-sm">
@@ -316,79 +333,67 @@ export default function BeginnersGuide() {
                 </p>
               </div>
             </div>
-          </section>
+          </ColorSection>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
-              Next steps
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+          <SectionDivider label="Next" />
+          <section>
+            <div className="space-y-0">
               <a
                 href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised to your postcode.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    What to sow this week
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Personalised to your postcode.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/seed-starting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Starting from seed &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Compost, temperature, light &mdash; the full guide.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Starting from seed
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Compost, temperature, light &mdash; the full guide.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/soil"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Understanding your soil &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Clay, sand, or loam &mdash; and how to improve it.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Understanding your soil
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Clay, sand, or loam &mdash; and how to improve it.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Companion planting &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  What to plant together and what to keep apart.
-                </p>
-              </a>
-              <a
-                href="/guides/crop-rotation"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Crop rotation &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  The 4-year system that prevents disease and builds soil.
-                </p>
-              </a>
-              <a
-                href="/calendar"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Full sowing calendar &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  40 crops across 12 months.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Companion planting
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    What to plant together and what to keep apart.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

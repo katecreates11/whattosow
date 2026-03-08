@@ -167,7 +167,7 @@ export default function HarvestPlanner() {
 
     const sorted = [...harvestDates].sort((a, b) => a.time - b.time);
 
-    const WINDOW = 10 * 24 * 60 * 60 * 1000;
+    const WINDOW = 21 * 24 * 60 * 60 * 1000;
     let bestDate = sorted[0];
     let bestCount = 0;
     let bestCrops: string[] = [];
@@ -235,6 +235,8 @@ export default function HarvestPlanner() {
         );
         setWeatherAdvice(advice);
       }
+    }).catch(() => {
+      if (!cancelled) setWeatherLoading(false);
     });
 
     return () => { cancelled = true; };

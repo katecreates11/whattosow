@@ -40,7 +40,7 @@ export async function fetchWeekWeatherProfile(
     "precipitation_hours",
     "sunshine_duration",
     "relative_humidity_2m_mean",
-    "soil_moisture_0_to_7cm",
+    "soil_moisture_0_to_7cm_mean",
     "wind_gusts_10m_max",
   ].join(",");
 
@@ -103,7 +103,7 @@ export async function fetchWeekWeatherProfile(
       // sunshine_duration comes in seconds — convert to hours
       totalSunshine += ((d.sunshine_duration?.[i] ?? 0) / 3600);
       totalHumidity += d.relative_humidity_2m_mean?.[i] ?? 0;
-      totalSoilMoisture += d.soil_moisture_0_to_7cm?.[i] ?? 0;
+      totalSoilMoisture += d.soil_moisture_0_to_7cm_mean?.[i] ?? 0;
       totalWindGusts += d.wind_gusts_10m_max?.[i] ?? 0;
       if ((d.rain_sum?.[i] ?? 0) > 1) totalRainDays++;
       totalDays++;

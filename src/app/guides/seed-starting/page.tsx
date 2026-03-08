@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, StepList, ProcessDiagram, GuideHero, PullQuote, SectionDivider, SeedIcon, BigNumber, GuideImage } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, StepList, ProcessDiagram, GuideHero, PullQuote, SectionDivider, SeedIcon, BigNumber, GuideImage, ColorSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -114,7 +114,7 @@ export default function SeedStartingGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content">
         <GuideHero
           eyebrow="Growing guide"
           title="How to start seeds"
@@ -123,10 +123,10 @@ export default function SeedStartingGuide() {
           color="allotment"
         />
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Why grow from seed */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Why grow from seed
             </h2>
             <div className="space-y-3">
@@ -161,7 +161,7 @@ export default function SeedStartingGuide() {
             </div>
           </section>
 
-          <div className="grid grid-cols-3 gap-4 my-8">
+          <div className="grid grid-cols-3 gap-4 my-8 max-w-2xl">
             <BigNumber number="10" suffix="x" label="cheaper than plug plants" />
             <BigNumber number="100" suffix="s" label="more varieties to choose" />
             <BigNumber number="1" label="packet fills a bed" />
@@ -177,7 +177,7 @@ export default function SeedStartingGuide() {
 
           {/* What you need */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               What you need
             </h2>
             <div className="space-y-3">
@@ -186,7 +186,7 @@ export default function SeedStartingGuide() {
               </p>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-earth mb-1">
+                  <h3 className="font-serif text-earth text-lg mb-1.5">
                     Seed compost vs multi-purpose
                   </h3>
                   <p>
@@ -199,7 +199,7 @@ export default function SeedStartingGuide() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-earth mb-1">
+                  <h3 className="font-serif text-earth text-lg mb-1.5">
                     Modules, trays, and pots
                   </h3>
                   <p>
@@ -212,7 +212,7 @@ export default function SeedStartingGuide() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-earth mb-1">
+                  <h3 className="font-serif text-earth text-lg mb-1.5">
                     Labels
                   </h3>
                   <p>
@@ -227,7 +227,7 @@ export default function SeedStartingGuide() {
 
           {/* Sowing depth */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               How deep to sow
             </h2>
             <div className="space-y-3">
@@ -261,7 +261,7 @@ export default function SeedStartingGuide() {
 
           {/* Temperature */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Temperature and where to start them
             </h2>
             <div className="space-y-3">
@@ -271,8 +271,8 @@ export default function SeedStartingGuide() {
                 crops. Here&apos;s how the main options compare:
               </p>
               <div className="space-y-4">
-                <div className="border border-earth/6 p-4">
-                  <h3 className="font-semibold text-earth mb-1">Windowsill</h3>
+                <div className="border-t border-earth/10 pt-5 pb-2">
+                  <h3 className="font-serif text-earth text-lg mb-1.5">Windowsill</h3>
                   <p className="text-sm">
                     Free and works for most things. South-facing is best. Watch
                     out for cold windowsills at night &mdash; temperatures can
@@ -280,8 +280,8 @@ export default function SeedStartingGuide() {
                     the glass overnight if needed.
                   </p>
                 </div>
-                <div className="border border-earth/6 p-4">
-                  <h3 className="font-semibold text-earth mb-1">
+                <div className="border-t border-earth/10 pt-5 pb-2">
+                  <h3 className="font-serif text-earth text-lg mb-1.5">
                     Heated propagator
                   </h3>
                   <p className="text-sm">
@@ -291,8 +291,8 @@ export default function SeedStartingGuide() {
                     germinate reliably. You can pick one up for under &pound;20.
                   </p>
                 </div>
-                <div className="border border-earth/6 p-4">
-                  <h3 className="font-semibold text-earth mb-1">
+                <div className="border-t border-earth/10 pt-5 pb-2">
+                  <h3 className="font-serif text-earth text-lg mb-1.5">
                     Unheated greenhouse or cold frame
                   </h3>
                   <p className="text-sm">
@@ -307,7 +307,7 @@ export default function SeedStartingGuide() {
 
           {/* Watering */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Watering seedlings
             </h2>
             <div className="space-y-3">
@@ -335,7 +335,7 @@ export default function SeedStartingGuide() {
 
           {/* Light */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Light and leggy seedlings
             </h2>
             <div className="space-y-3">
@@ -368,7 +368,7 @@ export default function SeedStartingGuide() {
 
           {/* Pricking out */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Pricking out and potting on
             </h2>
             <div className="space-y-3">
@@ -395,8 +395,9 @@ export default function SeedStartingGuide() {
           </section>
 
           {/* Hardening off */}
+          <ColorSection color="sage">
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Hardening off
             </h2>
             <div className="space-y-3">
@@ -427,10 +428,12 @@ export default function SeedStartingGuide() {
               </p>
             </div>
           </section>
+          </ColorSection>
 
           {/* Indoor vs direct sow */}
+          <ColorSection color="ochre">
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Start indoors vs direct sow
             </h2>
             <div className="space-y-3">
@@ -439,7 +442,7 @@ export default function SeedStartingGuide() {
                 prefer being sown straight into the ground and actually resent
                 transplanting.
               </p>
-              <div className="border border-earth/6 p-4">
+              <div className="border-t border-earth/10 pt-5 pb-2">
                 <h3 className="font-semibold text-earth mb-2">
                   Start indoors
                 </h3>
@@ -449,7 +452,7 @@ export default function SeedStartingGuide() {
                   These all benefit from a head start in warmth.
                 </p>
               </div>
-              <div className="border border-earth/6 p-4">
+              <div className="border-t border-earth/10 pt-5 pb-2">
                 <h3 className="font-semibold text-earth mb-2">
                   Direct sow outdoors
                 </h3>
@@ -460,7 +463,7 @@ export default function SeedStartingGuide() {
                   roots fork if disturbed.
                 </p>
               </div>
-              <div className="border border-earth/6 p-4">
+              <div className="border-t border-earth/10 pt-5 pb-2">
                 <h3 className="font-semibold text-earth mb-2">
                   Either works
                 </h3>
@@ -475,7 +478,7 @@ export default function SeedStartingGuide() {
                 Use our{" "}
                 <a
                   href="/"
-                  className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   planting tool
                 </a>{" "}
@@ -484,15 +487,16 @@ export default function SeedStartingGuide() {
               </div>
             </div>
           </section>
+          </ColorSection>
 
           {/* Common mistakes */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Common mistakes
             </h2>
             <div className="space-y-4">
-              <div className="border border-earth/6 p-4">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Sowing too early
                 </h3>
                 <p className="text-sm">
@@ -502,15 +506,15 @@ export default function SeedStartingGuide() {
                   and overtakes. Check your{" "}
                   <a
                     href="/frost-map"
-                    className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                    className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     local frost date
                   </a>{" "}
                   and work backwards.
                 </p>
               </div>
-              <div className="border border-earth/6 p-4">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Sowing too deep
                 </h3>
                 <p className="text-sm">
@@ -519,8 +523,8 @@ export default function SeedStartingGuide() {
                   seed&apos;s size for depth, and surface-sow anything tiny.
                 </p>
               </div>
-              <div className="border border-earth/6 p-4">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Overwatering
                 </h3>
                 <p className="text-sm">
@@ -530,8 +534,8 @@ export default function SeedStartingGuide() {
                   drain freely.
                 </p>
               </div>
-              <div className="border border-earth/6 p-4">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Skipping hardening off
                 </h3>
                 <p className="text-sm">
@@ -540,8 +544,8 @@ export default function SeedStartingGuide() {
                   Don&apos;t rush this step.
                 </p>
               </div>
-              <div className="border border-earth/6 p-4">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Sowing everything at once
                 </h3>
                 <p className="text-sm">
@@ -554,13 +558,14 @@ export default function SeedStartingGuide() {
           </section>
 
           {/* FAQ */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+          <ColorSection color="sky">
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
             <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   When should I start seeds indoors in the UK?
                 </h3>
                 <p className="text-sm">
@@ -570,8 +575,8 @@ export default function SeedStartingGuide() {
                   better direct-sown outdoors.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Do I need seed compost or can I use multi-purpose?
                 </h3>
                 <p className="text-sm">
@@ -581,8 +586,8 @@ export default function SeedStartingGuide() {
                   safer bet.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How deep should I sow seeds?
                 </h3>
                 <p className="text-sm">
@@ -591,8 +596,8 @@ export default function SeedStartingGuide() {
                   2&ndash;3cm deep.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What is hardening off?
                 </h3>
                 <p className="text-sm">
@@ -602,8 +607,8 @@ export default function SeedStartingGuide() {
                   change in environment.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Why are my seedlings tall and spindly?
                 </h3>
                 <p className="text-sm">
@@ -615,56 +620,70 @@ export default function SeedStartingGuide() {
               </div>
             </div>
           </section>
+          </ColorSection>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
+          <SectionDivider label="Next" />
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-6 tracking-tight">
               More tools and guides
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div>
               <a
                 href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised sowing dates for your postcode.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    What to sow this week
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Personalised sowing dates for your postcode.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Companion planting guide &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  What grows well together and what to keep apart.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Companion planting guide
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    What grows well together and what to keep apart.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/frost-map"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  UK frost map &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Find your last frost date by region.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    UK frost map
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Find your last frost date by region.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/beginners"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Beginner&apos;s guide &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Just got a plot? Start here.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Beginner&apos;s guide
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Just got a plot? Start here.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon, FullBleedSection, GuideImage } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, SoilIcon, FullBleedSection, GuideImage, ColorSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -116,7 +116,7 @@ export default function SoilGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content">
         <GuideHero
           eyebrow="Growing guide"
           title="Understanding your soil"
@@ -125,10 +125,10 @@ export default function SoilGuide() {
           color="amber"
         />
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Why soil matters */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Why soil matters
             </h2>
             <div className="space-y-3">
@@ -155,8 +155,8 @@ export default function SoilGuide() {
           />
 
           {/* UK soil types */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <ColorSection color="ochre">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               UK soil types
             </h2>
             <p className="mb-6">
@@ -166,8 +166,8 @@ export default function SoilGuide() {
             </p>
 
             <div className="grid gap-4">
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Clay</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Clay</h3>
                 <p className="text-sm mb-2">
                   Heavy, sticky when wet, rock-hard when dry. Slow to warm up in
                   spring but holds nutrients well. Very common across England,
@@ -180,8 +180,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Sandy</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Sandy</h3>
                 <p className="text-sm mb-2">
                   Light, gritty, drains fast. Warms up quickly in spring, which
                   is a real advantage for early sowings. But nutrients wash
@@ -195,8 +195,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Silt</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Silt</h3>
                 <p className="text-sm mb-2">
                   Smooth and silky, fertile, holds moisture well. Easier to work
                   than clay but can compact if you walk on it when wet. Found in
@@ -210,8 +210,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Loam</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Loam</h3>
                 <p className="text-sm mb-2">
                   The one everyone wants. A balanced mix of clay, sand, and silt
                   with good drainage, decent moisture retention, and plenty of
@@ -225,8 +225,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Chalky</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Chalky</h3>
                 <p className="text-sm mb-2">
                   Shallow, stony, and alkaline. Drains freely and can be low in
                   nutrients. You&apos;ll often find white lumps of chalk or
@@ -240,8 +240,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Peat</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Peat</h3>
                 <p className="text-sm mb-2">
                   Dark, spongy, high in organic matter. Naturally acidic and
                   moisture-retentive. Rare in gardens but found in parts of East
@@ -255,11 +255,11 @@ export default function SoilGuide() {
                 </p>
               </div>
             </div>
-          </section>
+          </ColorSection>
 
           {/* Soil pH */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Soil pH: what it means and why it matters
             </h2>
             <div className="space-y-3">
@@ -308,8 +308,8 @@ export default function SoilGuide() {
           </section>
 
           {/* Improving your soil */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <ColorSection color="sage">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Improving your soil
             </h2>
             <div className="space-y-3">
@@ -322,8 +322,8 @@ export default function SoilGuide() {
             </div>
 
             <div className="space-y-4 mt-4">
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Garden compost
                 </h3>
                 <p className="text-sm">
@@ -334,8 +334,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Well-rotted manure
                 </h3>
                 <p className="text-sm">
@@ -346,8 +346,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Leaf mould</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Leaf mould</h3>
                 <p className="text-sm">
                   Collect autumn leaves, bag them up, and leave them for a year
                   or two. The result is a beautiful, crumbly soil conditioner
@@ -356,8 +356,8 @@ export default function SoilGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Green manures</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Green manures</h3>
                 <p className="text-sm">
                   Sow fast-growing crops like phacelia, field beans, or crimson
                   clover on empty beds. They protect the soil from rain, suppress
@@ -366,10 +366,10 @@ export default function SoilGuide() {
                 </p>
               </div>
             </div>
-          </section>
+          </ColorSection>
 
           <FullBleedSection color="earth">
-            <h2 className="text-xl font-semibold text-white mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-white mb-4 tracking-tight">
               The no-dig approach
             </h2>
             <div className="space-y-3 text-white/80">
@@ -401,7 +401,7 @@ export default function SoilGuide() {
 
           {/* Raised beds */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Raised beds: the shortcut
             </h2>
             <div className="space-y-3">
@@ -424,7 +424,7 @@ export default function SoilGuide() {
 
           {/* Soil temperature */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Soil temperature and sowing
             </h2>
             <div className="space-y-3">
@@ -490,7 +490,7 @@ export default function SoilGuide() {
               Check your{" "}
               <a
                 href="/frost-map"
-                className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
               >
                 local frost dates
               </a>{" "}
@@ -501,7 +501,7 @@ export default function SoilGuide() {
 
           {/* Common mistakes */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Common mistakes
             </h2>
             <ul className="list-disc list-inside space-y-2 text-earth-light">
@@ -538,13 +538,13 @@ export default function SoilGuide() {
           </section>
 
           {/* FAQ */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+          <ColorSection color="sky">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
             <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How do I find out what soil type I have?
                 </h3>
                 <p className="text-sm">
@@ -557,8 +557,8 @@ export default function SoilGuide() {
                   form one at all.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What pH should vegetable garden soil be?
                 </h3>
                 <p className="text-sm">
@@ -569,8 +569,8 @@ export default function SoilGuide() {
                   you stand.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How can I improve clay soil for growing vegetables?
                 </h3>
                 <p className="text-sm">
@@ -582,8 +582,8 @@ export default function SoilGuide() {
                   within two to three years.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   When is soil warm enough to sow seeds?
                 </h3>
                 <p className="text-sm">
@@ -594,8 +594,8 @@ export default function SoilGuide() {
                   sowings.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Is no-dig gardening better for soil?
                 </h3>
                 <p className="text-sm">
@@ -607,57 +607,39 @@ export default function SoilGuide() {
                 </p>
               </div>
             </div>
-          </section>
+          </ColorSection>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
-              Keep reading
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <a
-                href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised to your postcode.
-                </p>
+          <SectionDivider label="Next" />
+          <section>
+            <div className="space-y-0">
+              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow this week</span>
+                  <p className="text-sm text-earth-light mt-1">Personalised to your postcode.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
-                href="/frost-map"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  UK frost map &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  See frost dates across every region.
-                </p>
+              <a href="/frost-map" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">UK frost map</span>
+                  <p className="text-sm text-earth-light mt-1">See frost dates across every region.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
-                href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Companion planting &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  What to grow together and what to keep apart.
-                </p>
+              <a href="/guides/companion-planting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting</span>
+                  <p className="text-sm text-earth-light mt-1">What to grow together and what to keep apart.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
-                href="/guides/beginners"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Beginner&apos;s guide &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  New to growing? Start here.
-                </p>
+              <a href="/guides/beginners" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Beginner&apos;s guide</span>
+                  <p className="text-sm text-earth-light mt-1">New to growing? Start here.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

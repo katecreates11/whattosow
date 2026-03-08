@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, WateringCanIcon } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, WateringCanIcon, ColorSection } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -116,7 +116,7 @@ export default function WateringGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content">
         <GuideHero
           eyebrow="Growing guide"
           title="Watering vegetables"
@@ -125,10 +125,10 @@ export default function WateringGuide() {
           color="frost"
         />
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Why it matters */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Why watering matters more than you think
             </h2>
             <div className="space-y-3">
@@ -157,7 +157,7 @@ export default function WateringGuide() {
 
           {/* When to water */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               When to water: morning vs evening
             </h2>
             <div className="space-y-3">
@@ -184,7 +184,7 @@ export default function WateringGuide() {
 
           {/* How much */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               How much water: the &quot;good soak, less often&quot; principle
             </h2>
             <div className="space-y-3">
@@ -208,8 +208,8 @@ export default function WateringGuide() {
           <SectionDivider label="By crop" />
 
           {/* Crop needs */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <ColorSection color="ochre">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               What different crops need
             </h2>
             <p className="mb-6">
@@ -218,13 +218,13 @@ export default function WateringGuide() {
             </p>
 
             <div className="grid gap-4">
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Thirsty crops</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Thirsty crops</h3>
                 <p className="text-sm">
-                  <a href="/crops/tomatoes" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">Tomatoes</a>,{" "}
-                  <a href="/crops/courgette" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">courgettes</a>,{" "}
-                  <a href="/crops/runner-beans" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">runner beans</a>,{" "}
-                  <a href="/crops/cucumber" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">cucumbers</a>,
+                  <a href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">Tomatoes</a>,{" "}
+                  <a href="/crops/courgette" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">courgettes</a>,{" "}
+                  <a href="/crops/runner-beans" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">runner beans</a>,{" "}
+                  <a href="/crops/cucumber" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">cucumbers</a>,
                   and celery. These need consistent, deep watering throughout
                   the growing season, especially once they start flowering and
                   fruiting. Tomatoes in particular &mdash; irregular watering
@@ -232,8 +232,8 @@ export default function WateringGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Moderate needs</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Moderate needs</h3>
                 <p className="text-sm">
                   Peas, broad beans, lettuce, and spinach. These need regular
                   watering but can tolerate a slightly less rigid schedule than
@@ -242,8 +242,8 @@ export default function WateringGuide() {
                 </p>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">
                   Drought-tolerant once established
                 </h3>
                 <p className="text-sm">
@@ -255,11 +255,11 @@ export default function WateringGuide() {
                 </p>
               </div>
             </div>
-          </section>
+          </ColorSection>
 
           {/* Seedlings vs established */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Seedlings vs established plants
             </h2>
             <div className="space-y-3">
@@ -281,7 +281,7 @@ export default function WateringGuide() {
               Water them in thoroughly when you plant them out, then keep the
               soil moist for the first week or two while roots establish. After
               that, gradually reduce frequency. See our{" "}
-              <a href="/guides/seed-starting" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">seed starting guide</a>{" "}
+              <a href="/guides/seed-starting" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seed starting guide</a>{" "}
               for more on raising strong seedlings.
             </WarningBox>
           </section>
@@ -296,7 +296,7 @@ export default function WateringGuide() {
           <SectionDivider label="Saving water" />
 
           <FullBleedSection color="allotment">
-            <h2 className="text-xl font-semibold text-white mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-white mb-4 tracking-tight">
               Mulching: the single best thing you can do
             </h2>
             <div className="space-y-3 text-white/80">
@@ -320,7 +320,7 @@ export default function WateringGuide() {
 
           {/* Water butts */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Water butts: every allotment should have one
             </h2>
             <div className="space-y-3">
@@ -342,14 +342,14 @@ export default function WateringGuide() {
           </section>
 
           {/* Over vs underwatering */}
-          <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+          <ColorSection color="blush">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Overwatering vs underwatering: how to tell
             </h2>
 
             <div className="grid gap-4">
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Signs of underwatering</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Signs of underwatering</h3>
                 <ul className="list-disc list-inside space-y-2 text-sm">
                   <li>Wilting in the afternoon (recovers overnight in mild cases)</li>
                   <li>Dry, crispy leaf edges</li>
@@ -359,8 +359,8 @@ export default function WateringGuide() {
                 </ul>
               </div>
 
-              <div className="border border-earth/6 p-4 sm:p-5">
-                <h3 className="font-semibold text-earth mb-1">Signs of overwatering</h3>
+              <div className="border-t border-earth/10 pt-5 pb-2">
+                <h3 className="font-serif text-earth text-lg mb-1.5">Signs of overwatering</h3>
                 <ul className="list-disc list-inside space-y-2 text-sm">
                   <li>Yellowing lower leaves</li>
                   <li>Mushy stems near the soil line</li>
@@ -376,11 +376,11 @@ export default function WateringGuide() {
               a few centimetres down, hold off. If it&apos;s dry, water. Simple
               as that.
             </p>
-          </section>
+          </ColorSection>
 
           {/* Containers */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Container growing needs more water
             </h2>
             <div className="space-y-3">
@@ -402,7 +402,7 @@ export default function WateringGuide() {
 
           {/* Hosepipe bans */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Hosepipe bans and saving water
             </h2>
             <div className="space-y-3">
@@ -443,12 +443,12 @@ export default function WateringGuide() {
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
             <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How often should I water my vegetable garden?
                 </h3>
                 <p className="text-sm">
@@ -459,8 +459,8 @@ export default function WateringGuide() {
                   if it&apos;s dry a few centimetres down, water.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Is it better to water in the morning or evening?
                 </h3>
                 <p className="text-sm">
@@ -470,8 +470,8 @@ export default function WateringGuide() {
                   consistently.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   How do I tell if I&apos;m overwatering?
                 </h3>
                 <p className="text-sm">
@@ -481,8 +481,8 @@ export default function WateringGuide() {
                   waterlogged. If in doubt, wait a day before watering again.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Do tomatoes need a lot of water?
                 </h3>
                 <p className="text-sm">
@@ -493,8 +493,8 @@ export default function WateringGuide() {
                   mulch around the stems.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Should I use a water butt on my allotment?
                 </h3>
                 <p className="text-sm">
@@ -508,54 +508,36 @@ export default function WateringGuide() {
           </section>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
-              Next steps
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <a
-                href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised to your postcode.
-                </p>
+          <SectionDivider label="Next" />
+          <section>
+            <div className="space-y-0">
+              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow this week</span>
+                  <p className="text-sm text-earth-light mt-1">Personalised to your postcode.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
-                href="/guides/soil"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Understanding your soil &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Good soil holds water better. Start here.
-                </p>
+              <a href="/guides/soil" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Understanding your soil</span>
+                  <p className="text-sm text-earth-light mt-1">Good soil holds water better. Start here.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
-                href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Companion planting &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  What to grow together and what to keep apart.
-                </p>
+              <a href="/guides/companion-planting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting</span>
+                  <p className="text-sm text-earth-light mt-1">What to grow together and what to keep apart.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
-                href="/guides/seed-starting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
-              >
-                <span className="font-semibold text-earth">
-                  Starting from seed &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Get seedlings off to a strong start.
-                </p>
+              <a href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Starting from seed</span>
+                  <p className="text-sm text-earth-light mt-1">Get seedlings off to a strong start.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

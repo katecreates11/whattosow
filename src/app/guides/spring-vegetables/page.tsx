@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { crops } from "@/data/crops";
 import Image from "next/image";
 import { getCropImagePath } from "@/lib/crop-images";
+import { SectionDivider } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
   title:
@@ -116,27 +117,29 @@ export default function SpringVegetablesGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-          Growing guide
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
-          Spring vegetables to plant in the UK
-        </h1>
-        <p className="text-earth-light leading-relaxed mb-10">
-          Spring is the busiest sowing season. But &ldquo;spring&rdquo; means
-          something different in Devon and something different in Dundee. The
-          key is your local last frost date &mdash;{" "}
-          <a href="/" className="text-allotment hover:text-allotment-dark underline decoration-allotment/30">
-            enter your postcode
-          </a>{" "}
-          to find yours.
-        </p>
+      <main id="main-content">
+        <div className="px-6 sm:px-10 lg:px-16">
+          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
+            Growing guide
+          </span>
+          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
+            Spring vegetables to plant in the UK
+          </h1>
+          <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
+            Spring is the busiest sowing season. But &ldquo;spring&rdquo; means
+            something different in Devon and something different in Dundee. The
+            key is your local last frost date &mdash;{" "}
+            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+              enter your postcode
+            </a>{" "}
+            to find yours.
+          </p>
+        </div>
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Hardy */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-2">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Hardy crops &mdash; start now
             </h2>
             <p className="mb-6">
@@ -153,7 +156,7 @@ export default function SpringVegetablesGuide() {
 
           {/* Half-hardy */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-2">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Half-hardy crops &mdash; sow indoors now, plant out after frost
             </h2>
             <p className="mb-6">
@@ -171,7 +174,7 @@ export default function SpringVegetablesGuide() {
 
           {/* Tender */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-2">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Tender crops &mdash; patience pays off
             </h2>
             <p className="mb-6">
@@ -189,7 +192,7 @@ export default function SpringVegetablesGuide() {
 
           {/* Timing section */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-2">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               When exactly should I start?
             </h2>
             <p>
@@ -198,7 +201,7 @@ export default function SpringVegetablesGuide() {
               we built this tool &mdash;{" "}
               <a
                 href="/"
-                className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
               >
                 enter your postcode
               </a>{" "}
@@ -208,76 +211,62 @@ export default function SpringVegetablesGuide() {
           </section>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
-              More tools
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+          <SectionDivider label="Next" />
+          <section>
+            <div>
               <a
                 href="/calendar"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Sowing calendar &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  Sowing calendar
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  All 40 crops across 12 months at a glance.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/still-time"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  What can you still sow? &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  What can you still sow?
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Crops with closing sowing windows this week.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/frost-map"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  UK frost map &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  UK frost map
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  See frost dates across every region.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/print"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Print chart &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  Print chart
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Pin it to the shed wall.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/seed-starting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Starting from seed &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  Starting from seed
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Compost, temperature, light &mdash; the full guide.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Companion planting &rarr;
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                  Companion planting
                 </span>
-                <p className="text-sm text-earth-light mt-1">
-                  What to plant together and what to keep apart.
-                </p>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>

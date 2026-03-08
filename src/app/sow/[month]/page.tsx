@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FullWidthSection from "@/components/FullWidthSection";
+
 import { getCropIcon } from "@/components/SVGIllustrations";
 import { getCropImagePath } from "@/lib/crop-images";
 import {
@@ -169,32 +169,34 @@ export default async function MonthPage({
       />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
-      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6">
+      <main id="main-content">
         {/* Header */}
-        <FullWidthSection className="border-b border-earth/6" innerClassName="pt-12 sm:pt-16 pb-14 sm:pb-20">
-          <MonthNav idx={idx} />
+        <div className="border-b border-earth/6 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto pt-12 sm:pt-16 pb-14 sm:pb-20">
+            <MonthNav idx={idx} />
 
-          <div className="mt-10 sm:mt-14">
-            <span className={`text-xs font-semibold tracking-[0.15em] uppercase ${seasonal.text} opacity-70 mb-4 block`}>
-              {seasonal.label} sowing guide
-            </span>
-            <h1 className="tracking-tight">
-              <span className="block text-earth-lighter text-lg sm:text-xl font-normal mb-2">What to sow in</span>
-              <span className={`block text-7xl sm:text-8xl lg:text-9xl font-serif ${seasonal.text} leading-[0.85] tracking-tighter`}>{name}</span>
-            </h1>
-            <p className="text-earth-light mt-6 max-w-lg leading-relaxed">
-              Based on UK average frost date (mid-April). Enter your postcode on
-              the{" "}
-              <a href="/" className="text-allotment hover:underline">
-                homepage
-              </a>{" "}
-              for personalised dates.
-            </p>
-            <MonthDaylight monthIndex={idx} />
+            <div className="mt-10 sm:mt-14">
+              <span className={`text-xs font-semibold tracking-[0.15em] uppercase ${seasonal.text} opacity-70 mb-4 block`}>
+                {seasonal.label} sowing guide
+              </span>
+              <h1 className="tracking-tight">
+                <span className="block text-earth-lighter text-lg sm:text-xl font-normal mb-2">What to sow in</span>
+                <span className={`block text-7xl sm:text-8xl lg:text-9xl font-serif ${seasonal.text} leading-[0.85] tracking-tighter`}>{name}</span>
+              </h1>
+              <p className="text-earth-light mt-6 max-w-lg leading-relaxed">
+                Based on UK average frost date (mid-April). Enter your postcode on
+                the{" "}
+                <a href="/" className="text-allotment hover:underline">
+                  homepage
+                </a>{" "}
+                for personalised dates.
+              </p>
+              <MonthDaylight monthIndex={idx} />
+            </div>
           </div>
-        </FullWidthSection>
+        </div>
 
-        <div className="py-14 sm:py-20">
+        <div className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20"><div className="max-w-4xl mx-auto">
           {!hasAnyCrops ? (
             <div className="border border-earth/6 p-10 sm:p-14 text-center">
               <p className="text-earth-light text-lg leading-relaxed">
@@ -269,7 +271,7 @@ export default async function MonthPage({
           <div className="mt-10 pt-10 border-t border-earth/6">
             <MonthNav idx={idx} />
           </div>
-        </div>
+        </div></div>
       </main>
 
       <Footer />

@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import { fetchNearbyAllotments, type AllotmentSite } from "@/lib/allotments";
 import { lookupPostcode, type LocationData } from "@/lib/frost";
 
@@ -41,8 +40,14 @@ function createIcon(color: string) {
   });
 }
 
-const allotmentIcon = createIcon("#2D5F3E");
-const userIcon = createIcon("#D4943A");
+let allotmentIcon: L.DivIcon;
+let userIcon: L.DivIcon;
+
+function getIcons() {
+  if (!allotmentIcon) allotmentIcon = createIcon("#2D5F3E");
+  if (!userIcon) userIcon = createIcon("#D4943A");
+  return { allotmentIcon, userIcon };
+}
 
 function FitBounds({ sites, userLat, userLng }: { sites: AllotmentSite[]; userLat: number; userLng: number }) {
   const map = useMap();
@@ -153,7 +158,7 @@ export default function AllotmentMap() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={[location.latitude, location.longitude]} icon={userIcon}>
+              <Marker position={[location.latitude, location.longitude]} icon={getIcons().userIcon}>
                 <Popup>
                   <strong>Your location</strong>
                   <br />
@@ -161,7 +166,7 @@ export default function AllotmentMap() {
                 </Popup>
               </Marker>
               {sites.map((site) => (
-                <Marker key={site.id} position={[site.lat, site.lng]} icon={allotmentIcon}>
+                <Marker key={site.id} position={[site.lat, site.lng]} icon={getIcons().allotmentIcon}>
                   <Popup>
                     <strong>{site.name ?? "Allotment site"}</strong>
                     <br />

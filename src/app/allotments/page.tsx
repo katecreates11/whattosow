@@ -54,7 +54,8 @@ export default function AllotmentsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
-      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <main id="main-content" className="px-6 sm:px-10 lg:px-16 py-10 sm:py-14">
+        <div className="max-w-4xl">
         <div className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-earth mb-3">
             Find allotments near you
@@ -110,6 +111,7 @@ export default function AllotmentsPage() {
             </a>{" "}
             via the Overpass API. Map tiles &copy; OpenStreetMap contributors.
           </p>
+        </div>
         </div>
       </main>
       <Footer />

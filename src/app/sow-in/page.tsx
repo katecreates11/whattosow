@@ -58,7 +58,8 @@ export default function SowInIndexPage() {
       />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
 
-      <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
+        <div className="max-w-4xl mx-auto">
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start mb-12">
           <div className="flex-1">
             <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4">
@@ -141,6 +142,7 @@ export default function SowInIndexPage() {
               View the frost date map &rarr;
             </a>
           </div>
+        </div>
         </div>
       </main>
 

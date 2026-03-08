@@ -163,7 +163,7 @@ export default function CropRotationGuide() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
-      <main id="main-content" className="max-w-2xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+      <main id="main-content">
         <GuideHero
           eyebrow="Growing guide"
           title="Crop rotation for allotments"
@@ -172,10 +172,10 @@ export default function CropRotationGuide() {
           color="allotment"
         />
 
-        <div className="space-y-12 text-earth-light leading-relaxed">
+        <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
           {/* Why rotate */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Why bother rotating?
             </h2>
             <div className="space-y-3">
@@ -184,7 +184,7 @@ export default function CropRotationGuide() {
                 and leaves different problems behind. Growing{" "}
                 <a
                   href="/crops/cabbage"
-                  className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   cabbages
                 </a>{" "}
@@ -193,14 +193,14 @@ export default function CropRotationGuide() {
                 The same goes for white rot with{" "}
                 <a
                   href="/crops/onions"
-                  className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   onions
                 </a>{" "}
                 and blight with{" "}
                 <a
                   href="/crops/potatoes"
-                  className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   potatoes
                 </a>
@@ -235,7 +235,7 @@ export default function CropRotationGuide() {
 
           {/* The four groups */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               The four rotation groups
             </h2>
             <p className="mb-6">
@@ -258,7 +258,7 @@ export default function CropRotationGuide() {
                       <li key={crop.slug}>
                         <a
                           href={`/crops/${crop.slug}`}
-                          className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                          className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                         >
                           {crop.name}
                         </a>
@@ -275,7 +275,7 @@ export default function CropRotationGuide() {
 
           {/* How the cycle works */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               How the 4-year cycle works
             </h2>
             <p className="mb-4">
@@ -352,7 +352,7 @@ export default function CropRotationGuide() {
 
           {/* Permanent crops */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Crops that stay put
             </h2>
             <p className="mb-4">
@@ -377,7 +377,7 @@ export default function CropRotationGuide() {
 
           {/* Common mistakes */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Common mistakes
             </h2>
             <div className="space-y-4">
@@ -388,14 +388,14 @@ export default function CropRotationGuide() {
                 <p className="text-sm">
                   <a
                     href="/crops/tomatoes"
-                    className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                    className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     Tomatoes
                   </a>
                   ,{" "}
                   <a
                     href="/crops/potatoes"
-                    className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                    className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     potatoes
                   </a>
@@ -423,7 +423,7 @@ export default function CropRotationGuide() {
                   That self-seeded{" "}
                   <a
                     href="/crops/kale"
-                    className="text-allotment hover:text-allotment-dark underline decoration-allotment/30"
+                    className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     kale
                   </a>{" "}
@@ -449,7 +449,7 @@ export default function CropRotationGuide() {
 
           {/* Small plots */}
           <section>
-            <h2 className="text-xl font-semibold text-earth mb-3">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Making it work on small plots
             </h2>
             <div className="space-y-3">
@@ -500,12 +500,12 @@ export default function CropRotationGuide() {
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-6">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
               Common questions
             </h2>
             <div className="space-y-6">
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Why is crop rotation important?
                 </h3>
                 <p className="text-sm">
@@ -516,8 +516,8 @@ export default function CropRotationGuide() {
                   accumulate.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   What are the 4 crop rotation groups?
                 </h3>
                 <p className="text-sm">
@@ -527,8 +527,8 @@ export default function CropRotationGuide() {
                   next bed each year.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Do potatoes and tomatoes count as the same family?
                 </h3>
                 <p className="text-sm">
@@ -537,8 +537,8 @@ export default function CropRotationGuide() {
                   Peppers and aubergines are nightshades too.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Can I do crop rotation in raised beds?
                 </h3>
                 <p className="text-sm">
@@ -548,8 +548,8 @@ export default function CropRotationGuide() {
                   years running, and prioritise rotating brassicas and alliums.
                 </p>
               </div>
-              <div className="pl-6 border-l border-earth/10">
-                <h3 className="font-medium text-earth mb-2">
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">
                   Which crops don&apos;t need to be rotated?
                 </h3>
                 <p className="text-sm">
@@ -562,54 +562,67 @@ export default function CropRotationGuide() {
           </section>
 
           {/* Cross-links */}
-          <section className="border-t border-earth/6 pt-10">
-            <h2 className="text-xl font-semibold text-earth mb-4">
+          <SectionDivider label="Next" />
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-6 tracking-tight">
               Related guides
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div>
               <a
                 href="/guides/companion-planting"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Companion planting &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  What to grow together and what to keep apart.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Companion planting
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    What to grow together and what to keep apart.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  What to sow this week &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  Personalised sowing dates for your postcode.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    What to sow this week
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Personalised sowing dates for your postcode.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/calendar"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Sowing calendar &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  All 40 crops across 12 months at a glance.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Sowing calendar
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    All 40 crops across 12 months at a glance.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
                 href="/guides/beginners"
-                className="p-4 border border-earth/6 hover:border-earth/15 transition-colors"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
-                <span className="font-semibold text-earth">
-                  Beginner&apos;s guide &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  New to growing? Start here.
-                </p>
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Beginner&apos;s guide
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    New to growing? Start here.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
             </div>
           </section>
