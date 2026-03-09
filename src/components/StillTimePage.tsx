@@ -8,6 +8,79 @@ import { getAvgFrostDate } from "@/lib/calendar";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import Link from "next/link";
 
+type GroupName = "All" | "Alliums" | "Legumes" | "Brassicas" | "Roots" | "Potatoes" | "Salads" | "Tender" | "Stems" | "Herbs";
+
+const CROP_GROUPS: Record<string, GroupName> = {
+  "garlic": "Alliums",
+  "onion-sets": "Alliums",
+  "leeks": "Alliums",
+  "spring-onions": "Alliums",
+  "broad-beans": "Legumes",
+  "peas": "Legumes",
+  "french-beans": "Legumes",
+  "runner-beans": "Legumes",
+  "broccoli": "Brassicas",
+  "brussels-sprouts": "Brassicas",
+  "cabbage": "Brassicas",
+  "cauliflower": "Brassicas",
+  "kale": "Brassicas",
+  "pak-choi": "Brassicas",
+  "beetroot": "Roots",
+  "carrots": "Roots",
+  "parsnips": "Roots",
+  "radishes": "Roots",
+  "turnips": "Roots",
+  "early-potatoes": "Potatoes",
+  "maincrop-potatoes": "Potatoes",
+  "lettuce": "Salads",
+  "rocket": "Salads",
+  "spinach": "Salads",
+  "swiss-chard": "Salads",
+  "aubergine": "Tender",
+  "chillies": "Tender",
+  "courgettes": "Tender",
+  "cucumbers": "Tender",
+  "peppers": "Tender",
+  "pumpkins": "Tender",
+  "squash": "Tender",
+  "sweetcorn": "Tender",
+  "tomatoes": "Tender",
+  "celery": "Stems",
+  "fennel": "Stems",
+  "basil": "Herbs",
+  "coriander": "Herbs",
+  "dill": "Herbs",
+  "parsley": "Herbs",
+};
+
+const GROUP_COLOURS: Record<GroupName, string> = {
+  "All":      "bg-earth/8 text-earth border-earth/15 hover:bg-earth/15",
+  "Alliums":  "bg-[#E8D5C4]/60 text-[#7A4A38] border-[#D4A8A0]/40 hover:bg-[#D4A8A0]/60",
+  "Legumes":  "bg-[#D4E8C4]/60 text-[#3A6A30] border-[#A8C4A0]/40 hover:bg-[#A8C4A0]/60",
+  "Brassicas":"bg-[#C4D8E8]/60 text-[#2A5070] border-[#A0B8CC]/40 hover:bg-[#A0B8CC]/60",
+  "Roots":    "bg-[#E8E0C4]/60 text-[#6A5820] border-[#D4C490]/40 hover:bg-[#D4C490]/60",
+  "Potatoes": "bg-[#E0D4E8]/60 text-[#5A3A70] border-[#B8A8CC]/40 hover:bg-[#B8A8CC]/60",
+  "Salads":   "bg-[#C4E8D8]/60 text-[#2A6A50] border-[#A0C4B4]/40 hover:bg-[#A0C4B4]/60",
+  "Tender":   "bg-[#E8D4C4]/60 text-[#7A4A28] border-[#D4B090]/40 hover:bg-[#D4B090]/60",
+  "Stems":    "bg-[#D8E8C4]/60 text-[#3A5A28] border-[#B4C4A0]/40 hover:bg-[#B4C4A0]/60",
+  "Herbs":    "bg-[#E8C4D4]/60 text-[#6A2A48] border-[#C4A0B0]/40 hover:bg-[#C4A0B0]/60",
+};
+
+const GROUP_ACTIVE: Record<GroupName, string> = {
+  "All":      "!bg-earth text-cream border-earth",
+  "Alliums":  "!bg-[#D4A8A0] text-white border-[#D4A8A0]",
+  "Legumes":  "!bg-[#A8C4A0] text-white border-[#A8C4A0]",
+  "Brassicas":"!bg-[#A0B8CC] text-white border-[#A0B8CC]",
+  "Roots":    "!bg-[#D4C490] text-white border-[#D4C490]",
+  "Potatoes": "!bg-[#B8A8CC] text-white border-[#B8A8CC]",
+  "Salads":   "!bg-[#A0C4B4] text-white border-[#A0C4B4]",
+  "Tender":   "!bg-[#D4B090] text-white border-[#D4B090]",
+  "Stems":    "!bg-[#B4C4A0] text-white border-[#B4C4A0]",
+  "Herbs":    "!bg-[#C4A0B0] text-white border-[#C4A0B0]",
+};
+
+const ALL_GROUPS: GroupName[] = ["All", "Alliums", "Legumes", "Brassicas", "Roots", "Potatoes", "Salads", "Tender", "Stems", "Herbs"];
+
 const STORAGE_KEY = "whattosow_location";
 
 function UrgencyBadge({ level, daysLeft }: { level: CropUrgency["level"]; daysLeft: number }) {
@@ -49,6 +122,7 @@ function ActionLabel({ action }: { action: CropUrgency["action"] }) {
 export default function StillTimePage() {
   const [location, setLocation] = useState<LocationData | null>(null);
   const [ready, setReady] = useState(false);
+  const [activeGroup, setActiveGroup] = useState<GroupName>("All");
 
   const loadLocation = useCallback(() => {
     try {
@@ -75,6 +149,18 @@ export default function StillTimePage() {
 
   const { urgent, justMissed } = getCropUrgencies(crops, now, frostDate);
   const district = location?.adminDistrict;
+
+  const filteredUrgent = activeGroup === "All"
+    ? urgent
+    : urgent.filter(item => CROP_GROUPS[item.crop.slug] === activeGroup);
+
+  const filteredJustMissed = activeGroup === "All"
+    ? justMissed
+    : justMissed.filter(item => CROP_GROUPS[item.crop.slug] === activeGroup);
+
+  const availableGroups = ALL_GROUPS.filter(g =>
+    g === "All" || urgent.some(item => CROP_GROUPS[item.crop.slug] === g)
+  );
 
   if (!ready) {
     return (
@@ -127,10 +213,29 @@ export default function StillTimePage() {
         )}
       </div>
 
+      {/* Group filters */}
+      {urgent.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-8">
+          {availableGroups.map(group => (
+            <button
+              key={group}
+              onClick={() => setActiveGroup(group)}
+              className={`px-3.5 py-1.5 text-xs font-semibold border rounded-full transition-all duration-150 ${
+                activeGroup === group
+                  ? GROUP_ACTIVE[group]
+                  : GROUP_COLOURS[group]
+              }`}
+            >
+              {group}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Urgency cards */}
-      {urgent.length > 0 ? (
+      {filteredUrgent.length > 0 ? (
         <div className="space-y-3 sm:space-y-4 mb-12 sm:mb-16">
-          {urgent.map((item) => (
+          {filteredUrgent.map((item) => (
             <Link
               key={`${item.crop.slug}-${item.action}`}
               href={`/crops/${item.crop.slug}`}
@@ -166,19 +271,21 @@ export default function StillTimePage() {
       ) : (
         <div className="border border-earth/8 p-8 text-center mb-12 sm:mb-16">
           <p className="text-earth-light">
-            No crops with closing sowing windows right now. Check back soon — new windows open every week.
+            {activeGroup === "All"
+              ? "No crops with closing sowing windows right now. Check back soon — new windows open every week."
+              : `No ${activeGroup.toLowerCase()} with closing sowing windows right now.`}
           </p>
         </div>
       )}
 
       {/* Just missed */}
-      {justMissed.length > 0 && (
+      {filteredJustMissed.length > 0 && (
         <div className="mb-12 sm:mb-16">
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-4 block">
             Just missed
           </span>
           <div className="space-y-2">
-            {justMissed.map((item) => (
+            {filteredJustMissed.map((item) => (
               <div
                 key={`${item.crop.slug}-${item.action}-missed`}
                 className="border border-earth/6 p-4 opacity-50"
