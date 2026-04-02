@@ -3,33 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { type Crop } from "@/data/crops";
 import { getCropIcon } from "@/components/SVGIllustrations";
-
-// Use UK average last frost of ~April 15 for the "in season" filter
-function isSowableNow(crop: Crop): boolean {
-  const now = new Date();
-  const year = now.getFullYear();
-  const avgLastFrost = new Date(year, 3, 15); // April 15
-  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  const weeksToFrost = (avgLastFrost.getTime() - now.getTime()) / msPerWeek;
-  const weeksAfterFrost = -weeksToFrost;
-  const window = 3;
-
-  if (crop.sowIndoorsWeeks !== null) {
-    const target = -crop.sowIndoorsWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) return true;
-  }
-  if (crop.directSowWeeks !== null) {
-    const target = -crop.directSowWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) return true;
-  }
-  if (crop.plantOutWeeks !== null) {
-    const diff = weeksAfterFrost - crop.plantOutWeeks;
-    if (diff >= -window && diff <= window) return true;
-  }
-  return false;
-}
+import { isSowableNow } from "@/lib/sowable";
 
 const borderColor: Record<string, string> = {
   hardy: "border-l-[3px] border-l-leaf",
@@ -65,7 +39,7 @@ function CropCard({ crop, dimmed, isSowable, index }: { crop: Crop; dimmed: bool
         {hasImage ? (
           <img
             src={`/images/crops/${crop.slug}.png`}
-            alt=""
+            alt={`Illustration of ${crop.name}`}
             width={40}
             height={40}
             className="shrink-0 object-contain group-hover:scale-110 transition-transform duration-300"
@@ -129,9 +103,6 @@ function StaggerGrid({ children, className }: { children: React.ReactNode; class
     <div
       ref={ref}
       className={className}
-      style={{
-        // Children animate in via CSS when visible class is added
-      }}
       data-visible={visible ? "true" : "false"}
     >
       {children}
@@ -143,9 +114,12 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
   const [showInSeason, setShowInSeason] = useState(false);
   const [expanded, setExpanded] = useState(!initialLimit);
 
-  const hardyCrops = crops.filter((c) => c.category === "hardy");
-  const halfHardyCrops = crops.filter((c) => c.category === "half-hardy");
-  const tenderCrops = crops.filter((c) => c.category === "tender");
+  const fruitSlugs = new Set(["strawberries", "raspberries", "blackberries", "gooseberries", "blackcurrants", "redcurrants", "rhubarb"]);
+  const fruitCrops = crops.filter((c) => fruitSlugs.has(c.slug));
+  const vegCrops = crops.filter((c) => !fruitSlugs.has(c.slug));
+  const hardyCrops = vegCrops.filter((c) => c.category === "hardy");
+  const halfHardyCrops = vegCrops.filter((c) => c.category === "half-hardy");
+  const tenderCrops = vegCrops.filter((c) => c.category === "tender");
 
   const limit = expanded ? undefined : initialLimit;
 
@@ -240,6 +214,27 @@ export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; init
           ))}
         </StaggerGrid>
       </div>
+
+      {/* Fruit */}
+      {fruitCrops.length > 0 && (
+        <div className="mt-10">
+          <h3 className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 bg-rust rounded-full" />
+            Fruit
+          </h3>
+          <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
+            {(limit ? fruitCrops.slice(0, limit) : fruitCrops).map((crop, i) => (
+              <CropCard
+                key={crop.slug}
+                crop={crop}
+                dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
+                isSowable={sowableSet.has(crop.slug)}
+                index={i}
+              />
+            ))}
+          </StaggerGrid>
+        </div>
+      )}
 
       {/* Show all toggle */}
       {!expanded && initialLimit && (
