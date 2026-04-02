@@ -1,28 +1,44 @@
 import { crops } from "@/data/crops";
 import { cities } from "@/data/cities";
 import { MONTH_SLUGS } from "@/lib/calendar";
+import { getPublishedPosts } from "@/data/blog-posts";
+import { getPublishedEditorialPosts } from "@/data/editorial-posts";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://whattosow.co.uk";
 
+  const editorialBlogPosts = getPublishedEditorialPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.publishDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  const blogPosts = getPublishedPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.publishDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   const cropPages = crops.map((crop) => ({
     url: `${baseUrl}/crops/${crop.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-04-02"),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
   const cityPages = cities.map((city) => ({
     url: `${baseUrl}/sow-in/${city.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-04-02"),
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
   const monthlyPages = MONTH_SLUGS.map((month) => ({
     url: `${baseUrl}/sow/${month}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-04-02"),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -30,100 +46,156 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
+      url: `${baseUrl}/lucky-dip`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/my-garden`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "daily",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/calendar`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/allotments`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/frost-map`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/still-time`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "daily",
       priority: 0.8,
     },
 {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${baseUrl}/guides`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/spring-vegetables`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/beginners`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/companion-planting`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/crop-rotation`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/seed-starting`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/soil`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/watering`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/guides/pests`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/sow-in`,
-      lastModified: new Date(),
+      url: `${baseUrl}/guides/allotment-essentials`,
+      lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/guides/seed-starting-kit`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/composting`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/growing-fruit`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/kit`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/harvest-planner`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/sow-in`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...editorialBlogPosts,
+    ...blogPosts,
     ...cityPages,
     ...cropPages,
     ...monthlyPages,

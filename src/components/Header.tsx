@@ -3,13 +3,17 @@
 import { useState } from "react";
 
 const NAV_LINKS = [
+  { href: "/lucky-dip", label: "Lucky Dip" },
   { href: "/#explore-crops", label: "Crops" },
   { href: "/calendar", label: "Calendar" },
   { href: "/harvest-planner", label: "Harvest planner" },
   { href: "/frost-map", label: "Frost map" },
   { href: "/guides", label: "Guides" },
+  { href: "/kit", label: "Kit" },
   { href: "/sow-in", label: "By location" },
   { href: "/allotments", label: "Allotments" },
+  { href: "/my-garden", label: "My Garden" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Header({ backLink }: { backLink?: { href: string; label: string } }) {

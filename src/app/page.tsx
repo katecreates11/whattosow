@@ -103,6 +103,19 @@ export default function Home() {
     ],
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "What To Sow",
+    url: "https://whattosow.co.uk",
+    description: "Free personalised sowing dates for every UK postcode. Know exactly what to plant, right now, where you are.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://whattosow.co.uk/crops/{search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <div className="min-h-screen overflow-x-hidden">
       <script
@@ -112,6 +125,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
 
       <Header />
@@ -140,7 +157,7 @@ export default function Home() {
           {/* Image — full width on all sizes, with overlaid text on sm+ */}
           <div className="relative">
             <Image
-              src="/images/headers/hero-allotment.png"
+              src="/images/headers/hero-allotment.webp"
               alt="Illustrated allotment scene with raised beds, shed and vegetables"
               width={1200}
               height={669}
@@ -325,6 +342,14 @@ export default function Home() {
               <a href="/guides/companion-planting" className="group bg-sage p-5 transition-colors">
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Planning</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Companion planting &rarr;</span>
+              </a>
+              <a href="/guides/growing-fruit" className="group bg-sage p-5 transition-colors">
+                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Fruit</span>
+                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Growing fruit &rarr;</span>
+              </a>
+              <a href="/lucky-dip" className="group bg-sage p-5 transition-colors">
+                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Discover</span>
+                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Lucky Dip &rarr;</span>
               </a>
             </div>
           </ScrollReveal>
