@@ -1,0 +1,42 @@
+"use client";
+
+import type { SeedSupplier } from "@/data/varieties";
+
+interface AffiliateButtonsProps {
+  suppliers: SeedSupplier[];
+  variety: string;
+  rarity: string;
+  eventPrefix?: string;
+}
+
+export default function AffiliateButtons({ suppliers, variety, rarity, eventPrefix = "lucky-dip" }: AffiliateButtonsProps) {
+  const trackClick = (supplier: string) => {
+    if (typeof window !== "undefined" && (window as unknown as { umami?: { track: (event: string, data: Record<string, string>) => void } }).umami) {
+      (window as unknown as { umami: { track: (event: string, data: Record<string, string>) => void } }).umami.track(`${eventPrefix}-affiliate-click`, { variety, rarity, supplier });
+    }
+  };
+
+  if (suppliers.length === 0) return null;
+
+  return (
+    <div className="my-8">
+      <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-rust block mb-3">
+        Get the seeds
+      </span>
+      <div className="flex flex-col sm:flex-row gap-3">
+        {suppliers.map((s) => (
+          <a
+            key={s.name}
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick(s.name)}
+            className="flex-1 text-center text-sm font-semibold text-white bg-allotment hover:bg-allotment-dark transition-colors px-5 py-3"
+          >
+            {s.name} &rarr;
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
