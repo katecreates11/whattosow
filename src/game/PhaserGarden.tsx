@@ -109,6 +109,11 @@ export default function PhaserGarden() {
       const scene = getScene();
       if (scene) {
         scene.plantSeed(col, row, result.variety.id, result.variety.cropSlug, result.displayRarity, result.variety.name);
+
+        // Show the rarity reveal text in the canvas after the planting animation
+        setTimeout(() => {
+          scene.showRarityReveal(col, row, result.displayRarity, result.variety.name);
+        }, 700);
       }
 
       // Collect in garden data

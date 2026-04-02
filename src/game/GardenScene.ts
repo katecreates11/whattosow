@@ -99,6 +99,12 @@ export default class GardenScene extends Phaser.Scene {
         this.tileContainers[row][col] = container;
       }
     }
+
+    // Ambient garden life — floating motes / pollen
+    this.startAmbientParticles(width, height);
+
+    // Ambient butterflies — tiny coloured dots that drift across
+    this.startButterflies(width, height);
   }
 
   private drawRaisedBed(gridWidth: number, gridHeight: number) {
@@ -644,6 +650,182 @@ export default class GardenScene extends Phaser.Scene {
         ease: "Sine.easeOut",
       });
       this.tileContainers[row][col] = newContainer;
+    });
+  }
+
+  /**
+   * Show rarity reveal text floating above a tile — the in-canvas "Nice find!" moment.
+   */
+  showRarityReveal(col: number, row: number, rarity: string, varietyName: string) {
+    const x = this.gridOffsetX + col * (TILE_SIZE + TILE_GAP) + TILE_SIZE / 2;
+    const y = this.gridOffsetY + row * (TILE_SIZE + TILE_GAP);
+
+    const labels: Record<string, string> = {
+      common: "A good pick",
+      uncommon: "Nice find!",
+      rare: "Rare find!",
+      legendary: "LEGENDARY!",
+    };
+
+    const colours: Record<string, string> = {
+      common: "#8b7d74",
+      uncommon: "#5a9a4a",
+      rare: "#c4830a",
+      legendary: "#ffc800",
+    };
+
+    const label = labels[rarity] || "Found!";
+    const colour = colours[rarity] || "#8b7d74";
+
+    // Rarity label floats up
+    const rarityText = this.add.text(x, y - 10, label, {
+      fontFamily: "Newsreader, Georgia, serif",
+      fontSize: rarity === "legendary" ? "18px" : "14px",
+      color: colour,
+      fontStyle: "bold",
+      stroke: "#F5EFE0",
+      strokeThickness: 3,
+    });
+    rarityText.setOrigin(0.5).setAlpha(0).setDepth(100);
+
+    this.tweens.add({
+      targets: rarityText,
+      y: y - 40,
+      alpha: 1,
+      duration: 600,
+      ease: "Back.easeOut",
+      onComplete: () => {
+        this.tweens.add({
+          targets: rarityText,
+          alpha: 0,
+          y: y - 55,
+          duration: 800,
+          delay: 1200,
+          ease: "Sine.easeIn",
+          onComplete: () => rarityText.destroy(),
+        });
+      },
+    });
+
+    // Variety name below the rarity label
+    const nameText = this.add.text(x, y - 2, varietyName, {
+      fontFamily: "Inter, sans-serif",
+      fontSize: "11px",
+      color: "#3B2F28",
+      stroke: "#F5EFE0",
+      strokeThickness: 2,
+    });
+    nameText.setOrigin(0.5).setAlpha(0).setDepth(100);
+
+    this.tweens.add({
+      targets: nameText,
+      y: y - 25,
+      alpha: 1,
+      duration: 600,
+      delay: 300,
+      ease: "Back.easeOut",
+      onComplete: () => {
+        this.tweens.add({
+          targets: nameText,
+          alpha: 0,
+          y: y - 40,
+          duration: 800,
+          delay: 1000,
+          ease: "Sine.easeIn",
+          onComplete: () => nameText.destroy(),
+        });
+      },
+    });
+
+    // Legendary gets a screen flash
+    if (rarity === "legendary") {
+      const { width, height } = this.scale;
+      const flash = this.add.graphics();
+      flash.fillStyle(0xffc800, 0.15);
+      flash.fillRect(0, 0, width, height);
+      flash.setDepth(99);
+      this.tweens.add({
+        targets: flash,
+        alpha: 0,
+        duration: 1000,
+        ease: "Sine.easeOut",
+        onComplete: () => flash.destroy(),
+      });
+    }
+  }
+
+  /**
+   * Ambient floating pollen/motes — makes the garden feel alive.
+   */
+  private startAmbientParticles(width: number, height: number) {
+    this.time.addEvent({
+      delay: 3000,
+      loop: true,
+      callback: () => {
+        const x = Phaser.Math.Between(20, width - 20);
+        const y = Phaser.Math.Between(20, height - 20);
+        const mote = this.add.circle(x, y, Phaser.Math.Between(1, 2), 0xd4c490);
+        mote.setAlpha(0).setDepth(50);
+
+        this.tweens.add({
+          targets: mote,
+          alpha: { from: 0, to: 0.4 },
+          x: x + Phaser.Math.Between(-30, 30),
+          y: y - Phaser.Math.Between(20, 50),
+          duration: Phaser.Math.Between(3000, 5000),
+          ease: "Sine.easeInOut",
+          yoyo: false,
+          onComplete: () => mote.destroy(),
+        });
+      },
+    });
+  }
+
+  /**
+   * Tiny butterfly-like dots that drift across the garden.
+   */
+  private startButterflies(width: number, height: number) {
+    const butterflyColours = [0xd4943a, 0xc9543e, 0x7ba7c2, 0xf5c76a];
+
+    this.time.addEvent({
+      delay: 8000,
+      loop: true,
+      callback: () => {
+        const startX = -10;
+        const startY = Phaser.Math.Between(40, height - 40);
+        const col = butterflyColours[Phaser.Math.Between(0, butterflyColours.length - 1)];
+
+        // Two tiny dots close together = wings
+        const wing1 = this.add.circle(startX, startY, 2, col);
+        const wing2 = this.add.circle(startX + 3, startY - 1, 2, col);
+        wing1.setAlpha(0.5).setDepth(51);
+        wing2.setAlpha(0.4).setDepth(51);
+
+        const endX = width + 10;
+        const midY = startY + Phaser.Math.Between(-40, 40);
+        const duration = Phaser.Math.Between(6000, 10000);
+
+        // Gentle curved path across the screen
+        [wing1, wing2].forEach((wing, i) => {
+          this.tweens.add({
+            targets: wing,
+            x: endX + (i * 3),
+            duration,
+            ease: "Sine.easeInOut",
+            onComplete: () => wing.destroy(),
+          });
+
+          // Wavy vertical movement
+          this.tweens.add({
+            targets: wing,
+            y: midY + (i * -1),
+            duration: duration / 3,
+            ease: "Sine.easeInOut",
+            yoyo: true,
+            repeat: 2,
+          });
+        });
+      },
     });
   }
 }
