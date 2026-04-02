@@ -100,6 +100,9 @@ export default class GardenScene extends Phaser.Scene {
       }
     }
 
+    // Welcome pulse on the centre tile — draws attention to it
+    this.addWelcomePulse();
+
     // Ambient garden life — floating motes / pollen
     this.startAmbientParticles(width, height);
 
@@ -752,6 +755,50 @@ export default class GardenScene extends Phaser.Scene {
         onComplete: () => flash.destroy(),
       });
     }
+  }
+
+  /**
+   * Gentle pulse on the centre tile to guide first-time users.
+   */
+  private addWelcomePulse() {
+    // Pulse the centre tile (row 1, col 1 or 2)
+    const targetCol = Math.floor(COLS / 2);
+    const targetRow = Math.floor(ROWS / 2);
+    const x = this.gridOffsetX + targetCol * (TILE_SIZE + TILE_GAP);
+    const y = this.gridOffsetY + targetRow * (TILE_SIZE + TILE_GAP);
+    const cx = x + TILE_SIZE / 2;
+    const cy = y + TILE_SIZE / 2;
+
+    // Expanding ring pulse
+    const createRing = () => {
+      const plot = this.plots[targetRow]?.[targetCol];
+      if (plot && plot.growthStage !== "empty") return; // Stop once something is planted
+
+      const ring = this.add.graphics();
+      ring.lineStyle(2, 0x7bb369, 0.5);
+      ring.strokeCircle(cx, cy, 8);
+      ring.setDepth(10);
+
+      this.tweens.add({
+        targets: ring,
+        scaleX: 4,
+        scaleY: 4,
+        alpha: 0,
+        duration: 1500,
+        ease: "Sine.easeOut",
+        onComplete: () => {
+          ring.destroy();
+          // Repeat if tile is still empty
+          const p = this.plots[targetRow]?.[targetCol];
+          if (p && p.growthStage === "empty") {
+            this.time.delayedCall(2000, createRing);
+          }
+        },
+      });
+    };
+
+    // Start after a brief delay
+    this.time.delayedCall(1000, createRing);
   }
 
   /**
