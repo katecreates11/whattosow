@@ -1,0 +1,509 @@
+/* ============================================================
+   GrowingReveal.css
+   Lucky Dip growing animation — seed → stem → leaves → bloom
+   ============================================================ */
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+
+@keyframes seed-drop {
+  0% {
+    transform: translateY(-80px) scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(4px) scale(1.1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-2px) scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes stem-grow {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes stem-grow-slow {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-appear {
+  0% {
+    transform: scale(0) rotate(-30deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-appear-right {
+  0% {
+    transform: scale(0) rotate(30deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(-5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bloom-pop {
+  0% {
+    transform: scale(0) translateY(12px);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.18) translateY(-4px);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.94) translateY(1px);
+  }
+  90% {
+    transform: scale(1.04) translateY(-1px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes label-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse ring for uncommon / rare / legendary */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring-large {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* Golden light burst for legendary */
+@keyframes gold-burst {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  40% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+/* Stem gradient shimmer for rare/legendary */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* ── Container ─────────────────────────────────────────────── */
+
+.growing-reveal {
+  position: relative;
+  width: 200px;
+  height: 280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Soil ──────────────────────────────────────────────────── */
+
+.growing-reveal__soil {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  border-radius: 4px 4px 8px 8px;
+  background: linear-gradient(
+    to bottom,
+    #6b3a1f 0%,
+    #4a2210 60%,
+    #3a1a0a 100%
+  );
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Soil surface texture line */
+.growing-reveal__soil::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+/* ── Seed ──────────────────────────────────────────────────── */
+
+.growing-reveal__seed {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 14px;
+  background: radial-gradient(ellipse at 40% 35%, #c4956a, #7a4a1e);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  z-index: 3;
+  animation: seed-drop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ── Stem ──────────────────────────────────────────────────── */
+
+.growing-reveal__stem {
+  position: absolute;
+  bottom: 42px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: bottom center;
+  width: 6px;
+  height: 140px;
+  border-radius: 3px 3px 2px 2px;
+  background: linear-gradient(to top, #1a7a3a, #2da84e, #3dc960);
+  z-index: 2;
+  animation: stem-grow 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards;
+}
+
+/* ── Leaves ────────────────────────────────────────────────── */
+
+.growing-reveal__leaf-left,
+.growing-reveal__leaf-right {
+  position: absolute;
+  bottom: calc(42px + 52px); /* halfway up the stem */
+  width: 28px;
+  height: 18px;
+  border-radius: 0 80% 0 80%;
+  background: linear-gradient(135deg, #2da84e, #56c97a);
+  z-index: 2;
+  opacity: 0;
+  transform-origin: right center;
+}
+
+.growing-reveal__leaf-left {
+  left: calc(50% - 30px);
+  transform: scale(0) rotate(-30deg);
+  transform-origin: right center;
+  animation: leaf-appear 0.3s ease-out 1.2s forwards;
+}
+
+.growing-reveal__leaf-right {
+  left: calc(50% + 2px);
+  border-radius: 80% 0 80% 0;
+  transform: scale(0) rotate(30deg);
+  transform-origin: left center;
+  animation: leaf-appear-right 0.3s ease-out 1.3s forwards;
+}
+
+/* ── Bloom ─────────────────────────────────────────────────── */
+
+.growing-reveal__bloom {
+  position: absolute;
+  bottom: calc(42px + 130px);
+  left: 50%;
+  transform: translateX(-50%) scale(0) translateY(12px);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f2f2eb;
+  border: 3px solid #2da84e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 4;
+  opacity: 0;
+  animation: bloom-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s forwards;
+}
+
+.growing-reveal__bloom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.growing-reveal__bloom-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #6dcc8a, #1a7a3a);
+  opacity: 0.6;
+}
+
+/* ── Label ─────────────────────────────────────────────────── */
+
+.growing-reveal__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2da84e;
+  opacity: 0;
+  animation: label-fade-in 0.4s ease-out 2s forwards;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Rarity: Common ────────────────────────────────────────── */
+
+/* Common: no extra effects, no label */
+.growing-reveal--common .growing-reveal__label {
+  display: none;
+}
+
+/* ── Rarity: Uncommon ──────────────────────────────────────── */
+
+.growing-reveal--uncommon .growing-reveal__bloom {
+  border-color: #2da84e;
+}
+
+/* Green sparkle pulse from bloom */
+.growing-reveal--uncommon .growing-reveal__bloom::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(45, 168, 78, 0.5) 0%,
+    rgba(45, 168, 78, 0) 70%
+  );
+  animation: pulse-ring 1s ease-out 1.9s infinite;
+  pointer-events: none;
+}
+
+.growing-reveal--uncommon .growing-reveal__label {
+  color: #2da84e;
+  animation-delay: 2s;
+}
+
+/* ── Rarity: Rare ──────────────────────────────────────────── */
+
+.growing-reveal--rare .growing-reveal__stem {
+  background: linear-gradient(
+    to top,
+    #1a7a3a 0%,
+    #2da84e 50%,
+    #c4830a 80%,
+    #f5a623 100%
+  );
+}
+
+.growing-reveal--rare .growing-reveal__bloom {
+  border-color: #f5a623;
+  box-shadow: 0 0 16px rgba(245, 166, 35, 0.4);
+}
+
+/* Warm golden glow pulse */
+.growing-reveal--rare .growing-reveal__bloom::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(245, 166, 35, 0.6) 0%,
+    rgba(255, 200, 0, 0.3) 40%,
+    rgba(245, 166, 35, 0) 70%
+  );
+  animation: pulse-ring-large 1.2s ease-out 1.9s infinite;
+  pointer-events: none;
+}
+
+.growing-reveal--rare .growing-reveal__label {
+  color: #f5a623;
+  animation-delay: 2.2s;
+}
+
+/* ── Rarity: Legendary ─────────────────────────────────────── */
+
+/* Stem grows slower — builds tension */
+.growing-reveal--legendary .growing-reveal__stem {
+  background: linear-gradient(
+    to top,
+    #1a7a3a 0%,
+    #2da84e 40%,
+    #c4830a 70%,
+    #ffc800 90%,
+    #fff4c2 100%
+  );
+  animation: stem-grow-slow 1.8s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards;
+}
+
+/* Leaves appear later to match slower stem */
+.growing-reveal--legendary .growing-reveal__leaf-left {
+  animation-delay: 2s;
+}
+
+.growing-reveal--legendary .growing-reveal__leaf-right {
+  animation-delay: 2.1s;
+}
+
+/* Bloom delayed — the payoff moment */
+.growing-reveal--legendary .growing-reveal__bloom {
+  border-color: #ffc800;
+  box-shadow:
+    0 0 24px rgba(255, 200, 0, 0.6),
+    0 0 48px rgba(255, 200, 0, 0.2);
+  animation: bloom-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 2.3s forwards;
+}
+
+/* Golden light burst — the big moment */
+.growing-reveal--legendary .growing-reveal__bloom::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 0, 0.9) 0%,
+    rgba(255, 200, 0, 0.5) 30%,
+    rgba(245, 166, 35, 0.2) 60%,
+    rgba(255, 200, 0, 0) 80%
+  );
+  animation: gold-burst 1.4s ease-out 2.7s infinite;
+  pointer-events: none;
+}
+
+/* Second burst ring for layered effect */
+.growing-reveal--legendary .growing-reveal__bloom::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 244, 194, 0.8) 0%,
+    rgba(255, 200, 0, 0.4) 50%,
+    rgba(255, 200, 0, 0) 80%
+  );
+  animation: gold-burst 1.4s ease-out 2.9s infinite;
+  pointer-events: none;
+}
+
+.growing-reveal--legendary .growing-reveal__label {
+  color: #ffc800;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  animation-delay: 3s;
+}
+
+/* ── Reduced Motion ────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .growing-reveal__seed {
+    display: none;
+  }
+
+  .growing-reveal__stem {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+    animation: none;
+  }
+
+  .growing-reveal__leaf-left,
+  .growing-reveal__leaf-right {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    animation: none;
+  }
+
+  .growing-reveal__bloom {
+    transform: translateX(-50%) scale(1) translateY(0);
+    opacity: 1;
+    animation: none;
+  }
+
+  .growing-reveal__bloom::after,
+  .growing-reveal__bloom::before {
+    display: none;
+  }
+
+  .growing-reveal__label {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
+}
