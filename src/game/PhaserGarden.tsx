@@ -359,6 +359,66 @@ export default function PhaserGarden() {
           <span><strong className="text-earth">{garden.activePlots.length}</strong> growing</span>
           <span><strong className="text-earth">{garden.harvestedPlots.length}</strong> harvested</span>
         </div>
+
+        {/* ═══ MOBILE INFO BOARD — visible below garden on small screens ═══ */}
+        <div className="lg:hidden bg-[#e8dcc8] border-t border-earth/15">
+          {/* Needs action section */}
+          {garden.activePlots.length > 0 && (
+            <div className="px-4 py-3">
+              <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-earth-lighter mb-2">
+                Your crops
+              </h3>
+              <div className="space-y-1.5">
+                {garden.activePlots.map((plot) => {
+                  const variety = getVarietyById(plot.varietyId);
+                  const health = cropHealthMap.get(plot.varietyId);
+                  if (!variety || !health) return null;
+
+                  const borderCol = health.borderColour === "red" ? "border-l-tomato" : health.borderColour === "amber" ? "border-l-amber" : "border-l-leaf";
+                  const illustration = CROP_ILLUSTRATIONS[variety.cropSlug];
+
+                  return (
+                    <button
+                      key={plot.slotIndex}
+                      onClick={() => setInfoPanel({ type: health.isHarvestReady ? "harvest" : "plant-info", varietyId: variety.id, col: plot.slotIndex % 6, row: Math.floor(plot.slotIndex / 6) })}
+                      className={`w-full flex items-center gap-2.5 p-2 bg-cream rounded border-l-[3px] ${borderCol} text-left hover:bg-sage/20 transition-colors`}
+                    >
+                      {illustration && <img src={illustration} alt="" className="w-7 h-7 object-contain shrink-0" />}
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[11px] font-semibold text-earth truncate">{variety.name}</p>
+                        <p className="text-[9px] text-earth-lighter">{health.statusMessage}</p>
+                      </div>
+                      {health.isHarvestReady ? (
+                        <span className="text-[8px] font-bold uppercase text-leaf bg-leaf/15 px-1.5 py-0.5 rounded shrink-0">Ready</span>
+                      ) : (
+                        <span className="text-[9px] text-earth-lighter shrink-0">{health.daysToHarvest}d</span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Sow this week — mobile */}
+          <div className="px-4 py-3 border-t border-earth/10">
+            <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-earth-lighter mb-2">
+              Sow this week
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              {Object.keys(sowableByCrop).slice(0, 8).map((cropName) => (
+                <span key={cropName} className="text-[10px] text-earth bg-cream px-2 py-1 rounded">
+                  {cropName}
+                </span>
+              ))}
+              {Object.keys(sowableByCrop).length > 8 && (
+                <span className="text-[10px] text-allotment font-semibold px-2 py-1">
+                  +{Object.keys(sowableByCrop).length - 8} more
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* ═══ RIGHT: Info Board (desktop sidebar) ═══ */}
