@@ -13,6 +13,7 @@ export interface GardenPlot {
   harvested: boolean;
   harvestedAt: string | null;
   lastTended: string | null;
+  lastWatered: string | null;
   notes: string;
 }
 

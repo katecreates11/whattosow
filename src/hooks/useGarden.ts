@@ -84,6 +84,7 @@ export function useGarden() {
             harvested: false,
             harvestedAt: null,
             lastTended: null,
+            lastWatered: null,
             notes: "",
           },
         ],
