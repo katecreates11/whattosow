@@ -51,6 +51,13 @@ export default function PhaserGarden() {
   const [plantMode, setPlantMode] = useState<PlantMode>("lucky-dip");
   const [pendingSlot, setPendingSlot] = useState<{ col: number; row: number } | null>(null);
 
+  // Ref-based callbacks so Phaser always gets latest React state
+  const callbacksRef = useRef({
+    onEmptyTileTap: (col: number, row: number) => {},
+    onPlantTap: (col: number, row: number, varietyId: string) => {},
+    onHarvestTap: (col: number, row: number, varietyId: string) => {},
+  });
+
   useEffect(() => {
     const loc = loadLocation();
     getWeatherBonus(loc?.latitude ?? null, loc?.longitude ?? null).then(setWeatherBonus);
@@ -156,6 +163,19 @@ export default function PhaserGarden() {
     [garden, getScene]
   );
 
+  // Keep ref in sync with latest callbacks
+  useEffect(() => {
+    callbacksRef.current = {
+      onEmptyTileTap: handleEmptyTileTap,
+      onPlantTap: (col: number, row: number, varietyId: string) => {
+        setInfoPanel({ type: "plant-info", varietyId, col, row });
+      },
+      onHarvestTap: (col: number, row: number, varietyId: string) => {
+        setInfoPanel({ type: "harvest", varietyId, col, row });
+      },
+    };
+  }, [handleEmptyTileTap]);
+
   const closePanel = useCallback(() => {
     setInfoPanel(null);
     setPendingSlot(null);
@@ -188,13 +208,9 @@ export default function PhaserGarden() {
 
         game.scene.start("GardenScene", {
           callbacks: {
-            onEmptyTileTap: (col: number, row: number) => handleEmptyTileTap(col, row),
-            onPlantTap: (col: number, row: number, varietyId: string) => {
-              setInfoPanel({ type: "plant-info", varietyId, col, row });
-            },
-            onHarvestTap: (col: number, row: number, varietyId: string) => {
-              setInfoPanel({ type: "harvest", varietyId, col, row });
-            },
+            onEmptyTileTap: (col: number, row: number) => callbacksRef.current.onEmptyTileTap(col, row),
+            onPlantTap: (col: number, row: number, varietyId: string) => callbacksRef.current.onPlantTap(col, row, varietyId),
+            onHarvestTap: (col: number, row: number, varietyId: string) => callbacksRef.current.onHarvestTap(col, row, varietyId),
           },
         });
 
