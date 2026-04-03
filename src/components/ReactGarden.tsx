@@ -18,7 +18,7 @@ import {
   type GardenAlert,
   type CropHealthResult,
 } from "@/lib/weather-intelligence";
-import { EmptyTile, PlantedTile, PlantingAnimation } from "@/components/GardenTile";
+import { EmptyTile, PlantedTile, PlantingAnimation, CROP_ILLUSTRATIONS } from "@/components/GardenTile";
 import RecipeSection from "@/components/RecipeSection";
 import AffiliateButtons from "@/components/AffiliateButtons";
 
@@ -377,100 +377,205 @@ export default function ReactGarden() {
         )}
       </div>
 
-      {/* ═══ INFO PANEL ═══ */}
+      {/* ═══ INFO CARD — Pokémon-inspired ═══ */}
       <AnimatePresence>
-        {infoPanel && infoPanel.type !== "choose-variety" && panelVariety && panelCrop && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-end justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closePanel}
-          >
-            <div className="absolute inset-0 bg-black/30" />
+        {infoPanel && infoPanel.type !== "choose-variety" && panelVariety && panelCrop && (() => {
+          const rarityBorder = panelVariety.rarity === "legendary" ? "from-amber via-amber/80 to-amber" : panelVariety.rarity === "rare" ? "from-amber/70 via-amber/50 to-amber/70" : panelVariety.rarity === "uncommon" ? "from-leaf via-leaf/60 to-leaf" : "from-earth/30 via-earth/20 to-earth/30";
+          const rarityBg = panelVariety.rarity === "legendary" ? "bg-amber/5" : panelVariety.rarity === "rare" ? "bg-amber/5" : panelVariety.rarity === "uncommon" ? "bg-leaf/5" : "bg-cream";
+          const categoryColour = panelCrop.category === "hardy" ? "bg-leaf/20 text-allotment" : panelCrop.category === "half-hardy" ? "bg-amber/20 text-amber" : "bg-tomato/15 text-tomato";
+          const illustration = CROP_ILLUSTRATIONS[panelVariety.cropSlug];
+
+          return (
             <motion.div
-              className="relative bg-cream w-full max-w-lg max-h-[75vh] overflow-y-auto rounded-t-2xl px-6 py-6"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              onClick={(e) => e.stopPropagation()}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closePanel}
             >
-              <div className="flex justify-center mb-4"><div className="w-10 h-1 bg-earth/20 rounded-full" /></div>
+              <div className="absolute inset-0 bg-black/50" />
 
-              {infoPanel.type === "discovery" && lastDiscovery && (
-                <motion.div className="text-center mb-3" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.2 }}>
-                  <span className={`text-[11px] font-bold tracking-[0.2em] uppercase ${
-                    lastDiscovery.displayRarity === "legendary" ? "text-amber" : lastDiscovery.displayRarity === "rare" ? "text-amber" : lastDiscovery.displayRarity === "uncommon" ? "text-allotment" : "text-earth-lighter"
-                  }`}>
-                    {lastDiscovery.displayRarity === "legendary" ? "LEGENDARY!" : lastDiscovery.displayRarity === "rare" ? "Rare find!" : lastDiscovery.displayRarity === "uncommon" ? "Nice find!" : "A good pick"}
-                  </span>
-                </motion.div>
-              )}
+              {/* The card */}
+              <motion.div
+                className="relative w-full max-w-sm max-h-[90vh] overflow-y-auto"
+                initial={{ scale: 0.8, rotateY: -15, opacity: 0 }}
+                animate={{ scale: 1, rotateY: 0, opacity: 1 }}
+                exit={{ scale: 0.8, rotateY: 15, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Rarity gradient border */}
+                <div className={`rounded-2xl p-[3px] bg-gradient-to-br ${rarityBorder}`}>
+                  <div className={`rounded-[13px] ${rarityBg} overflow-hidden`}>
 
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2.5 h-2.5 rounded-full" style={{
-                  backgroundColor: panelVariety.rarity === "legendary" ? "#ffc800" : panelVariety.rarity === "rare" ? "#D4943A" : panelVariety.rarity === "uncommon" ? "#7BB369" : "#6B5D54"
-                }} />
-                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-earth-lighter">{panelVariety.rarity} · {panelCrop.name}</span>
-              </div>
-              <h2 className="text-2xl font-serif text-earth tracking-tight mb-2">{panelVariety.name}</h2>
-              <p className="text-[14px] text-earth-light leading-relaxed font-serif italic mb-4">{panelVariety.personality}</p>
+                    {/* Card header — illustration area */}
+                    <div className="relative bg-gradient-to-b from-[#2D5F3E]/10 to-transparent px-5 pt-5 pb-3">
+                      {/* Close button */}
+                      <button onClick={closePanel} className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/10 flex items-center justify-center text-earth/40 hover:text-earth/70 text-sm">×</button>
 
-              {panelHealth && (
-                <div className={`rounded p-3 mb-4 ${panelHealth.borderColour === "red" ? "bg-tomato/10" : panelHealth.borderColour === "amber" ? "bg-amber/10" : "bg-leaf/10"}`}>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-xs font-semibold text-earth">{panelHealth.statusMessage}</span>
-                    <span className="text-[10px] text-earth-lighter">{panelHealth.isHarvestReady ? "Ready!" : `${panelHealth.daysToHarvest}d left`}</span>
+                      {/* Rarity label for discoveries */}
+                      {infoPanel.type === "discovery" && lastDiscovery && (
+                        <motion.div className="text-center mb-2" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }}>
+                          <span className={`text-[11px] font-bold tracking-[0.25em] uppercase ${
+                            lastDiscovery.displayRarity === "legendary" ? "text-amber" : lastDiscovery.displayRarity === "rare" ? "text-amber" : lastDiscovery.displayRarity === "uncommon" ? "text-allotment" : "text-earth-lighter"
+                          }`}>
+                            {lastDiscovery.displayRarity === "legendary" ? "★ LEGENDARY ★" : lastDiscovery.displayRarity === "rare" ? "★ RARE FIND ★" : lastDiscovery.displayRarity === "uncommon" ? "NICE FIND" : ""}
+                          </span>
+                        </motion.div>
+                      )}
+
+                      {/* Illustration */}
+                      <div className="flex justify-center py-4">
+                        {illustration ? (
+                          <motion.img
+                            src={illustration}
+                            alt={panelVariety.name}
+                            className="w-28 h-28 object-contain drop-shadow-lg"
+                            initial={{ scale: 0, rotate: -10 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                          />
+                        ) : (
+                          <div className="w-28 h-28 rounded-full bg-gradient-to-br from-leaf/30 to-allotment/20 flex items-center justify-center">
+                            <span className="text-4xl">🌱</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Name + type badges */}
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <h2 className="text-xl font-serif text-earth tracking-tight leading-tight">{panelVariety.name}</h2>
+                          <p className="text-[11px] text-earth-lighter">{panelCrop.name}</p>
+                        </div>
+                        <div className="flex gap-1 shrink-0">
+                          <span className={`text-[8px] font-bold tracking-[0.08em] uppercase px-2 py-1 rounded-full ${categoryColour}`}>
+                            {panelCrop.category}
+                          </span>
+                          <span className={`text-[8px] font-bold tracking-[0.08em] uppercase px-2 py-1 rounded-full ${
+                            panelVariety.rarity === "legendary" ? "bg-amber/20 text-amber" : panelVariety.rarity === "rare" ? "bg-amber/15 text-amber" : panelVariety.rarity === "uncommon" ? "bg-leaf/15 text-allotment" : "bg-earth/10 text-earth-lighter"
+                          }`}>
+                            {panelVariety.rarity}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Divider line */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-earth/15 to-transparent mx-5" />
+
+                    {/* Stats row — Pokémon style */}
+                    <div className="flex justify-between px-5 py-3 text-center">
+                      <div>
+                        <span className="text-lg font-bold text-earth block leading-none">{panelCrop.harvestWeeks}</span>
+                        <span className="text-[8px] text-earth-lighter uppercase tracking-wider">weeks</span>
+                      </div>
+                      <div className="w-px bg-earth/10" />
+                      <div>
+                        <span className="text-lg font-bold text-earth block leading-none">{panelCrop.spacingCm}</span>
+                        <span className="text-[8px] text-earth-lighter uppercase tracking-wider">cm apart</span>
+                      </div>
+                      <div className="w-px bg-earth/10" />
+                      <div>
+                        <span className="text-lg font-bold text-earth block leading-none">{panelHealth ? panelHealth.growthPercent : 0}%</span>
+                        <span className="text-[8px] text-earth-lighter uppercase tracking-wider">grown</span>
+                      </div>
+                    </div>
+
+                    {/* Growth bar (if planted) */}
+                    {panelHealth && (
+                      <div className="px-5 pb-3">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-[10px] font-semibold text-earth">{panelHealth.statusMessage}</span>
+                          <span className="text-[10px] text-earth-lighter">{panelHealth.isHarvestReady ? "Ready to harvest!" : `${panelHealth.daysToHarvest} days left`}</span>
+                        </div>
+                        <div className="h-2.5 bg-earth/8 rounded-full overflow-hidden">
+                          <motion.div
+                            className={`h-full rounded-full ${panelHealth.borderColour === "red" ? "bg-gradient-to-r from-tomato to-tomato/70" : panelHealth.borderColour === "amber" ? "bg-gradient-to-r from-amber to-amber/70" : "bg-gradient-to-r from-leaf to-allotment"}`}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.min(100, panelHealth.growthPercent)}%` }}
+                            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-earth/15 to-transparent mx-5" />
+
+                    {/* Personality — like Pokédex flavour text */}
+                    <div className="px-5 py-3">
+                      <p className="text-[13px] text-earth-light leading-relaxed font-serif italic">
+                        &ldquo;{panelVariety.personality}&rdquo;
+                      </p>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-earth/15 to-transparent mx-5" />
+
+                    {/* Recipes — like "moves" */}
+                    {panelVariety.recipes.length > 0 && (
+                      <div className="px-5 py-3">
+                        <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-earth-lighter block mb-2">What you&apos;ll cook</span>
+                        {panelVariety.recipes.map((recipe) => (
+                          <div key={recipe.name} className="mb-2.5 last:mb-0">
+                            <span className="text-[12px] font-semibold text-earth">{recipe.name}</span>
+                            <p className="text-[11px] text-earth-lighter leading-relaxed mt-0.5">{recipe.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-earth/15 to-transparent mx-5" />
+
+                    {/* Actions */}
+                    <div className="px-5 py-4 space-y-2">
+                      {/* Buy seeds */}
+                      <AffiliateButtons suppliers={panelVariety.seedSuppliers} variety={panelVariety.id} rarity={panelVariety.rarity} />
+
+                      {/* Harvest */}
+                      {infoPanel.type === "harvest" && (
+                        <motion.button
+                          onClick={() => handleHarvest(infoPanel.slotIndex)}
+                          className="w-full bg-gradient-to-r from-leaf to-allotment text-white font-semibold py-3.5 rounded-xl"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.97 }}
+                        >
+                          Harvest {panelVariety.name} 🌾
+                        </motion.button>
+                      )}
+
+                      {/* Growing guide link */}
+                      <a
+                        href={`/crops/${panelVariety.cropSlug}`}
+                        className="block text-center text-[11px] text-allotment font-semibold hover:underline py-2"
+                      >
+                        Full growing guide →
+                      </a>
+                    </div>
+
                   </div>
-                  <div className="h-2 bg-earth/10 rounded-full overflow-hidden">
-                    <motion.div
-                      className={`h-full rounded-full ${panelHealth.borderColour === "red" ? "bg-tomato" : panelHealth.borderColour === "amber" ? "bg-amber" : "bg-leaf"}`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${Math.min(100, panelHealth.growthPercent)}%` }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                    />
-                  </div>
                 </div>
-              )}
 
-              <AffiliateButtons suppliers={panelVariety.seedSuppliers} variety={panelVariety.id} rarity={panelVariety.rarity} />
-
-              <div className="grid grid-cols-3 gap-2 my-4">
-                <div className="bg-sage/30 p-2.5 text-center rounded">
-                  <span className="text-base font-semibold text-earth block">{panelCrop.harvestWeeks}w</span>
-                  <span className="text-[9px] text-earth-lighter uppercase">Harvest</span>
-                </div>
-                <div className="bg-sage/30 p-2.5 text-center rounded">
-                  <span className="text-base font-semibold text-earth block">{panelCrop.spacingCm}cm</span>
-                  <span className="text-[9px] text-earth-lighter uppercase">Spacing</span>
-                </div>
-                <div className="bg-sage/30 p-2.5 text-center rounded">
-                  <span className="text-base font-semibold text-earth block capitalize">{panelCrop.category}</span>
-                  <span className="text-[9px] text-earth-lighter uppercase">Type</span>
-                </div>
-              </div>
-
-              <RecipeSection recipes={panelVariety.recipes} />
-
-              {infoPanel.type === "harvest" && (
-                <motion.button
-                  onClick={() => handleHarvest(infoPanel.slotIndex)}
-                  className="w-full bg-leaf text-white font-semibold py-4 rounded mt-4"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Harvest {panelVariety.name} 🌾
-                </motion.button>
-              )}
-
-              <div className="mt-4 text-center">
-                <a href={`/crops/${panelVariety.cropSlug}`} className="text-sm text-allotment font-semibold hover:underline">Full growing guide →</a>
-              </div>
-              <button onClick={closePanel} className="w-full text-sm text-earth-lighter mt-4 py-2">Close</button>
+                {/* Legendary shimmer overlay */}
+                {panelVariety.rarity === "legendary" && (
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl pointer-events-none"
+                    style={{
+                      background: "linear-gradient(135deg, transparent 30%, rgba(255,200,0,0.1) 50%, transparent 70%)",
+                      backgroundSize: "200% 200%",
+                    }}
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  />
+                )}
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          );
+        })()}
       </AnimatePresence>
 
       {/* ═══ CHOOSE PANEL ═══ */}

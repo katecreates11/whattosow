@@ -6,7 +6,7 @@ import type { Variety } from "@/data/varieties";
 import type { CropHealthResult } from "@/lib/weather-intelligence";
 
 // Crop illustration map — will be replaced with custom art
-const CROP_ILLUSTRATIONS: Record<string, string> = {
+export const CROP_ILLUSTRATIONS: Record<string, string> = {
   tomatoes: "/images/crops/tomatoes.png",
   carrots: "/images/crops/carrots.png",
   peas: "/images/crops/peas.png",
