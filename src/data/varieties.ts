@@ -46,9 +46,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=aquadulce+claudia+broad+beans" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=aquadulce+claudia+broad+beans" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=aquadulce+claudia+broad+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/broad-bean-aquadulce-claudia-seeds/138TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/broad-bean-seeds/bean-broad-bean-seeds-aquadulce-claudia_MH-1574" },
     ],
   },
   {
@@ -66,8 +65,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=the+sutton+broad+beans" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=the+sutton+broad+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/broad-bean-the-sutton-seeds/156TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/broad-bean-seeds/broad-bean-seeds-the-sutton_MH-1579" },
     ],
   },
   {
@@ -90,9 +89,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=crimson+flowered+broad+beans" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=crimson+flowered+broad+beans" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=crimson+flowered+broad+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/broad-bean-crimson-flowered-seeds/4772TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/broad-bean-seeds/bean-broad-seeds-crimson-flowered_MH-44912" },
     ],
   },
 
@@ -119,9 +117,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=kelvedon+wonder+peas" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=kelvedon+wonder+peas" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=kelvedon+wonder+peas" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/pea-kelvedon-wonder-seeds/107TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/pea-seeds/pea-seeds-kelvedon-wonder_MH-1566" },
     ],
   },
   {
@@ -139,8 +136,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=hurst+greenshaft+peas" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=hurst+greenshaft+peas" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/pea-seeds/pea-seeds-hurst-greenshaft_MH-1568" },
     ],
   },
   {
@@ -163,9 +159,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=oregon+sugar+pod+peas" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=oregon+sugar+pod+peas" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=oregon+sugar+pod+peas" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/pea-oregon-sugar-pod-mangetout-seeds/133TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/pea-seeds/pea-seeds-oregon-sugar-pod_MH-1570" },
     ],
   },
 
@@ -187,9 +182,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=little+gem+lettuce" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=little+gem+lettuce" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=little+gem+lettuce" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/lettuce-little-gem-cos-seeds/439TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/lettuce-leaf-seeds/lettuce-seeds-little-gem_MH271" },
     ],
   },
   {
@@ -207,8 +201,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=lollo+rosso+lettuce" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=lollo+rosso+lettuce" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/lettuce-lollo-rossa-looseleaf-seeds/574TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/lettuce-leaf-seeds/lettuce-seeds-lollo-rossa_MH-1224" },
     ],
   },
   {
@@ -226,8 +220,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=all+year+round+lettuce" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=all+year+round+lettuce" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/lettuce-all-the-year-round/445TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/lettuce-leaf-seeds/lettuce-seeds-all-the-year-round_mh-1218" },
     ],
   },
 
@@ -248,10 +242,7 @@ export const varieties: Variety[] = [
           "Wilt a mountain of spinach, blitz roughly, fry with cumin, garlic, ginger, and a hit of garam masala. Fold in cubes of golden-fried paneer. The mountain cooks down to about two portions. Worth it.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=giant+winter+spinach" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=giant+winter+spinach" },
-    ],
+    seedSuppliers: [],
   },
   {
     id: "spinach-perpetual",
@@ -268,9 +259,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=perpetual+spinach" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=perpetual+spinach" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=perpetual+spinach" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/spinach-perpetual-spinach-beet/WKB9679TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/spinach-seeds-perpetual-spinach_MH883" },
     ],
   },
   {
@@ -287,10 +277,7 @@ export const varieties: Variety[] = [
           "Wilt the crinkly leaves, squeeze dry, mix with ricotta, nutmeg, and parmesan. Stuff into giant pasta shells, cover with tomato sauce, bake until bubbling.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=bloomsdale+spinach" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=bloomsdale+spinach" },
-    ],
+    seedSuppliers: [],
   },
 
   // ============================================================
@@ -311,9 +298,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=french+breakfast+radishes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=french+breakfast+radishes" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=french+breakfast+radishes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/radish-french-breakfast-3-seeds/542TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/radish-seeds-french-breakfast-3_MH1482" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/radish-french-breakfast" },
     ],
   },
   {
@@ -331,8 +318,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cherry+belle+radishes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cherry+belle+radishes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/radish-cherry-belle-seeds/540TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/radish-seeds/radish-seeds-cherry-belle_mh-3648" },
     ],
   },
   {
@@ -349,11 +336,7 @@ export const varieties: Variety[] = [
           "Slice razor-thin on a mandoline, fan out on a white plate, drizzle with yuzu or lemon juice, good olive oil, and a scatter of black sesame seeds. Looks like stained glass.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=watermelon+radish+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=watermelon+radish+seeds" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=watermelon+radish+seeds" },
-    ],
+    seedSuppliers: [],
   },
 
   // ============================================================
@@ -379,9 +362,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=nantes+carrots" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=nantes+carrots" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=nantes+carrots" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/carrot-nantes-2-seeds/345TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/carrot-seeds/carrot-seeds-early-nantes-5_MH266" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/carrot-nantes-5" },
     ],
   },
   {
@@ -399,8 +382,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=purple+haze+carrots" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=purple+haze+carrots" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/carrot-seeds/carrot-seeds-f1-purple-haze_MH-1097" },
     ],
   },
   {
@@ -418,9 +400,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=autumn+king+carrots" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=autumn+king+carrots" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=autumn+king+carrots" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/carrot-autumn-king-2-seeds/344TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/carrot-seeds/carrot-seeds-autumn-king-2_MH265" },
     ],
   },
 
@@ -442,9 +423,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=boltardy+beetroot" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=boltardy+beetroot" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=boltardy+beetroot" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/beetroot-boltardy-globe-seeds/288TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/all/beetroot-seeds-boltardy_mh-1022" },
     ],
   },
   {
@@ -462,9 +442,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=chioggia+beetroot" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=chioggia+beetroot" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=chioggia+beetroot" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/beetroot-chioggia-globe-seeds/988TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/beetroot-seeds/beetroot-seeds-chioggia_MH-16781" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/beetroot-chioggia" },
     ],
   },
   {
@@ -486,10 +466,7 @@ export const varieties: Variety[] = [
           "Blitz roasted beetroot with chickpeas, tahini, garlic, and lemon. Impossibly pink, earthy, and it makes the crudite plate look like a magazine.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=detroit+dark+red+beetroot" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=detroit+dark+red+beetroot" },
-    ],
+    seedSuppliers: [],
   },
 
   // ============================================================
@@ -510,8 +487,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=sturon+onion+sets" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=sturon+onion+sets" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/onion-sturon-spring-planting/zww4021TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/onions-shallots/spring-shallots/onion-sets-sturon_MH-14017" },
     ],
   },
   {
@@ -529,9 +506,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=red+baron+onion+sets" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=red+baron+onion+sets" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=red+baron+onion+sets" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/onion-red-baron-spring-planting/aww4000TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/onions-shallots/spring-shallots/onion-sets-red-baron_MH-74879" },
     ],
   },
   {
@@ -549,8 +525,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=centurion+onion+sets" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=centurion+onion+sets" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/onion-centurion/wkc2312TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/onions-shallots/all/onion-sets-f1-centurion_MH-14014" },
     ],
   },
 
@@ -572,8 +548,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=desiree+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=desiree+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-desiree/zww5037TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/maincrop-seed-potatoes/seed-potatoes-desiree_MH5239" },
     ],
   },
   {
@@ -591,8 +567,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=king+edward+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=king+edward+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-king-edward/zww5057TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/maincrop-seed-potatoes/seed-potatoes-king-edward-1kg_MH-20082" },
     ],
   },
   {
@@ -610,8 +586,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=sarpo+mira+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=sarpo+mira+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-sarpo-mira/zww5119TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/all/potato-sarpo-mira_mh-83821" },
     ],
   },
 
@@ -633,8 +609,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=charlotte+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=charlotte+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-charlotte/zww5018TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/all/seed-potatoes---charlotte_mh5233" },
     ],
   },
   {
@@ -652,8 +628,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=swift+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=swift+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-swift/zww5096TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/first-early-seed-potatoes/seed-potatoes-swift-1kg_MH-23454" },
     ],
   },
   {
@@ -671,8 +647,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=maris+piper+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=maris+piper+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-maris-piper/zww5059TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/maincrop-seed-potatoes/seed-potatoes-maris-piper_MH5240" },
     ],
   },
 
@@ -699,9 +675,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cavolo+nero+kale" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=cavolo+nero+kale" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cavolo+nero+kale" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/kale-nero-di-toscana-seeds/40TM" },
     ],
   },
   {
@@ -719,8 +693,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=dwarf+green+curled+kale" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=dwarf+green+curled+kale" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/kale-dwarf-green-curled-seeds/588TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/kale-seeds/kale-seeds-dwarf-green-curled_MH-1198" },
     ],
   },
   {
@@ -738,9 +712,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=red+russian+kale" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=red+russian+kale" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=red+russian+kale" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/kale-red-russian/kc2567TM" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/kale-red-russian" },
     ],
   },
 
@@ -762,9 +735,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=tender+and+true+parsnips" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=tender+and+true+parsnips" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=tender+and+true+parsnips" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/parsnip-tender-and-true-seeds/664TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/parsnip-seeds/parsnip-seeds-tender-and-true_MH281" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/parsnip-tender-and-true" },
     ],
   },
   {
@@ -782,8 +755,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=gladiator+parsnips" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=gladiator+parsnips" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/parsnip-gladiator-f1-hybrid-seeds/706TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/parsnip-seeds/parsnip-seeds-f1-gladiator_MH-1332" },
     ],
   },
   {
@@ -800,10 +773,7 @@ export const varieties: Variety[] = [
           "Peel into long ribbons with a vegetable peeler, toss in a little oil, and bake at 180C until golden and curling. Salt them hot. Impossible to stop eating.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=guernsey+parsnips" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=guernsey+parsnips" },
-    ],
+    seedSuppliers: [],
   },
 
   // ============================================================
@@ -824,8 +794,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=white+lisbon+spring+onions" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=white+lisbon+spring+onions" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/spring-onion-white-lisbon-seeds/528TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/all/onion-salad-seeds-white-lisbon_mh275" },
     ],
   },
   {
@@ -843,8 +813,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=ishikura+spring+onions" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=ishikura+spring+onions" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/onion-ishikura-bunching-onion-seeds/527TM" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/spring-onion-ishikura" },
     ],
   },
   {
@@ -862,9 +832,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=apache+spring+onions" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=apache+spring+onions" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=apache+spring+onions" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/spring-onion-apache-seeds/794TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/onion-seeds/onion-salad-seeds-apache_MH-32544" },
     ],
   },
 
@@ -886,9 +855,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=bright+lights+swiss+chard" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=bright+lights+swiss+chard" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=bright+lights+swiss+chard" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/swiss-chard-bright-lights-seeds/45TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/beet-leaf-seeds-bright-lights_MH-32505" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/chard-bright-lights" },
     ],
   },
   {
@@ -906,8 +875,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=fordhook+giant+swiss+chard" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=fordhook+giant+swiss+chard" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/swiss-chard-fordhook-giant-seeds/tr61531TM" },
     ],
   },
   {
@@ -925,8 +893,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=rhubarb+chard" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=rhubarb+chard" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/beet-leaf-seeds-rhubarb-chard_MH-32506" },
     ],
   },
 
@@ -948,8 +915,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=purple+top+milan+turnips" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=purple+top+milan+turnips" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/turnip-milan-purple-top-seeds/tx01028TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/turnip-seeds-purple-top-milan_MH-1421" },
     ],
   },
   {
@@ -967,8 +934,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=snowball+turnips" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=snowball+turnips" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/turnip-snowball-seeds/711TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/turnip-seeds-snowball_MH-32569" },
     ],
   },
   {
@@ -986,8 +953,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=golden+ball+turnips" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=golden+ball+turnips" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/turnip-golden-ball-seeds/w48345TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/turnip-seeds-golden-ball_MH-1423" },
     ],
   },
 
@@ -1009,9 +976,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=musselburgh+leeks" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=musselburgh+leeks" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=musselburgh+leeks" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/leek-musselburgh-seeds/640TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/leek-seeds/leek-seeds-musselburgh_MH4176" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/leek-musselburgh" },
     ],
   },
   {
@@ -1028,10 +995,7 @@ export const varieties: Variety[] = [
           "Simmer whole leeks until just tender, drain, and dress warm with a mustardy vinaigrette. A French bistro classic that elevates the humble leek to starring role.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=king+richard+leeks" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=king+richard+leeks" },
-    ],
+    seedSuppliers: [],
   },
   {
     id: "leeks-bandit",
@@ -1048,8 +1012,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=bandit+leeks" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=bandit+leeks" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/leek-blauwgroene-winter-bandit-seeds/46TM" },
     ],
   },
 
@@ -1071,9 +1034,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=purple+sprouting+early+broccoli" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=purple+sprouting+early+broccoli" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=purple+sprouting+early+broccoli" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/broccoli-early-purple-sprouting-purple-sprouting/360TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/broccoli-seeds/broccoli-seeds-purple-sprouting_MH2008" },
     ],
   },
   {
@@ -1091,8 +1053,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=green+magic+broccoli" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=green+magic+broccoli" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/broccoli-green-magic-calabrese-seeds/w52192TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/broccoli-seeds/broccoli-seeds-f1-green-magic_MH-1032" },
     ],
   },
   {
@@ -1110,8 +1072,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=ironman+broccoli" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=ironman+broccoli" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/broccoli-ironman-f1-hybrid-calabrese-seeds/tt61849TM" },
     ],
   },
 
@@ -1133,9 +1094,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=hispi+cabbage" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=hispi+cabbage" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=hispi+cabbage" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/cabbage-hispi-f1-hybrid-summer-seeds/326TM" },
     ],
   },
   {
@@ -1153,8 +1112,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=january+king+cabbage" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=january+king+cabbage" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cabbage-seeds/cabbage-seeds-january-king-3_MH-1069" },
     ],
   },
   {
@@ -1172,8 +1130,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=red+drumhead+cabbage" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=red+drumhead+cabbage" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cabbage-seeds/cabbage-seeds-red-drumhead_MH-1063" },
     ],
   },
 
@@ -1195,8 +1152,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=all+the+year+round+cauliflower" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=all+the+year+round+cauliflower" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/cauliflower-all-the-year-round-spring-summerautumn-seeds/372TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cauliflower-seeds/cauliflower-seeds-all-the-year-round_MH1479" },
     ],
   },
   {
@@ -1213,10 +1170,7 @@ export const varieties: Variety[] = [
           "Slice thick steaks through the centre, brush with olive oil and za'atar, roast until charred at the edges. The purple deepens in the oven. Serve with a bright green herb sauce for maximum contrast.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=graffiti+cauliflower" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=graffiti+cauliflower" },
-    ],
+    seedSuppliers: [],
   },
   {
     id: "cauliflower-snowball",
@@ -1233,8 +1187,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=snowball+cauliflower" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=snowball+cauliflower" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cauliflower-seeds/cauliflower-seeds-snowball-a_MH-1115" },
     ],
   },
 
@@ -1255,10 +1208,7 @@ export const varieties: Variety[] = [
           "Slice them thin, fry fast in a hot pan with lardons until the edges crisp. Toss in roughly chopped roasted chestnuts and a grind of black pepper. The dish that converts sprout haters.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=groninger+brussels+sprouts" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=groninger+brussels+sprouts" },
-    ],
+    seedSuppliers: [],
   },
   {
     id: "brussels-sprouts-bosworth",
@@ -1274,10 +1224,7 @@ export const varieties: Variety[] = [
           "Halve, toss with olive oil, roast at 220C until deeply caramelised. Drizzle with honey mixed with sriracha. The char is essential — soft sprouts are sad sprouts.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=bosworth+brussels+sprouts" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=bosworth+brussels+sprouts" },
-    ],
+    seedSuppliers: [],
   },
   {
     id: "brussels-sprouts-red-bull",
@@ -1294,8 +1241,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=red+bull+brussels+sprouts" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=red+bull+brussels+sprouts" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/brussels-sprout-red-bull-veg-saver-seeds/wkf4377TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/brussels-sprout-seeds/brussels-sprout-seeds-red-ball_MH-9855" },
     ],
   },
 
@@ -1317,8 +1264,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=solent+wight+garlic+bulbs" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=solent+wight+garlic+bulbs" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/garlic-solent-wight-springautumn-planting/t14539TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/garlic-bulbs/garlic-bulbs-solent-wight_mh8011" },
     ],
   },
   {
@@ -1336,8 +1283,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=elephant+garlic+bulbs" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=elephant+garlic+bulbs" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/elephant-garlic-springautumn-planting/aww4070TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/garlic-bulbs/all/garlic-bulbs-elephant_MH-38067" },
     ],
   },
   {
@@ -1354,10 +1301,7 @@ export const varieties: Variety[] = [
           "Crush cloves to a paste with salt, whisk in egg yolk, then slowly drizzle in olive oil until thick and glossy. The kind of garlic mayo that makes you wonder why the jarred stuff exists.",
       },
     ],
-    seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=lautrec+wight+garlic+bulbs" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=lautrec+wight+garlic+bulbs" },
-    ],
+    seedSuppliers: [],
   },
 
   // ============================================================
@@ -1378,8 +1322,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=moss+curled+parsley" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=moss+curled+parsley" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/parsley-champion-moss-curled-seeds/653TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/herb-seeds/parsley-seeds-moss-curled-2_MH-32522" },
     ],
   },
   {
@@ -1397,9 +1341,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=italian+giant+parsley" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=italian+giant+parsley" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=italian+giant+parsley" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/parsley-prezzemolo-gigante-ditalia-vita-sementireg-italian-seeds/gww0383TM" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/parsley-gigante-di-napoli" },
     ],
   },
 
@@ -1421,8 +1364,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=swift+sweetcorn" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=swift+sweetcorn" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/sweetcorn-swift-f1-hybrid-seeds/964TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/sweet-corn-seeds-f1-swift_MH-1384" },
     ],
   },
   {
@@ -1440,8 +1383,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=lark+sweetcorn" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=lark+sweetcorn" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/sweetcorn-lark-f1-hybrid-tendersweet-seeds/708TM" },
     ],
   },
   {
@@ -1459,9 +1401,6 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=glass+gem+sweetcorn+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=glass+gem+sweetcorn+seeds" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=glass+gem+sweetcorn+seeds" },
     ],
   },
 
@@ -1488,9 +1427,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=black+beauty+courgettes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=black+beauty+courgettes" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=black+beauty+courgettes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/organic-courgette-black-beauty-seeds/w79851TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/courgette-seeds/courgette-organic-seeds-black-beauty_MH-49394" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/courgette-black-beauty" },
     ],
   },
   {
@@ -1508,9 +1447,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=tromboncino+courgette+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=tromboncino+courgette+seeds" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=tromboncino+courgette+seeds" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/squash-tromboncino/wkb9707TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk//squash-seeds-tromboncino_MH-34998" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/summer-squash-tromboncino" },
     ],
   },
   {
@@ -1530,7 +1469,7 @@ export const varieties: Variety[] = [
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=costata+romanesco+courgette+seeds" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=costata+romanesco+courgette+seeds" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=costata+romanesco+courgette+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/courgette-romanesco" },
     ],
   },
 
@@ -1571,8 +1510,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cobra+french+beans" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cobra+french+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/climbing-bean-cobra-seeds/843TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/french-bean-seeds/bean-climbing-french-seeds-cobra_MH-1583" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=cobra+french+beans" },
     ],
   },
@@ -1591,8 +1530,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=purple+teepee+french+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/dwarf-bean-purple-teepee-seeds/285TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=purple+teepee+french+beans" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/french-bean-purple-teepee-dwarf" },
     ],
   },
 
@@ -1640,8 +1580,8 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=crown+prince+squash" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=crown+prince+squash" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=crown+prince+squash" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/squash-seeds-f1-crown-prince_mh-1366" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/squash-crown-prince" },
     ],
   },
   {
@@ -1660,8 +1600,8 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=uchiki+kuri+squash" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=uchiki+kuri+squash" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=uchiki+kuri+squash" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/pumpkin-squash-seeds/squash-uchiki-kuri-seeds_mh10164" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/flowers/seeds/seeds-to-order-now/climbing-onion-squash-red-kuri.htm" },
     ],
   },
 
@@ -1703,7 +1643,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=muscade+de+provence+pumpkins" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=muscade+de+provence+pumpkins" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/squash-seeds-musquee-de-provence_MH-32554" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=muscade+de+provence+pumpkins" },
     ],
   },
@@ -1723,7 +1663,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=atlantic+giant+pumpkins" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=atlantic+giant+pumpkins" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/pumpkin-seeds-atlantic-giant_MH-32549" },
     ],
   },
 
@@ -1764,7 +1704,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=calypso+coriander" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/coriander-calypso-seeds/4784TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=calypso+coriander" },
     ],
   },
@@ -1787,8 +1727,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=wild+rocket" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=wild+rocket" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/wild-rocket-seeds/705TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/rocket-seeds-wild_MH-1357" },
     ],
   },
   {
@@ -1825,7 +1765,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=wasabi+rocket" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/wasabi-rocket-seeds/tt60875TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=wasabi+rocket" },
     ],
   },
@@ -1910,7 +1850,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=finale+fennel" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=finale+fennel" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/organic/florence-fennel-organic-seeds-finale_MH-49046" },
     ],
   },
   {
@@ -1928,7 +1868,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=bronze+fennel+seeds" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/fennel-bronze-seeds/gwr0328TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=bronze+fennel+seeds" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=bronze+fennel+seeds" },
     ],
@@ -1972,7 +1912,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=giant+red+celery" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=giant+red+celery" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/Gardening/Vegetable-Seeds/All-Vegetable-Seeds/Celery-Seeds---Giant-Red_160128.htm" },
     ],
   },
 
@@ -2041,9 +1981,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=sungold+tomato+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=sungold+tomato+seeds" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=sungold+tomato+seeds" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/tomato-sungold-f1-hybrid-seeds/840TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/tomato-seeds/tomato-seeds-f1-sungold_MH-32565" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/tomato-sungold" },
     ],
   },
   {
@@ -2061,8 +2001,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=gardeners+delight+tomato+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=gardeners+delight+tomato+seeds" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/tomato-gardeners-delight-seeds/277TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/tomato-seeds/tomato-seeds-gardeners-delight_MH-1417" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=gardeners+delight+tomato+seeds" },
     ],
   },
@@ -2081,8 +2021,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=moneymaker+tomato+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=moneymaker+tomato+seeds" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/tomato-moneymaker-seeds/282TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/tomato-seeds/tomato-seeds-moneymaker_MH-1399" },
     ],
   },
   {
@@ -2102,7 +2042,7 @@ export const varieties: Variety[] = [
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=black+krim+tomato+seeds" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=black+krim+tomato+seeds" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=black+krim+tomato+seeds" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/tomato-noire-de-crimee" },
     ],
   },
 
@@ -2191,8 +2131,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=jalapeno+chillies" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=jalapeno+chillies" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/chilli-pepper-jalapeno-m-seeds/tm77748TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/chilli-pepper-seeds/pepper-chilli-seeds-jalapeno_MH-32482" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=jalapeno+chillies" },
     ],
   },
@@ -2230,8 +2170,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=scotch+bonnet+chillies" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=scotch+bonnet+chillies" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/chilli-pepper-scotch-bonnet-red/ka9603TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/chilli-pepper-seeds/chilli-pepper-scotch-bonnet-orange-seeds_mh13692" },
     ],
   },
 
@@ -2253,9 +2193,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=marketmore+cucumbers" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=marketmore+cucumbers" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=marketmore+cucumbers" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/cucumber-marketmore-seeds/w79492TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cucumber-seeds/cucumber-seeds-marketmore_MH-1158" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/cucumber-marketmore" },
     ],
   },
   {
@@ -2292,8 +2232,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=telegraph+improved+cucumbers" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=telegraph+improved+cucumbers" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/cucumber-telegraph-improved/wkb5231TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cucumber-seeds/cucumber-seeds-telegraph-improved_MH-1154" },
     ],
   },
 
@@ -2315,8 +2255,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=scarlet+emperor+runner+beans" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=scarlet+emperor+runner+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/runner-bean-scarlet-emperor-seeds/183TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/all/runner-bean-seeds-scarlet-emperor_mh-52635" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=scarlet+emperor+runner+beans" },
     ],
   },
@@ -2355,8 +2295,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=white+lady+runner+beans" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/runner-bean-white-lady-seeds/231TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=white+lady+runner+beans" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/runner-bean-white-lady" },
     ],
   },
 
@@ -2383,8 +2324,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=black+beauty+aubergine" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=black+beauty+aubergine" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/aubergine-black-beauty-seeds/w37559TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/aubergine-seeds-black-beauty_mh-1014" },
     ],
   },
   {
@@ -2402,8 +2343,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=pinstripe+aubergine" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=pinstripe+aubergine" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/aubergine-pinstripe-f1-hybrid-seeds/4875TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/aubergine-seeds/aubergine-seeds-f1-pinstripe_MH-1013" },
     ],
   },
   {
@@ -2449,9 +2390,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=genovese+basil" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=genovese+basil" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=genovese+basil" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/basil-genovese/gwd0105TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/herb-seeds/herb-organic-seeds-basil-genovese_MH-49000" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/veg-fruit/seeds/herb-seeds/genovese-basil.htm" },
     ],
   },
   {
@@ -2469,8 +2410,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=thai+basil" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=thai+basil" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/basil-siam-queen-seeds/59TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/new-seeds/basil-basilicious-thai-zing-f1-seeds_mh14684" },
     ],
   },
   {
@@ -2512,8 +2453,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=cambridge+favourite+strawberry+plants" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=cambridge+favourite+strawberry+plants" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/strawberry-cambridge-favourite-mid-season/cww3182TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/all-fruits/strawberry-plants-cambridge-favourite_MH-15218" },
     ],
   },
   {
@@ -2531,8 +2472,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=mara+des+bois+strawberry+plants" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=mara+des+bois+strawberry+plants" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/strawberry-mara-des-bois/t65255pTM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/all-fruits/strawberry-plants-mara-des-bois_MH-27496" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=mara+des+bois+strawberry+plants" },
     ],
   },
@@ -2552,7 +2493,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=royal+sovereign+strawberry+plants" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=royal+sovereign+strawberry+plants" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/sale/all/strawberry-plants-royal-sovereign_MH-19806" },
     ],
   },
 
@@ -2574,8 +2515,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=autumn+bliss+raspberry+canes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=autumn+bliss+raspberry+canes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/raspberry-autumn-bliss-autumn-fruiting/cww3207TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/raspberry-rubus-ideaus-autumn-bliss_MH-78680" },
     ],
   },
   {
@@ -2593,8 +2534,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=glen+ample+raspberry+canes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=glen+ample+raspberry+canes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/raspberry-glen-ample-summer-fruiting/cww3201TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/raspberry-fruit-plants-glen-ample_MH-76845" },
     ],
   },
   {
@@ -2612,8 +2553,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=all+gold+raspberry+canes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=all+gold+raspberry+canes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/raspberry-all-gold-autumn-fruiting/cww3205TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/all-vegetables/raspberry-plants-all-gold_MH-2082" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=all+gold+raspberry+canes" },
     ],
   },
@@ -2636,8 +2577,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=loch+ness+blackberry+plants" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=loch+ness+blackberry+plants" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/blackberry-loch-ness/cww3214TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/blackberry-rubus-loch-ness_MH7655" },
     ],
   },
   {
@@ -2655,7 +2596,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=chester+blackberry+plants" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/blackberry-chester/wkh7272TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=chester+blackberry+plants" },
     ],
   },
@@ -2674,8 +2615,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=karaka+black+blackberry+plants" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=karaka+black+blackberry+plants" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/blackberry-karaka-black/cww3213TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/all-fruits/blackberry-plant-karaka-black_MH-30035" },
     ],
   },
 
@@ -2697,8 +2638,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=invicta+gooseberry+bush" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=invicta+gooseberry+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/gooseberry-invicta/cww3195TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/gooseberry-ribes-uvacrispa-invicta_MH7574" },
     ],
   },
   {
@@ -2716,8 +2657,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=hinnonmaki+red+gooseberry+bush" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=hinnonmaki+red+gooseberry+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/gooseberry-hinnonmaki-red/kb0573TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/gooseberry-plants/gooseberry-ribes-uva-crispa-hinnonmaki-red-organic_mh8175" },
     ],
   },
   {
@@ -2758,7 +2699,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=ben+sarek+blackcurrant+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/blackcurrant-ben-sarek/kb2025TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=ben+sarek+blackcurrant+bush" },
     ],
   },
@@ -2777,7 +2718,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=ben+connan+blackcurrant+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/blackcurrant-ben-connan/cww3190TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=ben+connan+blackcurrant+bush" },
     ],
   },
@@ -2800,8 +2741,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=jonkheer+van+tets+redcurrant+bush" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=jonkheer+van+tets+redcurrant+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/redcurrant-jonkheer-van-tets/kb0571TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/all-fruits/redcurrant-jonkheer-van-tets_mh9634" },
     ],
   },
   {
@@ -2819,8 +2760,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=rovada+redcurrant+bush" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=rovada+redcurrant+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/redcurrant-rovada/cww3192TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/all-fruits/redcurrant-plant-rovada_MH-2326" },
     ],
   },
 
@@ -2842,8 +2783,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=timperley+early+rhubarb+crowns" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=timperley+early+rhubarb+crowns" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/rhubarb-timperley-early-springautumn-planting/tka1979TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/rhubarb-crowns-timperley-early_MH-1647" },
     ],
   },
   {
@@ -2861,8 +2802,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=victoria+rhubarb+crowns" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=victoria+rhubarb+crowns" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/rhubarb-victoria-springautumn-planting/aww3131TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/fruits/soft-fruit/all/rhubarb-crowns-victoria_MH-19793" },
     ],
   },
   {
@@ -2885,9 +2826,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=champagne+rhubarb+crowns" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=champagne+rhubarb+crowns" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=champagne+rhubarb+crowns" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/rhubarb-champagne-springautumn-planting/aww3130TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/rhubarb-rheum-champagne_MH7371" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/veg-fruit/plants/fruit/rhubarb-champagne.htm" },
     ],
   },
 
@@ -2912,7 +2853,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=super+aguadulce+broad+beans" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=super+aguadulce+broad+beans" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/broad-bean-seeds/broad-bean-organic-seeds-super-aguadulce_mh-48835" },
     ],
   },
 
@@ -2932,7 +2873,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=alderman+peas" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/pea-alderman-maincrop-heritage-seeds/4874TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=alderman+peas" },
     ],
   },
@@ -2954,7 +2895,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=sparkler+radishes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=sparkler+radishes" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/radish-seeds-sparkler-3_MH-1347" },
     ],
   },
 
@@ -2974,8 +2915,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=resistafly+carrots" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=resistafly+carrots" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/carrot-resistafly-f1-hybrid-seeds/684TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/carrot-seeds/carrot-seeds-f1-resistafly_MH-1096" },
     ],
   },
 
@@ -2996,8 +2937,8 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=golden+beetroot" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=golden+beetroot" },
-      { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=golden+beetroot" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/beetroot-seeds/beetroot-seeds-burpees-golden_MH-31844" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/beetroot-burpees-golden" },
     ],
   },
 
@@ -3017,8 +2958,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=jazzy+seed+potatoes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=jazzy+seed+potatoes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/potato-jazzy/t56501TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/all/seed-potatoes-jazzy-1kg_MH-38068" },
     ],
   },
 
@@ -3038,8 +2979,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=nero+di+toscana+kale" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=nero+di+toscana+kale" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/kale-nero-di-toscana-seeds/40TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/kale-seeds/kale-organic-seeds-nero-di-toscano_MH-49393" },
     ],
   },
 
@@ -3082,7 +3023,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=savoy+vertus+cabbage" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=savoy+vertus+cabbage" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cabbage-seeds/cabbage-savoy-organic-seeds-vertus_MH-49222" },
     ],
   },
 
@@ -3102,9 +3043,9 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=romanesco+cauliflower" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/cauliflower-romanesco-precoce-seeds/357TM" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=romanesco+cauliflower" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=romanesco+cauliflower" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/cauliflower-seeds/cauliflower-seeds-romanesco-early_MH-1111" },
     ],
   },
 
@@ -3124,8 +3065,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=flower+sprouts" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=flower+sprouts" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/kalettesreg-garden-mix-f1-seeds/4777TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/brussels-sprout-seeds/brussels-sprouts-seeds-kalette-flower-sprout-mix_MH-32526" },
     ],
   },
 
@@ -3167,7 +3108,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=spaghetti+squash" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=spaghetti+squash" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/squash-seeds-vegetable-spaghetti_mh-28900" },
     ],
   },
 
@@ -3209,7 +3150,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=golden+zucchini+courgettes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=golden+zucchini+courgettes" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/courgette-seeds/courgette-organic-seeds-golden-zucchini_MH-51317" },
     ],
   },
 
@@ -3377,8 +3318,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=san+marzano+tomato+seeds" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=san+marzano+tomato+seeds" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/tomato-san-marzano/wkb9747TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk//tomato-seeds-san-marzano-2-indeterminate_MH-28904" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=san+marzano+tomato+seeds" },
     ],
   },
@@ -3420,8 +3361,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=elsanta+strawberry+plants" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=elsanta+strawberry+plants" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/strawberry-elsanta/kb2110TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/strawberry-elsanta_mh8232" },
     ],
   },
 
@@ -3441,8 +3382,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=tulameen+raspberry+canes" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=tulameen+raspberry+canes" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/raspberry-tulameen-late-summer-fruiting/cww3539TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/raspberry-plants/raspberry-tulameen-organic_mh8278" },
     ],
   },
 
@@ -3462,8 +3403,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=big+ben+blackcurrant+bush" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=big+ben+blackcurrant+bush" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/blackcurrant-big-ben/t46910TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-fruit-plants/soft-fruit/all/blackcurrant-ribes-big-ben_MH7432" },
     ],
   },
 
@@ -3504,7 +3445,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=glaskins+perpetual+rhubarb+crowns" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/rhubarb-glaskins-perpetual-seeds/831TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=glaskins+perpetual+rhubarb+crowns" },
     ],
   },
@@ -3546,7 +3487,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=oasis+turnips" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/turnip-oasis/433TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=oasis+turnips" },
     ],
   },
@@ -3567,8 +3508,8 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=setton+onion+sets" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=setton+onion+sets" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/onion-setton-spring-planting/ZWW4019TM" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/SUSGWE57/onion-setton-spring-planting_mh7987" },
     ],
   },
 
@@ -3589,7 +3530,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=north+holland+blood+red+spring+onions" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=north+holland+blood+red+spring+onions" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/onion-seeds/onion-salad-seeds-north-holland-blood-red-redmate_MH-1258" },
     ],
   },
 
@@ -3609,7 +3550,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=white+silver+swiss+chard" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/organic-swiss-chard-white-silver-seeds/w79850TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=white+silver+swiss+chard" },
     ],
   },
@@ -3651,7 +3592,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=medania+spinach" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/spinach-medania-seeds/387TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=medania+spinach" },
     ],
   },
@@ -3715,7 +3656,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=bouquet+dill" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/dill-bouquet-seeds/423TM" },
       { name: "Suttons", url: "https://www.suttons.co.uk/search?q=bouquet+dill" },
     ],
   },
@@ -3737,7 +3678,7 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=confetti+coriander" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=confetti+coriander" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/herb-seeds/herb-seeds-coriander-confetti_MH-32521" },
     ],
   },
 
@@ -3779,7 +3720,8 @@ export const varieties: Variety[] = [
     ],
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=greek+basil" },
-      { name: "Suttons", url: "https://www.suttons.co.uk/search?q=greek+basil" },
+      { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/herb-seeds/basil-purple-ball-seeds_mh10135" },
+      { name: "Sarah Raven", url: "https://www.sarahraven.com/products/basil-greek" },
     ],
   },
 
