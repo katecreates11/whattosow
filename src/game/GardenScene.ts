@@ -387,110 +387,224 @@ export default class GardenScene extends Phaser.Scene {
 
     this.tileContainers[row][col] = container;
 
-    // === PLANTING ANIMATION ===
+    // === PLANTING ANIMATION — with anticipation, squash-stretch, follow-through ===
 
-    // 1. Soil ripple — a ring expanding from centre
-    const ripple = this.add.graphics();
-    ripple.lineStyle(2, 0x7a5a2a, 0.5);
-    ripple.strokeCircle(cx, cy + 4, 5);
-    ripple.setScale(0.5).setAlpha(1);
+    // 0. ANTICIPATION — soil dips before seed arrives
+    const soilDip = this.add.graphics();
+    soilDip.fillStyle(0x3a2010, 0.3);
+    soilDip.fillEllipse(cx, cy + 4, 20, 10);
+    soilDip.setScale(0);
     this.tweens.add({
-      targets: ripple,
-      scaleX: 3,
-      scaleY: 2,
-      alpha: 0,
-      duration: 600,
+      targets: soilDip,
+      scaleX: 1.5,
+      scaleY: 1,
+      alpha: { from: 0.5, to: 0 },
+      duration: 400,
       ease: "Sine.easeOut",
-      delay: 100,
-      onComplete: () => ripple.destroy(),
+      delay: 50,
+      onComplete: () => soilDip.destroy(),
     });
 
-    // 2. Seed drops in
-    seedDot.setY(cy - 40);
+    // 1. Seed drops in with SQUASH AND STRETCH
+    seedDot.setY(cy - 60);
+    seedDot.setAlpha(1);
+    seedDot.setScale(0.8, 1.3); // stretched while falling
+
     this.tweens.add({
       targets: seedDot,
       y: cy,
-      scaleX: 1,
-      scaleY: 1,
-      alpha: 1,
-      duration: 400,
-      ease: "Bounce.easeOut",
-      delay: 200,
-    });
-
-    // 3. Border glow fades in
-    this.tweens.add({
-      targets: borderGlow,
-      alpha: 1,
-      duration: 500,
-      delay: 500,
-    });
-
-    // 4. Name label fades in
-    this.tweens.add({
-      targets: label,
-      alpha: 0.7,
-      duration: 400,
-      delay: 700,
-    });
-
-    // 5. Soil particles scatter on impact
-    this.time.delayedCall(300, () => {
-      for (let i = 0; i < 8; i++) {
-        const angle = (i / 8) * Math.PI * 2;
-        const dist = Phaser.Math.Between(15, 30);
-        const particle = this.add.circle(cx, cy, Phaser.Math.Between(1, 3), 0x6b4a2a);
+      duration: 350,
+      ease: "Cubic.easeIn",
+      delay: 100,
+      onComplete: () => {
+        // SQUASH on impact
         this.tweens.add({
-          targets: particle,
-          x: cx + Math.cos(angle) * dist,
-          y: cy + Math.sin(angle) * dist * 0.6,
-          alpha: 0,
-          duration: 500,
+          targets: seedDot,
+          scaleX: 1.4,
+          scaleY: 0.6,
+          duration: 80,
           ease: "Sine.easeOut",
-          delay: i * 30,
-          onComplete: () => particle.destroy(),
+          onComplete: () => {
+            // BOUNCE BACK to normal
+            this.tweens.add({
+              targets: seedDot,
+              scaleX: 1,
+              scaleY: 1,
+              duration: 200,
+              ease: "Back.easeOut",
+            });
+          },
+        });
+      },
+    });
+
+    // 2. Soil ripple on impact — TWO rings, staggered
+    this.time.delayedCall(450, () => {
+      for (let r = 0; r < 2; r++) {
+        const ripple = this.add.graphics();
+        ripple.lineStyle(2 - r, 0x7a5a2a, 0.5);
+        ripple.strokeCircle(cx, cy + 4, 6);
+        ripple.setScale(0.3);
+        this.tweens.add({
+          targets: ripple,
+          scaleX: 3 + r,
+          scaleY: 1.5 + r * 0.5,
+          alpha: 0,
+          duration: 600,
+          ease: "Sine.easeOut",
+          delay: r * 150,
+          onComplete: () => ripple.destroy(),
         });
       }
     });
 
-    // 6. Rarity sparkles for rare+
-    if (rarity === "rare" || rarity === "legendary") {
-      const sparkleCol = RARITY_COLOURS[rarity];
-      const count = rarity === "legendary" ? 12 : 6;
-      this.time.delayedCall(600, () => {
-        for (let i = 0; i < count; i++) {
-          const sx = cx + Phaser.Math.Between(-25, 25);
-          const sy = cy + Phaser.Math.Between(-25, 15);
-          const sparkle = this.add.star(sx, sy, 4, 1, 3, sparkleCol);
-          sparkle.setScale(0).setAlpha(1);
+    // 3. Soil particles — burst then trailing scatter
+    this.time.delayedCall(450, () => {
+      // First burst — 10 particles outward
+      for (let i = 0; i < 10; i++) {
+        const angle = (i / 10) * Math.PI * 2 + Phaser.Math.FloatBetween(-0.2, 0.2);
+        const dist = Phaser.Math.Between(18, 35);
+        const size = Phaser.Math.Between(1, 4);
+        const particle = this.add.circle(cx, cy, size, Phaser.Math.Between(0, 1) ? 0x6b4a2a : 0x8a6a4a);
+        this.tweens.add({
+          targets: particle,
+          x: cx + Math.cos(angle) * dist,
+          y: cy + Math.sin(angle) * dist * 0.5 - Phaser.Math.Between(5, 15),
+          alpha: 0,
+          scaleX: 0,
+          scaleY: 0,
+          duration: 500,
+          ease: "Sine.easeOut",
+          delay: i * 20,
+          onComplete: () => particle.destroy(),
+        });
+      }
+
+      // Second smaller burst — follow-through
+      this.time.delayedCall(200, () => {
+        for (let i = 0; i < 5; i++) {
+          const angle = Phaser.Math.FloatBetween(0, Math.PI * 2);
+          const particle = this.add.circle(cx, cy, Phaser.Math.Between(1, 2), 0x5a3a1a);
           this.tweens.add({
-            targets: sparkle,
-            scaleX: 1,
-            scaleY: 1,
+            targets: particle,
+            x: cx + Math.cos(angle) * Phaser.Math.Between(8, 18),
+            y: cy + Math.sin(angle) * 8 - 10,
             alpha: 0,
-            y: sy - Phaser.Math.Between(15, 35),
-            duration: 800,
+            duration: 400,
             ease: "Sine.easeOut",
-            delay: i * 80,
-            onComplete: () => sparkle.destroy(),
+            delay: i * 40,
+            onComplete: () => particle.destroy(),
           });
         }
       });
+    });
+
+    // 4. Border glow fades in
+    this.tweens.add({
+      targets: borderGlow,
+      alpha: 1,
+      duration: 500,
+      delay: 600,
+    });
+
+    // 5. Name label fades in with slight rise
+    label.setY(y + this.tileSize);
+    this.tweens.add({
+      targets: label,
+      alpha: 0.7,
+      y: y + this.tileSize - 6,
+      duration: 400,
+      delay: 800,
+      ease: "Back.easeOut",
+    });
+
+    // 6. Rarity sparkles — layered clusters for rare+
+    if (rarity === "rare" || rarity === "legendary") {
+      const sparkleCol = RARITY_COLOURS[rarity];
+      const burstCount = rarity === "legendary" ? 3 : 1;
+
+      for (let burst = 0; burst < burstCount; burst++) {
+        const count = rarity === "legendary" ? 8 : 6;
+        this.time.delayedCall(600 + burst * 300, () => {
+          for (let i = 0; i < count; i++) {
+            const sx = cx + Phaser.Math.Between(-28, 28);
+            const sy = cy + Phaser.Math.Between(-28, 18);
+            const sparkle = this.add.star(sx, sy, 4, 1, Phaser.Math.Between(2, 4), sparkleCol);
+            sparkle.setScale(0).setAlpha(0.9).setRotation(Phaser.Math.FloatBetween(0, Math.PI));
+            this.tweens.add({
+              targets: sparkle,
+              scaleX: { from: 0, to: 1 },
+              scaleY: { from: 0, to: 1 },
+              alpha: 0,
+              y: sy - Phaser.Math.Between(20, 45),
+              rotation: sparkle.rotation + Phaser.Math.FloatBetween(-0.5, 0.5),
+              duration: 900,
+              ease: "Sine.easeOut",
+              delay: i * 60,
+              onComplete: () => sparkle.destroy(),
+            });
+          }
+        });
+      }
     }
 
-    // 7. Legendary gets a golden flash
+    // 7. LEGENDARY — the BIG moment
     if (rarity === "legendary") {
-      this.time.delayedCall(500, () => {
-        const flash = this.add.graphics();
-        flash.fillStyle(0xffc800, 0.3);
-        flash.fillRoundedRect(x - 2, y - 2, this.tileSize + 4, this.tileSize + 4, 8);
-        this.tweens.add({
-          targets: flash,
-          alpha: 0,
-          duration: 800,
-          ease: "Sine.easeOut",
-          onComplete: () => flash.destroy(),
-        });
+      // Screen darkens slightly
+      const { width: sw, height: sh } = this.scale;
+      const darken = this.add.graphics();
+      darken.fillStyle(0x000000, 0.15);
+      darken.fillRect(0, 0, sw, sh);
+      darken.setDepth(90);
+      this.tweens.add({
+        targets: darken,
+        alpha: { from: 0, to: 1 },
+        duration: 300,
+        delay: 500,
+        yoyo: true,
+        hold: 600,
+        onComplete: () => darken.destroy(),
+      });
+
+      // Golden light builds from tile
+      const glow = this.add.graphics();
+      glow.fillStyle(0xffc800, 0.4);
+      glow.fillCircle(cx, cy, 10);
+      glow.setDepth(91).setScale(0);
+      this.tweens.add({
+        targets: glow,
+        scaleX: 8,
+        scaleY: 6,
+        alpha: 0,
+        duration: 1200,
+        delay: 700,
+        ease: "Sine.easeOut",
+        onComplete: () => glow.destroy(),
+      });
+
+      // CAMERA SHAKE
+      this.time.delayedCall(800, () => {
+        this.cameras.main.shake(300, 0.008);
+      });
+
+      // Sparkle rain — golden particles falling across the whole tile area
+      this.time.delayedCall(900, () => {
+        for (let i = 0; i < 20; i++) {
+          const rx = cx + Phaser.Math.Between(-40, 40);
+          const ry = cy - 50 + Phaser.Math.Between(-20, 0);
+          const rain = this.add.star(rx, ry, 4, 1, 3, 0xffc800);
+          rain.setAlpha(0.8).setScale(Phaser.Math.FloatBetween(0.3, 0.8)).setDepth(92);
+          this.tweens.add({
+            targets: rain,
+            y: ry + Phaser.Math.Between(60, 100),
+            alpha: 0,
+            rotation: Phaser.Math.FloatBetween(-1, 1),
+            duration: Phaser.Math.Between(800, 1400),
+            ease: "Sine.easeIn",
+            delay: i * 50,
+            onComplete: () => rain.destroy(),
+          });
+        }
       });
     }
   }
@@ -603,16 +717,27 @@ export default class GardenScene extends Phaser.Scene {
     const container = this.tileContainers[row][col];
     const rarityCol = RARITY_COLOURS[plot.rarity || "common"];
 
-    // 1. Pop-up and fade
+    // 1. ANTICIPATION — plant leans back before popping
     this.tweens.add({
       targets: container,
-      y: -20,
-      alpha: 0,
-      scaleX: 1.3,
-      scaleY: 1.3,
-      duration: 400,
-      ease: "Back.easeIn",
-      onComplete: () => container.destroy(true),
+      scaleX: 0.9,
+      scaleY: 1.15,
+      y: container.y + 3,
+      duration: 150,
+      ease: "Sine.easeIn",
+      onComplete: () => {
+        // STRETCH and pop upward
+        this.tweens.add({
+          targets: container,
+          y: container.y - 40,
+          scaleX: 1.3,
+          scaleY: 0.8,
+          alpha: 0,
+          duration: 350,
+          ease: "Back.easeIn",
+          onComplete: () => container.destroy(true),
+        });
+      },
     });
 
     // 2. Celebration burst — coloured particles
