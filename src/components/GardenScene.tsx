@@ -4,8 +4,6 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import type { WeatherState } from "@/lib/weather-intelligence";
 
-// ─── Time of day ────────────────────────────────────────────────────────────
-
 type TimeOfDay = "dawn" | "morning" | "midday" | "afternoon" | "evening" | "night";
 
 function getTimeOfDay(): TimeOfDay {
@@ -29,27 +27,6 @@ function getTimeGreeting(time: TimeOfDay): string {
   }
 }
 
-// Warm Ghibli sky — subtle, not dominating
-const SKY_COLOURS: Record<TimeOfDay, string> = {
-  dawn: "from-[#F8D8B0] to-[#F2EDE4]",
-  morning: "from-[#C8DDE8] to-[#F2EDE4]",
-  midday: "from-[#B8D4E4] to-[#F0EBE0]",
-  afternoon: "from-[#BCD8E8] to-[#EEEBE4]",
-  evening: "from-[#E8A878] to-[#F0E4D8]",
-  night: "from-[#1A2040] to-[#2A3450]",
-};
-
-type Season = "spring" | "summer" | "autumn" | "winter";
-function getSeason(): Season {
-  const m = new Date().getMonth();
-  if (m >= 2 && m <= 4) return "spring";
-  if (m >= 5 && m <= 7) return "summer";
-  if (m >= 8 && m <= 10) return "autumn";
-  return "winter";
-}
-
-// ─── Scene ──────────────────────────────────────────────────────────────────
-
 interface GardenSceneProps {
   weather: WeatherState | null;
   cropCount: number;
@@ -59,7 +36,7 @@ interface GardenSceneProps {
 
 export default function GardenScene({ weather, cropCount, children, infoBoard }: GardenSceneProps) {
   const [time, setTime] = useState<TimeOfDay>("morning");
-  const season = getSeason();
+  const [showBoard, setShowBoard] = useState(false);
 
   useEffect(() => {
     setTime(getTimeOfDay());
@@ -72,219 +49,171 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
   const isNight = time === "night";
   const isCloudy = weather && weather.weatherCode >= 2 && weather.weatherCode <= 48;
 
+  // Time-of-day colour overlay
+  const timeOverlay = isNight
+    ? "bg-[#0A1020]/50"
+    : time === "evening"
+      ? "bg-[#D08040]/10"
+      : time === "dawn"
+        ? "bg-[#F8C888]/10"
+        : "bg-transparent";
+
   return (
-    <div className="relative overflow-hidden" style={{ background: "#F2EDE4" }}>
+    <div className="relative w-full" style={{ aspectRatio: "16/10", maxHeight: "calc(100vh - 80px)", minHeight: "400px" }}>
 
-      {/* ═══ SKY — compact, just enough to set the mood ═══ */}
-      <div className={`h-24 sm:h-28 relative transition-colors duration-[5000ms] bg-gradient-to-b ${
-        isRaining ? "from-[#6A7A88] to-[#A8B4BC]"
-        : isCloudy ? "from-[#90A0B0] to-[#C8D0D8]"
-        : SKY_COLOURS[time]
-      }`}>
+      {/* ═══ THE SCENE — one complete illustration ═══ */}
+      <div className="absolute inset-0 overflow-hidden">
 
-        {/* Sun */}
+        {/* Sky */}
+        <div className={`absolute inset-0 transition-colors duration-[5000ms] ${
+          isRaining ? "bg-gradient-to-b from-[#6A7A88] via-[#8A98A4] to-[#C8C4B8]"
+          : isCloudy ? "bg-gradient-to-b from-[#90A0B0] via-[#B8C4CC] to-[#E4DED4]"
+          : isNight ? "bg-gradient-to-b from-[#1A2040] via-[#2A3450] to-[#3A4460]"
+          : "bg-gradient-to-b from-[#B8D4E4] via-[#D0E4F0] to-[#F2EDE4]"
+        }`} />
+
+        {/* Sun / Moon */}
         {isSunny && !isNight && (
           <motion.div
-            className="absolute top-3 right-[15%] w-14 h-14 rounded-full"
+            className="absolute top-[8%] right-[15%] w-[8%] aspect-square rounded-full"
             style={{
               background: "radial-gradient(circle, #FFF8E0 20%, #FFE484 40%, rgba(255,208,64,0) 65%)",
               boxShadow: "0 0 50px 25px rgba(255,228,132,0.2)",
             }}
-            animate={{ y: [0, -3, 0] }}
+            animate={{ y: [0, -4, 0] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
         )}
-
-        {/* Moon */}
         {isNight && (
           <motion.div
-            className="absolute top-4 right-[20%] w-10 h-10 rounded-full bg-[#F0ECE0] shadow-[0_0_25px_8px_rgba(240,236,224,0.15)]"
+            className="absolute top-[10%] right-[20%] w-[6%] aspect-square rounded-full bg-[#F0ECE0] shadow-[0_0_25px_8px_rgba(240,236,224,0.15)]"
             animate={{ y: [0, -2, 0] }}
             transition={{ duration: 10, repeat: Infinity }}
           />
         )}
 
-        {/* Stars */}
-        {isNight && [...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-white"
-            style={{ left: `${5 + (i * 31) % 90}%`, top: `${8 + (i * 17) % 60}%` }}
-            animate={{ opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: 2 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
-          />
-        ))}
-
         {/* Clouds */}
         {!isNight && (isCloudy || isRaining) && (
           <>
-            <Cloud y={5} size={isRaining ? 160 : 110} speed={isRaining ? 35 : 50} delay={0} dark={!!isRaining} />
-            <Cloud y={15} size={isRaining ? 140 : 80} speed={isRaining ? 40 : 60} delay={8} dark={!!isRaining} />
-            {isRaining && <Cloud y={0} size={180} speed={32} delay={4} dark={true} />}
+            <Cloud y={3} size="25%" speed={isRaining ? 30 : 50} delay={0} dark={!!isRaining} />
+            <Cloud y={8} size="20%" speed={isRaining ? 35 : 55} delay={10} dark={!!isRaining} />
+            {isRaining && <Cloud y={0} size="30%" speed={28} delay={5} dark={true} />}
           </>
-        )}
-        {isSunny && !isNight && (
-          <Cloud y={20} size={70} speed={80} delay={0} dark={false} />
         )}
 
         {/* Rain */}
         {isRaining && <RainEffect />}
 
-        {/* Weather badge — sits in the sky */}
+        {/* Stars */}
+        {isNight && [...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full bg-white"
+            style={{ left: `${8 + (i * 29) % 84}%`, top: `${5 + (i * 13) % 25}%` }}
+            animate={{ opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+          />
+        ))}
+
+        {/* The illustration as the world — positioned in the lower portion */}
+        <div className="absolute bottom-0 right-0 w-full h-[75%]">
+          <img
+            src="/images/game/allotment-scene.png"
+            alt="Your allotment"
+            className="absolute bottom-0 right-0 w-full h-full object-contain object-bottom-right"
+            style={{ objectPosition: "right bottom" }}
+          />
+        </div>
+
+        {/* Time-of-day colour wash */}
+        <div className={`absolute inset-0 ${timeOverlay} transition-colors duration-[5000ms] pointer-events-none`} />
+      </div>
+
+      {/* ═══ INTERACTIVE LAYER — sits on top of the illustration ═══ */}
+      <div className="relative z-10 h-full flex flex-col">
+
+        {/* Weather badge — top left, floating over the sky */}
         {weather && (
-          <div className="absolute bottom-2 left-3 z-20">
-            <div className="bg-white/25 backdrop-blur-sm rounded-xl px-3 py-1.5 border border-white/20">
+          <div className="absolute top-3 left-3 z-20">
+            <motion.div
+              className="bg-white/25 backdrop-blur-md rounded-2xl px-3 py-2 border border-white/20 shadow-lg"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
               <div className="flex items-center gap-2">
-                <span className="text-lg">{isRaining ? "🌧️" : isCloudy ? "☁️" : isSunny ? "☀️" : isNight ? "🌙" : "⛅"}</span>
+                <span className="text-xl">{isRaining ? "🌧️" : isCloudy ? "☁️" : isSunny ? "☀️" : isNight ? "🌙" : "⛅"}</span>
                 <div>
                   <span className="text-sm font-bold text-white drop-shadow">{Math.round(weather.temperature)}°C</span>
-                  <span className="text-[9px] text-white/70 ml-1.5">{getTimeGreeting(time)}</span>
+                  <p className="text-[8px] text-white/70">{getTimeGreeting(time)} · {weather.description}</p>
                 </div>
               </div>
-              <p className="text-[8px] text-white/60 mt-0.5">
-                {weather.drySpell >= 3 ? `Dry ${weather.drySpell} days` : weather.frostRisk ? "Frost risk" : weather.recentRain ? "Rain watered your crops" : weather.description}
-              </p>
-            </div>
+            </motion.div>
           </div>
         )}
-      </div>
 
-      {/* ═══ MAIN SCENE — beds + shed side by side, matching illustration layout ═══ */}
-      <div className="relative bg-gradient-to-b from-[#F2EDE4] to-[#E8E0D0]">
+        {/* Noticeboard button — top right, tap to expand */}
+        <button
+          onClick={() => setShowBoard(!showBoard)}
+          className="absolute top-3 right-3 z-20 bg-[#8A6830]/80 backdrop-blur-sm text-white/80 rounded-xl px-3 py-2 text-[10px] font-bold tracking-[0.08em] uppercase border border-[#A08040]/40 shadow-lg hover:bg-[#9A7840]/80 transition-colors"
+        >
+          📌 {showBoard ? "Close" : "Board"}
+        </button>
 
-        {/* Grass strip */}
-        <div className={`h-3 ${isNight ? "bg-[#2A4020]" : "bg-[#7AAA58]"} transition-colors duration-[5000ms]`} />
-
-        {/* Scene content: beds left, shed right */}
-        <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 px-3 sm:px-6 py-4 sm:py-6 max-w-4xl mx-auto">
-
-          {/* ═══ RAISED BEDS — flat view with visible front face (like the illustration) ═══ */}
-          <div className="flex-1 min-w-0">
-            {/* The bed frame — heritage green like the illustration */}
-            <div className="relative">
-              {/* Front face of the bed */}
-              <div className={`h-4 sm:h-5 ${isNight ? "bg-[#1A3A20]" : "bg-[#1E4A2D]"} rounded-b-lg mx-0.5 transition-colors duration-[5000ms]`} />
-              {/* Top edge */}
-              <div className={`${isNight ? "bg-[#1E4A2D]" : "bg-[#2D5F3E]"} rounded-t-lg p-[3px] -mt-4 sm:-mt-5 relative transition-colors duration-[5000ms]`}>
-                {/* Inner lighter edge */}
-                <div className={`${isNight ? "bg-[#2A5A38]" : "bg-[#3D7A52]"} rounded-[5px] p-[2px] transition-colors duration-[5000ms]`}>
-                  {/* Soil */}
-                  <div className={`${isNight ? "bg-[#3A2810]" : "bg-[#5A3A1A]"} rounded p-1.5 sm:p-2 transition-colors duration-[5000ms]`}>
-                    {children}
-                  </div>
-                </div>
-              </div>
+        {/* The garden tiles — positioned over the bed area of the illustration */}
+        <div className="flex-1 flex items-end justify-start px-[5%] pb-[8%]">
+          <div className="w-[55%] sm:w-[50%]">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-1.5 sm:gap-2">
+              {children}
             </div>
-
-            {/* Marigolds under the bed */}
-            {(season === "spring" || season === "summer") && !isNight && (
-              <div className="flex justify-center gap-0.5 mt-1 opacity-70">
-                {["🌼", "🌻", "🌼", "🌻", "🌼", "🌻", "🌼"].map((f, i) => (
-                  <motion.span
-                    key={i}
-                    className="text-[10px]"
-                    animate={{ y: [0, -1, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                  >
-                    {f}
-                  </motion.span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* ═══ SHED — prominent, beside the beds ═══ */}
-          <div className="w-full sm:w-52 shrink-0">
-            <div className="relative max-w-[200px] sm:max-w-none mx-auto">
-
-              {/* Roof */}
-              <div className="relative h-7 sm:h-9 overflow-hidden">
-                <div
-                  className={`absolute inset-x-[-6px] bottom-0 h-9 sm:h-11 ${isNight ? "bg-[#1A3A20]" : "bg-[#2D5F3E]"} transition-colors duration-[5000ms]`}
-                  style={{ clipPath: "polygon(0% 100%, 50% 10%, 100% 100%)" }}
-                />
-              </div>
-
-              {/* Shed body */}
-              <div className={`relative ${isNight ? "bg-[#7A4820]" : "bg-[#C4783A]"} rounded-b-lg border-2 ${isNight ? "border-[#5A3818]" : "border-[#8A5020]"} overflow-hidden transition-colors duration-[5000ms]`}>
-                {/* Wood grain */}
-                <div className="absolute inset-0 opacity-10">
-                  {[...Array(6)].map((_, i) => (
-                    <div key={i} className="absolute w-full h-px bg-black/40" style={{ top: `${10 + i * 15}%` }} />
-                  ))}
-                </div>
-
-                {/* Door */}
-                <div className={`absolute top-2 left-1/2 -translate-x-1/2 w-7 h-10 rounded-t-md border-2 ${isNight ? "border-[#5A3818] bg-[#8A5828]" : "border-[#8A5020]/40 bg-[#B06830]"}`}>
-                  <div className="absolute right-1 top-1/2 w-1 h-1 rounded-full bg-[#D4A43A]" />
-                </div>
-
-                {/* Window — glows at night */}
-                <div className={`absolute top-2 right-2 w-5 h-4 rounded-sm border ${isNight ? "border-[#5A3818] bg-[#FFE484]/40" : "border-[#8A5020]/40 bg-[#FFE484]/20"}`} />
-
-                {/* Tools beside the door */}
-                <div className="absolute bottom-1 right-1 flex gap-0.5 opacity-60">
-                  <span className="text-[10px]">🪴</span>
-                  <span className="text-[10px]">🥕</span>
-                </div>
-
-                {/* ═══ NOTICEBOARD — small, pinned to shed wall ═══ */}
-                <div className="p-2 pt-14 sm:pt-16">
-                  <div className="cork-board rounded border border-[#8A6830] shadow-inner paper-grain">
-                    <div className="bg-[#6A4820]/70 px-2 py-1 rounded-t">
-                      <span className="text-[7px] font-bold tracking-[0.1em] uppercase text-white/70">📌 Board</span>
-                    </div>
-                    <div className="p-1.5 max-h-[280px] overflow-y-auto text-[9px]">
-                      {infoBoard}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Watering can + tools leaning against shed */}
-              <div className="flex gap-1 mt-0.5 ml-1 opacity-40">
-                <span className="text-xs">🪣</span>
-                <span className="text-xs -rotate-12">🌿</span>
-              </div>
-            </div>
-
-            {/* Creatures near the shed */}
-            {cropCount >= 5 && !isNight && (
-              <motion.div
-                className="text-center mt-1"
-                animate={{ y: [0, -2, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <span className="text-sm opacity-60">🐦</span>
-              </motion.div>
-            )}
           </div>
         </div>
-
-        {/* Path below */}
-        <div className="flex justify-center pb-2">
-          <div className={`w-24 h-2 rounded-full ${isNight ? "bg-[#5A5040]/30" : "bg-[#C4B890]/25"}`} />
-        </div>
       </div>
+
+      {/* ═══ NOTICEBOARD OVERLAY — expands when tapped ═══ */}
+      {showBoard && (
+        <motion.div
+          className="absolute inset-0 z-30 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={() => setShowBoard(false)}
+        >
+          <div className="absolute inset-0 bg-black/30" />
+          <motion.div
+            className="relative cork-board paper-grain rounded-2xl border-4 border-[#8A6830] shadow-2xl max-w-sm w-full max-h-[80vh] overflow-y-auto"
+            initial={{ scale: 0.8, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-[#6A4820]/80 px-4 py-2.5 rounded-t-xl flex justify-between items-center">
+              <span className="text-xs font-bold tracking-[0.12em] uppercase text-white/80">📌 Allotment Noticeboard</span>
+              <button onClick={() => setShowBoard(false)} className="text-white/50 hover:text-white/80 text-sm">✕</button>
+            </div>
+            <div className="p-3">
+              {infoBoard}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 }
 
 // ─── Cloud ───────────────────────────────────────────────────────────────────
 
-function Cloud({ y, size, speed, delay, dark = false }: { y: number; size: number; speed: number; delay: number; dark?: boolean }) {
+function Cloud({ y, size, speed, delay, dark }: { y: number; size: string; speed: number; delay: number; dark: boolean }) {
   const c = dark ? "rgba(100,110,120," : "rgba(255,255,255,";
-  const o = dark ? 0.7 : 0.5;
+  const o = dark ? 0.6 : 0.45;
 
   return (
     <motion.div
       className="absolute pointer-events-none"
-      style={{ top: `${y}%`, height: `${size * 0.4}px` }}
-      initial={{ left: "-20%" }}
-      animate={{ left: "115%" }}
+      style={{ top: `${y}%`, width: size, aspectRatio: "2.5/1" }}
+      initial={{ left: "-25%" }}
+      animate={{ left: "110%" }}
       transition={{ duration: speed, repeat: Infinity, delay, ease: "linear" }}
     >
-      <div className="relative" style={{ width: `${size}px`, height: `${size * 0.4}px` }}>
+      <div className="relative w-full h-full">
         <div className="absolute w-full h-[55%] rounded-full top-[30%]" style={{ background: `${c}${o})` }} />
         <div className="absolute w-[55%] h-[80%] rounded-full left-[12%] top-0" style={{ background: `${c}${o * 1.1})` }} />
         <div className="absolute w-[45%] h-[65%] rounded-full right-[15%] top-[5%]" style={{ background: `${c}${o * 0.9})` }} />
@@ -297,14 +226,14 @@ function Cloud({ y, size, speed, delay, dark = false }: { y: number; size: numbe
 
 function RainEffect() {
   return (
-    <div className="absolute inset-0 pointer-events-none z-10">
-      {[...Array(35)].map((_, i) => (
+    <div className="absolute inset-0 pointer-events-none z-[5]">
+      {[...Array(30)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-[1.5px] h-4 bg-[#8AA8C8]/30 rounded-full"
-          style={{ left: `${(i * 2.9) % 100}%`, top: "-16px" }}
-          animate={{ y: [0, 200], opacity: [0.35, 0] }}
-          transition={{ duration: 0.5 + (i % 3) * 0.1, repeat: Infinity, delay: (i * 0.05) % 0.8, ease: "linear" }}
+          className="absolute w-[1.5px] h-4 bg-[#8AA8C8]/25 rounded-full"
+          style={{ left: `${(i * 3.3) % 100}%`, top: "-16px" }}
+          animate={{ y: [0, 500], opacity: [0.3, 0] }}
+          transition={{ duration: 0.6 + (i % 3) * 0.1, repeat: Infinity, delay: (i * 0.05) % 0.8, ease: "linear" }}
         />
       ))}
     </div>
