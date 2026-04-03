@@ -18,13 +18,14 @@ function getTimeOfDay(): TimeOfDay {
   return "night";
 }
 
+// Ghibli-inspired sky — dreamy, watercolour feel
 const SKY_GRADIENTS: Record<TimeOfDay, string> = {
-  dawn: "from-[#FFD4A8] via-[#FFE8CC] to-[#B8D8F0]",
-  morning: "from-[#87CEEB] via-[#B0DEF5] to-[#D4EFFF]",
-  midday: "from-[#7EC8E3] via-[#A8DDF0] to-[#C8EAFF]",
-  afternoon: "from-[#90C8E8] via-[#B8D8F0] to-[#D0E8F8]",
-  evening: "from-[#FF9E6C] via-[#FFB88C] to-[#C4A0D4]",
-  night: "from-[#1a1a3e] via-[#2a2a5e] to-[#3a3a6e]",
+  dawn: "from-[#F8C8A0] via-[#FADDC4] to-[#C8E0F0]",
+  morning: "from-[#A8D8F0] via-[#C4E8F8] to-[#E0F4FF]",
+  midday: "from-[#90CCE8] via-[#B8E0F4] to-[#D8F0FF]",
+  afternoon: "from-[#A0D0E8] via-[#C0E0F0] to-[#D8ECF8]",
+  evening: "from-[#F0A878] via-[#F8C8A0] to-[#D0A8D8]",
+  night: "from-[#1A2040] via-[#283060] to-[#384878]",
 };
 
 const GRASS_COLOURS: Record<TimeOfDay, string> = {
@@ -255,38 +256,47 @@ export default function GardenScene({ weather, cropCount, children }: GardenScen
               </motion.div>
             )}
 
-            {/* ═══ THE GARDEN BEDS — children rendered here ═══ */}
-            <div className="relative z-10 py-2">
-              {/* Wooden raised bed frame */}
-              <div className="relative mx-auto max-w-md">
-                {/* Outer wood shadow */}
-                <div className="absolute -inset-[10px] sm:-inset-[14px] rounded-3xl bg-[#5A3A18]/20 blur-sm" />
+            {/* ═══ THE GARDEN BEDS — isometric perspective ═══ */}
+            <div className="relative z-10 py-4 sm:py-6 flex justify-center" style={{ perspective: "800px" }}>
+              <div
+                className="relative"
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: "rotateX(45deg) rotateZ(0deg) scale(0.95)",
+                }}
+              >
+                {/* Wooden raised bed frame — 3D with visible front face */}
+                <div className="relative mx-auto">
+                  {/* Shadow under the bed */}
+                  <div className="absolute -inset-[12px] sm:-inset-[16px] rounded-2xl bg-black/10 blur-md" style={{ transform: "translateZ(-2px)" }} />
 
-                {/* Outer wood */}
-                <div className={`absolute -inset-[8px] sm:-inset-[12px] rounded-3xl ${isNight ? "bg-[#4A3020]" : "bg-[#8A6830]"} transition-colors duration-[3000ms]`} />
+                  {/* Outer wood frame */}
+                  <div className={`absolute -inset-[10px] sm:-inset-[14px] rounded-2xl ${isNight ? "bg-[#4A3020]" : "bg-[#8A6830]"} transition-colors duration-[3000ms]`} />
 
-                {/* Inner wood grain */}
-                <div className={`absolute -inset-[5px] sm:-inset-[8px] rounded-2xl ${isNight ? "bg-[#5A3A28]" : "bg-[#9A7840]"} transition-colors duration-[3000ms]`}>
-                  {/* Horizontal grain lines */}
-                  <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-20">
-                    {[...Array(6)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-full h-px bg-black/20"
-                        style={{ top: `${15 + i * 14}%` }}
-                      />
-                    ))}
+                  {/* Front face of the raised bed — gives 3D depth */}
+                  <div
+                    className={`absolute -left-[10px] sm:-left-[14px] -right-[10px] sm:-right-[14px] -bottom-[10px] sm:-bottom-[14px] h-[20px] sm:h-[28px] ${isNight ? "bg-[#3A2018]" : "bg-[#6A4820]"} transition-colors duration-[3000ms]`}
+                    style={{
+                      transformOrigin: "top",
+                      transform: "rotateX(-90deg)",
+                      borderRadius: "0 0 8px 8px",
+                    }}
+                  >
+                    {/* Wood grain on front */}
+                    <div className="absolute inset-0 overflow-hidden rounded-b-lg opacity-20">
+                      {[...Array(3)].map((_, i) => (
+                        <div key={i} className="absolute w-full h-px bg-black/30" style={{ top: `${30 + i * 25}%` }} />
+                      ))}
+                    </div>
                   </div>
-                  {/* Corner pegs */}
-                  <div className="absolute w-2 h-2 rounded-full bg-[#6A4820] top-1.5 left-1.5 shadow-inner" />
-                  <div className="absolute w-2 h-2 rounded-full bg-[#6A4820] top-1.5 right-1.5 shadow-inner" />
-                  <div className="absolute w-2 h-2 rounded-full bg-[#6A4820] bottom-1.5 left-1.5 shadow-inner" />
-                  <div className="absolute w-2 h-2 rounded-full bg-[#6A4820] bottom-1.5 right-1.5 shadow-inner" />
-                </div>
 
-                {/* Soil base inside the frame */}
-                <div className={`relative rounded-xl ${isNight ? "bg-[#3A2810]" : "bg-[#5A3A1A]"} p-2 sm:p-3 transition-colors duration-[3000ms]`}>
-                  {children}
+                  {/* Inner wood */}
+                  <div className={`absolute -inset-[6px] sm:-inset-[9px] rounded-xl ${isNight ? "bg-[#5A3A28]" : "bg-[#9A7840]"} transition-colors duration-[3000ms]`} />
+
+                  {/* Soil base */}
+                  <div className={`relative rounded-lg ${isNight ? "bg-[#3A2810]" : "bg-[#5A3A1A]"} p-1.5 sm:p-2 transition-colors duration-[3000ms]`} style={{ transformStyle: "preserve-3d" }}>
+                    {children}
+                  </div>
                 </div>
               </div>
             </div>

@@ -147,36 +147,72 @@ export function PlantedTile({ variety, health, onTap, onWater, isNew }: PlantedT
       {/* Soft highlight on top-left — gives depth like a physical tile */}
       <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/15 to-transparent rounded-t-2xl pointer-events-none" />
 
-      {/* Crop illustration */}
-      <div className="absolute inset-0 flex items-center justify-center pb-3">
-        {illustration ? (
-          <motion.img
-            src={illustration}
-            alt={variety.name}
-            className="object-contain drop-shadow-md"
-            style={{
-              width: `${Math.round(growScale * 75)}%`,
-              height: `${Math.round(growScale * 75)}%`,
-              filter: isWilted ? "saturate(0.35) brightness(0.85)" : health.growthPercent < 33 ? "saturate(0.5) brightness(0.9)" : "none",
-            }}
-            animate={
-              health.isHarvestReady ? { y: [0, -4, 0], rotate: [0, 2, 0, -2, 0] }
-              : isWilted ? { rotate: [0, -2, 0, 2, 0] }
-              : {}
-            }
-            transition={{ duration: health.isHarvestReady ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ) : (
-          <motion.div
-            className="rounded-full bg-gradient-to-br from-[#8BC47A] to-[#5A9A4A] shadow-md"
-            style={{
-              width: `${Math.round(growScale * 50)}%`,
-              height: `${Math.round(growScale * 50)}%`,
-            }}
-            animate={health.isHarvestReady ? { scale: [1, 1.12, 1] } : {}}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        )}
+      {/* Crop — grows upward in 3D space */}
+      <div className="absolute inset-0 flex items-end justify-center pb-1" style={{ transformStyle: "preserve-3d" }}>
+        <motion.div
+          style={{
+            transformStyle: "preserve-3d",
+            transform: `rotateX(-45deg) translateZ(${Math.round(growScale * 20)}px)`,
+            transformOrigin: "bottom center",
+          }}
+        >
+          {illustration ? (
+            <motion.img
+              src={illustration}
+              alt={variety.name}
+              className="object-contain drop-shadow-lg"
+              style={{
+                width: `${Math.round(24 + growScale * 50)}px`,
+                height: `${Math.round(24 + growScale * 50)}px`,
+                filter: isWilted ? "saturate(0.35) brightness(0.85)" : health.growthPercent < 33 ? "saturate(0.5) brightness(0.9) sepia(0.2)" : "none",
+              }}
+              animate={
+                health.isHarvestReady ? { y: [0, -3, 0], scale: [1, 1.05, 1] }
+                : isWilted ? { rotate: [0, -3, 0, 3, 0] }
+                : { y: [0, -1, 0] }
+              }
+              transition={{ duration: health.isHarvestReady ? 1.5 : isWilted ? 4 : 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+          ) : (
+            <>
+              {/* CSS-drawn plant for crops without illustrations */}
+              {health.growthPercent < 20 ? (
+                /* Seed — small brown dot */
+                <div className="w-3 h-2 rounded-full bg-gradient-to-br from-[#A08050] to-[#806030] shadow-sm" />
+              ) : health.growthPercent < 50 ? (
+                /* Sprout — thin stem with two tiny leaves */
+                <div className="flex flex-col items-center">
+                  <div className="flex gap-0.5 -mb-0.5">
+                    <div className="w-2 h-3 rounded-full bg-gradient-to-t from-[#6AA848] to-[#8BC47A] -rotate-12" />
+                    <div className="w-2 h-3 rounded-full bg-gradient-to-t from-[#6AA848] to-[#8BC47A] rotate-12" />
+                  </div>
+                  <div className="w-0.5 h-4 bg-[#5A9A3A] rounded-full" />
+                </div>
+              ) : (
+                /* Growing/mature — fuller plant */
+                <motion.div
+                  className="flex flex-col items-center"
+                  animate={health.isHarvestReady ? { scale: [1, 1.05, 1] } : {}}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <div className="flex gap-0.5 -mb-1">
+                    <div className="w-3 h-5 rounded-full bg-gradient-to-t from-[#4A8830] to-[#7BB860] -rotate-20 shadow-sm" />
+                    <div className="w-4 h-6 rounded-full bg-gradient-to-t from-[#4A8830] to-[#6AAA48] shadow-sm" />
+                    <div className="w-3 h-5 rounded-full bg-gradient-to-t from-[#4A8830] to-[#7BB860] rotate-20 shadow-sm" />
+                  </div>
+                  <div className="w-1 h-5 bg-[#4A8830] rounded-full" />
+                  {health.isHarvestReady && (
+                    <motion.div
+                      className="absolute -top-1 w-3 h-3 rounded-full bg-gradient-to-br from-[#E84040] to-[#C43030] shadow-md"
+                      animate={{ scale: [0.9, 1.1, 0.9] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    />
+                  )}
+                </motion.div>
+              )}
+            </>
+          )}
+        </motion.div>
       </div>
 
       {/* Name bar at bottom — frosted glass effect */}
