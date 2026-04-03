@@ -20,6 +20,7 @@ import {
 } from "@/lib/weather-intelligence";
 import { EmptyTile, PlantedTile, PlantingAnimation, CROP_ILLUSTRATIONS } from "@/components/GardenTile";
 import GardenScene from "@/components/GardenScene";
+import "@/components/garden-textures.css";
 import RecipeSection from "@/components/RecipeSection";
 import AffiliateButtons from "@/components/AffiliateButtons";
 
@@ -302,15 +303,16 @@ export default function ReactGarden() {
         </div>
       </div>
 
-      {/* ═══ RIGHT: Info Board (desktop) ═══ */}
-      <div className="lg:w-80 bg-[#e8dcc8] border-t lg:border-t-0 lg:border-l border-earth/15 overflow-y-auto">
-        <div className="bg-[#7a5020] px-4 py-3">
-          <h2 className="text-xs font-bold tracking-[0.15em] uppercase text-white/80">Allotment Noticeboard</h2>
+      {/* ═══ RIGHT: Info Board — cork noticeboard ═══ */}
+      <div className="lg:w-80 cork-board border-t lg:border-t-0 lg:border-l border-earth/15 overflow-y-auto paper-grain">
+        {/* Board header — wooden frame top */}
+        <div className="bg-gradient-to-r from-[#6A4018] via-[#7a5020] to-[#6A4018] px-4 py-3 shadow-md">
+          <h2 className="text-xs font-bold tracking-[0.15em] uppercase text-white/80 embossed">📌 Allotment Noticeboard</h2>
         </div>
 
-        {/* Your crops */}
-        <div className="px-4 py-4 border-b border-earth/10">
-          <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-earth-lighter mb-3">Your crops</h3>
+        {/* Your crops — pinned seed packet cards */}
+        <div className="px-4 py-4 border-b border-[#C4A878]/30">
+          <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#6A5030] mb-3 hand-label">Your crops</h3>
           {garden.activePlots.length === 0 ? (
             <p className="text-xs text-earth-lighter italic">Plant your first seed to get started</p>
           ) : (
@@ -321,7 +323,8 @@ export default function ReactGarden() {
                 if (!v || !h) return null;
                 const bc = h.borderColour === "red" ? "border-l-tomato" : h.borderColour === "amber" ? "border-l-amber" : "border-l-leaf";
                 return (
-                  <div key={plot.slotIndex} className={`flex items-center gap-2 p-2 bg-cream rounded border-l-[3px] ${bc}`}>
+                  <div key={plot.slotIndex} className={`seed-packet pinned relative flex items-center gap-2.5 p-2.5 rounded-lg border-l-[3px] ${bc}`}>
+                    <div className="tape-strip" />
                     <div className="min-w-0 flex-1 cursor-pointer" onClick={() => setInfoPanel({ type: h.isHarvestReady ? "harvest" : "plant-info", varietyId: v.id, slotIndex: plot.slotIndex })}>
                       <p className="text-[11px] font-semibold text-earth truncate">{v.name}</p>
                       <p className="text-[9px] text-earth-lighter">{h.statusMessage}</p>
@@ -331,7 +334,7 @@ export default function ReactGarden() {
                         <button onClick={() => handleWater(plot.slotIndex)} className="text-base hover:scale-125 transition-transform">💧</button>
                       )}
                       {h.isHarvestReady ? (
-                        <span className="text-[8px] font-bold uppercase text-leaf bg-leaf/15 px-1.5 py-0.5 rounded">Ready</span>
+                        <span className="text-[8px] font-bold uppercase text-leaf stamp">Ready</span>
                       ) : (
                         <span className="text-[9px] text-earth-lighter">{h.daysToHarvest}d</span>
                       )}
@@ -343,9 +346,9 @@ export default function ReactGarden() {
           )}
         </div>
 
-        {/* Sow this week */}
-        <div className="px-4 py-4 border-b border-earth/10">
-          <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-earth-lighter mb-3">Sow this week</h3>
+        {/* Sow this week — handwritten style */}
+        <div className="px-4 py-4 border-b border-[#C4A878]/30">
+          <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#6A5030] mb-3 hand-label">🌱 Sow this week</h3>
           <div className="space-y-2">
             {Object.entries(sowableByCrop).slice(0, 5).map(([name, vars]) => {
               const crop = crops.find((c) => c.name === name);
@@ -365,7 +368,7 @@ export default function ReactGarden() {
         {/* Weather */}
         {weather && (
           <div className="px-4 py-4">
-            <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-earth-lighter mb-3">Conditions</h3>
+            <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#6A5030] mb-3 hand-label">🌤️ Today&apos;s weather</h3>
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="bg-cream rounded p-2 text-center">
                 <span className="text-lg block">{weatherEmoji(weather.weatherCode)}</span>

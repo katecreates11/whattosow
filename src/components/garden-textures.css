@@ -1,0 +1,131 @@
+/* ═══ Garden Textures ═══
+   Paper grain, wobble, and brushstroke effects
+   inspired by Tiny Bookshop's UI approach.
+   Makes UI feel like physical garden stationery. */
+
+/* Paper grain overlay — applies to cards, panels, info board */
+.paper-grain {
+  position: relative;
+}
+
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 150px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* Wobble animation — very subtle, like paper in a breeze */
+@keyframes gentle-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.3deg); }
+  75% { transform: rotate(-0.3deg); }
+}
+
+.wobble {
+  animation: gentle-wobble 8s ease-in-out infinite;
+}
+
+.wobble-slow {
+  animation: gentle-wobble 12s ease-in-out infinite;
+}
+
+/* Brushstroke border — hand-painted feel */
+.brush-border {
+  border-image-source: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='96' height='96' rx='8' fill='none' stroke='%238A6830' stroke-width='3' stroke-dasharray='4 2' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
+  border-image-slice: 10;
+  border-image-width: 8px;
+}
+
+/* Pinned-to-board effect — slight rotation + shadow */
+.pinned {
+  transform: rotate(-1deg);
+  box-shadow:
+    2px 3px 6px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.pinned:nth-child(even) {
+  transform: rotate(0.8deg);
+}
+
+.pinned:nth-child(3n) {
+  transform: rotate(-0.5deg);
+}
+
+/* Handwritten feel for labels */
+.hand-label {
+  font-style: italic;
+  letter-spacing: 0.01em;
+  transform: rotate(-0.5deg);
+}
+
+/* Cork board texture */
+.cork-board {
+  background-color: #D4B88C;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(180, 150, 100, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(200, 170, 120, 0.2) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(160, 130, 80, 0.2) 0%, transparent 45%);
+}
+
+/* Seed packet card style — like a real seed packet */
+.seed-packet {
+  background: linear-gradient(135deg, #F5EFE0 0%, #EDE5D0 100%);
+  border: 1.5px solid rgba(138, 104, 48, 0.25);
+  box-shadow:
+    1px 2px 4px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Stamp effect for rarity badges */
+.stamp {
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  padding: 2px 6px;
+  transform: rotate(-3deg);
+  opacity: 0.7;
+}
+
+/* Wax seal effect for legendary items */
+.wax-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #E8A830, #C48820);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  font-size: 10px;
+  color: #FFF4D4;
+  font-weight: bold;
+}
+
+/* Tape strip — for pinning items to the board */
+.tape-strip {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 32px;
+  height: 10px;
+  background: rgba(255, 255, 220, 0.6);
+  border: 0.5px solid rgba(200, 200, 150, 0.3);
+  z-index: 2;
+}
+
+/* Pressed/embossed text effect */
+.embossed {
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.5),
+    0 -1px 1px rgba(0, 0, 0, 0.1);
+}
