@@ -19,6 +19,7 @@ import {
   type CropHealthResult,
 } from "@/lib/weather-intelligence";
 import { EmptyTile, PlantedTile, PlantingAnimation, CROP_ILLUSTRATIONS } from "@/components/GardenTile";
+import GardenScene from "@/components/GardenScene";
 import RecipeSection from "@/components/RecipeSection";
 import AffiliateButtons from "@/components/AffiliateButtons";
 
@@ -245,9 +246,9 @@ export default function ReactGarden() {
           </div>
         )}
 
-        {/* Garden grid — generous spacing, centred */}
-        <div className="flex-1 px-4 py-5 sm:px-8 sm:py-8 bg-gradient-to-b from-[#F5EFE0] to-[#EDE7D8]">
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 max-w-md mx-auto">
+        {/* Garden scene — sky, grass, weather, creatures, raised bed frame */}
+        <GardenScene weather={weather} cropCount={garden.activePlots.length}>
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-2.5">
             {Array.from({ length: garden.garden.settings.totalSlots }).map((_, i) => {
               const plot = garden.activePlots.find((p) => p.slotIndex === i);
               const variety = plot ? getVarietyById(plot.varietyId) : null;
@@ -291,11 +292,7 @@ export default function ReactGarden() {
             })}
           </div>
 
-          {/* Mode hint */}
-          <p className="text-center text-[11px] text-earth-lighter mt-4">
-            {plantMode === "lucky-dip" ? "Tap an empty plot for a mystery seed" : "Tap an empty plot to choose what to plant"}
-          </p>
-        </div>
+        </GardenScene>
 
         {/* Stats — soft rounded pills */}
         <div className="flex items-center justify-center gap-4 px-4 py-3 bg-[#F0EAD8] text-[11px] text-earth-lighter">
