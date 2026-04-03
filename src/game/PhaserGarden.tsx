@@ -87,6 +87,7 @@ export default function PhaserGarden() {
   const [lastDiscovery, setLastDiscovery] = useState<SelectedVariety | null>(null);
   const [plantMode, setPlantMode] = useState<PlantMode>("lucky-dip");
   const [pendingSlot, setPendingSlot] = useState<{ col: number; row: number } | null>(null);
+  const [customSowDate, setCustomSowDate] = useState<string>(""); // YYYY-MM-DD for backdate
 
   // Ref-based callbacks for Phaser bridge
   const callbacksRef = useRef({
@@ -187,11 +188,13 @@ export default function PhaserGarden() {
         setTimeout(() => scene.showRarityReveal(col, row, variety.rarity, variety.name), 700);
       }
       garden.collect(variety.id);
-      garden.plant(variety.id);
+      const sowDate = customSowDate ? new Date(customSowDate) : undefined;
+      garden.plant(variety.id, sowDate);
       setPendingSlot(null);
+      setCustomSowDate("");
       setInfoPanel({ type: "plant-info", varietyId: variety.id, col, row });
     },
-    [pendingSlot, garden, getScene]
+    [pendingSlot, garden, getScene, customSowDate]
   );
 
   const handlePlantTap = useCallback(
@@ -594,7 +597,24 @@ export default function PhaserGarden() {
           <div className="relative bg-cream w-full max-w-lg max-h-[75vh] overflow-y-auto rounded-t-2xl px-6 py-6" style={{ animation: "slideUp 0.3s ease-out" }} onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-center mb-4"><div className="w-10 h-1 bg-earth/20 rounded-full" /></div>
             <h2 className="text-xl font-serif text-earth mb-1">Choose a seed</h2>
-            <p className="text-sm text-earth-lighter mb-5">In season right now for your location.</p>
+            <p className="text-sm text-earth-lighter mb-3">In season right now for your location.</p>
+
+            {/* Backdate option */}
+            <div className="bg-sage/30 rounded p-3 mb-5">
+              <label className="flex items-center gap-3">
+                <span className="text-xs text-earth">When did you sow it?</span>
+                <input
+                  type="date"
+                  value={customSowDate}
+                  onChange={(e) => setCustomSowDate(e.target.value)}
+                  max={new Date().toISOString().split("T")[0]}
+                  className="text-xs text-earth bg-cream border border-earth/15 rounded px-2 py-1.5 flex-1"
+                />
+              </label>
+              <p className="text-[10px] text-earth-lighter mt-1">
+                {customSowDate ? `Logging as sown on ${new Date(customSowDate).toLocaleDateString("en-GB", { day: "numeric", month: "long" })}` : "Leave blank for today"}
+              </p>
+            </div>
 
             {Object.entries(sowableByCrop).map(([cropName, cropVarieties]) => (
               <div key={cropName} className="mb-4">

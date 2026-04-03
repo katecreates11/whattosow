@@ -54,7 +54,7 @@ export function useGarden() {
     });
   }, []);
 
-  const plant = useCallback((varietyId: string) => {
+  const plant = useCallback((varietyId: string, customSowDate?: Date) => {
     setGarden((prev) => {
       const usedSlots = new Set(prev.plots.filter((p) => !p.harvested).map((p) => p.slotIndex));
       let nextSlot = -1;
@@ -68,7 +68,7 @@ export function useGarden() {
       const crop = crops.find((c) => c.slug === variety.cropSlug);
       if (!crop) return prev;
 
-      const sowDate = new Date();
+      const sowDate = customSowDate || new Date();
       const harvestDate = new Date(sowDate.getTime() + crop.harvestWeeks * 7 * 24 * 60 * 60 * 1000);
 
       return {
