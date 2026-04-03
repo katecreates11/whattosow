@@ -37,6 +37,28 @@ const CROP_ILLUSTRATIONS: Record<string, string> = {
   spinach: "/images/crops/spinach.png",
 };
 
+/** Generate a one-line "why" for a crop that's sowable now */
+function getSowingContext(crop: Crop): string {
+  const weeks = crop.harvestWeeks;
+  const now = new Date();
+  const harvestMonth = new Date(now.getTime() + weeks * 7 * 24 * 60 * 60 * 1000)
+    .toLocaleDateString("en-GB", { month: "long" });
+
+  if (crop.sowIndoorsWeeks !== null && crop.category === "tender") {
+    return `Start on a windowsill now, plant out after frost. Eating by ${harvestMonth}.`;
+  }
+  if (crop.directSowWeeks !== null && weeks <= 8) {
+    return `Quick grower — sow direct, harvesting by ${harvestMonth}.`;
+  }
+  if (crop.directSowWeeks !== null) {
+    return `Sow now for ${harvestMonth} harvest.`;
+  }
+  if (crop.plantOutWeeks !== null) {
+    return `Ready to go outside now. Harvest from ${harvestMonth}.`;
+  }
+  return `In season now — ${weeks} weeks to harvest.`;
+}
+
 type PlantMode = "lucky-dip" | "choose";
 type InfoPanel = {
   type: "discovery" | "plant-info" | "harvest" | "choose-variety";
@@ -350,8 +372,91 @@ export default function PhaserGarden() {
           </p>
         </div>
 
-        {/* Phaser canvas */}
-        <div ref={gameRef} className="flex-1 flex justify-center bg-[#F5EFE0] overflow-hidden" style={{ minHeight: "350px", maxHeight: "600px" }} />
+        {/* Garden area — Phaser canvas on desktop, HTML grid fallback on mobile */}
+        {/* Phaser canvas (hidden on very small screens where it fails to init) */}
+        <div ref={gameRef} className="hidden sm:flex flex-1 justify-center bg-[#F5EFE0] overflow-hidden" style={{ minHeight: "350px", maxHeight: "600px" }} />
+
+        {/* HTML garden grid for mobile — always works */}
+        <div className="sm:hidden px-3 py-4 bg-[#F5EFE0]">
+          <div className="grid grid-cols-3 gap-2 max-w-sm mx-auto">
+            {Array.from({ length: garden.garden.settings.totalSlots }).map((_, i) => {
+              const plot = garden.activePlots.find((p) => p.slotIndex === i);
+              const variety = plot ? getVarietyById(plot.varietyId) : null;
+              const health = variety ? cropHealthMap.get(variety.id) : null;
+              const illustration = variety ? CROP_ILLUSTRATIONS[variety.cropSlug] : null;
+              const col = i % 6;
+              const row = Math.floor(i / 6);
+
+              if (!plot || !variety) {
+                // Empty plot
+                return (
+                  <button
+                    key={i}
+                    onClick={() => handleEmptyTileTap(col, row)}
+                    className="aspect-square rounded-lg bg-[#5a3a1a] border-2 border-dashed border-[#7a5a3a] flex items-center justify-center hover:border-leaf transition-colors active:scale-95"
+                  >
+                    <span className="text-white/20 text-2xl">+</span>
+                  </button>
+                );
+              }
+
+              // Planted plot
+              const borderClass = health?.borderColour === "red" ? "border-tomato" : health?.borderColour === "amber" ? "border-amber" : "border-leaf";
+
+              return (
+                <button
+                  key={i}
+                  onClick={() => {
+                    if (health?.isHarvestReady) {
+                      setInfoPanel({ type: "harvest", varietyId: variety.id, col, row });
+                    } else {
+                      setInfoPanel({ type: "plant-info", varietyId: variety.id, col, row });
+                    }
+                  }}
+                  className={`aspect-square rounded-lg bg-[#5a3a1a] border-2 ${borderClass} flex flex-col items-center justify-center p-1 relative overflow-hidden active:scale-95 transition-transform`}
+                >
+                  {illustration ? (
+                    <img
+                      src={illustration}
+                      alt={variety.name}
+                      className="w-10 h-10 object-contain"
+                      style={{
+                        filter: health && health.growthPercent < 33 ? "sepia(0.5) opacity(0.5)" : health && health.growthPercent < 66 ? "saturate(0.7)" : "none",
+                        transform: health ? `scale(${0.5 + (health.growthPercent / 200)})` : "scale(0.5)",
+                      }}
+                    />
+                  ) : (
+                    <div
+                      className="rounded-full bg-leaf/60"
+                      style={{
+                        width: health ? `${16 + health.growthPercent * 0.24}px` : "16px",
+                        height: health ? `${16 + health.growthPercent * 0.24}px` : "16px",
+                      }}
+                    />
+                  )}
+                  <span className="text-[7px] text-white/60 mt-0.5 truncate w-full text-center">
+                    {variety.name}
+                  </span>
+                  {health?.isHarvestReady && (
+                    <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-leaf rounded-full animate-pulse" />
+                  )}
+                  {health?.needsWater && (
+                    <span className="absolute top-0.5 left-0.5 text-[8px]">💧</span>
+                  )}
+                  {/* Progress bar at bottom */}
+                  {health && !health.isHarvestReady && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20">
+                      <div
+                        className={`h-full ${health.borderColour === "red" ? "bg-tomato" : health.borderColour === "amber" ? "bg-amber" : "bg-leaf"}`}
+                        style={{ width: `${health.growthPercent}%` }}
+                      />
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
         {/* Stats */}
         <div className="flex items-center justify-center gap-6 px-4 py-2.5 bg-cream border-t border-earth/8 text-[11px] text-earth-lighter">
@@ -377,23 +482,46 @@ export default function PhaserGarden() {
                   const borderCol = health.borderColour === "red" ? "border-l-tomato" : health.borderColour === "amber" ? "border-l-amber" : "border-l-leaf";
                   const illustration = CROP_ILLUSTRATIONS[variety.cropSlug];
 
+                  const slotIdx = plot.slotIndex;
+                  const col = slotIdx % 6;
+                  const row = Math.floor(slotIdx / 6);
+                  const canWater = health.needsWater && garden.canTend(slotIdx);
+
                   return (
-                    <button
-                      key={plot.slotIndex}
-                      onClick={() => setInfoPanel({ type: health.isHarvestReady ? "harvest" : "plant-info", varietyId: variety.id, col: plot.slotIndex % 6, row: Math.floor(plot.slotIndex / 6) })}
-                      className={`w-full flex items-center gap-2.5 p-2 bg-cream rounded border-l-[3px] ${borderCol} text-left hover:bg-sage/20 transition-colors`}
-                    >
-                      {illustration && <img src={illustration} alt="" className="w-7 h-7 object-contain shrink-0" />}
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[11px] font-semibold text-earth truncate">{variety.name}</p>
-                        <p className="text-[9px] text-earth-lighter">{health.statusMessage}</p>
+                    <div key={slotIdx} className={`flex items-center gap-2 p-2 bg-cream rounded border-l-[3px] ${borderCol}`}>
+                      <div
+                        className="flex items-center gap-2.5 flex-1 min-w-0 cursor-pointer hover:opacity-80"
+                        onClick={() => setInfoPanel({ type: health.isHarvestReady ? "harvest" : "plant-info", varietyId: variety.id, col, row })}
+                      >
+                        {illustration && <img src={illustration} alt="" className="w-7 h-7 object-contain shrink-0" />}
+                        <div className="min-w-0 flex-1">
+                          <p className="text-[11px] font-semibold text-earth truncate">{variety.name}</p>
+                          <p className="text-[9px] text-earth-lighter">{health.statusMessage}</p>
+                        </div>
                       </div>
-                      {health.isHarvestReady ? (
-                        <span className="text-[8px] font-bold uppercase text-leaf bg-leaf/15 px-1.5 py-0.5 rounded shrink-0">Ready</span>
-                      ) : (
-                        <span className="text-[9px] text-earth-lighter shrink-0">{health.daysToHarvest}d</span>
-                      )}
-                    </button>
+                      {/* Quick actions */}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {canWater && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              garden.tend(slotIdx);
+                              const scene = getScene();
+                              if (scene) scene.tendPlant(col, row);
+                            }}
+                            className="text-base hover:scale-125 transition-transform"
+                            title="Water this crop"
+                          >
+                            💧
+                          </button>
+                        )}
+                        {health.isHarvestReady ? (
+                          <span className="text-[8px] font-bold uppercase text-leaf bg-leaf/15 px-1.5 py-0.5 rounded">Ready</span>
+                        ) : (
+                          <span className="text-[9px] text-earth-lighter">{health.daysToHarvest}d</span>
+                        )}
+                      </div>
+                    </div>
                   );
                 })}
               </div>
@@ -448,23 +576,44 @@ export default function PhaserGarden() {
                 const borderCol = health.borderColour === "red" ? "border-l-tomato" : health.borderColour === "amber" ? "border-l-amber" : "border-l-leaf";
                 const illustration = CROP_ILLUSTRATIONS[variety.cropSlug];
 
+                const slotIdx = plot.slotIndex;
+                const col = slotIdx % 6;
+                const row = Math.floor(slotIdx / 6);
+                const canWater = health.needsWater && garden.canTend(slotIdx);
+
                 return (
-                  <button
-                    key={plot.slotIndex}
-                    onClick={() => setInfoPanel({ type: health.isHarvestReady ? "harvest" : "plant-info", varietyId: variety.id, col: plot.slotIndex % 6, row: Math.floor(plot.slotIndex / 6) })}
-                    className={`w-full flex items-center gap-2.5 p-2 bg-cream rounded border-l-[3px] ${borderCol} text-left hover:bg-sage/20 transition-colors`}
-                  >
-                    {illustration && <img src={illustration} alt="" className="w-8 h-8 object-contain shrink-0" />}
-                    <div className="min-w-0 flex-1">
-                      <p className="text-[11px] font-semibold text-earth truncate">{variety.name}</p>
-                      <p className="text-[9px] text-earth-lighter">{health.statusMessage}</p>
+                  <div key={slotIdx} className={`flex items-center gap-2 p-2 bg-cream rounded border-l-[3px] ${borderCol}`}>
+                    <div
+                      className="flex items-center gap-2.5 flex-1 min-w-0 cursor-pointer hover:opacity-80"
+                      onClick={() => setInfoPanel({ type: health.isHarvestReady ? "harvest" : "plant-info", varietyId: variety.id, col, row })}
+                    >
+                      {illustration && <img src={illustration} alt="" className="w-8 h-8 object-contain shrink-0" />}
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[11px] font-semibold text-earth truncate">{variety.name}</p>
+                        <p className="text-[9px] text-earth-lighter">{health.statusMessage}</p>
+                      </div>
                     </div>
-                    {health.isHarvestReady ? (
-                      <span className="text-[8px] font-bold uppercase text-leaf bg-leaf/15 px-1.5 py-0.5 rounded shrink-0">Ready</span>
-                    ) : (
-                      <span className="text-[9px] text-earth-lighter shrink-0">{health.daysToHarvest}d</span>
-                    )}
-                  </button>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {canWater && (
+                        <button
+                          onClick={() => {
+                            garden.tend(slotIdx);
+                            const scene = getScene();
+                            if (scene) scene.tendPlant(col, row);
+                          }}
+                          className="text-base hover:scale-125 transition-transform"
+                          title="Water this crop"
+                        >
+                          💧
+                        </button>
+                      )}
+                      {health.isHarvestReady ? (
+                        <span className="text-[8px] font-bold uppercase text-leaf bg-leaf/15 px-1.5 py-0.5 rounded">Ready</span>
+                      ) : (
+                        <span className="text-[9px] text-earth-lighter">{health.daysToHarvest}d</span>
+                      )}
+                    </div>
+                  </div>
                 );
               })}
             </div>
@@ -527,15 +676,22 @@ export default function PhaserGarden() {
           <h3 className="text-[10px] font-bold tracking-[0.12em] uppercase text-earth-lighter mb-3">
             Sow this week
           </h3>
-          <div className="space-y-1.5">
-            {Object.entries(sowableByCrop).slice(0, 5).map(([cropName, cropVars]) => (
-              <div key={cropName} className="flex items-center justify-between py-1">
-                <span className="text-[11px] text-earth">{cropName}</span>
-                <span className="text-[9px] text-earth-lighter">{cropVars.length} varieties</span>
-              </div>
-            ))}
+          <div className="space-y-2.5">
+            {Object.entries(sowableByCrop).slice(0, 5).map(([cropName, cropVars]) => {
+              const crop = crops.find((c) => c.name === cropName);
+              const context = crop ? getSowingContext(crop) : "";
+              return (
+                <div key={cropName} className="border-b border-earth/5 pb-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-semibold text-earth">{cropName}</span>
+                    <span className="text-[9px] text-earth-lighter">{cropVars.length} varieties</span>
+                  </div>
+                  {context && <p className="text-[10px] text-earth-lighter mt-0.5">{context}</p>}
+                </div>
+              );
+            })}
             {Object.keys(sowableByCrop).length > 5 && (
-              <p className="text-[10px] text-allotment font-semibold">+{Object.keys(sowableByCrop).length - 5} more crops in season</p>
+              <p className="text-[10px] text-allotment font-semibold mt-1">+{Object.keys(sowableByCrop).length - 5} more crops in season</p>
             )}
           </div>
         </div>
