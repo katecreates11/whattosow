@@ -32,9 +32,12 @@ interface GardenSceneProps {
   cropCount: number;
   children: React.ReactNode;
   infoBoard: React.ReactNode;
+  alerts?: { type: string; priority: string; message: string }[];
+  plantMode?: "lucky-dip" | "choose";
+  onModeChange?: (mode: "lucky-dip" | "choose") => void;
 }
 
-export default function GardenScene({ weather, cropCount, children, infoBoard }: GardenSceneProps) {
+export default function GardenScene({ weather, cropCount, children, infoBoard, alerts, plantMode, onModeChange }: GardenSceneProps) {
   const [time, setTime] = useState<TimeOfDay>("morning");
   const [showBoard, setShowBoard] = useState(false);
 
@@ -115,12 +118,11 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           />
         ))}
 
-        {/* The illustration — no sky, fills the bottom portion edge to edge */}
+        {/* The illustration — no sky, centred on the beds, fills bottom */}
         <img
           src="/images/game/allotment-nosky.png"
           alt="Your allotment"
-          className="absolute bottom-0 left-0 w-full object-cover object-top"
-          style={{ height: "60%" }}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] sm:w-[120%] lg:w-full max-w-none object-contain object-bottom"
         />
 
         {/* Time-of-day colour wash */}
@@ -149,17 +151,52 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           </div>
         )}
 
-        {/* Noticeboard button — top right, tap to expand */}
-        <button
-          onClick={() => setShowBoard(!showBoard)}
-          className="absolute top-3 right-3 z-20 bg-[#8A6830]/80 backdrop-blur-sm text-white/80 rounded-xl px-3 py-2 text-[10px] font-bold tracking-[0.08em] uppercase border border-[#A08040]/40 shadow-lg hover:bg-[#9A7840]/80 transition-colors"
-        >
-          📌 {showBoard ? "Close" : "Board"}
-        </button>
+        {/* Top right controls */}
+        <div className="absolute top-3 right-3 z-20 flex flex-col gap-2 items-end">
+          {/* Mode toggle */}
+          {onModeChange && (
+            <div className="flex gap-1 bg-black/20 backdrop-blur-sm rounded-xl p-1">
+              {(["lucky-dip", "choose"] as const).map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => onModeChange(mode)}
+                  className={`text-[9px] font-bold tracking-[0.06em] uppercase px-2.5 py-1.5 rounded-lg transition-colors ${
+                    plantMode === mode ? "bg-white/25 text-white" : "text-white/50 hover:text-white/70"
+                  }`}
+                >
+                  {mode === "lucky-dip" ? "🎲 Lucky Dip" : "🌱 Choose"}
+                </button>
+              ))}
+            </div>
+          )}
 
-        {/* The garden tiles — positioned over the raised beds in the illustration */}
-        <div className="absolute bottom-[8%] left-[2%] right-[30%] sm:bottom-[10%] sm:left-[3%] sm:right-[32%] z-10">
-          <div className="grid grid-cols-4 sm:grid-cols-5 gap-[3%] sm:gap-[2.5%]">
+          {/* Board button */}
+          <button
+            onClick={() => setShowBoard(!showBoard)}
+            className="bg-[#8A6830]/80 backdrop-blur-sm text-white/80 rounded-xl px-3 py-2 text-[10px] font-bold tracking-[0.08em] uppercase border border-[#A08040]/40 shadow-lg hover:bg-[#9A7840]/80 transition-colors"
+          >
+            📌 Board
+          </button>
+        </div>
+
+        {/* Top alert — floating, just the most important one */}
+        {alerts && alerts.length > 0 && (
+          <motion.div
+            className="absolute top-3 left-1/2 -translate-x-1/2 z-20 max-w-sm"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <div className="bg-white/80 backdrop-blur-md rounded-2xl px-4 py-2 shadow-lg border border-white/40 flex items-center gap-2">
+              <span className="text-base">{alerts[0].type === "frost" ? "🥶" : alerts[0].type === "water" ? "💧" : alerts[0].type === "harvest" ? "🌾" : "🌱"}</span>
+              <p className="text-[11px] text-earth leading-snug">{alerts[0].message}</p>
+            </div>
+          </motion.div>
+        )}
+
+        {/* The garden tiles — big, filling the bed area */}
+        <div className="absolute bottom-[5%] left-[3%] right-[3%] sm:bottom-[8%] sm:left-[5%] sm:right-[28%] z-10">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
             {children}
           </div>
         </div>

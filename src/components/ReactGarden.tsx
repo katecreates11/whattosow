@@ -194,63 +194,13 @@ export default function ReactGarden() {
 
       {/* ═══ Garden ═══ */}
       <div>
-
-        {/* Weather bar */}
-        {weather && (
-          <div className="bg-[#2D5F3E] text-white px-4 py-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{weatherEmoji(weather.weatherCode)}</span>
-                <div>
-                  <span className="font-semibold text-sm">{Math.round(weather.temperature)}°C</span>
-                  <span className="text-white/60 text-xs ml-2">{weather.description}</span>
-                </div>
-              </div>
-              <div className="flex gap-1">
-                {(["lucky-dip", "choose"] as PlantMode[]).map((mode) => (
-                  <button
-                    key={mode}
-                    onClick={() => setPlantMode(mode)}
-                    className={`text-[9px] font-bold tracking-[0.06em] uppercase px-2.5 py-1.5 rounded transition-colors ${
-                      plantMode === mode ? "bg-white/20 text-white" : "text-white/40 hover:text-white/70"
-                    }`}
-                  >
-                    {mode === "lucky-dip" ? "Lucky Dip" : "Choose"}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <p className="text-[11px] text-white/50 mt-1">{getDailyAdvice(weather)}</p>
-          </div>
-        )}
-
-        {/* Alerts — soft, rounded, Nintendo-style speech bubbles */}
-        {alerts.length > 0 && (
-          <div className="px-4 py-3 space-y-2 bg-[#F8F4EA]">
-            {visibleAlerts.map((a, i) => (
-              <motion.div
-                key={i}
-                className={`flex items-start gap-2.5 px-4 py-3 rounded-2xl border text-[13px] ${ALERT_BG[a.priority]}`}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <span className="shrink-0 text-base mt-0.5">{ALERT_ICON[a.type]}</span>
-                <p className="text-earth leading-relaxed">{a.message}</p>
-              </motion.div>
-            ))}
-            {alerts.length > 2 && !showAllAlerts && (
-              <button onClick={() => setShowAllAlerts(true)} className="text-[11px] text-allotment font-semibold hover:underline px-4">
-                +{alerts.length - 2} more
-              </button>
-            )}
-          </div>
-        )}
-
-        {/* Garden scene — sky, grass, weather, creatures, raised bed frame */}
+        {/* Garden scene — the illustration IS the page */}
         <GardenScene
           weather={weather}
           cropCount={garden.activePlots.length}
+          alerts={alerts}
+          plantMode={plantMode}
+          onModeChange={setPlantMode}
           infoBoard={<InfoBoardContent
             activePlots={garden.activePlots}
             healthMap={healthMap}
