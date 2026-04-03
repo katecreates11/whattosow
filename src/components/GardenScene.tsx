@@ -115,11 +115,12 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           />
         ))}
 
-        {/* The illustration IS the world — fills the entire scene */}
+        {/* The illustration — no sky, positioned at the bottom */}
         <img
-          src="/images/game/allotment-empty.png"
+          src="/images/game/allotment-nosky.png"
           alt="Your allotment"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute bottom-0 left-0 w-full object-contain object-bottom"
+          style={{ maxHeight: "65%" }}
         />
 
         {/* Time-of-day colour wash */}
