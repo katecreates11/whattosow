@@ -5,7 +5,7 @@ import { useState } from "react";
 import type { Variety } from "@/data/varieties";
 import type { CropHealthResult } from "@/lib/weather-intelligence";
 
-// Crop illustration map — will be replaced with custom art
+// Crop illustration map
 export const CROP_ILLUSTRATIONS: Record<string, string> = {
   tomatoes: "/images/crops/tomatoes.png",
   carrots: "/images/crops/carrots.png",
@@ -22,60 +22,82 @@ export const CROP_ILLUSTRATIONS: Record<string, string> = {
   spinach: "/images/crops/spinach.png",
 };
 
-// Rarity border colours
-const RARITY_RING: Record<string, string> = {
-  common: "ring-earth/30",
-  uncommon: "ring-leaf/50",
-  rare: "ring-amber/60",
-  legendary: "ring-amber",
+// ─── Nintendo-style spring config ───────────────────────────────────────────
+const SPRING_BOUNCY = { type: "spring" as const, stiffness: 300, damping: 15 };
+const SPRING_GENTLE = { type: "spring" as const, stiffness: 200, damping: 20 };
+const SPRING_SOFT = { type: "spring" as const, stiffness: 150, damping: 25 };
+
+// ─── Pastel palette for tile backgrounds ────────────────────────────────────
+const SOIL_COLOURS = [
+  "from-[#C4A882] to-[#A8896A]",  // warm sand
+  "from-[#BDA07A] to-[#A08868]",  // golden earth
+  "from-[#C0A480] to-[#A89070]",  // light clay
+];
+
+const HEALTH_GLOW: Record<string, string> = {
+  green: "shadow-[0_0_12px_rgba(123,179,105,0.3)]",
+  amber: "shadow-[0_0_12px_rgba(212,148,58,0.3)]",
+  red: "shadow-[0_0_12px_rgba(201,84,62,0.3)]",
 };
+
+const HEALTH_BORDER: Record<string, string> = {
+  green: "border-[#9DC48B]",
+  amber: "border-[#E4B870]",
+  red: "border-[#D4756A]",
+};
+
+// ─── Empty tile ─────────────────────────────────────────────────────────────
 
 interface EmptyTileProps {
   onTap: () => void;
   suggestion?: string;
+  index: number;
 }
 
-export function EmptyTile({ onTap, suggestion }: EmptyTileProps) {
+export function EmptyTile({ onTap, suggestion, index }: EmptyTileProps) {
+  const soilGradient = SOIL_COLOURS[index % SOIL_COLOURS.length];
+
   return (
     <motion.button
       onClick={onTap}
-      className="aspect-square rounded-xl bg-gradient-to-b from-[#6b4a2a] to-[#4a2a10] border-2 border-dashed border-[#8a6a4a]/40 flex flex-col items-center justify-center gap-1 relative overflow-hidden"
-      whileHover={{ scale: 1.03, borderColor: "rgba(123,179,105,0.6)" }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={`aspect-square rounded-2xl bg-gradient-to-br ${soilGradient} flex flex-col items-center justify-center gap-1.5 relative overflow-hidden border-2 border-[#D4C4A0]/40`}
+      whileHover={{ scale: 1.06, y: -3 }}
+      whileTap={{ scale: 0.92 }}
+      transition={SPRING_BOUNCY}
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      // Stagger entrance
+      style={{ animationDelay: `${index * 50}ms` }}
     >
-      {/* Soil texture dots */}
-      <div className="absolute inset-0 opacity-20">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-[#8a6a4a]"
-            style={{
-              width: `${3 + (i % 3) * 2}px`,
-              height: `${3 + (i % 3) * 2}px`,
-              left: `${15 + (i * 37) % 70}%`,
-              top: `${20 + (i * 29) % 60}%`,
-            }}
-          />
-        ))}
+      {/* Soil pattern — soft, pastel */}
+      <div className="absolute inset-0 opacity-[0.15]">
+        <div className="absolute w-6 h-4 rounded-full bg-white/40 top-[20%] left-[15%] rotate-12" />
+        <div className="absolute w-4 h-3 rounded-full bg-white/30 top-[55%] right-[20%] -rotate-6" />
+        <div className="absolute w-5 h-3 rounded-full bg-black/10 bottom-[25%] left-[40%] rotate-3" />
       </div>
 
-      <motion.span
-        className="text-white/25 text-3xl font-light"
-        animate={{ opacity: [0.15, 0.35, 0.15] }}
+      {/* Dashed inner border — inviting */}
+      <div className="absolute inset-2 rounded-xl border-2 border-dashed border-white/20" />
+
+      {/* Animated plus */}
+      <motion.div
+        className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center backdrop-blur-sm"
+        animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        +
-      </motion.span>
+        <span className="text-white/50 text-xl font-light">+</span>
+      </motion.div>
 
       {suggestion && (
-        <span className="text-[8px] text-white/30 px-2 text-center leading-tight">
+        <span className="text-[7px] text-white/40 px-3 text-center leading-tight max-w-full truncate">
           {suggestion}
         </span>
       )}
     </motion.button>
   );
 }
+
+// ─── Planted tile ───────────────────────────────────────────────────────────
 
 interface PlantedTileProps {
   variety: Variety;
@@ -86,18 +108,21 @@ interface PlantedTileProps {
   isNew?: boolean;
 }
 
-export function PlantedTile({ variety, health, onTap, onWater, onHarvest, isNew }: PlantedTileProps) {
+export function PlantedTile({ variety, health, onTap, onWater, isNew }: PlantedTileProps) {
   const [justWatered, setJustWatered] = useState(false);
   const illustration = CROP_ILLUSTRATIONS[variety.cropSlug];
 
-  const borderClass =
-    health.borderColour === "red" ? "border-tomato shadow-tomato/20" :
-    health.borderColour === "amber" ? "border-amber shadow-amber/20" :
-    "border-leaf/60 shadow-leaf/10";
-
-  const growScale = 0.4 + (health.growthPercent / 100) * 0.6;
-  const growOpacity = 0.4 + (health.growthPercent / 100) * 0.6;
+  const borderClass = HEALTH_BORDER[health.borderColour] || HEALTH_BORDER.green;
+  const glowClass = HEALTH_GLOW[health.borderColour] || "";
+  const growScale = 0.3 + (health.growthPercent / 100) * 0.7;
   const isWilted = health.needsWater && health.growthPercent > 20;
+
+  // Softer pastel background based on crop category
+  const tileBg = health.isHarvestReady
+    ? "from-[#D4E8C4] to-[#B8D4A0]"  // fresh green for harvest
+    : isWilted
+      ? "from-[#D8CDB8] to-[#C4B8A0]"  // dusty for wilted
+      : "from-[#C4D8B8] to-[#A8C4A0]";  // gentle green for growing
 
   const handleWater = (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
@@ -110,116 +135,125 @@ export function PlantedTile({ variety, health, onTap, onWater, onHarvest, isNew 
 
   return (
     <motion.div
-      className={`aspect-square rounded-xl bg-gradient-to-b from-[#6b4a2a] to-[#4a2a10] border-2 ${borderClass} shadow-lg relative overflow-hidden cursor-pointer`}
+      className={`aspect-square rounded-2xl bg-gradient-to-br ${tileBg} border-[2.5px] ${borderClass} ${glowClass} relative overflow-hidden cursor-pointer`}
       onClick={onTap}
-      initial={isNew ? { scale: 0, rotate: -10 } : false}
-      animate={{ scale: 1, rotate: 0 }}
-      whileHover={{ scale: 1.03, y: -2 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      initial={isNew ? { scale: 0, rotate: -8 } : { opacity: 0, y: 8 }}
+      animate={{ scale: 1, rotate: 0, opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.06, y: -4 }}
+      whileTap={{ scale: 0.92 }}
+      transition={SPRING_BOUNCY}
       layout
     >
+      {/* Soft highlight on top-left — gives depth like a physical tile */}
+      <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/15 to-transparent rounded-t-2xl pointer-events-none" />
+
       {/* Crop illustration */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center pb-3">
         {illustration ? (
           <motion.img
             src={illustration}
             alt={variety.name}
-            className="object-contain"
+            className="object-contain drop-shadow-md"
             style={{
-              width: `${Math.round(growScale * 70)}%`,
-              height: `${Math.round(growScale * 70)}%`,
-              opacity: growOpacity,
-              filter: isWilted ? "saturate(0.4) brightness(0.8)" : health.growthPercent < 33 ? "sepia(0.3) saturate(0.6)" : "none",
+              width: `${Math.round(growScale * 75)}%`,
+              height: `${Math.round(growScale * 75)}%`,
+              filter: isWilted ? "saturate(0.35) brightness(0.85)" : health.growthPercent < 33 ? "saturate(0.5) brightness(0.9)" : "none",
             }}
-            animate={isWilted ? { rotate: [0, -3, 0, 3, 0] } : health.isHarvestReady ? { y: [0, -3, 0] } : {}}
-            transition={isWilted ? { duration: 4, repeat: Infinity } : { duration: 2, repeat: Infinity }}
+            animate={
+              health.isHarvestReady ? { y: [0, -4, 0], rotate: [0, 2, 0, -2, 0] }
+              : isWilted ? { rotate: [0, -2, 0, 2, 0] }
+              : {}
+            }
+            transition={{ duration: health.isHarvestReady ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
           />
         ) : (
           <motion.div
-            className={`rounded-full ${health.isHarvestReady ? "bg-leaf" : "bg-leaf/50"}`}
+            className="rounded-full bg-gradient-to-br from-[#8BC47A] to-[#5A9A4A] shadow-md"
             style={{
               width: `${Math.round(growScale * 50)}%`,
               height: `${Math.round(growScale * 50)}%`,
-              opacity: growOpacity,
             }}
-            animate={health.isHarvestReady ? { scale: [1, 1.1, 1] } : {}}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={health.isHarvestReady ? { scale: [1, 1.12, 1] } : {}}
+            transition={{ duration: 1.5, repeat: Infinity }}
           />
         )}
       </div>
 
-      {/* Variety name */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-1.5 pb-1 pt-3">
-        <p className="text-[8px] text-white/80 truncate text-center font-medium">{variety.name}</p>
+      {/* Name bar at bottom — frosted glass effect */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white/30 backdrop-blur-sm px-2 py-1.5 rounded-b-[13px]">
+        <p className="text-[8px] text-[#3B2F28] font-semibold truncate text-center">{variety.name}</p>
       </div>
 
-      {/* Rarity ring indicator */}
-      <div className={`absolute inset-0 rounded-xl ring-2 ${RARITY_RING[variety.rarity]} ring-inset pointer-events-none`} />
-
-      {/* Progress bar */}
-      {!health.isHarvestReady && (
-        <div className="absolute bottom-0 left-0 right-0 h-[3px]">
-          <motion.div
-            className={`h-full ${health.borderColour === "red" ? "bg-tomato" : health.borderColour === "amber" ? "bg-amber" : "bg-leaf"}`}
-            initial={{ width: 0 }}
-            animate={{ width: `${health.growthPercent}%` }}
-            transition={{ duration: 0.5 }}
+      {/* Progress arc — subtle ring around the tile */}
+      {!health.isHarvestReady && health.growthPercent > 5 && (
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+          <circle
+            cx="50" cy="50" r="46"
+            fill="none"
+            stroke={health.borderColour === "red" ? "#D4756A" : health.borderColour === "amber" ? "#E4B870" : "#9DC48B"}
+            strokeWidth="2"
+            strokeDasharray={`${health.growthPercent * 2.89} 289`}
+            strokeLinecap="round"
+            transform="rotate(-90 50 50)"
+            opacity="0.4"
           />
-        </div>
+        </svg>
       )}
 
-      {/* Harvest ready pulse */}
+      {/* Harvest ready — bouncing badge */}
       {health.isHarvestReady && (
         <motion.div
-          className="absolute inset-0 rounded-xl border-2 border-leaf"
-          animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.02, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
+          className="absolute top-1.5 right-1.5 bg-[#5A9A4A] text-white text-[7px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-md"
+          animate={{ y: [0, -3, 0] }}
+          transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+        >
+          Ready!
+        </motion.div>
       )}
 
-      {/* Water indicator */}
+      {/* Water indicator — bouncing droplet */}
       {health.needsWater && !justWatered && (
         <motion.button
-          className="absolute top-1 right-1 text-sm z-10"
+          className="absolute top-1.5 left-1.5 w-7 h-7 rounded-full bg-[#7BA7C2]/80 flex items-center justify-center shadow-md z-10"
           onClick={handleWater}
-          whileHover={{ scale: 1.3 }}
+          whileHover={{ scale: 1.25 }}
           whileTap={{ scale: 0.8 }}
-          animate={{ y: [0, -2, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          animate={{ y: [0, -3, 0] }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
         >
-          💧
+          <span className="text-xs">💧</span>
         </motion.button>
       )}
 
-      {/* Just watered effect */}
+      {/* Watering animation */}
       <AnimatePresence>
         {justWatered && (
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {[...Array(5)].map((_, i) => (
-              <motion.span
+          <>
+            {[...Array(6)].map((_, i) => (
+              <motion.div
                 key={i}
-                className="absolute text-sm"
-                initial={{ y: -10, opacity: 1, x: (i - 2) * 12 }}
-                animate={{ y: 30, opacity: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-              >
-                💧
-              </motion.span>
+                className="absolute w-1.5 h-2 rounded-full bg-[#7BA7C2]/70"
+                initial={{ y: "20%", x: `${20 + i * 12}%`, opacity: 0.8, scale: 1 }}
+                animate={{ y: "80%", opacity: 0, scale: 0.5 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: "easeIn" }}
+              />
             ))}
-          </motion.div>
+            {/* Green shimmer after watering */}
+            <motion.div
+              className="absolute inset-0 rounded-2xl bg-[#7BB369]/15"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.4, 0] }}
+              transition={{ duration: 1.2, delay: 0.3 }}
+            />
+          </>
         )}
       </AnimatePresence>
 
-      {/* Days to harvest badge */}
+      {/* Days remaining — small pill */}
       {!health.isHarvestReady && health.growthPercent > 10 && (
-        <div className="absolute top-1 left-1">
-          <span className="text-[7px] font-bold text-white/60 bg-black/30 px-1 py-0.5 rounded">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <span className="text-[7px] font-bold text-white/70 bg-black/15 backdrop-blur-sm px-1.5 py-0.5 rounded-full">
             {health.daysToHarvest}d
           </span>
         </div>
@@ -228,55 +262,83 @@ export function PlantedTile({ variety, health, onTap, onWater, onHarvest, isNew 
   );
 }
 
-// Planting animation — plays when a new seed is planted
+// ─── Planting animation ─────────────────────────────────────────────────────
+
 export function PlantingAnimation({ onComplete, rarity }: { onComplete: () => void; rarity: string }) {
   const isRare = rarity === "rare" || rarity === "legendary";
   const isLegendary = rarity === "legendary";
 
+  const bgGradient = isLegendary
+    ? "from-[#F5E6B8] to-[#E8D090]"
+    : isRare
+      ? "from-[#E8DCC0] to-[#D4C8A8]"
+      : "from-[#C4D8B8] to-[#A8C4A0]";
+
   return (
     <motion.div
-      className="aspect-square rounded-xl bg-gradient-to-b from-[#6b4a2a] to-[#4a2a10] border-2 border-leaf/50 flex items-center justify-center relative overflow-hidden"
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className={`aspect-square rounded-2xl bg-gradient-to-br ${bgGradient} border-2 ${isLegendary ? "border-[#D4A43A]" : isRare ? "border-[#C4A870]" : "border-[#A8C490]"} flex items-center justify-center relative overflow-hidden`}
+      initial={{ scale: 0.5, opacity: 0, rotate: -5 }}
+      animate={{ scale: 1, opacity: 1, rotate: 0 }}
+      transition={SPRING_BOUNCY}
     >
       {/* Seed drops in */}
       <motion.div
-        className={`w-4 h-5 rounded-full ${isLegendary ? "bg-amber" : isRare ? "bg-amber/70" : "bg-[#8b6914]"}`}
-        initial={{ y: -60, scale: 0.5 }}
-        animate={{ y: 0, scale: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 12, delay: 0.2 }}
+        className={`w-5 h-6 rounded-[40%] ${isLegendary ? "bg-gradient-to-br from-[#D4A43A] to-[#B88A20]" : "bg-gradient-to-br from-[#A08050] to-[#806030]"} shadow-lg`}
+        initial={{ y: -50, scale: 0.3, rotate: -20 }}
+        animate={{ y: 0, scale: 1, rotate: 0 }}
+        transition={{ ...SPRING_GENTLE, delay: 0.15 }}
         onAnimationComplete={onComplete}
       />
 
       {/* Sparkles for rare+ */}
       {isRare && (
         <>
-          {[...Array(isLegendary ? 8 : 4)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={`absolute w-1.5 h-1.5 rounded-full ${isLegendary ? "bg-amber" : "bg-amber/60"}`}
-              initial={{ scale: 0, x: 0, y: 0 }}
-              animate={{
-                scale: [0, 1, 0],
-                x: Math.cos((i / (isLegendary ? 8 : 4)) * Math.PI * 2) * 30,
-                y: Math.sin((i / (isLegendary ? 8 : 4)) * Math.PI * 2) * 30 - 10,
-              }}
-              transition={{ duration: 0.8, delay: 0.5 + i * 0.05 }}
-            />
-          ))}
+          {[...Array(isLegendary ? 10 : 5)].map((_, i) => {
+            const angle = (i / (isLegendary ? 10 : 5)) * Math.PI * 2;
+            return (
+              <motion.div
+                key={i}
+                className={`absolute w-2 h-2 rounded-full ${isLegendary ? "bg-[#FFD700]" : "bg-[#D4A43A]/60"}`}
+                initial={{ scale: 0, x: 0, y: 0 }}
+                animate={{
+                  scale: [0, 1.2, 0],
+                  x: Math.cos(angle) * 35,
+                  y: Math.sin(angle) * 35 - 5,
+                }}
+                transition={{ duration: 0.7, delay: 0.4 + i * 0.04 }}
+              />
+            );
+          })}
         </>
       )}
 
-      {/* Legendary glow */}
+      {/* Legendary golden glow */}
       {isLegendary && (
         <motion.div
-          className="absolute inset-0 rounded-xl"
-          initial={{ boxShadow: "0 0 0 0 rgba(255,200,0,0)" }}
-          animate={{ boxShadow: ["0 0 0 0 rgba(255,200,0,0)", "0 0 30px 10px rgba(255,200,0,0.3)", "0 0 0 0 rgba(255,200,0,0)"] }}
-          transition={{ duration: 1.5, delay: 0.4 }}
+          className="absolute inset-[-4px] rounded-2xl"
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: [0, 0.6, 0],
+            boxShadow: ["0 0 0 0 rgba(255,215,0,0)", "0 0 40px 15px rgba(255,215,0,0.3)", "0 0 0 0 rgba(255,215,0,0)"],
+          }}
+          transition={{ duration: 1.2, delay: 0.3 }}
         />
       )}
+
+      {/* Soil splash particles */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={`soil-${i}`}
+          className="absolute w-1.5 h-1.5 rounded-full bg-[#A08050]/50"
+          initial={{ scale: 0, x: 0, y: 0 }}
+          animate={{
+            scale: [0, 1, 0],
+            x: (i - 3) * 12 + Math.random() * 8,
+            y: 15 + Math.random() * 10,
+          }}
+          transition={{ duration: 0.5, delay: 0.25 + i * 0.03 }}
+        />
+      ))}
     </motion.div>
   );
 }

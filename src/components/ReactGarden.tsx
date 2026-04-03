@@ -222,26 +222,32 @@ export default function ReactGarden() {
           </div>
         )}
 
-        {/* Alerts */}
+        {/* Alerts — soft, rounded, Nintendo-style speech bubbles */}
         {alerts.length > 0 && (
-          <div className="px-3 py-2 space-y-1.5 bg-cream border-b border-earth/10">
+          <div className="px-4 py-3 space-y-2 bg-[#F8F4EA]">
             {visibleAlerts.map((a, i) => (
-              <div key={i} className={`flex items-start gap-2 px-3 py-2 rounded border text-xs ${ALERT_BG[a.priority]}`}>
-                <span className="shrink-0 mt-0.5">{ALERT_ICON[a.type]}</span>
+              <motion.div
+                key={i}
+                className={`flex items-start gap-2.5 px-4 py-3 rounded-2xl border text-[13px] ${ALERT_BG[a.priority]}`}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <span className="shrink-0 text-base mt-0.5">{ALERT_ICON[a.type]}</span>
                 <p className="text-earth leading-relaxed">{a.message}</p>
-              </div>
+              </motion.div>
             ))}
             {alerts.length > 2 && !showAllAlerts && (
-              <button onClick={() => setShowAllAlerts(true)} className="text-[10px] text-allotment font-semibold hover:underline px-3">
+              <button onClick={() => setShowAllAlerts(true)} className="text-[11px] text-allotment font-semibold hover:underline px-4">
                 +{alerts.length - 2} more
               </button>
             )}
           </div>
         )}
 
-        {/* Garden grid */}
-        <div className="flex-1 px-3 py-4 sm:px-6 sm:py-6">
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-3 max-w-lg mx-auto">
+        {/* Garden grid — generous spacing, centred */}
+        <div className="flex-1 px-4 py-5 sm:px-8 sm:py-8 bg-gradient-to-b from-[#F5EFE0] to-[#EDE7D8]">
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 max-w-md mx-auto">
             {Array.from({ length: garden.garden.settings.totalSlots }).map((_, i) => {
               const plot = garden.activePlots.find((p) => p.slotIndex === i);
               const variety = plot ? getVarietyById(plot.varietyId) : null;
@@ -265,6 +271,7 @@ export default function ReactGarden() {
                     key={`empty-${i}`}
                     onTap={() => handleEmptyTap(i)}
                     suggestion={suggestions[i]}
+                    index={i}
                   />
                 );
               }
@@ -290,8 +297,8 @@ export default function ReactGarden() {
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="flex items-center justify-center gap-6 px-4 py-2.5 bg-cream border-t border-earth/8 text-[11px] text-earth-lighter">
+        {/* Stats — soft rounded pills */}
+        <div className="flex items-center justify-center gap-4 px-4 py-3 bg-[#F0EAD8] text-[11px] text-earth-lighter">
           <span><strong className="text-earth">{garden.garden.collection.length}</strong> / {varieties.length} found</span>
           <span><strong className="text-earth">{garden.activePlots.length}</strong> growing</span>
           <span><strong className="text-earth">{garden.harvestedPlots.length}</strong> harvested</span>
