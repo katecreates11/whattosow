@@ -190,10 +190,10 @@ export default function ReactGarden() {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-[calc(100vh-64px)] bg-[#F5EFE0]">
+    <div className="min-h-[calc(100vh-64px)] bg-[#F2EDE4]">
 
-      {/* ═══ LEFT: Garden ═══ */}
-      <div className="flex-1 flex flex-col min-w-0">
+      {/* ═══ Garden ═══ */}
+      <div>
 
         {/* Weather bar */}
         {weather && (
@@ -248,7 +248,19 @@ export default function ReactGarden() {
         )}
 
         {/* Garden scene — sky, grass, weather, creatures, raised bed frame */}
-        <GardenScene weather={weather} cropCount={garden.activePlots.length}>
+        <GardenScene
+          weather={weather}
+          cropCount={garden.activePlots.length}
+          infoBoard={<InfoBoardContent
+            activePlots={garden.activePlots}
+            healthMap={healthMap}
+            garden={garden}
+            handleWater={handleWater}
+            setInfoPanel={setInfoPanel}
+            sowableByCrop={sowableByCrop}
+            weather={weather}
+          />}
+        >
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-2.5">
             {Array.from({ length: garden.garden.settings.totalSlots }).map((_, i) => {
               const plot = garden.activePlots.find((p) => p.slotIndex === i);
@@ -303,8 +315,8 @@ export default function ReactGarden() {
         </div>
       </div>
 
-      {/* ═══ RIGHT: Info Board — cork noticeboard ═══ */}
-      <div className="lg:w-80 cork-board border-t lg:border-t-0 lg:border-l border-earth/15 overflow-y-auto paper-grain">
+      {/* Old sidebar removed — info board is now part of the scene */}
+      <div className="hidden">
         {/* Board header — wooden frame top */}
         <div className="bg-gradient-to-r from-[#6A4018] via-[#7a5020] to-[#6A4018] px-4 py-3 shadow-md">
           <h2 className="text-xs font-bold tracking-[0.15em] uppercase text-white/80 embossed">📌 Allotment Noticeboard</h2>
@@ -633,6 +645,95 @@ export default function ReactGarden() {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+// ─── Info Board Content (rendered inside the shed noticeboard) ───────────────
+
+function InfoBoardContent({
+  activePlots,
+  healthMap,
+  garden,
+  handleWater,
+  setInfoPanel,
+  sowableByCrop,
+  weather,
+}: {
+  activePlots: any[];
+  healthMap: Map<string, CropHealthResult>;
+  garden: any;
+  handleWater: (slotIndex: number) => void;
+  setInfoPanel: (panel: any) => void;
+  sowableByCrop: Record<string, Variety[]>;
+  weather: WeatherState | null;
+}) {
+  return (
+    <div className="space-y-3">
+      {/* Your crops */}
+      {activePlots.length > 0 ? (
+        <div>
+          <span className="text-[8px] font-bold tracking-[0.1em] uppercase text-[#6A5030] block mb-1.5">Your crops</span>
+          <div className="space-y-1.5">
+            {activePlots.map((plot: any) => {
+              const v = getVarietyById(plot.varietyId);
+              const h = healthMap.get(plot.varietyId);
+              if (!v || !h) return null;
+              const bc = h.borderColour === "red" ? "border-l-tomato" : h.borderColour === "amber" ? "border-l-amber" : "border-l-leaf";
+              return (
+                <div
+                  key={plot.slotIndex}
+                  className={`seed-packet pinned relative flex items-center gap-2 p-1.5 rounded border-l-2 ${bc} cursor-pointer text-[10px]`}
+                  onClick={() => setInfoPanel({ type: h.isHarvestReady ? "harvest" : "plant-info", varietyId: v.id, slotIndex: plot.slotIndex })}
+                >
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-earth truncate">{v.name}</p>
+                    <p className="text-[8px] text-earth-lighter">{h.statusMessage}</p>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    {h.needsWater && garden.canTend(plot.slotIndex) && (
+                      <button onClick={(e) => { e.stopPropagation(); handleWater(plot.slotIndex); }} className="text-xs hover:scale-125 transition-transform">💧</button>
+                    )}
+                    {h.isHarvestReady ? (
+                      <span className="text-[7px] font-bold text-leaf stamp">Ready</span>
+                    ) : (
+                      <span className="text-[8px] text-earth-lighter">{h.daysToHarvest}d</span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <p className="text-[9px] text-earth-lighter italic text-center py-3">Plant a seed to get started</p>
+      )}
+
+      {/* Sow this week */}
+      <div>
+        <span className="text-[8px] font-bold tracking-[0.1em] uppercase text-[#6A5030] block mb-1.5">🌱 Sow now</span>
+        <div className="space-y-1">
+          {Object.entries(sowableByCrop).slice(0, 4).map(([name, vars]) => {
+            const crop = crops.find((c) => c.name === name);
+            return (
+              <div key={name} className="text-[9px] text-earth-light">
+                <span className="font-semibold text-earth">{name}</span>
+                <span className="text-earth-lighter"> · {vars.length} var</span>
+                {crop && <p className="text-[8px] text-earth-lighter">{getSowContext(crop)}</p>}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Weather */}
+      {weather && (
+        <div className="text-center py-1">
+          <span className="text-lg">{weather.weatherCode <= 1 ? "☀️" : weather.weatherCode <= 3 ? "☁️" : weather.weatherCode >= 51 ? "🌧️" : "⛅"}</span>
+          <p className="text-[10px] font-semibold text-earth">{Math.round(weather.temperature)}°C</p>
+          <p className="text-[8px] text-earth-lighter">{weather.description}</p>
+        </div>
+      )}
     </div>
   );
 }
