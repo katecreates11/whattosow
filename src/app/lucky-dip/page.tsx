@@ -1,24 +1,22 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import LuckyDipClient from "./LuckyDipClient";
+import ReactGarden from "@/components/ReactGarden";
 
 export const metadata: Metadata = {
-  title: "Lucky Dip — Not Sure What to Grow? | What To Sow",
+  title: "My Allotment — Your Garden Dashboard | What To Sow",
   description:
-    "Plant a mystery seed and discover what to grow. A fun way to find your next crop — personalised to what's sowable right now in the UK.",
+    "Your personalised allotment dashboard. Plant seeds, track growth, get weather-based advice, and discover new varieties. Free for every UK postcode.",
   keywords: [
+    "allotment planner",
+    "garden planner UK",
     "what to grow now UK",
     "what should I plant",
-    "random vegetable to grow",
+    "allotment dashboard",
     "seed lucky dip",
-    "garden lucky dip",
-    "what to grow on an allotment",
   ],
   openGraph: {
-    title: "Lucky Dip — Not Sure What to Grow?",
-    description:
-      "Plant a mystery seed and discover what to grow next. Personalised to what's in season right now.",
+    title: "My Allotment — Your Garden Dashboard",
+    description: "Plant seeds, track growth, get personalised weather advice. Free for every UK postcode.",
     type: "website",
     url: "https://whattosow.co.uk/lucky-dip",
   },
@@ -27,12 +25,11 @@ export const metadata: Metadata = {
 
 export default function LuckyDipPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-[#F5EFE0]">
       <Header />
       <main id="main-content">
-        <LuckyDipClient />
+        <ReactGarden />
       </main>
-      <Footer />
     </div>
   );
 }

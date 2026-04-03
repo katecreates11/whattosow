@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import MyGardenClient from "./MyGardenClient";
+import ReactGarden from "@/components/ReactGarden";
 
 export const metadata: Metadata = {
-  title: "My Garden — Your Virtual Allotment | What To Sow",
+  title: "My Garden — Your Allotment Dashboard | What To Sow",
   description:
-    "Your personal allotment planner. Collect varieties, plant your garden, and track your harvest. A virtual plot that grows with you.",
+    "Your personalised allotment dashboard. Track your crops, get weather-based watering and harvest reminders, and discover new varieties to grow.",
   keywords: [
     "allotment planner",
     "garden planner UK",
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
     "allotment tracker",
   ],
   openGraph: {
-    title: "My Garden — Your Virtual Allotment",
-    description: "Collect varieties, plant your garden, and track your harvest.",
+    title: "My Garden — Your Allotment Dashboard",
+    description: "Track your crops, get weather-based reminders, and discover new varieties.",
     type: "website",
     url: "https://whattosow.co.uk/my-garden",
   },
@@ -25,12 +24,11 @@ export const metadata: Metadata = {
 
 export default function MyGardenPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-[#F5EFE0]">
       <Header />
       <main id="main-content">
-        <MyGardenClient />
+        <ReactGarden />
       </main>
-      <Footer />
     </div>
   );
 }
