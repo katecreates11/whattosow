@@ -59,7 +59,7 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
         : "bg-transparent";
 
   return (
-    <div className="relative w-full" style={{ aspectRatio: "16/10", maxHeight: "calc(100vh - 80px)", minHeight: "400px" }}>
+    <div className="relative w-full" style={{ aspectRatio: "16/9", minHeight: "500px", maxHeight: "calc(100vh - 70px)" }}>
 
       {/* ═══ THE SCENE — one complete illustration ═══ */}
       <div className="absolute inset-0 overflow-hidden">
@@ -115,12 +115,12 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           />
         ))}
 
-        {/* The illustration — no sky, positioned at the bottom */}
+        {/* The illustration — no sky, fills the bottom portion edge to edge */}
         <img
           src="/images/game/allotment-nosky.png"
           alt="Your allotment"
-          className="absolute bottom-0 left-0 w-full object-contain object-bottom"
-          style={{ maxHeight: "65%" }}
+          className="absolute bottom-0 left-0 w-full object-cover object-top"
+          style={{ height: "60%" }}
         />
 
         {/* Time-of-day colour wash */}
@@ -157,12 +157,10 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           📌 {showBoard ? "Close" : "Board"}
         </button>
 
-        {/* The garden tiles — mapped onto the raised bed areas */}
-        <div className="flex-1 flex items-end px-[3%] sm:px-[4%] pb-[4%] sm:pb-[6%]">
-          <div className="w-[65%] sm:w-[60%]">
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-[2%]">
-              {children}
-            </div>
+        {/* The garden tiles — positioned over the raised beds in the illustration */}
+        <div className="absolute bottom-[8%] left-[2%] right-[30%] sm:bottom-[10%] sm:left-[3%] sm:right-[32%] z-10">
+          <div className="grid grid-cols-4 sm:grid-cols-5 gap-[3%] sm:gap-[2.5%]">
+            {children}
           </div>
         </div>
       </div>
