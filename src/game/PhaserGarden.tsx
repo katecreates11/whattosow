@@ -152,7 +152,7 @@ export default function PhaserGarden() {
     (col: number, row: number, varietyId: string) => {
       const scene = getScene();
       if (scene) scene.harvestPlant(col, row);
-      const slotIndex = row * 4 + col;
+      const slotIndex = row * 6 + col; // max cols
       garden.harvest(slotIndex);
       setInfoPanel(null);
 
@@ -189,8 +189,8 @@ export default function PhaserGarden() {
     import("phaser").then((Phaser) => {
       import("./GardenScene").then(({ default: GardenScene }) => {
         const containerWidth = gameRef.current!.clientWidth;
-        const gameWidth = Math.min(containerWidth, 500);
-        const gameHeight = Math.min(window.innerHeight * 0.65, 480);
+        const gameWidth = Math.min(containerWidth, 700);
+        const gameHeight = Math.min(window.innerHeight - 160, 600); // Fill viewport minus header/controls
 
         const game = new Phaser.Game({
           type: Phaser.AUTO,
@@ -296,7 +296,7 @@ export default function PhaserGarden() {
         <div
           ref={gameRef}
           className="flex-1 flex justify-center bg-[#F5EFE0] overflow-hidden"
-          style={{ minHeight: "380px" }}
+          style={{ minHeight: "350px", maxHeight: "600px" }}
         />
 
         {/* Stats bar */}

@@ -1,10 +1,11 @@
 import Phaser from "phaser";
 
-// Grid configuration
-const COLS = 4;
-const ROWS = 3;
-const TILE_SIZE = 88;
-const TILE_GAP = 6;
+// Grid configuration — calculated dynamically in create()
+const TILE_GAP = 5;
+const MIN_TILE = 64;
+const MAX_TILE = 96;
+const GRID_PADDING = 20; // padding inside the raised bed frame
+const FRAME_PAD = 14; // wood frame thickness
 
 // Growth stages
 type GrowthStage = "empty" | "seed" | "sprout" | "growing" | "ready";
@@ -60,15 +61,44 @@ export default class GardenScene extends Phaser.Scene {
     this.callbacks = data.callbacks;
   }
 
+  private cols = 4;
+  private rows = 3;
+  private tileSize = 80;
+
   create() {
     const { width, height } = this.scale;
     this.cameras.main.setBackgroundColor(0xf5efe0);
 
-    // Calculate grid position
-    const gridWidth = COLS * TILE_SIZE + (COLS - 1) * TILE_GAP;
-    const gridHeight = ROWS * TILE_SIZE + (ROWS - 1) * TILE_GAP;
+    // Calculate optimal grid size to fill available space
+    const availW = width - GRID_PADDING * 2 - FRAME_PAD * 2;
+    const availH = height - GRID_PADDING * 2 - FRAME_PAD * 2 - 20; // 20px for title
+
+    // Try different column counts and pick the one that fills best
+    let bestCols = 4;
+    let bestRows = 3;
+    let bestTile = MIN_TILE;
+
+    for (let c = 4; c <= 6; c++) {
+      const tileW = Math.floor((availW - (c - 1) * TILE_GAP) / c);
+      const ts = Math.min(Math.max(tileW, MIN_TILE), MAX_TILE);
+      const r = Math.floor((availH + TILE_GAP) / (ts + TILE_GAP));
+      const clampedR = Math.max(3, Math.min(r, 5));
+
+      if (ts >= bestTile || (c * clampedR > bestCols * bestRows)) {
+        bestCols = c;
+        bestRows = clampedR;
+        bestTile = ts;
+      }
+    }
+
+    this.cols = bestCols;
+    this.rows = bestRows;
+    this.tileSize = bestTile;
+
+    const gridWidth = this.cols * this.tileSize + (this.cols - 1) * TILE_GAP;
+    const gridHeight = this.rows * this.tileSize + (this.rows - 1) * TILE_GAP;
     this.gridOffsetX = (width - gridWidth) / 2;
-    this.gridOffsetY = (height - gridHeight) / 2;
+    this.gridOffsetY = (height - gridHeight) / 2 + 10;
 
     // Draw raised bed border — layered for depth
     this.drawRaisedBed(gridWidth, gridHeight);
@@ -80,10 +110,10 @@ export default class GardenScene extends Phaser.Scene {
     this.plots = [];
     this.tileContainers = [];
 
-    for (let row = 0; row < ROWS; row++) {
+    for (let row = 0; row < this.rows; row++) {
       this.plots[row] = [];
       this.tileContainers[row] = [];
-      for (let col = 0; col < COLS; col++) {
+      for (let col = 0; col < this.cols; col++) {
         this.plots[row][col] = {
           col, row,
           varietyId: null,
@@ -93,8 +123,8 @@ export default class GardenScene extends Phaser.Scene {
           growthStage: "empty",
         };
 
-        const x = this.gridOffsetX + col * (TILE_SIZE + TILE_GAP);
-        const y = this.gridOffsetY + row * (TILE_SIZE + TILE_GAP);
+        const x = this.gridOffsetX + col * (this.tileSize + TILE_GAP);
+        const y = this.gridOffsetY + row * (this.tileSize + TILE_GAP);
         const container = this.createEmptyTile(x, y, col, row);
         this.tileContainers[row][col] = container;
       }
@@ -209,13 +239,13 @@ export default class GardenScene extends Phaser.Scene {
 
     // Base soil
     g.fillStyle(SOIL_BASE, 1);
-    g.fillRoundedRect(x, y, TILE_SIZE, TILE_SIZE, 6);
+    g.fillRoundedRect(x, y, this.tileSize, this.tileSize, 6);
 
     // Random soil texture — darker patches
     const rng = new Phaser.Math.RandomDataGenerator([`${x}-${y}`]);
     for (let i = 0; i < 5; i++) {
-      const px = x + rng.between(8, TILE_SIZE - 8);
-      const py = y + rng.between(8, TILE_SIZE - 8);
+      const px = x + rng.between(8, this.tileSize - 8);
+      const py = y + rng.between(8, this.tileSize - 8);
       const ps = rng.between(4, 12);
       g.fillStyle(rng.pick([SOIL_DARK, SOIL_LIGHT]), 0.3);
       g.fillEllipse(px, py, ps, ps * 0.7);
@@ -225,13 +255,13 @@ export default class GardenScene extends Phaser.Scene {
     g.lineStyle(1, SOIL_LIGHT, 0.15);
     for (let i = 0; i < 3; i++) {
       const ly = y + 15 + i * 25 + rng.between(-3, 3);
-      g.lineBetween(x + 6, ly, x + TILE_SIZE - 6, ly + rng.between(-2, 2));
+      g.lineBetween(x + 6, ly, x + this.tileSize - 6, ly + rng.between(-2, 2));
     }
 
     // Tiny pebbles
     for (let i = 0; i < 3; i++) {
-      const px = x + rng.between(10, TILE_SIZE - 10);
-      const py = y + rng.between(10, TILE_SIZE - 10);
+      const px = x + rng.between(10, this.tileSize - 10);
+      const py = y + rng.between(10, this.tileSize - 10);
       g.fillStyle(0x8a7a6a, 0.25);
       g.fillCircle(px, py, rng.between(1, 3));
     }
@@ -247,7 +277,7 @@ export default class GardenScene extends Phaser.Scene {
     container.add(soil);
 
     // Plus icon — gentle, inviting
-    const plus = this.add.text(x + TILE_SIZE / 2, y + TILE_SIZE / 2, "+", {
+    const plus = this.add.text(x + this.tileSize / 2, y + this.tileSize / 2, "+", {
       fontFamily: "Inter, sans-serif",
       fontSize: "24px",
       color: "#ffffff",
@@ -258,12 +288,12 @@ export default class GardenScene extends Phaser.Scene {
     // Hover glow outline (hidden by default)
     const hoverOutline = this.add.graphics();
     hoverOutline.lineStyle(2, 0x7bb369, 0.6);
-    hoverOutline.strokeRoundedRect(x - 1, y - 1, TILE_SIZE + 2, TILE_SIZE + 2, 7);
+    hoverOutline.strokeRoundedRect(x - 1, y - 1, this.tileSize + 2, this.tileSize + 2, 7);
     hoverOutline.setAlpha(0);
     container.add(hoverOutline);
 
     // Hit zone
-    const hitZone = this.add.zone(x + TILE_SIZE / 2, y + TILE_SIZE / 2, TILE_SIZE, TILE_SIZE);
+    const hitZone = this.add.zone(x + this.tileSize / 2, y + this.tileSize / 2, this.tileSize, this.tileSize);
     hitZone.setInteractive({ useHandCursor: true });
 
     hitZone.on("pointerover", () => {
@@ -304,8 +334,8 @@ export default class GardenScene extends Phaser.Scene {
     plot.rarity = rarity;
     plot.growthStage = "seed";
 
-    const x = this.gridOffsetX + col * (TILE_SIZE + TILE_GAP);
-    const y = this.gridOffsetY + row * (TILE_SIZE + TILE_GAP);
+    const x = this.gridOffsetX + col * (this.tileSize + TILE_GAP);
+    const y = this.gridOffsetY + row * (this.tileSize + TILE_GAP);
 
     // Destroy old tile
     this.tileContainers[row][col].destroy(true);
@@ -321,30 +351,30 @@ export default class GardenScene extends Phaser.Scene {
     const rarityCol = RARITY_BORDER[rarity] || 0x8b7d74;
     const borderGlow = this.add.graphics();
     borderGlow.lineStyle(2, rarityCol, 0.7);
-    borderGlow.strokeRoundedRect(x, y, TILE_SIZE, TILE_SIZE, 6);
+    borderGlow.strokeRoundedRect(x, y, this.tileSize, this.tileSize, 6);
     borderGlow.setAlpha(0);
     container.add(borderGlow);
 
     // Seed dot — starts invisible, animates in
-    const cx = x + TILE_SIZE / 2;
-    const cy = y + TILE_SIZE / 2 - 4;
+    const cx = x + this.tileSize / 2;
+    const cy = y + this.tileSize / 2 - 4;
     const seedDot = this.add.ellipse(cx, cy, 10, 8, 0x8b6914);
     seedDot.setScale(0).setAlpha(0);
     container.add(seedDot);
 
     // Variety name label
-    const label = this.add.text(x + TILE_SIZE / 2, y + TILE_SIZE - 6, varietyName || "", {
+    const label = this.add.text(x + this.tileSize / 2, y + this.tileSize - 6, varietyName || "", {
       fontFamily: "Inter, sans-serif",
       fontSize: "8px",
       color: "#d4c4a0",
       align: "center",
     });
     label.setOrigin(0.5, 1).setAlpha(0);
-    label.setWordWrapWidth(TILE_SIZE - 8);
+    label.setWordWrapWidth(this.tileSize - 8);
     container.add(label);
 
     // Hit zone for interactions
-    const hitZone = this.add.zone(x + TILE_SIZE / 2, y + TILE_SIZE / 2, TILE_SIZE, TILE_SIZE);
+    const hitZone = this.add.zone(x + this.tileSize / 2, y + this.tileSize / 2, this.tileSize, this.tileSize);
     hitZone.setInteractive({ useHandCursor: true });
     hitZone.on("pointerdown", () => {
       if (plot.growthStage === "ready") {
@@ -453,7 +483,7 @@ export default class GardenScene extends Phaser.Scene {
       this.time.delayedCall(500, () => {
         const flash = this.add.graphics();
         flash.fillStyle(0xffc800, 0.3);
-        flash.fillRoundedRect(x - 2, y - 2, TILE_SIZE + 4, TILE_SIZE + 4, 8);
+        flash.fillRoundedRect(x - 2, y - 2, this.tileSize + 4, this.tileSize + 4, 8);
         this.tweens.add({
           targets: flash,
           alpha: 0,
@@ -474,8 +504,8 @@ export default class GardenScene extends Phaser.Scene {
     plot.growthStage = stage;
 
     const container = this.tileContainers[row][col];
-    const cx = this.gridOffsetX + col * (TILE_SIZE + TILE_GAP) + TILE_SIZE / 2;
-    const cy = this.gridOffsetY + row * (TILE_SIZE + TILE_GAP) + TILE_SIZE / 2 - 4;
+    const cx = this.gridOffsetX + col * (this.tileSize + TILE_GAP) + this.tileSize / 2;
+    const cy = this.gridOffsetY + row * (this.tileSize + TILE_GAP) + this.tileSize / 2 - 4;
 
     // Find the seed dot (ellipse)
     const seedDot = container.list.find(
@@ -566,10 +596,10 @@ export default class GardenScene extends Phaser.Scene {
     const plot = this.plots[row]?.[col];
     if (!plot) return;
 
-    const x = this.gridOffsetX + col * (TILE_SIZE + TILE_GAP);
-    const y = this.gridOffsetY + row * (TILE_SIZE + TILE_GAP);
-    const cx = x + TILE_SIZE / 2;
-    const cy = y + TILE_SIZE / 2;
+    const x = this.gridOffsetX + col * (this.tileSize + TILE_GAP);
+    const y = this.gridOffsetY + row * (this.tileSize + TILE_GAP);
+    const cx = x + this.tileSize / 2;
+    const cy = y + this.tileSize / 2;
     const container = this.tileContainers[row][col];
     const rarityCol = RARITY_COLOURS[plot.rarity || "common"];
 
@@ -660,8 +690,8 @@ export default class GardenScene extends Phaser.Scene {
    * Show rarity reveal text floating above a tile — the in-canvas "Nice find!" moment.
    */
   showRarityReveal(col: number, row: number, rarity: string, varietyName: string) {
-    const x = this.gridOffsetX + col * (TILE_SIZE + TILE_GAP) + TILE_SIZE / 2;
-    const y = this.gridOffsetY + row * (TILE_SIZE + TILE_GAP);
+    const x = this.gridOffsetX + col * (this.tileSize + TILE_GAP) + this.tileSize / 2;
+    const y = this.gridOffsetY + row * (this.tileSize + TILE_GAP);
 
     const labels: Record<string, string> = {
       common: "A good pick",
@@ -762,12 +792,12 @@ export default class GardenScene extends Phaser.Scene {
    */
   private addWelcomePulse() {
     // Pulse the centre tile (row 1, col 1 or 2)
-    const targetCol = Math.floor(COLS / 2);
-    const targetRow = Math.floor(ROWS / 2);
-    const x = this.gridOffsetX + targetCol * (TILE_SIZE + TILE_GAP);
-    const y = this.gridOffsetY + targetRow * (TILE_SIZE + TILE_GAP);
-    const cx = x + TILE_SIZE / 2;
-    const cy = y + TILE_SIZE / 2;
+    const targetCol = Math.floor(this.cols / 2);
+    const targetRow = Math.floor(this.rows / 2);
+    const x = this.gridOffsetX + targetCol * (this.tileSize + TILE_GAP);
+    const y = this.gridOffsetY + targetRow * (this.tileSize + TILE_GAP);
+    const cx = x + this.tileSize / 2;
+    const cy = y + this.tileSize / 2;
 
     // Expanding ring pulse
     const createRing = () => {
