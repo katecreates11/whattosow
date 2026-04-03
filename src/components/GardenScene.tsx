@@ -64,48 +64,143 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
   return (
     <div className="relative min-h-[500px] sm:min-h-[600px] overflow-hidden" style={{ background: "#F2EDE4" }}>
 
-      {/* ═══ SKY ═══ */}
-      <div className={`absolute inset-0 bg-gradient-to-b ${SKY_GRADIENTS[time]} transition-colors duration-[5000ms]`} />
+      {/* ═══ SKY — dramatic, weather-driven ═══ */}
+      <div className={`absolute inset-0 transition-colors duration-[5000ms] ${
+        isRaining ? "bg-gradient-to-b from-[#6A7A88] via-[#8A98A4] to-[#A8B4BC]"
+        : isCloudy ? "bg-gradient-to-b from-[#90A0B0] via-[#B0BCC8] to-[#C8D0D8]"
+        : `bg-gradient-to-b ${SKY_GRADIENTS[time]}`
+      }`} />
 
-      {/* Sun */}
-      {isSunny && !isNight && (
-        <motion.div
-          className="absolute top-8 right-[15%] w-16 h-16 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #FFE484 30%, #FFD040 60%, transparent 70%)",
-            boxShadow: "0 0 60px 20px rgba(255,228,132,0.25)",
-          }}
-          animate={{ y: [0, -4, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
+      {/* Rainy/overcast overlay — darkens the whole scene */}
+      {isRaining && (
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4A5A68]/30 to-transparent pointer-events-none z-[1]" />
       )}
 
-      {/* Stars */}
+      {/* ═══ SUN — prominent golden warmth ═══ */}
+      {isSunny && !isNight && (
+        <>
+          {/* Sun body */}
+          <motion.div
+            className="absolute top-6 sm:top-8 right-[12%] sm:right-[18%] w-20 h-20 sm:w-24 sm:h-24 rounded-full"
+            style={{
+              background: "radial-gradient(circle, #FFF8E0 15%, #FFE484 35%, #FFD040 55%, rgba(255,208,64,0) 70%)",
+              boxShadow: "0 0 80px 40px rgba(255,228,132,0.3), 0 0 160px 80px rgba(255,208,64,0.1)",
+            }}
+            animate={{ y: [0, -5, 0], scale: [1, 1.03, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Sun rays — warm wash over the whole scene */}
+          <div className="absolute inset-0 bg-gradient-to-bl from-[#FFE484]/10 via-transparent to-transparent pointer-events-none" />
+          {/* Animated light rays */}
+          <motion.div
+            className="absolute top-0 right-0 w-[60%] h-[60%] pointer-events-none"
+            style={{
+              background: "conic-gradient(from 200deg, transparent, rgba(255,228,132,0.06), transparent, rgba(255,228,132,0.04), transparent)",
+            }}
+            animate={{ rotate: [0, 10, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+        </>
+      )}
+
+      {/* ═══ STARS — twinkling night sky ═══ */}
       {isNight && (
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {/* Moon */}
+          <motion.div
+            className="absolute top-8 right-[20%] w-14 h-14 rounded-full"
+            style={{
+              background: "radial-gradient(circle at 40% 35%, #F8F4E8, #E8E0C8)",
+              boxShadow: "0 0 40px 15px rgba(248,244,232,0.15)",
+            }}
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 10, repeat: Infinity }}
+          />
+          {[...Array(30)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 rounded-full bg-white"
-              style={{ left: `${8 + (i * 41) % 84}%`, top: `${3 + (i * 19) % 25}%` }}
-              animate={{ opacity: [0.2, 0.7, 0.2] }}
-              transition={{ duration: 2 + (i % 3), repeat: Infinity, delay: i * 0.4 }}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: `${1 + (i % 3)}px`,
+                height: `${1 + (i % 3)}px`,
+                left: `${5 + (i * 31) % 90}%`,
+                top: `${2 + (i * 17) % 30}%`,
+              }}
+              animate={{ opacity: [0.15, 0.6 + (i % 3) * 0.15, 0.15] }}
+              transition={{ duration: 1.5 + (i % 4), repeat: Infinity, delay: i * 0.3 }}
             />
           ))}
         </div>
       )}
 
-      {/* Clouds */}
-      {isCloudy && !isNight && (
+      {/* ═══ CLOUDS — big, atmospheric, weather-appropriate ═══ */}
+      {!isNight && (
         <>
-          <Cloud y={6} size={90} speed={50} delay={0} />
-          <Cloud y={3} size={65} speed={60} delay={12} />
-          <Cloud y={10} size={75} speed={45} delay={6} />
+          {/* Fair weather — small fluffy clouds */}
+          {isSunny && (
+            <>
+              <Cloud y={5} size={100} speed={70} delay={0} opacity={0.5} dark={false} />
+              <Cloud y={8} size={70} speed={80} delay={20} opacity={0.4} dark={false} />
+            </>
+          )}
+          {/* Overcast — larger, greyer clouds covering more sky */}
+          {isCloudy && !isRaining && (
+            <>
+              <Cloud y={2} size={160} speed={55} delay={0} opacity={0.7} dark={true} />
+              <Cloud y={6} size={130} speed={45} delay={8} opacity={0.6} dark={true} />
+              <Cloud y={0} size={180} speed={60} delay={15} opacity={0.5} dark={true} />
+              <Cloud y={9} size={120} speed={50} delay={4} opacity={0.55} dark={true} />
+            </>
+          )}
+          {/* Rain clouds — dark, heavy, low */}
+          {isRaining && (
+            <>
+              <Cloud y={0} size={200} speed={40} delay={0} opacity={0.8} dark={true} />
+              <Cloud y={3} size={180} speed={35} delay={5} opacity={0.75} dark={true} />
+              <Cloud y={6} size={160} speed={45} delay={10} opacity={0.7} dark={true} />
+              <Cloud y={1} size={190} speed={38} delay={15} opacity={0.65} dark={true} />
+              <Cloud y={8} size={140} speed={42} delay={3} opacity={0.6} dark={true} />
+            </>
+          )}
         </>
       )}
 
-      {/* Rain */}
-      {isRaining && <RainEffect />}
+      {/* ═══ RAIN — heavy, visible, atmospheric ═══ */}
+      {isRaining && <RainEffect heavy={true} />}
+
+      {/* ═══ WEATHER INFO — floating in the sky ═══ */}
+      {weather && (
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20">
+          <motion.div
+            className="bg-white/20 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/20"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-2xl">{
+                isRaining ? "🌧️" : isCloudy ? "☁️" : isSunny ? "☀️" : isNight ? "🌙" : "⛅"
+              }</span>
+              <div>
+                <span className="text-lg font-bold text-white drop-shadow-sm">{Math.round(weather.temperature)}°C</span>
+                <p className="text-[10px] text-white/80 leading-tight">{weather.description}</p>
+              </div>
+            </div>
+            {/* Time + key info */}
+            <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1.5 text-[9px] text-white/60">
+              <span>{getTimeGreeting(time)}</span>
+              <span>·</span>
+              {weather.drySpell >= 3 && <span className="text-[#FFD080]">Dry {weather.drySpell} days</span>}
+              {weather.frostRisk && <span className="text-[#FFB0B0]">⚠ Frost risk tonight</span>}
+              {weather.rainForecast > 2 && <span>🌧 Rain coming</span>}
+              {weather.recentRain && <span>Rain did the watering</span>}
+              {!weather.frostRisk && weather.drySpell < 3 && weather.rainForecast <= 2 && !weather.recentRain && (
+                <span>Good growing conditions</span>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
 
       {/* ═══ MAIN SCENE — illustration-based layout ═══ */}
       <div className="relative z-[1] pt-20 sm:pt-28">
@@ -265,38 +360,92 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
 
 // ─── Cloud ───────────────────────────────────────────────────────────────────
 
-function Cloud({ y, size, speed, delay }: { y: number; size: number; speed: number; delay: number }) {
+function Cloud({ y, size, speed, delay, opacity = 0.6, dark = false }: { y: number; size: number; speed: number; delay: number; opacity?: number; dark?: boolean }) {
+  const colour = dark ? "rgba(120,130,140," : "rgba(255,255,255,";
+
   return (
     <motion.div
       className="absolute pointer-events-none z-[2]"
-      style={{ top: `${y}%`, height: `${size * 0.4}px` }}
-      initial={{ left: "-15%" }}
-      animate={{ left: "110%" }}
+      style={{ top: `${y}%`, height: `${size * 0.45}px` }}
+      initial={{ left: "-20%" }}
+      animate={{ left: "115%" }}
       transition={{ duration: speed, repeat: Infinity, delay, ease: "linear" }}
     >
-      <div className="relative" style={{ width: `${size}px`, height: `${size * 0.4}px` }}>
-        <div className="absolute w-full h-[60%] bg-white/60 rounded-full top-[25%]" />
-        <div className="absolute w-[55%] h-[80%] bg-white/70 rounded-full left-[15%] top-0" />
-        <div className="absolute w-[45%] h-[65%] bg-white/65 rounded-full right-[18%] top-[8%]" />
+      <div className="relative" style={{ width: `${size}px`, height: `${size * 0.45}px` }}>
+        <div className="absolute w-full h-[55%] rounded-full top-[30%]" style={{ background: `${colour}${opacity})` }} />
+        <div className="absolute w-[60%] h-[85%] rounded-full left-[10%] top-0" style={{ background: `${colour}${opacity * 1.1})` }} />
+        <div className="absolute w-[50%] h-[70%] rounded-full right-[12%] top-[5%]" style={{ background: `${colour}${opacity * 0.95})` }} />
+        <div className="absolute w-[35%] h-[55%] rounded-full left-[30%] top-[2%]" style={{ background: `${colour}${opacity * 1.05})` }} />
       </div>
     </motion.div>
   );
 }
 
-// ─── Rain ────────────────────────────────────────────────────────────────────
+// ─── Rain — heavy and atmospheric ───────────────────────────────────────────
 
-function RainEffect() {
+function RainEffect({ heavy = false }: { heavy?: boolean }) {
+  const dropCount = heavy ? 50 : 20;
+
   return (
     <div className="absolute inset-0 pointer-events-none z-10">
-      {[...Array(25)].map((_, i) => (
+      {[...Array(dropCount)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-[1px] h-3 bg-[#8BAAC8]/25 rounded-full"
-          style={{ left: `${(i * 14.3) % 100}%`, top: "-12px" }}
-          animate={{ y: [0, 600], opacity: [0.3, 0] }}
-          transition={{ duration: 0.7 + (i % 3) * 0.15, repeat: Infinity, delay: (i * 0.08) % 0.8, ease: "linear" }}
+          className={`absolute rounded-full ${heavy ? "w-[2px] h-5 bg-[#8AA8C8]/35" : "w-[1px] h-3 bg-[#8BAAC8]/20"}`}
+          style={{
+            left: `${(i * (100 / dropCount) + (i % 3) * 3) % 100}%`,
+            top: "-20px",
+          }}
+          animate={{
+            y: [0, typeof window !== "undefined" ? window.innerHeight + 50 : 700],
+            opacity: heavy ? [0.4, 0.1] : [0.25, 0],
+          }}
+          transition={{
+            duration: heavy ? 0.5 + (i % 3) * 0.1 : 0.7 + (i % 4) * 0.15,
+            repeat: Infinity,
+            delay: (i * 0.06) % 1.2,
+            ease: "linear",
+          }}
         />
       ))}
+      {/* Splash effects on the ground for heavy rain */}
+      {heavy && (
+        <>
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={`splash-${i}`}
+              className="absolute w-2 h-1 rounded-full bg-[#8AA8C8]/20"
+              style={{
+                left: `${10 + (i * 37) % 80}%`,
+                bottom: `${15 + (i * 13) % 25}%`,
+              }}
+              animate={{
+                scaleX: [0, 2, 0],
+                scaleY: [0, 0.5, 0],
+                opacity: [0, 0.4, 0],
+              }}
+              transition={{
+                duration: 0.4,
+                repeat: Infinity,
+                delay: (i * 0.3) % 1.5,
+              }}
+            />
+          ))}
+        </>
+      )}
     </div>
   );
+}
+
+// ─── Time greeting ──────────────────────────────────────────────────────────
+
+function getTimeGreeting(time: TimeOfDay): string {
+  switch (time) {
+    case "dawn": return "Early morning";
+    case "morning": return "Good morning";
+    case "midday": return "Midday";
+    case "afternoon": return "Afternoon";
+    case "evening": return "Good evening";
+    case "night": return "Night time";
+  }
 }
