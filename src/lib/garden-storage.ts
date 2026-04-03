@@ -12,6 +12,7 @@ export interface GardenPlot {
   expectedHarvest: string;
   harvested: boolean;
   harvestedAt: string | null;
+  lastTended: string | null;
   notes: string;
 }
 

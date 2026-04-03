@@ -83,12 +83,50 @@ export function useGarden() {
             expectedHarvest: harvestDate.toISOString(),
             harvested: false,
             harvestedAt: null,
+            lastTended: null,
             notes: "",
           },
         ],
       };
     });
   }, []);
+
+  const tend = useCallback((slotIndex: number) => {
+    setGarden((prev) => {
+      const plot = prev.plots.find((p) => p.slotIndex === slotIndex && !p.harvested);
+      if (!plot) return prev;
+
+      // Can only tend once per day
+      const now = new Date();
+      if (plot.lastTended) {
+        const lastDate = new Date(plot.lastTended);
+        if (lastDate.toDateString() === now.toDateString()) return prev; // Already tended today
+      }
+
+      // Tending speeds up harvest by 12 hours
+      const currentHarvest = new Date(plot.expectedHarvest);
+      const speedUpMs = 12 * 60 * 60 * 1000;
+      const newHarvest = new Date(currentHarvest.getTime() - speedUpMs);
+
+      return {
+        ...prev,
+        plots: prev.plots.map((p) =>
+          p.slotIndex === slotIndex
+            ? { ...p, lastTended: now.toISOString(), expectedHarvest: newHarvest.toISOString() }
+            : p
+        ),
+      };
+    });
+  }, []);
+
+  const canTend = useCallback(
+    (slotIndex: number) => {
+      const plot = garden.plots.find((p) => p.slotIndex === slotIndex && !p.harvested);
+      if (!plot || !plot.lastTended) return true;
+      return new Date(plot.lastTended).toDateString() !== new Date().toDateString();
+    },
+    [garden.plots]
+  );
 
   const harvest = useCallback((slotIndex: number) => {
     setGarden((prev) => ({
@@ -137,6 +175,8 @@ export function useGarden() {
     loaded,
     collect,
     plant,
+    tend,
+    canTend,
     harvest,
     unlockSlots,
     setEmail,

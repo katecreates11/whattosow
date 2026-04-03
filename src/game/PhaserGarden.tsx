@@ -163,18 +163,36 @@ export default function PhaserGarden() {
     [garden, getScene]
   );
 
+  // Handle tending a growing crop
+  const handlePlantTap = useCallback(
+    (col: number, row: number, varietyId: string) => {
+      const slotIndex = row * 6 + col;
+      if (garden.canTend(slotIndex)) {
+        garden.tend(slotIndex);
+        const scene = getScene();
+        if (scene) scene.tendPlant(col, row);
+
+        if (typeof window !== "undefined" && (window as any).umami) {
+          (window as any).umami.track("garden-tend", { variety: varietyId });
+        }
+      } else {
+        // Already tended today — show info instead
+        setInfoPanel({ type: "plant-info", varietyId, col, row });
+      }
+    },
+    [garden, getScene]
+  );
+
   // Keep ref in sync with latest callbacks
   useEffect(() => {
     callbacksRef.current = {
       onEmptyTileTap: handleEmptyTileTap,
-      onPlantTap: (col: number, row: number, varietyId: string) => {
-        setInfoPanel({ type: "plant-info", varietyId, col, row });
-      },
+      onPlantTap: handlePlantTap,
       onHarvestTap: (col: number, row: number, varietyId: string) => {
         setInfoPanel({ type: "harvest", varietyId, col, row });
       },
     };
-  }, [handleEmptyTileTap]);
+  }, [handleEmptyTileTap, handlePlantTap]);
 
   const closePanel = useCallback(() => {
     setInfoPanel(null);

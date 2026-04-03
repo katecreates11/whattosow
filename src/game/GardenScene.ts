@@ -913,6 +913,94 @@ export default class GardenScene extends Phaser.Scene {
   }
 
   /**
+   * Play a tending/watering animation on a tile.
+   */
+  tendPlant(col: number, row: number) {
+    const x = this.gridOffsetX + col * (this.tileSize + TILE_GAP);
+    const y = this.gridOffsetY + row * (this.tileSize + TILE_GAP);
+    const cx = x + this.tileSize / 2;
+    const cy = y + this.tileSize / 2;
+
+    // Water droplets falling
+    for (let i = 0; i < 8; i++) {
+      const dx = cx + Phaser.Math.Between(-20, 20);
+      const dy = cy - 20 + Phaser.Math.Between(-10, 0);
+      const drop = this.add.ellipse(dx, dy, 3, 5, 0x7ba7c2);
+      drop.setAlpha(0.7).setDepth(80);
+      this.tweens.add({
+        targets: drop,
+        y: dy + Phaser.Math.Between(25, 40),
+        alpha: 0,
+        scaleX: 0.5,
+        scaleY: 1.5,
+        duration: 500,
+        ease: "Sine.easeIn",
+        delay: i * 60,
+        onComplete: () => drop.destroy(),
+      });
+    }
+
+    // Splash on soil
+    this.time.delayedCall(350, () => {
+      for (let i = 0; i < 5; i++) {
+        const sx = cx + Phaser.Math.Between(-15, 15);
+        const sy = cy + Phaser.Math.Between(-5, 5);
+        const splash = this.add.circle(sx, sy, 2, 0x7ba7c2);
+        splash.setAlpha(0.5).setDepth(80);
+        this.tweens.add({
+          targets: splash,
+          x: sx + Phaser.Math.Between(-8, 8),
+          y: sy - Phaser.Math.Between(5, 15),
+          alpha: 0,
+          scaleX: 0,
+          scaleY: 0,
+          duration: 400,
+          ease: "Sine.easeOut",
+          delay: i * 30,
+          onComplete: () => splash.destroy(),
+        });
+      }
+    });
+
+    // Brief green shimmer on the plant to show it appreciated the care
+    const container = this.tileContainers[row]?.[col];
+    if (container) {
+      const shimmer = this.add.graphics();
+      shimmer.fillStyle(0x7bb369, 0.2);
+      shimmer.fillRoundedRect(x, y, this.tileSize, this.tileSize, 6);
+      shimmer.setDepth(79);
+      this.tweens.add({
+        targets: shimmer,
+        alpha: 0,
+        duration: 800,
+        delay: 400,
+        ease: "Sine.easeOut",
+        onComplete: () => shimmer.destroy(),
+      });
+    }
+
+    // "+12h" text floats up
+    const speedText = this.add.text(cx, cy - 10, "+12h", {
+      fontFamily: "Inter, sans-serif",
+      fontSize: "12px",
+      color: "#7ba7c2",
+      fontStyle: "bold",
+      stroke: "#F5EFE0",
+      strokeThickness: 2,
+    });
+    speedText.setOrigin(0.5).setDepth(81);
+    this.tweens.add({
+      targets: speedText,
+      y: cy - 35,
+      alpha: 0,
+      duration: 1000,
+      ease: "Sine.easeOut",
+      delay: 300,
+      onComplete: () => speedText.destroy(),
+    });
+  }
+
+  /**
    * Gentle pulse on the centre tile to guide first-time users.
    */
   private addWelcomePulse() {
