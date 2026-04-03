@@ -115,15 +115,12 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           />
         ))}
 
-        {/* The illustration as the world — positioned in the lower portion */}
-        <div className="absolute bottom-0 right-0 w-full h-[75%]">
-          <img
-            src="/images/game/allotment-scene.png"
-            alt="Your allotment"
-            className="absolute bottom-0 right-0 w-full h-full object-contain object-bottom-right"
-            style={{ objectPosition: "right bottom" }}
-          />
-        </div>
+        {/* The illustration IS the world — fills the entire scene */}
+        <img
+          src="/images/game/allotment-empty.png"
+          alt="Your allotment"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         {/* Time-of-day colour wash */}
         <div className={`absolute inset-0 ${timeOverlay} transition-colors duration-[5000ms] pointer-events-none`} />
@@ -159,10 +156,10 @@ export default function GardenScene({ weather, cropCount, children, infoBoard }:
           📌 {showBoard ? "Close" : "Board"}
         </button>
 
-        {/* The garden tiles — positioned over the bed area of the illustration */}
-        <div className="flex-1 flex items-end justify-start px-[5%] pb-[8%]">
-          <div className="w-[55%] sm:w-[50%]">
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-1.5 sm:gap-2">
+        {/* The garden tiles — mapped onto the raised bed areas */}
+        <div className="flex-1 flex items-end px-[3%] sm:px-[4%] pb-[4%] sm:pb-[6%]">
+          <div className="w-[65%] sm:w-[60%]">
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-[2%]">
               {children}
             </div>
           </div>

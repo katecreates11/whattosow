@@ -55,41 +55,31 @@ interface EmptyTileProps {
 }
 
 export function EmptyTile({ onTap, suggestion, index }: EmptyTileProps) {
-  const soilGradient = SOIL_COLOURS[index % SOIL_COLOURS.length];
-
   return (
     <motion.button
       onClick={onTap}
-      className={`aspect-square rounded-2xl bg-gradient-to-br ${soilGradient} flex flex-col items-center justify-center gap-1.5 relative overflow-hidden border-2 border-[#D4C4A0]/40`}
-      whileHover={{ scale: 1.06, y: -3 }}
-      whileTap={{ scale: 0.92 }}
+      className="aspect-square rounded-lg flex flex-col items-center justify-center gap-1 relative overflow-hidden bg-black/10 hover:bg-black/20 transition-colors"
+      whileHover={{ scale: 1.08, y: -2 }}
+      whileTap={{ scale: 0.9 }}
       transition={SPRING_BOUNCY}
-      initial={{ opacity: 0, scale: 0.8, y: 10 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      // Stagger entrance
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      {/* Soil pattern — soft, pastel */}
-      <div className="absolute inset-0 opacity-[0.15]">
-        <div className="absolute w-6 h-4 rounded-full bg-white/40 top-[20%] left-[15%] rotate-12" />
-        <div className="absolute w-4 h-3 rounded-full bg-white/30 top-[55%] right-[20%] -rotate-6" />
-        <div className="absolute w-5 h-3 rounded-full bg-black/10 bottom-[25%] left-[40%] rotate-3" />
-      </div>
+      {/* Subtle dashed border on hover */}
+      <div className="absolute inset-1 rounded border border-dashed border-white/20" />
 
-      {/* Dashed inner border — inviting */}
-      <div className="absolute inset-2 rounded-xl border-2 border-dashed border-white/20" />
-
-      {/* Animated plus */}
-      <motion.div
-        className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center backdrop-blur-sm"
-        animate={{ scale: [1, 1.1, 1] }}
+      {/* Plus icon */}
+      <motion.span
+        className="text-white/40 text-lg font-light drop-shadow"
+        animate={{ scale: [1, 1.15, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        <span className="text-white/50 text-xl font-light">+</span>
-      </motion.div>
+        +
+      </motion.span>
 
       {suggestion && (
-        <span className="text-[7px] text-white/40 px-3 text-center leading-tight max-w-full truncate">
+        <span className="text-[6px] text-white/30 px-1 text-center leading-tight truncate drop-shadow">
           {suggestion}
         </span>
       )}
@@ -135,17 +125,15 @@ export function PlantedTile({ variety, health, onTap, onWater, isNew }: PlantedT
 
   return (
     <motion.div
-      className={`aspect-square rounded-2xl bg-gradient-to-br ${tileBg} border-[2.5px] ${borderClass} ${glowClass} relative overflow-hidden cursor-pointer`}
+      className={`aspect-square rounded-lg relative overflow-hidden cursor-pointer ${health.isHarvestReady ? "bg-black/5" : ""}`}
       onClick={onTap}
       initial={isNew ? { scale: 0, rotate: -8 } : { opacity: 0, y: 8 }}
       animate={{ scale: 1, rotate: 0, opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.06, y: -4 }}
-      whileTap={{ scale: 0.92 }}
+      whileHover={{ scale: 1.1, y: -4 }}
+      whileTap={{ scale: 0.9 }}
       transition={SPRING_BOUNCY}
       layout
     >
-      {/* Soft highlight on top-left — gives depth like a physical tile */}
-      <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/15 to-transparent rounded-t-2xl pointer-events-none" />
 
       {/* Crop — grows upward in 3D space */}
       <div className="absolute inset-0 flex items-end justify-center pb-1" style={{ transformStyle: "preserve-3d" }}>
@@ -215,9 +203,9 @@ export function PlantedTile({ variety, health, onTap, onWater, isNew }: PlantedT
         </motion.div>
       </div>
 
-      {/* Name bar at bottom — frosted glass effect */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white/30 backdrop-blur-sm px-2 py-1.5 rounded-b-[13px]">
-        <p className="text-[8px] text-[#3B2F28] font-semibold truncate text-center">{variety.name}</p>
+      {/* Name — small label floating below the plant */}
+      <div className="absolute bottom-0 left-0 right-0 text-center pb-0.5">
+        <span className="text-[7px] font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] truncate">{variety.name}</span>
       </div>
 
       {/* Progress arc — subtle ring around the tile */}
