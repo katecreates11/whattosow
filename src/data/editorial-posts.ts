@@ -619,9 +619,9 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "image",
         content: "",
-        src: "/photos/blog/seedling-planted-out.webp",
-        alt: "A small tomato seedling planted into freshly prepared allotment soil, surrounded by loose earth",
-        caption: "In the ground, once the last frost had passed.",
+        src: "/photos/crops/pepper-tomato-seedlings-tray.webp",
+        alt: "Tomato seedlings in pots sitting outside on paving in the sun, hardening off before planting out",
+        caption: "Outside in the sun — the start of hardening off.",
       },
       {
         type: "tip",
