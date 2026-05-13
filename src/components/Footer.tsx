@@ -11,7 +11,6 @@ function StickyNavBar() {
             <a href="/frost-map" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Frost map</a>
             <a href="/guides" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Guides</a>
             <a href="/sow-in" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">By location</a>
-            <a href="/allotments" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Allotments</a>
           </div>
           <a
             href="https://ko-fi.com/whattosow"
@@ -96,7 +95,6 @@ export default function Footer() {
             <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/60 mb-4">Explore</h3>
             <nav aria-label="Explore links" className="flex flex-col gap-2 text-sm">
               <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
-              <a href="/allotments" className="text-white/70 hover:text-white transition-colors">Find allotments</a>
               <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
               <a href="/about" className="text-white/70 hover:text-white transition-colors">About</a>
               <a href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</a>

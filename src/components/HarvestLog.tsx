@@ -77,14 +77,6 @@ export default function HarvestLog({ plots }: HarvestLogProps) {
         })}
       </ul>
 
-      <div className="mt-4 text-center">
-        <a
-          href="/lucky-dip"
-          className="text-sm text-allotment hover:text-allotment-dark font-medium transition-colors duration-150"
-        >
-          Discover something new →
-        </a>
-      </div>
     </section>
   );
 }
