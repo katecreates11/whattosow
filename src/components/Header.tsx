@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { href: "/harvest-planner", label: "Harvest planner" },
   { href: "/frost-map", label: "Frost map" },
   { href: "/guides", label: "Guides" },
-  { href: "/kit", label: "Kit" },
   { href: "/sow-in", label: "By location" },
   { href: "/my-garden", label: "My Garden" },
   { href: "/blog", label: "Blog" },
