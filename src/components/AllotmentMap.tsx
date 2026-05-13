@@ -5,26 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import { fetchNearbyAllotments, type AllotmentSite } from "@/lib/allotments";
 import { lookupPostcode, type LocationData } from "@/lib/frost";
-
-const STORAGE_KEY = "whattosow_location";
-
-function loadLocation(): LocationData | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (
-      typeof parsed?.postcode === "string" &&
-      typeof parsed?.latitude === "number" &&
-      typeof parsed?.longitude === "number"
-    ) {
-      return parsed;
-    }
-    return null;
-  } catch {
-    return null;
-  }
-}
+import { loadLocation } from "@/lib/location-storage";
 
 // Custom marker icon (Leaflet default icons break with webpack)
 function createIcon(color: string) {
@@ -147,7 +128,7 @@ export default function AllotmentMap() {
 
       {location && (
         <>
-          <div className="rounded-2xl overflow-hidden border border-earth/10" style={{ height: 500 }}>
+          <div className="rounded-2xl overflow-hidden border border-earth/10 h-[500px]">
             <MapContainer
               center={[location.latitude, location.longitude]}
               zoom={13}

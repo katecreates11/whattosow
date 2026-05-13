@@ -211,8 +211,7 @@ export default function ReactGarden() {
             weather={weather}
           />}
         >
-          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-2.5">
-            {Array.from({ length: garden.garden.settings.totalSlots }).map((_, i) => {
+          {Array.from({ length: garden.garden.settings.totalSlots }).map((_, i) => {
               const plot = garden.activePlots.find((p) => p.slotIndex === i);
               const variety = plot ? getVarietyById(plot.varietyId) : null;
               const health = variety ? healthMap.get(variety.id) : null;
@@ -253,7 +252,6 @@ export default function ReactGarden() {
                 />
               );
             })}
-          </div>
 
         </GardenScene>
 

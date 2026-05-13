@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, WateringCanIcon, ColorSection } from "@/components/GuideVisuals";
+import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
 
 export const metadata: Metadata = {
   title:
@@ -121,7 +122,7 @@ export default function WateringGuide() {
           eyebrow="Growing guide"
           title="Watering vegetables"
           subtitle="Watering sounds simple enough, but getting it wrong causes more problems than most people realise. Blossom end rot, bolting lettuce, split carrots — half the time the culprit is inconsistent watering."
-          icon={<WateringCanIcon className="w-10 h-10" />}
+          image="/photos/guides/watering-nasturtiums.webp"
           color="frost"
         />
 
@@ -287,9 +288,9 @@ export default function WateringGuide() {
           </section>
 
           <GuideImage
-            src="/images/guides/watering.webp"
-            alt="Person watering a garden with a metal watering can"
-            caption="A good watering can with a fine rose is the single most useful tool on any allotment."
+            src="/photos/guides/watering-strawberry-bed.webp"
+            alt="Watering a raised strawberry bed on a UK allotment with a hose attachment"
+            caption="Water at the base, not the leaves — especially with strawberries and tomatoes."
             aspect="landscape"
           />
 
@@ -439,6 +440,91 @@ export default function WateringGuide() {
                 Established root veg and alliums can tough it out.
               </li>
             </ul>
+            <p className="mt-4 text-sm">
+              For a full rundown of what to keep on your plot, see our{" "}
+              <a href="/guides/allotment-essentials" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">allotment kit guide</a>.
+            </p>
+          </section>
+
+          <SectionDivider label="Equipment" />
+
+          {/* Watering equipment */}
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
+              Watering kit that&apos;s actually worth buying
+            </h2>
+            <p className="mb-6">
+              You don&apos;t need much, but the right watering gear makes a
+              genuine difference. A cheap plastic can with no rose will blast
+              seedlings flat. A decent one lasts decades and makes the job
+              quicker and easier.
+            </p>
+
+            <GearCategory title="Watering cans" number={1}>
+              <GearPick
+                name="Haws 8.8L Long Reach"
+                price="~£40"
+                description="The one you see on every allotment for good reason. Beautifully balanced, holds enough for a proper soak, and the long spout gives you precision without bending double."
+                amazonUrl="https://www.amazon.co.uk/dp/B0014E0UWC?tag=whattosow21-21"
+                badge="our-pick"
+                tip="The long spout gives a gentle flow that won't flatten seedlings."
+              />
+              <GearPick
+                name="10L Plastic Watering Can"
+                price="~£8"
+                description="Perfectly fine for getting started. Look for one with a detachable rose. It won't last forever but it'll do the job while you decide if you want the Haws."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=10l+plastic+watering+can"
+                badge="budget"
+              />
+            </GearCategory>
+
+            <GearCategory title="Hose & attachments" number={2}>
+              <GearPick
+                name="Hozelock Multi Spray Gun"
+                price="~£15"
+                description="Multiple spray patterns including a gentle shower for seedlings and a jet for cleaning pots. Locks on so you're not gripping it the whole time."
+                amazonUrl="https://www.amazon.co.uk/dp/B00HOVBEKS?tag=whattosow21-21"
+                badge="our-pick"
+              />
+              <GearPick
+                name="Hozelock Auto Reel"
+                price="~£65"
+                description="Wall-mounted reel that retracts the hose automatically. A luxury, but if you're sick of wrestling a tangled hose every visit, it's life-changing."
+                amazonUrl="https://www.amazon.co.uk/dp/B004BEN3TY?tag=whattosow21-21"
+                badge="upgrade"
+              />
+            </GearCategory>
+
+            <GearCategory title="Water butts" number={3}>
+              <GearPick
+                name="Ward 210L Slimline Water Butt"
+                price="~£45"
+                description="Slim enough to fit against a shed wall without eating into your growing space. 210 litres is a decent capacity — enough for a couple of weeks of careful watering."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=ward+slimline+water+butt+210l"
+                badge="our-pick"
+                tip="One butt per shed downpipe. Two is better — you'll be amazed how fast they empty in July."
+              />
+              <GearPick
+                name="Water Butt Diverter Kit"
+                price="~£8"
+                description="Connects your downpipe to the butt and diverts overflow back into the drain when it's full. Dead simple to fit — ten minutes with a hacksaw."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=water+butt+diverter+kit"
+                badge="essential"
+              />
+            </GearCategory>
+
+            <GearCategory title="Seep hose" number={4}>
+              <GearPick
+                name="Hozelock Porous Soaker Hose"
+                price="~£15"
+                description="A porous hose that seeps water gently along its entire length. Brilliant for rows of beans, courgettes, or tomatoes — delivers water right to the roots with almost zero waste."
+                amazonUrl="https://www.amazon.co.uk/dp/B000TAFENY?tag=whattosow21-21"
+                badge="our-pick"
+                tip="Lay it under mulch along your rows. Connect to a water butt or timer. Saves hours of standing around with a hose."
+              />
+            </GearCategory>
+
+            <AffiliateDisclosure />
           </section>
 
           {/* FAQ */}

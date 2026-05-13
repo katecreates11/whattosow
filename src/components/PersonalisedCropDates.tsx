@@ -1,42 +1,9 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { calculateLastFrostDate, formatDateShort } from "@/lib/frost";
+import { calculateLastFrostDate, formatDateShort, type LocationData } from "@/lib/frost";
 import type { Crop } from "@/data/crops";
-
-const STORAGE_KEY = "whattosow_location";
-
-interface LocationData {
-  postcode: string;
-  latitude: number;
-  longitude: number;
-  region: string;
-  adminDistrict: string;
-}
-
-function isValidLocation(data: unknown): data is LocationData {
-  if (!data || typeof data !== "object") return false;
-  const d = data as Record<string, unknown>;
-  return (
-    typeof d.postcode === "string" &&
-    typeof d.latitude === "number" && isFinite(d.latitude) &&
-    typeof d.longitude === "number" && isFinite(d.longitude) &&
-    typeof d.region === "string" &&
-    typeof d.adminDistrict === "string"
-  );
-}
-
-function loadLocation(): LocationData | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed: unknown = JSON.parse(raw);
-    if (!isValidLocation(parsed)) return null;
-    return parsed;
-  } catch {
-    return null;
-  }
-}
+import { loadLocation } from "@/lib/location-storage";
 
 function weeksToDate(frostDate: Date, weeks: number): Date {
   const d = new Date(frostDate);

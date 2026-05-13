@@ -48,7 +48,7 @@ export function createEmptyGarden(): GardenData {
     settings: {
       email: null,
       gardenName: "My Allotment",
-      totalSlots: 12,
+      totalSlots: 8,
     },
   };
 }
@@ -71,6 +71,19 @@ export function loadGarden(): GardenData {
     if (!raw) return createEmptyGarden();
     const parsed = JSON.parse(raw);
     if (!isValidGarden(parsed)) return createEmptyGarden();
+    // Migrate: cap slots to 8, remap any plants above that
+    if (parsed.settings.totalSlots > 8) {
+      parsed.settings.totalSlots = 8;
+      // Reassign slot indices so all plants fit in 0-7
+      const activePlots = parsed.plots.filter((p: GardenPlot) => !p.harvested);
+      activePlots.forEach((p: GardenPlot, i: number) => {
+        p.slotIndex = i;
+      });
+      // Keep only first 8 active
+      if (activePlots.length > 8) {
+        parsed.plots = [...activePlots.slice(0, 8), ...parsed.plots.filter((p: GardenPlot) => p.harvested)];
+      }
+    }
     return parsed;
   } catch {
     return createEmptyGarden();

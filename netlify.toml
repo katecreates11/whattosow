@@ -12,7 +12,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://basemaps.cartocdn.com; font-src 'self' data:; connect-src 'self' https://api.postcodes.io https://api.open-meteo.com https://cloud.umami.is https://assets.mailerlite.com https://overpass-api.de"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://basemaps.cartocdn.com; font-src 'self' data:; connect-src 'self' https://api.postcodes.io https://api.open-meteo.com https://cloud.umami.is https://assets.mailerlite.com https://overpass-api.de"
 
 [[headers]]
   for = "/_next/static/*"
@@ -28,3 +29,8 @@
   for = "/data/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/photos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

@@ -33,6 +33,8 @@ Here's what to expect from me:
 - The odd practical tip when I think it's genuinely useful
 - No spam, no daily emails, no affiliate avalanche
 
+New to allotments? Start here → https://whattosow.co.uk/guides/beginners
+
 That's it. Go have a look at what you could be sowing right now, and I'll check in again in a few days.
 
 Happy sowing,
@@ -70,6 +72,8 @@ https://whattosow.co.uk/frost-map
 
 Have a look. It's quite something when you see it mapped out.
 
+Ready to start seeds? Here's exactly what kit you need → https://whattosow.co.uk/guides/seed-starting-kit
+
 Speak soon,
 Kate
 
@@ -104,6 +108,8 @@ A week in — hope you've had a chance to poke around the tool. Here's what's po
 For the full picture of what's still in season — and what's about to close — check the "Still time to sow" page. It shows exactly how many days you've got left for each crop:
 
 https://whattosow.co.uk/still-time
+
+See all our recommended kit → https://whattosow.co.uk/kit
 
 One last thing — the tool is free and I plan to keep it that way. But if it's saved you some head-scratching, you can buy me a coffee and help keep the thing running:
 

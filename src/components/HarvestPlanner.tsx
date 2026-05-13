@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { crops } from "@/data/crops";
 import { type Crop } from "@/data/crops";
 import {
@@ -22,27 +22,7 @@ import { generateHarvestAdvice, type HarvestWeatherAdvice } from "@/lib/harvest-
 import { generateICS, downloadICS } from "@/lib/calendar-export";
 import CropCombobox from "@/components/CropCombobox";
 import HarvestCard from "@/components/HarvestCard";
-
-const STORAGE_KEY = "whattosow_location";
-
-function loadLocation(): LocationData | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
-}
-
-function saveLocation(location: LocationData) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
-    window.dispatchEvent(new Event("whattosow:location-updated"));
-  } catch {
-    // localStorage unavailable
-  }
-}
+import { saveLocation, loadLocation } from "@/lib/location-storage";
 
 function todayString(): string {
   const d = new Date();
@@ -115,8 +95,13 @@ export default function HarvestPlanner() {
     ? calculateFirstAutumnFrostDate(location.latitude, location.longitude)
     : new Date(new Date().getFullYear(), 9, 20); // Oct 20 default
 
+  const lastLookupRef = useRef<number>(0);
+
   async function handlePostcodeLookup() {
     if (!postcodeInput.trim()) return;
+    const now = Date.now();
+    if (now - lastLookupRef.current < 1000) return;
+    lastLookupRef.current = now;
     setPostcodeLoading(true);
     setPostcodeError("");
     const result = await lookupPostcode(postcodeInput);
@@ -156,7 +141,7 @@ export default function HarvestPlanner() {
   }
 
   // Find the best harvest day
-  function getHarvestDayRecommendation() {
+  const harvestDay = useMemo(() => {
     if (entries.length < 2) return null;
 
     const harvestDates = entries.map((e) => ({
@@ -201,9 +186,7 @@ export default function HarvestPlanner() {
       count: bestCount,
       total: entries.length,
     };
-  }
-
-  const harvestDay = getHarvestDayRecommendation();
+  }, [entries]);
 
   // Fetch weather when we have a harvest day and location
   useEffect(() => {

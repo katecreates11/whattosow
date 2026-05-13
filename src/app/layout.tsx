@@ -41,9 +41,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "What To Sow — UK Planting Calendar by Postcode",
-    description:
-      "The sooner you know your frost date, the more you can grow. Free personalised sowing dates for every UK postcode.",
   },
   metadataBase: new URL("https://whattosow.co.uk"),
   alternates: {
@@ -63,8 +60,16 @@ export default function RootLayout({
         <link rel="preconnect" href="https://api.open-meteo.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2D5F3E" />
+        <meta name="pinterest-rich-pin" content="true" />
+        <link rel="alternate" type="application/rss+xml" title="What To Sow Blog" href="/feed.xml" />
       </head>
       <body className={`${instrumentSans.variable} ${newsreader.variable} font-sans antialiased`}>
+        <noscript>
+          <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
+            <h1>What To Sow</h1>
+            <p>This site needs JavaScript to generate your personalised sowing calendar. Please enable JavaScript to continue.</p>
+          </div>
+        </noscript>
         {children}
         <Script
           src="https://cloud.umami.is/script.js"

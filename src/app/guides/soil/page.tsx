@@ -121,7 +121,7 @@ export default function SoilGuide() {
           eyebrow="Growing guide"
           title="Understanding your soil"
           subtitle="Get to know what you're working with. Less wasted time, less money, better food."
-          icon={<SoilIcon className="w-10 h-10" />}
+          image="/images/guides/soil.webp"
           color="amber"
         />
 

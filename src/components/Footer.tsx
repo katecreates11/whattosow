@@ -84,8 +84,10 @@ export default function Footer() {
               <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
               <a href="/still-time" className="text-white/70 hover:text-white transition-colors">Still time to sow</a>
               <a href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</a>
+              <a href="/kit" className="text-white/70 hover:text-white transition-colors">Recommended kit</a>
               <a href="/sow-in" className="text-white/70 hover:text-white transition-colors">Sow by location</a>
               <a href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</a>
+              <a href="/blog" className="text-white/70 hover:text-white transition-colors">Blog</a>
             </nav>
           </div>
 
@@ -98,6 +100,7 @@ export default function Footer() {
               <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
               <a href="/about" className="text-white/70 hover:text-white transition-colors">About</a>
               <a href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</a>
+              <a href="/feed.xml" className="text-white/70 hover:text-white transition-colors">RSS</a>
               <a
                 href="https://ko-fi.com/whattosow"
                 target="_blank"

@@ -88,7 +88,7 @@ export default function SpringVegetablesGuide() {
         {imgPath ? (
           <Image
             src={imgPath}
-            alt=""
+            alt={`Illustration of ${crop.name}`}
             width={48}
             height={48}
             className="rounded-full flex-shrink-0"

@@ -3,8 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import EmailCapture from "@/components/EmailCapture";
 import { calculateLastFrostDate, formatDateShort, LocationData } from "@/lib/frost";
-
-const STORAGE_KEY = "whattosow_location";
+import { loadLocation } from "@/lib/location-storage";
 
 interface ContextualEmailCaptureProps {
   variant?: "full" | "compact";
@@ -15,20 +14,16 @@ interface ContextualEmailCaptureProps {
 export default function ContextualEmailCapture({ variant = "full", cropName }: ContextualEmailCaptureProps) {
   const [location, setLocation] = useState<LocationData | null>(null);
 
-  const loadLocation = useCallback(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setLocation(JSON.parse(raw));
-    } catch {
-      // ignore
-    }
+  const refreshLocation = useCallback(() => {
+    const loc = loadLocation();
+    if (loc) setLocation(loc);
   }, []);
 
   useEffect(() => {
-    loadLocation();
-    window.addEventListener("whattosow:location-updated", loadLocation);
-    return () => window.removeEventListener("whattosow:location-updated", loadLocation);
-  }, [loadLocation]);
+    refreshLocation();
+    window.addEventListener("whattosow:location-updated", refreshLocation);
+    return () => window.removeEventListener("whattosow:location-updated", refreshLocation);
+  }, [refreshLocation]);
 
   const context = cropName
     ? { cropName }

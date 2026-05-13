@@ -132,7 +132,7 @@ export default function CompanionPlantingGuide() {
         {imgPath && (
           <Image
             src={imgPath}
-            alt=""
+            alt={name}
             width={16}
             height={16}
             className="rounded-full"
@@ -246,7 +246,7 @@ export default function CompanionPlantingGuide() {
                       {imgPath && (
                         <Image
                           src={imgPath}
-                          alt=""
+                          alt={`Illustration of ${crop.name}`}
                           width={36}
                           height={36}
                           className="rounded-full shrink-0"
@@ -462,6 +462,13 @@ export default function CompanionPlantingGuide() {
                 The most reliable companions are the ones that solve a specific
                 problem: carrots next to onions to confuse pests, lettuce under
                 sweetcorn for shade, marigolds around tomatoes for whitefly.
+                For the full picture on dealing with pests, see our{" "}
+                <a
+                  href="/guides/pests"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
+                >
+                  pest prevention guide
+                </a>.
               </p>
               <p>
                 If you&apos;re new to growing, focus on{" "}

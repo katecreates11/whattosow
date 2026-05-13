@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection, InThisGuide, TopicCard, GuideImage, ColorSection } from "@/components/GuideVisuals";
+import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
 
 export const metadata: Metadata = {
   title:
@@ -122,7 +123,7 @@ export default function PestsGuide() {
           eyebrow="Growing guide"
           title="Common pests & diseases"
           subtitle="Every allotment has them. Slugs, aphids, blight — they come with the territory. The good news is that most problems are manageable without reaching for chemicals."
-          icon={<BugIcon className="w-10 h-10" />}
+          image="/images/guides/caterpillar.webp"
           color="tomato"
         />
 
@@ -136,6 +137,7 @@ export default function PestsGuide() {
           { label: "Powdery mildew", anchor: "mildew" },
           { label: "Clubroot", anchor: "clubroot" },
           { label: "Organic vs chemical", anchor: "organic" },
+          { label: "Pest control kit", anchor: "pest-control-kit" },
         ]} />
 
         <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
@@ -530,6 +532,116 @@ export default function PestsGuide() {
               </div>
             </section>
           </FullBleedSection>
+
+          {/* Pest control kit */}
+          <SectionDivider label="Pest control kit" />
+          <section id="pest-control-kit">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
+              Pest control kit
+            </h2>
+            <p className="text-sm text-earth-light mb-8">
+              Everything here is stuff we actually use on the plot. No gimmicks, no miracle cures &mdash; just
+              the physical barriers and organic controls that genuinely work. Prevention beats cure every time,
+              and most of these pay for themselves within a single season.
+            </p>
+
+            <GearCategory title="Slug control" number={1}>
+              <GearPick
+                name="Organic slug pellets (ferric phosphate)"
+                price="~£6"
+                description="The only slug pellets worth using. Ferric phosphate breaks down harmlessly in the soil — safe for wildlife, pets, and the worms you're trying to encourage. Metaldehyde pellets kill hedgehogs and song thrushes. Don't use them."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=organic+slug+pellets+ferric+phosphate"
+                badge="essential"
+                tip="Scatter thinly around new transplants. Reapply after heavy rain."
+              />
+              <GearPick
+                name="Copper tape"
+                price="~£5"
+                description="Wrap it around raised beds and pots — slugs get a mild electrical reaction on contact and turn back. Works best when kept clean and bright. Not a silver bullet on its own, but a useful part of the arsenal."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=copper+tape+slug"
+              />
+              <GearPick
+                name="Beer traps"
+                price="~£8"
+                description="Sink them into the soil so the rim is at ground level, fill with cheap lager. Slugs are attracted to the yeast and drown. You'll be horrified by how many you catch on a wet night. Empty and refill every few days."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=slug+beer+trap+garden"
+              />
+            </GearCategory>
+
+            <GearCategory title="Netting" number={2}>
+              <GearPick
+                name="Butterfly netting (fine mesh)"
+                price="~£10"
+                description="The single most effective thing you can buy for brassicas. Keeps cabbage whites out completely — no caterpillars, no holes, no drama. Make sure it's fine enough that butterflies can't squeeze through."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=butterfly+netting+vegetable+garden"
+                badge="essential"
+              />
+              <GearPick
+                name="Enviromesh insect netting"
+                price="~£15"
+                description="Finer mesh than standard butterfly netting. Blocks carrot fly, cabbage root fly, flea beetle, and most other small flying pests. More expensive but genuinely multi-purpose — one piece does the job of three different barriers."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=enviromesh+insect+netting"
+                badge="our-pick"
+                tip="Stops carrot fly, cabbage root fly, and flea beetle. Worth every penny — one piece lasts years."
+              />
+              <GearPick
+                name="Netting hoops"
+                price="~£10"
+                description="You need something to hold your netting up off the plants. These simple hoops push into the soil and give the netting structure. Without them you end up with a flat sheet resting on leaves, which defeats the point."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=garden+netting+hoops"
+                badge="essential"
+              />
+            </GearCategory>
+
+            <GearCategory title="Barriers" number={3}>
+              <GearPick
+                name="Brassica collars"
+                price="~£4"
+                description="Flat discs that sit around the base of brassica stems, blocking cabbage root fly from laying eggs in the soil. Dead simple, surprisingly effective. You can make your own from cardboard, but these last longer."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=cabbage+root+fly+collars"
+                badge="essential"
+              />
+              <GearPick
+                name="Carrot fly barrier (60cm)"
+                price="~£8"
+                description="Carrot fly is a low flyer — it rarely goes above 60cm. A barrier at that height around your carrot bed blocks them completely. Simpler than netting and you can still weed and thin without removing anything."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=carrot+fly+barrier+60cm"
+              />
+            </GearCategory>
+
+            <GearCategory title="Biological controls" number={4}>
+              <GearPick
+                name="Nemaslug nematodes"
+                price="~£15"
+                description="Microscopic worms that seek out and kill slugs in the soil — including the underground ones you never see. You water them on and they get to work. More targeted than pellets and no risk to other wildlife."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=nemaslug+nematodes"
+                badge="upgrade"
+                tip="Apply in spring when soil is warm enough. More effective than pellets but more expensive. Best for beds you can't easily scatter pellets on."
+              />
+            </GearCategory>
+
+            <AffiliateDisclosure />
+          </section>
+
+          {/* Cross-links to related guides */}
+          <div className="flex flex-col sm:flex-row gap-4 my-8">
+            <a
+              href="/guides/companion-planting"
+              className="flex-1 border border-earth/10 px-5 py-4 group hover:border-allotment/30 transition-colors"
+            >
+              <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-rust/50 block mb-1">Related guide</span>
+              <span className="font-serif text-lg text-earth group-hover:text-allotment transition-colors">Companion planting</span>
+              <p className="text-xs text-earth-light mt-1">Pest-repelling companions that actually work.</p>
+            </a>
+            <a
+              href="/guides/allotment-essentials"
+              className="flex-1 border border-earth/10 px-5 py-4 group hover:border-allotment/30 transition-colors"
+            >
+              <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-rust/50 block mb-1">Related guide</span>
+              <span className="font-serif text-lg text-earth group-hover:text-allotment transition-colors">Allotment essentials</span>
+              <p className="text-xs text-earth-light mt-1">The full kit list for your plot.</p>
+            </a>
+          </div>
 
           {/* FAQ */}
           <ColorSection color="sky">

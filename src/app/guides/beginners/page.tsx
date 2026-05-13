@@ -102,6 +102,7 @@ export default function BeginnersGuide() {
           eyebrow="Growing guide"
           title="Allotment for beginners"
           subtitle="You've got the keys. The plot is a mess. Everyone on the site seems to know what they're doing. Deep breath. Here's how to start."
+          image="/photos/guides/allotment-wide-summer.webp"
           color="allotment"
         />
 
@@ -212,9 +213,9 @@ export default function BeginnersGuide() {
           </PullQuote>
 
           <GuideImage
-            src="/images/guides/mulch.webp"
-            alt="Inside a polytunnel with tomatoes and leafy vegetables growing"
-            caption="You don't need a polytunnel to start — but it helps extend the season."
+            src="/photos/guides/allotment-fresh-beds.webp"
+            alt="Freshly dug raised beds on a UK allotment in early spring, ready for planting"
+            caption="It doesn't need to be perfect — just get beds cleared and start planting."
           />
 
           <SectionDivider label="Planning" />
@@ -284,7 +285,8 @@ export default function BeginnersGuide() {
               <div className="text-[15px] text-white/80 leading-relaxed">
                 Fork, trowel, watering can, 5 packets of seeds, labels, string.
                 That&apos;s genuinely all you need for your first season. Everything
-                else can wait.
+                else can wait.{" "}
+                <a href="/guides/allotment-essentials" className="text-leaf-light hover:text-white underline decoration-leaf-light/40 transition-colors">See our guide to the tools you actually need &rarr;</a>
               </div>
             </div>
           </FullBleedSection>
@@ -368,6 +370,20 @@ export default function BeginnersGuide() {
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a
+                href="/guides/seed-starting-kit"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Seed starting kit guide
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    What to buy (and what to skip) when you&apos;re starting seeds.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
                 href="/guides/soil"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -391,6 +407,20 @@ export default function BeginnersGuide() {
                   </span>
                   <p className="text-sm text-earth-light mt-1">
                     What to plant together and what to keep apart.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
+                href="/guides/growing-fruit"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Growing fruit
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Strawberries, raspberries, currants &mdash; plant once, harvest for years.
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>

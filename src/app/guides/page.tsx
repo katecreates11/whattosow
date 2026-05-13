@@ -50,6 +50,38 @@ const guides = [
     number: "03",
   },
   {
+    title: "Seed starting kit",
+    description:
+      "The kit you actually need to start seeds at home. Trays, compost, propagators — honest picks, no fluff.",
+    href: "/guides/seed-starting-kit",
+    tag: "Equipment",
+    number: "09",
+  },
+  {
+    title: "What you need for your first allotment",
+    description:
+      "The tools that earn their shed space. Spades, forks, gloves, hoes — and what to skip.",
+    href: "/guides/allotment-essentials",
+    tag: "Equipment",
+    number: "10",
+  },
+  {
+    title: "Composting for allotments",
+    description:
+      "Cold bins, hot bins, wormeries, and bokashi — which method suits you, what to buy, and how to make compost your soil will thank you for.",
+    href: "/guides/composting",
+    tag: "Equipment",
+    number: "11",
+  },
+  {
+    title: "Growing fruit on your allotment",
+    description:
+      "Strawberries, raspberries, blackcurrants, gooseberries, rhubarb — plant once, harvest for years. The best fruit for UK allotments.",
+    href: "/guides/growing-fruit",
+    tag: "Growing",
+    number: "12",
+  },
+  {
     title: "Companion planting guide",
     description:
       "What grows well together and what to keep apart. A crop-by-crop chart for 40 UK vegetables.",
@@ -119,28 +151,39 @@ export default function GuidesIndex() {
       />
       <Header backLink={{ href: "/", label: "\u2190 Home" }} />
       <main id="main-content">
-        {/* Hero — mesh gradient, full-width, editorial */}
-        <div className="mesh-garden px-6 sm:px-10 lg:px-16 pt-16 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
-          <div className="absolute -right-4 sm:right-10 lg:right-20 -top-6 text-[10rem] sm:text-[14rem] font-serif leading-none text-white/[0.04] select-none pointer-events-none" aria-hidden="true">
-            &lowast;
-          </div>
-          <div className="relative max-w-3xl">
-            <div className="bg-leaf w-12 h-1 mb-6" />
-            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-leaf-light/70 block mb-4">
-              Guides
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white tracking-tight leading-[0.95] mb-6">
-              Growing guides
-            </h1>
-            <p className="text-white/55 leading-relaxed max-w-sm text-base sm:text-lg font-serif italic">
-              Practical advice for UK growers. No waffle.
-            </p>
+        {/* Hero — photo background with gradient overlay */}
+        <div className="bg-earth relative overflow-hidden">
+          <img
+            src="/images/headers/hero-allotment.webp"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/50 to-black/30"
+            aria-hidden="true"
+          />
+          <div className="relative px-6 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-14 sm:pb-18">
+            <div className="max-w-3xl">
+              <div className="bg-leaf w-12 h-1 mb-6" />
+              <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-white/60 block mb-4">
+                Guides
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white tracking-tight leading-[0.95] mb-6">
+                Growing guides
+              </h1>
+              <p className="text-white/70 leading-relaxed max-w-sm text-base sm:text-lg font-serif italic">
+                Practical advice for UK growers. No waffle.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Guide list — editorial, numbered, grouped by tag with color sections */}
         {[
           { label: "Getting started", color: "mesh-sage", guides: guides.filter(g => g.tag === "Getting started") },
+          { label: "Equipment", color: "bg-ochre", guides: guides.filter(g => g.tag === "Equipment") },
           { label: "Planning", color: "mesh-ochre", guides: guides.filter(g => g.tag === "Planning") },
           { label: "Growing", color: "bg-sky", guides: guides.filter(g => g.tag === "Growing") },
           { label: "Problem solving", color: "bg-blush", guides: guides.filter(g => g.tag === "Problem solving") },
@@ -174,19 +217,33 @@ export default function GuidesIndex() {
           </div>
         ))}
 
-        {/* Bottom CTA */}
+        {/* Bottom CTAs */}
         <div className="px-6 sm:px-10 lg:px-16 mt-16 sm:mt-20 mb-16 sm:mb-20">
-          <div className="max-w-3xl">
-            <div className="h-px bg-earth/10 w-12 mb-6" />
-            <p className="text-earth-light mb-3 font-serif italic">
-              Need personalised sowing dates?
-            </p>
-            <a
-              href="/"
-              className="text-sm font-bold tracking-[0.1em] uppercase text-rust hover:text-earth transition-colors"
-            >
-              Enter your postcode &rarr;
-            </a>
+          <div className="max-w-3xl flex flex-col sm:flex-row gap-10 sm:gap-16">
+            <div>
+              <div className="h-px bg-earth/10 w-12 mb-6" />
+              <p className="text-earth-light mb-3 font-serif italic">
+                Need personalised sowing dates?
+              </p>
+              <a
+                href="/"
+                className="text-sm font-bold tracking-[0.1em] uppercase text-rust hover:text-earth transition-colors"
+              >
+                Enter your postcode &rarr;
+              </a>
+            </div>
+            <div>
+              <div className="h-px bg-earth/10 w-12 mb-6" />
+              <p className="text-earth-light mb-3 font-serif italic">
+                Looking for kit recommendations?
+              </p>
+              <a
+                href="/kit"
+                className="text-sm font-bold tracking-[0.1em] uppercase text-rust hover:text-earth transition-colors"
+              >
+                See our picks &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </main>

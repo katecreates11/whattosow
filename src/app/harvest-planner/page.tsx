@@ -10,11 +10,21 @@ export const metadata: Metadata = {
   title: "Harvest Planner — When Will I Harvest? | What To Sow",
   description:
     "Enter what you've sown and when, and we'll tell you exactly when to harvest. Personalised to your UK postcode and local frost date.",
+  keywords: [
+    "harvest planner UK",
+    "when to harvest vegetables",
+    "vegetable harvest dates UK",
+    "allotment harvest calendar",
+    "when to pick vegetables",
+  ],
   openGraph: {
     title: "Harvest Planner — When Will I Harvest?",
     description:
       "Enter what you've sown and when, and we'll tell you exactly when to harvest. Personalised to your UK postcode.",
     url: "https://whattosow.co.uk/harvest-planner",
+  },
+  alternates: {
+    canonical: "/harvest-planner",
   },
 };
 

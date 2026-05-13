@@ -70,8 +70,7 @@ export default function SowingTimeline() {
         <div className="min-w-[800px] px-4 sm:px-0">
           <div
             ref={gridRef}
-            className="grid"
-            style={{ gridTemplateColumns: "150px repeat(12, 1fr)" }}
+            className="grid grid-cols-[150px_repeat(12,1fr)]"
           >
             {/* Header row */}
             <div className="py-2 border-b border-earth/10" />

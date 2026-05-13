@@ -203,9 +203,12 @@ export function PlantedTile({ variety, health, onTap, onWater, isNew }: PlantedT
         </motion.div>
       </div>
 
-      {/* Name — small label floating below the plant */}
-      <div className="absolute bottom-0 left-0 right-0 text-center pb-0.5">
-        <span className="text-[7px] font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] truncate">{variety.name}</span>
+      {/* Garden stake sign */}
+      <div className="absolute -bottom-1 -right-1 z-10 flex flex-col items-center">
+        <div className="bg-[#D4B078] border border-[#B89858] rounded-sm px-1.5 py-0.5 shadow-sm" style={{ transform: "rotate(2deg)" }}>
+          <span className="text-[6px] font-bold text-[#3A2A10] leading-none whitespace-nowrap">{variety.cropSlug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())}</span>
+        </div>
+        <div className="w-[2px] h-2 bg-[#B89858] rounded-b-sm" />
       </div>
 
       {/* Progress arc — subtle ring around the tile */}
@@ -238,14 +241,14 @@ export function PlantedTile({ variety, health, onTap, onWater, isNew }: PlantedT
       {/* Water indicator — bouncing droplet */}
       {health.needsWater && !justWatered && (
         <motion.button
-          className="absolute top-1.5 left-1.5 w-7 h-7 rounded-full bg-[#7BA7C2]/80 flex items-center justify-center shadow-md z-10"
+          className="absolute top-0.5 left-0.5 w-8 h-8 flex items-center justify-center z-10"
           onClick={handleWater}
           whileHover={{ scale: 1.25 }}
           whileTap={{ scale: 0.8 }}
           animate={{ y: [0, -3, 0] }}
           transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <span className="text-xs">💧</span>
+          <img src="/images/game/watering-can.png" alt="Water" className="w-7 h-7 object-contain drop-shadow-md" />
         </motion.button>
       )}
 

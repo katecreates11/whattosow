@@ -4,12 +4,13 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
+import { feature } from "topojson-client";
+import type { Topology } from "topojson-specification";
 import { lookupPostcode, getFrostForecast, calculateLastFrostDate, calculateFirstAutumnFrostDate } from "@/lib/frost";
 import { crops, getCropsByAction, getMinSoilTemp } from "@/data/crops";
 import type { FrostForecast } from "@/lib/frost";
 import RegionPanel from "@/components/RegionPanel";
-
-const STORAGE_KEY = "whattosow_location";
+import { loadLocation, saveLocation } from "@/lib/location-storage";
 
 // UK bounds — prevent panning to Europe
 const UK_BOUNDS: L.LatLngBoundsExpression = [
@@ -282,25 +283,25 @@ export default function FrostZoneMap() {
   const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number } | null>(null);
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (typeof parsed?.latitude === "number" && typeof parsed?.longitude === "number") {
-          setUserLocation(parsed);
-        }
-      }
-    } catch {
-      // ignore
+    const saved = loadLocation();
+    if (saved) {
+      setUserLocation({
+        latitude: saved.latitude,
+        longitude: saved.longitude,
+        postcode: saved.postcode,
+        adminDistrict: saved.adminDistrict,
+      });
     }
 
-    fetch("/data/frost-zones.geojson")
+    fetch("/data/frost-zones.topojson")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load frost zone data");
         return res.json();
       })
-      .then((data) => {
-        setGeojson(data);
+      .then((topo: Topology) => {
+        const objectName = Object.keys(topo.objects)[0];
+        const geojsonData = feature(topo, topo.objects[objectName]) as unknown as FeatureCollection;
+        setGeojson(geojsonData);
         setLoading(false);
       })
       .catch(() => {
@@ -328,7 +329,7 @@ export default function FrostZoneMap() {
       postcode: result.postcode,
       adminDistrict: result.adminDistrict,
     };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(loc));
+    saveLocation(result);
     setUserLocation(loc);
     setFlyTarget({ center: [result.latitude, result.longitude], zoom: 9 });
 

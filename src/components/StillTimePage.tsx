@@ -6,9 +6,10 @@ import { getCropUrgencies, CropUrgency } from "@/lib/urgency";
 import { calculateLastFrostDate, LocationData } from "@/lib/frost";
 import { getAvgFrostDate } from "@/lib/calendar";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
+import { loadLocation } from "@/lib/location-storage";
 import Link from "next/link";
 
-type GroupName = "All" | "Alliums" | "Legumes" | "Brassicas" | "Roots" | "Potatoes" | "Salads" | "Tender" | "Stems" | "Herbs";
+type GroupName = "All" | "Alliums" | "Legumes" | "Brassicas" | "Roots" | "Potatoes" | "Salads" | "Tender" | "Stems" | "Herbs" | "Fruit";
 
 const CROP_GROUPS: Record<string, GroupName> = {
   "garlic": "Alliums",
@@ -51,6 +52,13 @@ const CROP_GROUPS: Record<string, GroupName> = {
   "coriander": "Herbs",
   "dill": "Herbs",
   "parsley": "Herbs",
+  "strawberries": "Fruit",
+  "raspberries": "Fruit",
+  "blackberries": "Fruit",
+  "gooseberries": "Fruit",
+  "blackcurrants": "Fruit",
+  "redcurrants": "Fruit",
+  "rhubarb": "Fruit",
 };
 
 const GROUP_COLOURS: Record<GroupName, string> = {
@@ -64,6 +72,7 @@ const GROUP_COLOURS: Record<GroupName, string> = {
   "Tender":   "bg-[#E8D4C4]/60 text-[#7A4A28] border-[#D4B090]/40 hover:bg-[#D4B090]/60",
   "Stems":    "bg-[#D8E8C4]/60 text-[#3A5A28] border-[#B4C4A0]/40 hover:bg-[#B4C4A0]/60",
   "Herbs":    "bg-[#E8C4D4]/60 text-[#6A2A48] border-[#C4A0B0]/40 hover:bg-[#C4A0B0]/60",
+  "Fruit":    "bg-[#E8C4C4]/60 text-[#7A2A2A] border-[#D4A0A0]/40 hover:bg-[#D4A0A0]/60",
 };
 
 const GROUP_ACTIVE: Record<GroupName, string> = {
@@ -77,11 +86,10 @@ const GROUP_ACTIVE: Record<GroupName, string> = {
   "Tender":   "!bg-[#D4B090] text-white border-[#D4B090]",
   "Stems":    "!bg-[#B4C4A0] text-white border-[#B4C4A0]",
   "Herbs":    "!bg-[#C4A0B0] text-white border-[#C4A0B0]",
+  "Fruit":    "!bg-[#D4A0A0] text-white border-[#D4A0A0]",
 };
 
-const ALL_GROUPS: GroupName[] = ["All", "Alliums", "Legumes", "Brassicas", "Roots", "Potatoes", "Salads", "Tender", "Stems", "Herbs"];
-
-const STORAGE_KEY = "whattosow_location";
+const ALL_GROUPS: GroupName[] = ["All", "Alliums", "Legumes", "Brassicas", "Roots", "Potatoes", "Salads", "Tender", "Stems", "Herbs", "Fruit"];
 
 function UrgencyBadge({ level, daysLeft }: { level: CropUrgency["level"]; daysLeft: number }) {
   const colors = {
@@ -95,9 +103,7 @@ function UrgencyBadge({ level, daysLeft }: { level: CropUrgency["level"]; daysLe
       ? "Last day"
       : daysLeft <= 7
         ? `${daysLeft} days left`
-        : daysLeft <= 14
-          ? `${Math.ceil(daysLeft / 7)} weeks left`
-          : `${Math.ceil(daysLeft / 7)} weeks left`;
+        : `${Math.ceil(daysLeft / 7)} weeks left`;
 
   return (
     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${colors[level]}`}>
@@ -124,23 +130,17 @@ export default function StillTimePage() {
   const [ready, setReady] = useState(false);
   const [activeGroup, setActiveGroup] = useState<GroupName>("All");
 
-  const loadLocation = useCallback(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        setLocation(JSON.parse(raw));
-      }
-    } catch {
-      // ignore
-    }
+  const refreshLocation = useCallback(() => {
+    const loc = loadLocation();
+    if (loc) setLocation(loc);
     setReady(true);
   }, []);
 
   useEffect(() => {
-    loadLocation();
-    window.addEventListener("whattosow:location-updated", loadLocation);
-    return () => window.removeEventListener("whattosow:location-updated", loadLocation);
-  }, [loadLocation]);
+    refreshLocation();
+    window.addEventListener("whattosow:location-updated", refreshLocation);
+    return () => window.removeEventListener("whattosow:location-updated", refreshLocation);
+  }, [refreshLocation]);
 
   const now = new Date();
   const frostDate = location

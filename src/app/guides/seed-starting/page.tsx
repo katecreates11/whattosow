@@ -119,7 +119,7 @@ export default function SeedStartingGuide() {
           eyebrow="Growing guide"
           title="How to start seeds"
           subtitle="The cheapest, most satisfying way to fill your plot. Here's everything you need to know."
-          icon={<SeedIcon className="w-10 h-10" />}
+          image="/photos/guides/seed-starting-windowsill.webp"
           color="allotment"
         />
 
@@ -168,8 +168,8 @@ export default function SeedStartingGuide() {
           </div>
 
           <GuideImage
-            src="/images/guides/seedlings.webp"
-            alt="Young seedlings growing in biodegradable pots and seed trays"
+            src="/photos/guides/seed-starting-courgette-seedling.webp"
+            alt="A golden courgette seedling emerging from a labelled terracotta pot on a windowsill"
             caption="Start seeds in modules or small pots — they transplant better with an established root system."
           />
 
@@ -195,7 +195,8 @@ export default function SeedStartingGuide() {
                     rich &mdash; seedlings can drown in it or get burned by the
                     fertiliser. For small seeds (lettuce, tomatoes, celery),
                     always use seed compost. For big seeds like beans, squash, or
-                    sweetcorn, multi-purpose is fine.
+                    sweetcorn, multi-purpose is fine. If you&apos;re making your own, see our{" "}
+                    <a href="/guides/composting" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">composting guide</a>.
                   </p>
                 </div>
                 <div>
@@ -222,6 +223,9 @@ export default function SeedStartingGuide() {
                   </p>
                 </div>
               </div>
+              <TipBox title="Need a shopping list?">
+                Our <a href="/guides/seed-starting-kit" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seed starting kit guide</a> covers exactly what to buy (and what to skip).
+              </TipBox>
             </div>
           </section>
 

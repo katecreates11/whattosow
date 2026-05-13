@@ -70,8 +70,7 @@ export default function GrowingJourney({ crop }: { crop: Crop }) {
           <div className="h-2 bg-earth/6 rounded-full relative">
             {/* Filled range from first action to harvest */}
             <div
-              className="absolute inset-y-0 bg-gradient-to-r from-leaf/30 via-allotment/20 to-amber/30 rounded-full"
-              style={{ left: "0%", right: "0%" }}
+              className="absolute inset-0 bg-gradient-to-r from-leaf/30 via-allotment/20 to-amber/30 rounded-full"
             />
 
             {/* Frost date marker */}
@@ -95,8 +94,8 @@ export default function GrowingJourney({ crop }: { crop: Crop }) {
             return (
               <div
                 key={m.label}
-                className="absolute"
-                style={{ left: `${pct}%`, top: "0.25rem" }}
+                className="absolute top-1"
+                style={{ left: `${pct}%` }}
               >
                 {/* Dot */}
                 <div className={`w-4 h-4 rounded-full ${m.color} border-2 border-white shadow-sm -translate-x-1/2`} />

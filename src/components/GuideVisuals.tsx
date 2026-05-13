@@ -31,26 +31,23 @@ export function ColorSection({
   );
 }
 
-// ─── Hero banner — offset type, dramatic scale ──────────────────────────────
+// ─── Hero banner — photo background with gradient overlay ───────────────────
 export function GuideHero({
   eyebrow,
   title,
   subtitle,
   icon,
+  image,
   color = "allotment",
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
   icon?: React.ReactNode;
+  /** Path to hero image, e.g. "/images/guides/seedlings.webp" */
+  image?: string;
   color?: "allotment" | "amber" | "frost" | "tomato";
 }) {
-  const bgMap = {
-    allotment: "mesh-garden",
-    amber: "mesh-sunset",
-    frost: "mesh-morning",
-    tomato: "mesh-sunset",
-  };
   const accentMap = {
     allotment: "text-leaf-light",
     amber: "text-amber",
@@ -63,38 +60,57 @@ export function GuideHero({
     frost: "bg-frost",
     tomato: "bg-rust",
   };
+  // Fallback when no image provided
+  const bgMap = {
+    allotment: "mesh-garden",
+    amber: "mesh-sunset",
+    frost: "mesh-morning",
+    tomato: "mesh-sunset",
+  };
 
   return (
-    <div className={`${bgMap[color]} px-6 sm:px-10 lg:px-16 pt-16 sm:pt-24 pb-12 sm:pb-16 mb-14 relative overflow-hidden`}>
-      {/* Oversized number watermark */}
-      <div
-        className="absolute -right-4 sm:right-6 -top-8 text-[12rem] sm:text-[16rem] font-serif leading-none text-white/[0.04] select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        &lowast;
-      </div>
+    <div className={`${image ? "bg-earth" : bgMap[color]} relative overflow-hidden mb-14`}>
+      {/* Background photo */}
+      {image && (
+        <>
+          <img
+            src={image}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+          />
+          {/* Dark gradient overlay for text readability */}
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/50 to-black/30"
+            aria-hidden="true"
+          />
+        </>
+      )}
 
-      <div className="relative max-w-lg">
-        {/* Accent line */}
-        <div className={`${lineMap[color]} w-12 h-1 mb-6`} />
+      <div className="relative px-6 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-14 sm:pb-18">
+        <div className="max-w-lg">
+          {/* Accent line */}
+          <div className={`${lineMap[color]} w-12 h-1 mb-6`} />
 
-        <span className={`text-[10px] font-semibold tracking-[0.3em] uppercase ${accentMap[color]} opacity-70 mb-4 block`}>
-          {eyebrow}
-        </span>
+          <span className={`text-[10px] font-semibold tracking-[0.3em] uppercase ${image ? "text-white/60" : accentMap[color] + " opacity-70"} mb-4 block`}>
+            {eyebrow}
+          </span>
 
-        {icon && (
-          <div className={`${accentMap[color]} mb-4 opacity-60`}>
-            {icon}
-          </div>
-        )}
+          {icon && !image && (
+            <div className={`${accentMap[color]} mb-4 opacity-60`}>
+              {icon}
+            </div>
+          )}
 
-        <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-white tracking-tight leading-[0.95] mb-6">
-          {title}
-        </h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-white tracking-tight leading-[0.95] mb-6">
+            {title}
+          </h1>
 
-        <p className="text-white/55 leading-relaxed max-w-md text-base sm:text-[17px] font-serif italic">
-          {subtitle}
-        </p>
+          <p className={`${image ? "text-white/70" : "text-white/55"} leading-relaxed max-w-md text-base sm:text-[17px] font-serif italic`}>
+            {subtitle}
+          </p>
+        </div>
       </div>
     </div>
   );

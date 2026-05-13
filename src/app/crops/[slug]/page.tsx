@@ -7,6 +7,7 @@ import PlantingTool from "@/components/PlantingTool";
 import PersonalisedCropDates from "@/components/PersonalisedCropDates";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UnsplashHero from "@/components/UnsplashHero";
 
 import {
   HardyIllustration,
@@ -15,8 +16,10 @@ import {
   getCropIcon,
 } from "@/components/SVGIllustrations";
 import { getCropImagePath } from "@/lib/crop-images";
+import { getCropPhoto } from "@/lib/crop-photos";
 import { getMinSoilTemp } from "@/data/crops";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
+import CropKit from "@/components/CropKit";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import CropScrollDepth from "@/components/CropScrollDepth";
 import SpacingDiagram from "@/components/SpacingDiagram";
@@ -164,6 +167,8 @@ export async function generateMetadata({
   const crop = crops.find((c) => c.slug === slug);
   if (!crop) return {};
 
+  const photo = getCropPhoto(slug);
+
   return {
     title: `When to Plant ${crop.name} in the UK — What To Sow`,
     description: `Find out exactly when to sow and plant ${crop.name.toLowerCase()} based on your UK postcode. Get your local frost date and personalised planting times for ${crop.name.toLowerCase()}.`,
@@ -178,6 +183,9 @@ export async function generateMetadata({
       description: `Personalised planting times for ${crop.name.toLowerCase()} based on your UK postcode and local frost date.`,
       type: "article",
       locale: "en_GB",
+      ...(photo && {
+        images: [{ url: photo.hero, alt: photo.alt, width: 1200, height: 800 }],
+      }),
     },
     alternates: {
       canonical: `/crops/${slug}`,
@@ -282,29 +290,28 @@ export default async function CropPage({
       <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
       <article id="main-content">
-        {/* Hero photo — full bleed */}
-        {crop.unsplashId && (
+        {/* Hero photo — local allotment photography preferred, Unsplash fallback */}
+        {getCropPhoto(crop.slug) ? (
           <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
             <Image
-              src={`https://images.unsplash.com/photo-${crop.unsplashId}?w=1600&h=600&fit=crop&auto=format&q=75`}
-              alt={`${crop.name} growing`}
+              src={getCropPhoto(crop.slug)!.hero}
+              alt={getCropPhoto(crop.slug)!.alt}
               fill
               className="object-cover"
               priority
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            <p className="absolute bottom-3 right-4 text-[10px] text-white/40">
-              Photo: Unsplash
-            </p>
           </div>
-        )}
+        ) : crop.unsplashId ? (
+          <UnsplashHero unsplashId={crop.unsplashId} cropName={crop.name} />
+        ) : null}
 
         {/* Crop Header — overlaps photo */}
         <div
-          className={`${categoryHeaderBg(crop.category)} ${crop.unsplashId ? "-mt-16 relative z-10" : ""} px-6 sm:px-10 lg:px-16`}
+          className={`${categoryHeaderBg(crop.category)} ${getCropPhoto(crop.slug) || crop.unsplashId ? "-mt-16 relative z-10" : ""} px-6 sm:px-10 lg:px-16`}
         >
-          <div className={`max-w-4xl mx-auto ${crop.unsplashId ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}>
+          <div className={`max-w-4xl mx-auto ${getCropPhoto(crop.slug) || crop.unsplashId ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}>
             <div className="flex items-start justify-between gap-8">
               <div className="flex-1">
                 <div className="flex items-center gap-2.5 mb-6">
@@ -440,6 +447,9 @@ export default async function CropPage({
               {/* Seeds — sidebar variant (desktop) */}
               <SeedSupplierLinks crop={crop} variant="sidebar" />
 
+              {/* Kit recommendations */}
+              <CropKit slug={crop.slug} cropName={crop.name} />
+
               {/* Personalise CTA */}
               <div id="get-dates" className="bg-allotment-dark p-6 sm:p-8 scroll-mt-20">
                 <h2 className="text-lg font-semibold text-white mb-2">
@@ -479,7 +489,7 @@ export default async function CropPage({
                       >
                         {cImage ? (
                           <div className="flex justify-center mb-3">
-                            <Image src={cImage} alt="" width={48} height={48} className="object-contain" />
+                            <Image src={cImage} alt={`Illustration of ${c.name}`} width={48} height={48} className="object-contain" />
                           </div>
                         ) : null}
                         <div className="flex items-center gap-2 mb-2">
@@ -508,7 +518,7 @@ export default async function CropPage({
                     >
                       {cImage ? (
                         <div className="flex justify-center mb-3">
-                          <Image src={cImage} alt="" width={48} height={48} className="object-contain" />
+                          <Image src={cImage} alt={`Illustration of ${c.name}`} width={48} height={48} className="object-contain" />
                         </div>
                       ) : null}
                       <div className="flex items-center gap-2 mb-2">

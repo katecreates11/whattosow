@@ -14,42 +14,7 @@ import { crops, getCropsByAction, getMinSoilTemp, type Crop } from "@/data/crops
 import { SnowflakeIcon, SunIcon, getCropIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import EmailCapture from "@/components/EmailCapture";
-
-const STORAGE_KEY = "whattosow_location";
-
-function isValidLocation(data: unknown): data is LocationData {
-  if (!data || typeof data !== "object") return false;
-  const d = data as Record<string, unknown>;
-  return (
-    typeof d.postcode === "string" && d.postcode.length > 0 && d.postcode.length < 10 &&
-    typeof d.latitude === "number" && isFinite(d.latitude) &&
-    typeof d.longitude === "number" && isFinite(d.longitude) &&
-    typeof d.region === "string" &&
-    typeof d.adminDistrict === "string"
-  );
-}
-
-function saveLocation(location: LocationData) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
-    // Notify other components on the same page (e.g. PersonalisedCropDates)
-    window.dispatchEvent(new Event("whattosow:location-updated"));
-  } catch {
-    // localStorage unavailable
-  }
-}
-
-function loadLocation(): LocationData | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed: unknown = JSON.parse(raw);
-    if (!isValidLocation(parsed)) return null;
-    return parsed;
-  } catch {
-    return null;
-  }
-}
+import { saveLocation, loadLocation } from "@/lib/location-storage";
 
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {

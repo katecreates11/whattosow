@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TipBox, WarningBox, ProcessDiagram, GuideHero, PullQuote, SectionDivider, RotationIcon } from "@/components/GuideVisuals";
+import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
 
 export const metadata: Metadata = {
   title:
@@ -168,7 +169,7 @@ export default function CropRotationGuide() {
           eyebrow="Growing guide"
           title="Crop rotation for allotments"
           subtitle="Move your vegetables around so the same family doesn't grow in the same spot two years running. Here's the simple system."
-          icon={<RotationIcon className="w-10 h-10" />}
+          image="/images/guides/mulch.webp"
           color="allotment"
         />
 
@@ -624,8 +625,68 @@ export default function CropRotationGuide() {
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
+              <a
+                href="/guides/soil"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Soil guide
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Test and improve your soil before each rotation.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
+                href="/guides/composting"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Composting
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Build soil between rotations with good compost.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
             </div>
           </section>
+
+          {/* Equipment */}
+          <SectionDivider label="Useful kit" />
+          <section>
+            <p className="text-sm text-earth-light mb-2">
+              Rotation is mostly a planning exercise — you don&apos;t need much kit. But a couple of cheap items make it easier to stay organised and catch soil problems before they bite.
+            </p>
+            <GearCategory title="Planning & soil testing" number={1}>
+              <GearPick
+                name="Soil pH test kit"
+                price="~£7"
+                description="A basic liquid or strip test kit that tells you whether your soil is acid, neutral, or alkaline. Essential before rotating brassicas into a bed — they need pH 6.5–7.5 and will struggle in acidic soil."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=soil+pH+test+kit+garden"
+                badge="our-pick"
+                tip="Test each bed before rotating brassicas in. They need pH 6.5–7.5 — add lime if it's acidic."
+              />
+              <GearPick
+                name="Garden planning notebook"
+                price="~£10"
+                description="Any notebook will do, but a dedicated allotment planner with bed layouts and monthly pages makes it dead simple to record what went where. The single most useful thing for keeping your rotation on track year to year."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=allotment+garden+planner+notebook"
+              />
+              <GearPick
+                name="Weatherproof bed labels"
+                price="~£6"
+                description="Cheap metal or plastic labels you push into each bed at the start of the season. Write the crop group and year on them. When February comes around, you won't have to guess what was growing where."
+                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=garden+bed+labels+weatherproof"
+              />
+            </GearCategory>
+          </section>
+
+          <AffiliateDisclosure />
         </div>
       </main>
       <Footer />

@@ -16,6 +16,23 @@ import { loadLocation } from "@/lib/location-storage";
 
 type Phase = "hero" | "animating" | "result";
 
+// Existing crop illustrations — will be replaced with custom botanical illustrations
+const CROP_ILLUSTRATIONS: Record<string, string> = {
+  tomatoes: "/images/crops/tomatoes.png",
+  carrots: "/images/crops/carrots.png",
+  peas: "/images/crops/peas.png",
+  beetroot: "/images/crops/beetroot.png",
+  "broad-beans": "/images/crops/broad-beans.png",
+  courgettes: "/images/crops/courgette.png",
+  kale: "/images/crops/kale.png",
+  lettuce: "/images/crops/lettuce.png",
+  "onion-sets": "/images/crops/onions.png",
+  "early-potatoes": "/images/crops/potato.png",
+  "maincrop-potatoes": "/images/crops/potato.png",
+  radishes: "/images/crops/radishes.png",
+  spinach: "/images/crops/spinach.png",
+};
+
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
@@ -161,48 +178,71 @@ export default function LuckyDipClient() {
   // Hero state
   if (phase === "hero") {
     return (
-      <section className="flex flex-col items-center justify-center text-center px-6 py-24 sm:py-32 min-h-[60vh]">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-earth tracking-tight leading-tight mb-4">
-          Not sure what to grow?
-        </h1>
-        <p className="text-lg sm:text-xl text-earth-light max-w-md mb-10">
-          Plant a mystery seed and see what comes up.
-        </p>
+      <section className="relative min-h-[85vh] flex flex-col items-center justify-end text-center overflow-hidden">
+        {/* Allotment illustration background */}
+        <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
+          <img
+            src="/images/headers/hero-allotment.webp"
+            alt=""
+            aria-hidden="true"
+            className="w-full max-w-4xl object-contain object-bottom opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-cream via-cream/80 to-cream/40" />
+        </div>
 
-        {weatherBonus.label && (
-          <div className="mb-6 inline-flex items-center gap-2 bg-leaf/10 text-allotment text-sm font-semibold px-4 py-2 rounded-full">
-            <span aria-hidden="true">*</span>
-            {weatherBonus.label}
-          </div>
-        )}
-
-        {nothingSowable ? (
-          <div className="max-w-md">
-            <p className="text-earth-light mb-4">
-              Nothing is sowable right now — but check back soon. The sowing season is always just around the corner.
-            </p>
-            <Link
-              href="/crops"
-              className="text-allotment font-semibold hover:underline"
-            >
-              Browse all crops &rarr;
-            </Link>
-          </div>
-        ) : (
-          <button
-            onClick={handlePlantSeed}
-            className="bg-allotment text-white text-lg font-semibold px-10 py-4 hover:bg-allotment-dark transition-colors focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2"
-          >
-            Plant a mystery seed
-          </button>
-        )}
-
-        {garden.loaded && (
-          <p className="text-sm text-earth-lighter mt-8">
-            You&apos;ve discovered {garden.garden.collection.length} of{" "}
-            {varieties.length} varieties
+        {/* Content */}
+        <div className="relative z-10 px-6 pb-16 sm:pb-24 flex flex-col items-center">
+          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-allotment/60 mb-4 block">
+            The Lucky Dip
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-5">
+            Not sure what<br />to grow?
+          </h1>
+          <p className="text-lg text-earth-light max-w-sm mb-10 leading-relaxed">
+            Plant a mystery seed and see what comes up. Discover varieties you&apos;d never have tried.
           </p>
-        )}
+
+          {weatherBonus.label && (
+            <div className="mb-6 inline-flex items-center gap-2.5 bg-leaf/10 border border-leaf/20 text-allotment text-sm font-semibold px-5 py-2.5">
+              <span className="w-2 h-2 rounded-full bg-leaf animate-pulse" />
+              {weatherBonus.label}
+            </div>
+          )}
+
+          {nothingSowable ? (
+            <div className="max-w-md">
+              <p className="text-earth-light mb-4">
+                The garden rests in winter — check back soon.
+              </p>
+              <Link
+                href="/calendar"
+                className="text-allotment font-semibold hover:underline"
+              >
+                View the sowing calendar &rarr;
+              </Link>
+            </div>
+          ) : (
+            <button
+              onClick={handlePlantSeed}
+              className="group relative bg-allotment text-white text-lg font-semibold px-12 py-5 hover:bg-allotment-dark transition-all duration-300 hover:shadow-lg hover:shadow-allotment/20 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream"
+            >
+              <span className="relative z-10">Plant a mystery seed</span>
+              <span className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </button>
+          )}
+
+          {garden.loaded && (
+            <p className="text-sm text-earth-lighter mt-8">
+              {garden.garden.collection.length === 0 ? (
+                <>182 varieties waiting to be discovered</>
+              ) : (
+                <>
+                  {garden.garden.collection.length} of {varieties.length} varieties discovered
+                </>
+              )}
+            </p>
+          )}
+        </div>
       </section>
     );
   }
@@ -210,11 +250,22 @@ export default function LuckyDipClient() {
   // Animating state
   if (phase === "animating" && selected) {
     return (
-      <section className="min-h-[80vh] flex items-center justify-center">
+      <section className="min-h-[90vh] flex flex-col items-center justify-center relative bg-gradient-to-b from-[#1a2a1a] via-[#1e3320] to-[#2a3a20]">
+        {/* Subtle starfield / atmosphere */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: "radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent), radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.2), transparent), radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,0.25), transparent), radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.15), transparent)",
+        }} />
         <GrowingReveal
           rarity={selected.displayRarity}
+          illustrationSrc={
+            CROP_ILLUSTRATIONS[selected.variety.cropSlug] || undefined
+          }
+          illustrationAlt={selected.variety.name}
           onComplete={handleRevealComplete}
         />
+        <p className="text-white/30 text-sm mt-8 animate-pulse">
+          Tap to skip
+        </p>
       </section>
     );
   }
@@ -223,19 +274,29 @@ export default function LuckyDipClient() {
   if (phase === "result" && selected) {
     const crop = selected.crop;
     const alreadyPlanted = garden.isPlanted(selected.variety.id);
+    const rarityLabel = selected.displayRarity === "legendary" ? "Legendary!" : selected.displayRarity === "rare" ? "Rare find!" : selected.displayRarity === "uncommon" ? "Nice find!" : "A good pick.";
+    const rarityColour = selected.displayRarity === "legendary" || selected.displayRarity === "rare" ? "text-amber" : selected.displayRarity === "uncommon" ? "text-leaf" : "text-earth-lighter";
 
     return (
-      <div className="max-w-3xl mx-auto px-6 py-12 sm:py-16">
+      <div>
+        {/* Rarity announcement bar */}
+        <div className={`text-center py-3 ${selected.displayRarity === "legendary" ? "bg-amber/10" : selected.displayRarity === "rare" ? "bg-amber/5" : "bg-sage/30"}`}>
+          <span className={`text-[11px] font-bold tracking-[0.2em] uppercase ${rarityColour}`}>
+            {rarityLabel}
+          </span>
+        </div>
+
+        <div className="max-w-3xl mx-auto px-6 py-10 sm:py-14">
         {/* Welcome banner for first-timers */}
         {showWelcome && (
-          <div className="bg-leaf/10 border border-leaf/20 p-5 mb-8">
-            <p className="text-allotment font-semibold mb-1">
+          <div className="bg-allotment/5 border border-allotment/15 p-6 mb-10">
+            <p className="font-serif text-lg text-earth mb-1">
               Welcome to your garden.
             </p>
-            <p className="text-sm text-earth-light mb-3">
+            <p className="text-sm text-earth-light mb-4">
               You&apos;ve planted your first seed. Visit your garden to watch it grow.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <Link
                 href="/my-garden"
                 className="text-sm font-semibold text-allotment hover:underline"
@@ -374,17 +435,18 @@ export default function LuckyDipClient() {
         </div>
 
         {/* i. Plant another */}
-        <div className="text-center pt-6 pb-8 border-t border-earth/8">
+        {/* Plant another */}
+        <div className="text-center pt-8 pb-10 border-t border-earth/8 mt-10">
           <button
             onClick={handlePlantAnother}
-            className="bg-allotment text-white text-lg font-semibold px-10 py-4 hover:bg-allotment-dark transition-colors focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2"
+            className="group relative bg-allotment text-white text-lg font-semibold px-12 py-5 hover:bg-allotment-dark transition-all duration-300 hover:shadow-lg hover:shadow-allotment/20 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2"
           >
             Plant another mystery seed
           </button>
-          <p className="text-sm text-earth-lighter mt-4">
-            You&apos;ve discovered {garden.garden.collection.length} of{" "}
-            {varieties.length} varieties
+          <p className="text-sm text-earth-lighter mt-6">
+            {garden.garden.collection.length} of {varieties.length} varieties discovered
           </p>
+        </div>
         </div>
       </div>
     );

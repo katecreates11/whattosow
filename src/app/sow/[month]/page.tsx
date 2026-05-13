@@ -33,12 +33,13 @@ export async function generateMetadata({
 
   return {
     title: `What to Sow in ${name} — UK Planting Guide | What To Sow`,
-    description: `Find out which vegetables, herbs and salads to sow and plant in ${name} in the UK. Personalised to your postcode and local frost date.`,
+    description: `Find out which vegetables, fruit, herbs and salads to sow and plant in ${name} in the UK. Personalised to your postcode and local frost date.`,
     keywords: [
       `what to sow in ${name.toLowerCase()}`,
       `what to plant ${name.toLowerCase()} UK`,
       `${name.toLowerCase()} sowing guide UK`,
       `vegetable planting ${name.toLowerCase()}`,
+      `fruit to plant ${name.toLowerCase()} UK`,
     ],
     openGraph: {
       title: `What to Sow in ${name} — UK Planting Guide`,
@@ -71,7 +72,7 @@ function CropCard({ crop }: { crop: Crop }) {
         {imagePath ? (
           <Image
             src={imagePath}
-            alt=""
+            alt={`Illustration of ${crop.name}`}
             width={48}
             height={48}
             className="shrink-0 object-contain"

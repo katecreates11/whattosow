@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { loadLocation } from "@/lib/location-storage";
 
-const STORAGE_KEY = "whattosow_location";
 const DISMISS_KEY = "whattosow_sticky_dismissed";
 
 export default function StickyPostcodeCTA() {
@@ -12,12 +12,7 @@ export default function StickyPostcodeCTA() {
   const [pastHero, setPastHero] = useState(false);
 
   const checkLocation = useCallback(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      setHasLocation(raw !== null);
-    } catch {
-      setHasLocation(false);
-    }
+    setHasLocation(loadLocation() !== null);
   }, []);
 
   useEffect(() => {

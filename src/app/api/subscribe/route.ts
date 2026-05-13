@@ -3,7 +3,12 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const { email } = await request.json();
 
-  if (!email || typeof email !== "string" || !email.includes("@")) {
+  if (
+    !email ||
+    typeof email !== "string" ||
+    email.length > 254 ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  ) {
     return NextResponse.json({ error: "Valid email required" }, { status: 400 });
   }
 
@@ -32,7 +37,7 @@ export async function POST(request: Request) {
     if (res.status === 422) {
       return NextResponse.json({ error: "That email address isn't valid. Please check and try again." }, { status: 422 });
     }
-    console.error("MailerLite error:", res.status, data);
+    if (process.env.NODE_ENV === "development") console.error("MailerLite error:", res.status, data);
     return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 

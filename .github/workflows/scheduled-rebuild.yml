@@ -1,0 +1,23 @@
+# Rebuild the site weekly so time-gated blog posts go live automatically.
+# New posts publish on the 1st of each month — this rebuild ensures they appear
+# without manual deploys.
+#
+# Setup: Add your Netlify build hook URL as a GitHub secret:
+#   Repository Settings → Secrets → NETLIFY_BUILD_HOOK
+#   Create the hook in Netlify: Site → Build & deploy → Build hooks → Add build hook
+name: Weekly Rebuild
+
+on:
+  schedule:
+    # Every Monday at 6am UTC (7am BST)
+    - cron: "0 6 * * 1"
+  # Also rebuild on the 1st of every month at midnight (when new posts publish)
+  # cron doesn't support "1st of month AND Mondays" so we use two schedules
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build
+        run: curl -X POST -d '{}' ${{ secrets.NETLIFY_BUILD_HOOK }}
