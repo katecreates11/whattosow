@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { type Crop } from "@/data/crops";
-import { getCropIcon } from "@/components/SVGIllustrations";
 import { isSowableNow } from "@/lib/sowable";
 
 const borderColor: Record<string, string> = {
@@ -17,57 +16,28 @@ const hoverBg: Record<string, string> = {
   tender: "group-hover:bg-tomato-bg/40",
 };
 
-// Known crop PNGs — checked at build time on server, but CropIndex is client-side
-// so we hardcode the slugs that have images
-const CROP_IMAGES = new Set([
-  "beetroot", "broad-beans", "carrots", "courgette", "kale",
-  "lettuce", "onions", "peas", "potato", "radishes", "spinach", "tomatoes",
-]);
-
 function CropCard({ crop, dimmed, isSowable, index }: { crop: Crop; dimmed: boolean; isSowable: boolean; index: number }) {
-  const Icon = getCropIcon(crop.slug);
-  const hasImage = CROP_IMAGES.has(crop.slug);
-
   return (
     <a
       href={`/crops/${crop.slug}`}
-      className={`group block border border-earth/6 ${borderColor[crop.category]} ${hoverBg[crop.category]} p-4 sm:p-5 hover:border-earth/15 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ${dimmed ? "opacity-40" : ""}`}
+      className={`group block border border-earth/6 ${borderColor[crop.category]} ${hoverBg[crop.category]} p-4 sm:p-5 hover:border-earth/15 transition-all duration-300 ${dimmed ? "opacity-40" : ""}`}
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      <div className="flex items-start gap-3">
-        {/* Crop image or icon */}
-        {hasImage ? (
-          <img
-            src={`/images/crops/${crop.slug}.png`}
-            alt={`Illustration of ${crop.name}`}
-            width={40}
-            height={40}
-            className="shrink-0 object-contain group-hover:scale-110 transition-transform duration-300"
-          />
-        ) : Icon ? (
-          <div className="w-10 h-10 shrink-0 flex items-center justify-center">
-            <Icon className="w-6 h-6 text-earth-lighter group-hover:text-allotment transition-colors duration-300" />
-          </div>
-        ) : null}
-
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 mb-0.5">
-            <span className="font-medium text-earth group-hover:text-allotment transition-colors duration-300">{crop.name}</span>
-            {isSowable && (
-              <span className="inline-block bg-allotment text-white text-[10px] font-semibold px-1.5 py-0.5 leading-none tracking-wide uppercase shrink-0">
-                Sow now
-              </span>
-            )}
-          </div>
-          <p className="text-sm text-earth-lighter leading-relaxed">
-            {crop.directSowWeeks !== null
-              ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
-              : crop.sowIndoorsWeeks !== null
-                ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
-                : ""}
-          </p>
-        </div>
+      <div className="flex items-center gap-2 mb-0.5">
+        <span className="font-medium text-earth group-hover:text-allotment transition-colors duration-300">{crop.name}</span>
+        {isSowable && (
+          <span className="inline-block bg-allotment text-white text-[10px] font-semibold px-1.5 py-0.5 leading-none tracking-wide uppercase shrink-0">
+            Sow now
+          </span>
+        )}
       </div>
+      <p className="text-sm text-earth-lighter leading-relaxed">
+        {crop.directSowWeeks !== null
+          ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
+          : crop.sowIndoorsWeeks !== null
+            ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
+            : ""}
+      </p>
     </a>
   );
 }

@@ -1,15 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Marquee from "@/components/Marquee";
+import WeatherVane from "@/components/WeatherVane";
 
 const NAV_LINKS = [
   { href: "/#explore-crops", label: "Crops" },
-  { href: "/calendar", label: "Calendar" },
-  { href: "/harvest-planner", label: "Harvest planner" },
   { href: "/frost-map", label: "Frost map" },
   { href: "/guides", label: "Guides" },
-  { href: "/sow-in", label: "By location" },
-  { href: "/my-garden", label: "My Garden" },
+  { href: "/allotments", label: "Allotments" },
   { href: "/blog", label: "Blog" },
 ];
 
@@ -58,7 +57,7 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
               </a>
             ))}
           </nav>
-          <a href="/still-time" className="text-[11px] sm:text-xs font-bold tracking-[0.08em] uppercase text-allotment-dark bg-leaf-light hover:bg-leaf transition-colors px-3 py-1.5 rounded-sm ml-1 sm:ml-2">Still time to sow</a>
+          <WeatherVane />
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -87,6 +86,7 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
           </div>
         </nav>
       )}
+      <Marquee />
     </header>
   );
 }

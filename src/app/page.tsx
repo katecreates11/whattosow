@@ -8,14 +8,11 @@ import { crops } from "@/data/crops";
 import SkyTonightLoader from "@/components/SkyTonightLoader";
 import EmailCapture from "@/components/EmailCapture";
 import Image from "next/image";
-import {
-  MapPinPlantIcon,
-  CalendarSeedlingIcon,
-  SnowflakeShieldIcon,
-} from "@/components/SVGIllustrations";
 import { getCurrentMicroSeason, getSeasonName } from "@/lib/seasons";
 import StickyPostcodeCTA from "@/components/StickyPostcodeCTA";
 import CountUp from "@/components/CountUp";
+import EditorNote from "@/components/EditorNote";
+import LatestFromThePlot from "@/components/LatestFromThePlot";
 
 export default function Home() {
   const jsonLd = {
@@ -227,7 +224,7 @@ export default function Home() {
             {/* Large card — 8 columns */}
             <ScrollReveal className="col-span-12 lg:col-span-8">
               <div className="bg-sage p-8 sm:p-10 lg:p-12 h-full transition-colors duration-300">
-                <MapPinPlantIcon className="w-10 h-10 text-allotment/60 mb-6" />
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-allotment/40 mb-6">01</p>
                 <h3 className="font-semibold text-earth text-xl mb-3">Localised to you</h3>
                 <p className="text-earth-light leading-relaxed max-w-lg">
                   Your frost date is calculated from your postcode — not a national
@@ -241,7 +238,7 @@ export default function Home() {
             <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-5">
               <ScrollReveal delay={100}>
                 <div className="bg-ochre p-6 sm:p-8 transition-colors duration-300">
-                  <CalendarSeedlingIcon className="w-8 h-8 text-amber/60 mb-4" />
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-amber/50 mb-4">02</p>
                   <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
                   <p className="text-sm text-earth-light leading-relaxed">
                     Sowing windows open and close every week. Miss one and you
@@ -252,7 +249,7 @@ export default function Home() {
 
               <ScrollReveal delay={200}>
                 <div className="bg-sky p-6 sm:p-8 transition-colors duration-300">
-                  <SnowflakeShieldIcon className="w-8 h-8 text-frost/60 mb-4" />
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-frost/60 mb-4">03</p>
                   <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
                   <p className="text-sm text-earth-light leading-relaxed">
                     Real-time frost risk for the next 3 nights, so you can cover
@@ -265,26 +262,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Secondary links — frost map + still-time */}
+        {/* Frost map link */}
         <div className="px-6 sm:px-10 lg:px-16">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pb-14 sm:pb-20">
-          <a
-            href="/still-time"
-            className="group border border-earth/6 border-l-4 border-l-amber bg-ochre p-6 hover:border-earth/15 transition-colors duration-300"
-          >
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber mb-2 block">
-              Closing soon
-            </span>
-            <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
-              What can you still sow? &rarr;
-            </span>
-            <p className="text-sm text-earth-light mt-1">
-              Crops with closing sowing windows this week.
-            </p>
-          </a>
+        <div className="max-w-4xl mx-auto pb-14 sm:pb-20">
           <a
             href="/frost-map"
-            className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300"
+            className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300 block"
           >
             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost mb-2 block">
               Interactive map
@@ -298,6 +281,9 @@ export default function Home() {
           </a>
         </div>
         </div>
+
+        {/* Editor's Note */}
+        <EditorNote />
 
         {/* Sky tonight — moon phase + daylight */}
         <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-sky" aria-label="Today at the allotment">
@@ -381,25 +367,8 @@ export default function Home() {
           </ScrollReveal>
         </FullWidthSection>
 
-        {/* Email capture — standalone for visitors who don't use the tool */}
-        <FullWidthSection className="bg-allotment-dark" innerClassName="py-14 sm:py-20">
-          <ScrollReveal>
-            <section aria-label="Newsletter signup">
-              <div className="max-w-lg mx-auto text-center">
-                <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/50 mb-3 block">
-                  Monthly sowing reminders
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-white tracking-tight mb-3">
-                  Don&apos;t miss what&apos;s coming up
-                </h2>
-                <p className="text-sm text-white/60 mb-6 leading-relaxed">
-                  A short email each month with what to sow, when to sow it, and the odd practical tip. No spam.
-                </p>
-                <EmailCapture variant="dark" />
-              </div>
-            </section>
-          </ScrollReveal>
-        </FullWidthSection>
+        {/* Latest from the plot */}
+        <LatestFromThePlot />
 
         {/* FAQ */}
         <section id="common-questions" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 scroll-mt-20 bg-ochre" aria-labelledby="faq-heading">

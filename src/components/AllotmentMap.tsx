@@ -104,23 +104,23 @@ export default function AllotmentMap() {
 
   return (
     <div className="space-y-4">
-      <form onSubmit={handleSubmit} className="flex gap-2 max-w-md">
+      <form onSubmit={handleSubmit} className="flex gap-0 max-w-md">
         <input
           type="text"
           value={postcode}
           onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-          placeholder="Enter your postcode"
+          placeholder="Your postcode"
           aria-label="UK postcode"
-          className="flex-1 px-4 py-3 rounded-xl border border-earth/15 bg-white text-earth placeholder:text-earth-lighter focus:outline-none focus:ring-2 focus:ring-allotment focus:border-transparent text-base uppercase"
+          className="flex-1 px-4 py-3 border border-[#003b44]/20 bg-white text-[#003b44] placeholder:text-[#003b44]/30 focus:outline-none focus:ring-2 focus:ring-[#003b44] focus:border-transparent text-base uppercase tracking-widest"
           autoComplete="postal-code"
           required
         />
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-3 bg-allotment text-white font-semibold rounded-xl hover:bg-allotment-dark focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 disabled:opacity-50 transition-colors whitespace-nowrap"
+          className="px-6 py-3 bg-[#003b44] text-white font-mono text-xs tracking-[0.1em] uppercase hover:bg-[#006260] focus:outline-none focus:ring-2 focus:ring-[#003b44] focus:ring-offset-2 disabled:opacity-50 transition-colors whitespace-nowrap"
         >
-          {loading ? "Searching..." : "Find"}
+          {loading ? "..." : "Find"}
         </button>
       </form>
 
@@ -128,7 +128,7 @@ export default function AllotmentMap() {
 
       {location && (
         <>
-          <div className="rounded-2xl overflow-hidden border border-earth/10 h-[500px]">
+          <div className="overflow-hidden h-[560px] sm:h-[640px]">
             <MapContainer
               center={[location.latitude, location.longitude]}
               zoom={13}
@@ -136,8 +136,10 @@ export default function AllotmentMap() {
               scrollWheelZoom={true}
             >
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='Map tiles by <a href="https://stamen.com">Stamen Design</a>, under <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors.'
+                url="https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg"
+                minZoom={1}
+                maxZoom={16}
               />
               <Marker position={[location.latitude, location.longitude]} icon={getIcons().userIcon}>
                 <Popup>

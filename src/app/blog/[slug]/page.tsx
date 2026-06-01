@@ -279,21 +279,18 @@ function EditorialSectionRenderer({ section }: { section: EditorialSection }) {
       );
     case "image":
       return (
-        <figure className="-mx-6 sm:-mx-8 my-8 sm:my-10">
-          <div className="aspect-[3/2] overflow-hidden bg-earth/5">
-            <img
-              src={section.src}
-              alt={section.alt || ""}
-              className="w-full h-full object-cover"
-              width={1200}
-              height={800}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+        <figure className="-mx-6 sm:-mx-[calc(50vw-20rem)] my-12 sm:my-16">
+          <img
+            src={section.src}
+            alt={section.alt || ""}
+            className="w-full h-auto block"
+            style={{ filter: "contrast(1.06) saturate(0.82) sepia(0.06) brightness(1.01)" }}
+            loading="lazy"
+            decoding="async"
+          />
           {section.caption && (
-            <figcaption className="px-6 sm:px-8 mt-3">
-              <span className="text-xs text-earth-light font-serif italic">
+            <figcaption className="px-6 sm:px-0 mt-3 max-w-3xl mx-auto">
+              <span className="font-mono text-[11px] tracking-[0.1em] uppercase text-earth-light/70">
                 {section.caption}
               </span>
             </figcaption>

@@ -832,6 +832,447 @@ export const editorialPosts: EditorialPost[] = [
     relatedCrops: ["tomatoes", "peppers", "courgettes", "carrots", "peas"],
   },
   {
+    slug: "planting-out-heatwave-june",
+    title: "Planting out in a heatwave: what I learned the hard way",
+    description:
+      "I planted marigold plugs in April during a hot spell, didn't visit for two days, and came back to find every single one had fried. Here is what happened, what I did differently the second time, and how to protect newly planted plugs when the weather turns unexpectedly warm.",
+    publishDate: new Date("2026-06-01"),
+    keywords: [
+      "planting out in hot weather UK",
+      "marigolds wilting after planting",
+      "heatwave allotment UK",
+      "planting plugs in heat",
+      "marigold plugs dying after planting",
+      "how to plant out in summer UK",
+      "allotment heatwave tips",
+    ],
+    heroImage: "/photos/blog/marigold-border-evening-beds.webp",
+    heroAlt:
+      "Raised allotment beds with orange marigolds along the borders and courgette plants growing, photographed in evening light",
+    intro:
+      "I have planted marigolds out in April three years running. In 2024, the slugs got them. In 2025, the same timing and they thrived — the best borders the plot has ever had. In 2026, same timing again, and every single one fried in the heat. Every year there is a new enemy.",
+    tags: ["allotment diary", "marigolds", "June", "heatwave"],
+    sections: [
+      {
+        type: "heading",
+        content: "2024: Slugmageddon",
+      },
+      {
+        type: "text",
+        content:
+          "The year before last was a bad one for slugs. Really bad. So many newly planted things got wiped out that I started thinking of it as Slugmageddon. Plug plants that had been fine on one visit were gone by the next.\n\nThe solution I landed on was metal rods bent into mini frames over the beds, with netting draped over them. Slug pellets underneath — which the netting kept the birds from getting to — and for the most vulnerable plants, individual plastic cloches to give them a chance to establish before the slugs found them.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/allotment-netting-cloches-2024.webp",
+        alt: "A UK allotment at sunset showing multiple beds — one with white plastic cloches protecting young plants, another with green netting draped over it, a metal arch in the background",
+        caption:
+          "2024. Cloches on one bed, netting on the next, slug pellets underneath both. Not pretty, but it worked.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-cloche-slug-pellets-2024.webp",
+        alt: "A plastic cloche covered in condensation protecting a young plant in allotment soil, blue slug pellets visible around it, netting frame visible in the background at dusk",
+        caption:
+          "The close-up version. Blue slug pellets inside the netting, cloche over the most vulnerable plants. A lot of effort for something that should just go in the ground.",
+      },
+      {
+        type: "text",
+        content:
+          "The cloches were imperfect — I could not always get to the allotment as often as I wanted to, and a closed cloche in warm weather will cook a plant just as surely as no water will. So I used them sparingly, for the first week or two after planting, then removed them once things were established enough to hold their own.",
+      },
+      {
+        type: "heading",
+        content: "2025: The same timing, a different year",
+      },
+      {
+        type: "text",
+        content:
+          "Last year I planted marigolds out in April, same as always. The netting frames went up, the slug pellets went down, and the weather that spring was ordinary — mild, some rain, nothing extreme. By summer, every bed had a dense continuous border of orange. The whole plot looked like it was on fire.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-border-netting-2025.webp",
+        alt: "A raised allotment bed with a dense orange marigold border all the way around, a metal netting frame over the bed protecting the plants inside",
+        caption:
+          "2025, early summer. The marigolds are in, the netting is up. It worked.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-nasturtium-arch-2025.webp",
+        alt: "Nasturtiums in full flower in the foreground of a raised bed, with a dense orange marigold border visible behind, a metal arch frame overhead",
+        caption:
+          "Midsummer 2025. Nasturtiums in the foreground, marigolds all round the back bed. The nasturtiums draw the blackfly onto themselves and away from everything else.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-lettuce-midsummer-2025.webp",
+        alt: "Butterhead lettuce heads growing inside a raised bed completely surrounded by enormous orange French marigolds in full bloom",
+        caption:
+          "This is what it looks like by midsummer when the planting works. The marigolds have grown to dwarf the lettuce. Every allotment holder who walked past stopped to comment.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-borders-full-2025.webp",
+        alt: "Multiple raised allotment beds all lined with dense orange marigold borders photographed at golden hour, the whole plot glowing",
+        caption:
+          "2025 at peak. Every bed, every border, orange all the way round. This is what I was trying to get back to.",
+      },
+      {
+        type: "heading",
+        content: "2026: What I found when I got back",
+      },
+      {
+        type: "text",
+        content:
+          "I planted marigold and yellow calendula plugs out in April, along the edges of the raised beds. Dense borders, the same as last year, when the whole thing looked brilliant by July. Two days after planting, we had a run of hot days — genuinely unusual for April. I could not get to the allotment to water. When I finally went back, every single one had gone.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-fried-single-plant.webp",
+        alt: "A single fried marigold plug with dried red stems and shrivelled foliage in allotment soil, backlit by low evening sun",
+        caption:
+          "This is what I came back to. The stems had turned red and the leaves had curled in on themselves. There was nothing to save.",
+      },
+      {
+        type: "text",
+        content:
+          "Up close, the damage was worse. The stems had gone red and brittle, the foliage had crisped up and pulled inward. Some still had a little orange colour left in the flower buds — just enough to make it sadder. I planted at almost exactly the same time last year and they thrived. But last year was a normal April. This year the heat came early and the roots, which had never been outside, simply had nothing left to draw on.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-fried-close-up.webp",
+        alt: "Close-up of fried marigold plugs along a raised bed edge, stems turned red and brittle, a little orange colour remaining in the dried flower buds",
+        caption:
+          "The detail of it. A little orange left in the buds — not enough.",
+      },
+      {
+        type: "heading",
+        content: "Ordering again",
+      },
+      {
+        type: "text",
+        content:
+          "I pulled them all out, ordered more plugs, and waited. When they arrived, I did things differently. I watered the beds first. I planted in the evening. I watered each one in immediately after going in the ground, properly — not a sprinkle but a real soak at the base. And I checked the forecast before committing to anything.\n\nThe result is a border that is thinner than planned. I could not replace them all like-for-like and the gaps show. But they are alive, which is more than I can say for the first batch.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-border-allotment-evening.webp",
+        alt: "A raised allotment bed from the side showing orange marigolds dotted along the border in evening light, with the allotment in the background",
+        caption:
+          "The second attempt, in evening light. Sparser than the plan. They are staying in.",
+      },
+      {
+        type: "tip",
+        content:
+          "Plant plugs out in the evening, not the middle of the day. Water the bed first, plant into moist soil, water in thoroughly straight after. If it is going to be above 20°C for several days and you cannot water, wait.",
+      },
+      {
+        type: "heading",
+        content: "Everything else that went out",
+      },
+      {
+        type: "text",
+        content:
+          "Tomatoes, cucumbers, courgettes, and sunflower seeds all went in around the same time. It is now another heatwave — June this year seems determined — so I am watering everything on every visit and hoping. The courgettes look settled already. Courgettes seem to shrug off almost anything. The tomatoes are upright against their canes. The cucumbers have their climbing frame and are beginning to reach for it.\n\nFrench marigold plugs are usually available from garden centres through June and July. The season is long enough to recover from a setback like this — marigolds flower from whenever they go in right through to the first frost, so a June replanting still gives you four months of border.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/courgette-marigold-bed-june.webp",
+        alt: "Young courgette plants in a raised bed with orange marigolds visible along the border at the top of the frame",
+        caption:
+          "Courgettes and the second-attempt marigolds. By August this will look completely different.",
+      },
+    ],
+    relatedCrops: ["marigolds", "courgettes", "tomatoes"],
+  },
+  {
+    slug: "planting-potatoes-bulb-planter",
+    title: "How I planted my new potatoes this year (and why I used a bulb planter)",
+    description:
+      "This year I used a bulb planter to put in my new potatoes — dug over with a fork, used the tool to make evenly spaced holes, popped them in and covered with compost. They are up and growing now. Here is how it went.",
+    publishDate: new Date("2026-06-01"),
+    keywords: [
+      "planting potatoes UK allotment",
+      "how to plant new potatoes",
+      "bulb planter for potatoes",
+      "earthing up potatoes UK",
+      "new potatoes when to harvest UK",
+      "planting potatoes raised bed",
+      "growing new potatoes allotment",
+    ],
+    heroImage: "/photos/blog/potatoes-june-allotment.webp",
+    heroAlt:
+      "Rows of potato plants growing in an allotment bed, lush and green with dark rich soil around them",
+    intro:
+      "This year I used a bulb planter for the potatoes and it changed everything. Dug over, spaced out, popped in, covered with compost, watered well. They are up and growing now. I cannot wait for potato salad time.",
+    tags: ["potatoes", "allotment diary", "June"],
+    sections: [
+      {
+        type: "heading",
+        content: "Digging over first",
+      },
+      {
+        type: "text",
+        content:
+          "I dug the whole bed over with my big fork before anything went in. Potatoes need loose, well-worked soil — they need space to swell underground. I worked from one end, pushing the fork to its full depth, levering it forward, breaking up the clods as I went. This is also when I pulled out the bindweed roots. There were a lot of bindweed roots. There always are.",
+      },
+      {
+        type: "heading",
+        content: "The bulb planter",
+      },
+      {
+        type: "text",
+        content:
+          "The bulb planter is what made this year different. You push it into the soil and pull it back out and it leaves a neat, consistent hole. I marked out a grid across the whole bed first — all the holes at once, evenly spaced — then went back along each row, popped a potato in each one, and covered over with compost. Much faster than a trowel. Everything ended up properly spaced rather than slightly guessed.",
+      },
+      {
+        type: "tip",
+        content:
+          "Space new potatoes about 30cm apart in rows 40–50cm apart. Mark your rows with canes first, then work along them with the planter.",
+      },
+      {
+        type: "heading",
+        content: "They popped up",
+      },
+      {
+        type: "text",
+        content:
+          "The first shoots came through a couple of weeks later — tiny little things, easy to miss if you were not looking for them.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/potato-shoots-emerging.webp",
+        alt: "Tiny potato shoots just emerging from allotment soil, small green tips barely visible above the surface",
+        caption:
+          "The first shoots. You almost walk past them.",
+      },
+      {
+        type: "text",
+        content:
+          "Once they were through, I covered them over with more compost — earthing up. It keeps the developing tubers out of the light (light turns them green and inedible) and gives the plant more stem underground to produce from. I have done this once. The plants have pushed back through and are now big and leafy and taking up proper space.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/potatoes-june-allotment.webp",
+        alt: "Rows of potato plants growing strongly in allotment soil, multiple rows visible from above with dark compost around the base of each plant",
+        caption:
+          "A few weeks on. This is a first early variety — July harvest.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/potato-rows-growing.webp",
+        alt: "Rows of potato plants in an allotment, growing strongly with green leafy foliage and compost visible around the stems",
+        caption: "The rows now. Just watering until July.",
+      },
+      {
+        type: "heading",
+        content: "July",
+      },
+      {
+        type: "text",
+        content:
+          "First earlies are ready roughly ten weeks after planting. The signal is flowers — once they start flowering, you can test by carefully digging down beside one plant and feeling for tubers. Egg-sized and they are ready.\n\nNew potatoes want to be small and waxy, boiled whole and eaten the same day. Still warm from the earth. I cannot wait for potato salad time.",
+      },
+      {
+        type: "tip",
+        content:
+          "Do not leave first earlies in the ground too long — they keep growing and lose the waxy texture. Harvest little and often once they reach egg-size.",
+      },
+    ],
+    relatedCrops: ["potatoes"],
+  },
+  {
+    slug: "dot-the-allotment-cat",
+    title: "Meet Dot, the allotment cat",
+    description:
+      "There is a cat on my allotment site who visits whenever I am watering. I call her Dot, or sometimes Baby. Here she is.",
+    publishDate: new Date("2026-06-01"),
+    keywords: [
+      "allotment cat",
+      "cats on allotments",
+      "allotment wildlife",
+      "allotment diary UK",
+    ],
+    heroImage: "/photos/blog/dot-planter-purple-flowers-allotment.webp",
+    heroAlt:
+      "A white and black cat sitting on a wooden planter covered in cascading purple flowers, the full allotment visible behind",
+    intro:
+      "There is a cat on my allotment site. She is white with black patches and she turns up every time I start watering. I call her Dot, or sometimes Baby, depending on what mood she is in.",
+    tags: ["allotment diary", "wildlife"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "She is not my cat. I do not know whose cat she is. She lives somewhere on the site or nearby, and she has worked out that a person with a hosepipe means company and possibly food. She is always there within about five minutes of me arriving.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/dot-allotment-cat-closeup.webp",
+        alt: "A white and black cat looking up at the camera through metal climbing frame bars at an allotment",
+        caption:
+          "Dot, arriving through the climbing frame as she always does.",
+      },
+      {
+        type: "text",
+        content:
+          "She is not a good gardening companion. She has sat in a freshly sown bed at least twice that I know of. She likes to walk across whatever I have just planted and look back at me as if I should be grateful for the visit.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/dot-allotment-cat-seedlings.webp",
+        alt: "A white cat flopped on her side in a raised allotment bed among small seedlings, completely relaxed",
+        caption:
+          "In the seedlings. Those are lettuce seedlings she is lying on. She was there for some time.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/dot-deck-allotment.webp",
+        alt: "A white and black cat on a wooden decking area at an allotment, white metal garden furniture behind and the allotment stretching out in the distance",
+        caption:
+          "She treats the whole site as hers. She is not wrong.",
+      },
+      {
+        type: "text",
+        content:
+          "There is something about an allotment cat, though. She is part of the plot in a way I cannot quite explain. When she shows up and settles in the sun nearby — even if she is slowly flattening a row of seedlings — the whole visit is better for it.\n\nI hope these ones survive the heatwave. I hope the lettuce survives Dot.",
+      },
+    ],
+    relatedCrops: [],
+  },
+  {
+    slug: "june-allotment-diary-2026",
+    title: "June on the allotment: what is in the ground right now",
+    description:
+      "Everything is out. Tomatoes, cucumbers, courgettes, sunflowers, potatoes. The marigolds are in for the second time. The strawberries are losing the battle with the slugs. A full account of where the plot is at the start of June.",
+    publishDate: new Date("2026-06-01"),
+    keywords: [
+      "allotment diary June UK",
+      "what to plant June allotment",
+      "June allotment jobs UK",
+      "allotment June diary",
+      "what is growing on allotment June",
+      "UK allotment June",
+      "allotment update June 2026",
+    ],
+    heroImage: "/photos/blog/allotment-plot-overview-june.webp",
+    heroAlt:
+      "Wide view of a UK allotment plot in early June showing multiple raised beds, a tarpaulin, and lush green growth",
+    intro:
+      "Everything has gone out. Tomatoes, cucumbers, courgettes, sunflower seeds, potatoes earthed up twice. The marigolds are in for the second time after the first batch fried in April. The strawberries are struggling. Here is where the plot is at the start of June.",
+    tags: ["allotment diary", "June", "seasonal"],
+    sections: [
+      {
+        type: "heading",
+        content: "What is in the ground",
+      },
+      {
+        type: "text",
+        content:
+          "Tomatoes went out last week, staked and in with compost worked into the planting hole. Cucumbers are on their climbing frame and starting to reach up. Courgettes are in a bed with good spacing — two plants, which is about the right number before you start drowning in courgettes. Sunflower seeds went in at the base of one of the beds; I am looking forward to those more than almost anything else.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/allotment-plot-overview-june.webp",
+        alt: "Wide view of the allotment plot in early June showing raised beds with crops at various stages, a shed visible in the background",
+        caption:
+          "The plot at the start of June. The potatoes in the foreground are the most dramatic-looking thing right now.",
+      },
+      {
+        type: "heading",
+        content: "The potatoes",
+      },
+      {
+        type: "text",
+        content:
+          "The potatoes are the most satisfying thing on the plot right now. They went in using a bulb planter — which I am a convert to — and they have come up well and been earthed up once. They are a first early variety and should be ready to harvest in July. I am looking forward to that more than I should probably admit.",
+      },
+      {
+        type: "heading",
+        content: "The marigolds",
+      },
+      {
+        type: "text",
+        content:
+          "The marigolds are in for the second time this season. The first batch went in during a hot April spell and fried when I could not get to the allotment to water for a couple of days. I ordered replacements, waited for them to arrive, and planted them out more carefully in the evening with a proper watering in. There are gaps in the border where the original planting was denser, but they are alive and that is what matters.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-border-evening-beds.webp",
+        alt: "Raised allotment beds at evening with orange marigolds along the borders and courgette plants growing, golden light across the plot",
+        caption:
+          "The beds at evening. The marigolds are young but they are there.",
+      },
+      {
+        type: "heading",
+        content: "The strawberries",
+      },
+      {
+        type: "text",
+        content:
+          "Not a great year for strawberries. The plants are there and flowering, but every ripe one I find has already been gotten to — by slugs rather than birds this time. I am finding them half-eaten on the soil rather than missing entirely. I need to get some slug deterrent down around the bed, but so far I have not quite got around to it.\n\nLast year the strawberries were the first real harvest of the season. This year I suspect I will be lucky to eat half of them myself.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/strawberry-ripe-decking.webp",
+        alt: "A perfect ripe red strawberry hanging down from a plant growing in a wooden planter on decking, two more ripening behind it",
+        caption:
+          "Last year's strawberries. This is what I am hoping to get back to.",
+      },
+      {
+        type: "heading",
+        content: "The bindweed situation",
+      },
+      {
+        type: "text",
+        content:
+          "Ongoing. I dug over the potato bed before planting and pulled out what felt like metres of bindweed root. It will be back. Bindweed is always back. The only thing that actually controls it is patience and persistence — pull every shoot the moment it appears, and over time you weaken the roots underground. I am several years into this process and it is very slowly working.",
+      },
+      {
+        type: "heading",
+        content: "What is flowering",
+      },
+      {
+        type: "text",
+        content:
+          "Not much yet on the vegetable side, but there is a verbena on the site that has been flowering for weeks and is one of those plants you keep stopping to look at. Small purple flowers, dozens of them, on tall airy stems. It does not photograph badly either.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/verbena-flowering-allotment.webp",
+        alt: "Close-up of small purple verbena flowers in full bloom at an allotment",
+        caption:
+          "Verbena. One of the best value flowering plants for an allotment — it goes on and on all summer.",
+      },
+      {
+        type: "tip",
+        content:
+          "Not sure what else to sow in June? Enter your postcode into the What To Sow tool — there is still time for a lot of things, including quick crops like salad, radishes, and French beans.",
+      },
+    ],
+    relatedCrops: ["tomatoes", "cucumbers", "courgettes", "potatoes", "strawberries"],
+  },
+  {
     slug: "tumbling-ted-allotment-planter",
     title: "Tumbling Ted: from bare roots to full bloom in two seasons",
     description:
