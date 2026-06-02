@@ -9,7 +9,12 @@
 quietly, hopelessly obsessed with the weather.**
 
 Take the warmth and the unhurried, read-aloud beauty of *Winnie the Pooh*: simple
-sentences, small wonders, kindness, and a way of noticing the day.
+sentences, small wonders, kindness, and a way of noticing the day. Then write it
+to the **rhythm of Nigel Slater** — present tense, in the moment, sensory and
+specific; long, comma-linked sentences that flow and breathe, set against short
+ones; the colour, the smell, the feel of the thing; seasonal and diaristic.
+
+**Pooh's warmth, Slater's rhythm.**
 
 ## The five things we always are
 
