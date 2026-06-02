@@ -13,6 +13,11 @@ import StickyPostcodeCTA from "@/components/StickyPostcodeCTA";
 import CountUp from "@/components/CountUp";
 import EditorNote from "@/components/EditorNote";
 import LatestFromThePlot from "@/components/LatestFromThePlot";
+import WeatherCommandCenter from "@/components/WeatherCommandCenter";
+import FeaturedVariety from "@/components/FeaturedVariety";
+import InSeasonBand from "@/components/InSeasonBand";
+import ShedFund from "@/components/ShedFund";
+import { featuredEntry, inSeasonEntries, seasonCounts } from "@/lib/variety-status";
 
 export default function Home() {
   const jsonLd = {
@@ -52,6 +57,11 @@ export default function Home() {
     }
     return false;
   }).length;
+
+  // Seasonal variety field guide (server-side, UK-average frost; client refines by postcode later)
+  const featured = featuredEntry();
+  const inSeason = inSeasonEntries();
+  const varietyCounts = seasonCounts();
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -201,70 +211,56 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Pull quote — editorial breathing room */}
-        <aside className="relative px-6 sm:px-10 lg:px-16 py-10 sm:py-14 my-4 bg-blush">
+        {/* What to sow this week — weather command center + featured variety */}
+        <section id="this-week" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
           <div className="max-w-4xl mx-auto">
-            <p className="font-serif text-2xl sm:text-3xl text-earth leading-[1.3] max-w-[30rem]">
-              &ldquo;March in Cornwall and March in Edinburgh are completely different.&rdquo;
+            <div className="font-serif italic text-lg text-allotment mb-2">today on the plot</div>
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-earth leading-[0.94]">
+              What to sow <span className="italic text-allotment">this week</span>
+            </h2>
+            <p className="font-serif italic text-xl text-earth-light max-w-[40ch] mt-4 leading-snug">
+              A field guide to every variety worth growing &mdash; lit the week its window opens, flagged the week it closes.
             </p>
-            <span className="block mt-3 text-sm text-earth-lighter">
-              &mdash; Why we built this tool
-            </span>
-          </div>
-        </aside>
 
-        {/* Features — consistent ghost cards */}
-        <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16" aria-label="Features">
-          <div className="max-w-4xl mx-auto">
-          <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
-            How it works
-          </h2>
-
-          <div className="grid grid-cols-12 gap-4 sm:gap-5">
-            {/* Large card — 8 columns */}
-            <ScrollReveal className="col-span-12 lg:col-span-8">
-              <div className="bg-sage p-8 sm:p-10 lg:p-12 h-full transition-colors duration-300">
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-allotment/40 mb-6">01</p>
-                <h3 className="font-semibold text-earth text-xl mb-3">Localised to you</h3>
-                <p className="text-earth-light leading-relaxed max-w-lg">
-                  Your frost date is calculated from your postcode — not a national
-                  average. A grower in Cornwall and a grower in Edinburgh get
-                  different advice, because they should.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Two stacked cards — 4 columns */}
-            <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-5">
-              <ScrollReveal delay={100}>
-                <div className="bg-ochre p-6 sm:p-8 transition-colors duration-300">
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-amber/50 mb-4">02</p>
-                  <h3 className="font-semibold text-earth mb-2">Updated weekly</h3>
-                  <p className="text-sm text-earth-light leading-relaxed">
-                    Sowing windows open and close every week. Miss one and you
-                    wait a whole year. Check back each Monday.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal delay={200}>
-                <div className="bg-sky p-6 sm:p-8 transition-colors duration-300">
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-frost/60 mb-4">03</p>
-                  <h3 className="font-semibold text-earth mb-2">Live frost alerts</h3>
-                  <p className="text-sm text-earth-light leading-relaxed">
-                    Real-time frost risk for the next 3 nights, so you can cover
-                    your seedlings before it&apos;s too late.
-                  </p>
-                </div>
-              </ScrollReveal>
+            <div className="mt-8">
+              <WeatherCommandCenter />
             </div>
+
+            <div className="mt-7 font-serif text-[17px] text-earth-light">
+              <a href="#explore-crops" className="text-earth border-b-2 border-amber pb-px">
+                In season {varietyCounts.inSeason}
+              </a>
+              {" · "}
+              <a href="#explore-crops" className="hover:text-earth transition-colors">
+                Closing soon {varietyCounts.closing}
+              </a>
+              {" · "}
+              <a href="#explore-crops" className="hover:text-earth transition-colors">
+                All {varietyCounts.total}
+              </a>
+            </div>
+
+            {featured && <FeaturedVariety entry={featured} />}
           </div>
+        </section>
+
+        {/* In season now — the field guide wall */}
+        <FullWidthSection className="bg-allotment-dark" innerClassName="py-16 sm:py-20">
+          <section id="explore-crops" className="scroll-mt-20">
+            <InSeasonBand entries={inSeason} total={varietyCounts.total} />
+          </section>
+        </FullWidthSection>
+
+        {/* The shed fund — affiliate as editorial recommendation */}
+        <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 border-y border-earth/10" aria-label="The shed fund">
+          <div className="max-w-4xl mx-auto">
+            <ShedFund />
           </div>
         </section>
 
         {/* Frost map link */}
         <div className="px-6 sm:px-10 lg:px-16">
-        <div className="max-w-4xl mx-auto pb-14 sm:pb-20">
+        <div className="max-w-4xl mx-auto pt-14 sm:pt-20">
           <a
             href="/frost-map"
             className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300 block"
@@ -281,28 +277,6 @@ export default function Home() {
           </a>
         </div>
         </div>
-
-        {/* Editor's Note */}
-        <EditorNote />
-
-        {/* Sky tonight — moon phase + daylight */}
-        <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-sky" aria-label="Today at the allotment">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-6 block">
-              Today at the allotment
-            </h2>
-            <SkyTonightLoader />
-          </div>
-        </section>
-
-        {/* Crop index — subtle band */}
-        <FullWidthSection className="border-y border-earth/6" innerClassName="py-14 sm:py-20">
-          <ScrollReveal>
-            <section id="explore-crops" className="scroll-mt-20">
-              <CropIndex crops={crops} initialLimit={4} />
-            </section>
-          </ScrollReveal>
-        </FullWidthSection>
 
         {/* Guides — editorial links */}
         <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16" aria-label="Growing guides">
@@ -366,6 +340,9 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </FullWidthSection>
+
+        {/* Editor's Note — a note from the plot, leading into the blog */}
+        <EditorNote />
 
         {/* Latest from the plot */}
         <LatestFromThePlot />

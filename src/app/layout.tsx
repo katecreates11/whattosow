@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Newsreader } from "next/font/google";
+import { Instrument_Sans, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -14,6 +14,13 @@ const newsreader = Newsreader({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +70,7 @@ export default function RootLayout({
         <meta name="pinterest-rich-pin" content="true" />
         <link rel="alternate" type="application/rss+xml" title="What To Sow Blog" href="/feed.xml" />
       </head>
-      <body className={`${instrumentSans.variable} ${newsreader.variable} font-sans antialiased`}>
+      <body className={`${instrumentSans.variable} ${newsreader.variable} ${plexMono.variable} font-sans antialiased`}>
         <noscript>
           <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
             <h1>What To Sow</h1>

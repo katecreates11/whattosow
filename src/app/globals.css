@@ -71,11 +71,17 @@
   --color-moss: #4A6B52;
   --font-sans: var(--font-instrument);
   --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-plex-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Consistent film-like grade so varied photos feel of a piece */
+.img-grade {
+  filter: contrast(1.06) saturate(0.82) sepia(0.06) brightness(1.01);
 }
 
 /* Subtle grain texture */
