@@ -14,6 +14,7 @@ import CountUp from "@/components/CountUp";
 import EditorNote from "@/components/EditorNote";
 import LatestFromThePlot from "@/components/LatestFromThePlot";
 import WeatherCommandCenter from "@/components/WeatherCommandCenter";
+import PlotStamp from "@/components/PlotStamp";
 import FeaturedVariety from "@/components/FeaturedVariety";
 import InSeasonBand from "@/components/InSeasonBand";
 import ShedFund from "@/components/ShedFund";
@@ -215,7 +216,7 @@ export default function Home() {
         {/* What to sow this week — weather command center + featured variety */}
         <section id="this-week" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
           <div className="max-w-4xl mx-auto">
-            <div className="font-serif italic text-lg text-allotment mb-2">today on the plot</div>
+            <PlotStamp />
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-earth leading-[0.94]">
               What to sow <span className="italic text-allotment">this week</span>
             </h2>

@@ -69,14 +69,12 @@ function MoonGlyph({ phase }: { phase: number }) {
 export default function WeatherCommandCenter() {
   const [wx, setWx] = useState<WX | null>(null);
   const [sky, setSky] = useState<Sky | null>(null);
-  const [place, setPlace] = useState<string | null>(null);
   const moon = getMoonPhaseData();
 
   useEffect(() => {
     const loc = loadLocation();
     const lat = loc?.latitude ?? 52.48;
     const lng = loc?.longitude ?? -1.89;
-    setPlace(loc?.adminDistrict ?? null);
 
     const sun = getSunTimes(new Date(), lat, lng);
     setSky({ sunset: formatTime(sun.sunset), daylight: formatDaylight(sun.daylightMinutes) });
@@ -132,7 +130,6 @@ export default function WeatherCommandCenter() {
         <span className="inline-flex items-center gap-2 text-allotment">
           <MoonGlyph phase={moon.phase} /> {moon.name.toLowerCase()} &middot; {Math.round(moon.illumination * 100)}%
         </span>
-        {place && <span className="text-earth-light/70">{place}</span>}
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { href: "/#explore-crops", label: "Crops" },
   { href: "/frost-map", label: "Frost map" },
   { href: "/guides", label: "Guides" },
-  { href: "/allotments", label: "Allotments" },
   { href: "/blog", label: "Blog" },
 ];
 
