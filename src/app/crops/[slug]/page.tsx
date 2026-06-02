@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { crops, type Crop } from "@/data/crops";
+import { varieties } from "@/data/varieties";
 import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
@@ -411,32 +412,72 @@ export default async function CropPage({
             {/* Spacing diagram */}
             <SpacingDiagram crop={crop} />
 
-            {/* Varieties */}
-            {crop.varieties && crop.varieties.length > 0 && (
-              <div className="mb-10">
-                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
-                  Varieties
-                </span>
-                <h2 className="text-2xl font-serif text-earth tracking-tight mb-6">
-                  Varieties to try
-                </h2>
-                <div className="space-y-3">
-                  {crop.varieties.map((v) => (
-                    <div key={v.name} className="bg-ochre/60 p-5">
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <span className="font-medium text-earth">{v.name}</span>
-                          <p className="text-sm text-earth-lighter mt-1 leading-relaxed">{v.note}</p>
+            {/* Varieties — the field guide: write-ups, recipes, per-variety seeds */}
+            {(() => {
+              const vs = varieties.filter((v) => v.cropSlug === crop.slug);
+              if (vs.length === 0) return null;
+              return (
+                <div className="mb-12">
+                  <span className="font-serif italic text-lg text-allotment block mb-1">the varieties</span>
+                  <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-2">
+                    Varieties worth growing
+                  </h2>
+                  <div className="space-y-10">
+                    {vs.map((v) => (
+                      <div key={v.id} className="border-t border-earth/10 pt-7">
+                        <div className="flex items-baseline gap-3 flex-wrap mb-2">
+                          <h3 className="font-serif text-2xl text-earth">{v.name}</h3>
+                          <span
+                            className={`font-mono text-[10px] uppercase tracking-[0.12em] ${v.rarity === "legendary" ? "text-amber" : "text-earth-lighter"}`}
+                          >
+                            {v.rarity === "legendary" && "★ "}
+                            {v.rarity}
+                          </span>
                         </div>
-                        <div className="shrink-0 mt-0.5">
-                          <SeedSupplierLinks crop={crop} variant="compact" />
-                        </div>
+                        <p className="text-earth-light leading-relaxed max-w-[60ch]">{v.personality}</p>
+
+                        {v.recipes.length > 0 && (
+                          <div className="mt-5 bg-ochre/50 p-5">
+                            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-3">
+                              in the kitchen
+                            </span>
+                            <div className="space-y-4">
+                              {v.recipes.map((r) => (
+                                <div key={r.name}>
+                                  <h4 className="font-serif text-lg text-earth">{r.name}</h4>
+                                  <p className="text-sm text-earth-light leading-relaxed mt-0.5">{r.description}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {v.seedSuppliers.length > 0 && (
+                          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                            <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+                              find the seeds
+                            </span>
+                            {v.seedSuppliers.map((s) => (
+                              <a
+                                key={s.name}
+                                href={s.url}
+                                target="_blank"
+                                rel="sponsored noopener noreferrer"
+                                data-umami-event="variety-seed-click"
+                                data-umami-event-variety={v.name}
+                                className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                              >
+                                {s.name} &rarr;
+                              </a>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             <CompanionSection crop={crop} />
 

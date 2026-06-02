@@ -1967,7 +1967,7 @@ export const varieties: Variety[] = [
     name: "Sungold",
     rarity: "legendary",
     personality:
-      "The cherry tomato that ruined supermarket tomatoes for everyone. Absurdly sweet, thin-skinned, and you'll eat half of them before they make it indoors. Trusses of golden-orange fruits that split if you look at them wrong, but you won't care because the flavour is extraordinary.",
+      "The one everyone comes back to. You pick them warm from the vine in late summer, still smelling faintly of the leaves, and somehow half of them never reach the kitchen. Trusses of little golden-orange fruits, sweet and almost tropical. They split if a shower catches them ripe, but by then you're eating them straight from the plant and you don't mind a bit.",
     recipes: [
       {
         name: "Sungold pasta",
@@ -1977,7 +1977,7 @@ export const varieties: Variety[] = [
       {
         name: "Sungold gazpacho",
         description:
-          "Blitz with a slice of stale bread, cucumber, a clove of garlic, sherry vinegar, and olive oil. Strain if you want it smooth. Serve ice-cold. Like bottled sunshine.",
+          "Blitz with a slice of stale bread, a length of cucumber, a little garlic, a splash of sherry vinegar and good olive oil, then serve it cold on the hottest afternoon. Like drinking the summer.",
       },
     ],
     seedSuppliers: [
@@ -1992,12 +1992,12 @@ export const varieties: Variety[] = [
     name: "Gardener's Delight",
     rarity: "common",
     personality:
-      "The most popular cherry tomato in Britain and the gateway drug for every new grower. Sweet, reliable, prolific, and forgiving of the kind of neglect that happens in August when you go on holiday.",
+      "A sweet, heavy-cropping cherry tomato, and the one a lot of us grew first. Forgiving, too — it will crop happily through August even when you've slipped away on holiday and left it to the weather. A kind plant to learn on, and a kinder one to come home to.",
     recipes: [
       {
         name: "Slow-roasted cherry tomatoes",
         description:
-          "Halve, place cut-side up on a tray, drizzle with olive oil, scatter with thyme and garlic. Roast at 140C for an hour until concentrated and jammy. Store in oil. Summer preserved.",
+          "Halve them, lay them cut-side up on a tray, drizzle with olive oil and scatter with thyme and a little garlic. An hour at 140°C and they turn soft and jammy and dark at the edges — summer kept in a jar of oil for later.",
       },
     ],
     seedSuppliers: [
@@ -2012,12 +2012,12 @@ export const varieties: Variety[] = [
     name: "Moneymaker",
     rarity: "common",
     personality:
-      "The classic medium-sized red tomato that's been grown in British greenhouses since the 1930s. Not the most exciting flavour, but utterly reliable and productive. The one your dad grew.",
+      "A steady, medium red tomato that has grown in British greenhouses since the 1930s. The flavour is gentle rather than dazzling, but it crops and crops — happy under glass, and fine outdoors in a kind summer. There's a quiet pleasure in that reliability; the sort of plant a grandparent might have grown.",
     recipes: [
       {
         name: "Tomato sauce",
         description:
-          "Score, blanch, peel, and simmer with garlic, olive oil, a pinch of sugar, and basil until thick and jammy. The foundation of a hundred meals. Freeze in batches and feel smug all winter.",
+          "Score and blanch, slip off the skins, then let them down slowly with garlic, olive oil, a pinch of sugar and a few leaves of basil until thick and glossy. The beginning of a hundred suppers; freeze it in batches and you'll have summer to hand all winter.",
       },
     ],
     seedSuppliers: [
@@ -2031,12 +2031,12 @@ export const varieties: Variety[] = [
     name: "Black Krim",
     rarity: "rare",
     personality:
-      "A Russian heritage beefsteak from the Crimean peninsula. Dark, dusky, purple-brown skin with a complex, smoky sweetness that's nothing like a regular tomato. Slice thick, salt, and eat on its own. This is the one that makes people realise tomatoes can taste like this.",
+      "A heritage beefsteak from the Crimean coast, dusky and purple-brown at the shoulders, with a deep, almost smoky sweetness. It ripens best in a warm, sheltered spot, against a sunny wall if you have one. Slice it thick, salt it, and eat it on its own — this is the one that shows people what a tomato can be.",
     recipes: [
       {
         name: "Tomato on toast",
         description:
-          "Slice thick, lay on buttered sourdough toast, add flaky salt and a crack of pepper. That's it. A Black Krim doesn't need anything else. The smokiness and sweetness together are extraordinary.",
+          "Slice it thick onto buttered sourdough, with flaky salt and a crack of pepper, and stop there. A Black Krim asks for nothing else.",
       },
     ],
     seedSuppliers: [
@@ -3309,12 +3309,12 @@ export const varieties: Variety[] = [
     name: "San Marzano",
     rarity: "uncommon",
     personality:
-      "The plum tomato that Neapolitans use for pizza sauce and nothing else will do. Meaty, low in seeds, and with a balanced sweetness that concentrates when cooked. Needs a warm spot in the UK, but if you grow it, you'll never buy tinned tomatoes the same way again.",
+      "The plum tomato Naples reaches for, and little else will do. Meaty and low on seeds, with a balance that grows richer in the cooking. It wants the warmest, sunniest spot you can give it here — and in a good summer it earns that spot many times over.",
     recipes: [
       {
         name: "Pizza sauce",
         description:
-          "Crush the tomatoes by hand (a blender makes it too smooth), add a drizzle of olive oil, a pinch of salt, and a torn basil leaf. That's it. Uncooked. The San Marzano does the work. This is how Naples does it.",
+          "Crush them by hand — a blender makes them too smooth — with a drizzle of olive oil, a pinch of salt and a torn basil leaf. No cooking. The tomato does the work, the way it's done in Naples.",
       },
     ],
     seedSuppliers: [
