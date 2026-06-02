@@ -43,13 +43,17 @@ export function getCropStatus(crop: Crop, lastFrost: Date, now: Date = new Date(
   type Win = { method: string; daysLeft: number };
   const open: Win[] = [];
 
-  // sowing windows (indoors / direct): open from the start date until the last
-  // date you can sow and still harvest before autumn.
+  // Crops you sow once (no successionWeeks) get a short window around their start.
+  // Succession crops (lettuce, beans, carrots…) stay sowable through summer, as
+  // long as there's time to harvest before autumn.
+  const hasSuccession = crop.successionWeeks != null;
+
   const addSow = (weeks: number, method: string) => {
     const openDate = lastFrost.getTime() + weeks * MS_WEEK;
-    const latestSow = autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK;
-    if (now.getTime() >= openDate && now.getTime() <= latestSow) {
-      open.push({ method, daysLeft: Math.ceil((latestSow - now.getTime()) / MS_DAY) });
+    const latestByHarvest = autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK;
+    const closeDate = hasSuccession ? latestByHarvest : Math.min(openDate + 4 * MS_WEEK, latestByHarvest);
+    if (now.getTime() >= openDate && now.getTime() <= closeDate) {
+      open.push({ method, daysLeft: Math.ceil((closeDate - now.getTime()) / MS_DAY) });
     }
   };
 
@@ -136,4 +140,38 @@ export function seasonCounts(lastFrost?: Date, now: Date = new Date()) {
     inSeason: all.filter((e) => e.status.state !== "off").length,
     closing: all.filter((e) => e.status.state === "closing").length,
   };
+}
+
+// ---- Crop-level ("what type of veg to sow now") --------------------------
+
+const varietyCountByCrop = (() => {
+  const m = new Map<string, number>();
+  for (const v of varieties) m.set(v.cropSlug, (m.get(v.cropSlug) ?? 0) + 1);
+  return m;
+})();
+
+export interface CropEntry {
+  crop: Crop;
+  status: VarietyStatus;
+  varietyCount: number;
+  no: number;
+}
+
+/** Crops you can sow/plant right now, soonest-to-close first. One entry per veg. */
+export function inSeasonCrops(lastFrost?: Date, now: Date = new Date()): CropEntry[] {
+  const frost = lastFrost ?? ukAverageFrost(now);
+  return crops
+    .map((crop, i) => ({
+      crop,
+      status: getCropStatus(crop, frost, now),
+      varietyCount: varietyCountByCrop.get(crop.slug) ?? 0,
+      no: i + 1,
+    }))
+    .filter((e) => e.status.state !== "off")
+    .sort((a, b) => {
+      const closeA = a.status.state === "closing" ? 0 : 1;
+      const closeB = b.status.state === "closing" ? 0 : 1;
+      if (closeA !== closeB) return closeA - closeB;
+      return (a.status.daysLeft ?? 9999) - (b.status.daysLeft ?? 9999);
+    });
 }

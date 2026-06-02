@@ -17,7 +17,7 @@ import WeatherCommandCenter from "@/components/WeatherCommandCenter";
 import FeaturedVariety from "@/components/FeaturedVariety";
 import InSeasonBand from "@/components/InSeasonBand";
 import ShedFund from "@/components/ShedFund";
-import { featuredEntry, inSeasonEntries, seasonCounts } from "@/lib/variety-status";
+import { featuredEntry, inSeasonCrops, seasonCounts } from "@/lib/variety-status";
 
 export default function Home() {
   const jsonLd = {
@@ -58,9 +58,10 @@ export default function Home() {
     return false;
   }).length;
 
-  // Seasonal variety field guide (server-side, UK-average frost; client refines by postcode later)
+  // Seasonal field guide (server-side, UK-average frost; client refines by postcode later)
   const featured = featuredEntry();
-  const inSeason = inSeasonEntries();
+  const inSeasonVeg = inSeasonCrops();
+  const closingVeg = inSeasonVeg.filter((e) => e.status.state === "closing").length;
   const varietyCounts = seasonCounts();
 
   const faqJsonLd = {
@@ -228,15 +229,19 @@ export default function Home() {
 
             <div className="mt-7 font-serif text-[17px] text-earth-light">
               <a href="#explore-crops" className="text-earth border-b-2 border-amber pb-px">
-                In season {varietyCounts.inSeason}
+                {inSeasonVeg.length} crops to sow now
               </a>
+              {closingVeg > 0 && (
+                <>
+                  {" · "}
+                  <a href="#explore-crops" className="hover:text-earth transition-colors">
+                    {closingVeg} closing soon
+                  </a>
+                </>
+              )}
               {" · "}
-              <a href="#explore-crops" className="hover:text-earth transition-colors">
-                Closing soon {varietyCounts.closing}
-              </a>
-              {" · "}
-              <a href="#explore-crops" className="hover:text-earth transition-colors">
-                All {varietyCounts.total}
+              <a href="/calendar" className="hover:text-earth transition-colors">
+                {varietyCounts.total} varieties in the guide
               </a>
             </div>
 
@@ -247,7 +252,7 @@ export default function Home() {
         {/* In season now — the field guide wall */}
         <FullWidthSection className="bg-allotment-dark" innerClassName="py-16 sm:py-20">
           <section id="explore-crops" className="scroll-mt-20">
-            <InSeasonBand entries={inSeason} total={varietyCounts.total} />
+            <InSeasonBand entries={inSeasonVeg} totalVarieties={varietyCounts.total} />
           </section>
         </FullWidthSection>
 
