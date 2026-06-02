@@ -11,7 +11,7 @@ import {
   type FrostForecast,
 } from "@/lib/frost";
 import { crops, getCropsByAction, getMinSoilTemp, type Crop } from "@/data/crops";
-import { SnowflakeIcon, SunIcon, getCropIcon } from "@/components/SVGIllustrations";
+import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
@@ -51,7 +51,6 @@ function categoryBorder(cat: Crop["category"]): string {
 
 function CropCard({ crop, action }: { crop: Crop; action?: string }) {
   const [expanded, setExpanded] = useState(false);
-  const Icon = getCropIcon(crop.slug);
   const detailsId = `crop-details-${crop.slug}`;
 
   return (
@@ -67,7 +66,6 @@ function CropCard({ crop, action }: { crop: Crop; action?: string }) {
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              {Icon && <Icon className="w-5 h-5 shrink-0" />}
               <h4 className="font-semibold text-earth">{crop.name}</h4>
               <span
                 className={`text-xs font-medium px-1.5 py-0.5 ${categoryColor(crop.category)}`}
