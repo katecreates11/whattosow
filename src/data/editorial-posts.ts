@@ -64,6 +64,13 @@ export const editorialPosts: EditorialPost[] = [
           "You stand on it to sink the tines in, then lean back, and it slices up and breaks the clay apart as it lifts — a gentle rock rather than a heave, your weight doing the work instead of your back. It's genuinely lovely to use on a still spring morning.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/broadfork-clay-dig.webp",
+        alt: "The Terradix broadfork resting on freshly broken clay at the allotment, a green trug alongside and weed-membrane beds behind",
+        caption: "Mid-dig — the clay broken into clumps, ready for the bindweed to be picked out. A still from the timelapse.",
+      },
+      {
         type: "text",
         content:
           "My soil is heavy clay, and I'd rather not run a petrol machine on the plot, so when I kept seeing growers recommend a broadfork I did my homework and took the plunge. It arrived late last summer and waited out the winter; this April I finally dug over the bed for potatoes and sunflowers.",

@@ -7,7 +7,7 @@ import { getPublishedEditorialPosts } from "@/data/editorial-posts";
 export const metadata: Metadata = {
   title: "Blog — What To Sow",
   description:
-    "Monthly sowing guides for UK growers. What to sow each month, with frost dates, varieties, and honest advice — updated every month.",
+    "Notes from a UK allotment — what's growing, what's working, and honest tool reviews for anyone with a few veg beds to tend. Plus month-by-month sowing guides.",
   keywords: [
     "what to sow this month",
     "monthly sowing guide UK",
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     "allotment monthly planner",
   ],
   openGraph: {
-    title: "Blog — Monthly Sowing Guides",
+    title: "Notes from the veg patch — What To Sow",
     description:
-      "What to sow each month in the UK — with frost dates, varieties, and honest advice for UK growers.",
+      "Dispatches from a UK allotment — what's growing, what's working, and honest reviews for anyone with a few veg beds.",
     type: "website",
     url: "https://whattosow.co.uk/blog",
   },
@@ -77,10 +77,10 @@ export default function BlogIndex() {
                 Blog
               </span>
               <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-serif text-earth tracking-tight leading-[0.95] mb-4">
-                Monthly sowing guides
+                Notes from the veg patch
               </h1>
               <p className="text-earth-light leading-relaxed text-[15px] sm:text-base font-serif italic max-w-md">
-                What to sow each month — with frost dates, varieties, and honest advice for UK growers.
+                Dispatches from a UK allotment — what&apos;s growing, what&apos;s working, and the odd honest review — for anyone with a few veg beds to tend.
               </p>
             </div>
           </div>
