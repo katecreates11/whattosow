@@ -202,8 +202,38 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
         {/* Article content */}
         <article className="max-w-3xl mx-auto px-6 sm:px-8 pb-16">
           {post.sections.map((section, i) => (
-            <EditorialSectionRenderer key={i} section={section} />
+            <EditorialSectionRenderer
+              key={i}
+              section={section}
+              dropcap={section.type === "text" && i === post.sections.findIndex((s) => s.type === "text")}
+            />
           ))}
+
+          {/* What I used — shoppable kit */}
+          {post.kit && post.kit.length > 0 && (
+            <div className="border-t border-earth/10 pt-10 mt-14">
+              <div className="font-serif italic text-lg text-allotment mb-1">from the shed</div>
+              <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-6">
+                What I used in this post
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {post.kit.map((item) => (
+                  <GearPick
+                    key={item.name}
+                    name={item.name}
+                    price={item.price}
+                    description={item.description}
+                    amazonUrl={item.url}
+                    badge={item.badge}
+                    tip={item.tip}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-earth-lighter mt-4">
+                Some links are affiliate links — we may earn a little, at no extra cost to you, towards the allotment shed.
+              </p>
+            </div>
+          )}
 
           {/* Related crops */}
           {post.relatedCrops.length > 0 && (
@@ -231,7 +261,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
               Get personalised dates for your postcode
             </h2>
             <p className="text-sm text-earth-light mb-4 leading-relaxed">
-              Every plot is different. Enter your postcode and we will calculate
+              Every veg patch is different. Enter your postcode and we&apos;ll work out
               your frost date and tell you exactly what to sow right now.
             </p>
             <a
@@ -260,23 +290,36 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
   );
 }
 
-function EditorialSectionRenderer({ section }: { section: EditorialSection }) {
+function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSection; dropcap?: boolean }) {
   switch (section.type) {
     case "heading":
       return (
-        <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mt-12 mb-4">
+        <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mt-14 mb-4">
           {section.content}
         </h2>
       );
     case "text":
       return (
-        <div className="space-y-4 mb-6">
+        <div className="space-y-5 mb-7">
           {section.content.split("\n\n").map((para, i) => (
-            <p key={i} className="text-[15px] text-earth-light leading-relaxed">
+            <p
+              key={i}
+              className={`text-[17px] text-earth leading-[1.75] ${
+                dropcap && i === 0
+                  ? "first-letter:float-left first-letter:font-serif first-letter:text-[64px] first-letter:leading-[0.66] first-letter:pr-3 first-letter:pt-1 first-letter:text-allotment"
+                  : ""
+              }`}
+            >
               {para}
             </p>
           ))}
         </div>
+      );
+    case "quote":
+      return (
+        <blockquote className="my-10 border-l-4 border-amber pl-6">
+          <p className="font-serif text-2xl sm:text-[28px] text-earth leading-[1.3]">{section.content}</p>
+        </blockquote>
       );
     case "image":
       return (
@@ -619,7 +662,7 @@ export default async function BlogPostPage({
               Get personalised dates for your postcode
             </h2>
             <p className="text-sm text-earth-light mb-4 leading-relaxed">
-              Every plot is different. Enter your postcode and we will calculate
+              Every veg patch is different. Enter your postcode and we&apos;ll work out
               your frost date and tell you exactly what to sow right now.
             </p>
             <a
