@@ -103,12 +103,12 @@ export const varieties: Variety[] = [
     name: "Kelvedon Wonder",
     rarity: "common",
     personality:
-      "The pea that every allotment in Britain grows, and for good reason. Reliable, sweet, and ready in 12 weeks. Compact enough to grow without a ladder.",
+      "The pea you'll find on allotments up and down the country, and deservedly so — reliable, sweet, and ready in about twelve weeks. It stays compact, so there's no wrestling with tall supports; just sow a row in the cool of spring and wait for the pods to fill.",
     recipes: [
       {
         name: "Peas on toast",
         description:
-          "Crush freshly podded peas with a fork, mix with ricotta, mint, lemon zest, and flaky salt. Spread thick on hot toast. Better than it has any right to be.",
+          "Crush freshly podded peas with a fork, fold through ricotta with mint, lemon zest and a little flaky salt, then spread thick on hot toast. Spring, on a plate.",
       },
       {
         name: "Garden pea risotto",
@@ -127,7 +127,7 @@ export const varieties: Variety[] = [
     name: "Hurst Greenshaft",
     rarity: "uncommon",
     personality:
-      "Produces pods in pairs and sometimes threes, which feels like winning the lottery every time you pick. Tall enough to need support but repays the effort with absurd quantities.",
+      "Generous to a fault — it sets its pods in pairs, and sometimes threes, so the picking always feels like a little stroke of luck. It's tall enough to want some support, but it pays back the trouble with armful after armful.",
     recipes: [
       {
         name: "Pea and ham soup",
@@ -145,7 +145,7 @@ export const varieties: Variety[] = [
     name: "Oregon Sugar Pod",
     rarity: "uncommon",
     personality:
-      "A mangetout that you eat whole, pod and all, ideally straight off the plant while pretending to do other gardening. Flat, sweet, and barely any make it to the kitchen.",
+      "A mangetout you eat whole, pod and all — sweet and flat, and best of all straight off the plant while you pretend to be getting on with other jobs. Sow it through the cooler weeks and pick young, before the peas swell inside.",
     recipes: [
       {
         name: "Stir-fried mangetout with sesame",
@@ -155,7 +155,7 @@ export const varieties: Variety[] = [
       {
         name: "Raw mangetout and radish salad",
         description:
-          "Slice pods on the diagonal, toss with thinly sliced radishes, rice vinegar, a pinch of sugar, and fresh coriander. Crunchy, bright, and absurdly fresh.",
+          "Slice the pods on the diagonal, toss with thinly sliced radishes, rice vinegar, a pinch of sugar and fresh coriander. Crunchy, bright, and about as fresh as lunch gets.",
       },
     ],
     seedSuppliers: [
@@ -348,7 +348,7 @@ export const varieties: Variety[] = [
     name: "Nantes",
     rarity: "common",
     personality:
-      "Sweet, blunt-tipped, and obligingly straightforward. The carrot that reminds you why home-grown tastes nothing like the supermarket. Pull one, wipe it on your jeans, and eat it right there.",
+      "Sweet, blunt-tipped and obligingly straightforward — the carrot that reminds you how little a home-grown one tastes like the shop. Pull one on a fine afternoon, wipe it on your sleeve, and eat it there and then.",
     recipes: [
       {
         name: "Honey-roasted carrots",
@@ -358,7 +358,7 @@ export const varieties: Variety[] = [
       {
         name: "Carrot and coriander soup",
         description:
-          "Sweat onion, add chunked carrots, ground coriander, stock. Simmer until soft, blitz smooth, swirl in yoghurt. The soup that everybody makes because it always works.",
+          "Sweat an onion, add chunked carrots, ground coriander and stock, simmer until soft, then blitz smooth and swirl in a little yoghurt. Gentle, warming, and never once a disappointment.",
       },
     ],
     seedSuppliers: [
@@ -373,7 +373,7 @@ export const varieties: Variety[] = [
     name: "Purple Haze",
     rarity: "rare",
     personality:
-      "Deep purple skin with an orange core, like a carrot designed by a sunset. Sweeter than you'd expect, and roasting it turns the colour even more intense. Carrots looked like this for centuries before the Dutch bred them orange.",
+      "Deep purple skin over a bright orange core, like a carrot drawn at sunset. It's sweeter than you'd think, and roasting only deepens the colour — a reminder that carrots wore every shade but orange for centuries, before the Dutch settled the matter.",
     recipes: [
       {
         name: "Roasted purple carrots with tahini",
@@ -391,12 +391,12 @@ export const varieties: Variety[] = [
     name: "Autumn King",
     rarity: "common",
     personality:
-      "Big, chunky maincrops built for storing. Pull them in autumn, pack them in sand, and you'll be eating your own carrots well into winter. The grown-up carrot.",
+      "Big, chunky maincrops made for keeping. Lift them in autumn, pack them into boxes of sand, and you'll be pulling your own carrots out well into the winter. There's a deep contentment in a well-stored root.",
     recipes: [
       {
         name: "Carrot cake",
         description:
-          "Grate the big roots into a spiced batter with walnuts and sultanas. Bake until a skewer comes out clean. Top with cream cheese icing. The cake that justifies the vegetable patch.",
+          "Grate the big roots into a spiced batter with walnuts and sultanas, bake until a skewer comes out clean, and finish with cream cheese icing. Reason enough, on its own, to grow a few extra.",
       },
     ],
     seedSuppliers: [
@@ -1413,7 +1413,7 @@ export const varieties: Variety[] = [
     name: "Black Beauty",
     rarity: "common",
     personality:
-      "Dark green, glossy, and so productive you'll be leaving them on your neighbours' doorsteps by August. The one that turns every first-time grower into someone who says 'does anyone want some courgettes?' with increasing desperation.",
+      "Dark green and glossy, and so willing that by August you'll be finding homes for them up and down the path. It's the variety that turns every first-time grower into a generous one — pick them small and often, and they just keep coming.",
     recipes: [
       {
         name: "Courgette fritters",
@@ -1423,7 +1423,7 @@ export const varieties: Variety[] = [
       {
         name: "Courgette ribbons with lemon and parmesan",
         description:
-          "Peel into long ribbons, toss in a hot pan with olive oil, lemon zest, chilli flakes, and shaved parmesan. Two minutes. Feels like a restaurant dish, tastes like summer.",
+          "Peel into long ribbons and turn them in a hot pan with olive oil, lemon zest, a pinch of chilli and shaved parmesan. Two minutes, and summer is on the plate.",
       },
     ],
     seedSuppliers: [
@@ -1438,12 +1438,12 @@ export const varieties: Variety[] = [
     name: "Tromboncino",
     rarity: "rare",
     personality:
-      "An Italian climbing courgette that grows long, curved, pale-green fruits shaped like a trombone. Grows up instead of out, so it's perfect for small spaces. The flesh is denser and nuttier than regular courgettes, and it keeps producing until the first frost.",
+      "An Italian climbing courgette with long, curving, pale-green fruits like a trombone. It goes up rather than out, which suits a small plot, and the flesh is firmer and nuttier than the usual sort — it'll keep cropping right up to the first frost.",
     recipes: [
       {
         name: "Tromboncino pasta",
         description:
-          "Dice into cubes, fry with garlic and chilli until golden at the edges, toss with spaghetti, toasted breadcrumbs, and a shower of pecorino. The nuttier flesh holds its shape better than watery courgettes.",
+          "Dice into cubes and fry with garlic and chilli until golden at the edges, then toss through spaghetti with toasted breadcrumbs and a shower of pecorino. The firmer flesh holds its shape beautifully.",
       },
     ],
     seedSuppliers: [
@@ -1458,12 +1458,12 @@ export const varieties: Variety[] = [
     name: "Costata Romanesco",
     rarity: "uncommon",
     personality:
-      "Ribbed, grey-green, and with a firmer texture than smooth courgettes. An Italian heirloom that chefs seek out because it fries beautifully — the ridges catch oil and crisp up. The blossoms are huge and perfect for stuffing.",
+      "Ribbed and grey-green, with a firmer flesh than the smooth sorts — an Italian heirloom that cooks beautifully, the ridges catching the oil and crisping at the edges. The blossoms come large and golden, and are a pleasure in themselves.",
     recipes: [
       {
         name: "Stuffed courgette flowers",
         description:
-          "Fill the enormous golden blossoms with ricotta, lemon zest, and mint. Dip in a light batter and fry until crisp. Eat immediately. This is the reason people grow courgettes.",
+          "Fill the big golden blossoms with ricotta, lemon zest and mint, dip in a light batter and fry until crisp. Eat them straightaway, warm from the pan.",
       },
     ],
     seedSuppliers: [
@@ -2864,7 +2864,7 @@ export const varieties: Variety[] = [
     name: "Alderman",
     rarity: "rare",
     personality:
-      "A tall, heritage climbing pea from the 1890s that can reach 1.5 metres. The pods are long, the flavour is superb, and there's something deeply satisfying about growing a variety that Victorian gardeners prized. Needs serious support, but rewards the effort handsomely.",
+      "A tall heritage climbing pea from the 1890s that will happily reach above your head, with long pods and a flavour to match. It needs proper support — a good wigwam or some netting — but there's real pleasure in growing something the Victorian gardeners loved, and in the picking when it comes.",
     recipes: [
       {
         name: "Pea and lettuce braise",
@@ -2906,7 +2906,7 @@ export const varieties: Variety[] = [
     name: "Resistafly",
     rarity: "uncommon",
     personality:
-      "Bred to resist carrot fly, which is the single biggest headache in carrot growing. The clue is in the name, and it delivers. Good-flavoured Nantes-type roots that you can grow without fleece, without barriers, without paranoia.",
+      "Bred to stand up to carrot fly, the one real headache of carrot growing — and it does just that. Good, sweet Nantes-type roots you can grow without fleece or fuss, which makes it a gentle place to start if the fly has caught you out before.",
     recipes: [
       {
         name: "Carrot and ginger stir-fry",
@@ -3140,7 +3140,7 @@ export const varieties: Variety[] = [
     name: "Golden Zucchini",
     rarity: "uncommon",
     personality:
-      "Bright yellow courgettes that are easier to spot among the foliage — which means fewer marrows hiding under leaves and frightening you in August. Slightly nuttier flavour than green varieties, and they look stunning sliced into rounds.",
+      "Bright yellow courgettes that show up easily among the leaves — which means fewer marrows quietly swelling out of sight. The flavour is a touch nuttier than the green sorts, and a plateful of yellow rounds is a cheerful thing.",
     recipes: [
       {
         name: "Golden courgette and goat's cheese tart",
@@ -3753,12 +3753,12 @@ export const varieties: Variety[] = [
     name: "Jaune du Doubs",
     rarity: "legendary",
     personality:
-      "A golden-yellow French heritage carrot from the Doubs region near the Swiss border. Before the Dutch bred carrots orange in the 17th century, this is what carrots looked like. The flavour is sweeter and more complex than orange varieties — almost honey-like. Growing this is growing a piece of food history.",
+      "A golden-yellow French heritage carrot from the Doubs, near the Swiss border — the kind of carrot people grew long before the orange ones arrived. The flavour is sweeter and rounder than you expect, almost honeyed. To grow it is to grow a small piece of history.",
     recipes: [
       {
         name: "Heritage carrot salad",
         description:
-          "Grate the golden carrots, dress with orange blossom water, a squeeze of lemon, a drizzle of honey, and a scatter of toasted pistachios. The golden colour against the green pistachios is stunning. A Moroccan-inspired celebration of an ancient vegetable.",
+          "Grate the golden roots and dress with a little orange blossom water, a squeeze of lemon, a drizzle of honey and a scatter of toasted pistachios. Gold against green, and as pretty as it is good.",
       },
     ],
     seedSuppliers: [
