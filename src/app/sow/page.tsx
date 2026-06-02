@@ -58,7 +58,7 @@ export default function SowPage() {
               Tell us what you&apos;ve sown and when, and we&apos;ll work out when it&apos;ll be ready — and remind you
               along the way.
             </p>
-            <a href="/harvest-planner" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
+            <a href="/my-plot" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
               Keep track of what you&apos;re growing &rarr;
             </a>
           </div>

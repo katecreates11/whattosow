@@ -13,6 +13,7 @@ const NAV_LINKS = [
 ];
 
 const MORE_LINKS = [
+  { href: "/my-plot", label: "My plot" },
   { href: "/#explore-crops", label: "Crops" },
   { href: "/frost-map", label: "Frost map" },
 ];

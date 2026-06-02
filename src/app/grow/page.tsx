@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlotStamp from "@/components/PlotStamp";
 import CropCardGrid from "@/components/CropCardGrid";
+import MyPlotSection from "@/components/MyPlotSection";
 import { plantOutCrops } from "@/lib/variety-status";
 
 export const metadata: Metadata = {
@@ -31,6 +32,8 @@ export default function GrowPage() {
           </div>
         </section>
 
+        <MyPlotSection lens="grow" />
+
         <section className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto">
             <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-allotment border-b border-earth/15 pb-3 mb-7">
@@ -52,7 +55,7 @@ export default function GrowPage() {
               Tell us what you&apos;re growing and when you sowed it, and this becomes your own plot — what&apos;s coming
               along, what needs doing, and when each thing will be ready.
             </p>
-            <a href="/harvest-planner" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
+            <a href="/my-plot" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
               Start tracking your plot &rarr;
             </a>
           </div>

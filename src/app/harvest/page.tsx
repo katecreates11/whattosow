@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlotStamp from "@/components/PlotStamp";
 import CropCardGrid from "@/components/CropCardGrid";
+import MyPlotSection from "@/components/MyPlotSection";
 import { harvestCrops } from "@/lib/variety-status";
 
 export const metadata: Metadata = {
@@ -32,6 +33,8 @@ export default function HarvestPage() {
           </div>
         </section>
 
+        <MyPlotSection lens="harvest" />
+
         <section className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto">
             <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-allotment border-b border-earth/15 pb-3 mb-7">
@@ -53,7 +56,7 @@ export default function HarvestPage() {
               Log what you&apos;ve sown and when, and your own harvest dates appear here — no guessing, just your plot,
               counting down.
             </p>
-            <a href="/harvest-planner" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
+            <a href="/my-plot" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
               Track your harvests &rarr;
             </a>
           </div>

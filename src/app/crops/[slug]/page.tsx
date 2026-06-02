@@ -9,6 +9,7 @@ import PersonalisedCropDates from "@/components/PersonalisedCropDates";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlightRisk from "@/components/BlightRisk";
+import LogPlanting from "@/components/LogPlanting";
 import UnsplashHero from "@/components/UnsplashHero";
 
 import {
@@ -493,6 +494,9 @@ export default async function CropPage({
           {/* Sidebar */}
           <div className="lg:w-[42%]">
             <div className="lg:sticky lg:top-20 space-y-8">
+              {/* Track this crop in my plot */}
+              <LogPlanting cropSlug={crop.slug} cropName={crop.name} />
+
               {/* Seeds — sidebar variant (desktop) */}
               <SeedSupplierLinks crop={crop} variant="sidebar" />
 
