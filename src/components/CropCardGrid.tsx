@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { CropEntry } from "@/lib/variety-status";
+import type { CropEntry } from "@/lib/season-core";
 import { cropImage } from "@/lib/crop-image";
 
 /**

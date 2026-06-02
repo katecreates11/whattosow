@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlotStamp from "@/components/PlotStamp";
-import CropCardGrid from "@/components/CropCardGrid";
-import { inSeasonCrops } from "@/lib/variety-status";
+import SeasonalGrid from "@/components/SeasonalGrid";
 
 export const metadata: Metadata = {
   title: "What to Sow Now — by your postcode | What To Sow",
@@ -13,14 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function SowPage() {
-  const veg = inSeasonCrops();
-  const groups = [
-    { method: "direct sow", label: "Direct sow now" },
-    { method: "sow indoors", label: "Start indoors now" },
-  ]
-    .map((g) => ({ ...g, items: veg.filter((e) => e.status.method === g.method) }))
-    .filter((g) => g.items.length > 0);
-
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Header />
@@ -38,16 +29,11 @@ export default function SowPage() {
           </div>
         </section>
 
-        {groups.map((g) => (
-          <section key={g.method} className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
-            <div className="max-w-5xl mx-auto">
-              <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-allotment border-b border-earth/15 pb-3 mb-7">
-                {g.label} <span className="text-earth-lighter">&middot; {g.items.length}</span>
-              </div>
-              <CropCardGrid entries={g.items} emptyNote="No sowings in this group this week." />
-            </div>
-          </section>
-        ))}
+        <section className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
+          <div className="max-w-5xl mx-auto">
+            <SeasonalGrid lens="sow" emptyNote="A quiet week for sowing where you are — worth resting the beds, and checking back soon." />
+          </div>
+        </section>
 
         <section className="px-6 sm:px-10 lg:px-16 py-14 border-t border-earth/10">
           <div className="max-w-5xl mx-auto">

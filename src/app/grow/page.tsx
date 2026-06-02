@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlotStamp from "@/components/PlotStamp";
-import CropCardGrid from "@/components/CropCardGrid";
+import SeasonalGrid from "@/components/SeasonalGrid";
 import MyPlotSection from "@/components/MyPlotSection";
-import { plantOutCrops } from "@/lib/variety-status";
 
 export const metadata: Metadata = {
   title: "What to Grow Now — plant out & tend | What To Sow",
@@ -14,8 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function GrowPage() {
-  const planting = plantOutCrops();
-
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Header />
@@ -36,11 +33,9 @@ export default function GrowPage() {
 
         <section className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto">
-            <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-allotment border-b border-earth/15 pb-3 mb-7">
-              Ready to plant out <span className="text-earth-lighter">&middot; {planting.length}</span>
-            </div>
-            <CropCardGrid
-              entries={planting}
+            <SeasonalGrid
+              lens="grow"
+              heading="Ready to plant out"
               emptyNote="Nothing waiting to go out just now — give the young plants another week or two on the windowsill."
             />
           </div>

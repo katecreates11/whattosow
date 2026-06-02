@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlotStamp from "@/components/PlotStamp";
-import CropCardGrid from "@/components/CropCardGrid";
+import SeasonalGrid from "@/components/SeasonalGrid";
 import MyPlotSection from "@/components/MyPlotSection";
-import { harvestCrops } from "@/lib/variety-status";
 
 export const metadata: Metadata = {
   title: "What's Ready to Harvest Now | What To Sow",
@@ -14,8 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function HarvestPage() {
-  const ready = harvestCrops();
-
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Header />
@@ -37,11 +34,9 @@ export default function HarvestPage() {
 
         <section className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto">
-            <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-allotment border-b border-earth/15 pb-3 mb-7">
-              Usually ready now <span className="text-earth-lighter">&middot; {ready.length}</span>
-            </div>
-            <CropCardGrid
-              entries={ready}
+            <SeasonalGrid
+              lens="harvest"
+              heading="Usually ready now"
               emptyNote="The first big harvests are still on their way — soon, though. Soon."
             />
           </div>
