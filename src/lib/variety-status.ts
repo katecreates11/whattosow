@@ -157,6 +157,60 @@ export interface CropEntry {
   no: number;
 }
 
+/** Crops whose plant-out window is open now (for the Grow page). */
+export function plantOutCrops(lastFrost?: Date, now: Date = new Date()): CropEntry[] {
+  const frost = lastFrost ?? ukAverageFrost(now);
+  const out: CropEntry[] = [];
+  crops.forEach((crop, i) => {
+    if (crop.plantOutWeeks == null) return;
+    const center = frost.getTime() + crop.plantOutWeeks * MS_WEEK;
+    const start = center - 3 * MS_WEEK;
+    const end = center + 3 * MS_WEEK;
+    if (now.getTime() >= start && now.getTime() <= end) {
+      const daysLeft = Math.ceil((end - now.getTime()) / MS_DAY);
+      const state: SowState = daysLeft <= CLOSING_DAYS ? "closing" : "now";
+      out.push({
+        crop,
+        varietyCount: varietyCountByCrop.get(crop.slug) ?? 0,
+        no: i + 1,
+        status: {
+          state,
+          label: state === "closing" ? `last chance · ${daysLeft}d` : "ready to plant out",
+          daysLeft,
+          method: "plant out",
+        },
+      });
+    }
+  });
+  return out.sort((a, b) => (a.status.daysLeft ?? 9999) - (b.status.daysLeft ?? 9999));
+}
+
+/**
+ * Crops likely ready to harvest now (for the Harvest page) — estimated from a
+ * typical earliest sowing plus the crop's grow time. Approximate by nature;
+ * a grower's own logged plants (in /my-plot) give the exact date.
+ */
+export function harvestCrops(lastFrost?: Date, now: Date = new Date()): CropEntry[] {
+  const frost = lastFrost ?? ukAverageFrost(now);
+  const out: CropEntry[] = [];
+  crops.forEach((crop, i) => {
+    const sowWeeks = [crop.directSowWeeks, crop.sowIndoorsWeeks].filter((w): w is number => w != null);
+    if (sowWeeks.length === 0) return;
+    const typicalSow = frost.getTime() + Math.min(...sowWeeks) * MS_WEEK;
+    const harvestStart = typicalSow + crop.harvestWeeks * MS_WEEK;
+    const harvestEnd = harvestStart + (crop.successionWeeks != null ? 10 : 6) * MS_WEEK;
+    if (now.getTime() >= harvestStart && now.getTime() <= harvestEnd) {
+      out.push({
+        crop,
+        varietyCount: varietyCountByCrop.get(crop.slug) ?? 0,
+        no: i + 1,
+        status: { state: "now", label: "ready to harvest", daysLeft: null, method: "harvest" },
+      });
+    }
+  });
+  return out.sort((a, b) => a.crop.name.localeCompare(b.crop.name));
+}
+
 /** Crops you can sow/plant right now, soonest-to-close first. One entry per veg. */
 export function inSeasonCrops(lastFrost?: Date, now: Date = new Date()): CropEntry[] {
   const frost = lastFrost ?? ukAverageFrost(now);

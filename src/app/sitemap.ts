@@ -51,6 +51,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/sow`,
+      lastModified: new Date("2026-06-02"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/grow`,
+      lastModified: new Date("2026-06-02"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/harvest`,
+      lastModified: new Date("2026-06-02"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/lucky-dip`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "daily",
