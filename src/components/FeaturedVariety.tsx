@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { VarietyEntry } from "@/lib/variety-status";
+import { awinLink } from "@/lib/awin";
 
 const rarityLabel: Record<string, string> = {
   legendary: "legendary",
@@ -67,7 +68,7 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
           )}
           {supplier && (
             <a
-              href={supplier.url}
+              href={awinLink(supplier.url)}
               target="_blank"
               rel="sponsored noopener noreferrer"
               data-umami-event="featured-variety-click"

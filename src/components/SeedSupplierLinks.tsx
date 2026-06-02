@@ -1,4 +1,5 @@
 import type { Crop } from "@/data/crops";
+import { awinLink } from "@/lib/awin";
 
 interface SeedSupplierLinksProps {
   crop: Crop;
@@ -11,9 +12,9 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
   if (variant === "compact") {
     return (
       <a
-        href={crop.seedSuppliers[0].url}
+        href={awinLink(crop.seedSuppliers[0].url)}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="sponsored noopener noreferrer"
         data-umami-event="affiliate-click"
         data-umami-event-supplier={crop.seedSuppliers[0].name}
         data-umami-event-crop={crop.name}
@@ -41,9 +42,9 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
           {crop.seedSuppliers.map((supplier) => (
             <a
               key={supplier.name}
-              href={supplier.url}
+              href={awinLink(supplier.url)}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored noopener noreferrer"
               data-umami-event="affiliate-click"
               data-umami-event-supplier={supplier.name}
               data-umami-event-crop={crop.name}
@@ -76,9 +77,9 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
         {crop.seedSuppliers.map((supplier) => (
           <a
             key={supplier.name}
-            href={supplier.url}
+            href={awinLink(supplier.url)}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
             data-umami-event="affiliate-click"
             data-umami-event-supplier={supplier.name}
             data-umami-event-crop={crop.name}

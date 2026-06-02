@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { crops, type Crop } from "@/data/crops";
 import { varieties } from "@/data/varieties";
+import { awinLink } from "@/lib/awin";
 import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
@@ -445,7 +446,7 @@ export default async function CropPage({
                             {v.seedSuppliers.map((s) => (
                               <a
                                 key={s.name}
-                                href={s.url}
+                                href={awinLink(s.url)}
                                 target="_blank"
                                 rel="sponsored noopener noreferrer"
                                 data-umami-event="variety-seed-click"
