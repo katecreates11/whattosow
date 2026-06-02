@@ -174,80 +174,77 @@ export default function GuidesIndex() {
           />
           <div className="relative px-6 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-14 sm:pb-18">
             <div className="max-w-3xl">
-              <div className="bg-leaf w-12 h-1 mb-6" />
-              <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-white/60 block mb-4">
-                Guides
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white tracking-tight leading-[0.95] mb-6">
-                Growing guides
+              <div className="font-serif italic text-lg text-leaf-light mb-3">guides</div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white tracking-tight leading-[0.95] mb-5">
+                How to grow it well
               </h1>
-              <p className="text-white/70 leading-relaxed max-w-sm text-base sm:text-lg font-serif italic">
+              <p className="text-white/80 leading-relaxed max-w-sm text-base sm:text-lg font-serif italic">
                 Practical advice for UK growers. No waffle.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Guide list — editorial, numbered, grouped by tag with color sections */}
-        {[
-          { label: "Getting started", color: "mesh-sage", guides: guides.filter(g => g.tag === "Getting started") },
-          { label: "Equipment", color: "bg-ochre", guides: guides.filter(g => g.tag === "Equipment") },
-          { label: "Planning", color: "mesh-ochre", guides: guides.filter(g => g.tag === "Planning") },
-          { label: "Growing", color: "bg-sky", guides: guides.filter(g => g.tag === "Growing") },
-          { label: "Problem solving", color: "bg-blush", guides: guides.filter(g => g.tag === "Problem solving") },
-          { label: "Seasonal", color: "bg-lavender", guides: guides.filter(g => g.tag === "Seasonal") },
-        ].map((group) => (
-          <div key={group.label} className={`${group.color} px-6 sm:px-10 lg:px-16 py-8 sm:py-10`}>
-            <div className="max-w-3xl">
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-earth/40 block mb-4">
-                {group.label}
-              </span>
-              {group.guides.map((guide, i) => (
-                <a
-                  key={guide.href}
-                  href={guide.href}
-                  className={`flex gap-5 sm:gap-6 py-5 sm:py-6 group ${i < group.guides.length - 1 ? "border-b border-earth/8" : ""}`}
-                >
-                  <span className="text-2xl sm:text-3xl font-serif text-earth/15 leading-none shrink-0 w-8 sm:w-10 pt-1 tabular-nums group-hover:text-rust/40 transition-colors">
-                    {guide.number}
-                  </span>
-                  <div className="min-w-0">
-                    <span className="text-lg sm:text-xl font-serif text-earth group-hover:text-rust transition-colors block leading-snug">
-                      {guide.title}
-                    </span>
-                    <p className="text-sm text-earth-light mt-2 leading-relaxed">
-                      {guide.description}
-                    </p>
+        {/* Guide list — Kinfolk numbered editorial list, grouped by tag, on cream */}
+        <div className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
+          <div className="max-w-3xl mx-auto space-y-14">
+            {[
+              { label: "Getting started", guides: guides.filter((g) => g.tag === "Getting started") },
+              { label: "Planning", guides: guides.filter((g) => g.tag === "Planning") },
+              { label: "Growing", guides: guides.filter((g) => g.tag === "Growing") },
+              { label: "Problem solving", guides: guides.filter((g) => g.tag === "Problem solving") },
+              { label: "Equipment", guides: guides.filter((g) => g.tag === "Equipment") },
+              { label: "Seasonal", guides: guides.filter((g) => g.tag === "Seasonal") },
+            ]
+              .filter((group) => group.guides.length > 0)
+              .map((group) => (
+                <div key={group.label}>
+                  <div className="font-serif italic text-lg text-allotment border-b border-earth/15 pb-3 mb-1">
+                    {group.label}
                   </div>
-                </a>
+                  {group.guides.map((guide) => (
+                    <a
+                      key={guide.href}
+                      href={guide.href}
+                      className="grid grid-cols-[44px_1fr] gap-5 py-5 border-b border-earth/10 group items-baseline"
+                    >
+                      <span className="font-serif text-3xl text-amber leading-none tabular-nums">{guide.number}</span>
+                      <div className="min-w-0">
+                        <span className="block font-serif text-xl sm:text-2xl text-earth group-hover:text-allotment transition-colors leading-snug">
+                          {guide.title}
+                        </span>
+                        <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{guide.description}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
               ))}
-            </div>
           </div>
-        ))}
+        </div>
 
         {/* Bottom CTAs */}
         <div className="px-6 sm:px-10 lg:px-16 mt-16 sm:mt-20 mb-16 sm:mb-20">
-          <div className="max-w-3xl flex flex-col sm:flex-row gap-10 sm:gap-16">
+          <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-10 sm:gap-16">
             <div>
-              <div className="h-px bg-earth/10 w-12 mb-6" />
+              <div className="h-px bg-amber w-12 mb-6" />
               <p className="text-earth-light mb-3 font-serif italic">
                 Need personalised sowing dates?
               </p>
               <a
                 href="/"
-                className="text-sm font-bold tracking-[0.1em] uppercase text-rust hover:text-earth transition-colors"
+                className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 Enter your postcode &rarr;
               </a>
             </div>
             <div>
-              <div className="h-px bg-earth/10 w-12 mb-6" />
+              <div className="h-px bg-amber w-12 mb-6" />
               <p className="text-earth-light mb-3 font-serif italic">
                 Looking for kit recommendations?
               </p>
               <a
-                href="/kit"
-                className="text-sm font-bold tracking-[0.1em] uppercase text-rust hover:text-earth transition-colors"
+                href="/guides/seed-starting-kit"
+                className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 See our picks &rarr;
               </a>
