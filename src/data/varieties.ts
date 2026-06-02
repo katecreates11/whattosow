@@ -234,12 +234,12 @@ export const varieties: Variety[] = [
     name: "Giant Winter",
     rarity: "common",
     personality:
-      "Hardy enough to stand through winter and still produce tender leaves when everything else in the garden has given up. The one that keeps going when nothing else will.",
+      "Hardy enough to stand right through the winter, still offering tender leaves when the rest of the garden has gone quiet. A steadfast, generous thing for the cold months, when greens are hardest to come by.",
     recipes: [
       {
         name: "Saag paneer",
         description:
-          "Wilt a mountain of spinach, blitz roughly, fry with cumin, garlic, ginger, and a hit of garam masala. Fold in cubes of golden-fried paneer. The mountain cooks down to about two portions. Worth it.",
+          "Wilt a great heap of spinach, blitz it roughly, then fry with cumin, garlic, ginger and a little garam masala, and fold in cubes of golden paneer. The heap cooks down to barely two portions — and that's exactly as it should be.",
       },
     ],
     seedSuppliers: [],
@@ -250,7 +250,7 @@ export const varieties: Variety[] = [
     name: "Perpetual Spinach",
     rarity: "common",
     personality:
-      "Technically a chard, but nobody cares because it tastes like spinach and produces for months on end. The plant that keeps on giving, long after true spinach has bolted in a huff.",
+      "Not a true spinach but a chard in disguise — and all the better for it, cropping for months after ordinary spinach has run to seed in the first warm spell. Cut it often and it simply keeps coming.",
     recipes: [
       {
         name: "Wilted greens with garlic and chilli",
@@ -269,7 +269,7 @@ export const varieties: Variety[] = [
     name: "Bloomsdale",
     rarity: "uncommon",
     personality:
-      "Thick, crinkly, savoy-like leaves that hold dressing beautifully and are slower to bolt than most. An American heirloom from the 1920s that earns its keep in the UK just fine.",
+      "Thick, crinkled, savoy-like leaves that hold a dressing beautifully and are slower than most to run to seed. An American heirloom from the 1920s, and quite at home in a British bed.",
     recipes: [
       {
         name: "Spinach and ricotta stuffed shells",
@@ -289,12 +289,12 @@ export const varieties: Variety[] = [
     name: "French Breakfast",
     rarity: "common",
     personality:
-      "Elongated, red-topped with a white tip, and mild enough to eat like sweets. The radish that looks like it was designed by someone who actually cares about aesthetics.",
+      "Long and elegant, red-shouldered with a white tip, and mild enough to eat like sweets straight from the soil. As pretty in the hand as it is on the plate.",
     recipes: [
       {
         name: "Radishes with butter and salt",
         description:
-          "Good butter, flaky sea salt, the freshest radishes you can pull. Dip and eat. The French have been doing this forever because it's perfect.",
+          "Good butter, flaky sea salt, and the freshest radishes you can pull — dip and eat. The French have done it this way for generations, and they're right to.",
       },
     ],
     seedSuppliers: [
@@ -309,7 +309,7 @@ export const varieties: Variety[] = [
     name: "Cherry Belle",
     rarity: "common",
     personality:
-      "Round, red, and ready in four weeks flat. The radish equivalent of instant gratification. Perfect for impatient gardeners and small children who need to see results now.",
+      "Round, red and ready in about four weeks — quicker than almost anything you can grow. A lovely one to sow with children, who get to pull something of their own before their patience quite runs out.",
     recipes: [
       {
         name: "Quick pickled radishes",
@@ -328,7 +328,7 @@ export const varieties: Variety[] = [
     name: "Watermelon",
     rarity: "rare",
     personality:
-      "Green-skinned, unassuming, and then you slice it open and there's a vivid magenta starburst inside. Mild, slightly peppery, and the kind of vegetable that makes people put their fork down and say 'what IS that?'",
+      "Plain green on the outside, then you slice it open to a vivid magenta starburst within. Mild and faintly peppery, and the sort of thing that quietly stops a table mid-conversation.",
     recipes: [
       {
         name: "Watermelon radish carpaccio",
@@ -785,12 +785,12 @@ export const varieties: Variety[] = [
     name: "White Lisbon",
     rarity: "common",
     personality:
-      "The one in every seed catalogue since forever. Quick, reliable, and unfussy. Sow a pinch every few weeks and you'll never be without spring onions for the rest of the season.",
+      "The dependable one, in every seed catalogue for as long as anyone can remember — quick, reliable and unfussy. Sow a pinch every few weeks and you'll not be without spring onions all season.",
     recipes: [
       {
         name: "Spring onion pancakes",
         description:
-          "Chop finely, fold into a simple dough of flour, boiling water, and sesame oil. Roll flat, dry-fry in a hot pan until golden and crispy. The Chinese breakfast that should be everyone's breakfast.",
+          "Chop finely and fold into a simple dough of flour, boiling water and sesame oil, then roll flat and dry-fry in a hot pan until golden and crisp. A Chinese breakfast well worth making your own.",
       },
     ],
     seedSuppliers: [
@@ -804,7 +804,7 @@ export const varieties: Variety[] = [
     name: "Ishikura",
     rarity: "uncommon",
     personality:
-      "A Japanese variety that grows long, straight, white stems without forming a bulb. Looks elegant, tastes clean and mild, and is the one chefs reach for when they want perfect, even slices.",
+      "A Japanese kind that grows long, straight white stems and never forms a bulb. Elegant to look at, clean and mild to taste, and a quiet pleasure to slice evenly.",
     recipes: [
       {
         name: "Charred spring onions with romesco",
@@ -823,7 +823,7 @@ export const varieties: Variety[] = [
     name: "Apache",
     rarity: "uncommon",
     personality:
-      "Red-skinned and mild with a blush that runs from the bulb into the stem. Pretty enough to make a garnish, flavourful enough to be the main event. Adds colour to everything it touches.",
+      "Red-skinned and mild, with a blush running from bulb to stem. Pretty enough to scatter as a garnish, and good enough to be the main event — a little colour for everything it touches.",
     recipes: [
       {
         name: "Quick pickle spring onions",
@@ -1676,12 +1676,12 @@ export const varieties: Variety[] = [
     name: "Leisure",
     rarity: "common",
     personality:
-      "Bred to be slow to bolt, which is the single most important thing in a coriander variety. Most coriander sees a warm day and immediately shoots to seed. Leisure actually gives you weeks of usable leaf. Revolutionary.",
+      "Bred to be slow to bolt, which is everything in a coriander — most kinds see one warm day and shoot for the sky. Leisure holds on, giving you weeks of usable leaf instead. A patient, generous thing.",
     recipes: [
       {
         name: "Coriander chutney",
         description:
-          "Blitz a big bunch with green chilli, garlic, ginger, lime juice, a pinch of sugar, and a splash of water. Serve with anything — samosas, grilled chicken, rice. The green sauce that Indian restaurants never give you enough of.",
+          "Blitz a big bunch with green chilli, garlic, ginger, lime juice, a pinch of sugar and a splash of water. Serve with anything — samosas, grilled chicken, rice. The green sauce you always wish there were more of.",
       },
     ],
     seedSuppliers: [
@@ -1695,7 +1695,7 @@ export const varieties: Variety[] = [
     name: "Calypso",
     rarity: "uncommon",
     personality:
-      "Even slower to bolt than Leisure, with larger leaves and a milder flavour. If you've given up on growing coriander because it always runs to seed the moment your back is turned, this is the one that might change your mind.",
+      "Even slower to bolt than Leisure, with larger, milder leaves. If you've given up on coriander because it always ran to seed before you could use it, this is the one that may win you back.",
     recipes: [
       {
         name: "Guacamole",
@@ -1718,7 +1718,7 @@ export const varieties: Variety[] = [
     name: "Wild Rocket",
     rarity: "common",
     personality:
-      "Narrow, serrated leaves with a peppery kick that makes salad rocket taste bland. Perennial in mild areas, so one sowing can keep giving for years. Slow-growing but worth the wait — the flavour is concentrated and properly fiery.",
+      "Narrow, serrated leaves with a proper peppery warmth — deeper and more savoury than the milder salad sort. It's perennial in mild spots, so a single sowing can give for years; slow to start, but well worth the patience.",
     recipes: [
       {
         name: "Rocket and parmesan salad",
@@ -1737,7 +1737,7 @@ export const varieties: Variety[] = [
     name: "Apollo",
     rarity: "common",
     personality:
-      "Fast-growing salad rocket that's ready in about four weeks. Milder and broader-leaved than wild rocket, but still with that mustard warmth. The one you sow every couple of weeks for a constant supply of sandwich-ready leaves.",
+      "Fast, broad-leaved salad rocket, ready in about four weeks, with a gentle mustard warmth. Sow a little every couple of weeks and you'll always have a handful for a sandwich or a bowl.",
     recipes: [
       {
         name: "Rocket pesto",
@@ -1756,12 +1756,12 @@ export const varieties: Variety[] = [
     name: "Wasabi",
     rarity: "uncommon",
     personality:
-      "Not actual wasabi, but rocket with a similar sharp, sinus-clearing heat that fades quickly to peppery warmth. The leaves are darker and the flavour is more intense than standard rocket. Perfect for people who find normal rocket too polite.",
+      "Not true wasabi, but a rocket with a sharp, sinus-clearing heat that softens to peppery warmth. Darker leaves, deeper flavour — one for anyone who likes their salad with a little fire.",
     recipes: [
       {
         name: "Steak sandwich with wasabi rocket",
         description:
-          "Seared steak on crusty bread, a smear of horseradish mayo, and a generous handful of wasabi rocket. The heat of the leaves cuts through the richness of the meat. No other salad leaf would work here.",
+          "Seared steak on crusty bread, a smear of horseradish mayo, and a generous handful of wasabi rocket. The heat of the leaves cuts cleanly through the rich meat — few other leaves could stand up to it.",
       },
     ],
     seedSuppliers: [
@@ -1925,7 +1925,7 @@ export const varieties: Variety[] = [
     name: "Mammoth",
     rarity: "common",
     personality:
-      "Tall, feathery, and produces masses of leaf before flowering. The name oversells the drama — it's not actually mammoth-sized — but it's the most reliable dill for UK conditions and gives you plenty to work with.",
+      "Tall and feathery, giving masses of leaf before it flowers. The name promises a little more than it delivers in size, but it's the most reliable dill for our conditions, and there's always plenty to cut.",
     recipes: [
       {
         name: "Gravadlax",
@@ -1944,7 +1944,7 @@ export const varieties: Variety[] = [
     name: "Dukat",
     rarity: "uncommon",
     personality:
-      "A Danish variety selected specifically for leaf production rather than seed. Slower to flower, which means more weeks of usable fronds. The dill for people who want dill for cooking rather than pickling.",
+      "A Danish kind chosen for its leaf rather than its seed — slower to flower, which means more weeks of soft fronds for the kitchen. The dill to grow if you cook with it more than you pickle.",
     recipes: [
       {
         name: "Dill and cucumber salad",
@@ -2885,12 +2885,12 @@ export const varieties: Variety[] = [
     name: "Sparkler",
     rarity: "common",
     personality:
-      "Red on top, white on the bottom, and the kind of radish that makes children actually want to eat vegetables. Quick-growing and mild — perfect for the front of a border or a windowbox. The radish that sparks interest.",
+      "Red on top, white below, quick to grow and gently mild — a cheerful little radish for the front of a border or a window box, and a kind one to grow with children.",
     recipes: [
       {
         name: "Radish top pesto",
         description:
-          "Don't throw away the leaves. Blitz radish tops with garlic, parmesan, pine nuts, and olive oil. Peppery, fresh, and proof that the best bit of the radish might be the bit everyone discards.",
+          "Don't waste the leaves. Blitz radish tops with garlic, parmesan, pine nuts and olive oil into a peppery, fresh pesto — the best of the radish is often the part we forget.",
       },
     ],
     seedSuppliers: [
@@ -3520,12 +3520,12 @@ export const varieties: Variety[] = [
     name: "North Holland Blood Red",
     rarity: "rare",
     personality:
-      "Deep crimson skin that runs almost the full length of the stem. A heritage Dutch variety that's as much about colour as flavour — though the flavour is sweet and mild too. Makes every salad, every stir-fry, and every garnish more interesting.",
+      "Deep crimson skin running almost the length of the stem — a heritage Dutch variety grown as much for its colour as for its sweet, mild flavour. It lifts a salad, a stir-fry, a plate, simply by being there.",
     recipes: [
       {
         name: "Blood red spring onion kimchi",
         description:
-          "Slice into lengths, toss with gochugaru, fish sauce, garlic, ginger, and a pinch of sugar. Pack into a jar and ferment for a few days. The crimson deepens, the flavour intensifies. Quick kimchi with maximum visual impact.",
+          "Slice into lengths, toss with gochugaru, fish sauce, garlic, ginger and a pinch of sugar, then pack into a jar and let it ferment for a few days. The crimson deepens, the flavour grows. A quick kimchi, and a beautiful one.",
       },
     ],
     seedSuppliers: [
@@ -3583,12 +3583,12 @@ export const varieties: Variety[] = [
     name: "Medania",
     rarity: "uncommon",
     personality:
-      "Round, dark green leaves and genuinely good bolt resistance for a true spinach. One of the best for summer growing, when most spinach varieties are already sulking in the heat and making a run for it.",
+      "Round, dark-green leaves with genuinely good bolt resistance for a true spinach — one of the best for sowing into summer, when most kinds are already wilting in the heat. A reliable friend through the warmer weeks.",
     recipes: [
       {
         name: "Creamed spinach",
         description:
-          "Wilt a mountain of leaves, squeeze dry, chop roughly. Stir into a sauce of butter, garlic, cream, and a grating of nutmeg. Rich, silky, and the side dish that steakhouses get right. Make it at home and make it better.",
+          "Wilt a heap of leaves, squeeze them dry and chop, then stir into butter, garlic, cream and a grating of nutmeg. Rich, silky, and as good as any steakhouse side.",
       },
     ],
     seedSuppliers: [
@@ -3647,7 +3647,7 @@ export const varieties: Variety[] = [
     name: "Bouquet",
     rarity: "common",
     personality:
-      "Compact and bushy with dense feathery foliage — more leaf per plant than taller varieties. Good for containers and windowsills. The dill for people who want fresh dill close at hand without giving over an entire bed to it.",
+      "Compact and bushy, with dense feathery foliage and more leaf per plant than the tall kinds. Happy in a pot or on a windowsill — fresh dill close at hand, without giving over a whole bed to it.",
     recipes: [
       {
         name: "Dill sauce for salmon",
@@ -3668,7 +3668,7 @@ export const varieties: Variety[] = [
     name: "Confetti",
     rarity: "rare",
     personality:
-      "Finely cut, feathery leaves that look like a cross between coriander and dill. The flavour is milder and less polarising than standard coriander — even people who usually find it soapy often enjoy Confetti. A diplomatic herb.",
+      "Finely cut, feathery leaves, something between coriander and dill to look at. The flavour is softer and less divisive — even those who usually find coriander soapy often take to Confetti. A gentle, peace-making herb.",
     recipes: [
       {
         name: "Thai-style coriander salad",
