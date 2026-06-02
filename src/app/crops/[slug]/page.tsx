@@ -315,7 +315,7 @@ export default async function CropPage({
           className={`${categoryHeaderBg(crop.category)} ${getCropPhoto(crop.slug) || crop.unsplashId ? "-mt-16 relative z-10" : ""} px-6 sm:px-10 lg:px-16`}
         >
           <div className={`max-w-4xl mx-auto ${getCropPhoto(crop.slug) || crop.unsplashId ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}>
-            <div className="flex items-start justify-between gap-8">
+            <div>
               <div className="flex-1">
                 <div className="flex items-center gap-2.5 mb-6">
                   <span className={`w-2 h-2 rounded-full ${categoryDot[crop.category]}`} />
@@ -331,22 +331,6 @@ export default async function CropPage({
                   {crop.tip}
                 </p>
               </div>
-              {getCropImagePath(crop.slug) ? (
-                <div className="hidden md:block shrink-0">
-                  <Image
-                    src={getCropImagePath(crop.slug)!}
-                    alt={crop.name}
-                    width={120}
-                    height={120}
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              ) : (
-                <div className="hidden md:block shrink-0 opacity-[0.15]">
-                  <CategoryIllustration category={crop.category} className="w-36 h-28" />
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -532,22 +516,14 @@ export default async function CropPage({
               <div className="mb-6">
                 <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2" role="region" aria-label="Similar crops" tabIndex={0}>
                   {sameCategoryCrops.map((c) => {
-                    const cImage = getCropImagePath(c.slug);
-                    const Icon = getCropIcon(c.slug);
                     return (
                       <a
                         key={c.slug}
                         href={`/crops/${c.slug}`}
                         className="group block bg-sage/60 p-5 hover:bg-sage transition-colors duration-300 shrink-0 w-48"
                       >
-                        {cImage ? (
-                          <div className="flex justify-center mb-3">
-                            <Image src={cImage} alt={`Illustration of ${c.name}`} width={48} height={48} className="object-contain" />
-                          </div>
-                        ) : null}
                         <div className="flex items-center gap-2 mb-2">
                           <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${categoryDot[c.category]}`} />
-                          {!cImage && Icon && <Icon className="w-4 h-4 shrink-0 text-earth-lighter" />}
                           <span className="font-medium text-sm text-earth">{c.name}</span>
                         </div>
                         <p className="text-xs text-earth-lighter leading-relaxed line-clamp-2">{c.tip.slice(0, 80)}</p>
@@ -561,22 +537,14 @@ export default async function CropPage({
             {otherCategoryCrops.length > 0 && (
               <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2" role="region" aria-label="Other crops to grow" tabIndex={0}>
                 {otherCategoryCrops.map((c) => {
-                  const cImage = getCropImagePath(c.slug);
-                  const Icon = getCropIcon(c.slug);
                   return (
                     <a
                       key={c.slug}
                       href={`/crops/${c.slug}`}
                       className="group block bg-sage/60 p-5 hover:bg-sage transition-colors duration-300 shrink-0 w-48"
                     >
-                      {cImage ? (
-                        <div className="flex justify-center mb-3">
-                          <Image src={cImage} alt={`Illustration of ${c.name}`} width={48} height={48} className="object-contain" />
-                        </div>
-                      ) : null}
                       <div className="flex items-center gap-2 mb-2">
                         <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${categoryDot[c.category]}`} />
-                        {!cImage && Icon && <Icon className="w-4 h-4 shrink-0 text-earth-lighter" />}
                         <span className="font-medium text-sm text-earth">{c.name}</span>
                       </div>
                       <p className="text-xs text-earth-lighter leading-relaxed line-clamp-2">{c.tip.slice(0, 80)}</p>
