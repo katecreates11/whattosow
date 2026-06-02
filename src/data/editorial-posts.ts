@@ -1099,7 +1099,7 @@ export const editorialPosts: EditorialPost[] = [
     slug: "dot-the-allotment-cat",
     title: "Meet Dot, the allotment cat",
     description:
-      "There is a cat on my allotment site who visits whenever I am watering. I call her Dot, or sometimes Baby. Here she is.",
+      "There is a cat on my allotment site who turns up whenever I am watering. I call her Dot, or sometimes Baby. The best gardening companion I never asked for.",
     publishDate: new Date("2026-06-01"),
     keywords: [
       "allotment cat",
@@ -1117,7 +1117,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "She is not my cat. I do not know whose cat she is. She lives somewhere on the site or nearby, and she has worked out that a person with a hosepipe means company and possibly food. She is always there within about five minutes of me arriving.",
+          "She is not my cat. I do not know whose cat she is. She lives somewhere on the site, or near it, and she is not looking for food — she is just a fun visitor. Within about five minutes of me arriving, she is there.",
       },
       {
         type: "image",
@@ -1130,7 +1130,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "She is not a good gardening companion. She has sat in a freshly sown bed at least twice that I know of. She likes to walk across whatever I have just planted and look back at me as if I should be grateful for the visit.",
+          "She is the best gardening companion. Not much practical help, admittedly — she has settled in a freshly sown bed more than once, and she likes to walk across whatever I have just planted and look back as if I should be grateful. But she watches over us while we work, and the plot is better for having her in it.",
       },
       {
         type: "image",
@@ -1151,7 +1151,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "There is something about an allotment cat, though. She is part of the plot in a way I cannot quite explain. When she shows up and settles in the sun nearby — even if she is slowly flattening a row of seedlings — the whole visit is better for it.\n\nI hope these ones survive the heatwave. I hope the lettuce survives Dot.",
+          "There is something about an allotment cat. She is part of the plot now, in a way I cannot quite explain. She turns up, settles in the sun nearby, and watches over us while we get on with the watering and the weeding. Every visit is better for it.",
       },
     ],
     relatedCrops: [],
