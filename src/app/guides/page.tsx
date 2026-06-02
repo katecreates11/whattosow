@@ -114,6 +114,14 @@ const guides = [
     number: "07",
   },
   {
+    title: "Tomato & potato blight",
+    description:
+      "The weather pattern that wipes out a tomato crop — with a live Hutton Criteria risk reading for your postcode, and how to beat it.",
+    href: "/guides/tomato-blight",
+    tag: "Problem solving",
+    number: "08",
+  },
+  {
     title: "Spring vegetables to plant in the UK",
     description:
       "Every crop you can sow this spring — hardy, half-hardy, and tender — with tips on when to start.",

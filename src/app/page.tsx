@@ -15,6 +15,7 @@ import EditorNote from "@/components/EditorNote";
 import LatestFromThePlot from "@/components/LatestFromThePlot";
 import WeatherCommandCenter from "@/components/WeatherCommandCenter";
 import PlotStamp from "@/components/PlotStamp";
+import BlightRisk from "@/components/BlightRisk";
 import FeaturedVariety from "@/components/FeaturedVariety";
 import InSeasonBand from "@/components/InSeasonBand";
 import ShedFund from "@/components/ShedFund";
@@ -226,6 +227,11 @@ export default function Home() {
 
             <div className="mt-8">
               <WeatherCommandCenter />
+            </div>
+
+            {/* Blight warning — only renders when the Hutton risk is high */}
+            <div className="mt-5 empty:hidden">
+              <BlightRisk variant="banner" />
             </div>
 
             <div className="mt-7 font-serif text-[17px] text-earth-light">

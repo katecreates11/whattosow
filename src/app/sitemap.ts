@@ -141,6 +141,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/tomato-blight`,
+      lastModified: new Date("2026-06-02"),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/guides/allotment-essentials`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",

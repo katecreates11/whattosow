@@ -7,6 +7,7 @@ import PlantingTool from "@/components/PlantingTool";
 import PersonalisedCropDates from "@/components/PersonalisedCropDates";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BlightRisk from "@/components/BlightRisk";
 import UnsplashHero from "@/components/UnsplashHero";
 
 import {
@@ -399,6 +400,13 @@ export default async function CropPage({
               </h2>
               <p className="text-earth-light leading-relaxed">{crop.needs}</p>
             </div>
+
+            {/* Live blight risk — for blight-prone crops (tomatoes, potatoes) */}
+            {crop.blightRisk && (
+              <div className="mb-10">
+                <BlightRisk variant="compact" />
+              </div>
+            )}
 
             {/* Spacing diagram */}
             <SpacingDiagram crop={crop} />
