@@ -173,12 +173,12 @@ export const varieties: Variety[] = [
     name: "Little Gem",
     rarity: "common",
     personality:
-      "The compact, crunchy, does-everything lettuce. Tight little heads with a sweetness that makes you wonder why you ever bought iceberg. Ready in about 8 weeks and takes up almost no space.",
+      "A small, crisp, do-everything lettuce — tight little hearts with a sweetness that soon makes the bagged sort a distant memory. It's ready in about eight weeks, takes up next to no room, and is happiest sown little and often through the cooler weeks of the year.",
     recipes: [
       {
         name: "Charred Little Gem with Caesar dressing",
         description:
-          "Halve the heads, brush with olive oil, char cut-side down on a screaming hot griddle. Drizzle with anchovy dressing, parmesan shavings, and croutons. A revelation.",
+          "Halve the hearts, brush with olive oil and char them cut-side down on a hot griddle, then drizzle with anchovy dressing and scatter with parmesan and croutons. Sweet, smoky, and not at all what you expect from a lettuce.",
       },
     ],
     seedSuppliers: [
@@ -192,7 +192,7 @@ export const varieties: Variety[] = [
     name: "Lollo Rosso",
     rarity: "common",
     personality:
-      "Frilly, burgundy-tipped leaves that make your salad bowl look like a Renaissance painting. Pick-and-come-again, so one plant gives you weeks of drama.",
+      "Frilly, burgundy-tipped leaves that turn a plain salad bowl into something rather beautiful. It's pick-and-come-again, so a single plant will give you weeks of leaves — snip what you need and let the rest carry on growing.",
     recipes: [
       {
         name: "Mixed leaf salad with shallot vinaigrette",
@@ -211,7 +211,7 @@ export const varieties: Variety[] = [
     name: "All Year Round",
     rarity: "common",
     personality:
-      "Does what it says on the packet. A butterhead that shrugs off cold, heat, and your general neglect. The dependable friend of the lettuce world.",
+      "A gentle butterhead that lives up to its name, taking cold, heat and the odd forgotten week in its stride. Sow a short row every few weeks and you'll rarely be without a soft, sweet lettuce to pick.",
     recipes: [
       {
         name: "Butter lettuce wraps",
@@ -414,12 +414,12 @@ export const varieties: Variety[] = [
     name: "Boltardy",
     rarity: "common",
     personality:
-      "The one that won't bolt on you when spring throws a tantrum. Reliable, sweet, and the reason more people grow beetroot than you'd think. Does exactly what you need, every time.",
+      "The steady one that won't run to seed when spring turns cold and changeable — reliable, sweet, and the reason a lot of us grow beetroot at all. Sow it early, sow it often, and it rarely lets you down.",
     recipes: [
       {
         name: "Beetroot, goat's cheese, and walnut salad",
         description:
-          "Roast whole until tender, peel and quarter. Tumble onto a plate with crumbled goat's cheese, toasted walnuts, and a dressing of balsamic and olive oil. A classic for good reason.",
+          "Roast whole until tender, then peel and quarter and tumble onto a plate with crumbled goat's cheese, toasted walnuts and a dressing of balsamic and olive oil. A plate that has earned its place.",
       },
     ],
     seedSuppliers: [
@@ -433,7 +433,7 @@ export const varieties: Variety[] = [
     name: "Chioggia",
     rarity: "rare",
     personality:
-      "Slice it open and you get candy-stripe concentric rings of pink and white. An Italian heirloom from the Veneto that makes every salad plate an event. Slightly milder than red varieties, and the rings fade when cooked, so eat it raw to get the full theatre.",
+      "Slice one open and there they are — candy-stripe rings of pink and white, an old Italian variety from the Veneto. It's a little milder than the deep red sorts, and the rings fade in the pot, so it's best eaten raw, where all the quiet theatre is on show.",
     recipes: [
       {
         name: "Chioggia carpaccio",
@@ -453,7 +453,7 @@ export const varieties: Variety[] = [
     name: "Detroit Dark Red",
     rarity: "common",
     personality:
-      "Deep, inky crimson all the way through. The one that will stain your chopping board, your hands, and your tea towel, and you won't care because the flavour is that good.",
+      "Deep, inky crimson all the way through, and as sweet and earthy as beetroot gets. It will colour your hands and the chopping board as you go — a small price, and one you'll happily pay.",
     recipes: [
       {
         name: "Borscht",
@@ -463,7 +463,7 @@ export const varieties: Variety[] = [
       {
         name: "Beetroot hummus",
         description:
-          "Blitz roasted beetroot with chickpeas, tahini, garlic, and lemon. Impossibly pink, earthy, and it makes the crudite plate look like a magazine.",
+          "Blitz roasted beetroot with chickpeas, tahini, garlic and lemon until impossibly pink and earthy. It makes a plate of raw vegetables disappear in no time.",
       },
     ],
     seedSuppliers: [],
@@ -1482,12 +1482,12 @@ export const varieties: Variety[] = [
     name: "The Prince",
     rarity: "common",
     personality:
-      "Flat-podded, stringless, and ready fast. A dwarf bush bean that doesn't need staking and produces handfuls of tender green pods. The beginner's best friend in the bean world.",
+      "Flat-podded, stringless and quick to crop — a dwarf bush bean that needs no staking and hands you tender green pods by the armful. A kind, easy place to begin with beans.",
     recipes: [
       {
         name: "French bean salad nicoise",
         description:
-          "Blanch until bright green and still snappy, toss with good tinned tuna, halved cherry tomatoes, soft-boiled eggs, olives, and a mustardy vinaigrette. Summer lunch, sorted.",
+          "Blanch until bright green and still snappy, then toss with good tinned tuna, halved cherry tomatoes, soft-boiled eggs, olives and a mustardy dressing. A whole summer lunch in a bowl.",
       },
     ],
     seedSuppliers: [
@@ -1501,7 +1501,7 @@ export const varieties: Variety[] = [
     name: "Cobra",
     rarity: "uncommon",
     personality:
-      "A climbing French bean that goes up instead of out, saving space and producing long, round, stringless pods for months. Keep picking and it keeps producing. The bean that rewards attention.",
+      "A climbing French bean that goes up rather than out, saving room and giving long, round, stringless pods for months. The more you pick, the more it gives — so keep a colander by the door.",
     recipes: [
       {
         name: "French beans with shallots and almonds",
@@ -1521,7 +1521,7 @@ export const varieties: Variety[] = [
     name: "Purple Teepee",
     rarity: "uncommon",
     personality:
-      "Deep purple pods held above the foliage so you can actually see them — no more accidentally leaving giant woody beans hidden under leaves. They turn green when cooked (which feels like a betrayal), but the flavour is excellent.",
+      "Deep purple pods held up above the leaves, so you can see them easily and pick them young. They turn green in the pan — a small magic trick — but the flavour stays excellent, and they're a joy to grow with children.",
     recipes: [
       {
         name: "Tempura purple beans",
@@ -2927,7 +2927,7 @@ export const varieties: Variety[] = [
     name: "Golden",
     rarity: "uncommon",
     personality:
-      "All the sweetness of beetroot, none of the staining. Golden-yellow flesh that won't turn your chopping board, your hands, or your entire kitchen pink. A revelation for people who love beetroot flavour but hate the aftermath.",
+      "All the sweetness of beetroot and none of the staining — gentle golden-yellow flesh that leaves your hands and your kitchen quite unmarked. A happy find for anyone who loves the flavour but not the clearing up.",
     recipes: [
       {
         name: "Golden beetroot and orange salad",
@@ -3161,12 +3161,12 @@ export const varieties: Variety[] = [
     name: "Beurre de Rocquencourt",
     rarity: "rare",
     personality:
-      "A golden-yellow French wax bean with a buttery texture and a name that's more fun to say than any other vegetable variety. The yellow pods are easier to spot for picking, and the waxy texture is completely different from green beans — silky, rich, and very French.",
+      "A golden-yellow wax bean with a silky, buttery texture quite unlike a green bean, and a name that's a small pleasure to say. The yellow pods show up beautifully against the leaves, which makes the picking easy and the harvest lovely to look at.",
     recipes: [
       {
         name: "Yellow beans with tarragon",
         description:
-          "Boil the golden pods until just tender, drain, and dress warm with butter, fresh tarragon, and a squeeze of lemon. The yellow beans and pale green tarragon look beautiful together. Très elegant.",
+          "Boil the golden pods until just tender, then dress them warm with butter, fresh tarragon and a squeeze of lemon. The yellow beans and pale green tarragon make a quietly beautiful plate.",
       },
     ],
     seedSuppliers: [
@@ -3604,7 +3604,7 @@ export const varieties: Variety[] = [
     name: "Red Oakleaf",
     rarity: "uncommon",
     personality:
-      "Oak-shaped leaves in deep burgundy that look like they belong in a painting. Pick-and-come-again for months, and the colour deepens as the season goes on. Makes any salad look like a restaurant plate.",
+      "Oak-shaped leaves in deep burgundy, the colour only deepening as the season goes on. Pick-and-come-again for months, it gives a salad the look of something served somewhere lovely — and asks very little in return.",
     recipes: [
       {
         name: "Red oakleaf with warm goat's cheese",
