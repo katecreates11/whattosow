@@ -34,7 +34,7 @@ export default function PlotStamp() {
   if (ready && place) {
     return (
       <div className="font-serif italic text-lg text-allotment mb-2">
-        today on your patch &middot; {place} &middot; your last frost was ~{frost}
+        today on your veg patch &middot; {place} &middot; your last frost was ~{frost}
       </div>
     );
   }
@@ -42,16 +42,16 @@ export default function PlotStamp() {
   if (ready) {
     return (
       <div className="font-serif italic text-lg text-allotment mb-2">
-        today on your patch &mdash;{" "}
+        today on your veg patch &mdash;{" "}
         <a
           href="#main-content"
           className="not-italic font-mono text-[12px] uppercase tracking-[0.08em] border-b border-amber pb-0.5"
         >
-          enter your postcode to tune it to your beds
+          enter your postcode to tune it to your veg beds
         </a>
       </div>
     );
   }
 
-  return <div className="font-serif italic text-lg text-allotment mb-2">today on your patch</div>;
+  return <div className="font-serif italic text-lg text-allotment mb-2">today on your veg patch</div>;
 }

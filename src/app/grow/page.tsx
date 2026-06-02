@@ -44,7 +44,7 @@ export default function GrowPage() {
         <section className="px-6 sm:px-10 lg:px-16 py-14 border-t border-earth/10 bg-sage">
           <div className="max-w-5xl mx-auto">
             <p className="font-serif text-2xl sm:text-3xl text-earth tracking-tight max-w-[24ch] mb-3">
-              This is your patch, growing alongside you.
+              This is your veg patch, growing alongside you.
             </p>
             <p className="text-earth-light max-w-[50ch] mb-5 leading-relaxed">
               Tell us what you&apos;re growing and when you sowed it, and this becomes your own plot — what&apos;s coming
