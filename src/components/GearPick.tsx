@@ -42,7 +42,7 @@ export default function GearPick({
       )}
       <div className="flex items-baseline justify-between gap-4 mb-2.5">
         <h3 className="text-xl font-serif text-earth tracking-tight">{name}</h3>
-        <span className="text-base font-semibold text-rust tabular-nums shrink-0">{price}</span>
+        {price && <span className="text-base font-semibold text-rust tabular-nums shrink-0">{price}</span>}
       </div>
       <p className="text-sm text-earth-light leading-relaxed mb-4">{description}</p>
       {tip && (

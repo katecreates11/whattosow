@@ -14,6 +14,7 @@ import {
 import { getEditorialPost, editorialPosts, type EditorialPost, type EditorialSection } from "@/data/editorial-posts";
 import { ColorSection, SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import GearPick from "@/components/GearPick";
+import { getKit, amazonLink } from "@/data/kit";
 
 // ─── Static generation ──────────────────────────────────────────────────────
 
@@ -217,13 +218,13 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                 What I used in this post
               </h2>
               <div className="grid sm:grid-cols-2 gap-5">
-                {post.kit.map((item) => (
+                {getKit(post.kit).map((item) => (
                   <GearPick
-                    key={item.name}
+                    key={item.id}
                     name={item.name}
-                    price={item.price}
+                    price={item.price ?? ""}
                     description={item.description}
-                    amazonUrl={item.url}
+                    amazonUrl={amazonLink(item.asin)}
                     badge={item.badge}
                     tip={item.tip}
                   />

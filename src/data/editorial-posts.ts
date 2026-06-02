@@ -3,15 +3,6 @@
  * These sit alongside the auto-generated monthly sowing guides.
  */
 
-export interface KitItem {
-  name: string;
-  price: string;
-  url: string;
-  description: string;
-  badge?: "our-pick" | "budget" | "upgrade" | "essential";
-  tip?: string;
-}
-
 export interface EditorialSection {
   type: "text" | "image" | "tip" | "heading" | "product" | "quote";
   content: string;
@@ -44,8 +35,8 @@ export interface EditorialPost {
   sections: EditorialSection[];
   /** Related crop slugs for cross-linking */
   relatedCrops: string[];
-  /** "What I used" — shoppable kit mentioned in the post (affiliate) */
-  kit?: KitItem[];
+  /** "What I used" — kit catalogue ids (see src/data/kit.ts) shown as a shoppable strip */
+  kit?: string[];
 }
 
 export const editorialPosts: EditorialPost[] = [
@@ -112,6 +103,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["potatoes", "sunflowers"],
+    kit: ["gloves", "kneeler", "weed-puller"],
   },
   {
     slug: "growing-tomatoes-uk-allotment",
@@ -1174,17 +1166,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["potatoes"],
-    kit: [
-      {
-        name: "Showa 370 gardening gloves",
-        price: "~£5",
-        url: "https://www.amazon.co.uk/dp/B0017HEJC0?tag=whattosow21-21",
-        description:
-          "My favourites — light, close-fitting and grippy, so you can still feel what you're doing while you plant. Cheap enough to own several pairs, and they wash and dry in no time.",
-        badge: "essential",
-        tip: "Buy two pairs — one's always drying.",
-      },
-    ],
+    kit: ["bulb-planter", "gloves", "kneeler", "dibber", "labels"],
   },
   {
     slug: "dot-the-allotment-cat",
