@@ -128,7 +128,7 @@ export default function BlightRisk({ variant = "full" }: { variant?: Variant }) 
 
       {!located && (
         <a href="/#main-content" className="inline-block mt-3 font-mono text-[11px] uppercase tracking-[0.08em] text-allotment border-b border-amber">
-          Enter your postcode for your plot &rarr;
+          Enter your postcode for your patch &rarr;
         </a>
       )}
 

@@ -104,7 +104,7 @@ export default function WeatherCommandCenter() {
       <p className="font-serif italic text-earth text-xl sm:text-2xl md:text-[28px] leading-snug max-w-[34ch]">
         {wx && sky
           ? weatherLine(wx.temp, wx.code, sky.sunset)
-          : "Reading the sky over your plot…"}
+          : "Reading the sky over your patch…"}
       </p>
 
       <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-earth-light">

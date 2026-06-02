@@ -55,8 +55,8 @@ export default function SeasonalGrid({
   }, [refresh]);
 
   const note = place
-    ? `Tuned to your plot in ${place}`
-    : "Showing the UK average — add your postcode to tune it to your plot";
+    ? `Tuned to your patch in ${place}`
+    : "Showing the UK average — add your postcode to tune it to your beds";
 
   return (
     <div>

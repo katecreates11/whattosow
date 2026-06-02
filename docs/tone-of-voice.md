@@ -78,6 +78,10 @@ ones; the colour, the smell, the feel of the thing; seasonal and diaristic.
 > always time to try again — and the second sowing often knows something the
 > first one didn't."
 
+## Who we're writing for
+
+Not everyone has an allotment. Plenty of readers grow in **garden veg beds, raised beds or containers** — write so they feel included. Lean on **"veg beds / veg patch / your beds / what you're growing"** as the default for the reader's growing space; keep **"plot"** and **"allotment"** for when we mean Kate's own, not as the word for everyone's.
+
 ## A note on existing content
 
 Some older copy (a few variety personalities, the odd marquee line) leans cheeky
