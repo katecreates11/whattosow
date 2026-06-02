@@ -25,6 +25,10 @@ export default function ContextualEmailCapture({ variant = "full", cropName }: C
     return () => window.removeEventListener("whattosow:location-updated", refreshLocation);
   }, [refreshLocation]);
 
+  // Email sign-ups temporarily hidden until we're ready to send.
+  // Re-enable with NEXT_PUBLIC_EMAIL_SIGNUPS=true.
+  if (process.env.NEXT_PUBLIC_EMAIL_SIGNUPS !== "true") return null;
+
   const context = cropName
     ? { cropName }
     : location

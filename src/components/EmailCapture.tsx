@@ -19,6 +19,10 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
+  // Email sign-ups temporarily hidden — we're not sending yet and don't want
+  // people signing up expecting emails. Re-enable with NEXT_PUBLIC_EMAIL_SIGNUPS=true.
+  if (process.env.NEXT_PUBLIC_EMAIL_SIGNUPS !== "true") return null;
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
