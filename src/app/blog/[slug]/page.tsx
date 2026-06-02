@@ -13,6 +13,7 @@ import {
 } from "@/data/blog-posts";
 import { getEditorialPost, editorialPosts, type EditorialPost, type EditorialSection } from "@/data/editorial-posts";
 import { ColorSection, SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import GearPick from "@/components/GearPick";
 
 // ─── Static generation ──────────────────────────────────────────────────────
 
@@ -302,6 +303,19 @@ function EditorialSectionRenderer({ section }: { section: EditorialSection }) {
         <TipBox>
           <p>{section.content}</p>
         </TipBox>
+      );
+    case "product":
+      return (
+        <div className="my-8 max-w-md">
+          <GearPick
+            name={section.productName ?? ""}
+            price={section.productPrice ?? ""}
+            description={section.content}
+            amazonUrl={section.productUrl ?? "#"}
+            badge={section.productBadge}
+            tip={section.caption}
+          />
+        </div>
       );
     default:
       return null;

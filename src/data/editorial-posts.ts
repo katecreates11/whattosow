@@ -4,14 +4,19 @@
  */
 
 export interface EditorialSection {
-  type: "text" | "image" | "tip" | "heading";
+  type: "text" | "image" | "tip" | "heading" | "product";
   content: string;
   /** For images: src path */
   src?: string;
   /** For images: alt text */
   alt?: string;
-  /** For images: optional caption */
+  /** For images: optional caption (also used as the product tip) */
   caption?: string;
+  /** For product cards: an honest affiliate recommendation */
+  productName?: string;
+  productPrice?: string;
+  productUrl?: string;
+  productBadge?: "our-pick" | "budget" | "upgrade" | "essential";
 }
 
 export interface EditorialPost {
@@ -33,6 +38,63 @@ export interface EditorialPost {
 }
 
 export const editorialPosts: EditorialPost[] = [
+  {
+    slug: "broadfork-clay-bindweed",
+    title: "The broadfork that made light work of my clay",
+    description:
+      "Why a wide broadfork turned heavy clay — and an awful lot of bindweed — into an enjoyable spring morning's work. An honest, first-hand review of the Terradix 5x300.",
+    publishDate: new Date("2026-06-02"),
+    keywords: [
+      "broadfork UK",
+      "Terradix broadfork",
+      "broadfork clay soil",
+      "digging clay soil allotment",
+      "bindweed clay soil",
+      "broadfork review",
+    ],
+    heroImage: "/photos/blog/raised-bed-membrane-spring.webp",
+    heroAlt: "A raised allotment bed under weed membrane in early spring, ready to be dug over",
+    intro:
+      "The broadfork has turned out to be the best thing I've bought for the plot. Mine is the wide one — the Terradix 5x300 — and the width is the joy of it: five long tines that take a great bite of ground at once, so you clear far more with every go.",
+    tags: ["allotment diary", "tools"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "You stand on it to sink the tines in, then lean back, and it slices up and breaks the clay apart as it lifts — a gentle rock rather than a heave, your weight doing the work instead of your back. It's genuinely lovely to use on a still spring morning.",
+      },
+      {
+        type: "text",
+        content:
+          "My soil is heavy clay, and I'd rather not run a petrol machine on the plot, so when I kept seeing growers recommend a broadfork I did my homework and took the plunge. It arrived late last summer and waited out the winter; this April I finally dug over the bed for potatoes and sunflowers.",
+      },
+      {
+        type: "text",
+        content:
+          "The real gift was the bindweed. Its roots run through the clay like pale wires — long, fine threads you have to chase — and because the broadfork opens the soil so well, you can crumble the clumps apart by hand and draw each one out whole. There's real satisfaction in easing out a root that hasn't snapped (the broken bits are what grow back), and I lifted some gloriously long ones, roots and all, unbroken.",
+      },
+      {
+        type: "text",
+        content:
+          "I'd also kept that bed under weed membrane the season before — months without light — and between the two it's far less vigorous now. A little still pops up, as bindweed always will, but the worst of it is gone.",
+      },
+      {
+        type: "product",
+        content:
+          "Wide, beautifully made, and a real pleasure to use through heavy clay. Not a cheap tool, but it's changed how I feel about digging — and I'll be using it for years.",
+        productName: "Terradix 5x300 broadfork",
+        productPrice: "~£129",
+        productUrl: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21",
+        productBadge: "upgrade",
+        caption: "The width is what makes it — you cover far more ground with every lift.",
+      },
+      {
+        type: "text",
+        content: "Corn goes in the next patch, and I'm rather looking forward to digging it over.",
+      },
+    ],
+    relatedCrops: ["potatoes", "sunflowers"],
+  },
   {
     slug: "growing-tomatoes-uk-allotment",
     title: "Growing tomatoes on a UK allotment: from windowsill to harvest",
