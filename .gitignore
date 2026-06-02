@@ -45,3 +45,6 @@ next-env.d.ts
 
 # Raw photos (large HEIC originals — not for git)
 /photos-raw/
+
+# Superpowers brainstorm artifacts
+.superpowers/
