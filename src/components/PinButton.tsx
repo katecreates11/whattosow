@@ -14,10 +14,11 @@ export default function PinButton({
   image: string; // e.g. /photos/blog/...webp
   description: string;
 }) {
+  const mediaUrl = image.startsWith("http") ? image : SITE + image;
   const href =
     "https://www.pinterest.com/pin/create/button/?" +
     `url=${encodeURIComponent(SITE + path)}` +
-    `&media=${encodeURIComponent(SITE + image)}` +
+    `&media=${encodeURIComponent(mediaUrl)}` +
     `&description=${encodeURIComponent(description)}`;
 
   return (

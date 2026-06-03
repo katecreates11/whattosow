@@ -11,6 +11,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlightRisk from "@/components/BlightRisk";
 import LogPlanting from "@/components/LogPlanting";
+import PinButton from "@/components/PinButton";
 import UnsplashHero from "@/components/UnsplashHero";
 
 import {
@@ -331,6 +332,18 @@ export default async function CropPage({
                 <p className="text-lg text-earth-light leading-relaxed max-w-2xl">
                   {crop.tip}
                 </p>
+                {(getCropPhoto(crop.slug) || crop.unsplashId) && (
+                  <div className="mt-5">
+                    <PinButton
+                      path={`/crops/${crop.slug}`}
+                      image={
+                        getCropPhoto(crop.slug)?.hero ??
+                        `https://images.unsplash.com/photo-${crop.unsplashId}?w=1000&h=1500&fit=crop&auto=format&q=75`
+                      }
+                      description={`How to grow ${crop.name.toLowerCase()} in the UK — sowing dates, varieties and growing tips.`}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
