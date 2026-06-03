@@ -14,6 +14,7 @@ import {
 import { getEditorialPost, editorialPosts, type EditorialPost, type EditorialSection } from "@/data/editorial-posts";
 import { ColorSection, SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import GearPick from "@/components/GearPick";
+import PinButton from "@/components/PinButton";
 import { getKit, amazonLink } from "@/data/kit";
 
 // ─── Static generation ──────────────────────────────────────────────────────
@@ -197,6 +198,9 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
             <p className="text-earth-light leading-relaxed text-[15px] sm:text-base max-w-2xl">
               {post.intro}
             </p>
+            <div className="mt-5">
+              <PinButton path={`/blog/${post.slug}`} image={post.heroImage} description={post.description} />
+            </div>
           </div>
         </div>
 
