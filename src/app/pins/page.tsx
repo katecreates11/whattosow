@@ -1,0 +1,118 @@
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PinThumb from "@/components/PinThumb";
+import { crops } from "@/data/crops";
+import { varietiesForCrop } from "@/lib/variety-routes";
+import { MONTH_SLUGS, MONTH_NAMES } from "@/lib/calendar";
+
+export const metadata: Metadata = {
+  title: "Pin board (internal)",
+  robots: { index: false, follow: false },
+};
+
+const TAGS = "#gardening #ukgardening #growyourown #allotment #vegetablegarden";
+
+function cropDesc(name: string) {
+  return `When to sow ${name.toLowerCase()} in the UK — sowing dates for your postcode, varieties worth growing, and where to find the seeds. ${TAGS}`;
+}
+function seasonDesc(month: string) {
+  return `What to sow in ${month} in the UK — everything worth sowing this month, tuned to your local frost date. ${TAGS}`;
+}
+
+export default function PinsBoard() {
+  const thisMonth = new Date().getMonth();
+
+  return (
+    <div className="min-h-screen overflow-x-hidden">
+      <Header />
+      <main id="main-content" className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-allotment">Internal · not indexed</span>
+          <h1 className="font-serif text-4xl sm:text-5xl text-earth tracking-tight leading-[0.95] mt-3 mb-3">
+            The pin board
+          </h1>
+          <p className="font-serif italic text-lg text-earth-light max-w-[60ch] mb-12">
+            Every pin the site generates, ready to save. Thumbnails preview locally; the Save button pins the real
+            page with its image once the site is live. Pin a few fresh ones each week — Pinterest rewards the habit.
+          </p>
+
+          {/* This month */}
+          <section className="mb-16">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment border-b border-earth/15 pb-3 mb-7">
+              This month · {MONTH_NAMES[thisMonth]}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-md">
+              <PinThumb
+                pinPath={`/pins/seasonal/${MONTH_SLUGS[thisMonth]}`}
+                contentPath={`/sow/${MONTH_SLUGS[thisMonth]}`}
+                label={`${MONTH_NAMES[thisMonth]} list`}
+                description={seasonDesc(MONTH_NAMES[thisMonth])}
+              />
+            </div>
+          </section>
+
+          {/* Sow by month */}
+          <section className="mb-16">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment border-b border-earth/15 pb-3 mb-7">
+              Sow by month <span className="text-earth-lighter">· {MONTH_SLUGS.length}</span>
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+              {MONTH_SLUGS.map((slug, i) => (
+                <PinThumb
+                  key={slug}
+                  pinPath={`/pins/seasonal/${slug}`}
+                  contentPath={`/sow/${slug}`}
+                  label={MONTH_NAMES[i]}
+                  description={seasonDesc(MONTH_NAMES[i])}
+                />
+              ))}
+            </div>
+          </section>
+
+          {/* Crops */}
+          <section>
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment border-b border-earth/15 pb-3 mb-7">
+              Crops <span className="text-earth-lighter">· {crops.length} × 2 styles</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+              {crops.map((crop) => {
+                const vCount = varietiesForCrop(crop.slug).length;
+                return (
+                  <div key={crop.slug}>
+                    <div className="flex items-baseline justify-between mb-3">
+                      <h3 className="font-serif text-xl text-earth">{crop.name}</h3>
+                      {vCount > 0 && (
+                        <a
+                          href={`/pins/c/${crop.slug}`}
+                          className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                        >
+                          + {vCount} variety pins &rarr;
+                        </a>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <PinThumb
+                        pinPath={`/pins/crops/${crop.slug}`}
+                        contentPath={`/crops/${crop.slug}`}
+                        label="Editorial"
+                        description={cropDesc(crop.name)}
+                      />
+                      <PinThumb
+                        pinPath={`/pins/crops/${crop.slug}/full`}
+                        contentPath={`/crops/${crop.slug}`}
+                        label="Full bleed"
+                        description={cropDesc(crop.name)}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
