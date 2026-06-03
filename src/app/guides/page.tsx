@@ -298,6 +298,16 @@ export default function GuidesIndex() {
             <div className="mt-8">
               <AffiliateDisclosure />
             </div>
+
+            <div className="mt-10 border-t border-earth/10 pt-8">
+              <div className="font-serif italic text-lg text-allotment mb-4">honest reviews from the shed</div>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                <a href="/blog/best-first-tools-new-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The tools I&apos;d buy first &rarr;</a>
+                <a href="/blog/watering-lance-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The watering lance &rarr;</a>
+                <a href="/blog/broadfork-clay-bindweed" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The broadfork &rarr;</a>
+                <a href="/blog/wheelbarrow-allotment-haemmerlin" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The wheelbarrow &rarr;</a>
+              </div>
+            </div>
           </div>
         </section>
 

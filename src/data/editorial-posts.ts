@@ -52,6 +52,146 @@ export interface EditorialPost {
 
 export const editorialPosts: EditorialPost[] = [
   {
+    slug: "best-first-tools-new-allotment",
+    title: "The tools I'd actually buy first for a new allotment",
+    description:
+      "You don't need much to start an allotment — and most of it is cheap. The handful of tools I'd buy first, the ones to add as you go, and the single upgrade worth saving for.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "best tools for a new allotment",
+      "allotment tools for beginners",
+      "what tools do I need for an allotment",
+      "essential gardening tools UK",
+      "allotment starter kit",
+      "best gardening tools UK",
+    ],
+    heroImage: "/photos/blog/allotment-plot-overview-june.webp",
+    heroAlt: "An established allotment plot in June — the beds and paths a handful of good tools help you keep",
+    intro:
+      "When you take on a new plot it's tempting to buy everything at once. Don't. You need surprisingly little to start, and most of it is cheap — these are the tools I actually reach for, in the order I'd buy them.",
+    tags: ["allotment diary", "tools"],
+    sections: [
+      {
+        type: "heading",
+        content: "Start here — the cheap, everyday few",
+      },
+      {
+        type: "text",
+        content:
+          "If you bought nothing else this season, these would see you through. None of it is dear, and all of it earns its place from the first morning.",
+      },
+      {
+        type: "product",
+        content:
+          "My favourites — light, close-fitting and grippy, so you can still feel what you're doing. Cheap enough to own a couple of pairs, which you'll want, because one is always drying.",
+        productName: "Showa 370 gardening gloves",
+        productPrice: "~£5",
+        productUrl: "https://www.amazon.co.uk/dp/B0017HEJC0?tag=whattosow21-21",
+        productBadge: "essential",
+        caption: "Buy two pairs — one's always drying.",
+      },
+      {
+        type: "product",
+        content:
+          "A thick memory-foam kneeler that saves your knees through a long planting or weeding session. Unglamorous, and you'll bless it within a week.",
+        productName: "Thistlewood memory-foam kneeler",
+        productPrice: "~£20",
+        productUrl: "https://www.amazon.co.uk/dp/B099FDNQR3?tag=whattosow21-21",
+        productBadge: "our-pick",
+      },
+      {
+        type: "product",
+        content:
+          "A big roll of jute twine is the most-used thing in my bag — tying in, marking out rows, supporting, and the hundred other jobs a length of string is for. Compostable at the end of it all.",
+        productName: "Draper 100m jute garden twine",
+        productPrice: "~£10",
+        productUrl: "https://www.amazon.co.uk/dp/B000PJCDZG?tag=whattosow21-21",
+        productBadge: "essential",
+      },
+      {
+        type: "product",
+        content:
+          "Write the variety on in pencil and you'll actually remember what's what come spring — the difference between a tidy plot and a guessing game. Biodegradable, so no plastic left in the soil.",
+        productName: "Wooden plant labels (100)",
+        productPrice: "~£5",
+        productUrl: "https://www.amazon.co.uk/dp/B0DQ5WVTQJ?tag=whattosow21-21",
+        productBadge: "budget",
+      },
+      {
+        type: "product",
+        content:
+          "A proper carbon-steel dibber for making neat, even holes for seedlings and seeds. Solid in the hand and lovely to use — the small luxury that makes planting feel considered rather than rushed.",
+        productName: "Spear & Jackson carbon dibber",
+        productUrl: "https://www.amazon.co.uk/dp/B002W5V62C?tag=whattosow21-21",
+        productBadge: "our-pick",
+      },
+      {
+        type: "heading",
+        content: "Add as you go",
+      },
+      {
+        type: "text",
+        content:
+          "Once you're settled and you know how you work, these are the next things I'd reach for — each one quietly makes a regular job easier.",
+      },
+      {
+        type: "product",
+        content:
+          "A little hand puller that grips and lifts weeds — roots and all — without you bending double. Worth its keep on the worst of the bindweed and dandelions.",
+        productName: "Hand weed puller",
+        productUrl: "https://www.amazon.co.uk/dp/B08CTVKW8K?tag=whattosow21-21",
+        productBadge: "budget",
+      },
+      {
+        type: "product",
+        content:
+          "A long watering lance that reaches the back of the bed and in under the leaves, where the roots actually want it. It's turned the evening water from a chore into the part of the day I look forward to.",
+        productName: "Gardena premium watering lance",
+        productUrl: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "The reach is the thing — a good soak without trampling a single plant.",
+      },
+      {
+        type: "text",
+        content:
+          "I've written more about why I love it in the full watering lance review.",
+      },
+      {
+        type: "product",
+        content:
+          "A sturdy stainless bulb planter with depth marks down the side — brilliant for popping in potatoes and bulbs at an even depth, even when the soil is firm. Takes the guesswork out of spacing.",
+        productName: "Kent & Stowe stainless bulb planter",
+        productUrl: "https://www.amazon.co.uk/dp/B09GVYL32D?tag=whattosow21-21",
+        productBadge: "our-pick",
+      },
+      {
+        type: "heading",
+        content: "The one upgrade worth saving for",
+      },
+      {
+        type: "product",
+        content:
+          "Not a first purchase — but if your soil is heavy clay, this is the thing to save towards. A wide broadfork breaks up the ground with your weight rather than your back, and it's genuinely a pleasure to use. It changed how I feel about digging.",
+        productName: "Terradix 5x300 broadfork",
+        productPrice: "~£129",
+        productUrl: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21",
+        productBadge: "upgrade",
+        caption: "The width is the joy — you cover far more ground with every lift.",
+      },
+      {
+        type: "text",
+        content:
+          "There's a full account of how it tamed my clay (and a great deal of bindweed) in the broadfork review.",
+      },
+      {
+        type: "text",
+        content:
+          "And that's it. Start with the cheap few, add as you find the gaps, and save the big buy for when you know you'll use it. A plot is made over years, not in one trip to the shop.",
+      },
+    ],
+    relatedCrops: [],
+  },
+  {
     slug: "wheelbarrow-allotment-haemmerlin",
     title: "Four years, one squeaky wheelbarrow, and the treat that replaced it",
     description:

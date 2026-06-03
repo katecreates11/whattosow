@@ -162,6 +162,9 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
     },
   };
 
+  // Other hand-written posts, for the "more from the shed" cross-links
+  const morePosts = editorialPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+
   return (
     <>
       <Header backLink={{ href: "/blog", label: "All guides" }} />
@@ -232,6 +235,12 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
               <p className="text-xs text-earth-lighter mt-4">
                 Some links are affiliate links — we may earn a little, at no extra cost to you, towards the allotment shed.
               </p>
+              <a
+                href="/guides"
+                className="inline-block mt-4 font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+              >
+                Browse the kit we use &rarr;
+              </a>
             </div>
           )}
 
@@ -249,6 +258,31 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                     className="text-sm text-rust hover:text-earth font-medium underline decoration-rust/30 transition-colors"
                   >
                     {slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* More from the shed — cross-link other reviews */}
+          {morePosts.length > 0 && (
+            <div className="border-t border-earth/10 pt-9 mt-12">
+              <div className="font-serif italic text-lg text-allotment mb-5">more from the shed</div>
+              <div className="grid sm:grid-cols-3 gap-5">
+                {morePosts.map((p) => (
+                  <a key={p.slug} href={`/blog/${p.slug}`} className="group block">
+                    <div className="relative aspect-[4/3] overflow-hidden mb-2.5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={p.heroImage}
+                        alt={p.heroAlt}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover img-grade group-hover:scale-[1.03] transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="font-serif text-lg text-earth leading-tight group-hover:text-allotment transition-colors">
+                      {p.title}
+                    </h3>
                   </a>
                 ))}
               </div>
