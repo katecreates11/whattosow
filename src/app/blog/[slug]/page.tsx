@@ -322,6 +322,33 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
           <p className="font-serif text-2xl sm:text-[28px] text-earth leading-[1.3]">{section.content}</p>
         </blockquote>
       );
+    case "pair":
+      return (
+        <figure className="my-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          {[
+            { src: section.src, alt: section.alt, caption: section.caption },
+            { src: section.src2, alt: section.alt2, caption: section.caption2 },
+          ].map((im, i) =>
+            im.src ? (
+              <div key={i}>
+                <img
+                  src={im.src}
+                  alt={im.alt || ""}
+                  className="w-full aspect-[3/4] object-cover block"
+                  style={{ filter: "contrast(1.06) saturate(0.82) sepia(0.06) brightness(1.01)" }}
+                  loading="lazy"
+                  decoding="async"
+                />
+                {im.caption && (
+                  <figcaption className="mt-2 font-mono text-[10px] tracking-[0.1em] uppercase text-earth-light/70">
+                    {im.caption}
+                  </figcaption>
+                )}
+              </div>
+            ) : null
+          )}
+        </figure>
+      );
     case "image":
       return (
         <figure className="-mx-6 sm:-mx-[calc(50vw-20rem)] my-12 sm:my-16">

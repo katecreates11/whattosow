@@ -4,7 +4,7 @@
  */
 
 export interface EditorialSection {
-  type: "text" | "image" | "tip" | "heading" | "product" | "quote";
+  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair";
   content: string;
   /** For images: src path */
   src?: string;
@@ -12,6 +12,10 @@ export interface EditorialSection {
   alt?: string;
   /** For images: optional caption (also used as the product tip) */
   caption?: string;
+  /** For "pair": the second image shown side by side */
+  src2?: string;
+  alt2?: string;
+  caption2?: string;
   /** For product cards: an honest affiliate recommendation */
   productName?: string;
   productPrice?: string;
@@ -1100,6 +1104,16 @@ export const editorialPosts: EditorialPost[] = [
           "I dug the whole bed over with my big fork before anything went in. Potatoes need loose, well-worked soil — they need space to swell underground. I worked from one end, pushing the fork to its full depth, levering it forward, breaking up the clods as I went. This is also when I pulled out the bindweed roots. There were a lot of bindweed roots. There always are.",
       },
       {
+        type: "pair",
+        content: "",
+        src: "/photos/blog/broadfork-clay-dig.webp",
+        alt: "The broadfork resting on freshly broken clay at the allotment",
+        caption: "Dug right over with the broadfork.",
+        src2: "/photos/blog/sowing-drills-allotment-spring.webp",
+        alt2: "A dug allotment bed with a planting drill opened along it, greenhouse behind",
+        caption2: "Worked down and drilled, ready to plant.",
+      },
+      {
         type: "heading",
         content: "The bulb planter",
       },
@@ -1123,12 +1137,14 @@ export const editorialPosts: EditorialPost[] = [
           "The first shoots came through a couple of weeks later — tiny little things, easy to miss if you were not looking for them.",
       },
       {
-        type: "image",
+        type: "pair",
         content: "",
         src: "/photos/blog/potato-shoots-emerging.webp",
-        alt: "Tiny potato shoots just emerging from allotment soil, small green tips barely visible above the surface",
-        caption:
-          "The first shoots. You almost walk past them.",
+        alt: "Tiny potato shoots just emerging from allotment soil",
+        caption: "The first shoots — easy to walk past.",
+        src2: "/photos/blog/potato-rows-growing.webp",
+        alt2: "Rows of potato plants growing strongly with leafy green foliage",
+        caption2: "A few weeks on — big and leafy.",
       },
       {
         type: "text",
@@ -1142,13 +1158,6 @@ export const editorialPosts: EditorialPost[] = [
         alt: "Rows of potato plants growing strongly in allotment soil, multiple rows visible from above with dark compost around the base of each plant",
         caption:
           "A few weeks on. This is a first early variety — July harvest.",
-      },
-      {
-        type: "image",
-        content: "",
-        src: "/photos/blog/potato-rows-growing.webp",
-        alt: "Rows of potato plants in an allotment, growing strongly with green leafy foliage and compost visible around the stems",
-        caption: "The rows now. Just watering until July.",
       },
       {
         type: "heading",
