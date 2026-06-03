@@ -103,7 +103,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "A wheelbarrow isn't a glamorous purchase. But it's one of those quiet, everyday tools you reach for constantly, and a good one makes the heavy days lighter. After four years of leaning right, I'm happy to wheel a straight line.",
+          "A wheelbarrow isn't a glamorous purchase. But it's one of those quiet, everyday tools you reach for constantly, and a good one makes the heavy days lighter. After four years of leaning right, I'm happy to wheel a straight line. And come winter, it'll be tucked away in the shed, out of the weather, to keep it in tip-top condition for what I hope will be many years to come.",
       },
     ],
     relatedCrops: [],
