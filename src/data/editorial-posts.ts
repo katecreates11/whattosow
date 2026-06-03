@@ -52,6 +52,84 @@ export interface EditorialPost {
 
 export const editorialPosts: EditorialPost[] = [
   {
+    slug: "garden-tubs-trugs-allotment",
+    title: "In praise of the humble tub (and the veg trug)",
+    description:
+      "You don't expect to love a plastic tub, but the flexible garden tub might be the most useful thing on my plot. Plus the proper veg trug for gathering the harvest.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "flexible garden tub",
+      "gorilla tub",
+      "tubtrug",
+      "garden trug",
+      "vegetable harvesting trug",
+      "best garden tub UK",
+    ],
+    heroImage: "/photos/blog/plot-summer-growing.webp",
+    heroAlt: "The allotment in full summer growth — the kind of plot a tub earns its keep on, day in and day out",
+    intro:
+      "You don't expect to love a plastic tub. But the flexible garden tub might be the most useful thing I own &mdash; the one bit of kit I reach for almost every time I'm on the plot, for a hundred small jobs I never think to plan for.",
+    tags: ["allotment diary", "tools"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "Mostly, it's my weeding companion. I set a small tub down beside me and drop the weeds straight in as I go &mdash; no little piles left to scatter, no trudging back and forth. I don't put weeds on the compost (I'd rather not invite them back), so when the tub's full I tip it into a bigger one and carry the lot home to the bin. It sounds like nothing, but having somewhere to put the weeds is the difference between a tidy hour and a frustrating one.",
+      },
+      {
+        type: "text",
+        content:
+          "After that, it's the hundred other jobs. A tub shifts woodchip from the donated pile down to the beds, moves a load of soil, carries seedlings out to plant. You name it, a tub will do it &mdash; and it flexes and folds away against the shed when it's done.",
+      },
+      {
+        type: "tip",
+        content:
+          "Keep a couple of small tubs at the plot, not at home. There's nothing more annoying than starting to weed and having nowhere to put them. The small ones are perfect for moving along a row beside you; when one's full, tip it into a big one to bring home. A little fleet of them, big and small, is the trick.",
+      },
+      {
+        type: "product",
+        content:
+          "The small tub is the weeding companion &mdash; light enough to nudge along the row beside you, easy to tip into a bigger one when it's full. I'd keep two of these at the plot.",
+        productName: "Red Gorilla flexible tub — small (14L)",
+        productUrl: "https://www.amazon.co.uk/dp/B011AEXWI6?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "The one I reach for most — keep a couple at the plot.",
+      },
+      {
+        type: "product",
+        content:
+          "The big tub is the workhorse: woodchip, soil, a full load of weeds for the bin. Flexible, frost-proof, and it lasts for years &mdash; two strong handles make a heavy load far easier than a rigid bucket.",
+        productName: "Red Gorilla flexible tub — large (38L)",
+        productUrl: "https://www.amazon.co.uk/dp/B011AEZ8BU?tag=whattosow21-21",
+        productBadge: "essential",
+      },
+      {
+        type: "heading",
+        content: "And then, the trug",
+      },
+      {
+        type: "text",
+        content:
+          "A trug is a different thing altogether &mdash; not for hauling, but for gathering. The traditional wooden veg trug is the one for the harvest: beans and courgettes and the first tomatoes, carried up the path of an evening. There's something very Beatrix Potter about a trug full of veg, and I won't apologise for it.",
+      },
+      {
+        type: "product",
+        content:
+          "A proper, lightweight wooden trug for bringing the harvest in. Beautifully made, and it only looks lovelier as it weathers. Not a workhorse like the tubs &mdash; this one's purely for the nicest job on the plot.",
+        productName: "Burgon & Ball traditional wooden trug",
+        productUrl: "https://www.amazon.co.uk/dp/B003UMY4I4?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "Purely for gathering — the nicest job there is.",
+      },
+      {
+        type: "text",
+        content:
+          "Tubs for the graft, a trug for the gathering. Neither is glamorous or dear, and between them they'll see you through almost everything a plot asks of you.",
+      },
+    ],
+    relatedCrops: [],
+  },
+  {
     slug: "best-first-tools-new-allotment",
     title: "The tools I'd actually buy first for a new allotment",
     description:
