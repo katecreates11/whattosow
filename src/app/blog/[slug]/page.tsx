@@ -166,46 +166,40 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
     <>
       <Header backLink={{ href: "/blog", label: "All guides" }} />
       <main id="main-content" className="bg-cream min-h-screen">
-        {/* Hero image */}
-        <div className="relative h-64 sm:h-80 md:h-[28rem] overflow-hidden">
-          <Image
-            src={post.heroImage}
-            alt={post.heroAlt}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        </div>
-
-        {/* Title area */}
-        <div className="bg-cream -mt-16 relative z-10">
-          <div className="max-w-3xl mx-auto px-6 sm:px-8 pt-10 sm:pt-14 pb-8">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] font-bold tracking-[0.1em] uppercase text-allotment bg-sage/40 px-2 py-0.5"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] font-serif text-earth tracking-tight leading-[1.05] mb-5">
-              {post.title}
-            </h1>
-            <p className="text-earth-light leading-relaxed text-[15px] sm:text-base max-w-2xl">
-              {post.intro}
-            </p>
-            <div className="mt-5">
-              <PinButton path={`/blog/${post.slug}`} image={post.heroImage} description={post.description} />
-            </div>
+        {/* Hero — a contained image, then a calm centred masthead */}
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-6 sm:pt-10">
+          <div className="relative aspect-[16/11] sm:aspect-[2/1] overflow-hidden">
+            <Image
+              src={post.heroImage}
+              alt={post.heroAlt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover img-grade"
+            />
           </div>
         </div>
 
-        {/* Article content */}
-        <article className="max-w-3xl mx-auto px-6 sm:px-8 pb-16">
+        <header className="max-w-[44rem] mx-auto px-6 text-center pt-9 sm:pt-12 pb-2">
+          {post.tags.length > 0 && (
+            <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-allotment mb-5">
+              {post.tags.join("  ·  ")}
+            </div>
+          )}
+          <h1 className="font-serif text-[2rem] sm:text-5xl lg:text-[3.4rem] text-earth tracking-tight leading-[1.02] mb-6">
+            {post.title}
+          </h1>
+          <p className="font-serif italic text-xl sm:text-2xl text-earth-light leading-[1.4] max-w-[36ch] mx-auto">
+            {post.intro}
+          </p>
+          <div className="mt-7 flex justify-center">
+            <PinButton path={`/blog/${post.slug}`} image={post.heroImage} description={post.description} />
+          </div>
+          <div className="mt-9 mx-auto w-10 h-px bg-amber" />
+        </header>
+
+        {/* Article content — each section sets its own width (wide images, narrow text) */}
+        <article className="pt-6 pb-16">
           {post.sections.map((section, i) => (
             <EditorialSectionRenderer
               key={i}
@@ -214,6 +208,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
             />
           ))}
 
+          <div className="max-w-[44rem] mx-auto px-6">
           {/* What I used — shoppable kit */}
           {post.kit && post.kit.length > 0 && (
             <div className="border-t border-earth/10 pt-10 mt-14">
@@ -283,6 +278,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
               &larr; All guides
             </a>
           </nav>
+          </div>
         </article>
 
         <script
@@ -295,23 +291,73 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
   );
 }
 
+// Small refined caption used under every image/group
+function Caption({ children }: { children: React.ReactNode }) {
+  return (
+    <figcaption className="mt-2.5 font-mono text-[10px] tracking-[0.12em] uppercase text-earth-light/70 leading-relaxed">
+      {children}
+    </figcaption>
+  );
+}
+
+/**
+ * A considered group of 2–4 photos — for progress and change. Uniform square
+ * crops keep it tidy and premium; on mobile a group of three becomes a clean
+ * 2-up with the third spanning full width beneath.
+ */
+function GalleryGroup({ images, groupCaption }: { images: { src: string; alt?: string; caption?: string }[]; groupCaption?: string }) {
+  const valid = images.filter((im) => im.src);
+  const n = valid.length;
+  if (n === 0) return null;
+  const cols = n === 2 ? "grid-cols-2" : n >= 3 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-1";
+  return (
+    <figure className="max-w-4xl mx-auto px-5 sm:px-6 my-11 sm:my-14">
+      <div className={`grid ${cols} gap-2.5 sm:gap-4`}>
+        {valid.map((im, i) => {
+          const spanThird = n >= 3 && i === 2;
+          return (
+            <figure key={i} className={spanThird ? "col-span-2 sm:col-span-1" : ""}>
+              <div className={`relative overflow-hidden ${spanThird ? "aspect-[16/10] sm:aspect-square" : "aspect-square"}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={im.src}
+                  alt={im.alt || ""}
+                  className="absolute inset-0 w-full h-full object-cover img-grade"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              {im.caption && <Caption>{im.caption}</Caption>}
+            </figure>
+          );
+        })}
+      </div>
+      {groupCaption && (
+        <figcaption className="mt-4 text-center font-mono text-[10px] tracking-[0.12em] uppercase text-earth-light/70">
+          {groupCaption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSection; dropcap?: boolean }) {
   switch (section.type) {
     case "heading":
       return (
-        <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mt-14 mb-4">
+        <h2 className="max-w-[40rem] mx-auto px-6 font-serif text-2xl sm:text-[2rem] text-earth tracking-tight leading-tight mt-16 mb-5">
           {section.content}
         </h2>
       );
     case "text":
       return (
-        <div className="space-y-5 mb-7">
+        <div className="max-w-[40rem] mx-auto px-6 space-y-6 mb-9">
           {section.content.split("\n\n").map((para, i) => (
             <p
               key={i}
-              className={`text-[17px] text-earth leading-[1.75] ${
+              className={`text-[18px] text-earth leading-[1.8] ${
                 dropcap && i === 0
-                  ? "first-letter:float-left first-letter:font-serif first-letter:text-[64px] first-letter:leading-[0.66] first-letter:pr-3 first-letter:pt-1 first-letter:text-allotment"
+                  ? "first-letter:float-left first-letter:font-serif first-letter:text-[68px] first-letter:leading-[0.66] first-letter:pr-3 first-letter:pt-1 first-letter:text-allotment"
                   : ""
               }`}
             >
@@ -322,66 +368,57 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
       );
     case "quote":
       return (
-        <blockquote className="my-10 border-l-4 border-amber pl-6">
-          <p className="font-serif text-2xl sm:text-[28px] text-earth leading-[1.3]">{section.content}</p>
-        </blockquote>
+        <figure className="max-w-[42rem] mx-auto px-6 my-14 sm:my-16 text-center">
+          <div className="mx-auto w-8 h-px bg-amber mb-7" />
+          <blockquote className="font-serif text-[1.6rem] sm:text-[2rem] text-earth leading-[1.32] tracking-tight">
+            {section.content}
+          </blockquote>
+          <div className="mx-auto w-8 h-px bg-amber mt-7" />
+        </figure>
       );
     case "pair":
       return (
-        <figure className="my-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          {[
-            { src: section.src, alt: section.alt, caption: section.caption },
-            { src: section.src2, alt: section.alt2, caption: section.caption2 },
-          ].map((im, i) =>
-            im.src ? (
-              <div key={i}>
-                <img
-                  src={im.src}
-                  alt={im.alt || ""}
-                  className="w-full aspect-[3/4] object-cover block"
-                  style={{ filter: "contrast(1.06) saturate(0.82) sepia(0.06) brightness(1.01)" }}
-                  loading="lazy"
-                  decoding="async"
-                />
-                {im.caption && (
-                  <figcaption className="mt-2 font-mono text-[10px] tracking-[0.1em] uppercase text-earth-light/70">
-                    {im.caption}
-                  </figcaption>
-                )}
-              </div>
-            ) : null
-          )}
-        </figure>
+        <GalleryGroup
+          images={[
+            { src: section.src ?? "", alt: section.alt, caption: section.caption },
+            { src: section.src2 ?? "", alt: section.alt2, caption: section.caption2 },
+          ]}
+        />
       );
+    case "gallery":
+      return <GalleryGroup images={section.images ?? []} groupCaption={section.caption} />;
     case "image":
+      if (section.fullBleed) {
+        return (
+          <figure className="my-12 sm:my-16">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={section.src} alt={section.alt || ""} className="w-full h-auto block img-grade" loading="lazy" decoding="async" />
+            {section.caption && (
+              <div className="max-w-[40rem] mx-auto px-6">
+                <Caption>{section.caption}</Caption>
+              </div>
+            )}
+          </figure>
+        );
+      }
       return (
-        <figure className="-mx-6 sm:-mx-[calc(50vw-20rem)] my-12 sm:my-16">
-          <img
-            src={section.src}
-            alt={section.alt || ""}
-            className="w-full h-auto block"
-            style={{ filter: "contrast(1.06) saturate(0.82) sepia(0.06) brightness(1.01)" }}
-            loading="lazy"
-            decoding="async"
-          />
-          {section.caption && (
-            <figcaption className="px-6 sm:px-0 mt-3 max-w-3xl mx-auto">
-              <span className="font-mono text-[11px] tracking-[0.1em] uppercase text-earth-light/70">
-                {section.caption}
-              </span>
-            </figcaption>
-          )}
+        <figure className="max-w-3xl mx-auto px-5 sm:px-6 my-11 sm:my-14">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={section.src} alt={section.alt || ""} className="w-full h-auto block img-grade" loading="lazy" decoding="async" />
+          {section.caption && <Caption>{section.caption}</Caption>}
         </figure>
       );
     case "tip":
       return (
-        <TipBox>
-          <p>{section.content}</p>
-        </TipBox>
+        <div className="max-w-[40rem] mx-auto px-6 my-8">
+          <TipBox>
+            <p>{section.content}</p>
+          </TipBox>
+        </div>
       );
     case "product":
       return (
-        <div className="my-8 max-w-md">
+        <div className="max-w-[40rem] mx-auto px-6 my-10">
           <GearPick
             name={section.productName ?? ""}
             price={section.productPrice ?? ""}

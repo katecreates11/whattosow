@@ -4,7 +4,7 @@
  */
 
 export interface EditorialSection {
-  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair";
+  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery";
   content: string;
   /** For images: src path */
   src?: string;
@@ -12,10 +12,16 @@ export interface EditorialSection {
   alt?: string;
   /** For images: optional caption (also used as the product tip) */
   caption?: string;
+  /** Single image: opt in to an edge-to-edge showstopper (default is contained) */
+  fullBleed?: boolean;
   /** For "pair": the second image shown side by side */
   src2?: string;
   alt2?: string;
   caption2?: string;
+  /** For "gallery": a considered group of 2–4 photos (progress, change, details) */
+  images?: { src: string; alt?: string; caption?: string }[];
+  /** Gallery layout: "row" (equal columns, default) or "feature" (one lead + the rest) */
+  layout?: "row" | "feature";
   /** For product cards: an honest affiliate recommendation */
   productName?: string;
   productPrice?: string;
@@ -75,23 +81,25 @@ export const editorialPosts: EditorialPost[] = [
           "When I finally decided to treat myself, I did a proper bit of research — and Reddit, as it often does, pointed the way. The Haemmerlin kept coming up. I went for the green one with the bright wheel, mostly because I liked the look of it, and I've not regretted it for a moment.",
       },
       {
-        type: "image",
-        content: "",
-        src: "/photos/blog/wheelbarrow-compost-path.webp",
-        alt: "The new green wheelbarrow loaded with bags of compost, parked on the grass path with the allotment opening out under a big blue spring sky",
-        caption: "A barrow-load of compost, up the path on a blue-sky day.",
-      },
-      {
         type: "text",
         content:
           "It doesn't squeak. The handles are proper handles, comfortable to hold. And the puncture-free wheel means no slow flat halfway through a job — which, given my last one had a literal nail through it, feels like a small luxury. I've used it to barrow woodchip up to line the paths and to wheel up bag after bag of soil, and it takes it all in its stride.",
       },
       {
-        type: "image",
+        type: "gallery",
         content: "",
-        src: "/photos/blog/wheelbarrow-headon-haemmerlin.webp",
-        alt: "The empty green Haemmerlin wheelbarrow head-on, its name on the handle grips, parked on a woodchip path between the allotment beds",
-        caption: "Haemmerlin on the grips, sat on the very woodchip paths it helped me lay.",
+        images: [
+          {
+            src: "/photos/blog/wheelbarrow-compost-path.webp",
+            alt: "The new green wheelbarrow loaded with bags of compost on the grass path under a big blue spring sky",
+            caption: "Loaded up the path",
+          },
+          {
+            src: "/photos/blog/wheelbarrow-headon-haemmerlin.webp",
+            alt: "The empty green Haemmerlin wheelbarrow head-on, its name on the handle grips, on a woodchip path between the beds",
+            caption: "Haemmerlin on the grips",
+          },
+        ],
       },
       {
         type: "quote",
