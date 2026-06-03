@@ -74,7 +74,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "Nobody really tells you how much a first summer takes you by surprise. You spend the spring getting beds in and seeds down, half-expecting nothing to happen — and then, all at once, it does. By high summer the plot I'd been staring at hopefully in March had turned into this:",
+          "We took the plot on in March, but it was June before the beds were finally built and filled. I still remember the soil being delivered on one of the hottest days of the year — the two of us barrowing load after load until every bed was full. Starting that late, I half-expected little to come of the first season. And then, all at once, it did. By the end of summer those bare new beds had turned into this:",
       },
       {
         type: "image",
@@ -86,7 +86,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "The flowers were the thing I hadn't expected to love so much. I'd planted sunflowers almost as an afterthought, and they turned into the part of the plot I'd walk down to see first — great cheerful faces over the beds at the end of a long day.",
+          "The sunflowers were a joy — great cheerful faces standing over the beds, the thing I'd walk down to see first at the end of a long day.",
       },
       {
         type: "gallery",
