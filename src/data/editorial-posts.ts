@@ -58,8 +58,8 @@ export const editorialPosts: EditorialPost[] = [
       "garden wheelbarrow",
       "puncture proof wheelbarrow UK",
     ],
-    heroImage: "/photos/blog/plot-early-spring.webp",
-    heroAlt: "The allotment in early spring — raised beds and bare-soil paths, the ground a wheelbarrow earns its keep on",
+    heroImage: "/photos/blog/wheelbarrow-green-wheel.webp",
+    heroAlt: "The green Haemmerlin puncture-free wheelbarrow on the allotment, loaded with bags of peat-free compost, its bright green wheel catching the light",
     intro:
       "My first wheelbarrow was donated — free, and faithful, and frankly a bit of a wreck. It had been used for cement, so it came with a crust, a nail through the bottom of it, and a squeak you could set your watch by. After four good years, I finally treated myself to a new one.",
     tags: ["allotment diary", "tools"],
@@ -77,9 +77,9 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "image",
         content: "",
-        src: "/photos/blog/plot-early-spring.webp",
-        alt: "Allotment beds with bare-soil paths between them in early spring",
-        caption: "The paths and beds a barrow earns its keep on — soil to move, woodchip to lay.",
+        src: "/photos/blog/wheelbarrow-compost-path.webp",
+        alt: "The new green wheelbarrow loaded with bags of compost, parked on the grass path with the allotment opening out under a big blue spring sky",
+        caption: "A barrow-load of compost, up the path on a blue-sky day.",
       },
       {
         type: "text",
