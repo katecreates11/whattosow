@@ -41,19 +41,19 @@ function pinFonts() {
  * JPEG data URL, since Satori (behind ImageResponse) doesn't render WebP.
  * Returns null on any failure so the caller falls back to the typographic pin.
  */
-export async function pinPhoto(src: string | null): Promise<string | null> {
+export async function pinPhoto(src: string | null, height = 1000): Promise<string | null> {
   if (!src) return null;
   try {
     let input: Buffer;
     if (src.startsWith("http")) {
-      const url = src.split("?")[0] + "?w=1200&h=1100&fit=crop&q=80";
+      const url = src.split("?")[0] + `?w=1100&h=${Math.round(height * 1.1)}&fit=crop&q=80`;
       const res = await fetch(url);
       if (!res.ok) return null;
       input = Buffer.from(await res.arrayBuffer());
     } else {
       input = fs.readFileSync(path.join(process.cwd(), "public", src));
     }
-    const jpeg = await sharp(input).resize(1000, 1000, { fit: "cover" }).jpeg({ quality: 82 }).toBuffer();
+    const jpeg = await sharp(input).resize(1000, height, { fit: "cover" }).jpeg({ quality: 82 }).toBuffer();
     return `data:image/jpeg;base64,${jpeg.toString("base64")}`;
   } catch {
     return null;
@@ -67,6 +67,13 @@ export interface PinOptions {
   photo: string | null; // JPEG data URL from pinPhoto(), or null
   no?: number; // herbarium "No." for the photo-less specimen card
   category?: string; // small italic descriptor for the specimen card
+  /**
+   * "editorial" → photo + cream text panel (drives clicks, carries the hook).
+   * "full-bleed" → photo edge-to-edge with a soft scrim + minimal mark
+   *   (drives saves, the "pretty board" pin). Falls back to editorial when
+   *   there's no photo. Generate both per crop for Pinterest's fresh-pin reward.
+   */
+  variant?: "editorial" | "full-bleed";
 }
 
 function Wordmark() {
@@ -79,7 +86,54 @@ function Wordmark() {
 }
 
 export function renderPin(opts: PinOptions) {
-  const { eyebrow, title, hook, photo, no, category } = opts;
+  const { eyebrow, title, hook, photo, no, category, variant = "editorial" } = opts;
+
+  // Full-bleed: photo fills the frame, soft scrim, minimal serif title +
+  // wordmark for attribution when it's re-pinned. Imagery is the star.
+  if (variant === "full-bleed" && photo) {
+    return new ImageResponse(
+      (
+        <div style={{ width: "100%", height: "100%", display: "flex", position: "relative" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={photo} width={1000} height={1500} style={{ objectFit: "cover" }} alt="" />
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 620,
+              display: "flex",
+              backgroundImage: "linear-gradient(to top, rgba(20,16,10,0.82) 0%, rgba(20,16,10,0.5) 38%, rgba(20,16,10,0) 100%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: "flex",
+              flexDirection: "column",
+              padding: "0 64px 60px",
+            }}
+          >
+            <span style={{ fontFamily: "Plex", fontSize: 20, letterSpacing: 4, textTransform: "uppercase", color: "#F0D9A8" }}>
+              {eyebrow}
+            </span>
+            <span style={{ fontFamily: "Newsreader", fontSize: 96, lineHeight: 0.98, color: "#FBF8F0", letterSpacing: -1, marginTop: 14 }}>
+              {title}
+            </span>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", marginTop: 34 }}>
+              <span style={{ fontFamily: "Newsreader", fontSize: 32, color: "#FBF8F0" }}>What To Sow</span>
+              <span style={{ fontFamily: "Plex", fontSize: 19, letterSpacing: 1, color: "rgba(251,248,240,0.78)" }}>whattosow.co.uk</span>
+            </div>
+          </div>
+        </div>
+      ),
+      { ...PIN_SIZE, fonts: pinFonts() }
+    );
+  }
 
   const textBlock = (
     <div style={{ display: "flex", flexDirection: "column", padding: "56px 64px 60px", flex: 1, justifyContent: "space-between" }}>
