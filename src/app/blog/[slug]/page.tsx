@@ -305,19 +305,40 @@ function Caption({ children }: { children: React.ReactNode }) {
  * crops keep it tidy and premium; on mobile a group of three becomes a clean
  * 2-up with the third spanning full width beneath.
  */
-function GalleryGroup({ images, groupCaption }: { images: { src: string; alt?: string; caption?: string }[]; groupCaption?: string }) {
+const ASPECT: Record<string, string> = {
+  square: "aspect-square",
+  portrait: "aspect-[4/5]",
+  wide: "aspect-[16/10]",
+};
+// Spanning third image: wide on mobile, its chosen crop on desktop.
+// Full literal strings so Tailwind's scanner picks up the sm: variants.
+const SPAN_ASPECT: Record<string, string> = {
+  square: "aspect-[16/10] sm:aspect-square",
+  portrait: "aspect-[16/10] sm:aspect-[4/5]",
+  wide: "aspect-[16/10] sm:aspect-[16/10]",
+};
+
+function GalleryGroup({
+  images,
+  groupCaption,
+}: {
+  images: { src: string; alt?: string; caption?: string; aspect?: "square" | "portrait" | "wide" }[];
+  groupCaption?: string;
+}) {
   const valid = images.filter((im) => im.src);
   const n = valid.length;
   if (n === 0) return null;
   const cols = n === 2 ? "grid-cols-2" : n >= 3 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-1";
   return (
     <figure className="max-w-4xl mx-auto px-5 sm:px-6 my-11 sm:my-14">
-      <div className={`grid ${cols} gap-2.5 sm:gap-4`}>
+      <div className={`grid ${cols} gap-2.5 sm:gap-4 items-start`}>
         {valid.map((im, i) => {
           const spanThird = n >= 3 && i === 2;
+          const key = im.aspect ?? "square";
+          const aspectClass = spanThird ? SPAN_ASPECT[key] : ASPECT[key];
           return (
             <figure key={i} className={spanThird ? "col-span-2 sm:col-span-1" : ""}>
-              <div className={`relative overflow-hidden ${spanThird ? "aspect-[16/10] sm:aspect-square" : "aspect-square"}`}>
+              <div className={`relative overflow-hidden ${aspectClass}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={im.src}

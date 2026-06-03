@@ -18,8 +18,9 @@ export interface EditorialSection {
   src2?: string;
   alt2?: string;
   caption2?: string;
-  /** For "gallery": a considered group of 2–4 photos (progress, change, details) */
-  images?: { src: string; alt?: string; caption?: string }[];
+  /** For "gallery": a considered group of 2–4 photos (progress, change, details).
+   *  Each photo can be cropped square (default), portrait or wide, as suits it. */
+  images?: { src: string; alt?: string; caption?: string; aspect?: "square" | "portrait" | "wide" }[];
   /** Gallery layout: "row" (equal columns, default) or "feature" (one lead + the rest) */
   layout?: "row" | "feature";
   /** For product cards: an honest affiliate recommendation */
@@ -93,11 +94,13 @@ export const editorialPosts: EditorialPost[] = [
             src: "/photos/blog/wheelbarrow-compost-path.webp",
             alt: "The new green wheelbarrow loaded with bags of compost on the grass path under a big blue spring sky",
             caption: "Loaded up the path",
+            aspect: "portrait",
           },
           {
             src: "/photos/blog/wheelbarrow-headon-haemmerlin.webp",
             alt: "The empty green Haemmerlin wheelbarrow head-on, its name on the handle grips, on a woodchip path between the beds",
             caption: "Haemmerlin on the grips",
+            aspect: "portrait",
           },
         ],
       },
