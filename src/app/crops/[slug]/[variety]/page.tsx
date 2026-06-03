@@ -167,7 +167,7 @@ export default async function VarietyPage({
               <PinButton
                 path={`/crops/${slug}/${variety}`}
                 image={`/pins/varieties/${slug}/${variety}/full`}
-                description={`${v.name} — ${crop.name.toLowerCase()} worth growing. ${v.personality.slice(0, 120)}`}
+                description={`How to grow ${v.name} ${crop.name.toLowerCase()} in the UK — when to sow, what it's like, and where to buy the seeds. #${crop.name.toLowerCase().replace(/\s+/g, "")} #growyourown #vegetablegarden #allotment`}
               />
             </div>
 

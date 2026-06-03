@@ -32,10 +32,38 @@ export default function PinsBoard() {
           <h1 className="font-serif text-4xl sm:text-5xl text-earth tracking-tight leading-[0.95] mt-3 mb-3">
             The pin board
           </h1>
-          <p className="font-serif italic text-lg text-earth-light max-w-[60ch] mb-12">
+          <p className="font-serif italic text-lg text-earth-light max-w-[60ch] mb-8">
             Every pin the site generates, ready to save. Thumbnails preview locally; the Save button pins the real
             page with its image once the site is live. Pin a few fresh ones each week — Pinterest rewards the habit.
           </p>
+
+          {/* Pinterest playbook — keyworded boards are a ranking signal */}
+          <details className="mb-12 border border-earth/15 bg-sage/20 p-5 sm:p-6 max-w-[70ch]">
+            <summary className="font-mono text-[11px] uppercase tracking-[0.12em] text-allotment cursor-pointer">
+              Pinning playbook — read me
+            </summary>
+            <div className="mt-4 text-sm text-earth-light leading-relaxed space-y-3">
+              <p>
+                <strong className="text-earth">Set up keyworded boards first.</strong> Board names are a ranking
+                signal, so be specific. Create these and give each a one-line keyworded description, then save pins
+                into the matching board:
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 font-mono text-[12px] text-earth">
+                <li>· What to Sow Each Month (UK)</li>
+                <li>· Companion Planting</li>
+                <li>· Grow Your Own Vegetables UK</li>
+                <li>· Allotment Tools &amp; Kit</li>
+                <li>· Allotment Tips for Beginners</li>
+                <li>· Vegetable Varieties to Grow</li>
+              </ul>
+              <p>
+                <strong className="text-earth">When you pin:</strong> a few <em>fresh</em> pins a week beats a big
+                batch (Pinterest rewards new images). Put the keyword at the <em>start</em> of the pin title, save to
+                the most relevant board, and lean on <strong className="text-earth">saves</strong> — they&apos;re the
+                strongest signal. The descriptions below are already keyword-front-loaded for you.
+              </p>
+            </div>
+          </details>
 
           {/* This month */}
           <section className="mb-16">

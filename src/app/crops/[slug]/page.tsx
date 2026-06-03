@@ -347,7 +347,7 @@ export default async function CropPage({
                     <PinButton
                       path={`/crops/${crop.slug}`}
                       image={`/pins/crops/${crop.slug}/full`}
-                      description={`How to grow ${crop.name.toLowerCase()} in the UK — sowing dates, varieties and growing tips.`}
+                      description={`When to sow ${crop.name.toLowerCase()} in the UK — sowing dates for your postcode, the best varieties, and where to buy seeds. #${crop.name.toLowerCase().replace(/\s+/g, "")} #vegetablegarden #allotment #ukgardening #growyourown`}
                     />
                   </div>
                 )}
