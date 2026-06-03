@@ -1,10 +1,13 @@
 import Image from "next/image";
 import type { CropEntry } from "@/lib/season-core";
 import { cropImage } from "@/lib/crop-image";
+import { awinLink } from "@/lib/awin";
 
 /**
  * The editorial crop wall (photo where we have one, taped herbarium label
  * otherwise) on a light ground — used by the Sow / Grow / Harvest pages.
+ * When `showSeeds` is set (the Sow lens), each card carries a tracked
+ * "get the seeds" link — the shoppable, weather-personal buying moment.
  */
 
 const SPAN = ["md:col-span-4", "md:col-span-3", "md:col-span-5", "md:col-span-3", "md:col-span-4", "md:col-span-3", "md:col-span-4", "md:col-span-5"];
@@ -12,7 +15,15 @@ const ASPECT = ["aspect-[3/4]", "aspect-[3/4.4]", "aspect-[3/3.7]", "aspect-[3/4
 const ROT = ["-1.5deg", "1.2deg", "0.8deg", "-1deg", "1.6deg", "-0.7deg", "1.1deg", "-1.3deg"];
 const TAPE = ["left-1/2 -translate-x-1/2", "left-5", "right-6", "left-8"];
 
-export default function CropCardGrid({ entries, emptyNote }: { entries: CropEntry[]; emptyNote?: string }) {
+export default function CropCardGrid({
+  entries,
+  emptyNote,
+  showSeeds = false,
+}: {
+  entries: CropEntry[];
+  emptyNote?: string;
+  showSeeds?: boolean;
+}) {
   if (entries.length === 0) {
     return (
       <p className="font-serif italic text-xl text-earth-light max-w-[40ch]">
@@ -26,12 +37,10 @@ export default function CropCardGrid({ entries, emptyNote }: { entries: CropEntr
       {entries.map((e, i) => {
         const img = cropImage(e.crop);
         const closing = e.status.state === "closing";
+        const seed = showSeeds ? e.crop.seedSuppliers?.[0] : undefined;
         return (
-          <a
-            key={`${e.crop.slug}-${e.no}`}
-            href={`/crops/${e.crop.slug}`}
-            className={`group block col-span-1 ${SPAN[i % SPAN.length]}`}
-          >
+          <div key={`${e.crop.slug}-${e.no}`} className={`col-span-1 ${SPAN[i % SPAN.length]}`}>
+            <a href={`/crops/${e.crop.slug}`} className="group block">
             <div className={`relative ${ASPECT[i % ASPECT.length]} overflow-hidden`}>
               {img ? (
                 <>
@@ -85,7 +94,20 @@ export default function CropCardGrid({ entries, emptyNote }: { entries: CropEntr
                 )}
               </div>
             </div>
-          </a>
+            </a>
+            {seed && (
+              <a
+                href={awinLink(seed.url)}
+                target="_blank"
+                rel="sponsored noopener noreferrer"
+                data-umami-event="sow-seed-click"
+                data-umami-event-crop={e.crop.name}
+                className="inline-block mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+              >
+                Get the seeds &rarr;
+              </a>
+            )}
+          </div>
         );
       })}
     </div>
