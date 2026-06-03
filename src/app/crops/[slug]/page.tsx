@@ -160,6 +160,12 @@ function SowingMonths({ crop }: { crop: Crop }) {
   );
 }
 
+// Thirsty summer crops — these get a contextual link to the watering review.
+const THIRSTY = new Set([
+  "tomatoes", "courgettes", "cucumbers", "runner-beans", "peppers",
+  "chillies", "aubergine", "pumpkins", "sweetcorn", "celery",
+]);
+
 export async function generateStaticParams() {
   return crops.map((crop) => ({ slug: crop.slug }));
 }
@@ -493,6 +499,21 @@ export default async function CropPage({
                 </div>
               );
             })()}
+
+            {THIRSTY.has(crop.slug) && (
+              <div className="mb-10 border-l-2 border-amber pl-5">
+                <p className="text-earth-light leading-relaxed max-w-[60ch]">
+                  {crop.name} drink heavily through summer &mdash; a good soak at the roots beats a daily
+                  sprinkle.{" "}
+                  <a
+                    href="/blog/watering-lance-allotment"
+                    className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                  >
+                    How I water, and the lance I use &rarr;
+                  </a>
+                </p>
+              </div>
+            )}
 
             <CompanionSection crop={crop} />
 

@@ -5,6 +5,7 @@ import { crops } from "@/data/crops";
 import Image from "next/image";
 import { getCropImagePath } from "@/lib/crop-images";
 import { SectionDivider } from "@/components/GuideVisuals";
+import { awinLink } from "@/lib/awin";
 
 export const metadata: Metadata = {
   title:
@@ -443,6 +444,49 @@ export default function CompanionPlantingGuide() {
                   <strong className="text-earth">Plant with:</strong> Any crop. Brilliant as a bed border or green manure
                 </p>
               </div>
+            </div>
+
+            {/* Where to find the seeds — the companions worth sowing */}
+            <div className="mt-7 border border-earth/10 bg-sage/20 p-5 sm:p-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-2">
+                From the plot
+              </span>
+              <p className="text-sm text-earth-light leading-relaxed mb-3 max-w-[62ch]">
+                Marigolds and nasturtiums earn their place every year on our plot &mdash; we tuck them around the
+                tomatoes and along the bed edges, and they pull their weight all summer. If you fancy doing the same,
+                here&apos;s where to find the seeds.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <a
+                  href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")}
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                  data-umami-event="companion-seed-click"
+                  data-umami-event-plant="marigold"
+                  className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                >
+                  Marigold seeds &rarr;
+                </a>
+                <a
+                  href={awinLink("https://search.thompson-morgan.com/seeds/Nasturtium")}
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                  data-umami-event="companion-seed-click"
+                  data-umami-event-plant="nasturtium"
+                  className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                >
+                  Nasturtium seeds &rarr;
+                </a>
+                <a
+                  href="/blog/companion-planting-marigolds-allotment"
+                  className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                >
+                  How we grow marigolds &rarr;
+                </a>
+              </div>
+              <p className="text-xs text-earth-lighter mt-3">
+                Some links are affiliate links &mdash; we may earn a little, at no extra cost to you, towards the allotment shed.
+              </p>
             </div>
           </section>
 

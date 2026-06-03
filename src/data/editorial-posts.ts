@@ -956,6 +956,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["tomatoes", "courgettes", "carrots", "beetroot", "peas"],
+    kit: ["broadfork", "gloves", "ground-pegs"],
   },
   {
     slug: "may-allotment-diary",

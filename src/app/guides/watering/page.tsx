@@ -204,6 +204,20 @@ export default function WateringGuide() {
                 doing fine.
               </p>
             </div>
+
+            <div className="mt-6 border-l-2 border-amber pl-5">
+              <p className="text-sm text-earth-light leading-relaxed max-w-[60ch]">
+                The easiest way to get that soak down to the roots rather than the leaves is a long watering
+                lance &mdash; it reaches the back of the bed and in under the foliage without you trampling a
+                thing.{" "}
+                <a
+                  href="/blog/watering-lance-allotment"
+                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
+                >
+                  Here&apos;s the one I use, and why I love it &rarr;
+                </a>
+              </p>
+            </div>
           </section>
 
           <SectionDivider label="By crop" />
