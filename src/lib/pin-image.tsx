@@ -41,8 +41,14 @@ function pinFonts() {
  * JPEG data URL, since Satori (behind ImageResponse) doesn't render WebP.
  * Returns null on any failure so the caller falls back to the typographic pin.
  */
+// Cache resolved photos within a build — varieties share their crop's photo,
+// so this avoids re-fetching the same Unsplash URL hundreds of times.
+const photoCache = new Map<string, string | null>();
+
 export async function pinPhoto(src: string | null, height = 1000): Promise<string | null> {
   if (!src) return null;
+  const key = `${src}@${height}`;
+  if (photoCache.has(key)) return photoCache.get(key)!;
   try {
     let input: Buffer;
     if (src.startsWith("http")) {
@@ -54,8 +60,11 @@ export async function pinPhoto(src: string | null, height = 1000): Promise<strin
       input = fs.readFileSync(path.join(process.cwd(), "public", src));
     }
     const jpeg = await sharp(input).resize(1000, height, { fit: "cover" }).jpeg({ quality: 82 }).toBuffer();
-    return `data:image/jpeg;base64,${jpeg.toString("base64")}`;
+    const dataUrl = `data:image/jpeg;base64,${jpeg.toString("base64")}`;
+    photoCache.set(key, dataUrl);
+    return dataUrl;
   } catch {
+    photoCache.set(key, null);
     return null;
   }
 }
@@ -198,4 +207,41 @@ export function renderPin(opts: PinOptions) {
   );
 
   return new ImageResponse(jsx, { ...PIN_SIZE, fonts: pinFonts() });
+}
+
+/**
+ * Seasonal "what to sow this month" list pin — a specific, saveable format
+ * that does well on Pinterest ("what to plant in June UK"). Typographic, no
+ * photo needed, so it works for every month.
+ */
+export function renderSeasonalPin({ month, items }: { month: string; items: string[] }) {
+  const list = items.slice(0, 9);
+  return new ImageResponse(
+    (
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: CREAM, padding: "72px 64px 60px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontFamily: "Plex", fontSize: 22, letterSpacing: 4, textTransform: "uppercase", color: ALLOTMENT }}>
+            What to sow in the UK
+          </span>
+          <div style={{ display: "flex", width: 84, height: 5, background: AMBER, margin: "26px 0 22px" }} />
+          <span style={{ fontFamily: "Newsreader", fontSize: 104, lineHeight: 0.95, color: EARTH, letterSpacing: -2 }}>{month}</span>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", flex: 1, justifyContent: "center", marginTop: 8 }}>
+          {list.map((name, i) => (
+            <div key={name} style={{ display: "flex", alignItems: "baseline", padding: "14px 0", borderBottom: `1px solid ${ALLOTMENT}22` }}>
+              <span style={{ fontFamily: "Plex", fontSize: 22, color: AMBER, width: 64 }}>{String(i + 1).padStart(2, "0")}</span>
+              <span style={{ fontFamily: "Newsreader", fontSize: 44, color: EARTH }}>{name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", width: "100%", marginTop: 24 }}>
+          <span style={{ fontFamily: "Newsreader", fontSize: 34, color: EARTH }}>What To Sow</span>
+          <span style={{ fontFamily: "Plex", fontSize: 20, letterSpacing: 1, color: EARTH_LIGHT }}>whattosow.co.uk</span>
+        </div>
+      </div>
+    ),
+    { ...PIN_SIZE, fonts: pinFonts() }
+  );
 }

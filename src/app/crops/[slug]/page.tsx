@@ -188,9 +188,11 @@ export async function generateMetadata({
       description: `Personalised planting times for ${crop.name.toLowerCase()} based on your UK postcode and local frost date.`,
       type: "article",
       locale: "en_GB",
-      ...(photo && {
-        images: [{ url: photo.hero, alt: photo.alt, width: 1200, height: 800 }],
-      }),
+      images: [
+        ...(photo ? [{ url: photo.hero, alt: photo.alt, width: 1200, height: 800 }] : []),
+        // Vertical pin for Pinterest Rich Pins (2:3 is what Pinterest wants)
+        { url: `/pins/crops/${slug}/full`, alt: `When to sow ${crop.name.toLowerCase()} in the UK`, width: 1000, height: 1500 },
+      ],
     },
     alternates: {
       canonical: `/crops/${slug}`,
@@ -336,10 +338,7 @@ export default async function CropPage({
                   <div className="mt-5">
                     <PinButton
                       path={`/crops/${crop.slug}`}
-                      image={
-                        getCropPhoto(crop.slug)?.hero ??
-                        `https://images.unsplash.com/photo-${crop.unsplashId}?w=1000&h=1500&fit=crop&auto=format&q=75`
-                      }
+                      image={`/pins/crops/${crop.slug}/full`}
                       description={`How to grow ${crop.name.toLowerCase()} in the UK — sowing dates, varieties and growing tips.`}
                     />
                   </div>
