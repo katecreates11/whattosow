@@ -137,6 +137,20 @@ export default function CompanionPlantingGuide() {
     ],
   };
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Companion Planting Guide & Chart (UK)",
+    description:
+      "Complete UK companion planting chart for 40 vegetables — what to grow together, what to keep apart, the flowers worth tucking in, polyculture, and which old pairings actually hold up.",
+    image: "https://whattosow.co.uk/photos/blog/marigold-lettuce-midsummer-2025.webp",
+    author: { "@type": "Organization", name: "What To Sow", url: "https://whattosow.co.uk" },
+    publisher: { "@type": "Organization", name: "What To Sow" },
+    datePublished: "2025-03-01",
+    dateModified: "2026-06-03",
+    mainEntityOfPage: "https://whattosow.co.uk/guides/companion-planting",
+  };
+
   // Find if a companion name matches a crop slug
   function findCropSlug(name: string): string | null {
     const match = crops.find(
@@ -196,13 +210,17 @@ export default function CompanionPlantingGuide() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Header backLink={{ href: "/guides", label: "\u2190 Guides" }} />
       <main id="main-content">
         <div className="px-6 sm:px-10 lg:px-16">
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
             Growing guide
           </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-3 max-w-2xl">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-earth tracking-tight leading-[0.98] mb-3 max-w-3xl">
             Companion planting guide &amp; chart
           </h1>
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter mb-4">
@@ -273,7 +291,7 @@ export default function CompanionPlantingGuide() {
             </div>
           </section>
 
-          {/* The Three Sisters — the classic, searched combo */}
+          {/* The Three Sisters — the classic, searched combo (with an honest UK caveat) */}
           <section>
             <div className="bg-sage/30 border border-earth/10 p-6 sm:p-7">
               <h2 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-3">
@@ -290,17 +308,29 @@ export default function CompanionPlantingGuide() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
-                  <span><strong className="text-earth"><a href="/crops/runner-beans" className="hover:text-allotment underline decoration-earth/20">Beans</a></strong> fix nitrogen from the air, feeding the hungry corn and squash.</span>
+                  <span><strong className="text-earth"><a href="/crops/french-beans" className="hover:text-allotment underline decoration-earth/20">Climbing French beans</a></strong> fix nitrogen from the air, feeding the hungry corn and squash. (Use climbing French beans, not runner beans &mdash; runners grow too vigorously and swamp the corn.)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
                   <span><strong className="text-earth"><a href="/crops/pumpkins" className="hover:text-allotment underline decoration-earth/20">Squash or pumpkin</a></strong> sprawls along the ground, its big leaves shading out weeds and keeping the soil moist.</span>
                 </li>
               </ul>
-              <p className="text-sm text-earth-light">
+              <p className="text-sm text-earth-light mb-3">
                 Sow the corn first in a block (it&apos;s wind-pollinated, so a block beats a row), add the beans
                 when the corn is a hand high, and tuck squash plants around the edge.
               </p>
+              <p className="text-sm text-earth-light border-l-2 border-amber pl-4 mb-4">
+                <strong className="text-earth">An honest word for UK growers:</strong> the Three Sisters comes from a
+                warmer climate, and in a cool British summer sweetcorn and squash can both struggle to ripen. It&apos;s
+                well worth trying as a bit of fun &mdash; just give it your sunniest, most sheltered spot, start
+                everything off under cover, and treat a good crop as a bonus rather than a banker.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Grow it &mdash; find the seeds</span>
+                <a href={awinLink("https://search.thompson-morgan.com/seeds/Sweetcorn")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="sweetcorn" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Sweetcorn &rarr;</a>
+                <a href={awinLink("https://search.thompson-morgan.com/seeds/Climbing%20French%20Bean")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="climbing-french-bean" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Climbing French beans &rarr;</a>
+                <a href={awinLink("https://search.thompson-morgan.com/seeds/Squash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="squash" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Squash &rarr;</a>
+              </div>
             </div>
           </section>
 
@@ -324,9 +354,33 @@ export default function CompanionPlantingGuide() {
 
           {/* Crop-by-crop companion chart */}
           <section>
-            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-8 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Companion planting chart
             </h2>
+            <p className="mb-5 text-sm">A quick-reference table first; scroll on for the full detail and varieties.</p>
+            <div className="overflow-x-auto mb-10 -mx-6 sm:mx-0 px-6 sm:px-0">
+              <table className="w-full text-sm border-collapse min-w-[34rem]">
+                <thead>
+                  <tr className="border-b-2 border-earth/15 text-left">
+                    <th className="py-2 pr-4 font-mono text-[10px] uppercase tracking-[0.1em] text-earth-light">Crop</th>
+                    <th className="py-2 pr-4 font-mono text-[10px] uppercase tracking-[0.1em] text-allotment">Grows well with</th>
+                    <th className="py-2 font-mono text-[10px] uppercase tracking-[0.1em] text-tomato">Keep apart from</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cropsWithCompanions.map((crop) => (
+                    <tr key={crop.slug} className="border-b border-earth/8 align-top">
+                      <td className="py-2.5 pr-4 whitespace-nowrap">
+                        <a href={`/crops/${crop.slug}`} className="font-medium text-earth hover:text-allotment">{crop.name}</a>
+                      </td>
+                      <td className="py-2.5 pr-4 text-earth-light">{crop.companionPlants?.join(", ") || "—"}</td>
+                      <td className="py-2.5 text-earth-light">{crop.avoidPlants?.join(", ") || "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <h3 className="font-serif text-xl text-earth tracking-tight mb-6">In detail, crop by crop</h3>
             <div className="space-y-6">
               {cropsWithCompanions.map((crop) => {
                 const imgPath = getCropImagePath(crop.slug);
@@ -455,11 +509,13 @@ export default function CompanionPlantingGuide() {
                 <p className="text-sm text-earth-light leading-relaxed mb-2">
                   Brilliant as a &ldquo;trap crop&rdquo; &mdash; blackfly and
                   caterpillars prefer nasturtiums to your actual vegetables.
-                  Plant them near brassicas to lure cabbage whites away. The
-                  leaves and flowers are edible too &mdash; peppery in salads.
+                  The classic UK trick: grow a few near your <a href="/crops/broad-beans" className="text-rust underline decoration-rust/30 hover:text-earth">broad beans</a>,
+                  whose growing tips get swarmed with blackfly &mdash; the nasturtiums (and a pinch-out of the
+                  bean tips) draw them off. Plant near brassicas too, to lure cabbage whites away. The
+                  leaves and flowers are edible &mdash; peppery in salads.
                 </p>
                 <p className="text-xs text-earth-lighter">
-                  <strong className="text-earth">Plant with:</strong> Brassicas, courgettes, beans, cucumbers, squash
+                  <strong className="text-earth">Plant with:</strong> Broad beans, brassicas, courgettes, beans, cucumbers, squash
                 </p>
               </div>
 
@@ -551,6 +607,20 @@ export default function CompanionPlantingGuide() {
                 </p>
                 <p className="text-xs text-earth-lighter">
                   <strong className="text-earth">Plant with:</strong> Any crop. Brilliant as a bed border or green manure
+                </p>
+              </div>
+
+              <div className="border border-earth/6 p-4 sm:p-5">
+                <h3 className="font-semibold text-earth mb-1">
+                  Poached egg plant <span className="text-xs font-normal text-earth-lighter">(Limnanthes)</span>
+                </h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-2">
+                  A British favourite and one of the most useful flowers you can sow. Its white-and-yellow
+                  blooms are irresistible to hoverflies, whose larvae are voracious aphid-eaters &mdash; a living
+                  pest-control patrol. Low, spreading, hardy, and it self-seeds happily once you have it.
+                </p>
+                <p className="text-xs text-earth-lighter">
+                  <strong className="text-earth">Plant with:</strong> Anything prone to aphids &mdash; brassicas, beans, along bed edges
                 </p>
               </div>
             </div>
@@ -671,6 +741,17 @@ export default function CompanionPlantingGuide() {
                 Tomatoes and marigolds — the classic pairing, on our plot
               </figcaption>
             </figure>
+            <p className="mb-4 text-sm">
+              This is one of the better-evidenced pairings in a UK context: RHS trials found French marigolds
+              (Tagetes) growing among greenhouse tomatoes measurably reduced whitefly. Out on the plot they also
+              pull in the hoverflies and ladybirds that deal with aphids.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Grow the pairing</span>
+              <a href={awinLink("https://search.thompson-morgan.com/seeds/Tomato")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="tomato" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Tomato seeds &rarr;</a>
+              <a href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="marigold" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">French marigold seeds &rarr;</a>
+              <a href={awinLink("https://search.thompson-morgan.com/seeds/Basil")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="basil" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Basil seeds &rarr;</a>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-allotment/5 border border-allotment/15 p-5">
                 <h3 className="font-semibold text-allotment mb-2">Worth doing &mdash; good evidence</h3>
@@ -688,6 +769,31 @@ export default function CompanionPlantingGuide() {
                   <li><strong className="text-earth">Real exceptions worth respecting:</strong> keep <a href="/crops/tomatoes" className="underline decoration-tomato/30 hover:text-earth">tomatoes</a> and <a href="/crops/maincrop-potatoes" className="underline decoration-tomato/30 hover:text-earth">potatoes</a> apart (shared blight), and keep fennel in its own corner (it genuinely suppresses neighbours).</li>
                   <li>No amount of companion planting replaces healthy soil, decent spacing, and <a href="/guides/crop-rotation" className="underline decoration-tomato/30 hover:text-earth">crop rotation</a>.</li>
                 </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* UK myths worth retiring */}
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
+              A few UK myths worth retiring
+            </h2>
+            <p className="mb-4">
+              Some companion &ldquo;rules&rdquo; get repeated endlessly on British gardening sites but don&apos;t
+              stand up. Save yourself the bother:
+            </p>
+            <div className="space-y-3">
+              <div className="border-l-2 border-tomato/40 pl-4">
+                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are a fine mesh or fleece barrier, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <a href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</a> or garlic.</p>
+              </div>
+              <div className="border-l-2 border-tomato/40 pl-4">
+                <p className="text-sm"><strong className="text-earth">&ldquo;Basil makes tomatoes taste better.&rdquo;</strong> A lovely idea with no evidence behind it. Basil is still a fine neighbour for <a href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</a> &mdash; it may deter a few flies, and it crops in the same warm spot &mdash; but it won&apos;t change the flavour of the fruit.</p>
+              </div>
+              <div className="border-l-2 border-tomato/40 pl-4">
+                <p className="text-sm"><strong className="text-earth">&ldquo;Borage improves strawberry flavour.&rdquo;</strong> Borage is genuinely worth growing &mdash; it&apos;s a magnet for bees, and better pollination can mean better-set <a href="/crops/strawberries" className="text-rust underline decoration-rust/30 hover:text-earth">strawberries</a>. But it&apos;s the pollinators doing the work, not some change to the taste.</p>
+              </div>
+              <div className="border-l-2 border-tomato/40 pl-4">
+                <p className="text-sm"><strong className="text-earth">&ldquo;Plant mint to repel pests.&rdquo;</strong> Strong-scented mint may muddle a few pests, but it spreads ferociously and will take over a bed in a season. If you grow it, keep it in a buried pot &mdash; never loose in the ground.</p>
               </div>
             </div>
           </section>

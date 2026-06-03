@@ -37,7 +37,8 @@ function CompanionSection({ crop }: { crop: Crop }) {
   if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
 
   return (
-    <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 mb-10">
+    <div className="mb-10">
+      <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
       {crop.companionPlants && crop.companionPlants.length > 0 && (
         <div className="bg-sage p-6">
           <div className="flex items-center gap-2 mb-3">
@@ -77,6 +78,13 @@ function CompanionSection({ crop }: { crop: Crop }) {
           </ul>
         </div>
       )}
+      </div>
+      <a
+        href="/guides/companion-planting"
+        className="inline-block mt-4 font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+      >
+        Full companion planting guide &amp; chart &rarr;
+      </a>
     </div>
   );
 }
