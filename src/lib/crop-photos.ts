@@ -36,16 +36,16 @@ const cropPhotos: Record<string, CropPhoto> = {
     alt: "A freshly picked sweetcorn cob held up against a backdrop of sunflowers",
   },
   pumpkins: {
-    hero: "/photos/crops/pumpkin-growing.webp",
-    alt: "A large orange pumpkin growing on the vine at a UK allotment",
+    hero: "/photos/crops/pumpkin-patch-orange.webp",
+    alt: "A ripening orange pumpkin nestled among its leaves in the pumpkin patch at a UK allotment",
+  },
+  "runner-beans": {
+    hero: "/photos/crops/runner-beans-climbing.webp",
+    alt: "Runner beans climbing their canes, covered in scarlet flowers against a bright blue sky",
   },
   lettuce: {
     hero: "/photos/crops/lettuce-with-marigolds.webp",
     alt: "Rows of lettuce growing alongside bright orange marigolds in a raised bed",
-  },
-  "runner-beans": {
-    hero: "/photos/crops/peas-purple-pod-opened.webp",
-    alt: "A purple bean pod opened to reveal green beans inside, held at the allotment",
   },
   squash: {
     hero: "/photos/crops/courgette-with-flowers.webp",

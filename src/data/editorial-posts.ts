@@ -143,8 +143,8 @@ export const editorialPosts: EditorialPost[] = [
       "allotment starter kit",
       "best gardening tools UK",
     ],
-    heroImage: "/photos/blog/allotment-plot-overview-june.webp",
-    heroAlt: "An established allotment plot in June — the beds and paths a handful of good tools help you keep",
+    heroImage: "/photos/blog/harvest-tools-flatlay.webp",
+    heroAlt: "A few well-chosen tools and the evening's pickings laid out on the decking — a watering can, scissors, a punnet of tomatoes and a lettuce",
     intro:
       "When you take on a new plot it's tempting to buy everything at once. Don't. You need surprisingly little to start, and most of it is cheap — these are the tools I actually reach for, in the order I'd buy them.",
     tags: ["allotment diary", "tools"],
@@ -260,6 +260,13 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "There's a full account of how it tamed my clay (and a great deal of bindweed) in the broadfork review.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/tomato-punnet-detail.webp",
+        alt: "A punnet of ripe tomatoes and a freshly cut lettuce on the decking",
+        caption: "The point of all of it — an evening's pickings.",
       },
       {
         type: "text",
