@@ -52,6 +52,92 @@ export interface EditorialPost {
 
 export const editorialPosts: EditorialPost[] = [
   {
+    slug: "first-allotment-summer",
+    title: "My first allotment summer, in pictures",
+    description:
+      "A look back at my very first summer on the allotment — what grew, what surprised me, and a few honest things I'd tell anyone taking on a new plot.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "first year allotment",
+      "starting an allotment",
+      "first allotment summer",
+      "new allotment tips",
+      "what to grow first year allotment",
+      "allotment for beginners UK",
+    ],
+    heroImage: "/photos/blog/first-summer-sunflower.webp",
+    heroAlt: "A sunflower in full bloom against a dusk sky on a UK allotment, the first summer",
+    intro:
+      "This was my first proper summer on the allotment, and I took an enormous number of photos — because everything felt like a small miracle. Here's that first season, in pictures: what grew, what surprised me, and a few honest things I'd pass on to anyone taking on a new plot.",
+    tags: ["allotment diary", "first year"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "Nobody really tells you how much a first summer takes you by surprise. You spend the spring getting beds in and seeds down, half-expecting nothing to happen — and then, all at once, it does. By high summer the plot I'd been staring at hopefully in March had turned into this:",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/first-summer-plot.webp",
+        alt: "The allotment in late summer of the first year — pumpkins sprawling across the front, beds full behind, under a big evening sky",
+        caption: "That first summer — the pumpkins taking over the front, everything else racing away behind.",
+      },
+      {
+        type: "text",
+        content:
+          "The flowers were the thing I hadn't expected to love so much. I'd planted sunflowers almost as an afterthought, and they turned into the part of the plot I'd walk down to see first — great cheerful faces over the beds at the end of a long day.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "A first summer's growing — courgettes, peas up the canes, and a pumpkin quietly swelling.",
+        images: [
+          { src: "/photos/blog/first-summer-courgettes.webp", alt: "Courgettes growing on the soil", caption: "Courgettes, doing what courgettes do", aspect: "square" },
+          { src: "/photos/blog/first-summer-peas.webp", alt: "Peas climbing the canes against a blue sky", caption: "Up the canes", aspect: "portrait" },
+          { src: "/photos/blog/first-summer-pumpkin-green.webp", alt: "A green pumpkin developing among the leaves", caption: "A pumpkin, still green", aspect: "square" },
+        ],
+      },
+      {
+        type: "text",
+        content:
+          "And then the waiting paid off. Watching that first pumpkin turn from green to orange over a few weeks was ridiculously satisfying — proof that the whole thing actually worked.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "The same pumpkin, a few weeks apart.",
+        images: [
+          { src: "/photos/blog/first-summer-pumpkin-green.webp", alt: "The pumpkin still green among the leaves", caption: "Still green", aspect: "square" },
+          { src: "/photos/crops/pumpkin-patch-orange.webp", alt: "The pumpkin ripened to bright orange", caption: "…then orange", aspect: "square" },
+        ],
+      },
+      {
+        type: "text",
+        content:
+          "The harvest, when it came, came all at once — the happy glut of a first summer. Tomatoes by the punnet, more courgettes than anyone could reasonably eat, lettuce cut fresh of an evening.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/tomato-punnet-detail.webp",
+        alt: "A punnet of ripe tomatoes with a freshly cut lettuce, on the decking",
+        caption: "The first proper pickings.",
+      },
+      {
+        type: "quote",
+        content:
+          "Everything felt like a small miracle that first summer. It still rather does.",
+      },
+      {
+        type: "text",
+        content:
+          "If you're about to start your own, the honest advice is this: don't try to buy or grow everything at once. Get a few beds in, sow the easy, generous things (courgettes, beans, lettuce, a pumpkin for the fun of it), and let your first summer teach you the rest. A handful of good tools and a bit of patience will get you further than any amount of kit.",
+      },
+    ],
+    relatedCrops: ["courgettes", "peas", "pumpkins", "tomatoes", "runner-beans", "sunflowers"],
+  },
+  {
     slug: "garden-tubs-trugs-allotment",
     title: "In praise of the humble tub (and the veg trug)",
     description:
