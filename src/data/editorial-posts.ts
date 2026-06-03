@@ -134,6 +134,55 @@ export const editorialPosts: EditorialPost[] = [
         content:
           "If you're about to start your own, the honest advice is this: don't try to buy or grow everything at once. Get a few beds in, sow the easy, generous things (courgettes, beans, lettuce, a pumpkin for the fun of it), and let your first summer teach you the rest. A handful of good tools and a bit of patience will get you further than any amount of kit.",
       },
+      {
+        type: "heading",
+        content: "The handful that helped",
+      },
+      {
+        type: "text",
+        content:
+          "These are the cheap, everyday few I actually used that first summer and still reach for now — nothing fancy, all of it earns its keep.",
+      },
+      {
+        type: "product",
+        content:
+          "Light, close-fitting and grippy so you can still feel what you're doing. Cheap enough to keep a couple of pairs on the go.",
+        productName: "Showa 370 gardening gloves",
+        productPrice: "~£5",
+        productUrl: "https://www.amazon.co.uk/dp/B0017HEJC0?tag=whattosow21-21",
+        productBadge: "essential",
+      },
+      {
+        type: "product",
+        content:
+          "A thick memory-foam kneeler that saves your knees through a long first-summer of planting and weeding. You'll bless it within a week.",
+        productName: "Thistlewood memory-foam kneeler",
+        productPrice: "~£20",
+        productUrl: "https://www.amazon.co.uk/dp/B099FDNQR3?tag=whattosow21-21",
+        productBadge: "our-pick",
+      },
+      {
+        type: "product",
+        content:
+          "The flexible tub I drag everywhere — weeds beside me as I go, then woodchip, soil, the harvest home. If you buy one thing on this list, make it a couple of these.",
+        productName: "Red Gorilla flexible tub (small, 14L)",
+        productUrl: "https://www.amazon.co.uk/dp/B011AEXWI6?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "Keep a couple at the plot — you'll always want one.",
+      },
+      {
+        type: "product",
+        content:
+          "For the nicest job of all — bringing the harvest in. There's something very Beatrix Potter about a trug full of veg, and that first summer is when you'll fall for it.",
+        productName: "Burgon & Ball traditional wooden trug",
+        productUrl: "https://www.amazon.co.uk/dp/B003UMY4I4?tag=whattosow21-21",
+        productBadge: "our-pick",
+      },
+      {
+        type: "text",
+        content:
+          "And if you want the fuller list — the things to add as you go, and the one big upgrade worth saving for — it's all in my tools roundup below.",
+      },
     ],
     relatedCrops: ["courgettes", "peas", "pumpkins", "tomatoes", "runner-beans", "sunflowers"],
   },
