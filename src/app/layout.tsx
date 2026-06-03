@@ -68,6 +68,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2D5F3E" />
         <meta name="pinterest-rich-pin" content="true" />
+        <meta name="p:domain_verify" content="a0bbf0ace1ffe1f177e7a9ef497c3e2c" />
         <link rel="alternate" type="application/rss+xml" title="What To Sow Blog" href="/feed.xml" />
       </head>
       <body className={`${instrumentSans.variable} ${newsreader.variable} ${plexMono.variable} font-sans antialiased`}>
