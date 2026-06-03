@@ -45,6 +45,70 @@ export interface EditorialPost {
 
 export const editorialPosts: EditorialPost[] = [
   {
+    slug: "watering-lance-allotment",
+    title: "The watering lance that turned a chore into my favourite hour",
+    description:
+      "I didn't know watering lances existed until I saw one on Instagram. Now I can't water without it. An honest, first-hand account of why a long metal watering lance changed how I water the allotment.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "watering lance",
+      "garden watering lance",
+      "best way to water allotment",
+      "watering lance review UK",
+      "watering allotment hot summer",
+      "Gardena watering lance",
+    ],
+    heroImage: "/photos/blog/watering-marigolds-nasturtiums.webp",
+    heroAlt: "Watering marigolds and nasturtiums on the allotment with a long metal watering lance in the evening light",
+    intro:
+      "I didn't know watering lances existed until I saw someone using one on Instagram. What is that, I thought — and went and did some googling, and now I can't imagine watering without one. It has quietly turned the evening water, which used to feel like a chore I was always behind on, into the part of the day I look forward to most.",
+    tags: ["allotment diary", "tools"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "It's a long wand you fix to the end of the hose, with a softened spray at the tip, and the gift of it is reach. You can stand comfortably and send water right to the back of a bed, in under the leaves where the roots actually want it, without trampling everything or stooping over each plant in turn. After years of a standard hose attachment, it felt like a small revelation — gentler on the plants, and so much nicer to use.",
+      },
+      {
+        type: "text",
+        content:
+          "Mine's the metal sort, which has an unexpected pleasure to it: on a hot evening it stays cool in the hand, lovely to hold while everything around you is still giving off the day's heat.",
+      },
+      {
+        type: "quote",
+        content:
+          "One AirPod in — I always like to keep an ear on the world — something gentle playing, and the low sun turning everything gold. As cheesy as it sounds, it feels a little like being in a film.",
+      },
+      {
+        type: "text",
+        content:
+          "There's a particular guilt to an allotment in summer: the days you can't get down there, knowing everything's thirsty, willing the forecast to promise rain. But when I do make it down, watering is honestly one of my favourite things. There's no rushing it. You move along the beds, plant by plant, and the whole plot seems to soften and settle as the light goes.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/marigold-border-allotment-evening.webp",
+        alt: "An allotment bed edged with marigolds in the soft light of evening",
+        caption: "Evening on the plot, when the watering gets done.",
+      },
+      {
+        type: "product",
+        content:
+          "If you only upgrade one watering thing, make it this. The reach alone changes how it feels — you water more thoroughly, more calmly, and trample far less getting there. I'd go for a metal one: cool in the hand on a hot evening, and built to last.",
+        productName: "Gardena premium watering lance",
+        productUrl: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "The reach is the thing — the back of the bed, under the leaves, without trampling a single plant.",
+      },
+      {
+        type: "text",
+        content:
+          "As the summers get hotter I'm planning ahead: a dip tank, and more water butts, so there's always something of our own to draw from. The tap at the allotment gets busy in a dry spell — sometimes there's a queue for it, sometimes nothing free at all — and the more we can catch and keep ourselves, the better. But that's a project for another day. For now, there's an hour of golden light and a bed of thirsty marigolds, and I know exactly where I'd rather be.",
+      },
+    ],
+    relatedCrops: ["courgettes", "tomatoes"],
+  },
+  {
     slug: "broadfork-clay-bindweed",
     title: "The broadfork that made light work of my clay",
     description:
