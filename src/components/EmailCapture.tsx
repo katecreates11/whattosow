@@ -18,6 +18,7 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [hp, setHp] = useState(""); // honeypot — real users never fill this
 
   // Email sign-ups temporarily hidden — we're not sending yet and don't want
   // people signing up expecting emails. Re-enable with NEXT_PUBLIC_EMAIL_SIGNUPS=true.
@@ -39,7 +40,7 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, company: hp }),
       });
 
       if (!res.ok) {
@@ -78,6 +79,16 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
   if (variant === "dark") {
     return (
       <form onSubmit={handleSubmit} className="space-y-3">
+          <input
+            type="text"
+            name="company"
+            value={hp}
+            onChange={(e) => setHp(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] w-px h-px opacity-0"
+          />
         <div className="flex gap-2 max-w-md mx-auto">
           <input
             type="email"
@@ -128,6 +139,16 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
           We&apos;ll email you a printable PDF version — free.
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
+          <input
+            type="text"
+            name="company"
+            value={hp}
+            onChange={(e) => setHp(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] w-px h-px opacity-0"
+          />
           <div className="flex gap-2">
             <input
               type="email"
@@ -186,6 +207,16 @@ export default function EmailCapture({ variant = "full", context }: EmailCapture
           : "We\u2019ll send you what to sow each month, personalised to your frost date. No spam, unsubscribe anytime."}
       </p>
       <form onSubmit={handleSubmit} className="space-y-3">
+          <input
+            type="text"
+            name="company"
+            value={hp}
+            onChange={(e) => setHp(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] w-px h-px opacity-0"
+          />
         <div className="flex gap-2">
           <input
             type="email"
