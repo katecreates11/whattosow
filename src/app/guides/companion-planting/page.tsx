@@ -413,8 +413,24 @@ export default function CompanionPlantingGuide() {
               Flowers aren&apos;t just decorative on an allotment &mdash;
               they&apos;re some of the hardest-working companions you can
               plant. They attract pollinators, repel pests, and make the
-              whole plot look better.
+              whole plot look better. These four earn their place on our plot
+              every single year:
             </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 not-prose max-w-3xl">
+              {[
+                { src: "/photos/blog/marigolds-close-up.webp", label: "Marigolds" },
+                { src: "/photos/blog/marigold-nasturtium-arch-2025.webp", label: "Nasturtiums" },
+                { src: "/photos/crops/borage-flowers-bee.webp", label: "Borage" },
+                { src: "/photos/blog/sunflower-with-bee.webp", label: "Sunflowers" },
+              ].map((f) => (
+                <figure key={f.label}>
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image src={f.src} alt={`${f.label} growing on the allotment`} fill sizes="(max-width:640px) 50vw, 22vw" className="object-cover img-grade" />
+                  </div>
+                  <figcaption className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-earth-light/70">{f.label}</figcaption>
+                </figure>
+              ))}
+            </div>
             <div className="space-y-4">
               <div className="border border-earth/6 p-4 sm:p-5">
                 <h3 className="font-semibold text-earth mb-1">
@@ -586,6 +602,48 @@ export default function CompanionPlantingGuide() {
               <p className="text-xs text-earth-lighter mt-3">
                 Some links are affiliate links &mdash; we may earn a little, at no extra cost to you, towards the allotment shed.
               </p>
+            </div>
+          </section>
+
+          {/* Polyculture — companion planting taken to its conclusion */}
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
+              Beyond pairs: polyculture
+            </h2>
+            <div className="space-y-3 mb-6">
+              <p>
+                Companion planting is really just the first step towards <strong className="text-earth">polyculture</strong> &mdash;
+                growing a diverse mix of crops together in the same bed, rather than neat rows of a single
+                vegetable (a monoculture). It&apos;s how nature actually grows, and on an allotment it pays off:
+              </p>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start gap-2"><span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&#10003;</span><span><strong className="text-earth">Pests get confused</strong> &mdash; when a crop is dotted among others rather than lined up in a block, pests struggle to find and move between their target plants.</span></li>
+                <li className="flex items-start gap-2"><span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&#10003;</span><span><strong className="text-earth">The soil stays covered</strong> &mdash; mixing tall, low and sprawling crops shades out weeds and keeps moisture in.</span></li>
+                <li className="flex items-start gap-2"><span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&#10003;</span><span><strong className="text-earth">You harvest more from the space</strong> &mdash; quick crops (radish, lettuce) fill the gaps while slow ones (brassicas, leeks) get going.</span></li>
+                <li className="flex items-start gap-2"><span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&#10003;</span><span><strong className="text-earth">There&apos;s always something for the pollinators</strong> &mdash; especially with flowers woven through.</span></li>
+              </ul>
+              <p>
+                The easiest way to do it on purpose is <strong className="text-earth">square planting</strong> &mdash;
+                dividing a bed into a grid and giving each square its own crop. You get all the diversity of a
+                polyculture, but tidy enough to keep track of.{" "}
+                <a href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+                  Here&apos;s how I plant my beds the square-foot way &rarr;
+                </a>
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+              <figure>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image src="/photos/blog/square-growing-bed.webp" alt="A raised bed divided into a grid, each square sown with a different crop — square-foot polyculture" fill sizes="(max-width:640px) 100vw, 45vw" className="object-cover img-grade" />
+                </div>
+                <figcaption className="mt-2 font-mono text-[9px] uppercase tracking-[0.1em] text-earth-light/70">One bed, gridded into squares — a crop in each</figcaption>
+              </figure>
+              <figure>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image src="/photos/blog/courgette-marigold-bed-june.webp" alt="Courgettes planted with a border of marigolds — a mixed polyculture bed" fill sizes="(max-width:640px) 100vw, 45vw" className="object-cover img-grade" />
+                </div>
+                <figcaption className="mt-2 font-mono text-[9px] uppercase tracking-[0.1em] text-earth-light/70">Courgettes edged with marigolds</figcaption>
+              </figure>
             </div>
           </section>
 
