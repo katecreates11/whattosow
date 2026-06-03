@@ -483,6 +483,12 @@ export default function CompanionPlantingGuide() {
                 >
                   How we grow marigolds &rarr;
                 </a>
+                <a
+                  href="/blog/square-foot-growing-allotment"
+                  className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                >
+                  Try square-foot growing &rarr;
+                </a>
               </div>
               <p className="text-xs text-earth-lighter mt-3">
                 Some links are affiliate links &mdash; we may earn a little, at no extra cost to you, towards the allotment shed.

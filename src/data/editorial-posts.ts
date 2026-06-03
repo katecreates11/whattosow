@@ -52,6 +52,72 @@ export interface EditorialPost {
 
 export const editorialPosts: EditorialPost[] = [
   {
+    slug: "square-foot-growing-allotment",
+    title: "Square-foot growing: more crops from every bed",
+    description:
+      "How I planted my first beds the square-foot way — dividing each bed into a grid and sowing a different crop in every square. The simple tool that made it easy, and why it pairs so well with companion planting.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "square foot gardening UK",
+      "square foot gardening for beginners",
+      "seeding square",
+      "how to space vegetable seeds",
+      "grow multiple crops in one bed",
+      "square foot gardening layout",
+    ],
+    heroImage: "/photos/blog/square-growing-bed.webp",
+    heroAlt: "A raised allotment bed divided into a string grid, each square sown with a different crop — square-foot growing",
+    intro:
+      "When I planted my first beds, I did the whole lot the square-foot way: dividing each bed into a grid and sowing a different crop in every square. It made a brand-new plot feel manageable, it was genuinely fun, and I direct-sowed almost everything straight into the ground.",
+    tags: ["allotment diary", "how to"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "The idea is simple. Instead of long rows with bare earth between them, you divide a bed into a grid of squares — and each square gets its own crop, spaced to suit it. A square of lettuces here, a square of radishes there, carrots, beetroot, spring onions, all cheek by jowl. You fit far more into a small bed, there's almost no wasted ground, and weeds have nowhere to hide.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/square-growing-bed.webp",
+        alt: "A raised bed divided into a grid with a different crop growing in each square",
+        caption: "One bed, gridded into squares — a different crop in each.",
+      },
+      {
+        type: "text",
+        content:
+          "What made it easy (and, honestly, a lot of fun) was a little tool I bought: a colour-coded seeding square. It has different hole patterns pressed into it — one big hole for the things that need room, lots of little ones for the close-spaced crops — so you just press it into the soil, sow into the dimples in the right pattern, and move on to the next square. No measuring, no guesswork. I direct-sowed nearly everything that first summer straight through it.",
+      },
+      {
+        type: "product",
+        content:
+          "The colour-coded square I used — press it into the soil and it gives you the right number of holes, in the right pattern, for whatever you're sowing (1, 4, 9 or 16 to a square). It turns spacing into something quick and oddly satisfying, and it's brilliant for getting children involved too.",
+        productName: "Seeding Square — colour-coded seed spacer",
+        productUrl: "https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "Press, sow into the dimples, move on — no measuring.",
+      },
+      {
+        type: "text",
+        content:
+          "The other lovely thing is how naturally it works with companion planting. Once you're sowing different crops side by side in neighbouring squares, you can put good companions together on purpose — lettuce in the shade of taller things, carrots near alliums, flowers tucked in to pull the pollinators. It's the same idea, just on a tidy little grid.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/square-growing-salad.webp",
+        alt: "A square of mixed red and green salad leaves growing closely together",
+        caption: "A square's worth of cut-and-come-again salad.",
+      },
+      {
+        type: "text",
+        content:
+          "If you're starting a new plot and the bare beds feel daunting, this is the gentlest way in I know. Grid it up, sow a square at a time, and a month later you'll have a patchwork of green that looks like you knew exactly what you were doing all along.",
+      },
+    ],
+    relatedCrops: ["lettuce", "radishes", "carrots", "beetroot", "spring-onions"],
+  },
+  {
     slug: "first-allotment-summer",
     title: "My first allotment summer, in pictures",
     description:
