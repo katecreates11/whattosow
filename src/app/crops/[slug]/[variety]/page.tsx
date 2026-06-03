@@ -39,6 +39,8 @@ export async function generateMetadata({
       description: desc,
       type: "article",
       url: `https://whattosow.co.uk/crops/${slug}/${variety}`,
+      // Vertical pin for Pinterest Rich Pins (2:3)
+      images: [{ url: `/pins/varieties/${slug}/${variety}/full`, alt: `${v.name} ${crop.name.toLowerCase()}`, width: 1000, height: 1500 }],
     },
   };
 }
@@ -164,7 +166,7 @@ export default async function VarietyPage({
             <div className="mt-8">
               <PinButton
                 path={`/crops/${slug}/${variety}`}
-                image={img ? img.src : ""}
+                image={`/pins/varieties/${slug}/${variety}/full`}
                 description={`${v.name} — ${crop.name.toLowerCase()} worth growing. ${v.personality.slice(0, 120)}`}
               />
             </div>
