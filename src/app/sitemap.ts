@@ -1,4 +1,5 @@
 import { crops } from "@/data/crops";
+import { allVarietyParams } from "@/lib/variety-routes";
 import { cities } from "@/data/cities";
 import { MONTH_SLUGS } from "@/lib/calendar";
 import { getPublishedPosts } from "@/data/blog-posts";
@@ -27,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date("2026-04-02"),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  const varietyPages = allVarietyParams().map((p) => ({
+    url: `${baseUrl}/crops/${p.slug}/${p.variety}`,
+    lastModified: new Date("2026-06-02"),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
   }));
 
   const cityPages = cities.map((city) => ({
@@ -216,6 +224,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPosts,
     ...cityPages,
     ...cropPages,
+    ...varietyPages,
     ...monthlyPages,
   ];
 }

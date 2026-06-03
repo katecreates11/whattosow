@@ -3,6 +3,7 @@ import Image from "next/image";
 import { crops, type Crop } from "@/data/crops";
 import { varieties } from "@/data/varieties";
 import { awinLink } from "@/lib/awin";
+import { varietySlug } from "@/lib/variety-routes";
 import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
@@ -425,7 +426,14 @@ export default async function CropPage({
                     {vs.map((v) => (
                       <div key={v.id} className="border-t border-earth/10 pt-7">
                         <div className="flex items-baseline gap-3 flex-wrap mb-2">
-                          <h3 className="font-serif text-2xl text-earth">{v.name}</h3>
+                          <h3 className="font-serif text-2xl text-earth">
+                            <a
+                              href={`/crops/${crop.slug}/${varietySlug(v)}`}
+                              className="hover:text-allotment transition-colors"
+                            >
+                              {v.name}
+                            </a>
+                          </h3>
                           <span
                             className={`font-mono text-[10px] uppercase tracking-[0.12em] ${v.rarity === "legendary" ? "text-amber" : "text-earth-lighter"}`}
                           >
@@ -471,6 +479,15 @@ export default async function CropPage({
                             ))}
                           </div>
                         )}
+
+                        <div className="mt-4">
+                          <a
+                            href={`/crops/${crop.slug}/${varietySlug(v)}`}
+                            className="font-mono text-[10px] uppercase tracking-[0.1em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                          >
+                            {v.name} &mdash; full guide &rarr;
+                          </a>
+                        </div>
                       </div>
                     ))}
                   </div>
