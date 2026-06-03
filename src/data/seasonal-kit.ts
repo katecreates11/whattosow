@@ -15,6 +15,9 @@ export interface SeasonalKitEntry {
   intro: string;
   /** kit.ts ids, in the order they should appear. */
   kitIds: string[];
+  /** Seasonal photo for the homepage teaser. */
+  image?: string;
+  imageAlt?: string;
 }
 
 const MONTHS: Record<number, SeasonalKitEntry> = {
@@ -31,6 +34,8 @@ const MONTHS: Record<number, SeasonalKitEntry> = {
     intro:
       "June is the month it all comes good. The soil is warm, the days are long, and everything you sow now simply wants to grow. A few small jobs make the difference between a patch that copes and one that thrives — keeping the water on as it warms, giving the peas and beans something to climb, and tying in the tomatoes before they topple. Here's the kit I find myself reaching for, week in, week out.",
     kitIds: ["watering-lance", "pea-netting", "plant-ties", "slug-killer"],
+    image: "/photos/blog/watering-marigolds-nasturtiums.webp",
+    imageAlt: "Watering marigolds and nasturtiums on the allotment with a long lance in the golden evening light",
   },
   // July
   6: {

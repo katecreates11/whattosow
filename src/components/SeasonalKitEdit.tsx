@@ -7,6 +7,7 @@
  *   - variant="teaser" → a compact band (intro + a few names + CTA), for the
  *                        homepage, funnelling traffic to the Sow page.
  */
+import Image from "next/image";
 import { kitForMonth } from "@/data/seasonal-kit";
 import { getKit, amazonLink } from "@/data/kit";
 import GearPick from "@/components/GearPick";
@@ -24,34 +25,47 @@ export default function SeasonalKitEdit({
   if (products.length === 0) return null;
 
   if (variant === "teaser") {
+    const img = edit.image ?? "/photos/blog/harvest-tools-flatlay.webp";
+    const alt = edit.imageAlt ?? "Allotment kit and the season's harvest";
     return (
-      <div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-allotment">
-          The {edit.month} edit
-        </span>
-        <h2 className="font-serif text-3xl sm:text-4xl text-earth tracking-tight leading-[0.98] mt-3 mb-4 max-w-[20ch]">
-          Kit for the jobs ahead
-        </h2>
-        <p className="font-serif text-lg text-earth-light leading-relaxed max-w-[52ch] mb-6">
-          {edit.intro}
-        </p>
-        <ul className="flex flex-wrap gap-x-2 gap-y-2 mb-7">
-          {products.map((p) => (
-            <li
-              key={p.id}
-              className="font-mono text-[11px] uppercase tracking-[0.06em] text-earth-light border border-earth/15 px-3 py-1.5"
-            >
-              {p.name}
-            </li>
-          ))}
-        </ul>
-        <a
-          href="/sow#kit"
-          data-umami-event="shop-season-teaser-click"
-          className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
-        >
-          See the {edit.month} edit &amp; what to sow now &rarr;
-        </a>
+      <div className="grid md:grid-cols-[1fr_0.82fr] gap-8 md:gap-12 items-center">
+        <div>
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-allotment">
+            The {edit.month} edit
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-earth tracking-tight leading-[0.98] mt-3 mb-4 max-w-[20ch]">
+            Kit for the jobs ahead
+          </h2>
+          <p className="font-serif text-lg text-earth-light leading-relaxed max-w-[52ch] mb-6">
+            {edit.intro}
+          </p>
+          <ul className="flex flex-wrap gap-x-2 gap-y-2 mb-7">
+            {products.map((p) => (
+              <li
+                key={p.id}
+                className="font-mono text-[11px] uppercase tracking-[0.06em] text-earth-light border border-earth/15 px-3 py-1.5"
+              >
+                {p.name}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="/sow#kit"
+            data-umami-event="shop-season-teaser-click"
+            className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+          >
+            See the {edit.month} edit &amp; what to sow now &rarr;
+          </a>
+        </div>
+        <div className="relative w-full aspect-[4/5] overflow-hidden">
+          <Image
+            src={img}
+            alt={alt}
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            className="object-cover img-grade"
+          />
+        </div>
       </div>
     );
   }
