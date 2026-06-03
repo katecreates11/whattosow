@@ -1110,8 +1110,8 @@ export const editorialPosts: EditorialPost[] = [
         alt: "The broadfork resting on freshly broken clay at the allotment",
         caption: "Dug right over with the broadfork.",
         src2: "/photos/blog/sowing-drills-allotment-spring.webp",
-        alt2: "A dug allotment bed with a planting drill opened along it, greenhouse behind",
-        caption2: "Worked down and drilled, ready to plant.",
+        alt2: "An allotment bed with potatoes just planted, covered over with a row of dark compost, greenhouse behind",
+        caption2: "Potatoes just in — popped into the holes and covered with compost.",
       },
       {
         type: "heading",
