@@ -76,7 +76,7 @@ export default function SeasonalGrid({
                   <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-allotment border-b border-earth/15 pb-3 mb-7">
                     {g.label} <span className="text-earth-lighter">&middot; {g.items.length}</span>
                   </div>
-                  <CropCardGrid entries={g.items} />
+                  <CropCardGrid entries={g.items} showSeeds />
                 </div>
               ))}
             </div>

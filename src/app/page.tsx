@@ -19,6 +19,7 @@ import BlightRisk from "@/components/BlightRisk";
 import FeaturedVariety from "@/components/FeaturedVariety";
 import InSeasonBand from "@/components/InSeasonBand";
 import ShedFund from "@/components/ShedFund";
+import SeasonalKitEdit from "@/components/SeasonalKitEdit";
 import { featuredEntry, inSeasonCrops, seasonCounts } from "@/lib/variety-status";
 
 export default function Home() {
@@ -262,6 +263,13 @@ export default function Home() {
             <InSeasonBand entries={inSeasonVeg} totalVarieties={varietyCounts.total} />
           </section>
         </FullWidthSection>
+
+        {/* Shop the season — the month's kit edit, funnels to the Sow page */}
+        <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-20 bg-sage/25" aria-label="Shop the season">
+          <div className="max-w-4xl mx-auto">
+            <SeasonalKitEdit variant="teaser" />
+          </div>
+        </section>
 
         {/* The shed fund — affiliate as editorial recommendation */}
         <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 border-y border-earth/10" aria-label="The shed fund">
