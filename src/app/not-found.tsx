@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { LeafSprig } from "@/components/SVGIllustrations";
 
 export const metadata: Metadata = {
-  title: "Page Not Found — What To Sow",
-  description: "Sorry, we couldn't find that page. Head back to What To Sow for personalised UK planting advice.",
+  title: "Lost in the beds — What To Sow",
+  description: "We couldn't find that page. Dot will see you back to where things are growing.",
 };
 
 export default function NotFound() {
@@ -13,32 +13,60 @@ export default function NotFound() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main id="main-content" className="flex-1 flex items-center justify-center px-4">
-        <div className="text-center max-w-md py-20">
-          <LeafSprig className="w-10 h-14 mx-auto mb-6 text-allotment opacity-60" />
-          <h1 className="text-3xl font-bold text-earth mb-3">
-            Page not found
-          </h1>
-          <p className="text-earth-light mb-8">
-            Sorry, we couldn&apos;t find that page. It might have been moved or
-            doesn&apos;t exist.
-          </p>
-          <a
-            href="/"
-            className="inline-block bg-allotment text-white font-medium px-6 py-3 rounded-full hover:bg-allotment-dark transition-colors"
-          >
-            Back to What To Sow
-          </a>
+      <main id="main-content" className="flex-1 px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Dot */}
+          <figure className="order-1 lg:order-none">
+            <div className="relative overflow-hidden" style={{ aspectRatio: "3 / 4" }}>
+              <Image
+                src="/photos/blog/dot-allotment-cat-closeup.webp"
+                alt="Dot the cat walking through the allotment beds at dusk"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="object-cover img-grade"
+              />
+              <figcaption className="absolute left-3 bottom-3 font-mono text-[10px] uppercase tracking-[0.1em] text-white/90 bg-allotment-dark/70 px-2 py-1">
+                Dot, chief inspector of the beds
+              </figcaption>
+            </div>
+          </figure>
 
-          <div className="mt-10 pt-8 border-t border-earth/6 text-left">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3">
-              Or try one of these
+          {/* Words */}
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment">
+              404 &middot; lost in the beds
+            </span>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-earth tracking-tight leading-[0.96] mt-4 mb-5">
+              This row leads
+              <span className="italic text-allotment"> nowhere.</span>
+            </h1>
+            <p className="text-lg text-earth-light leading-relaxed max-w-[44ch] mb-4">
+              Dot can&apos;t find this page either &mdash; and she knows every corner of the plot. It may have
+              been moved, or perhaps it was never sown.
             </p>
-            <div className="space-y-2">
-              <a href="/calendar" className="block text-sm text-allotment hover:text-allotment-dark">Sowing calendar &rarr;</a>
-              <a href="/guides" className="block text-sm text-allotment hover:text-allotment-dark">Growing guides &rarr;</a>
-              <a href="/frost-map" className="block text-sm text-allotment hover:text-allotment-dark">UK frost map &rarr;</a>
-              <a href="/sow-in" className="block text-sm text-allotment hover:text-allotment-dark">Sow by location &rarr;</a>
+            <p className="font-serif italic text-lg text-earth-light max-w-[44ch] mb-8">
+              No matter. It&apos;s a fine day to be somewhere else on the site &mdash; let&apos;s get you back to
+              where things are growing.
+            </p>
+
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-cream bg-allotment hover:bg-allotment-dark transition-colors px-5 py-3"
+            >
+              Back to What To Sow &rarr;
+            </a>
+
+            <div className="mt-9 pt-7 border-t border-earth/10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter mb-3">
+                Or wander somewhere useful
+              </p>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-sm">
+                <a href="/sow" className="font-serif text-lg text-earth hover:text-allotment transition-colors">What to sow now</a>
+                <a href="/#explore-crops" className="font-serif text-lg text-earth hover:text-allotment transition-colors">Browse the crops</a>
+                <a href="/guides" className="font-serif text-lg text-earth hover:text-allotment transition-colors">Growing guides</a>
+                <a href="/frost-map" className="font-serif text-lg text-earth hover:text-allotment transition-colors">UK frost map</a>
+              </div>
             </div>
           </div>
         </div>
