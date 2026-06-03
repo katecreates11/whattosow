@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getCropImagePath } from "@/lib/crop-images";
 import { SectionDivider } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
+import PinButton from "@/components/PinButton";
 
 export const metadata: Metadata = {
   title:
@@ -101,6 +102,38 @@ export default function CompanionPlantingGuide() {
           text: "Some companion planting effects are well-documented by research — carrots and onions confusing each other's pests, marigolds repelling aphids, and nitrogen-fixing by beans. Others are based on generations of gardener observation rather than controlled studies. The low-risk, high-reward nature means it's worth doing even when the evidence is anecdotal.",
         },
       },
+      {
+        "@type": "Question",
+        name: "What can I plant with tomatoes?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Good tomato companions include basil (said to improve flavour and repel whitefly), marigolds and nasturtiums (which lure aphids away and bring in pollinators), plus carrots, lettuce and onions. Keep tomatoes away from potatoes — they share blight — and from fennel.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What grows well with carrots?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Carrots do well next to onions, leeks and garlic — their strong scent helps mask carrots from carrot fly, and vice versa. Lettuce, radishes and peas are also good neighbours. Avoid planting carrots near dill or fennel.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do marigolds really repel pests?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, to a useful degree. French marigolds (Tagetes) attract hoverflies and ladybirds that eat aphids, and their roots release a compound that deters root-knot nematodes. They also work as a trap crop, drawing slugs and aphids to themselves. They're one of the few companion flowers with real evidence behind them.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I companion plant in a small bed or containers?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. Square-foot growing — dividing a bed into a grid and giving each square its own crop — is companion planting on a small scale, and works brilliantly in raised beds and large containers. Pair a tall crop with a low one, and tuck a few flowers in among the veg.",
+        },
+      },
     ],
   };
 
@@ -169,15 +202,44 @@ export default function CompanionPlantingGuide() {
           <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
             Growing guide
           </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Companion planting guide
+          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-3 max-w-2xl">
+            Companion planting guide &amp; chart
           </h1>
-          <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
-            Some crops grow better together. Others are best kept apart. This
-            chart covers all 40 vegetables in our database &mdash; what to plant
-            next to each one and what to avoid. Scroll down or jump to a
-            specific crop.
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter mb-4">
+            UK &middot; updated June 2026
           </p>
+          <p className="text-earth-light leading-relaxed mb-6 max-w-2xl">
+            Some crops grow better together; others are best kept apart. This is the complete chart for all 40
+            vegetables in our database &mdash; what to plant next to each one, what to keep away, the flowers
+            worth tucking in, and which old pairings actually hold up. Written from a real UK allotment, not
+            copied from an almanac.
+          </p>
+        </div>
+
+        {/* Hero — real companions on the plot, and a save-to-Pinterest hook */}
+        <div className="px-6 sm:px-10 lg:px-16 mb-12">
+          <figure className="max-w-4xl">
+            <div className="relative aspect-[16/9] overflow-hidden">
+              <Image
+                src="/photos/blog/marigold-lettuce-midsummer-2025.webp"
+                alt="Lettuces growing alongside bright marigolds in a raised allotment bed — companion planting in practice"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover img-grade"
+              />
+            </div>
+            <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3">
+              <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-earth-light/70">
+                Lettuce and marigolds, side by side on our plot
+              </span>
+              <PinButton
+                path="/guides/companion-planting"
+                image="/photos/blog/marigold-lettuce-midsummer-2025.webp"
+                description="Companion planting chart for UK vegetables — what to grow together and what to keep apart. #companionplanting #vegetablegarden #allotment #ukgardening"
+              />
+            </figcaption>
+          </figure>
         </div>
 
         <div className="space-y-12 text-earth-light leading-relaxed px-6 sm:px-10 lg:px-16 [&>section]:max-w-2xl">
@@ -208,6 +270,37 @@ export default function CompanionPlantingGuide() {
                   <span><strong className="text-earth">Physical support</strong> &mdash; The classic &ldquo;three sisters&rdquo;: sweetcorn supports beans, which fix nitrogen for squash, which shades the soil</span>
                 </li>
               </ul>
+            </div>
+          </section>
+
+          {/* The Three Sisters — the classic, searched combo */}
+          <section>
+            <div className="bg-sage/30 border border-earth/10 p-6 sm:p-7">
+              <h2 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-3">
+                The Three Sisters: the classic combination
+              </h2>
+              <p className="mb-3">
+                The oldest companion planting of all, from Indigenous North American gardens &mdash; three crops
+                that each do a job for the others:
+              </p>
+              <ul className="space-y-2 text-sm mb-3">
+                <li className="flex items-start gap-2">
+                  <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
+                  <span><strong className="text-earth"><a href="/crops/sweetcorn" className="hover:text-allotment underline decoration-earth/20">Sweetcorn</a></strong> grows tall and gives the beans a living frame to climb.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
+                  <span><strong className="text-earth"><a href="/crops/runner-beans" className="hover:text-allotment underline decoration-earth/20">Beans</a></strong> fix nitrogen from the air, feeding the hungry corn and squash.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
+                  <span><strong className="text-earth"><a href="/crops/pumpkins" className="hover:text-allotment underline decoration-earth/20">Squash or pumpkin</a></strong> sprawls along the ground, its big leaves shading out weeds and keeping the soil moist.</span>
+                </li>
+              </ul>
+              <p className="text-sm text-earth-light">
+                Sow the corn first in a block (it&apos;s wind-pollinated, so a block beats a row), add the beans
+                when the corn is a hand high, and tuck squash plants around the edge.
+              </p>
             </div>
           </section>
 
@@ -496,6 +589,37 @@ export default function CompanionPlantingGuide() {
             </div>
           </section>
 
+          {/* Evidence vs folklore — the honest, differentiating bit */}
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
+              What actually holds up &mdash; and what&apos;s folklore
+            </h2>
+            <p className="mb-4">
+              Plenty of companion charts online repeat the same pairings without saying which are backed by
+              evidence and which are simply tradition. Here&apos;s the honest split, so you can spend your effort
+              where it counts.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="bg-allotment/5 border border-allotment/15 p-5">
+                <h3 className="font-semibold text-allotment mb-2">Worth doing &mdash; good evidence</h3>
+                <ul className="space-y-1.5 text-sm">
+                  <li>Legumes (beans, peas) fixing nitrogen for hungry crops that follow.</li>
+                  <li>Tall + low layering for space and shade (the three sisters; lettuce under taller crops).</li>
+                  <li>Strong-scented alliums and herbs masking a crop&apos;s scent &mdash; carrots with onions against carrot &amp; onion fly.</li>
+                  <li>Flowers (marigolds, nasturtiums, calendula) pulling in pollinators and predatory insects, and luring aphids away as a trap crop.</li>
+                </ul>
+              </div>
+              <div className="bg-blush/40 border border-tomato/15 p-5">
+                <h3 className="font-semibold text-tomato mb-2">Treat with a pinch of salt</h3>
+                <ul className="space-y-1.5 text-sm">
+                  <li>Most specific &ldquo;X hates Y&rdquo; rules &mdash; largely traditional, rarely tested. Won&apos;t hurt to follow, but don&apos;t fret.</li>
+                  <li><strong className="text-earth">Real exceptions worth respecting:</strong> keep <a href="/crops/tomatoes" className="underline decoration-tomato/30 hover:text-earth">tomatoes</a> and <a href="/crops/maincrop-potatoes" className="underline decoration-tomato/30 hover:text-earth">potatoes</a> apart (shared blight), and keep fennel in its own corner (it genuinely suppresses neighbours).</li>
+                  <li>No amount of companion planting replaces healthy soil, decent spacing, and <a href="/guides/crop-rotation" className="underline decoration-tomato/30 hover:text-earth">crop rotation</a>.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
           {/* Tips */}
           <section>
             <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
@@ -572,6 +696,38 @@ export default function CompanionPlantingGuide() {
                   generations of gardener observation rather than controlled
                   studies. The low-risk, high-reward nature means it&apos;s
                   worth doing.
+                </p>
+              </div>
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">What can I plant with tomatoes?</h3>
+                <p className="text-sm">
+                  Basil, marigolds and nasturtiums are the classic friends &mdash; plus carrots, lettuce and
+                  onions. Keep <a href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30">tomatoes</a> away
+                  from potatoes (shared blight) and fennel.
+                </p>
+              </div>
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">What grows well with carrots?</h3>
+                <p className="text-sm">
+                  Onions, leeks and garlic &mdash; their scent helps hide carrots from carrot fly, and vice
+                  versa &mdash; along with lettuce, radishes and peas. Keep <a href="/crops/carrots" className="text-rust hover:text-earth underline decoration-rust/30">carrots</a> away
+                  from dill and fennel.
+                </p>
+              </div>
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">Do marigolds really repel pests?</h3>
+                <p className="text-sm">
+                  Yes, usefully so &mdash; French marigolds draw in aphid-eating hoverflies and ladybirds,
+                  deter root-knot nematodes, and act as a trap crop. One of the few companion flowers with real
+                  evidence behind it.
+                </p>
+              </div>
+              <div className="pb-0">
+                <h3 className="font-serif text-lg text-earth mb-2">Can I companion plant in a small bed or pots?</h3>
+                <p className="text-sm">
+                  Definitely &mdash; <a href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30">square-foot growing</a> is
+                  companion planting on a small scale. Pair a tall crop with a low one and tuck a few flowers in
+                  among the veg.
                 </p>
               </div>
             </div>
