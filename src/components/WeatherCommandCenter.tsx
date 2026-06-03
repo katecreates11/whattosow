@@ -69,34 +69,41 @@ function MoonGlyph({ phase }: { phase: number }) {
 export default function WeatherCommandCenter() {
   const [wx, setWx] = useState<WX | null>(null);
   const [sky, setSky] = useState<Sky | null>(null);
+  const [located, setLocated] = useState(false);
   const moon = getMoonPhaseData();
 
   useEffect(() => {
-    const loc = loadLocation();
-    const lat = loc?.latitude ?? 52.48;
-    const lng = loc?.longitude ?? -1.89;
+    const refresh = () => {
+      const loc = loadLocation();
+      setLocated(!!loc);
+      const lat = loc?.latitude ?? 52.48;
+      const lng = loc?.longitude ?? -1.89;
 
-    const sun = getSunTimes(new Date(), lat, lng);
-    setSky({ sunset: formatTime(sun.sunset), daylight: formatDaylight(sun.daylightMinutes) });
+      const sun = getSunTimes(new Date(), lat, lng);
+      setSky({ sunset: formatTime(sun.sunset), daylight: formatDaylight(sun.daylightMinutes) });
 
-    (async () => {
-      try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,soil_temperature_0cm&timezone=Europe/London`
-        );
-        if (!res.ok) return;
-        const c = (await res.json()).current;
-        setWx({
-          temp: c.temperature_2m,
-          code: c.weather_code,
-          wind: c.wind_speed_10m,
-          windDir: c.wind_direction_10m,
-          soil: typeof c.soil_temperature_0cm === "number" ? c.soil_temperature_0cm : null,
-        });
-      } catch {
-        /* silent — section degrades to sun/moon only */
-      }
-    })();
+      (async () => {
+        try {
+          const res = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,soil_temperature_0cm&timezone=Europe/London`
+          );
+          if (!res.ok) return;
+          const c = (await res.json()).current;
+          setWx({
+            temp: c.temperature_2m,
+            code: c.weather_code,
+            wind: c.wind_speed_10m,
+            windDir: c.wind_direction_10m,
+            soil: typeof c.soil_temperature_0cm === "number" ? c.soil_temperature_0cm : null,
+          });
+        } catch {
+          /* silent — section degrades to sun/moon only */
+        }
+      })();
+    };
+    refresh();
+    window.addEventListener("whattosow:location-updated", refresh);
+    return () => window.removeEventListener("whattosow:location-updated", refresh);
   }, []);
 
   return (
@@ -131,6 +138,18 @@ export default function WeatherCommandCenter() {
           <MoonGlyph phase={moon.phase} /> {moon.name.toLowerCase()} &middot; {Math.round(moon.illumination * 100)}%
         </span>
       </div>
+
+      {!located && (
+        <p className="mt-5 text-sm text-earth-light">
+          This is the sky over the middle of the country.{" "}
+          <a
+            href="#postcode"
+            className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+          >
+            Add your postcode for your own &rarr;
+          </a>
+        </p>
+      )}
     </div>
   );
 }

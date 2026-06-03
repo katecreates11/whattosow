@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { plotStatuses, removePlanting, PLOT_EVENT, type PlantingStatus } from "@/lib/my-plot";
-import { RakedBedIllustration } from "@/components/SVGIllustrations";
+import { RakedBedIllustration, SunIcon } from "@/components/SVGIllustrations";
 
 function Card({ s }: { s: PlantingStatus }) {
   const sown = new Date(s.planting.sownOn + "T00:00:00").toLocaleDateString("en-GB", {
@@ -72,9 +72,13 @@ export default function MyPlotClient() {
     <div className="space-y-12">
       {ready.length > 0 && (
         <div>
-          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-tomato mb-5">
-            Ready to harvest &middot; {ready.length}
+          <div className="flex items-center gap-2 text-tomato mb-1">
+            <SunIcon className="w-5 h-5" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em]">Ready to harvest &middot; {ready.length}</span>
           </div>
+          <p className="font-serif italic text-earth-light mb-5">
+            The best day in the calendar &mdash; grab a trug and go and pick something.
+          </p>
           <div className="space-y-5">
             {ready.map((s) => (
               <Card key={s.planting.id} s={s} />
