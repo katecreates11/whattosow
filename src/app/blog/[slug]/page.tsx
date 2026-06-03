@@ -165,6 +165,23 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
   // Other hand-written posts, for the "more from the shed" cross-links
   const morePosts = editorialPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  // Review structured data — a genuine first-person review of a third-party
+  // product, so Google can show star ratings (lifts click-through).
+  const reviewJsonLd =
+    post.primaryProduct && post.rating
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Review",
+          itemReviewed: { "@type": "Product", name: post.primaryProduct.name },
+          reviewRating: { "@type": "Rating", ratingValue: post.rating, bestRating: 5 },
+          author: { "@type": "Person", name: "Kate, What To Sow" },
+          publisher: { "@type": "Organization", name: "What To Sow" },
+          datePublished: post.publishDate.toISOString(),
+          name: post.title,
+          reviewBody: post.description,
+        }
+      : null;
+
   return (
     <>
       <Header backLink={{ href: "/blog", label: "All guides" }} />
@@ -200,6 +217,30 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
           </div>
           <div className="mt-9 mx-auto w-10 h-px bg-amber" />
         </header>
+
+        {/* Above-the-fold buy CTA for single-product reviews */}
+        {post.primaryProduct && (
+          <div className="max-w-[44rem] mx-auto px-6 mb-2">
+            <a
+              href={post.primaryProduct.url}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              data-umami-event="gear-affiliate-click"
+              data-umami-event-product={post.primaryProduct.name}
+              className="group flex items-center justify-between gap-4 border border-allotment/20 bg-sage/20 px-5 py-4 hover:border-allotment hover:bg-sage/30 transition-colors"
+            >
+              <span className="font-serif text-earth leading-tight">
+                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-allotment block mb-1">What I use</span>
+                {post.primaryProduct.name}
+                {post.primaryProduct.price ? ` · ${post.primaryProduct.price}` : ""}
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2.5 whitespace-nowrap group-hover:bg-allotment-dark transition-colors">
+                Check price on Amazon &rarr;
+              </span>
+            </a>
+            <p className="text-[11px] text-earth-lighter mt-1.5">Affiliate link — we may earn a little, at no extra cost to you.</p>
+          </div>
+        )}
 
         {/* Article content — each section sets its own width (wide images, narrow text) */}
         <article className="pt-6 pb-16">
@@ -319,6 +360,12 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
         />
+        {reviewJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+          />
+        )}
       </main>
       <Footer />
     </>
@@ -442,6 +489,37 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
       );
     case "gallery":
       return <GalleryGroup images={section.images ?? []} groupCaption={section.caption} />;
+    case "table":
+      return (
+        <div className="max-w-3xl mx-auto px-6 my-10">
+          <div className="border-t border-earth/15">
+            {(section.rows ?? []).map((r) => (
+              <div
+                key={r.name}
+                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 border-b border-earth/10 py-4"
+              >
+                <div className="sm:w-[42%]">
+                  <div className="font-serif text-lg text-earth leading-tight">{r.name}</div>
+                  <div className="text-sm text-earth-light leading-snug">{r.use}</div>
+                </div>
+                {r.price && <div className="font-mono text-sm text-rust sm:w-[14%] tabular-nums">{r.price}</div>}
+                <div className="sm:ml-auto">
+                  <a
+                    href={r.url}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    data-umami-event="gear-affiliate-click"
+                    data-umami-event-product={r.name}
+                    className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap"
+                  >
+                    View on Amazon &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
     case "image":
       if (section.fullBleed) {
         return (

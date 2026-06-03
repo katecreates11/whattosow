@@ -4,7 +4,7 @@
  */
 
 export interface EditorialSection {
-  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery";
+  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery" | "table";
   content: string;
   /** For images: src path */
   src?: string;
@@ -28,6 +28,8 @@ export interface EditorialSection {
   productPrice?: string;
   productUrl?: string;
   productBadge?: "our-pick" | "budget" | "upgrade" | "essential";
+  /** For "table": a scannable comparison, one buy link per row */
+  rows?: { name: string; use: string; price?: string; url: string }[];
 }
 
 export interface EditorialPost {
@@ -48,9 +50,66 @@ export interface EditorialPost {
   relatedCrops: string[];
   /** "What I used" — kit catalogue ids (see src/data/kit.ts) shown as a shoppable strip */
   kit?: string[];
+  /** Single-product reviews: drives an above-the-fold Amazon CTA + Review schema (stars in Google) */
+  primaryProduct?: { name: string; url: string; price?: string };
+  /** Kate's honest rating out of 5 for the primaryProduct (for Review structured data) */
+  rating?: number;
 }
 
 export const editorialPosts: EditorialPost[] = [
+  {
+    slug: "best-allotment-tools-compared",
+    title: "The allotment tools I actually use, compared",
+    description:
+      "A quick, honest comparison of the tools that earn their place on my plot — what each is for, roughly what it costs, and where to get it. No guff, just the kit I reach for.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "best allotment tools",
+      "best allotment tools UK",
+      "allotment tools compared",
+      "essential gardening tools",
+      "best gardening tools UK",
+      "allotment equipment list",
+    ],
+    heroImage: "/photos/blog/harvest-tools-flatlay.webp",
+    heroAlt: "A few well-used allotment tools and the evening's harvest laid out on the decking",
+    intro:
+      "Over a few seasons you work out which tools genuinely earn their place and which gather dust. Here's the short list of what I actually reach for — compared at a glance, with what each one's for and where to find it.",
+    tags: ["allotment diary", "tools"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "You don't need much, and you certainly don't need it all at once. But a few good tools make the heavy days lighter and the fiddly jobs quicker. These are mine — honestly rated, all of them things I use, not things I was sent.",
+      },
+      {
+        type: "heading",
+        content: "At a glance",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "Showa 370 gloves", use: "Everyday — light enough to feel what you're doing", price: "~£5", url: "https://www.amazon.co.uk/dp/B0017HEJC0?tag=whattosow21-21" },
+          { name: "Red Gorilla flexible tub", use: "Weeding, woodchip, soil, harvest — endlessly useful", url: "https://www.amazon.co.uk/dp/B011AEXWI6?tag=whattosow21-21" },
+          { name: "Draper jute twine (100m)", use: "Tying in, marking rows, a hundred jobs", price: "~£10", url: "https://www.amazon.co.uk/dp/B000PJCDZG?tag=whattosow21-21" },
+          { name: "Spear & Jackson dibber", use: "Neat, even holes for seedlings and seeds", url: "https://www.amazon.co.uk/dp/B002W5V62C?tag=whattosow21-21" },
+          { name: "Seeding Square", use: "Spacing seeds for square-foot growing", url: "https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" },
+          { name: "Thistlewood memory-foam kneeler", use: "Saving your knees through long sessions", price: "~£20", url: "https://www.amazon.co.uk/dp/B099FDNQR3?tag=whattosow21-21" },
+          { name: "Gardena watering lance", use: "Reaching the back of the bed, under the leaves", url: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21" },
+          { name: "Burgon & Ball wooden trug", use: "Gathering the harvest (the nicest job)", url: "https://www.amazon.co.uk/dp/B003UMY4I4?tag=whattosow21-21" },
+          { name: "Haemmerlin puncture-free wheelbarrow", use: "Hauling soil, woodchip and the harvest", url: "https://www.amazon.co.uk/dp/B07BPNJ8KH?tag=whattosow21-21" },
+          { name: "Terradix 5x300 broadfork", use: "Breaking heavy clay with your weight, not your back", price: "~£129", url: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "text",
+        content:
+          "If you're just starting, work down the list from the top — the cheap, everyday few first, the wheelbarrow and broadfork only once you know you'll use them. I've written about most of these in full, and the order I'd buy them, in the posts below.",
+      },
+    ],
+    relatedCrops: [],
+  },
   {
     slug: "square-foot-growing-allotment",
     title: "Square-foot growing: more crops from every bed",
@@ -116,6 +175,8 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["lettuce", "radishes", "carrots", "beetroot", "spring-onions"],
+    primaryProduct: { name: "Seeding Square colour-coded seed spacer", url: "https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" },
+    rating: 5,
   },
   {
     slug: "first-allotment-summer",
@@ -329,6 +390,8 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: [],
+    primaryProduct: { name: "Red Gorilla flexible tub (small, 14L)", url: "https://www.amazon.co.uk/dp/B011AEXWI6?tag=whattosow21-21" },
+    rating: 5,
   },
   {
     slug: "best-first-tools-new-allotment",
@@ -558,6 +621,8 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: [],
+    primaryProduct: { name: "Haemmerlin Original 90L puncture-free wheelbarrow", url: "https://www.amazon.co.uk/dp/B07BPNJ8KH?tag=whattosow21-21" },
+    rating: 5,
   },
   {
     slug: "watering-lance-allotment",
@@ -622,6 +687,8 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["courgettes", "tomatoes"],
+    primaryProduct: { name: "Gardena premium watering lance", url: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21" },
+    rating: 5,
   },
   {
     slug: "broadfork-clay-bindweed",
@@ -687,6 +754,8 @@ export const editorialPosts: EditorialPost[] = [
     ],
     relatedCrops: ["potatoes", "sunflowers"],
     kit: ["gloves", "kneeler", "weed-puller"],
+    primaryProduct: { name: "Terradix 5x300 broadfork", url: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21", price: "~£129" },
+    rating: 5,
   },
   {
     slug: "growing-tomatoes-uk-allotment",
