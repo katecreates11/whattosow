@@ -45,6 +45,70 @@ export interface EditorialPost {
 
 export const editorialPosts: EditorialPost[] = [
   {
+    slug: "wheelbarrow-allotment-haemmerlin",
+    title: "Four years, one squeaky wheelbarrow, and the treat that replaced it",
+    description:
+      "My first wheelbarrow was free, cement-crusted and faithful. After four years I treated myself to a Haemmerlin puncture-free one — here's the honest story of both.",
+    publishDate: new Date("2026-06-03"),
+    keywords: [
+      "wheelbarrow allotment",
+      "puncture free wheelbarrow",
+      "Haemmerlin wheelbarrow review",
+      "best wheelbarrow allotment UK",
+      "garden wheelbarrow",
+      "puncture proof wheelbarrow UK",
+    ],
+    heroImage: "/photos/blog/plot-early-spring.webp",
+    heroAlt: "The allotment in early spring — raised beds and bare-soil paths, the ground a wheelbarrow earns its keep on",
+    intro:
+      "My first wheelbarrow was donated — free, and faithful, and frankly a bit of a wreck. It had been used for cement, so it came with a crust, a nail through the bottom of it, and a squeak you could set your watch by. After four good years, I finally treated myself to a new one.",
+    tags: ["allotment diary", "tools"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "I was fond of that old barrow, for all its faults. The squeak only stopped if you leaned a little to the right — which of course sent you veering off in a gentle right-hand curve, so you'd be forever correcting your line on the way up the path. The handles had come off long before it reached me, leaving bare metal to grip. But it was free, and it did the one big job that mattered: it moved the whole first delivery of soil, barrow-load by barrow-load, to fill every one of my beds. Four faithful years.",
+      },
+      {
+        type: "text",
+        content:
+          "When I finally decided to treat myself, I did a proper bit of research — and Reddit, as it often does, pointed the way. The Haemmerlin kept coming up. I went for the green one with the bright wheel, mostly because I liked the look of it, and I've not regretted it for a moment.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/plot-early-spring.webp",
+        alt: "Allotment beds with bare-soil paths between them in early spring",
+        caption: "The paths and beds a barrow earns its keep on — soil to move, woodchip to lay.",
+      },
+      {
+        type: "text",
+        content:
+          "It doesn't squeak. The handles are proper handles, comfortable to hold. And the puncture-free wheel means no slow flat halfway through a job — which, given my last one had a literal nail through it, feels like a small luxury. I've used it to barrow woodchip up to line the paths and to wheel up bag after bag of soil, and it takes it all in its stride.",
+      },
+      {
+        type: "quote",
+        content:
+          "It's propped against the shed as I write this, and I rather like catching sight of that bright wheel from clear across the plot.",
+      },
+      {
+        type: "product",
+        content:
+          "Mine's the Trade version, which I found at Wickes after all that research. On Amazon the equivalent is the Haemmerlin Original 90L — the same bright green, the same puncture-free wheel that won't ever leave you stranded with a flat halfway up the path. After a squeaky, cement-crusted predecessor, it's an absolute joy.",
+        productName: "Haemmerlin Original 90L puncture-free wheelbarrow",
+        productUrl: "https://www.amazon.co.uk/dp/B07BPNJ8KH?tag=whattosow21-21",
+        productBadge: "our-pick",
+        caption: "Puncture-free is the part that matters on an allotment — no flat tyres, no nails through the bottom.",
+      },
+      {
+        type: "text",
+        content:
+          "A wheelbarrow isn't a glamorous purchase. But it's one of those quiet, everyday tools you reach for constantly, and a good one makes the heavy days lighter. After four years of leaning right, I'm happy to wheel a straight line.",
+      },
+    ],
+    relatedCrops: [],
+  },
+  {
     slug: "watering-lance-allotment",
     title: "The watering lance that turned a chore into my favourite hour",
     description:
