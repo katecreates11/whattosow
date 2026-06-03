@@ -398,8 +398,8 @@ export default async function CropPage({
             <div className="mt-8">
               <SowPlanner
                 slug={crop.slug}
-                name={crop.name}
                 sowIndoorsWeeks={crop.sowIndoorsWeeks}
+                directSowWeeks={crop.directSowWeeks}
                 plantOutWeeks={crop.plantOutWeeks}
                 harvestWeeks={crop.harvestWeeks}
               />

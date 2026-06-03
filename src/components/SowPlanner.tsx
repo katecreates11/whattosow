@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { loadLocation } from "@/lib/location-storage";
+import { calculateLastFrostDate } from "@/lib/frost";
+import { ukAverageFrost } from "@/lib/season-core";
 import { addPlanting } from "@/lib/my-plot";
 
 /**
- * Interactive date planner for a crop. Set your own sow date and it predicts
- * plant-out and harvest; nudge the plant-out date and the harvest shifts with
- * it. Saves to My plot (with the plant-out date) so the estimate carries over.
+ * Interactive, frost-aware date planner for a crop. Defaults to the recommended
+ * sow date for the visitor's own last-frost date; predicts plant-out (gated so a
+ * tender crop never goes out before the frost) and harvest. Adjust your sow or
+ * plant-out date and everything moves with it. Saves to My plot.
+ *
+ * All crop week-fields are relative to last frost, except harvestWeeks (from sowing).
  */
 const MS_DAY = 86400000;
 const iso = (d: Date) => {
@@ -19,39 +25,64 @@ const fmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: 
 
 export default function SowPlanner({
   slug,
-  name,
   sowIndoorsWeeks,
+  directSowWeeks,
   plantOutWeeks,
   harvestWeeks,
 }: {
   slug: string;
-  name: string;
   sowIndoorsWeeks: number | null;
+  directSowWeeks: number | null;
   plantOutWeeks: number | null;
   harvestWeeks: number;
 }) {
   const hasPlantOut = plantOutWeeks != null && sowIndoorsWeeks != null;
-  const gapDays = hasPlantOut ? (plantOutWeeks! - sowIndoorsWeeks!) * 7 : 0;
+  // weeks (relative to frost) of the sowing this plan follows
+  const sowWeeks = (hasPlantOut ? sowIndoorsWeeks : directSowWeeks ?? sowIndoorsWeeks) ?? 0;
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const [sow, setSow] = useState(iso(today));
-  const [plantOutValue, setPlantOutValue] = useState<string | null>(null); // null = follow prediction
+  const [frost, setFrost] = useState<Date>(() => ukAverageFrost());
+  const [place, setPlace] = useState<string | null>(null);
+  const [sowValue, setSowValue] = useState<string | null>(null); // null = follow recommendation
+  const [plantOutValue, setPlantOutValue] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
-  const sowD = parse(sow);
-  const predictedPlantOut = addDays(sowD, gapDays);
+  useEffect(() => {
+    const refresh = () => {
+      const loc = loadLocation();
+      setFrost(loc ? calculateLastFrostDate(loc.latitude, loc.longitude) : ukAverageFrost());
+      setPlace(loc?.adminDistrict ?? null);
+    };
+    refresh();
+    window.addEventListener("whattosow:location-updated", refresh);
+    return () => window.removeEventListener("whattosow:location-updated", refresh);
+  }, []);
+
+  const recommendedSow = addDays(frost, sowWeeks * 7);
+  const sowD = sowValue ? parse(sowValue) : recommendedSow;
+
+  // Predicted plant-out: the later of "frost + plantOutWeeks" (never before the
+  // frost) and "this sow date + the indoor-sow→plant-out gap" (plants must be ready).
+  const predictedPlantOut = hasPlantOut
+    ? new Date(
+        Math.max(
+          addDays(frost, plantOutWeeks! * 7).getTime(),
+          addDays(sowD, (plantOutWeeks! - sowWeeks) * 7).getTime()
+        )
+      )
+    : null;
   const plantOutD = plantOutValue ? parse(plantOutValue) : predictedPlantOut;
-  const deltaDays = hasPlantOut ? Math.round((plantOutD.getTime() - predictedPlantOut.getTime()) / MS_DAY) : 0;
+  const deltaDays =
+    hasPlantOut && plantOutD && predictedPlantOut
+      ? Math.round((plantOutD.getTime() - predictedPlantOut.getTime()) / MS_DAY)
+      : 0;
   const harvestD = addDays(sowD, harvestWeeks * 7 + deltaDays);
 
   function save() {
     addPlanting({
       cropSlug: slug,
-      sownOn: sow,
+      sownOn: iso(sowD),
       method: hasPlantOut ? "sow indoors" : "direct sow",
-      ...(hasPlantOut ? { plantedOutOn: iso(plantOutD) } : {}),
+      ...(hasPlantOut && plantOutD ? { plantedOutOn: iso(plantOutD) } : {}),
     });
     setSaved(true);
     setTimeout(() => setSaved(false), 4000);
@@ -63,9 +94,12 @@ export default function SowPlanner({
         Plan it for your plot
       </span>
       <h3 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-1">Work out your own dates</h3>
-      <p className="text-sm text-earth-light leading-relaxed mb-5 max-w-[52ch]">
-        Set the day you sowed (or plan to) and we&apos;ll work out the rest. Sowed late? Planted out on a
-        different day? Adjust below and the harvest moves with it.
+      <p className="text-sm text-earth-light leading-relaxed mb-1 max-w-[54ch]">
+        Starts from the recommended sow date for your area. Sowed on a different day, or planted out late?
+        Adjust below and the harvest moves with it.
+      </p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter mb-5">
+        {place ? `Tuned to your last frost · ${place} · ${fmt(frost)}` : `Using the UK-average last frost · ${fmt(frost)} · add your postcode to tune it`}
       </p>
 
       <div className="flex flex-wrap gap-5">
@@ -75,13 +109,13 @@ export default function SowPlanner({
           </span>
           <input
             type="date"
-            value={sow}
-            onChange={(e) => setSow(e.target.value)}
+            value={sowValue ?? iso(recommendedSow)}
+            onChange={(e) => setSowValue(e.target.value)}
             className="border border-earth/20 bg-white px-3 py-2 text-earth text-sm focus:outline-none focus:ring-2 focus:ring-allotment"
           />
         </label>
 
-        {hasPlantOut && (
+        {hasPlantOut && predictedPlantOut && (
           <label className="block">
             <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-light block mb-1.5">
               Planted out
@@ -99,11 +133,13 @@ export default function SowPlanner({
       {/* Timeline */}
       <div className="mt-6 flex items-stretch gap-2 sm:gap-3">
         <Step label="Sow" date={fmt(sowD)} tone="amber" />
-        {hasPlantOut && <Step label="Plant out" date={fmt(plantOutD)} tone="leaf" note={plantOutValue ? "your date" : "predicted"} />}
+        {hasPlantOut && plantOutD && (
+          <Step label="Plant out" date={fmt(plantOutD)} tone="leaf" note={plantOutValue ? "your date" : "predicted"} />
+        )}
         <Step label="Harvest from" date={fmt(harvestD)} tone="allotment" big />
       </div>
 
-      <div className="mt-6 flex items-center gap-4">
+      <div className="mt-6 flex items-center gap-4 flex-wrap">
         <button
           onClick={save}
           className="font-mono text-[11px] uppercase tracking-[0.08em] text-cream bg-allotment px-5 py-2.5 hover:bg-allotment-dark transition-colors"
