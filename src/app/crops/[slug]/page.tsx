@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
 import PersonalisedCropDates from "@/components/PersonalisedCropDates";
+import SowPlanner from "@/components/SowPlanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlightRisk from "@/components/BlightRisk";
@@ -392,6 +393,17 @@ export default async function CropPage({
             </div>
 
             <PersonalisedCropDates crop={crop} />
+
+            {/* Interactive: plan your own dates from when you actually sowed */}
+            <div className="mt-8">
+              <SowPlanner
+                slug={crop.slug}
+                name={crop.name}
+                sowIndoorsWeeks={crop.sowIndoorsWeeks}
+                plantOutWeeks={crop.plantOutWeeks}
+                harvestWeeks={crop.harvestWeeks}
+              />
+            </div>
 
             {/* Growing journey timeline */}
             <GrowingJourney crop={crop} />

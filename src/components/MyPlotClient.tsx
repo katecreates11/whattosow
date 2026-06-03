@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { plotStatuses, removePlanting, PLOT_EVENT, type PlantingStatus } from "@/lib/my-plot";
+import { plotStatuses, removePlanting, updatePlanting, sowToPlantOutDays, PLOT_EVENT, type PlantingStatus } from "@/lib/my-plot";
 import { RakedBedIllustration, SunIcon } from "@/components/SVGIllustrations";
 
 function Card({ s }: { s: PlantingStatus }) {
@@ -9,6 +9,7 @@ function Card({ s }: { s: PlantingStatus }) {
     day: "numeric",
     month: "long",
   });
+  const canPlantOut = sowToPlantOutDays(s.crop) != null;
   return (
     <div className="border-t border-earth/10 pt-5 flex items-start justify-between gap-4">
       <div>
@@ -21,6 +22,18 @@ function Card({ s }: { s: PlantingStatus }) {
         <p className={`text-sm mt-1.5 ${s.stage === "ready" ? "text-tomato font-medium" : "text-earth-light"}`}>
           {s.label}
         </p>
+        {canPlantOut && (
+          <label className="mt-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.08em] text-earth-lighter">
+            Planted out
+            <input
+              type="date"
+              value={s.planting.plantedOutOn ?? ""}
+              onChange={(e) => updatePlanting(s.planting.id, { plantedOutOn: e.target.value || undefined })}
+              className="border border-earth/15 bg-white px-2 py-1 text-earth normal-case tracking-normal"
+            />
+            {s.planting.plantedOutOn && <span className="text-allotment">harvest adjusted</span>}
+          </label>
+        )}
       </div>
       <button
         onClick={() => removePlanting(s.planting.id)}

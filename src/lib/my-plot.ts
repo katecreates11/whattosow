@@ -13,6 +13,14 @@ export interface Planting {
   cropSlug: string;
   sownOn: string; // yyyy-mm-dd
   method: PlantMethod;
+  /** Optional actual plant-out date — refines the harvest estimate if it differs from predicted. */
+  plantedOutOn?: string; // yyyy-mm-dd
+}
+
+/** Days from sowing to the predicted plant-out, for crops started under cover. */
+export function sowToPlantOutDays(crop: Crop): number | null {
+  if (crop.plantOutWeeks == null || crop.sowIndoorsWeeks == null) return null;
+  return (crop.plantOutWeeks - crop.sowIndoorsWeeks) * 7;
 }
 
 const KEY = "whattosow:plot";
@@ -47,6 +55,10 @@ export function removePlanting(id: string) {
   save(loadPlot().filter((p) => p.id !== id));
 }
 
+export function updatePlanting(id: string, patch: Partial<Omit<Planting, "id">>) {
+  save(loadPlot().map((p) => (p.id === id ? { ...p, ...patch } : p)));
+}
+
 /** The most recent planting of a given crop, if any. */
 export function trackedCrop(cropSlug: string): Planting | undefined {
   return loadPlot()
@@ -77,7 +89,16 @@ export function plantingStatus(p: Planting, now: Date = new Date()): PlantingSta
   const crop = cropBySlug.get(p.cropSlug);
   if (!crop) return null;
   const sown = new Date(p.sownOn + "T00:00:00");
-  const harvestDate = new Date(sown.getTime() + crop.harvestWeeks * 7 * MS_DAY);
+  // If the grower recorded an actual plant-out date, shift the harvest by how far
+  // it differs from the predicted plant-out (a late plant-out → a later harvest).
+  let plantOutDeltaDays = 0;
+  const gap = sowToPlantOutDays(crop);
+  if (p.plantedOutOn && gap != null) {
+    const predictedPlantOut = sown.getTime() + gap * MS_DAY;
+    const actualPlantOut = new Date(p.plantedOutOn + "T00:00:00").getTime();
+    plantOutDeltaDays = Math.round((actualPlantOut - predictedPlantOut) / MS_DAY);
+  }
+  const harvestDate = new Date(sown.getTime() + (crop.harvestWeeks * 7 + plantOutDeltaDays) * MS_DAY);
   const daysToHarvest = Math.ceil((harvestDate.getTime() - now.getTime()) / MS_DAY);
   const daysSinceSown = Math.floor((now.getTime() - sown.getTime()) / MS_DAY);
 
