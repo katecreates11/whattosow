@@ -421,6 +421,30 @@ export function LeafSprig({ className = "" }: { className?: string }) {
   );
 }
 
+// A freshly-raked, empty bed with one hopeful sprout and a low sun —
+// for "nothing here yet" moments (my plot, quiet seasons).
+export function RakedBedIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 168 108" className={className} aria-hidden="true">
+      {/* low sun */}
+      <circle cx="138" cy="26" r="9" stroke="#D4943A" {...shared} strokeWidth={2} />
+      <line x1="138" y1="9" x2="138" y2="13" stroke="#D4943A" {...shared} strokeWidth={2} />
+      <line x1="155" y1="26" x2="159" y2="26" stroke="#D4943A" {...shared} strokeWidth={2} />
+      <line x1="150.5" y1="13.5" x2="153.5" y2="10.5" stroke="#D4943A" {...shared} strokeWidth={2} />
+      <line x1="150.5" y1="38.5" x2="153.5" y2="41.5" stroke="#D4943A" {...shared} strokeWidth={2} />
+      {/* bed slab */}
+      <path d="M14 80 Q84 66 154 80 L150 96 Q84 82 18 96 Z" stroke="#3D7A52" {...shared} strokeWidth={2.5} />
+      {/* raked furrows */}
+      <path d="M30 82 Q84 71 138 82" stroke="#7BB369" {...shared} strokeWidth={1.5} opacity={0.7} />
+      <path d="M26 88 Q84 77 142 88" stroke="#7BB369" {...shared} strokeWidth={1.5} opacity={0.7} />
+      {/* one hopeful sprout */}
+      <path d="M84 74 C84 64 84 58 84 52" stroke="#3D7A52" {...shared} strokeWidth={2.5} />
+      <path d="M84 64 C76 62 71 56 72 49 C80 51 84 57 84 64" stroke="#7BB369" {...shared} strokeWidth={2} />
+      <path d="M84 64 C92 62 97 56 96 49 C88 51 84 57 84 64" stroke="#A8D49A" {...shared} strokeWidth={2} />
+    </svg>
+  );
+}
+
 export function SunIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">

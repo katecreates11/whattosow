@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { plotStatuses, removePlanting, PLOT_EVENT, type PlantingStatus } from "@/lib/my-plot";
+import { RakedBedIllustration } from "@/components/SVGIllustrations";
 
 function Card({ s }: { s: PlantingStatus }) {
   const sown = new Date(s.planting.sownOn + "T00:00:00").toLocaleDateString("en-GB", {
@@ -48,12 +49,16 @@ export default function MyPlotClient() {
   if (items.length === 0) {
     return (
       <div className="max-w-2xl">
-        <p className="font-serif text-2xl text-earth mb-3">Your plot is empty &mdash; for now.</p>
-        <p className="text-earth-light mb-5 leading-relaxed">
-          Tell us what you&apos;re growing from any crop page, or start with what&apos;s in season this week. We&apos;ll
-          keep track of when each thing is ready.
+        <RakedBedIllustration className="w-40 h-auto text-allotment mb-6" />
+        <p className="font-serif text-3xl text-earth mb-3 leading-tight">
+          Bare beds, raked and waiting.
         </p>
-        <a href="/sow" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
+        <p className="text-earth-light mb-5 leading-relaxed max-w-[46ch]">
+          Nothing growing here yet &mdash; but that&apos;s the best kind of beginning. Tell us what you&apos;ve sown
+          from any crop page, or start with what&apos;s in season this week, and we&apos;ll keep an eye on it for
+          you and let you know the day it&apos;s ready.
+        </p>
+        <a href="/sow" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
           See what to sow now &rarr;
         </a>
       </div>

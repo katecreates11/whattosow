@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { CropEntry } from "@/lib/season-core";
 import { cropImage } from "@/lib/crop-image";
 import { awinLink } from "@/lib/awin";
+import { RakedBedIllustration } from "@/components/SVGIllustrations";
 
 /**
  * The editorial crop wall (photo where we have one, taped herbarium label
@@ -26,9 +27,12 @@ export default function CropCardGrid({
 }) {
   if (entries.length === 0) {
     return (
-      <p className="font-serif italic text-xl text-earth-light max-w-[40ch]">
-        {emptyNote ?? "Nothing just now — but the garden turns quickly. Do check back."}
-      </p>
+      <div className="max-w-[42ch]">
+        <RakedBedIllustration className="w-36 h-auto text-allotment mb-5" />
+        <p className="font-serif italic text-xl text-earth-light leading-snug">
+          {emptyNote ?? "Nothing just now — but the garden turns quickly. Do check back."}
+        </p>
+      </div>
     );
   }
 
