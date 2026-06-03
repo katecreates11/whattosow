@@ -657,6 +657,20 @@ export default function CompanionPlantingGuide() {
               evidence and which are simply tradition. Here&apos;s the honest split, so you can spend your effort
               where it counts.
             </p>
+            <figure className="mb-5 max-w-md">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src="/photos/crops/tomatoes-ripening-close-up.webp"
+                  alt="Cherry tomatoes ripening on the vine with a marigold growing alongside — the classic evidence-backed pairing"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 28rem"
+                  className="object-cover img-grade"
+                />
+              </div>
+              <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-earth-light/70">
+                Tomatoes and marigolds — the classic pairing, on our plot
+              </figcaption>
+            </figure>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-allotment/5 border border-allotment/15 p-5">
                 <h3 className="font-semibold text-allotment mb-2">Worth doing &mdash; good evidence</h3>
