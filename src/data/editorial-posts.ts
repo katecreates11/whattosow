@@ -87,6 +87,13 @@ export const editorialPosts: EditorialPost[] = [
           "It doesn't squeak. The handles are proper handles, comfortable to hold. And the puncture-free wheel means no slow flat halfway through a job — which, given my last one had a literal nail through it, feels like a small luxury. I've used it to barrow woodchip up to line the paths and to wheel up bag after bag of soil, and it takes it all in its stride.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/wheelbarrow-headon-haemmerlin.webp",
+        alt: "The empty green Haemmerlin wheelbarrow head-on, its name on the handle grips, parked on a woodchip path between the allotment beds",
+        caption: "Haemmerlin on the grips, sat on the very woodchip paths it helped me lay.",
+      },
+      {
         type: "quote",
         content:
           "It's propped against the shed as I write this, and I rather like catching sight of that bright wheel from clear across the plot.",
@@ -104,6 +111,13 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "A wheelbarrow isn't a glamorous purchase. But it's one of those quiet, everyday tools you reach for constantly, and a good one makes the heavy days lighter. After four years of leaning right, I'm happy to wheel a straight line. And come winter, it'll be tucked away in the shed, out of the weather, to keep it in tip-top condition for what I hope will be many years to come.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/wheelbarrow-dot-shed.webp",
+        alt: "Dot the cat sitting on a bench by the shed, the wheelbarrow resting in the long grass beside her",
+        caption: "Off-duty by the shed, under Dot's close supervision.",
       },
     ],
     relatedCrops: [],
