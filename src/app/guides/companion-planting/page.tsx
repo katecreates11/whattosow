@@ -698,7 +698,9 @@ export default function CompanionPlantingGuide() {
                 polyculture, but tidy enough to keep track of.{" "}
                 <a href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
                   Here&apos;s how I plant my beds the square-foot way &rarr;
-                </a>
+                </a>{" "}
+                The colour-coded{" "}
+                <a href="https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="Seeding Square" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seeding square I use is on Amazon</a>.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
@@ -784,7 +786,7 @@ export default function CompanionPlantingGuide() {
             </p>
             <div className="space-y-3">
               <div className="border-l-2 border-tomato/40 pl-4">
-                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are a fine mesh or fleece barrier, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <a href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</a> or garlic.</p>
+                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are a <a href="https://www.amazon.co.uk/s?k=enviromesh+fine+insect+mesh+netting&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="insect mesh" className="text-rust underline decoration-rust/30 hover:text-earth">fine insect-mesh</a> or fleece barrier, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <a href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</a> or garlic.</p>
               </div>
               <div className="border-l-2 border-tomato/40 pl-4">
                 <p className="text-sm"><strong className="text-earth">&ldquo;Basil makes tomatoes taste better.&rdquo;</strong> A lovely idea with no evidence behind it. Basil is still a fine neighbour for <a href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</a> &mdash; it may deter a few flies, and it crops in the same warm spot &mdash; but it won&apos;t change the flavour of the fruit.</p>
@@ -909,6 +911,61 @@ export default function CompanionPlantingGuide() {
                 </p>
               </div>
             </div>
+          </section>
+
+          {/* Books worth having — Amazon affiliate */}
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-3 tracking-tight">
+              Books worth having
+            </h2>
+            <p className="mb-6 text-sm max-w-2xl">
+              A companion chart gets you started; these are the ones I&apos;d point any UK grower to &mdash; the
+              companion-planting classic, plus the two grow-your-own books I actually reach for.
+            </p>
+            <div className="border-t border-earth/10">
+              {[
+                {
+                  title: "Carrots Love Tomatoes",
+                  author: "Louise Riotte",
+                  blurb: "The original companion-planting reference — plain-English, and the book most companion-growers end up with.",
+                  url: "https://www.amazon.co.uk/dp/1580170277?tag=whattosow21-21",
+                },
+                {
+                  title: "No Dig",
+                  author: "Charles Dowding",
+                  blurb: "The no-dig bible — nurture the soil, weed less, grow more. The method behind most modern UK allotments.",
+                  url: "https://www.amazon.co.uk/dp/0241541816?tag=whattosow21-21",
+                },
+                {
+                  title: "Veg in One Bed",
+                  author: "Huw Richards",
+                  blurb: "How to grow an abundance from a single raised bed, month by month — the perfect first grow-your-own book.",
+                  url: "https://www.amazon.co.uk/dp/0241614805?tag=whattosow21-21",
+                },
+              ].map((b) => (
+                <div key={b.title} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 border-b border-earth/10 py-4">
+                  <div className="sm:flex-1">
+                    <span className="font-serif text-lg text-earth">{b.title}</span>
+                    <span className="text-earth-lighter text-sm"> &mdash; {b.author}</span>
+                    <p className="text-sm text-earth-light leading-snug mt-0.5">{b.blurb}</p>
+                  </div>
+                  <a
+                    href={b.url}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    data-umami-event="gear-affiliate-click"
+                    data-umami-event-product={b.title}
+                    className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap self-start shrink-0"
+                  >
+                    View on Amazon &rarr;
+                  </a>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-earth-lighter mt-3">
+              Amazon &amp; seed links here are affiliate links &mdash; we may earn a little, at no extra cost to
+              you, towards the allotment shed.
+            </p>
           </section>
 
           {/* Cross-links */}
