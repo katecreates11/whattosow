@@ -340,7 +340,9 @@ export default function WateringGuide() {
             </h2>
             <div className="space-y-3">
               <p>
-                A basic 200-litre water butt costs &pound;25&ndash;40 and
+                A basic{" "}
+                <a href="/blog/best-water-butts-uk" className="text-rust underline decoration-rust/30 hover:text-earth">200-litre water butt</a>{" "}
+                costs &pound;25&ndash;40 and
                 connects to the downpipe of any shed, greenhouse, or polytunnel
                 roof. Rainwater is actually better for plants than tap water
                 &mdash; it&apos;s at ambient temperature (no cold shock) and
@@ -636,6 +638,13 @@ export default function WateringGuide() {
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Starting from seed</span>
                   <p className="text-sm text-earth-light mt-1">Get seedlings off to a strong start.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a href="/blog/best-water-butts-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">The best water butts UK</span>
+                  <p className="text-sm text-earth-light mt-1">Free rainwater all season &mdash; which butt to buy.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>

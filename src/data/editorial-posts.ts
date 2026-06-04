@@ -2159,6 +2159,413 @@ export const editorialPosts: EditorialPost[] = [
     ],
     relatedCrops: ["borage", "marigolds"],
   },
+
+  // ─── Buying guides — higher-value kit (the commission multiplier) ───────────
+  // Honest "what to look for + the options" guides for kit not personally owned;
+  // no star ratings (we only rate what we use). Amazon search links by product
+  // name so the link always finds the real, current product.
+  {
+    slug: "best-raised-beds-uk",
+    title: "The best raised beds for a UK garden or allotment",
+    description:
+      "Best raised beds UK: how to choose between wooden, metal and tall raised planters, what depth and width actually matter, and the options worth your money — for vegetables, on any plot.",
+    publishDate: new Date("2026-06-04"),
+    keywords: [
+      "best raised beds UK",
+      "raised bed kits UK",
+      "wooden raised beds",
+      "metal raised beds UK",
+      "raised garden beds for vegetables",
+      "tall raised planter UK",
+    ],
+    heroImage: "/photos/blog/raised-bed-membrane-spring.webp",
+    heroAlt: "A freshly built raised bed lined with membrane on a UK allotment in spring",
+    intro:
+      "A raised bed is the kindest way I know to start growing — warmer soil, better drainage, and far less bending. Here's how to choose one that'll still be standing in ten years, whatever your plot.",
+    tags: ["buying guide", "raised beds"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "There's a reason nearly every allotment ends up with raised beds. The soil inside one warms faster in spring — by a few degrees, which is enough to sow two or three weeks earlier — it drains better after our endlessly wet winters, and it gives you a clean edge to work from so you're never standing on (and squashing) the ground your roots want to grow into. It's also simply gentler on your back, which matters more every season.",
+      },
+      {
+        type: "text",
+        content:
+          "You can build one from scaffold boards for next to nothing, and if you're handy that's a lovely Saturday. But a good kit goes up in an afternoon, squares up properly at the corners, and saves you sourcing timber — so if you'd rather be growing than woodworking, here's what to look for.",
+      },
+      {
+        type: "heading",
+        content: "What to look for",
+      },
+      {
+        type: "text",
+        content:
+          "Depth first. Aim for at least 20cm of soil — 30cm or more if you want to grow carrots, parsnips and other long roots, or if you're putting the bed on a hard surface. Width second: you should be able to reach the middle from either side without treading on the soil, so keep it to about 1.2m across (narrower if it's against a wall). Then material: untreated or naturally durable timber (cedar, larch, oak) for anything you'll eat from; FSC-certified if you can. Powder-coated steel and Corten ('rusted' weathering) beds last decades and look wonderful, but check the steel is food-safe. Tall planters that bring the soil up to waist height are a joy if bending is hard — just remember they need a lot of compost to fill and dry out faster, so they want more watering.",
+      },
+      {
+        type: "heading",
+        content: "The options worth considering",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "Wooden raised bed kit", use: "The classic — warm, natural, easy to extend. Choose FSC/untreated for edibles", price: "~£40–120", url: "https://www.amazon.co.uk/s?k=wooden+raised+bed+kit+vegetables&tag=whattosow21-21" },
+          { name: "Metal / Corten steel bed", use: "Long-lasting and handsome; warms fast. Check food-safe steel", price: "~£60–180", url: "https://www.amazon.co.uk/s?k=metal+raised+garden+bed&tag=whattosow21-21" },
+          { name: "Tall raised planter (waist height)", use: "No bending at all — kindest on the back; needs more compost & water", price: "~£70–160", url: "https://www.amazon.co.uk/s?k=tall+raised+planter+vegetables&tag=whattosow21-21" },
+          { name: "Modular / extendable bed", use: "Start small, add sections as the plot grows", price: "~£35–90", url: "https://www.amazon.co.uk/s?k=modular+raised+bed&tag=whattosow21-21" },
+          { name: "Raised bed liner", use: "Lines timber to make it last and keeps soil off the wood", price: "~£10–20", url: "https://www.amazon.co.uk/s?k=raised+bed+liner&tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "tip",
+        content:
+          "Whatever you choose, the bed is only as good as what goes in it. Fill with a mix of topsoil and well-rotted compost rather than compost alone (pure compost sinks and dries out), and top up with an inch of fresh compost each spring — the no-dig way. A bed roughly 1.2m × 2.4m is the sweet spot: big enough to be worth it, small enough to reach.",
+      },
+      {
+        type: "text",
+        content:
+          "Once it's built, the fun begins: gridding it up the square-foot way and tucking in good companions. I've written about both — they turn one tidy bed into a surprising amount of food.",
+      },
+    ],
+    relatedCrops: ["carrots", "beetroot", "lettuce", "radishes"],
+  },
+  {
+    slug: "best-cold-frames-greenhouses-uk",
+    title: "Cold frames & small greenhouses: how to extend your UK season",
+    description:
+      "Best cold frames and small greenhouses UK: how a little glass or polycarbonate buys you weeks at both ends of the season, what to look for, and the options for any size of plot or budget.",
+    publishDate: new Date("2026-06-04"),
+    keywords: [
+      "best cold frame UK",
+      "small greenhouse UK",
+      "mini greenhouse for seedlings",
+      "polycarbonate greenhouse",
+      "cold frame for hardening off",
+      "extend growing season UK",
+    ],
+    heroImage: "/photos/blog/allotment-netting-cloches-2024.webp",
+    heroAlt: "Cloches and netting protecting young plants on a UK allotment",
+    intro:
+      "A little glass changes everything. A cold frame or small greenhouse buys you weeks at both ends of the season — earlier sowings, somewhere to harden off, and a snug spot for tender things when the nights turn. Here's how to choose.",
+    tags: ["buying guide", "season extension"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "Our growing season is short and our springs are fickle. A cold frame or small greenhouse is the cheapest way to stretch it: a few degrees of warmth and shelter from wind and battering rain lets you sow earlier, harden seedlings off gently before they go out, and keep picking salad well into the cold. Autumn is the clever time to buy one — you'll want it ready for next spring, and it earns its keep overwintering hardy crops too.",
+      },
+      {
+        type: "text",
+        content:
+          "Start with the smallest thing that solves your problem. If you just need somewhere to harden off and protect a tray or two, a cold frame or a little walk-in 'grow house' does the job for very little. If you want to grow tomatoes under cover and potter in the dry, that's when a proper greenhouse earns its space.",
+      },
+      {
+        type: "heading",
+        content: "What to look for",
+      },
+      {
+        type: "text",
+        content:
+          "Glazing: toughened glass is clearest and lasts longest but costs more and can break; twin-wall polycarbonate is lighter, safer near children, insulates better and won't shatter — my pick for an allotment, where the wind likes to test things. Frame: aluminium is light and rust-free; treated timber is warmer to look at and easier to fix shelves to. Ventilation matters more than people think — look for an opening roof vent or louvre, because an unventilated greenhouse cooks in June. And whatever you buy, anchor it: an allotment greenhouse that isn't bolted or pegged down will eventually go for a walk in a gale.",
+      },
+      {
+        type: "heading",
+        content: "The options worth considering",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "Wooden cold frame", use: "Hardening off & early sowings; tidy and long-lived", price: "~£40–110", url: "https://www.amazon.co.uk/s?k=wooden+cold+frame&tag=whattosow21-21" },
+          { name: "Walk-in 'grow house' (PE cover)", use: "Cheapest cover for trays & pots; replace the cover every few years", price: "~£25–70", url: "https://www.amazon.co.uk/s?k=walk+in+greenhouse+grow+house&tag=whattosow21-21" },
+          { name: "Mini lean-to greenhouse", use: "Tight spaces and balconies; sits against a wall", price: "~£40–100", url: "https://www.amazon.co.uk/s?k=mini+lean+to+greenhouse&tag=whattosow21-21" },
+          { name: "Polycarbonate greenhouse (4×6)", use: "Wind-tough, safe, insulating — best all-rounder for a plot", price: "~£200–450", url: "https://www.amazon.co.uk/s?k=polycarbonate+greenhouse+4x6&tag=whattosow21-21" },
+          { name: "Aluminium & glass greenhouse", use: "The clearest light and the dream potting shed", price: "~£350–900", url: "https://www.amazon.co.uk/s?k=aluminium+glass+greenhouse&tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "tip",
+        content:
+          "Add a max-min thermometer and some fleece from day one. The thermometer tells you how warm it really gets (you'll be surprised), and on a frosty night a layer of fleece inside the frame adds a few precious degrees. In high summer, paint on some shade or drape mesh — under glass, scorch happens fast.",
+      },
+      {
+        type: "text",
+        content:
+          "Pair it with a heated propagator for the earliest sowings and you've got a proper little production line from January onwards — there's a guide to those below.",
+      },
+    ],
+    relatedCrops: ["tomatoes", "peppers", "chillies", "cucumbers"],
+  },
+  {
+    slug: "best-water-butts-uk",
+    title: "The best water butts for a UK garden or allotment",
+    description:
+      "Best water butts UK: what size you really need, how to set one up for good flow, and the options from slimline garden butts to big allotment tanks — so you're never caught out by a dry spell or a hosepipe ban.",
+    publishDate: new Date("2026-06-04"),
+    keywords: [
+      "best water butt UK",
+      "water butt with stand",
+      "slimline water butt",
+      "allotment water storage",
+      "rainwater harvesting garden",
+      "water butt hosepipe ban",
+    ],
+    heroImage: "/photos/guides/watering-strawberry-bed.webp",
+    heroAlt: "Watering a strawberry bed on a UK allotment",
+    intro:
+      "Rain is free, and plants prefer it to tap water. A water butt (or three) keeps you growing through the dry weeks and the hosepipe bans — here's how to size and set one up so it actually delivers.",
+    tags: ["buying guide", "watering"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "We get plenty of rain in this country — just rarely when we want it. A water butt banks the winter and spring downpours for the dry fortnight in July when the seedlings are gasping and a hosepipe ban has just been announced. Rainwater is better for plants too: soft, room-temperature and free of the chlorine that tap water carries.",
+      },
+      {
+        type: "text",
+        content:
+          "The single most common mistake is going too small. A 100-litre slimline butt looks generous until a hot week empties it in days. If you've the room, more storage is always the right answer — link two butts together and you've a proper reserve.",
+      },
+      {
+        type: "heading",
+        content: "What to look for",
+      },
+      {
+        type: "text",
+        content:
+          "Capacity: treat 200 litres as a sensible minimum for a garden; on an allotment, the biggest tank you can fill. A diverter kit that taps into a downpipe (house, shed or greenhouse) fills the butt far faster than rain falling in the top, and sends the overflow back down the drain. Height matters for flow — stand the butt up on blocks or a proper stand so you can get a watering can under the tap and let gravity do the work. A lid is non-negotiable: it keeps out leaves, mosquito larvae and curious wildlife (and small children). On an allotment with no roof to harvest from, a big freestanding tank with a rain-catching lid does the job.",
+      },
+      {
+        type: "heading",
+        content: "The options worth considering",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "Slimline water butt (100–150L)", use: "Tight spots and side returns; expect to top up in a dry spell", price: "~£30–55", url: "https://www.amazon.co.uk/s?k=slimline+water+butt&tag=whattosow21-21" },
+          { name: "Standard butt + stand (200–250L)", use: "The sensible default — get the stand for can-height flow", price: "~£40–80", url: "https://www.amazon.co.uk/s?k=water+butt+200+litre+with+stand&tag=whattosow21-21" },
+          { name: "Downpipe diverter kit", use: "Fills the butt far faster from a roof; overflow-safe", price: "~£10–20", url: "https://www.amazon.co.uk/s?k=water+butt+rain+diverter+kit&tag=whattosow21-21" },
+          { name: "Large allotment tank (500L+)", use: "Serious storage for a thirsty plot", price: "~£90–200", url: "https://www.amazon.co.uk/s?k=large+water+butt+500+litre&tag=whattosow21-21" },
+          { name: "Linking kit (connect two butts)", use: "Double your reserve when one fills", price: "~£8–15", url: "https://www.amazon.co.uk/s?k=water+butt+linking+kit&tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "tip",
+        content:
+          "Set it up where you'll actually use it — beside the beds you water most, not the far corner. And once it's flowing, water at the roots in the cool of the evening with a long lance rather than sprinkling the leaves; you'll lose far less to evaporation and the plants will thank you for it.",
+      },
+      {
+        type: "text",
+        content:
+          "For how and when to water once you've banked the rain, there's a full watering guide below — including the watering lance that turned the job from a chore into a pleasure.",
+      },
+    ],
+    relatedCrops: ["tomatoes", "courgettes", "runner-beans", "cucumbers"],
+  },
+  {
+    slug: "best-compost-bins-uk",
+    title: "The best compost bins for a UK garden or allotment",
+    description:
+      "Best compost bins UK: dalek bins, hot composters, tumblers and wormeries compared — which suits your space and patience, what to look for, and how to turn kitchen and plot waste into free soil.",
+    publishDate: new Date("2026-06-04"),
+    keywords: [
+      "best compost bin UK",
+      "hot composter UK",
+      "compost tumbler",
+      "wormery UK",
+      "dalek compost bin",
+      "home composting beginners",
+    ],
+    heroImage: "/photos/guides/allotment-fresh-beds.webp",
+    heroAlt: "Freshly composted and prepared allotment beds",
+    intro:
+      "Compost is the closest thing to free that growing offers — your peelings and prunings turned into the best soil improver there is. Here's how to choose the bin that suits your space, your patience and your back.",
+    tags: ["buying guide", "composting"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "Every plot makes the raw materials for next year's harvest: grass, weeds, spent plants, cardboard, and a steady stream of kitchen peelings. A compost bin turns that pile of 'waste' into dark, sweet-smelling crumb that feeds your beds for nothing. Once you're making your own, you stop buying bags of it — and your soil gets better every single year.",
+      },
+      {
+        type: "text",
+        content:
+          "The right bin depends on how quickly you want results and how much you'll turn it. A cheap 'dalek' bin and a bit of patience makes lovely compost in a year. A hot bin or tumbler makes it in weeks, but costs more and likes a bit of attention. A wormery suits a small garden or balcony and gives you a brilliant liquid feed as a bonus.",
+      },
+      {
+        type: "heading",
+        content: "What to look for",
+      },
+      {
+        type: "text",
+        content:
+          "Capacity: bigger composts faster (more mass holds more heat), so go as large as your space allows — two bins beat one, so you can fill one while the other finishes. A good lid keeps the rain off and the warmth in. For 'dalek' bins, check there's a hatch at the base to dig out the finished stuff. Hot bins want decent insulation; tumblers want a sturdy frame and an easy turning action (the cheap ones can be a wrestling match when full). For a wormery, look for a tap to draw off the liquid feed. Whatever you choose, the secret is the same: roughly half 'greens' (peelings, grass, soft growth) to half 'browns' (cardboard, dead leaves, woody bits), kept damp, and turned now and then.",
+      },
+      {
+        type: "heading",
+        content: "The options worth considering",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "'Dalek' cold compost bin", use: "Cheap, simple, reliable — compost in about a year", price: "~£25–50", url: "https://www.amazon.co.uk/s?k=compost+bin+dalek&tag=whattosow21-21" },
+          { name: "Hot composter (insulated)", use: "Finished compost in weeks; handles cooked food & weeds", price: "~£120–220", url: "https://www.amazon.co.uk/s?k=hot+composter+insulated&tag=whattosow21-21" },
+          { name: "Compost tumbler", use: "Easy turning, faster results, rat-resistant — good for gardens", price: "~£60–140", url: "https://www.amazon.co.uk/s?k=compost+tumbler&tag=whattosow21-21" },
+          { name: "Wormery", use: "Small spaces; brilliant liquid feed and worm castings", price: "~£60–120", url: "https://www.amazon.co.uk/s?k=wormery+composting&tag=whattosow21-21" },
+          { name: "Bokashi kit (kitchen)", use: "Ferments all food waste indoors to add to a bin later", price: "~£30–60", url: "https://www.amazon.co.uk/s?k=bokashi+composting+kit&tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "tip",
+        content:
+          "If you only do one thing, get the greens-to-browns balance right: a bin that's all grass clippings goes to slime, and one that's all cardboard just sits there. Keep a stash of torn-up cardboard next to the bin and add a layer every time you tip in the kitchen caddy. Damp as a wrung-out sponge is the texture you're after.",
+      },
+      {
+        type: "text",
+        content:
+          "There's a fuller composting guide below if you want to go deeper — and a no-dig approach that puts all that lovely compost straight to work.",
+      },
+    ],
+    relatedCrops: [],
+  },
+  {
+    slug: "best-heated-propagators-grow-lights-uk",
+    title: "Heated propagators & grow lights: starting seeds early in the UK",
+    description:
+      "Best heated propagators and grow lights UK: how to germinate chillies, tomatoes and more weeks ahead on a dim windowsill, what wattage and warmth you need, and the options for every budget.",
+    publishDate: new Date("2026-06-04"),
+    keywords: [
+      "best heated propagator UK",
+      "grow lights for seedlings UK",
+      "seed starting indoors",
+      "propagator with thermostat",
+      "LED grow light seedlings",
+      "start chillies early",
+    ],
+    heroImage: "/photos/blog/tomato-seedlings-pots.webp",
+    heroAlt: "Young tomato seedlings in pots started indoors",
+    intro:
+      "The crops that need the longest season — chillies, peppers, aubergines, tomatoes — want starting when the windowsill is still dim and cold. A heated propagator and a grow light give them the warmth and bright light they're missing. Here's what to look for.",
+    tags: ["buying guide", "seed starting"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "January and February are when the long-season crops should be going in — and they're exactly the weeks our windowsills can't deliver. Seeds want gentle, steady warmth from below to germinate; seedlings then want bright light from above or they stretch into pale, leggy things reaching for a sun that isn't there. A heated propagator solves the first problem, a grow light the second. Together they're the difference between a sturdy plant by April and a disappointment.",
+      },
+      {
+        type: "text",
+        content:
+          "You don't need a fancy setup. A simple heated mat or a windowsill propagator gets most things going; add a small LED grow light once they're up and you've fixed the leggy-seedling problem that defeats so many people in spring.",
+      },
+      {
+        type: "heading",
+        content: "What to look for",
+      },
+      {
+        type: "text",
+        content:
+          "Propagators: the cheapest are unheated 'windowsill' trays with a clear lid — fine for spring sowings in a warm room. Heated versions add gentle bottom warmth; the best have a thermostat so you can hold a steady temperature (around 18–21°C suits most seeds) rather than cooking them. Match the size to your windowsill. Grow lights: look for 'full spectrum' LEDs — efficient, cool-running and cheap to leave on. A clip-on or adjustable-height light is ideal, kept just a few inches above the seedlings and run about 12–16 hours a day (a plug timer makes that effortless). Ignore the wild lumen claims and judge by the size of area it's meant to cover.",
+      },
+      {
+        type: "heading",
+        content: "The options worth considering",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "Windowsill propagator (unheated)", use: "Spring sowings in a warm room — cheapest start", price: "~£8–20", url: "https://www.amazon.co.uk/s?k=windowsill+propagator&tag=whattosow21-21" },
+          { name: "Heated propagator (thermostat)", use: "Early chillies, peppers & tomatoes; steady gentle warmth", price: "~£30–80", url: "https://www.amazon.co.uk/s?k=heated+propagator+thermostat&tag=whattosow21-21" },
+          { name: "Heat mat", use: "Warm any tray from below; pairs with your own pots", price: "~£15–35", url: "https://www.amazon.co.uk/s?k=seedling+heat+mat&tag=whattosow21-21" },
+          { name: "LED grow light (clip / adjustable)", use: "Stops seedlings going leggy on a dim sill", price: "~£20–60", url: "https://www.amazon.co.uk/s?k=full+spectrum+led+grow+light+seedlings&tag=whattosow21-21" },
+          { name: "Grow light shelf / tent", use: "Raising lots of seedlings indoors at once", price: "~£60–150", url: "https://www.amazon.co.uk/s?k=grow+light+shelf+seed+starting&tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "tip",
+        content:
+          "Put the grow light on a cheap plug timer (12–16 hours) so you can't forget it, and keep it close — a couple of inches above the leaves, raised as they grow. Bottom warmth gets seeds up; bright light close overhead keeps them stocky. That's the whole secret.",
+      },
+      {
+        type: "text",
+        content:
+          "Once they're up and growing, there's a full seed-starting guide and a kit list below — and a cold frame is the natural next step for hardening them off before they go out.",
+      },
+    ],
+    relatedCrops: ["chillies", "peppers", "tomatoes", "aubergine"],
+  },
+  {
+    slug: "best-polytunnels-uk",
+    title: "Polytunnels for an allotment: are they worth it, and what to look for",
+    description:
+      "Best polytunnels UK: how a polytunnel transforms what you can grow, what size and cover to choose, anchoring against the wind, and the options from pop-up tunnels to walk-in frames.",
+    publishDate: new Date("2026-06-04"),
+    keywords: [
+      "best polytunnel UK",
+      "polytunnel for allotment",
+      "walk in polytunnel",
+      "small polytunnel garden",
+      "polytunnel vs greenhouse",
+      "grow vegetables under cover",
+    ],
+    heroImage: "/photos/blog/plot-full-summer.webp",
+    heroAlt: "A full, productive allotment plot in high summer",
+    intro:
+      "A polytunnel is the most growing space you can buy per pound — a long, light-filled room that lets you start earlier, crop later, and grow things our summers can't quite manage outdoors. Here's whether it's worth it, and how to choose one.",
+    tags: ["buying guide", "season extension"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "If a greenhouse is a jewel box, a polytunnel is a workhorse: far cheaper for the space, quick to put up, and big enough to walk into and grow proper rows under cover. It buys you weeks at both ends of the season, shrugs off the worst of the weather, and finally makes outdoor tomatoes, aubergines and melons a realistic prospect in a cool British summer. For an allotment, pound for pound, nothing else gives you as much.",
+      },
+      {
+        type: "text",
+        content:
+          "The trade-offs are honest ones. The cover (the polythene 'skin') needs replacing every five years or so. It needs good ventilation or it bakes. And it absolutely must be anchored properly, because a tunnel that catches the wind wrongly can be destroyed in a single gale. Get those three things right and it'll repay you for years.",
+      },
+      {
+        type: "heading",
+        content: "What to look for",
+      },
+      {
+        type: "text",
+        content:
+          "Frame: thicker steel tubing stands up to wind far better than the flimsy poles on the cheapest pop-ups — worth paying for if it's staying up year-round. Cover: look for UV-stabilised, anti-drip ('anti-fog') polythene, which lasts longer and stops cold drips falling on your plants. Doors at both ends give you the cross-flow ventilation that stops it overheating; roll-up sides are better still. Size: taller and wider than you think — you want headroom to work and a path down the middle. And anchoring: ground anchors or a base rail, plus burying or trenching the cover edge, is what keeps the whole thing earthbound.",
+      },
+      {
+        type: "heading",
+        content: "The options worth considering",
+      },
+      {
+        type: "table",
+        content: "",
+        rows: [
+          { name: "Pop-up / small grow tunnel", use: "Beds & low rows; cheapest cover — not for exposed sites", price: "~£20–60", url: "https://www.amazon.co.uk/s?k=garden+polytunnel+grow+tunnel&tag=whattosow21-21" },
+          { name: "Walk-in polytunnel (small, ~2×3m)", use: "A proper room to grow in on a modest plot", price: "~£70–160", url: "https://www.amazon.co.uk/s?k=walk+in+polytunnel&tag=whattosow21-21" },
+          { name: "Heavy-duty allotment tunnel", use: "Year-round, wind-tough steel frame with proper doors", price: "~£200–600", url: "https://www.amazon.co.uk/s?k=heavy+duty+polytunnel+allotment&tag=whattosow21-21" },
+          { name: "Replacement cover (anti-drip)", use: "Renew the skin every ~5 years; UV-stabilised", price: "~£30–90", url: "https://www.amazon.co.uk/s?k=polytunnel+cover+replacement&tag=whattosow21-21" },
+          { name: "Ground anchor kit", use: "What keeps it earthbound in a gale — don't skip it", price: "~£15–40", url: "https://www.amazon.co.uk/s?k=polytunnel+ground+anchor+kit&tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "tip",
+        content:
+          "Site it running roughly north–south for even light, on the least windy spot you have, with the doors facing away from the prevailing wind. Open it up on warm mornings and close it by evening — a tunnel can swing from frosty to tropical in a day, and ventilation is what keeps your plants (and you) happy.",
+      },
+      {
+        type: "text",
+        content:
+          "Not ready for a tunnel? A cold frame or small greenhouse gives you a gentler, cheaper way into season extension — there's a guide to those below.",
+      },
+    ],
+    relatedCrops: ["tomatoes", "aubergine", "cucumbers", "peppers"],
+  },
 ];
 
 export function getEditorialPost(slug: string): EditorialPost | undefined {

@@ -407,7 +407,9 @@ export default function SoilGuide() {
             <div className="space-y-3">
               <p>
                 If your soil is truly terrible &mdash; solid clay, full of
-                rubble, contaminated, or just unknown &mdash; raised beds let
+                rubble, contaminated, or just unknown &mdash;{" "}
+                <a href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised beds</a>{" "}
+                let
                 you start from scratch. Fill them with a mix of topsoil and
                 compost and you&apos;ve got perfect growing conditions from day
                 one.
@@ -638,6 +640,13 @@ export default function SoilGuide() {
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Beginner&apos;s guide</span>
                   <p className="text-sm text-earth-light mt-1">New to growing? Start here.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a href="/blog/best-raised-beds-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">The best raised beds UK</span>
+                  <p className="text-sm text-earth-light mt-1">Start from scratch over bad ground &mdash; which to buy.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>

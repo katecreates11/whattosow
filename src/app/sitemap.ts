@@ -4,6 +4,7 @@ import { cities } from "@/data/cities";
 import { MONTH_SLUGS } from "@/lib/calendar";
 import { getPublishedPosts } from "@/data/blog-posts";
 import { getPublishedEditorialPosts } from "@/data/editorial-posts";
+import { companionTopics } from "@/data/companion-topics";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -47,6 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const monthlyPages = MONTH_SLUGS.map((month) => ({
     url: `${baseUrl}/sow/${month}`,
     lastModified: new Date("2026-04-02"),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const companionTopicPages = companionTopics.map((t) => ({
+    url: `${baseUrl}/guides/companion-planting/${t.slug}`,
+    lastModified: new Date("2026-06-04"),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -133,6 +141,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/guides/companion-planting`,
       lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/autumn-winter-vegetables`,
+      lastModified: new Date("2026-06-04"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/green-manures`,
+      lastModified: new Date("2026-06-04"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/sun-mapping`,
+      lastModified: new Date("2026-06-04"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
@@ -226,5 +252,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...cropPages,
     ...varietyPages,
     ...monthlyPages,
+    ...companionTopicPages,
   ];
 }

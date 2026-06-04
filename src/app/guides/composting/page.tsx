@@ -237,7 +237,9 @@ export default function CompostingGuide() {
               <div className="space-y-3 text-sm text-earth-light leading-relaxed max-w-2xl mb-6">
                 <p>
                   There are four main ways to compost. Most allotment holders end up with
-                  a cold bin or pallet bay &mdash; it&apos;s simple, cheap, and works.
+                  a{" "}
+                  <a href="/blog/best-compost-bins-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold bin</a>{" "}
+                  or pallet bay &mdash; it&apos;s simple, cheap, and works.
                   But if you want compost faster, or you&apos;re short on space, the
                   other methods are worth knowing about.
                 </p>
@@ -549,6 +551,20 @@ export default function CompostingGuide() {
                   </span>
                   <p className="text-sm text-earth-light mt-1">
                     Slugs, aphids, blight &mdash; and how to deal with them.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
+                href="/blog/best-compost-bins-uk"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    The best compost bins UK
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Cold bins, hot bins and wormeries &mdash; which to buy.
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>

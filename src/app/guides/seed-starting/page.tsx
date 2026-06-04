@@ -289,7 +289,9 @@ export default function SeedStartingGuide() {
                     Heated propagator
                   </h3>
                   <p className="text-sm">
-                    A small electric propagator gives consistent bottom heat,
+                    A small{" "}
+                    <a href="/blog/best-heated-propagators-grow-lights-uk" className="text-rust underline decoration-rust/30 hover:text-earth">electric propagator</a>{" "}
+                    gives consistent bottom heat,
                     which speeds up germination significantly. Worth it for
                     peppers, aubergines, and chillies that need 25&deg;C+ to
                     germinate reliably. You can pick one up for under &pound;20.
@@ -302,7 +304,9 @@ export default function SeedStartingGuide() {
                   <p className="text-sm">
                     Good for hardy crops from March onwards, but no use for
                     tender crops until after frost risk has passed. Great for
-                    hardening off (more on that below).
+                    hardening off (more on that below). If you&apos;re weighing
+                    one up, see our{" "}
+                    <a href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</a>.
                   </p>
                 </div>
               </div>
@@ -363,7 +367,9 @@ export default function SeedStartingGuide() {
                   overtakes a February one
                 </li>
                 <li>
-                  A cheap LED grow light can help if you don&apos;t have a good
+                  A cheap{" "}
+                  <a href="/blog/best-heated-propagators-grow-lights-uk" className="text-rust underline decoration-rust/30 hover:text-earth">LED grow light</a>{" "}
+                  can help if you don&apos;t have a good
                   window, but it&apos;s not essential
                 </li>
               </ul>
@@ -685,6 +691,20 @@ export default function SeedStartingGuide() {
                   </span>
                   <p className="text-sm text-earth-light mt-1">
                     Just got a plot? Start here.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
+                href="/blog/best-heated-propagators-grow-lights-uk"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Heated propagators &amp; grow lights
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Germinate earlier and beat leggy seedlings &mdash; what to buy.
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>

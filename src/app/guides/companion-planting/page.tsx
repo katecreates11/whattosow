@@ -8,6 +8,7 @@ import { SectionDivider } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 import PinButton from "@/components/PinButton";
 import BedDiagram from "@/components/BedDiagram";
+import { companionTopics } from "@/data/companion-topics";
 
 export const metadata: Metadata = {
   title:
@@ -1036,6 +1037,32 @@ export default function CompanionPlantingGuide() {
               Amazon &amp; seed links here are affiliate links &mdash; we may earn a little, at no extra cost to
               you, towards the allotment shed.
             </p>
+          </section>
+
+          {/* Go deeper — the companion-planting cluster (crop-by-crop satellites) */}
+          <SectionDivider label="Go deeper" />
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-3 tracking-tight">
+              Companion planting, crop by crop
+            </h2>
+            <p className="mb-6 max-w-2xl">
+              Want the detail for one crop? These go deeper than the chart above &mdash; the best partners for each,
+              the flowers worth tucking in, and the neighbours to keep well apart.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-1 max-w-2xl">
+              {companionTopics.map((t) => (
+                <a
+                  key={t.slug}
+                  href={`/guides/companion-planting/${t.slug}`}
+                  className="flex items-center justify-between py-4 border-b border-earth/8 group"
+                >
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors pr-4">
+                    {t.title}
+                  </span>
+                  <span className="text-earth/20 group-hover:text-rust transition-colors text-xl shrink-0">&rarr;</span>
+                </a>
+              ))}
+            </div>
           </section>
 
           {/* Cross-links */}

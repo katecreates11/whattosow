@@ -210,6 +210,52 @@ export function renderPin(opts: PinOptions) {
 }
 
 /**
+ * A generic branded list pin — "5 companion plants for tomatoes", "What to sow
+ * in autumn", "Flowers for the veg patch". Typographic and photo-free, so it
+ * works for any guide or topic, and the numbered, saveable format is exactly
+ * what Pinterest rewards. A fresh creative per topic = more fresh pins to throw.
+ */
+export function renderListPin({
+  eyebrow,
+  title,
+  items,
+}: {
+  eyebrow: string;
+  title: string;
+  items: string[];
+}) {
+  const list = items.slice(0, 8);
+  return new ImageResponse(
+    (
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: CREAM, padding: "72px 64px 60px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontFamily: "Plex", fontSize: 22, letterSpacing: 4, textTransform: "uppercase", color: ALLOTMENT }}>
+            {eyebrow}
+          </span>
+          <div style={{ display: "flex", width: 84, height: 5, background: AMBER, margin: "26px 0 22px" }} />
+          <span style={{ fontFamily: "Newsreader", fontSize: 92, lineHeight: 0.96, color: EARTH, letterSpacing: -2, maxWidth: 820 }}>{title}</span>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", flex: 1, justifyContent: "center", marginTop: 8 }}>
+          {list.map((name, i) => (
+            <div key={name} style={{ display: "flex", alignItems: "baseline", padding: "13px 0", borderBottom: `1px solid ${ALLOTMENT}22` }}>
+              <span style={{ fontFamily: "Plex", fontSize: 22, color: AMBER, width: 64 }}>{String(i + 1).padStart(2, "0")}</span>
+              <span style={{ fontFamily: "Newsreader", fontSize: 42, color: EARTH }}>{name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", width: "100%", marginTop: 24 }}>
+          <span style={{ fontFamily: "Newsreader", fontSize: 34, color: EARTH }}>What To Sow</span>
+          <span style={{ fontFamily: "Plex", fontSize: 20, letterSpacing: 1, color: EARTH_LIGHT }}>whattosow.co.uk</span>
+        </div>
+      </div>
+    ),
+    { ...PIN_SIZE, fonts: pinFonts() }
+  );
+}
+
+/**
  * Seasonal "what to sow this month" list pin — a specific, saveable format
  * that does well on Pinterest ("what to plant in June UK"). Typographic, no
  * photo needed, so it works for every month.

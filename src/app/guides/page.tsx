@@ -22,6 +22,9 @@ const guideImages: Record<string, string> = {
   "/guides/allotment-essentials": "/photos/guides/allotment-wide-summer.webp",
   "/guides/composting": "/photos/guides/allotment-fresh-beds.webp",
   "/guides/growing-fruit": "/photos/crops/strawberry-harvest-punnet.webp",
+  "/guides/autumn-winter-vegetables": "/photos/blog/plot-late-summer.webp",
+  "/guides/green-manures": "/photos/guides/freshly-prepared-allotment-bed.webp",
+  "/guides/sun-mapping": "/photos/guides/allotment-wide-summer.webp",
 };
 const FALLBACK_IMG = "/photos/guides/allotment-wide-summer.webp";
 
@@ -131,6 +134,22 @@ const guides = [
     number: "05",
   },
   {
+    title: "Green manures & cover crops",
+    description:
+      "What to sow over winter to protect bare soil, smother weeds and feed the ground for free — the gardener's secret to richer beds next year.",
+    href: "/guides/green-manures",
+    tag: "Planning",
+    number: "15",
+  },
+  {
+    title: "Sun mapping your garden",
+    description:
+      "How to work out which beds get full sun, part shade or shade — what your garden's aspect means, and which crops to grow where.",
+    href: "/guides/sun-mapping",
+    tag: "Planning",
+    number: "16",
+  },
+  {
     title: "Watering your crops",
     description:
       "How much, how often, and when. The practical guide to watering vegetables without wasting water or drowning roots.",
@@ -160,7 +179,15 @@ const guides = [
       "Every crop you can sow this spring — hardy, half-hardy, and tender — with tips on when to start.",
     href: "/guides/spring-vegetables",
     tag: "Seasonal",
-    number: "08",
+    number: "13",
+  },
+  {
+    title: "What to sow in autumn & winter",
+    description:
+      "The season most growers waste. Quick crops to eat before the cold, hardy veg to overwinter for an early spring harvest, and how to protect it all.",
+    href: "/guides/autumn-winter-vegetables",
+    tag: "Seasonal",
+    number: "14",
   },
 ];
 
@@ -306,6 +333,18 @@ export default function GuidesIndex() {
                 <a href="/blog/watering-lance-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The watering lance &rarr;</a>
                 <a href="/blog/broadfork-clay-bindweed" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The broadfork &rarr;</a>
                 <a href="/blog/wheelbarrow-allotment-haemmerlin" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The wheelbarrow &rarr;</a>
+              </div>
+            </div>
+
+            <div className="mt-10 border-t border-earth/10 pt-8">
+              <div className="font-serif italic text-lg text-allotment mb-4">buying guides — kit worth getting right</div>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                <a href="/blog/best-raised-beds-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best raised beds &rarr;</a>
+                <a href="/blog/best-cold-frames-greenhouses-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Cold frames &amp; greenhouses &rarr;</a>
+                <a href="/blog/best-water-butts-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best water butts &rarr;</a>
+                <a href="/blog/best-compost-bins-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best compost bins &rarr;</a>
+                <a href="/blog/best-heated-propagators-grow-lights-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Propagators &amp; grow lights &rarr;</a>
+                <a href="/blog/best-polytunnels-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Polytunnels &rarr;</a>
               </div>
             </div>
           </div>

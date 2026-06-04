@@ -5,6 +5,7 @@ import PinThumb from "@/components/PinThumb";
 import { crops } from "@/data/crops";
 import { varietiesForCrop } from "@/lib/variety-routes";
 import { MONTH_SLUGS, MONTH_NAMES } from "@/lib/calendar";
+import { companionTopics } from "@/data/companion-topics";
 
 export const metadata: Metadata = {
   title: "Pin board (internal)",
@@ -18,6 +19,9 @@ function cropDesc(name: string) {
 }
 function seasonDesc(month: string) {
   return `What to sow in ${month} in the UK — everything worth sowing this month, tuned to your local frost date. ${TAGS}`;
+}
+function companionDesc(title: string) {
+  return `${title} — the UK companion planting pairings that actually work, what to grow alongside and what to keep apart. ${TAGS} #companionplanting`;
 }
 
 export default function PinsBoard() {
@@ -65,6 +69,27 @@ export default function PinsBoard() {
             </div>
           </details>
 
+          {/* This week's routine — make the weekly habit a 10-minute job */}
+          <section className="mb-14 border border-amber/40 bg-amber/10 p-5 sm:p-6 max-w-[70ch]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-allotment">This week&apos;s 10 minutes</span>
+            <p className="text-sm text-earth-light leading-relaxed mt-3">
+              Fresh pins beat re-pins, and a steady trickle beats a big batch. Aim for{" "}
+              <strong className="text-earth">7&ndash;10 fresh pins a week</strong> — a mix keeps the boards lively and
+              gives the algorithm something new each time. An easy weekly spread:
+            </p>
+            <ul className="mt-3 space-y-1.5 text-sm text-earth">
+              <li>· <strong>2 seasonal</strong> — this month&apos;s list + next month&apos;s (pin ahead of the season)</li>
+              <li>· <strong>2 crops</strong> — rotate through; pin the editorial <em>and</em> the full-bleed for variety</li>
+              <li>· <strong>2 companion</strong> — from the new set below (great savers)</li>
+              <li>· <strong>1&ndash;2 guides</strong> — a buying guide or seasonal guide, saved from its own page</li>
+            </ul>
+            <p className="text-xs text-earth-lighter mt-3 leading-relaxed">
+              Put the keyword at the <em>start</em> of the title, save to the matching keyworded board, and space them
+              out across a few days rather than all at once. Buying guides &amp; the autumn guide don&apos;t have a
+              board pin here yet — open the page and use its own &ldquo;Save to Pinterest&rdquo; button.
+            </p>
+          </section>
+
           {/* This month */}
           <section className="mb-16">
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment border-b border-earth/15 pb-3 mb-7">
@@ -93,6 +118,24 @@ export default function PinsBoard() {
                   contentPath={`/sow/${slug}`}
                   label={MONTH_NAMES[i]}
                   description={seasonDesc(MONTH_NAMES[i])}
+                />
+              ))}
+            </div>
+          </section>
+
+          {/* Companion planting — pins off the #1 page's new cluster */}
+          <section className="mb-16">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment border-b border-earth/15 pb-3 mb-7">
+              Companion planting <span className="text-earth-lighter">· {companionTopics.length}</span>
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              {companionTopics.map((t) => (
+                <PinThumb
+                  key={t.slug}
+                  pinPath={`/pins/companion/${t.slug}`}
+                  contentPath={`/guides/companion-planting/${t.slug}`}
+                  label={t.title}
+                  description={companionDesc(t.title)}
                 />
               ))}
             </div>
