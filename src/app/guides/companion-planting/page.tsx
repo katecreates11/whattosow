@@ -42,6 +42,43 @@ function slugify(name: string): string {
     .replace(/[^\w-]/g, "");
 }
 
+// Flowers worth tucking in alongside each crop (not in the crop data, since
+// flowers aren't crops). Falls back to the all-rounders for anything unlisted.
+const flowerCompanions: Record<string, string[]> = {
+  tomatoes: ["Marigolds", "Basil", "Nasturtiums"],
+  peppers: ["Marigolds", "Basil", "Nasturtiums"],
+  chillies: ["Marigolds", "Basil"],
+  aubergine: ["Marigolds", "Nasturtiums"],
+  cucumbers: ["Nasturtiums", "Borage", "Dill"],
+  courgettes: ["Nasturtiums", "Borage", "Marigolds"],
+  pumpkins: ["Nasturtiums", "Borage"],
+  squash: ["Nasturtiums", "Borage"],
+  sweetcorn: ["Nasturtiums"],
+  "runner-beans": ["Nasturtiums", "Borage", "Sweet peas"],
+  "french-beans": ["Nasturtiums", "Borage"],
+  "broad-beans": ["Nasturtiums", "Calendula"],
+  peas: ["Nasturtiums", "Sweet peas"],
+  lettuce: ["Marigolds", "Calendula", "Poached egg plant"],
+  beetroot: ["Marigolds", "Nasturtiums"],
+  carrots: ["Calendula", "Marigolds"],
+  potatoes: ["Marigolds", "Calendula"],
+  "maincrop-potatoes": ["Marigolds", "Calendula"],
+  cabbage: ["Nasturtiums", "Marigolds", "Calendula"],
+  broccoli: ["Nasturtiums", "Marigolds"],
+  cauliflower: ["Nasturtiums", "Marigolds"],
+  "brussels-sprouts": ["Nasturtiums", "Marigolds"],
+  kale: ["Nasturtiums", "Marigolds"],
+  "pak-choi": ["Nasturtiums"],
+  radishes: ["Nasturtiums"],
+  spinach: ["Marigolds"],
+  "swiss-chard": ["Marigolds", "Nasturtiums"],
+  strawberries: ["Borage"],
+  "onion-sets": ["Calendula"],
+  garlic: ["Calendula"],
+  leeks: ["Calendula"],
+};
+const DEFAULT_FLOWERS = ["Marigolds", "Calendula", "Poached egg plant"];
+
 export default function CompanionPlantingGuide() {
   // Build companion data from crop records
   const cropsWithCompanions = crops.filter(
@@ -313,33 +350,13 @@ export default function CompanionPlantingGuide() {
 
           {/* Crop-by-crop companion chart */}
           <section>
-            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
-              Companion planting chart
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-3 tracking-tight">
+              Companion planting combinations, in detail
             </h2>
-            <p className="mb-5 text-sm">A quick-reference table first; scroll on for the full detail and varieties.</p>
-            <div className="overflow-x-auto mb-10 -mx-6 sm:mx-0 px-6 sm:px-0">
-              <table className="w-full text-sm border-collapse min-w-[34rem]">
-                <thead>
-                  <tr className="border-b-2 border-earth/15 text-left">
-                    <th className="py-2 pr-4 font-mono text-[10px] uppercase tracking-[0.1em] text-earth-light">Crop</th>
-                    <th className="py-2 pr-4 font-mono text-[10px] uppercase tracking-[0.1em] text-allotment">Grows well with</th>
-                    <th className="py-2 font-mono text-[10px] uppercase tracking-[0.1em] text-tomato">Keep apart from</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cropsWithCompanions.map((crop) => (
-                    <tr key={crop.slug} className="border-b border-earth/8 align-top">
-                      <td className="py-2.5 pr-4 whitespace-nowrap">
-                        <a href={`/crops/${crop.slug}`} className="font-medium text-earth hover:text-allotment">{crop.name}</a>
-                      </td>
-                      <td className="py-2.5 pr-4 text-earth-light">{crop.companionPlants?.join(", ") || "—"}</td>
-                      <td className="py-2.5 text-earth-light">{crop.avoidPlants?.join(", ") || "—"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <h3 className="font-serif text-xl text-earth tracking-tight mb-6">In detail, crop by crop</h3>
+            <p className="mb-6 text-sm max-w-2xl">
+              Crop by crop &mdash; what to grow alongside each one, the flowers worth tucking in, and what to keep
+              apart. These are the pairings that have actually earned their place on our plot.
+            </p>
             <div className="space-y-6">
               {cropsWithCompanions.map((crop) => {
                 const imgPath = getCropImagePath(crop.slug);
@@ -410,6 +427,21 @@ export default function CompanionPlantingGuide() {
                           </div>
                         </div>
                       )}
+                      <div>
+                        <span className="text-xs text-earth-lighter block mb-1.5">
+                          Flowers to tuck in
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {(flowerCompanions[crop.slug] ?? DEFAULT_FLOWERS).map((name) => (
+                            <span
+                              key={name}
+                              className="inline-flex items-center text-xs px-2 py-1 border border-amber/30 bg-amber/10 text-earth"
+                            >
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -699,13 +731,28 @@ export default function CompanionPlantingGuide() {
                 ]}
               />
               <BedDiagram
-                title="Carrots & onions, alternating"
-                note="Alternate bands of carrots and onions — each masks the other's scent, confusing carrot fly and onion fly."
+                title="Carrots & onions, in alternating rows"
+                note="Sow each in its own dense row and alternate them down the bed — a row of carrots, a row of onions, and so on. Each row's scent masks the other, confusing carrot fly and onion fly."
                 plantings={[
-                  { name: "Carrots", color: "#C9772E", initial: "Ca", positions: [[18, 20], [39, 20], [61, 20], [82, 20], [18, 64], [39, 64], [61, 64], [82, 64]], r: 11 },
-                  { name: "Onions", color: "#8E7CB0", initial: "On", positions: [[18, 42], [39, 42], [61, 42], [82, 42], [18, 86], [39, 86], [61, 86], [82, 86]], r: 11 },
+                  { name: "Carrots (row)", color: "#C9772E", initial: "Ca", rows: [16, 50, 84] },
+                  { name: "Onions (row)", color: "#8E7CB0", initial: "On", rows: [33, 67] },
                 ]}
               />
+            </div>
+
+            {/* Tools for marking out & sowing rows — contextual Amazon products */}
+            <div className="mt-5 bg-cream border border-earth/10 p-5 sm:p-6">
+              <p className="text-sm text-earth-light leading-relaxed mb-3">
+                Alternating rows like these are far easier to keep straight with two cheap things in your pocket: a
+                <strong className="text-earth"> dibber</strong> for marking even holes and station-sowing, and a few
+                <strong className="text-earth"> seed markers</strong> so you remember which row is which once the carrot
+                and onion seedlings look alike. Both live in my kit bag all season.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">The kit I use</span>
+                <a href="https://www.amazon.co.uk/s?k=wooden+garden+dibber&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="dibber" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Wooden dibber &rarr;</a>
+                <a href="https://www.amazon.co.uk/s?k=wooden+plant+labels+seed+markers&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="seed markers" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Seed markers &amp; plant labels &rarr;</a>
+              </div>
             </div>
 
             {/* The Three Sisters — a worked example, with its UK caveat + seeds */}
