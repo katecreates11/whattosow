@@ -7,6 +7,7 @@ import { getCropImagePath } from "@/lib/crop-images";
 import { SectionDivider } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 import PinButton from "@/components/PinButton";
+import BedDiagram from "@/components/BedDiagram";
 
 export const metadata: Metadata = {
   title:
@@ -291,48 +292,6 @@ export default function CompanionPlantingGuide() {
             </div>
           </section>
 
-          {/* The Three Sisters — the classic, searched combo (with an honest UK caveat) */}
-          <section>
-            <div className="bg-sage/30 border border-earth/10 p-6 sm:p-7">
-              <h2 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-3">
-                The Three Sisters: the classic combination
-              </h2>
-              <p className="mb-3">
-                The oldest companion planting of all, from Indigenous North American gardens &mdash; three crops
-                that each do a job for the others:
-              </p>
-              <ul className="space-y-2 text-sm mb-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
-                  <span><strong className="text-earth"><a href="/crops/sweetcorn" className="hover:text-allotment underline decoration-earth/20">Sweetcorn</a></strong> grows tall and gives the beans a living frame to climb.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
-                  <span><strong className="text-earth"><a href="/crops/french-beans" className="hover:text-allotment underline decoration-earth/20">Climbing French beans</a></strong> fix nitrogen from the air, feeding the hungry corn and squash. (Use climbing French beans, not runner beans &mdash; runners grow too vigorously and swamp the corn.)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-allotment mt-0.5 shrink-0" aria-hidden="true">&middot;</span>
-                  <span><strong className="text-earth"><a href="/crops/pumpkins" className="hover:text-allotment underline decoration-earth/20">Squash or pumpkin</a></strong> sprawls along the ground, its big leaves shading out weeds and keeping the soil moist.</span>
-                </li>
-              </ul>
-              <p className="text-sm text-earth-light mb-3">
-                Sow the corn first in a block (it&apos;s wind-pollinated, so a block beats a row), add the beans
-                when the corn is a hand high, and tuck squash plants around the edge.
-              </p>
-              <p className="text-sm text-earth-light border-l-2 border-amber pl-4 mb-4">
-                <strong className="text-earth">An honest word for UK growers:</strong> the Three Sisters comes from a
-                warmer climate, and in a cool British summer sweetcorn and squash can both struggle to ripen. It&apos;s
-                well worth trying as a bit of fun &mdash; just give it your sunniest, most sheltered spot, start
-                everything off under cover, and treat a good crop as a bonus rather than a banker.
-              </p>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Grow it &mdash; find the seeds</span>
-                <a href={awinLink("https://search.thompson-morgan.com/seeds/Sweetcorn")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="sweetcorn" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Sweetcorn &rarr;</a>
-                <a href={awinLink("https://search.thompson-morgan.com/seeds/Climbing%20French%20Bean")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="climbing-french-bean" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Climbing French beans &rarr;</a>
-                <a href={awinLink("https://search.thompson-morgan.com/seeds/Squash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="squash" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Squash &rarr;</a>
-              </div>
-            </div>
-          </section>
 
           {/* Jump links */}
           <section>
@@ -716,6 +675,70 @@ export default function CompanionPlantingGuide() {
                 </div>
                 <figcaption className="mt-2 font-mono text-[9px] uppercase tracking-[0.1em] text-earth-light/70">Courgettes edged with marigolds</figcaption>
               </figure>
+            </div>
+          </section>
+
+          {/* How to lay them out — bed-plan diagrams for the best combinations */}
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-3 tracking-tight">
+              How to lay them out
+            </h2>
+            <p className="mb-6 max-w-2xl">
+              Knowing what goes together is one thing &mdash; here&apos;s how to actually arrange a few of the best
+              combinations in a standard bed. Tall things go to the back or middle so they don&apos;t shade the
+              rest; flowers go to the edges where they can do their work.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <BedDiagram
+                title="Tomatoes, basil & marigolds"
+                note="Tomatoes along the back (they grow tall), basil tucked between them, marigolds edging the front to pull whitefly and bring in hoverflies."
+                plantings={[
+                  { name: "Tomatoes", color: "#C9543E", initial: "To", positions: [[22, 22], [50, 20], [78, 22]] },
+                  { name: "Basil", color: "#4A9A5B", initial: "Ba", positions: [[36, 48], [64, 48]] },
+                  { name: "Marigolds", color: "#D4943A", initial: "Ma", positions: [[14, 80], [38, 82], [62, 82], [86, 80]], r: 11 },
+                ]}
+              />
+              <BedDiagram
+                title="Carrots & onions, alternating"
+                note="Alternate bands of carrots and onions — each masks the other's scent, confusing carrot fly and onion fly."
+                plantings={[
+                  { name: "Carrots", color: "#C9772E", initial: "Ca", positions: [[18, 20], [39, 20], [61, 20], [82, 20], [18, 64], [39, 64], [61, 64], [82, 64]], r: 11 },
+                  { name: "Onions", color: "#8E7CB0", initial: "On", positions: [[18, 42], [39, 42], [61, 42], [82, 42], [18, 86], [39, 86], [61, 86], [82, 86]], r: 11 },
+                ]}
+              />
+            </div>
+
+            {/* The Three Sisters — a worked example, with its UK caveat + seeds */}
+            <div className="mt-6 grid sm:grid-cols-2 gap-5 items-start">
+              <BedDiagram
+                title="The Three Sisters"
+                note="Sweetcorn in a block in the middle (it pollinates better in a block), climbing French beans planted to scramble up the corn, and squash around the outside to sprawl and cover the soil."
+                plantings={[
+                  { name: "Sweetcorn", color: "#E0B93C", initial: "Co", positions: [[38, 32], [50, 30], [62, 32], [38, 52], [50, 54], [62, 52]] },
+                  { name: "Climbing French beans", color: "#2D5F3E", initial: "Be", positions: [[44, 42], [56, 42], [50, 62]], r: 9 },
+                  { name: "Squash", color: "#8A9A4E", initial: "Sq", positions: [[15, 18], [85, 18], [15, 82], [85, 82]] },
+                ]}
+              />
+              <div className="bg-sage/30 border border-earth/10 p-5 sm:p-6">
+                <h3 className="font-serif text-lg text-earth tracking-tight mb-2">A North American classic &mdash; with a UK caveat</h3>
+                <p className="text-sm text-earth-light leading-relaxed mb-3">
+                  The Three Sisters is the oldest companion planting of all, from Indigenous North American gardens.
+                  Use <a href="/crops/french-beans" className="text-rust underline decoration-rust/30 hover:text-earth">climbing French beans</a>, not
+                  runners (runners swamp the corn). Sow the <a href="/crops/sweetcorn" className="text-rust underline decoration-rust/30 hover:text-earth">corn</a> first,
+                  add beans when it&apos;s a hand high, and tuck <a href="/crops/pumpkins" className="text-rust underline decoration-rust/30 hover:text-earth">squash</a> around the edge.
+                </p>
+                <p className="text-sm text-earth-light leading-relaxed border-l-2 border-amber pl-4 mb-4">
+                  <strong className="text-earth">Honest word for UK growers:</strong> it comes from a warmer climate, and
+                  in a cool British summer the corn and squash can struggle to ripen. Worth a go for the fun of it &mdash;
+                  give it your sunniest spot, start under cover, and treat a good crop as a bonus.
+                </p>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Find the seeds</span>
+                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Sweetcorn")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="sweetcorn" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Sweetcorn &rarr;</a>
+                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Climbing%20French%20Bean")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="climbing-french-bean" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Climbing French beans &rarr;</a>
+                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Squash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="squash" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Squash &rarr;</a>
+                </div>
+              </div>
             </div>
           </section>
 
