@@ -211,6 +211,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/growing-root-vegetables`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/growing-squash-pumpkins-courgettes`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/growing-veg-in-containers`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/guides/sun-mapping`,
       lastModified: new Date("2026-06-04"),
       changeFrequency: "monthly",

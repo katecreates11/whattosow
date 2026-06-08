@@ -798,6 +798,260 @@ export const companionTopics: CompanionTopic[] = [
     ],
     relatedCrops: ["cucumbers", "dill", "lettuce", "runner-beans"],
   },
+
+  // ── 13. Peppers & chillies ────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-peppers-chillies",
+    metaTitle: "Companion Plants for Peppers & Chillies (UK) — What to Grow",
+    title: "Companion plants for peppers & chillies",
+    description:
+      "The best companion plants for peppers and chillies in the UK — basil, marigolds and the flowers that bring in pollinators and keep pests off — plus what to keep apart. Plot-tested pairings for a heavier crop.",
+    keywords: [
+      "companion plants for peppers",
+      "companion plants for chillies",
+      "what to plant with peppers",
+      "basil and peppers",
+      "pepper companion planting UK",
+    ],
+    heroImage: "/photos/crops/pepper-tomato-seedlings-tray.webp",
+    heroAlt: "Young pepper and tomato seedlings in a tray, ready to grow on",
+    intro:
+      "Peppers and chillies are sun-lovers that crop best with a little help — a few good neighbours to bring in the pollinators, draw pests away, and make warm, sheltered use of the space around them.",
+    sections: [
+      {
+        paragraphs: [
+          "Peppers and chillies are close cousins of the tomato, and they like the same things: warmth, shelter, steady water and plenty of food. Their most useful companions do the familiar jobs — herbs and flowers to bring in pollinators for a better fruit set, and decoy or aromatic plants to keep aphids off the soft new growth they love.",
+          "Basil is the classic partner, just as it is with tomatoes: it enjoys the same warm, sheltered spot, may help keep aphids and whitefly down, and the two are made for each other in the kitchen. Tuck marigolds around the edge and a nasturtium or two nearby, and you've given your peppers the best possible company.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Basil", why: "Loves the same warmth, may deter aphids and whitefly, and a perfect kitchen partner." },
+      { name: "Marigolds (French)", why: "Bring in hoverflies that clear aphids and brighten a warm, sheltered bed." },
+      { name: "Nasturtiums", why: "A sacrificial trap that lures aphids onto themselves, away from the peppers." },
+      { name: "Chives & spring onions", why: "Aromatic alliums that help confuse pests hunting by scent, without crowding." },
+      { name: "Carrots & lettuce", why: "Low crops that make use of the ground at the base of the plants without competing for height." },
+      { name: "Borage", why: "A bee magnet that boosts pollination and fruit set in the warmth." },
+    ],
+    avoid: [
+      { name: "Fennel", why: "Releases compounds that can check nearby plants — best in a bed of its own." },
+      { name: "Brassicas (cabbage, kale)", why: "Heavy feeders that compete hard for the same food and prefer cooler, different conditions." },
+      { name: "Potatoes (right alongside)", why: "Same family, sharing some soil diseases — keep a little distance between them." },
+    ],
+    flowers: [
+      { name: "Marigolds", why: "Hoverflies in, aphids down." },
+      { name: "Nasturtiums", why: "Sacrificial aphid trap, edible flowers." },
+      { name: "Borage", why: "Bees and better fruit set all summer." },
+    ],
+    faqs: [
+      {
+        q: "What can I plant with peppers and chillies?",
+        a: "Basil is the standout — same warm conditions, possible aphid deterrence, and lovely together in the kitchen. Add marigolds and nasturtiums to manage aphids and bring in hoverflies, chives or spring onions to confuse pests, and borage for the bees that improve fruit set.",
+      },
+      {
+        q: "Can you grow peppers and tomatoes together?",
+        a: "Yes — they're close relatives that want exactly the same warmth, feeding and watering, so they make easy neighbours in a greenhouse or sunny bed. Just give each plant room for air to move around it, and feed both well, as they're hungry.",
+      },
+      {
+        q: "What should not be planted near peppers?",
+        a: "Keep peppers away from fennel (which inhibits many plants), from heavy-feeding brassicas that compete for nutrients, and don't crowd them right up against potatoes, with which they share some soil diseases.",
+      },
+    ],
+    seedLinks: [
+      { label: "Pepper seeds", url: tm("Pepper") },
+      { label: "Chilli seeds", url: tm("Chilli") },
+    ],
+    relatedCrops: ["peppers", "chillies", "basil", "tomatoes"],
+  },
+
+  // ── 14. Lettuce & salad ───────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-lettuce",
+    metaTitle: "Companion Plants for Lettuce (UK) — What to Grow With Salad",
+    title: "Companion plants for lettuce",
+    description:
+      "The best companion plants for lettuce in the UK — the tall crops that shade it, the quick neighbours that share its space, and the flowers that keep pests off. An easy-going crop that gets on with almost everything.",
+    keywords: [
+      "companion plants for lettuce",
+      "what to plant with lettuce",
+      "lettuce companion planting UK",
+      "salad companion planting",
+      "what grows well with lettuce",
+    ],
+    heroImage: "/photos/crops/lettuce-with-marigolds.webp",
+    heroAlt: "Lettuce growing alongside marigolds in a UK veg bed",
+    intro:
+      "Lettuce is the great team player of the veg patch — low, quick and undemanding, it tucks in almost anywhere and asks little of its neighbours. The trick is using it to fill space and shade rather than fight for it.",
+    sections: [
+      {
+        paragraphs: [
+          "Lettuce gets on with almost everything, which makes it the perfect crop for slotting into gaps. Because it's shallow-rooted, quick and happy in a little shade, the cleverest way to companion-plant it is underneath or beside taller crops — at the feet of tomatoes, beans or sweetcorn, where it enjoys the cool and is cropped before the big plants need the room.",
+          "It also pairs beautifully with slow crops as a gap-filler: a row of lettuce between carrots or parsnips is up and eaten long before they need the space. The main thing lettuce wants from its companions is help against its real enemies — slugs and aphids — so a few pest-confusing alliums and decoy flowers earn their place.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Tall crops (tomatoes, beans, sweetcorn)", why: "Lettuce grows happily in their cool shade, especially through summer, without competing for height." },
+      { name: "Carrots & radishes", why: "Quick, low neighbours — lettuce fills the gaps between slow rows and is cropped before they need the room." },
+      { name: "Chives & spring onions", why: "Aromatic alliums whose scent helps confuse the aphids that find lettuce." },
+      { name: "Beetroot", why: "An easy-going neighbour that doesn't compete for the same things." },
+      { name: "Strawberries", why: "Low and shallow-rooted like lettuce — happy sharing a bed while each gets established." },
+    ],
+    avoid: [
+      { name: "Brassicas right alongside", why: "Hungry, leafy and broad — they can shade out and out-compete a low lettuce crowded too close." },
+      { name: "Parsley (left to flower)", why: "Can grow large and shade lettuce; fine if kept picked, but give it room." },
+    ],
+    flowers: [
+      { name: "Marigolds", why: "Bring in hoverflies whose larvae eat aphids." },
+      { name: "Nasturtiums", why: "Draw aphids away onto themselves." },
+      { name: "Calendula", why: "Attracts beneficial insects and edges the bed cheerfully." },
+    ],
+    faqs: [
+      {
+        q: "What grows well with lettuce?",
+        a: "Almost everything, but it shines beneath tall crops like tomatoes, beans and sweetcorn (it loves the summer shade), between slow rows of carrots or parsnips as a gap-filler, and alongside radishes, beetroot, chives and strawberries. Add marigolds and nasturtiums to keep aphids in check.",
+      },
+      {
+        q: "What should not be planted with lettuce?",
+        a: "There's very little it dislikes. Just avoid crowding it right up against big, hungry brassicas, which can shade and out-compete a low salad crop, and give large herbs like flowering parsley room so they don't swamp it.",
+      },
+      {
+        q: "Can lettuce grow in the shade of other plants?",
+        a: "Yes — and in summer it prefers it. A little shade from taller neighbours keeps lettuce cool, slows bolting and keeps the leaves sweet, which is exactly why growing it beneath tomatoes or beans works so well.",
+      },
+    ],
+    seedLinks: [
+      { label: "Lettuce seeds", url: tm("Lettuce") },
+      { label: "Salad leaf seeds", url: tm("Salad%20Leaves") },
+    ],
+    relatedCrops: ["lettuce", "carrots", "radishes", "spring-onions"],
+  },
+
+  // ── 15. Peas ──────────────────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-peas",
+    metaTitle: "Companion Plants for Peas (UK) — What to Grow & Avoid",
+    title: "Companion plants for peas",
+    description:
+      "The best companion plants for peas in the UK — carrots, beans and the crops that thrive on the nitrogen peas leave behind — plus the alliums to keep well apart. Plot-tested pairings for a sweeter harvest.",
+    keywords: [
+      "companion plants for peas",
+      "what to plant with peas",
+      "pea companion planting UK",
+      "peas and carrots",
+      "what not to plant with peas",
+    ],
+    heroImage: "/photos/crops/peas-on-vine.webp",
+    heroAlt: "Pea pods ripening on the vine in a UK veg bed",
+    intro:
+      "Peas are quietly generous neighbours — like beans, they gather nitrogen from the air and bank it in the soil, feeding what grows around and after them. Their companions mostly need to climb companionably and bring in the bees.",
+    sections: [
+      {
+        paragraphs: [
+          "Peas (and beans) have a lovely trick: with the help of bacteria on their roots, they pull nitrogen out of the air and store it in little nodules, leaving the ground richer for whatever follows. That makes them excellent partners for leafy, nitrogen-hungry crops nearby, and the ideal thing to grow before brassicas in the rotation.",
+          "Above ground, they climb rather than spread, so they share space generously — carrots and quick salads sit happily at their feet, and flowers tucked in among them bring the bees that help the pods set. The one group to keep them away from is the alliums, whose roots can check the growth of peas and beans alike.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Carrots", why: "Use the cool ground at the base of the climbing peas without competing for height." },
+      { name: "Radishes & lettuce", why: "Quick, low crops that fill the space at the foot of the row before the peas are done." },
+      { name: "Beans", why: "Fellow nitrogen-fixers with the same likes — happy growing side by side up their supports." },
+      { name: "Sweetcorn", why: "Tall and sturdy; peas and beans can even climb it in a loose Three Sisters." },
+      { name: "Leafy greens (spinach, chard)", why: "Lap up the nitrogen the peas leave behind — grow them after, or alongside." },
+    ],
+    avoid: [
+      { name: "Onions, garlic & other alliums", why: "Their root secretions can stunt the growth of peas and beans — keep them in a separate bed." },
+      { name: "Fennel", why: "Inhibits many neighbours generally; give it its own corner." },
+    ],
+    flowers: [
+      { name: "Sweet peas", why: "Climb alongside, scent the plot and pull in the bees that help pods set." },
+      { name: "Marigolds", why: "Bring in hoverflies and ladybirds to keep aphids down." },
+      { name: "Nasturtiums", why: "A sacrificial trap for the blackfly that troubles young pea tips." },
+    ],
+    faqs: [
+      {
+        q: "What grows well with peas?",
+        a: "Carrots, radishes and lettuce at their feet (peas climb rather than spread), beans as fellow nitrogen-fixers, sweetcorn as a natural support, and leafy greens like spinach and chard that thrive on the nitrogen peas leave behind. Sweet peas and marigolds nearby bring in the bees and keep aphids down.",
+      },
+      {
+        q: "Can you plant peas and beans together?",
+        a: "Yes — they're close relatives that like the same things and both fix nitrogen, so they make easy neighbours growing up adjacent supports. Just don't follow one straight after the other in the same bed; rotate so the soil gets a change.",
+      },
+      {
+        q: "What should not be planted near peas?",
+        a: "Keep peas away from onions, garlic and other alliums, whose root secretions can genuinely check the growth of peas and beans. It's also worth keeping fennel well clear.",
+      },
+    ],
+    seedLinks: [
+      { label: "Pea seeds", url: tm("Pea") },
+      { label: "Sweet pea seeds", url: tm("Sweet%20Pea") },
+    ],
+    relatedCrops: ["peas", "carrots", "radishes", "sweetcorn"],
+  },
+
+  // ── 16. Sweetcorn ─────────────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-sweetcorn",
+    metaTitle: "Companion Plants for Sweetcorn (UK) — The Three Sisters & More",
+    title: "Companion plants for sweetcorn",
+    description:
+      "The best companion plants for sweetcorn in the UK — beans, squash and the Three Sisters method — plus how to plant in blocks for pollination and what to keep apart. Plot-tested pairings for full, even cobs.",
+    keywords: [
+      "companion plants for sweetcorn",
+      "what to plant with sweetcorn",
+      "three sisters planting UK",
+      "sweetcorn beans squash",
+      "sweetcorn companion planting",
+    ],
+    heroImage: "/photos/crops/sweetcorn-harvest.webp",
+    heroAlt: "Freshly harvested sweetcorn cobs on a UK allotment",
+    intro:
+      "Sweetcorn is the tall, easy-going heart of the famous Three Sisters — a crop that gives height for beans to climb and shelter for squash to sprawl beneath. Its companions practically grow themselves once you've set them out together.",
+    sections: [
+      {
+        paragraphs: [
+          "Sweetcorn is the classic centrepiece of the Three Sisters, the Native American planting that pairs three crops which each help the others: corn for the beans to climb, beans to fix nitrogen for the hungry corn, and squash to sprawl across the ground, shading out weeds and keeping moisture in. Grown together they make wonderful use of a single patch.",
+          "The one thing to know before anything else: sweetcorn is wind-pollinated, so it must be grown in a block, not a long single row. Pollen falls from the tassels at the top onto the silks of the cobs below, and a square block lets the wind do that job evenly — a thin row gives gappy, half-filled cobs no matter how good your companions are.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Climbing beans", why: "Scramble up the sturdy stems for support and fix nitrogen the hungry corn feeds on — sister number two." },
+      { name: "Squash, courgettes & pumpkins", why: "Sprawl beneath, shading the soil, smothering weeds and keeping moisture in — sister number three." },
+      { name: "Cucumbers", why: "Can be trained up the corn like beans, in a looser version of the same idea." },
+      { name: "Lettuce", why: "Uses the cool, shaded ground between the stems early in the season." },
+      { name: "Nasturtiums", why: "Ramble through the block, luring aphids away and bringing in pollinators." },
+    ],
+    avoid: [
+      { name: "Tomatoes", why: "Share pests (corn earworm / tomato fruitworm) and both are greedy — keep them in separate beds." },
+      { name: "Fennel", why: "Inhibits many plants generally; give it its own spot." },
+    ],
+    flowers: [
+      { name: "Nasturtiums", why: "Sacrificial aphid trap that rambles happily through the block." },
+      { name: "Borage", why: "Pulls in bees and pollinators to the whole patch." },
+      { name: "Marigolds", why: "Bring in hoverflies and ladybirds to clear aphids." },
+    ],
+    faqs: [
+      {
+        q: "What are the Three Sisters?",
+        a: "A traditional planting of three crops that help one another: sweetcorn for height, climbing beans that scramble up the corn and fix nitrogen for it, and squash that sprawls across the ground to shade out weeds and hold in moisture. Grown together in one bed, they support each other and make brilliant use of the space.",
+      },
+      {
+        q: "Why should sweetcorn be planted in a block?",
+        a: "Sweetcorn is pollinated by the wind, which carries pollen from the tassels at the top of the plants down onto the silks of the cobs. Planting in a square block rather than a single row lets that happen evenly, so the cobs fill out fully — a thin row pollinates poorly and gives gappy cobs.",
+      },
+      {
+        q: "What should not be planted near sweetcorn?",
+        a: "Keep sweetcorn away from tomatoes, with which it shares pests like corn earworm and competes for nutrients, and from fennel, which inhibits many neighbours.",
+      },
+    ],
+    seedLinks: [
+      { label: "Sweetcorn seeds", url: tm("Sweetcorn") },
+      { label: "Climbing bean seeds", url: tm("Climbing%20French%20Bean") },
+    ],
+    relatedCrops: ["sweetcorn", "runner-beans", "squash", "pumpkins"],
+  },
 ];
 
 export function getCompanionTopic(slug: string): CompanionTopic | undefined {

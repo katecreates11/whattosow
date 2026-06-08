@@ -261,6 +261,30 @@ const guides = [
     tag: "Seasonal",
     number: "25",
   },
+  {
+    title: "Growing root vegetables",
+    description:
+      "Carrots, beetroot, parsnips, radishes and turnips — get the soil right (stone-free, no fresh muck), sow direct, beat carrot fly, and store roots that keep for months.",
+    href: "/guides/growing-root-vegetables",
+    tag: "Growing",
+    number: "26",
+  },
+  {
+    title: "Growing squash, pumpkins & courgettes",
+    description:
+      "The hungry, sprawling cucurbit family — feeding and watering, the pollination trick that makes or breaks the crop, beating mildew, and curing winter squash to store.",
+    href: "/guides/growing-squash-pumpkins-courgettes",
+    tag: "Growing",
+    number: "27",
+  },
+  {
+    title: "Growing vegetables in pots & containers",
+    description:
+      "No garden needed. The best crops for pots, choosing compost and size, and the watering and feeding that turn a patio or balcony into a real harvest.",
+    href: "/guides/growing-veg-in-containers",
+    tag: "Getting started",
+    number: "28",
+  },
 ];
 
 export default function GuidesIndex() {
