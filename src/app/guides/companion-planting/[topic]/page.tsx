@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PinButton from "@/components/PinButton";
+import SlotImage from "@/components/SlotImage";
 import { companionTopics, getCompanionTopic } from "@/data/companion-topics";
 import { crops } from "@/data/crops";
 import { awinLink } from "@/lib/awin";
@@ -96,9 +96,13 @@ export default async function CompanionTopicPage({
       <main id="main-content" className="bg-cream">
         {/* Hero */}
         <div className="max-w-4xl mx-auto px-5 sm:px-8 pt-6 sm:pt-10">
-          <div className="relative aspect-[16/10] sm:aspect-[2/1] overflow-hidden">
-            <Image src={t.heroImage} alt={t.heroAlt} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover img-grade" />
-          </div>
+          <SlotImage
+            id={`companion-${t.slug}-hero`}
+            priority
+            showCaption={false}
+            fallbackSrc={t.heroImage}
+            fallbackAlt={t.heroAlt}
+          />
         </div>
 
         <header className="max-w-[44rem] mx-auto px-6 text-center pt-9 sm:pt-12 pb-2">
@@ -110,6 +114,10 @@ export default async function CompanionTopicPage({
           </div>
           <div className="mt-9 mx-auto w-10 h-px bg-amber" />
         </header>
+
+        <div className="max-w-[40rem] mx-auto px-6">
+          <SlotImage id={`companion-${t.slug}-intro`} sizes="(max-width: 640px) 100vw, 40rem" />
+        </div>
 
         <article className="max-w-[44rem] mx-auto px-6 pb-4 text-earth-light leading-relaxed text-[17px]">
           {/* Written body */}
@@ -133,6 +141,9 @@ export default async function CompanionTopicPage({
                     <p className="text-[15px] text-earth-light leading-snug mt-1">{c.why}</p>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6">
+                <SlotImage id={`companion-${t.slug}-companions`} sizes="(max-width: 640px) 100vw, 40rem" />
               </div>
             </section>
           )}
@@ -189,6 +200,11 @@ export default async function CompanionTopicPage({
               </div>
             </section>
           )}
+
+          {/* On our plot */}
+          <div className="mb-10">
+            <SlotImage id={`companion-${t.slug}-practice`} sizes="(max-width: 640px) 100vw, 40rem" />
+          </div>
 
           {/* FAQ */}
           {t.faqs.length > 0 && (
