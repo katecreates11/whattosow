@@ -21,6 +21,8 @@ export interface KitProduct {
   badge?: KitBadge;
   tip?: string;
   price?: string;
+  /** Square product photo (real, Kate's own). e.g. "/photos/kit/broadfork.webp" */
+  image?: string;
 }
 
 export const kit: Record<string, KitProduct> = {
@@ -33,6 +35,7 @@ export const kit: Record<string, KitProduct> = {
     description:
       "A wide, beautifully made broadfork that breaks up heavy clay with your weight rather than your back. Not cheap, but a real pleasure — it's changed how I feel about digging.",
     tip: "The width is the joy — you cover far more with every lift.",
+    image: "/photos/kit/broadfork.webp",
   },
   gloves: {
     id: "gloves",

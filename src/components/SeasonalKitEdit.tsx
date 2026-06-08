@@ -91,6 +91,7 @@ export default function SeasonalKitEdit({
             amazonUrl={amazonLink(p.asin)}
             badge={p.badge}
             tip={p.tip}
+            image={p.image}
           />
         ))}
       </div>

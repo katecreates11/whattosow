@@ -10,6 +10,8 @@ interface GearPickProps {
   amazonUrl: string;
   badge?: "our-pick" | "budget" | "upgrade" | "essential" | "skip-it";
   tip?: string; // short practical tip, e.g. "Get at least 3"
+  image?: string; // square product photo, e.g. "/photos/kit/broadfork.webp"
+  imageAlt?: string;
 }
 
 const badgeStyles: Record<string, { label: string; className: string; icon: string }> = {
@@ -27,6 +29,8 @@ export default function GearPick({
   amazonUrl,
   badge,
   tip,
+  image,
+  imageAlt,
 }: GearPickProps) {
   const badgeInfo = badge ? badgeStyles[badge] : null;
   const isHighlight = badge === "our-pick" || badge === "essential";
@@ -40,6 +44,19 @@ export default function GearPick({
           {badgeInfo.icon}&ensp;{badgeInfo.label}
         </span>
       )}
+      <div className={image ? "flex gap-4 sm:gap-5 items-start" : ""}>
+        {image && (
+          <img
+            src={image}
+            alt={imageAlt || name}
+            width={128}
+            height={128}
+            loading="lazy"
+            decoding="async"
+            className="w-24 h-24 sm:w-32 sm:h-32 object-cover shrink-0 img-grade"
+          />
+        )}
+        <div className={image ? "flex-1 min-w-0" : ""}>
       <div className="flex items-baseline justify-between gap-4 mb-2.5">
         <h3 className="text-xl font-serif text-earth tracking-tight">{name}</h3>
         {price && <span className="text-base font-semibold text-rust tabular-nums shrink-0">{price}</span>}
@@ -77,6 +94,8 @@ export default function GearPick({
           <line x1="10" y1="14" x2="21" y2="3" />
         </svg>
       </a>
+        </div>
+      </div>
     </div>
   );
 }

@@ -591,6 +591,12 @@ export const editorialPosts: EditorialPost[] = [
             caption: "Haemmerlin on the grips",
             aspect: "portrait",
           },
+          {
+            src: "/photos/blog/wheelbarrow-loaded-tools.webp",
+            alt: "The green wheelbarrow loaded with a spade, fork and hand cultivator, its bright green puncture-free wheel at the front, on the grass by the beds",
+            caption: "The whole kit, one trip",
+            aspect: "portrait",
+          },
         ],
       },
       {
@@ -615,9 +621,9 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "image",
         content: "",
-        src: "/photos/blog/wheelbarrow-dot-shed.webp",
-        alt: "Dot the cat sitting on a bench by the shed, the wheelbarrow resting in the long grass beside her",
-        caption: "Off-duty by the shed, under Dot's close supervision.",
+        src: "/photos/blog/wheelbarrow-resting-plot.webp",
+        alt: "The green Haemmerlin wheelbarrow resting in the plot, loaded with a spade and fork, its bright green puncture-free wheel catching the light, cosmos flowering in the foreground",
+        caption: "Off-duty in the plot, the green wheel catching the evening light.",
       },
     ],
     relatedCrops: [],
@@ -704,8 +710,8 @@ export const editorialPosts: EditorialPost[] = [
       "bindweed clay soil",
       "broadfork review",
     ],
-    heroImage: "/photos/blog/raised-bed-membrane-spring.webp",
-    heroAlt: "A raised allotment bed under weed membrane in early spring, ready to be dug over",
+    heroImage: "/photos/blog/broadfork-standing.webp",
+    heroAlt: "The Terradix broadfork standing in freshly worked allotment soil, its five tines driven in and orange handles upright, cosmos flowering behind",
     intro:
       "The broadfork has turned out to be the best thing I've bought for the plot. Mine is the wide one — the Terradix 5x300 — and the width is the joy of it: five long tines that take a great bite of ground at once, so you clear far more with every go.",
     tags: ["allotment diary", "tools"],
@@ -731,6 +737,31 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "The real gift was the bindweed. Its roots run through the clay like pale wires — long, fine threads you have to chase — and because the broadfork opens the soil so well, you can crumble the clumps apart by hand and draw each one out whole. There's real satisfaction in easing out a root that hasn't snapped (the broken bits are what grow back), and I lifted some gloriously long ones, roots and all, unbroken.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "Tines under a clod, a pale bindweed root drawn out whole, and the clay left in workable crumbs.",
+        images: [
+          {
+            src: "/photos/blog/broadfork-lifting-clod.webp",
+            alt: "The broadfork's tines levering up a clod of heavy clay soil at the allotment",
+            caption: "Lifting a clod",
+            aspect: "square",
+          },
+          {
+            src: "/photos/blog/broadfork-bindweed-root.webp",
+            alt: "A long pale bindweed root drawn out whole and unbroken from the broken clay",
+            caption: "A bindweed root, out whole",
+            aspect: "square",
+          },
+          {
+            src: "/photos/blog/broadfork-broken-clay.webp",
+            alt: "Heavy clay broken into workable crumbs after going over it with the broadfork",
+            caption: "Clay broken to crumbs",
+            aspect: "square",
+          },
+        ],
       },
       {
         type: "text",

@@ -270,6 +270,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                     amazonUrl={amazonLink(item.asin)}
                     badge={item.badge}
                     tip={item.tip}
+                    image={item.image}
                   />
                 ))}
               </div>
