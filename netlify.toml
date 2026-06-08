@@ -13,7 +13,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://basemaps.cartocdn.com https://tiles.stadiamaps.com; font-src 'self' data:; connect-src 'self' https://api.postcodes.io https://api.open-meteo.com https://cloud.umami.is https://assets.mailerlite.com https://overpass-api.de"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; worker-src 'self' blob:; child-src blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://basemaps.cartocdn.com https://tiles.stadiamaps.com https://api.mapbox.com; font-src 'self' data:; connect-src 'self' https://api.postcodes.io https://api.open-meteo.com https://cloud.umami.is https://assets.mailerlite.com https://overpass-api.de https://api.mapbox.com https://*.tiles.mapbox.com https://events.mapbox.com"
 
 [[headers]]
   for = "/_next/static/*"

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import PlantingTool from "@/components/PlantingTool";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import { cities, getNearbyCities } from "@/data/cities";
-import UKCityMap from "@/components/UKCityMap";
+import FrostZoneMapLoader from "@/components/FrostZoneMapLoader";
 import { crops, type Crop } from "@/data/crops";
 import {
   calculateLastFrostDate,
@@ -241,9 +241,6 @@ export default async function CityPage({
                 {city.growingNotes}
               </p>
             </div>
-            <div className="hidden md:block shrink-0 pt-6">
-              <UKCityMap highlightSlug={city.slug} size="mini" />
-            </div>
           </div>
         </div></div>
 
@@ -278,6 +275,23 @@ export default async function CityPage({
             <span className="block text-xs text-earth-lighter mt-1">Frost-free period</span>
           </div>
         </div>
+
+        {/* Featured local frost map */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-serif text-earth mb-2">
+            The frost map around {city.name}
+          </h2>
+          <p className="text-earth-light mb-5 max-w-2xl">
+            How the last-frost date shifts across {city.name} and the districts
+            around it. Hover any zone for its dates, or switch to autumn frost and
+            growing season.
+          </p>
+          <FrostZoneMapLoader
+            focus={{ lat: city.latitude, lng: city.longitude, name: city.name }}
+            showPostcodeSearch={false}
+            compact
+          />
+        </section>
 
         {/* What to sow NOW */}
         <section className="mb-16">

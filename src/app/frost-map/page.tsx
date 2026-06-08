@@ -87,7 +87,7 @@ export default function FrostMapPage() {
                 >
                   ONS Open Geography Portal
                 </a>{" "}
-                (OGL v3.0). Map tiles &copy; CARTO / OpenStreetMap contributors.
+                (OGL v3.0). Map &copy; Mapbox &copy; OpenStreetMap contributors.
               </p>
             </div>
           </div>
