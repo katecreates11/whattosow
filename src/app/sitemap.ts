@@ -109,6 +109,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blight-watch`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/still-time`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "daily",

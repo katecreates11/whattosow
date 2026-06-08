@@ -16,6 +16,7 @@ const MORE_LINKS = [
   { href: "/my-plot", label: "My plot" },
   { href: "/#explore-crops", label: "Crops" },
   { href: "/frost-map", label: "Frost map" },
+  { href: "/blight-watch", label: "Blight watch" },
 ];
 
 export default function Header({ backLink }: { backLink?: { href: string; label: string } }) {

@@ -5,7 +5,8 @@ import Footer from "@/components/Footer";
 import PlantingTool from "@/components/PlantingTool";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import { cities, getNearbyCities } from "@/data/cities";
-import UKCityMap from "@/components/UKCityMap";
+import FrostZoneMapLoader from "@/components/FrostZoneMapLoader";
+import BlightRisk from "@/components/BlightRisk";
 import { crops, type Crop } from "@/data/crops";
 import {
   calculateLastFrostDate,
@@ -241,14 +242,27 @@ export default async function CityPage({
                 {city.growingNotes}
               </p>
             </div>
-            <div className="hidden md:block shrink-0 pt-6">
-              <UKCityMap highlightSlug={city.slug} size="mini" />
-            </div>
           </div>
         </div></div>
 
         {/* Frost stats */}
         <div className="px-6 sm:px-10 lg:px-16"><div className="max-w-4xl mx-auto">
+
+        {/* Blight watch — live status, the reason to bookmark and check back */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-serif text-earth mb-2">Blight watch</h2>
+          <p className="text-earth-light mb-4 max-w-2xl text-sm">
+            Live tomato &amp; potato blight risk for {city.name} this week — bookmark
+            this page and check back through the summer.
+          </p>
+          <BlightRisk variant="compact" lat={city.latitude} lng={city.longitude} place={city.name} />
+          <p className="mt-3 text-sm">
+            <a href="/blight-watch" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">
+              See the national blight map &rarr;
+            </a>
+          </p>
+        </section>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           <div className="border border-earth/6 p-5">
             <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter block mb-1">
@@ -278,6 +292,23 @@ export default async function CityPage({
             <span className="block text-xs text-earth-lighter mt-1">Frost-free period</span>
           </div>
         </div>
+
+        {/* Featured local frost map */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-serif text-earth mb-2">
+            The frost map around {city.name}
+          </h2>
+          <p className="text-earth-light mb-5 max-w-2xl">
+            How the last-frost date shifts across {city.name} and the districts
+            around it. Hover any zone for its dates, or switch to autumn frost and
+            growing season.
+          </p>
+          <FrostZoneMapLoader
+            focus={{ lat: city.latitude, lng: city.longitude, name: city.name }}
+            showPostcodeSearch={false}
+            compact
+          />
+        </section>
 
         {/* What to sow NOW */}
         <section className="mb-16">

@@ -39,18 +39,42 @@ function fmt(date: string): string {
   return new Date(date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
 }
 
-export default function BlightRisk({ variant = "full" }: { variant?: Variant }) {
+export default function BlightRisk({
+  variant = "full",
+  lat: propLat,
+  lng: propLng,
+  place: propPlace,
+}: {
+  variant?: Variant;
+  /** Override the location (e.g. a city page) instead of the visitor's saved postcode. */
+  lat?: number;
+  lng?: number;
+  place?: string;
+}) {
   const [assessment, setAssessment] = useState<BlightAssessment | null>(null);
   const [place, setPlace] = useState<string>("");
   const [located, setLocated] = useState(true);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loc = loadLocation();
-    setLocated(!!loc);
-    setPlace(loc?.adminDistrict ?? "");
-    const lat = loc?.latitude ?? 52.48;
-    const lng = loc?.longitude ?? -1.89;
+    let lat: number;
+    let lng: number;
+    let placeName: string;
+    let isLocated: boolean;
+    if (propLat != null && propLng != null) {
+      lat = propLat;
+      lng = propLng;
+      placeName = propPlace ?? "";
+      isLocated = true;
+    } else {
+      const loc = loadLocation();
+      isLocated = !!loc;
+      placeName = loc?.adminDistrict ?? "";
+      lat = loc?.latitude ?? 52.48;
+      lng = loc?.longitude ?? -1.89;
+    }
+    setLocated(isLocated);
+    setPlace(placeName);
     (async () => {
       try {
         const res = await fetch(
@@ -65,7 +89,7 @@ export default function BlightRisk({ variant = "full" }: { variant?: Variant }) 
         setLoading(false);
       }
     })();
-  }, []);
+  }, [propLat, propLng, propPlace]);
 
   // Banner: nothing unless we have a high-risk reading
   if (variant === "banner") {
