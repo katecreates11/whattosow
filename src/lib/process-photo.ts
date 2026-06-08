@@ -22,17 +22,21 @@ export interface ProcessOpts {
   rotateExtra?: number; // manual ±90 nudge
 }
 
-/** Load a source into a sharp instance, falling back through `sips` for HEICs sharp can't decode. */
+/**
+ * Load a source into a sharp instance. This sharp build can't decode HEIC (the libheif
+ * compression plugin isn't built in — and crucially, `.metadata()` succeeds while
+ * `.toFile()` fails), so HEIC/HEIF are routed through `sips` (macOS) up front. The
+ * sips-produced JPEG keeps its EXIF orientation flag, which the caller's `.rotate()`
+ * then applies — same path that fixed the time-lapse orientation.
+ */
 async function loadSource(srcPath: string): Promise<sharp.Sharp> {
-  try {
-    await sharp(srcPath, { failOn: "none" }).metadata(); // throws on unsupported HEIC
-    return sharp(srcPath, { failOn: "none" });
-  } catch {
-    // Fallback: sips converts HEIC -> jpeg (macOS dev only).
+  const ext = path.extname(srcPath).toLowerCase();
+  if (ext === ".heic" || ext === ".heif") {
     const tmpJpg = path.join(os.tmpdir(), `wts-sips-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);
     await execFileP("sips", ["-s", "format", "jpeg", srcPath, "--out", tmpJpg]);
     return sharp(tmpJpg, { failOn: "none" });
   }
+  return sharp(srcPath, { failOn: "none" });
 }
 
 export async function processPhoto({ srcPath, outPath, shape, rotateExtra = 0 }: ProcessOpts): Promise<void> {
