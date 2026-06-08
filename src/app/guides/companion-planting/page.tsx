@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { crops } from "@/data/crops";
 import Image from "next/image";
+import SlotImage from "@/components/SlotImage";
 import { getCropImagePath } from "@/lib/crop-images";
 import { SectionDivider } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
@@ -800,18 +801,19 @@ export default function CompanionPlantingGuide() {
               evidence and which are simply tradition. Here&apos;s the honest split, so you can spend your effort
               where it counts.
             </p>
-            <figure className="mb-5 max-w-md">
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src="/photos/crops/tomatoes-ripening-close-up.webp"
-                  alt="Cherry tomatoes ripening on the vine with a marigold growing alongside — the classic evidence-backed pairing"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 28rem"
-                  className="object-cover img-grade"
-                />
+            <figure className="mb-6">
+              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-rust mb-3">
+                From plugs to full bloom — the same beds, one season
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+                {["companion-main-pairing-1", "companion-main-pairing-2", "companion-main-pairing-3", "companion-main-pairing-4"].map((id) => (
+                  <SlotImage key={id} id={id} sizes="(max-width: 640px) 50vw, 22vw" />
+                ))}
               </div>
-              <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-earth-light/70">
-                Tomatoes and marigolds — the classic pairing, on our plot
+              <figcaption className="mt-3 text-sm text-earth-light leading-relaxed max-w-2xl">
+                Tomatoes staked down the middle, French marigolds edging the beds. Plant the marigolds as plugs in
+                late spring and by August they&apos;ll have filled out like this — that&apos;s the whole trick, and
+                it&apos;s an easy one to copy.
               </figcaption>
             </figure>
             <p className="mb-4 text-sm">

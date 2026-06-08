@@ -1,1 +1,22 @@
-{}
+{
+  "companion-main-pairing-1": {
+    "src": "/photos/guides/companion-marigolds-01-plugs.webp",
+    "alt": "Two raised beds in early June with French marigold plugs just planted along the borders, the soil still bare and tomato canes set up",
+    "caption": "1 Jun · plugs in"
+  },
+  "companion-main-pairing-2": {
+    "src": "/photos/guides/companion-marigolds-02-bordering.webp",
+    "alt": "Mid-June, the marigolds bordering the bed and tomatoes growing up their canes, the bed being watered",
+    "caption": "17 Jun · bordering up"
+  },
+  "companion-main-pairing-3": {
+    "src": "/photos/guides/companion-marigolds-03-filling.webp",
+    "alt": "Early July, the marigold borders filling out and climbing beans starting up the hoop arch",
+    "caption": "8 Jul · filling out"
+  },
+  "companion-main-pairing-4": {
+    "src": "/photos/guides/companion-marigolds-04-bloom.webp",
+    "alt": "Late August, the beds in full bloom with marigolds spilling over the edges, sunflowers and beans behind",
+    "caption": "22 Aug · full bloom"
+  }
+}
