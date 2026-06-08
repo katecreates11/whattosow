@@ -6,7 +6,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import type { FeatureCollection } from "geojson";
 import { feature } from "topojson-client";
 import type { Topology } from "topojson-specification";
-import { lookupPostcode, calculateLastFrostDate } from "@/lib/frost";
+import { lookupPostcode, calculateLastFrostDate, calculateFirstAutumnFrostDate } from "@/lib/frost";
 import RegionPanel from "@/components/RegionPanel";
 import { loadLocation, saveLocation } from "@/lib/location-storage";
 
@@ -258,6 +258,7 @@ export default function FrostZoneMap({
   const activeLayerRef = useRef<ActiveLayer>("spring");
   const focusRef = useRef<FrostMapFocus | undefined>(focus);
   focusRef.current = focus;
+  const openUserPopupRef = useRef(false);
 
   const [userLocation, setUserLocation] = useState<StoredLocation | null>(null);
   const [loading, setLoading] = useState(true);
@@ -286,7 +287,9 @@ export default function FrostZoneMap({
     let initialCenter: [number, number] = UK_CENTER;
     let initialZoom = 4.6;
     if (focus) {
-      initialCenter = saved ? [saved.longitude, saved.latitude] : [focus.lng, focus.lat];
+      // City pages always default to the city itself — not the visitor's saved
+      // postcode, which may be nowhere near it.
+      initialCenter = [focus.lng, focus.lat];
       initialZoom = focus.zoom ?? 9.5;
     }
 
@@ -296,7 +299,7 @@ export default function FrostZoneMap({
       center: initialCenter,
       zoom: initialZoom,
       minZoom: 4,
-      maxZoom: 12,
+      maxZoom: 14,
       maxBounds: UK_MAX_BOUNDS,
       scrollZoom: false,
       attributionControl: true,
@@ -457,8 +460,19 @@ export default function FrostZoneMap({
     const map = mapRef.current;
     if (!map || !userLocation) return;
 
-    const d = calculateLastFrostDate(userLocation.latitude, userLocation.longitude);
-    const userFrostDate = d.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+    // On a city page, don't drop the visitor's pin if their postcode is far from
+    // this city — keep the city itself as the default view.
+    if (focusRef.current) {
+      const f = focusRef.current;
+      const dlat = userLocation.latitude - f.lat;
+      const dlng = (userLocation.longitude - f.lng) * Math.cos((f.lat * Math.PI) / 180);
+      if (Math.sqrt(dlat * dlat + dlng * dlng) > 0.6) return; // ~> 60km away
+    }
+
+    const spring = calculateLastFrostDate(userLocation.latitude, userLocation.longitude);
+    const autumn = calculateFirstAutumnFrostDate(userLocation.latitude, userLocation.longitude);
+    const seasonDays = Math.round((autumn.getTime() - spring.getTime()) / 86400000);
+    const fmt = (dt: Date) => dt.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
 
     const el = document.createElement("div");
     el.innerHTML = `<svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -466,19 +480,24 @@ export default function FrostZoneMap({
       <circle cx="14" cy="14" r="6" fill="white" fill-opacity="0.9"/>
     </svg>`;
 
+    const fromSearch = openUserPopupRef.current;
+    openUserPopupRef.current = false;
+
     if (userMarkerRef.current) userMarkerRef.current.remove();
     userMarkerRef.current = new mapboxgl.Marker({ element: el, anchor: "bottom" })
       .setLngLat([userLocation.longitude, userLocation.latitude])
       .setPopup(
         new mapboxgl.Popup({ offset: 28 }).setHTML(
-          `<strong>Your location</strong> (${userLocation.postcode})<br/>Estimated last frost: <strong>${userFrostDate}</strong>`,
+          `<strong>Your spot</strong> (${userLocation.postcode})<br/>Last frost ~ <strong>${fmt(spring)}</strong><br/>First autumn frost ~ <strong>${fmt(autumn)}</strong><br/>Growing season ~ <strong>${seasonDays} days</strong>`,
         ),
       )
       .addTo(map);
 
+    if (fromSearch) userMarkerRef.current.togglePopup();
+
     // In focus mode the map already opens on the visitor's location — don't yank it.
     if (!focusRef.current) {
-      map.flyTo({ center: [userLocation.longitude, userLocation.latitude], zoom: 8, duration: 1200 });
+      map.flyTo({ center: [userLocation.longitude, userLocation.latitude], zoom: fromSearch ? 10.5 : 8.5, duration: 1200 });
     }
 
     return () => {
@@ -510,8 +529,8 @@ export default function FrostZoneMap({
         adminDistrict: result.adminDistrict,
       };
       saveLocation(result);
+      openUserPopupRef.current = true;
       setUserLocation(loc);
-      mapRef.current?.flyTo({ center: [result.longitude, result.latitude], zoom: 9, duration: 1200 });
 
       // Auto-match region for the detail panel
       const geojson = geojsonRef.current;
