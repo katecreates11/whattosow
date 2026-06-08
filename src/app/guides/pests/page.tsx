@@ -719,6 +719,20 @@ export default function PestsGuide() {
           <section>
             <div>
               <a
+                href="/guides/growing-brassicas"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Growing brassicas
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Beating the cabbage white, clubroot and pigeons.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
                 href="/guides/companion-planting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >

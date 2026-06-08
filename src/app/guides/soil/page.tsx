@@ -615,6 +615,13 @@ export default function SoilGuide() {
           <SectionDivider label="Next" />
           <section>
             <div className="space-y-0">
+              <a href="/guides/preparing-your-plot-for-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Preparing your plot for winter</span>
+                  <p className="text-sm text-earth-light mt-1">Feed and cover your soil the no-dig way before the cold sets in.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
               <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow this week</span>

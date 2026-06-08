@@ -514,6 +514,20 @@ export default function CompostingGuide() {
             </h2>
             <div>
               <a
+                href="/guides/preparing-your-plot-for-winter"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Preparing your plot for winter
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Where all that compost goes — mulching beds the no-dig way.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
                 href="/guides/soil"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >

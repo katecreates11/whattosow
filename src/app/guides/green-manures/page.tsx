@@ -294,6 +294,10 @@ export default function GreenManuresGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
+              <a href="/guides/preparing-your-plot-for-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Preparing your plot for winter</span>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
               <a href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>

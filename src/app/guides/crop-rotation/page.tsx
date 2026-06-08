@@ -570,6 +570,34 @@ export default function CropRotationGuide() {
             </h2>
             <div>
               <a
+                href="/guides/growing-brassicas"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Growing brassicas
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    The cabbage family — the trickiest group to rotate, and why.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
+                href="/guides/growing-onions-garlic-leeks"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Growing onions, garlic &amp; leeks
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    The allium family — what to grow them after, and never before.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
                 href="/guides/companion-planting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >

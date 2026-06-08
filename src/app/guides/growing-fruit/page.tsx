@@ -623,6 +623,12 @@ export default function GrowingFruitGuide() {
                 Companion planting
               </a>
               <a
+                href="/guides/companion-planting/companion-plants-for-strawberries"
+                className="text-sm text-rust hover:text-earth font-medium underline decoration-rust/30 transition-colors"
+              >
+                Companion plants for strawberries
+              </a>
+              <a
                 href="/guides/soil"
                 className="text-sm text-rust hover:text-earth font-medium underline decoration-rust/30 transition-colors"
               >

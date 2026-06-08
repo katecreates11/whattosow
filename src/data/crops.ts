@@ -789,8 +789,9 @@ export const crops: Crop[] = [
     tip: "Sow early spring or after midsummer — it'll bolt faster than you can blink in the heat. Worth it though. Fast-growing and very rewarding.",
     needs: "Partial shade. Moist soil. Slug protection is non-negotiable.",
     spacingCm: 25,
-    companionPlants: ["Onion sets", "Garlic"],
-      unsplashId: "1770977612447-2e5a525a7e82",
+    companionPlants: ["Onion sets", "Garlic", "Spring onions", "Beetroot", "Lettuce", "Dill"],
+    avoidPlants: ["Strawberries", "Tomatoes"],
+    unsplashId: "1770977612447-2e5a525a7e82",
     seedSuppliers: [
       { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search?q=pak+choi+seeds" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/search?q=pak+choi+seeds" },
