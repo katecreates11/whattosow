@@ -23,5 +23,70 @@
     "src": "/photos/slots/companion-companion-plants-for-tomatoes-hero.webp",
     "alt": "Tomatoes staked in a raised bed edged with French marigolds",
     "caption": "Tomatoes and marigolds on our plot"
+  },
+  "companion-main-hero": {
+    "src": "/photos/slots/companion-main-hero.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-main-polyculture": {
+    "src": "/photos/slots/companion-main-polyculture.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-tomatoes-intro": {
+    "src": "/photos/slots/companion-companion-plants-for-tomatoes-intro.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-flowers-for-the-veg-patch-companions": {
+    "src": "/photos/slots/companion-flowers-for-the-veg-patch-companions.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-courgettes-hero": {
+    "src": "/photos/slots/companion-companion-plants-for-courgettes-hero.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-courgettes-practice": {
+    "src": "/photos/slots/companion-companion-plants-for-courgettes-practice.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-courgettes-companions": {
+    "src": "/photos/slots/companion-companion-plants-for-courgettes-companions.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-tomatoes-practice": {
+    "src": "/photos/slots/companion-companion-plants-for-tomatoes-practice.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-tomatoes-companions": {
+    "src": "/photos/slots/companion-companion-plants-for-tomatoes-companions.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-companion-plants-for-courgettes-intro": {
+    "src": "/photos/slots/companion-companion-plants-for-courgettes-intro.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-flowers-for-the-veg-patch-hero": {
+    "src": "/photos/slots/companion-flowers-for-the-veg-patch-hero.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-flowers-for-the-veg-patch-intro": {
+    "src": "/photos/slots/companion-flowers-for-the-veg-patch-intro.webp",
+    "alt": "",
+    "caption": ""
+  },
+  "companion-flowers-for-the-veg-patch-practice": {
+    "src": "/photos/slots/companion-flowers-for-the-veg-patch-practice.webp",
+    "alt": "",
+    "caption": ""
   }
 }
