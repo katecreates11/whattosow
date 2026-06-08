@@ -285,6 +285,14 @@ const guides = [
     tag: "Getting started",
     number: "28",
   },
+  {
+    title: "Companion planting chart (printable)",
+    description:
+      "The whole of companion planting on one page — what to grow together and what to keep apart, crop by crop. Made to be scanned, printed and pinned up on the shed wall.",
+    href: "/guides/companion-planting-chart",
+    tag: "Planning",
+    number: "29",
+  },
 ];
 
 export default function GuidesIndex() {

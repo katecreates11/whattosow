@@ -1052,6 +1052,70 @@ export const companionTopics: CompanionTopic[] = [
     ],
     relatedCrops: ["sweetcorn", "runner-beans", "squash", "pumpkins"],
   },
+
+  // ── 17. Pak choi & oriental greens ────────────────────────────────────────
+  {
+    slug: "companion-plants-for-pak-choi",
+    metaTitle: "Companion Plants for Pak Choi (UK) — What to Grow & Avoid",
+    title: "Companion plants for pak choi",
+    description:
+      "The best companion plants for pak choi and oriental greens in the UK — aromatic alliums and herbs to outwit flea beetle, plus what to keep apart. Plot-tested pairings for clean, unholey leaves.",
+    keywords: [
+      "pak choi companion plants",
+      "companion planting pak choi",
+      "what to plant with pak choi",
+      "oriental greens companion planting",
+      "pak choi flea beetle",
+    ],
+    heroImage: "/photos/blog/square-growing-salad.webp",
+    heroAlt: "Oriental salad leaves growing in a raised bed",
+    intro:
+      "Pak choi is one of the quickest, most rewarding leaves you can grow — and a few good neighbours help it crop clean and unbothered, masking its scent from the flea beetles that love to pepper its leaves.",
+    sections: [
+      {
+        paragraphs: [
+          "Pak choi is a brassica, a cousin of cabbage and kale, so it keeps the same company. Its best companions are aromatic alliums and herbs whose scent confuses the pests that hunt brassicas by smell, and easy-going neighbours that don't compete with its fast, leafy growth. Grow it quickly, in cool, moist conditions, and the right company keeps it sweet.",
+          "Its great tormentor is flea beetle — the tiny black beetles that riddle young leaves with shot-holes, especially in warm, dry spells. Strong-smelling onions, garlic and aromatic herbs nearby help throw them off the scent, but be honest: in the worst of it, a layer of fine mesh or fleece over the crop is the surest protection. Companions help; a barrier seals the deal.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Onions, garlic & spring onions", why: "Pungent alliums whose scent helps confuse flea beetle and other brassica pests." },
+      { name: "Beetroot & chard", why: "Easy-going neighbours that don't compete with pak choi's quick, leafy growth." },
+      { name: "Lettuce & other salad", why: "Quick, low crops that share the same cool, moist conditions and crop in the same window." },
+      { name: "Aromatic herbs (dill, coriander, mint)", why: "Their strong scents help mask the brassica smell pests home in on, and bring in beneficial insects." },
+      { name: "Peas & beans", why: "Fix nitrogen that fuels pak choi's hungry, leafy growth — grow it after them, or alongside." },
+    ],
+    avoid: [
+      { name: "Strawberries", why: "A traditional poor partner for brassicas — they seem to check each other and share some pests." },
+      { name: "Tomatoes & other heavy feeders", why: "Compete hard for the same nutrients; pak choi grows best without that fight." },
+      { name: "Other brassicas crowded close", why: "Cabbage, kale and the like share every pest and disease — give them space so trouble can't spread." },
+    ],
+    flowers: [
+      { name: "Nasturtiums", why: "A sacrificial trap that lures flea beetle and caterpillars away from the leaves." },
+      { name: "Marigolds", why: "Bring in hoverflies and ladybirds to clear aphids." },
+      { name: "Calendula", why: "Attracts beneficial insects and edges the bed cheerfully." },
+    ],
+    faqs: [
+      {
+        q: "What can I plant with pak choi?",
+        a: "Pak choi keeps the same company as other brassicas: aromatic alliums (onions, garlic, spring onions) and herbs like dill and coriander to confuse the pests that hunt by smell, easy neighbours like beetroot, chard and lettuce, and peas or beans whose nitrogen fuels its leafy growth. Add nasturtiums and marigolds as flower helpers.",
+      },
+      {
+        q: "How do I stop flea beetle on pak choi?",
+        a: "Flea beetle is pak choi's main pest, peppering the leaves with tiny holes in warm, dry weather. Strong-smelling alliums and herbs nearby help mask the scent, and a sacrificial ring of nasturtiums draws beetles away — but the most reliable defence is a layer of fine insect mesh or fleece over the crop. Keeping the soil moist and growing pak choi fast also helps it shrug off the damage.",
+      },
+      {
+        q: "What should not be planted near pak choi?",
+        a: "Keep pak choi away from strawberries (traditional poor partners for brassicas), from heavy feeders like tomatoes that compete for nutrients, and don't crowd it among other brassicas, which share all the same pests and diseases.",
+      },
+    ],
+    seedLinks: [
+      { label: "Pak choi seeds", url: tm("Pak%20Choi") },
+      { label: "Oriental leaf seeds", url: tm("Oriental%20Leaves") },
+    ],
+    relatedCrops: ["pak-choi", "lettuce", "spring-onions", "kale"],
+  },
 ];
 
 export function getCompanionTopic(slug: string): CompanionTopic | undefined {

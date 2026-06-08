@@ -229,6 +229,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/companion-planting-chart`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/guides/sun-mapping`,
       lastModified: new Date("2026-06-04"),
       changeFrequency: "monthly",
