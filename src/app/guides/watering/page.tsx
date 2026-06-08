@@ -613,6 +613,20 @@ export default function WateringGuide() {
           <SectionDivider label="Next" />
           <section>
             <div className="space-y-0">
+              <a href="/guides/what-to-sow-in-summer-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in summer</span>
+                  <p className="text-sm text-earth-light mt-1">Keep sowing through the hot months — the trick is watering them up.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Protecting crops from frost</span>
+                  <p className="text-sm text-earth-light mt-1">The other end of the year — fleece, cloches and cold frames.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
               <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow this week</span>

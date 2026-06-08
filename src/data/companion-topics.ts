@@ -526,6 +526,278 @@ export const companionTopics: CompanionTopic[] = [
     ],
     relatedCrops: ["marigolds", "nasturtium", "borage", "sweet-peas"],
   },
+
+  // ── 9. Strawberries ───────────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-strawberries",
+    metaTitle: "Companion Plants for Strawberries (UK) — What to Grow & Avoid",
+    title: "Companion plants for strawberries",
+    description:
+      "The best companion plants for strawberries in the UK — borage, chives and the flowers that bring in pollinators and keep pests off — plus what to keep well apart. Plot-tested pairings for sweeter berries.",
+    keywords: [
+      "companion plants for strawberries",
+      "what to plant with strawberries",
+      "strawberry companion planting UK",
+      "borage and strawberries",
+      "strawberry bed planting",
+    ],
+    heroImage: "/photos/blog/strawberry-plants-flowering.webp",
+    heroAlt: "Strawberry plants in flower on a UK allotment",
+    intro:
+      "Strawberries are the first sweet thing off the plot each summer, and a few good neighbours genuinely earn their keep — bringing in the bees that set every berry and quietly keeping the worst of the pests at bay.",
+    sections: [
+      {
+        paragraphs: [
+          "Every strawberry begins as a flower that a bee has to visit — and a poorly pollinated flower gives you a small, lopsided berry rather than a plump one. So the most useful companions for strawberries are the ones that pull pollinators in, with borage at the top of the list. Old hands have grown borage among their strawberries for generations, and it really does seem to bring sweeter, better-set fruit.",
+          "The other job for a strawberry bed's companions is gentle pest control: aromatic alliums like chives and garlic to confuse the pests hunting by smell, and a few flowers to bring in the hoverflies and ladybirds that deal with aphids. Keep the bed open and airy, mulch under the fruit so it stays clean, and the right neighbours do the rest.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Borage", why: "The classic strawberry partner — a relentless bee magnet that lifts pollination and, by repute, the flavour of the fruit. Edible flowers too." },
+      { name: "Chives & garlic", why: "Pungent alliums that help confuse pests and are said to keep grey mould off the bed; tuck them around the edges." },
+      { name: "Lettuce & spinach", why: "Low, quick leaves that fill the gaps between young plants and are cropped before the strawberries spread." },
+      { name: "Thyme & sage", why: "Low aromatic herbs that cover the soil, deter some pests and bring in beneficial insects." },
+      { name: "Marigolds", why: "Bring in hoverflies whose larvae clear aphids, and brighten the edge of the bed." },
+    ],
+    avoid: [
+      { name: "Brassicas (cabbage, kale, broccoli)", why: "Long-standing poor partners — they seem to check strawberries and compete hard as heavy feeders." },
+      { name: "Potatoes, tomatoes & other nightshades", why: "Share some soil diseases (including verticillium wilt) that strawberries are prone to — keep them well apart." },
+      { name: "Fennel", why: "Inhibits many neighbours generally; give it a bed of its own." },
+    ],
+    flowers: [
+      { name: "Borage", why: "Number-one pollinator plant for strawberries." },
+      { name: "Marigolds", why: "Hoverflies in, aphids down." },
+      { name: "Calendula", why: "Beneficial insects and a cheerful, edible edge." },
+    ],
+    faqs: [
+      {
+        q: "What grows well with strawberries?",
+        a: "Borage above all — it brings in the bees that pollinate every flower and is said to sweeten the fruit. Add chives or garlic to help keep pests and mould off, low herbs like thyme and sage to cover the soil, and a few marigolds for the hoverflies that eat aphids.",
+      },
+      {
+        q: "Why plant borage with strawberries?",
+        a: "Borage is one of the best bee magnets you can grow, and strawberries need plenty of pollinator visits for plump, well-shaped berries. Many growers also swear it improves the flavour. It self-seeds happily, so once you have it you tend to keep it — and the flowers are pretty in a summer drink.",
+      },
+      {
+        q: "What should not be planted near strawberries?",
+        a: "Keep strawberries away from brassicas (traditional poor partners) and from potatoes, tomatoes and other nightshades, which share soil diseases like verticillium wilt that strawberries catch easily.",
+      },
+      {
+        q: "Can I plant strawberries in a bed with other crops?",
+        a: "Yes — strawberries are happy sharing space with low, quick crops like lettuce and spinach while they establish, and with aromatic herbs and pollinator flowers around the edges. Just give them room to send out runners and keep the fruit mulched off the soil.",
+      },
+    ],
+    seedLinks: [
+      { label: "Strawberry plants", url: tm("Strawberry") },
+      { label: "Borage seeds", url: tm("Borage") },
+    ],
+    relatedCrops: ["strawberries", "lettuce", "spinach", "spring-onions"],
+  },
+
+  // ── 10. Potatoes ──────────────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-potatoes",
+    metaTitle: "Companion Plants for Potatoes (UK) — What to Grow & Avoid",
+    title: "Companion plants for potatoes",
+    description:
+      "The best companion plants for potatoes in the UK — beans, sweetcorn and the flowers that deter pests — plus the crops to keep well away. Honest, plot-tested pairings for a healthier crop.",
+    keywords: [
+      "companion plants for potatoes",
+      "what to plant with potatoes",
+      "potato companion planting UK",
+      "beans and potatoes",
+      "what not to plant with potatoes",
+    ],
+    heroImage: "/photos/blog/potato-rows-growing.webp",
+    heroAlt: "Rows of potatoes growing on a UK allotment",
+    intro:
+      "Potatoes take up a good chunk of the plot and ask for little, but a few thoughtful neighbours help — feeding the soil they're grown in, drawing pests away, and making the most of the ground before the haulm fills out.",
+    sections: [
+      {
+        paragraphs: [
+          "Potatoes are greedy, leafy and grown for what's underground, so their best companions either feed them or use the space around them without getting in the way of earthing up and digging. Beans and peas are the stars: they fix nitrogen into the soil, which the hungry potato foliage laps up, and they grow up rather than out.",
+          "The pests to watch are aphids and, in some plots, the soil-borne troubles that build up if you grow potatoes in the same spot too often — so good companions plus sensible crop rotation matter more here than almost anywhere. The one rule to never break: keep potatoes and tomatoes apart, because they share blight and an outbreak will sweep through both.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Beans & peas", why: "Fix nitrogen the hungry potato foliage feeds on, and grow upward without crowding the rows." },
+      { name: "Sweetcorn", why: "Tall and undemanding at ground level — happy to share a bed without competing for the same space." },
+      { name: "Brassicas (cabbage, kale)", why: "Different feeding habits and a useful rotation partner; they don't fight the potatoes for the same things." },
+      { name: "Horseradish", why: "Traditionally grown at the corners of a potato patch — said to improve the crop's health and resistance." },
+      { name: "Marigolds & nasturtiums", why: "Pull aphids away and bring in hoverflies; nasturtiums can act as a sacrificial trap." },
+    ],
+    avoid: [
+      { name: "Tomatoes", why: "Same family, same blight — the single most important pair to keep apart on the whole plot." },
+      { name: "Courgettes, squash & pumpkins", why: "Two greedy crops competing for the same food and water, and a tangle to harvest together." },
+      { name: "Sunflowers", why: "Can stunt nearby potatoes and compete heavily for light and moisture." },
+      { name: "Carrots & other roots", why: "Earthing up and digging potatoes disturbs neighbouring root crops — keep them in their own bed." },
+    ],
+    flowers: [
+      { name: "Marigolds", why: "Hoverflies in, aphids down." },
+      { name: "Nasturtiums", why: "Sacrificial aphid trap that rambles happily between rows." },
+      { name: "Calendula", why: "Brings in beneficial insects and copes with rough ground." },
+    ],
+    faqs: [
+      {
+        q: "What can I plant with potatoes?",
+        a: "Beans and peas are the best partners — they feed nitrogen into the soil the potatoes are hungry for. Sweetcorn shares the space well, brassicas make a good rotation neighbour, and marigolds or nasturtiums keep aphids in check. Horseradish at the corners is a traditional health booster.",
+      },
+      {
+        q: "Why can't you plant potatoes and tomatoes together?",
+        a: "They're both nightshades and share the same diseases — most importantly blight. Grown side by side, an outbreak can wipe out both crops at once. If you remember only one companion-planting rule, make it this one.",
+      },
+      {
+        q: "What should not be planted near potatoes?",
+        a: "Keep potatoes away from tomatoes (shared blight), from courgettes, squash and pumpkins (greedy competitors that make harvesting a nightmare), and from carrots and other roots that get disturbed when you earth up and dig.",
+      },
+      {
+        q: "Do marigolds help potatoes?",
+        a: "They help indirectly — marigolds bring in the hoverflies and ladybirds whose larvae eat aphids, and a ring of them brightens the patch. They're a useful supporting act alongside good rotation and healthy seed potatoes, not a cure-all.",
+      },
+    ],
+    seedLinks: [
+      { label: "Seed potatoes", url: tm("Seed%20Potatoes") },
+      { label: "Runner bean seeds", url: tm("Runner%20Bean") },
+    ],
+    relatedCrops: ["maincrop-potatoes", "early-potatoes", "runner-beans", "sweetcorn"],
+  },
+
+  // ── 11. Onions & garlic ───────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-onions-garlic",
+    metaTitle: "Companion Plants for Onions & Garlic (UK) — What to Grow",
+    title: "Companion plants for onions & garlic",
+    description:
+      "The best companion plants for onions, garlic, shallots and leeks in the UK — carrots, beetroot and the crops their scent protects — plus what to keep apart. Plot-tested allium pairings.",
+    keywords: [
+      "companion plants for onions",
+      "companion plants for garlic",
+      "what to plant with onions",
+      "carrots and onions companion planting",
+      "allium companion planting UK",
+    ],
+    heroImage: "/photos/blog/sowing-drills-allotment-spring.webp",
+    heroAlt: "Freshly drawn drills ready for sowing on a spring allotment",
+    intro:
+      "Onions, garlic and their allium cousins are some of the most generous companions on the plot — their pungent scent quietly protects the crops around them. The trick is knowing the few things they'd rather not sit beside.",
+    sections: [
+      {
+        paragraphs: [
+          "Alliums — onions, garlic, shallots, leeks, chives — earn their place as companions through sheer smell. That oniony pungency masks the scent of nearby crops and muddles the pests hunting by nose, which is exactly why the carrot-and-onion pairing is the most famous in the whole of companion planting: each one's scent helps hide the other from its particular fly.",
+          "They're also wonderfully space-efficient, growing slim and upright with little canopy, so they slot in around almost anything. The one group to keep them away from is the legumes — beans and peas — whose growth allium root secretions can genuinely check. Other than that, alliums are easy, willing neighbours all over the plot.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Carrots", why: "The classic pairing — onion scent confuses carrot fly and carrot scent confuses onion fly. Grow in alternating rows." },
+      { name: "Beetroot & chard", why: "Easy-going neighbours that don't compete with the slim, upright alliums for space." },
+      { name: "Lettuce & other salad", why: "Quick low leaves that fill the ground between allium rows before the bulbs swell." },
+      { name: "Brassicas (cabbage, kale)", why: "Pungent alliums help confuse the pests hunting brassicas by smell." },
+      { name: "Strawberries", why: "Chives and garlic tucked around a strawberry bed are said to help keep mould and pests off the fruit." },
+    ],
+    avoid: [
+      { name: "Beans & peas", why: "Allium root secretions can stunt the growth of legumes — the one pairing to always keep in separate beds." },
+      { name: "Asparagus", why: "A long-lived crop that resents the competition; give alliums their own ground." },
+      { name: "Sage", why: "Traditionally said to clash with onions — easy enough to keep apart." },
+    ],
+    flowers: [
+      { name: "Chamomile", why: "An old companion said to improve the growth and flavour of onions nearby." },
+      { name: "Marigolds", why: "Bring in hoverflies and brighten the edge of the bed." },
+    ],
+    faqs: [
+      {
+        q: "What grows well with onions and garlic?",
+        a: "Carrots are the classic partner — the two scents confuse each other's flies. Beetroot, chard, lettuce and brassicas all make easy neighbours, and a ring of chives or garlic around strawberries is said to keep pests and mould off the fruit.",
+      },
+      {
+        q: "Why plant carrots and onions together?",
+        a: "Carrot fly and onion fly both hunt by smell. Grown in alternating rows, the onion scent masks the carrots and the carrot scent masks the onions, so each crop helps hide the other. Pair it with a fine mesh barrier for the most reliable protection.",
+      },
+      {
+        q: "What should not be planted near onions or garlic?",
+        a: "Keep alliums away from beans and peas — their root secretions can genuinely stunt legumes. It's also worth keeping them clear of asparagus and, by tradition, sage.",
+      },
+      {
+        q: "Can I plant garlic with other vegetables?",
+        a: "Yes — garlic is one of the best companions there is. Its scent helps protect carrots, brassicas and strawberries from pests, and it takes up so little room you can tuck cloves in around the edges of almost any bed except where beans and peas are growing.",
+      },
+    ],
+    seedLinks: [
+      { label: "Onion sets", url: tm("Onion%20Sets") },
+      { label: "Garlic bulbs", url: tm("Garlic") },
+    ],
+    relatedCrops: ["onion-sets", "garlic", "leeks", "carrots"],
+  },
+
+  // ── 12. Cucumbers ─────────────────────────────────────────────────────────
+  {
+    slug: "companion-plants-for-cucumbers",
+    metaTitle: "Companion Plants for Cucumbers (UK) — What to Grow & Avoid",
+    title: "Companion plants for cucumbers",
+    description:
+      "The best companion plants for cucumbers in the UK — beans, dill and the flowers that bring in pollinators — plus what to keep apart. Plot-tested pairings for a heavier, healthier cucumber crop.",
+    keywords: [
+      "companion plants for cucumbers",
+      "what to plant with cucumbers",
+      "cucumber companion planting UK",
+      "dill and cucumbers",
+      "cucumber pollination flowers",
+    ],
+    heroImage: "/photos/guides/allotment-wide-summer.webp",
+    heroAlt: "A summer allotment in full growth",
+    intro:
+      "Cucumbers are thirsty, hungry climbers that crop generously once they get going — and the right neighbours help them along, bringing in pollinators and using the ground at their feet while they scramble upward.",
+    sections: [
+      {
+        paragraphs: [
+          "Cucumbers, like their squash relatives, lean on pollinators to set fruit (outdoor and ridge types especially), so flowers that pull bees in are among their best companions. Beans and peas make excellent partners too, fixing nitrogen into the soil that the hungry cucumber vines feed on, and they climb companionably rather than sprawling into the same space.",
+          "Down at ground level, low salad crops make good use of the cool, shaded soil beneath the foliage, and aromatic dill is a long-standing cucumber friend — said to bring in beneficial insects and lovely with cucumber in the kitchen. Keep the one classic clash in mind: strongly aromatic herbs like sage can check cucumbers, so keep those apart.",
+        ],
+      },
+    ],
+    goodCompanions: [
+      { name: "Beans & peas", why: "Fix nitrogen the hungry cucumbers feed on, and climb alongside without competing for the same ground." },
+      { name: "Dill", why: "The traditional cucumber herb — brings in beneficial insects and pairs with cucumber on the plate." },
+      { name: "Lettuce & radishes", why: "Quick, low crops that use the cool shade beneath the vines and are cropped before the cucumbers take over." },
+      { name: "Sweetcorn", why: "Tall and undemanding — cucumbers can even be trained up it, sharing space like a loose Three Sisters." },
+      { name: "Nasturtiums", why: "Lure aphids and cucumber beetles away and bring in pollinators; they ramble happily nearby." },
+    ],
+    avoid: [
+      { name: "Sage & other strong aromatic herbs", why: "Said to check the growth of cucumbers — keep the pungent herbs in a separate bed." },
+      { name: "Potatoes", why: "Greedy for the same food and water, and harvesting them disturbs the cucumbers' roots." },
+      { name: "Melons & other cucurbits crowded close", why: "Same family, same pests and diseases — give them room so trouble can't spread fast." },
+    ],
+    flowers: [
+      { name: "Nasturtiums", why: "Aphid and beetle trap, plus a pollinator draw." },
+      { name: "Borage", why: "A bee magnet that lifts pollination and fruit set." },
+      { name: "Marigolds", why: "Hoverflies in, aphids down." },
+    ],
+    faqs: [
+      {
+        q: "What grows well with cucumbers?",
+        a: "Beans and peas (they feed nitrogen into the soil), dill (the classic cucumber herb), low salad crops like lettuce and radishes for the shaded ground beneath, and pollinator flowers such as nasturtiums and borage to bring the bees in for good fruit set.",
+      },
+      {
+        q: "Can you plant cucumbers and tomatoes together?",
+        a: "You can, but it's not ideal — both are hungry, thirsty and want plenty of room and airflow, so together they compete and can crowd each other into disease. If you do grow them side by side (in a greenhouse, say), feed and water generously and keep good space between them.",
+      },
+      {
+        q: "What should not be planted near cucumbers?",
+        a: "Keep cucumbers away from strongly aromatic herbs like sage that can check their growth, from potatoes that compete for food and water, and from other cucurbits crowded in close, which share the same pests and diseases.",
+      },
+      {
+        q: "Do cucumbers need flowers nearby for pollination?",
+        a: "Outdoor and ridge cucumbers set better fruit with plenty of bee visits, so pollinator flowers like borage and nasturtiums genuinely help. (Many modern greenhouse varieties are all-female and self-set without pollination — check your seed packet.)",
+      },
+    ],
+    seedLinks: [
+      { label: "Cucumber seeds", url: tm("Cucumber") },
+      { label: "Dill seeds", url: tm("Dill") },
+    ],
+    relatedCrops: ["cucumbers", "dill", "lettuce", "runner-beans"],
+  },
 ];
 
 export function getCompanionTopic(slug: string): CompanionTopic | undefined {

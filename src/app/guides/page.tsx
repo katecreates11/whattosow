@@ -189,6 +189,78 @@ const guides = [
     tag: "Seasonal",
     number: "14",
   },
+  {
+    title: "What to sow in summer",
+    description:
+      "June, July and August aren't the end of sowing — they're the start of the autumn and winter plot. Quick crops, last-chance beans, and the winter veg to start now.",
+    href: "/guides/what-to-sow-in-summer-uk",
+    tag: "Seasonal",
+    number: "17",
+  },
+  {
+    title: "Succession sowing",
+    description:
+      "Sow little and often for a steady harvest instead of a glut. The crops worth staggering and a simple rhythm that keeps the kitchen in greens all season.",
+    href: "/guides/succession-sowing",
+    tag: "Growing",
+    number: "18",
+  },
+  {
+    title: "Growing brassicas",
+    description:
+      "Cabbage, kale, broccoli, cauliflower and sprouts — one family for a year-round harvest. Firm planting, beating the cabbage white, and keeping clubroot at bay.",
+    href: "/guides/growing-brassicas",
+    tag: "Growing",
+    number: "19",
+  },
+  {
+    title: "Growing tomatoes: outdoors vs greenhouse",
+    description:
+      "Which to choose and how to grow each well — cordon vs bush, feeding and watering, and how to dodge blight for a heavy, ripe crop.",
+    href: "/guides/growing-tomatoes-outdoors-vs-greenhouse",
+    tag: "Growing",
+    number: "20",
+  },
+  {
+    title: "Growing onions, garlic & leeks",
+    description:
+      "The allium family — sets, cloves and seed. When and how to plant, feeding and pests, and curing a homegrown store that lasts through winter.",
+    href: "/guides/growing-onions-garlic-leeks",
+    tag: "Growing",
+    number: "21",
+  },
+  {
+    title: "Growing winter salad leaves",
+    description:
+      "Cut your own salad in December. The hardy cut-and-come-again leaves to sow in late summer for fresh picking right through the cold — winter lettuce, lamb's lettuce, mizuna and more.",
+    href: "/guides/growing-winter-salad-leaves",
+    tag: "Growing",
+    number: "22",
+  },
+  {
+    title: "Preparing your plot for winter",
+    description:
+      "Putting the allotment to bed: clearing spent crops, mulching beds the no-dig way, protecting bare soil and storing the harvest. The autumn jobs that pay off all next year.",
+    href: "/guides/preparing-your-plot-for-winter",
+    tag: "Seasonal",
+    number: "23",
+  },
+  {
+    title: "Protecting crops from frost",
+    description:
+      "Which crops are hardy, which need cover, and how to choose between fleece, cloches, cold frames and polytunnels. Beat both the winter cold and the late frosts of spring.",
+    href: "/guides/protecting-vegetables-from-frost",
+    tag: "Seasonal",
+    number: "24",
+  },
+  {
+    title: "Overwintering broad beans & peas",
+    description:
+      "Sow hardy broad beans and peas in autumn for a crop weeks ahead of spring sowings. The best varieties, how to protect them, and the pitfalls to avoid.",
+    href: "/guides/overwintering-broad-beans-and-peas",
+    tag: "Seasonal",
+    number: "25",
+  },
 ];
 
 export default function GuidesIndex() {

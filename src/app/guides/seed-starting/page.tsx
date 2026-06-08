@@ -640,6 +640,20 @@ export default function SeedStartingGuide() {
             </h2>
             <div>
               <a
+                href="/guides/succession-sowing"
+                className="flex items-center justify-between py-5 border-b border-earth/8 group"
+              >
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                    Succession sowing
+                  </span>
+                  <p className="text-sm text-earth-light mt-1">
+                    Sow little and often for a steady harvest, not a glut.
+                  </p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a
                 href="/"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
