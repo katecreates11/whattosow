@@ -89,15 +89,22 @@ export function inSeasonCrops(lastFrost?: Date, now: Date = new Date()): CropEnt
     });
 }
 
-/** Crops whose plant-out window is open now. */
+/**
+ * Crops whose plant-out window is open now. The window runs from 3 weeks before
+ * the crop's ideal plant-out date to 6 weeks after — planting out realistically
+ * continues for weeks (successional sowings, slower northern springs, second
+ * batches), so a longer tail keeps the section honest through the season.
+ */
+const PLANT_OUT_LEAD = 3 * MS_WEEK;
+const PLANT_OUT_TAIL = 6 * MS_WEEK;
 export function plantOutCrops(lastFrost?: Date, now: Date = new Date()): CropEntry[] {
   const frost = lastFrost ?? ukAverageFrost(now);
   const out: CropEntry[] = [];
   crops.forEach((crop, i) => {
     if (crop.plantOutWeeks == null) return;
     const center = frost.getTime() + crop.plantOutWeeks * MS_WEEK;
-    if (now.getTime() >= center - 3 * MS_WEEK && now.getTime() <= center + 3 * MS_WEEK) {
-      const daysLeft = Math.ceil((center + 3 * MS_WEEK - now.getTime()) / MS_DAY);
+    if (now.getTime() >= center - PLANT_OUT_LEAD && now.getTime() <= center + PLANT_OUT_TAIL) {
+      const daysLeft = Math.ceil((center + PLANT_OUT_TAIL - now.getTime()) / MS_DAY);
       const state: SowState = daysLeft <= CLOSING_DAYS ? "closing" : "now";
       out.push(
         entry(

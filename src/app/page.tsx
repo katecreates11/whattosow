@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import PlantingTool from "@/components/PlantingTool";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -17,10 +18,12 @@ import WeatherCommandCenter from "@/components/WeatherCommandCenter";
 import PlotStamp from "@/components/PlotStamp";
 import BlightRisk from "@/components/BlightRisk";
 import FeaturedVariety from "@/components/FeaturedVariety";
-import InSeasonBand from "@/components/InSeasonBand";
+import StageStrip from "@/components/StageStrip";
 import ShedFund from "@/components/ShedFund";
 import SeasonalKitEdit from "@/components/SeasonalKitEdit";
-import { featuredEntry, inSeasonCrops, seasonCounts } from "@/lib/variety-status";
+import { featuredEntry, inSeasonCrops, plantOutCrops, harvestCrops, seasonCounts } from "@/lib/variety-status";
+import CropCardGrid from "@/components/CropCardGrid";
+import AffiliateLink from "@/components/AffiliateLink";
 
 export default function Home() {
   const jsonLd = {
@@ -63,9 +66,111 @@ export default function Home() {
 
   // Seasonal field guide (server-side, UK-average frost; client refines by postcode later)
   const featured = featuredEntry();
-  const inSeasonVeg = inSeasonCrops();
-  const closingVeg = inSeasonVeg.filter((e) => e.status.state === "closing").length;
+  // The three jobs of the week. Sow excludes plant-out (it has its own section).
+  const sowVeg = inSeasonCrops().filter((e) => e.status.method !== "plant out");
+  const plantOutVeg = plantOutCrops();
+  const harvestVeg = harvestCrops();
   const varietyCounts = seasonCounts();
+
+  // Data-driven priority: lead with whichever job has the most live, time-
+  // sensitive crops (closing/last-chance ones count double). A block only
+  // appears when it has crops — so Harvest switches itself on as things ripen
+  // and stays hidden the rest of the year.
+  const jobScore = (entries: typeof sowVeg) =>
+    entries.length + entries.filter((e) => e.status.state === "closing").length;
+  // This is "What To Sow" — sowing/planting always leads; harvest is the reward
+  // underneath. So sow + plant-out are a top tier (ordered between themselves by
+  // priority), and harvest is pinned below them.
+  const jobTier = { sow: 0, plantout: 0, harvest: 1 } as const;
+  const jobOrder = { sow: 0, plantout: 1, harvest: 2 } as const;
+  const jobLabel = { sow: "sowing", plantout: "planting out", harvest: "harvesting" } as const;
+  const jobs = (
+    [
+      { id: "sow" as const, score: jobScore(sowVeg) },
+      { id: "plantout" as const, score: jobScore(plantOutVeg) },
+      { id: "harvest" as const, score: jobScore(harvestVeg) },
+    ]
+      .filter((j) => j.score > 0)
+      .sort(
+        (a, b) =>
+          jobTier[a.id] - jobTier[b.id] || b.score - a.score || jobOrder[a.id] - jobOrder[b.id]
+      )
+  );
+  const leadJob = jobs[0]?.id;
+
+  // Canonical stage labels — the numbers persist even as the sections reorder.
+  const stageMeta = {
+    sow: { num: "01", label: "Sow" },
+    plantout: { num: "02", label: "Plant out" },
+    harvest: { num: "03", label: "Harvest" },
+  } as const;
+  const ilink = "text-rust hover:text-earth transition-colors underline decoration-rust/30";
+
+  // One job block. The lead job gets a hero treatment (big heading, large
+  // asymmetric grid); the rest stay compact. All on one light ground, unified by
+  // the stage strip above — so the priority order reads as design, not chance.
+  const renderJob = (id: "sow" | "plantout" | "harvest", isLead: boolean) => {
+    const meta = stageMeta[id];
+    const anchor = id === "plantout" ? "plant-out" : id;
+    const heading = isLead
+      ? "font-serif font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-earth leading-[0.96]"
+      : "font-serif font-light text-2xl sm:text-3xl md:text-[2.5rem] tracking-tight text-earth leading-none";
+    const stand = isLead
+      ? "font-serif italic text-lg sm:text-xl text-earth-light max-w-[46ch] mt-3 mb-8 leading-snug"
+      : "font-serif italic text-base sm:text-lg text-earth-light max-w-[52ch] mt-2 mb-6 leading-snug";
+    const variant = isLead ? "hero" : "compact";
+
+    const eyebrow = (
+      <div className="flex items-center gap-3 mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-allotment">
+        <span className="text-earth-lighter">{meta.num}</span>
+        <span>{meta.label}</span>
+        {isLead && <span className="bg-amber text-white px-2 py-0.5 tracking-[0.12em]">this week&apos;s main job</span>}
+        {id === "harvest" && <span className="font-serif italic normal-case tracking-normal text-[13px] text-earth-lighter">the reward</span>}
+      </div>
+    );
+
+    const body =
+      id === "sow" ? (
+        <>
+          <h2 className={heading}>Everything to sow now</h2>
+          <p className={stand}>Every variety worth starting this week &mdash; lit the week its window opens, flagged the week it closes.</p>
+          <CropCardGrid entries={sowVeg} variant={variant} showSeeds emptyNote="Nothing to sow this week on the UK average — your own postcode may differ." />
+        </>
+      ) : id === "plantout" ? (
+        <>
+          <h2 className={heading}>What to plant out this week</h2>
+          <p className={stand}>Young plants ready for the ground &mdash; whether you raised them on a windowsill or bought them in.</p>
+          <CropCardGrid entries={plantOutVeg} variant={variant} emptyNote="Nothing to plant out on the UK average just now — your own postcode may differ." />
+          <p className="mt-6 text-sm text-earth-light leading-relaxed max-w-[64ch]">
+            <strong className="text-earth">Before they go in:</strong> harden off over{" "}
+            <a href="/guides/seed-starting#hardening-off" className={ilink}>7&ndash;10 days</a>, mind a{" "}
+            <a href="/frost-map" className={ilink}>late frost</a>, and water in well &mdash;{" "}
+            <AffiliateLink href="https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728" product="frost protection fleece" type="gear" merchant="suttons" className={ilink}>fleece</AffiliateLink>{" "}
+            the tender ones on cold nights. No seedlings of your own?{" "}
+            <AffiliateLink href="https://www.suttons.co.uk/vegetable-fruit-plants/" product="vegetable plants" type="seed" merchant="suttons" className={ilink}>Buy young veg plants &rarr;</AffiliateLink>
+          </p>
+        </>
+      ) : (
+        <>
+          <h2 className={heading}>What to harvest this week</h2>
+          <p className={stand}>The payoff. Likely ready to pick now &mdash; pick little and often to keep them coming.</p>
+          <CropCardGrid entries={harvestVeg} variant={variant} emptyNote="The harvest hasn't started yet — check back as summer comes in." />
+          <div className="mt-6 border border-earth/10 bg-amber-bg/50 px-4 py-3 max-w-[64ch] text-sm text-earth-light leading-relaxed">
+            <div className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-rust mb-1.5">Glut coming?</div>
+            A wall of courgettes and beans all at once is the summer rite of passage.{" "}
+            <a href="/blog" className={ilink}>What to do with a glut &rarr;</a>{" · "}
+            <a href="/harvest-planner" className={ilink}>Plan your harvests &rarr;</a>
+          </div>
+        </>
+      );
+
+    return (
+      <div id={anchor} className={`${isLead ? "" : "border-t border-earth/10 pt-12 mt-12"} scroll-mt-24`}>
+        {eyebrow}
+        {body}
+      </div>
+    );
+  };
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -215,16 +320,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* What to sow this week — weather command center + featured variety */}
+        {/* This week on your plot — location/weather context + the week's hero */}
         <section id="this-week" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
           <div className="max-w-4xl mx-auto">
             <PlotStamp />
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-earth leading-[0.94]">
-              What to sow <span className="italic text-allotment">this week</span>
+              This week on <span className="italic text-allotment">your plot</span>
             </h2>
-            <p className="font-serif italic text-xl text-earth-light max-w-[40ch] mt-4 leading-snug">
-              A field guide to every variety worth growing &mdash; lit the week its window opens, flagged the week it closes.
+            <p className="font-serif italic text-xl text-earth-light max-w-[44ch] mt-4 leading-snug">
+              The jobs that matter most right now, tuned to your frost dates &mdash; what to sow, what to plant out, and what&apos;s ready to pick.
             </p>
+
+            {leadJob && (
+              <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-allotment">
+                Right now &middot; the main job is {jobLabel[leadJob]}
+              </p>
+            )}
 
             <div className="mt-8">
               <WeatherCommandCenter />
@@ -236,20 +347,8 @@ export default function Home() {
             </div>
 
             <div className="mt-7 font-serif text-[17px] text-earth-light">
-              <a href="#explore-crops" className="text-earth border-b-2 border-amber pb-px">
-                {inSeasonVeg.length} crops to sow now
-              </a>
-              {closingVeg > 0 && (
-                <>
-                  {" · "}
-                  <a href="#explore-crops" className="hover:text-earth transition-colors">
-                    {closingVeg} closing soon
-                  </a>
-                </>
-              )}
-              {" · "}
-              <a href="/calendar" className="hover:text-earth transition-colors">
-                {varietyCounts.total} varieties in the guide
+              <a href="/calendar" className="text-earth border-b-2 border-amber pb-px">
+                The full sowing calendar &mdash; {varietyCounts.total} varieties across the year &rarr;
               </a>
             </div>
 
@@ -257,12 +356,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* In season now — the field guide wall */}
-        <FullWidthSection className="bg-allotment-dark" innerClassName="py-16 sm:py-20">
-          <section id="explore-crops" className="scroll-mt-20">
-            <InSeasonBand entries={inSeasonVeg} totalVarieties={varietyCounts.total} />
+        {/* The week's jobs — a stage strip in fixed calendar order over the job
+            sections, which reorder by what matters most. Each appears only when
+            it has crops, so harvest switches itself on as things ripen. */}
+        {jobs.length > 0 && (
+          <section className="px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20">
+            <div className="max-w-6xl mx-auto">
+              <StageStrip
+                counts={{ sow: sowVeg.length, plantout: plantOutVeg.length, harvest: harvestVeg.length }}
+                leadJob={leadJob}
+              />
+              {jobs.map((j) => (
+                <Fragment key={j.id}>{renderJob(j.id, j.id === leadJob)}</Fragment>
+              ))}
+            </div>
           </section>
-        </FullWidthSection>
+        )}
 
         {/* Shop the season — the month's kit edit, funnels to the Sow page */}
         <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-20 bg-sage/25" aria-label="Shop the season">

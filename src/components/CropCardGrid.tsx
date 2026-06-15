@@ -20,11 +20,18 @@ export default function CropCardGrid({
   entries,
   emptyNote,
   showSeeds = false,
+  variant = "hero",
 }: {
   entries: CropEntry[];
   emptyNote?: string;
   showSeeds?: boolean;
+  /** hero = large asymmetric wall (the lead job); compact = denser small grid. */
+  variant?: "hero" | "compact";
 }) {
+  const compact = variant === "compact";
+  const gridCls = compact
+    ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-5 gap-y-7 items-start"
+    : "grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-9 sm:gap-x-7 items-start";
   if (entries.length === 0) {
     return (
       <div className="max-w-[42ch]">
@@ -37,13 +44,13 @@ export default function CropCardGrid({
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-9 sm:gap-x-7 items-start">
+    <div className={gridCls}>
       {entries.map((e, i) => {
         const img = cropImage(e.crop);
         const closing = e.status.state === "closing";
         const seed = showSeeds ? e.crop.seedSuppliers?.[0] : undefined;
         return (
-          <div key={`${e.crop.slug}-${e.no}`} className={`col-span-1 ${SPAN[i % SPAN.length]}`}>
+          <div key={`${e.crop.slug}-${e.no}`} className={compact ? "col-span-1" : `col-span-1 ${SPAN[i % SPAN.length]}`}>
             <a href={`/crops/${e.crop.slug}`} className="group block">
             <div className={`relative ${ASPECT[i % ASPECT.length]} overflow-hidden`}>
               {img ? (
@@ -78,13 +85,13 @@ export default function CropCardGrid({
                     <div className="h-px my-2" style={{ background: "rgba(45,95,62,0.28)" }} />
                     <span className="font-serif italic text-[13px] opacity-70">{e.crop.category}</span>
                   </div>
-                  <div className="font-serif text-[26px] sm:text-[30px] leading-[0.95] mt-auto">{e.crop.name}</div>
+                  <div className={`font-serif leading-[0.95] mt-auto ${compact ? "text-[20px] sm:text-[22px]" : "text-[26px] sm:text-[30px]"}`}>{e.crop.name}</div>
                 </div>
               )}
             </div>
             <div className="pt-3">
               {img && (
-                <div className="font-serif text-xl sm:text-[22px] text-earth leading-tight group-hover:text-allotment transition-colors">
+                <div className={`font-serif text-earth leading-tight group-hover:text-allotment transition-colors ${compact ? "text-base sm:text-lg" : "text-xl sm:text-[22px]"}`}>
                   {e.crop.name}
                 </div>
               )}

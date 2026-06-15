@@ -406,7 +406,7 @@ export default function SeedStartingGuide() {
 
           {/* Hardening off */}
           <ColorSection color="sage">
-          <section>
+          <section id="hardening-off" className="scroll-mt-24">
             <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
               Hardening off
             </h2>

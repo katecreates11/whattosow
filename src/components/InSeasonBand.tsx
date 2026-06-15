@@ -9,10 +9,10 @@ import { cropImage } from "@/lib/crop-image";
  * a taped herbarium specimen label where we don't. One card per veg.
  */
 
+// Sow methods only — planting out has its own section on the homepage now.
 const GROUPS: { method: string; label: string }[] = [
   { method: "direct sow", label: "Direct sow now" },
   { method: "sow indoors", label: "Start indoors now" },
-  { method: "plant out", label: "Plant out now" },
 ];
 
 const SPAN = ["md:col-span-4", "md:col-span-3", "md:col-span-5", "md:col-span-3", "md:col-span-4", "md:col-span-3", "md:col-span-4", "md:col-span-5"];
@@ -108,7 +108,7 @@ export default function InSeasonBand({
   return (
     <div className="text-[#eaf2e9]">
       <div className="flex items-baseline justify-between gap-4 flex-wrap mb-10 sm:mb-14">
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white tracking-tight">In season now</h2>
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white tracking-tight">Everything to sow now</h2>
         <span className="font-mono text-[11px] uppercase text-leaf-light">
           {entries.length} {entries.length === 1 ? "crop" : "crops"} to sow this week
         </span>
