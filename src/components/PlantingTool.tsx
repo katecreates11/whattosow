@@ -780,12 +780,17 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
             />
           )}
 
-          {/* Coming Soon */}
+          {/* On the horizon — windows opening soon (the forward look) */}
           {!hideCropList && cropActions.comingSoon.length > 0 && (
-            <div>
-              <h3 className="text-xl font-bold text-earth mb-4">
-                Coming up next
-              </h3>
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-1 h-6 bg-frost rounded-full" />
+                <svg className="w-5 h-5 text-frost" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+                <p className="text-sm font-semibold text-earth">On the horizon</p>
+              </div>
               <div className="grid gap-2 sm:grid-cols-2">
                 {cropActions.comingSoon.map(({ crop, action, inWeeks }) => (
                   <CropCard

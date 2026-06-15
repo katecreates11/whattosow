@@ -229,6 +229,12 @@ export default async function CropPage({
   const sameCategoryCrops = otherCrops.filter((c) => c.category === crop.category);
   const otherCategoryCrops = otherCrops.filter((c) => c.category !== crop.category);
 
+  // Field-guide framing: specimen number, our-photo flag, and the standout
+  // variety (for the editorial pull-quote, if this crop has a legendary pick).
+  const cropNo = crops.findIndex((c) => c.slug === crop.slug) + 1;
+  const cropPhoto = getCropPhoto(crop.slug);
+  const legendaryVariety = varieties.find((v) => v.cropSlug === crop.slug && v.rarity === "legendary");
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -314,17 +320,23 @@ export default async function CropPage({
 
       <article id="main-content">
         {/* Hero photo — local allotment photography preferred, Unsplash fallback */}
-        {getCropPhoto(crop.slug) ? (
+        {cropPhoto ? (
           <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
             <Image
-              src={getCropPhoto(crop.slug)!.hero}
-              alt={getCropPhoto(crop.slug)!.alt}
+              src={cropPhoto.hero}
+              alt={cropPhoto.alt}
               fill
               className="object-cover"
               priority
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <span className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-white/90 border border-white/40 px-3 py-1.5">
+              No. {cropNo} &middot; {categoryLabel(crop.category)}
+            </span>
+            <span className="absolute left-4 bottom-4 font-mono text-[9px] uppercase tracking-[0.1em] text-white/90 bg-allotment-dark/70 px-2 py-1">
+              from our plot
+            </span>
           </div>
         ) : crop.unsplashId ? (
           <UnsplashHero unsplashId={crop.unsplashId} cropName={crop.name} />
@@ -347,8 +359,11 @@ export default async function CropPage({
                   When to plant<br />
                   <span className="font-normal">{crop.name.toLowerCase()}</span> in the UK
                 </h1>
-                <p className="text-lg text-earth-light leading-relaxed max-w-2xl">
-                  {crop.tip}
+                <p className="font-serif text-xl text-earth-light leading-relaxed max-w-2xl">
+                  <span className="float-left font-serif text-[58px] leading-[0.6] pr-3 pt-2 text-allotment">
+                    {crop.tip.charAt(0)}
+                  </span>
+                  {crop.tip.slice(1)}
                 </p>
                 {(getCropPhoto(crop.slug) || crop.unsplashId) && (
                   <div className="mt-5">
@@ -368,35 +383,23 @@ export default async function CropPage({
         <div className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16"><div className="max-w-4xl mx-auto lg:flex lg:gap-12">
           {/* Main content */}
           <div className="lg:w-[58%]">
-            {/* Quick stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
-              <div className="bg-sage p-3 text-center">
-                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-lg font-semibold text-earth block">{crop.harvestWeeks}w</span>
-                <span className="text-[10px] text-earth-lighter">to harvest</span>
+            {/* Specimen data strip — herbarium tag, real fields only */}
+            <div className="flex flex-wrap border border-earth/15 mb-10">
+              <div className="flex-1 min-w-[110px] px-4 py-3 border-r border-earth/10">
+                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">Type</div>
+                <div className="font-serif text-xl text-earth capitalize mt-1 leading-none">{categoryLabel(crop.category)}</div>
               </div>
-              <div className="bg-sage p-3 text-center">
-                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                </svg>
-                <span className="text-lg font-semibold text-earth block">{crop.spacingCm}cm</span>
-                <span className="text-[10px] text-earth-lighter">spacing</span>
+              <div className="flex-1 min-w-[110px] px-4 py-3 border-r border-earth/10">
+                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">To harvest</div>
+                <div className="font-serif text-xl text-earth mt-1 leading-none">{crop.harvestWeeks} <span className="text-[13px] text-earth-light">wks</span></div>
               </div>
-              <div className="bg-sage p-3 text-center">
-                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                </svg>
-                <span className="text-lg font-semibold text-earth block">{getMinSoilTemp(crop)}&deg;C</span>
-                <span className="text-[10px] text-earth-lighter">min soil temp</span>
+              <div className="flex-1 min-w-[110px] px-4 py-3 border-r border-earth/10">
+                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">Spacing</div>
+                <div className="font-serif text-xl text-earth mt-1 leading-none">{crop.spacingCm} <span className="text-[13px] text-earth-light">cm</span></div>
               </div>
-              <div className="bg-sage p-3 text-center">
-                <svg className="w-5 h-5 mx-auto mb-1.5 text-earth-lighter" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                </svg>
-                <span className="text-lg font-semibold text-earth block capitalize">{crop.category}</span>
-                <span className="text-[10px] text-earth-lighter">hardiness</span>
+              <div className="flex-1 min-w-[110px] px-4 py-3">
+                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">Min soil</div>
+                <div className="font-serif text-xl text-earth mt-1 leading-none">{getMinSoilTemp(crop)}<span className="text-[13px] text-earth-light">&deg;C</span></div>
               </div>
             </div>
 
@@ -421,7 +424,8 @@ export default async function CropPage({
 
             {/* Growing needs */}
             <div className="bg-sage p-6 sm:p-8 mb-10">
-              <h2 className="font-semibold text-earth mb-3">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-2">How to grow</span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-3">
                 What {crop.name.toLowerCase()} need
               </h2>
               <p className="text-earth-light leading-relaxed">{crop.needs}</p>
@@ -432,6 +436,18 @@ export default async function CropPage({
               <div className="mb-10">
                 <BlightRisk variant="compact" />
               </div>
+            )}
+
+            {/* The opinionated pick — drawn from this crop's standout variety */}
+            {legendaryVariety && (
+              <blockquote className="border-l-4 border-rust pl-6 my-12 max-w-[36ch]">
+                <p className="font-serif italic text-2xl sm:text-3xl text-earth leading-snug">
+                  {legendaryVariety.personality.split(/(?<=[.!])\s/)[0]}
+                </p>
+                <cite className="not-italic font-mono text-[11px] uppercase tracking-[0.14em] text-earth-lighter mt-3 block">
+                  {legendaryVariety.name} &middot; our pick
+                </cite>
+              </blockquote>
             )}
 
             {/* Spacing diagram */}
@@ -549,11 +565,11 @@ export default async function CropPage({
           {/* Sidebar */}
           <div className="lg:w-[42%]">
             <div className="lg:sticky lg:top-20 space-y-8">
-              {/* Track this crop in my plot */}
-              <LogPlanting cropSlug={crop.slug} cropName={crop.name} />
-
-              {/* Seeds — sidebar variant (desktop) */}
-              <SeedSupplierLinks crop={crop} variant="sidebar" />
+              {/* Seeds — the buy-point leads the sticky rail (click priority) */}
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-3">Start this crop</span>
+                <SeedSupplierLinks crop={crop} variant="sidebar" />
+              </div>
 
               {/* Kit recommendations */}
               <CropKit slug={crop.slug} cropName={crop.name} />
@@ -569,6 +585,9 @@ export default async function CropPage({
                 </p>
                 <PlantingTool hideCropList />
               </div>
+
+              {/* Track this crop in my plot */}
+              <LogPlanting cropSlug={crop.slug} cropName={crop.name} />
             </div>
           </div>
         </div></div>
