@@ -48,7 +48,22 @@ export function inSeasonEntries(lastFrost?: Date, now: Date = new Date()): Varie
     });
 }
 
+/** ISO-8601 week number (1–53). Used to rotate the weekly feature. */
+function isoWeek(d: Date): number {
+  const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const dayNum = (date.getUTCDay() + 6) % 7; // Mon=0 … Sun=6
+  date.setUTCDate(date.getUTCDate() - dayNum + 3); // nearest Thursday
+  const firstThursday = new Date(Date.UTC(date.getUTCFullYear(), 0, 4));
+  const firstDayNum = (firstThursday.getUTCDay() + 6) % 7;
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - firstDayNum + 3);
+  return 1 + Math.round((date.getTime() - firstThursday.getTime()) / (7 * 24 * 3600 * 1000));
+}
+
 export function featuredEntry(lastFrost?: Date, now: Date = new Date()): VarietyEntry | null {
   const season = inSeasonEntries(lastFrost, now);
-  return season.length ? season[0] : null;
+  if (!season.length) return null;
+  // Rotate weekly: a different in-season variety leads each week (stable within
+  // the week, same for every visitor). inSeasonEntries is already ranked by
+  // urgency/rarity, so week 0 still surfaces the soonest-closing pick.
+  return season[isoWeek(now) % season.length];
 }

@@ -9,6 +9,7 @@ import type { Topology } from "topojson-specification";
 import { lookupPostcode } from "@/lib/frost";
 import { loadLocation, saveLocation } from "@/lib/location-storage";
 import { assessHutton, type BlightLevel } from "@/lib/blight";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -131,9 +132,26 @@ function BlightDetail({ point, onClose }: { point: BlightPoint; onClose: () => v
             </div>
           </>
         )}
-        <a href="/guides/tomato-blight" className="inline-block mt-4 font-mono text-[11px] uppercase tracking-[0.08em] text-allotment border-b border-amber">
-          Blight &amp; the Hutton Criteria &rarr;
-        </a>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+          {point.level === "high" || point.level === "building" ? (
+            <AffiliateLink
+              href="https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728"
+              product="frost protection fleece"
+              type="gear"
+              merchant="suttons"
+              className="font-mono text-[11px] uppercase tracking-[0.08em] text-rust border-b border-rust/40 hover:text-earth transition-colors"
+            >
+              Protect your plants &rarr;
+            </AffiliateLink>
+          ) : (
+            <a href="#resistant-varieties" className="font-mono text-[11px] uppercase tracking-[0.08em] text-rust border-b border-rust/40 hover:text-earth transition-colors">
+              Resistant varieties &rarr;
+            </a>
+          )}
+          <a href="/guides/tomato-blight" className="font-mono text-[11px] uppercase tracking-[0.08em] text-allotment border-b border-amber">
+            Hutton Criteria &rarr;
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -166,6 +184,7 @@ export default function BlightMap() {
   const pointBySlug = useRef<Map<string, BlightPoint>>(new Map());
 
   const [points, setPoints] = useState<BlightPoint[] | null>(null);
+  const [loadedAt, setLoadedAt] = useState("");
   const [dataError, setDataError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<BlightPoint | null>(null);
@@ -183,6 +202,7 @@ export default function BlightMap() {
       .then((data: { points: BlightPoint[] }) => {
         if (!data.points?.length) throw new Error("no points");
         setPoints(data.points);
+        setLoadedAt(new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }));
         data.points.forEach((p) => pointBySlug.current.set(p.slug, p));
       })
       .catch(() => setDataError(true));
@@ -399,7 +419,9 @@ export default function BlightMap() {
     <div className="space-y-4">
       {summary && (
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-earth-lighter">Right now across the UK</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-earth-lighter">
+            Right now across the UK{loadedAt && <span className="normal-case tracking-normal"> · as of {loadedAt}</span>}
+          </span>
           {(["high", "building", "low"] as BlightLevel[]).map((l) => (
             <span key={l} className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: LEVEL_COLOR[l] }} />

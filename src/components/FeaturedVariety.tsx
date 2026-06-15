@@ -22,6 +22,11 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
     status.state === "closing" && status.daysLeft != null
       ? ` · closing in ${status.daysLeft} day${status.daysLeft === 1 ? "" : "s"}`
       : "";
+  // Monday of the current week — an editorial "issue date" that makes the
+  // weekly rotation read as intentional. Set at render / the weekly rebuild.
+  const monday = new Date();
+  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+  const weekOf = monday.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
 
   return (
     <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-14 items-center mt-12 sm:mt-16">
@@ -43,6 +48,7 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
       <div>
         <div className="font-mono text-[11px] tracking-[0.04em] uppercase text-tomato">
           Featured this week{closing}
+          <span className="text-earth-lighter"> · week of {weekOf}</span>
         </div>
         <h3 className="font-serif text-4xl sm:text-5xl leading-[0.98] tracking-tight text-earth mt-3 mb-1">
           {variety.name}

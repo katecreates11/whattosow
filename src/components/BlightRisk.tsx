@@ -97,13 +97,13 @@ export default function BlightRisk({
     const m = message(assessment, place);
     return (
       <a
-        href="/guides/tomato-blight"
+        href="/blight-watch"
         className="flex items-center gap-3 bg-tomato-bg border-l-4 border-tomato px-5 py-3 hover:bg-tomato/10 transition-colors"
       >
         <span className="w-2.5 h-2.5 rounded-full bg-tomato animate-pulse shrink-0" aria-hidden="true" />
         <span className="text-sm text-earth">
           <b className="font-semibold">{m.head}.</b> {assessment.forecast ? "Get ahead of it" : "What to do now"}{" "}
-          <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-tomato border-b border-tomato">read &rarr;</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-tomato border-b border-tomato">Blight Watch &rarr;</span>
         </span>
       </a>
     );
