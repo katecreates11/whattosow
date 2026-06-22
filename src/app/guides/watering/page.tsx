@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, WateringCanIcon, ColorSection } from "@/components/GuideVisuals";
 import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
+import AffiliateLink from "@/components/AffiliateLink";
 
 export const metadata: Metadata = {
   title:
@@ -209,14 +210,38 @@ export default function WateringGuide() {
               <p className="text-sm text-earth-light leading-relaxed max-w-[60ch]">
                 The easiest way to get that soak down to the roots rather than the leaves is a long watering
                 lance &mdash; it reaches the back of the bed and in under the foliage without you trampling a
-                thing.{" "}
-                <a
-                  href="/blog/watering-lance-allotment"
-                  className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
-                >
-                  Here&apos;s the one I use, and why I love it &rarr;
-                </a>
+                thing. I use the{" "}
+                <AffiliateLink href="https://www.amazon.co.uk/dp/B01MQDGXMO" product="Gardena watering lance" type="gear" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">Gardena lance</AffiliateLink>
+                {" "}&mdash;{" "}
+                <a href="/blog/watering-lance-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">here&apos;s why I love it &rarr;</a>
               </p>
+            </div>
+
+            {/* Mid-content kit CTA — the buy-points where intent is highest */}
+            <div className="mt-6 bg-frost-bg rounded-xl p-5 sm:p-6">
+              <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-frost mb-1">
+                The kit that makes it easy
+              </h3>
+              <p className="text-sm text-earth-light mb-4 max-w-[58ch]">
+                A proper soak takes seconds with the right tool. These three earn their keep all summer:
+              </p>
+              <div className="grid sm:grid-cols-3 gap-3">
+                <AffiliateLink href="https://www.amazon.co.uk/dp/B01MQDGXMO" product="Gardena watering lance" type="gear" className="group block border border-earth/10 bg-white p-3.5 hover:border-earth/25 transition-colors">
+                  <span className="font-serif text-earth block leading-tight">Watering lance</span>
+                  <span className="text-xs text-earth-lighter">Deep soak, no trampling</span>
+                  <span className="block mt-1.5 font-mono text-[10px] uppercase tracking-wide text-rust group-hover:text-earth transition-colors">View &rarr;</span>
+                </AffiliateLink>
+                <AffiliateLink href="https://www.amazon.co.uk/dp/B0014E0UWC" product="Haws 8.8L watering can" type="gear" className="group block border border-earth/10 bg-white p-3.5 hover:border-earth/25 transition-colors">
+                  <span className="font-serif text-earth block leading-tight">Haws watering can</span>
+                  <span className="text-xs text-earth-lighter">A lifetime can, fine rose</span>
+                  <span className="block mt-1.5 font-mono text-[10px] uppercase tracking-wide text-rust group-hover:text-earth transition-colors">View &rarr;</span>
+                </AffiliateLink>
+                <AffiliateLink href="https://www.amazon.co.uk/dp/B000TAFENY" product="Hozelock soaker hose" type="gear" className="group block border border-earth/10 bg-white p-3.5 hover:border-earth/25 transition-colors">
+                  <span className="font-serif text-earth block leading-tight">Soaker hose</span>
+                  <span className="text-xs text-earth-lighter">Waters the roots while you&apos;re away</span>
+                  <span className="block mt-1.5 font-mono text-[10px] uppercase tracking-wide text-rust group-hover:text-earth transition-colors">View &rarr;</span>
+                </AffiliateLink>
+              </div>
             </div>
           </section>
 
@@ -243,7 +268,10 @@ export default function WateringGuide() {
                   and celery. These need consistent, deep watering throughout
                   the growing season, especially once they start flowering and
                   fruiting. Tomatoes in particular &mdash; irregular watering
-                  is the number one cause of blossom end rot and split fruit.
+                  is the number one cause of blossom end rot and split fruit, so
+                  consistency matters: a{" "}
+                  <AffiliateLink href="https://www.amazon.co.uk/dp/B000TAFENY" product="Hozelock soaker hose" type="gear" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">soaker hose</AffiliateLink>{" "}
+                  along the row keeps them evenly watered even when you can&apos;t get to the plot.
                 </p>
               </div>
 

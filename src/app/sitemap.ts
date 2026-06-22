@@ -115,6 +115,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/longest-day`,
+      lastModified: new Date("2026-06-16"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/still-time`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "daily",

@@ -297,6 +297,14 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
     ? getCropsByAction(crops, today, frostData.lastFrostDate)
     : null;
 
+  // Season-aware: in high summer (frost long gone, autumn frost still weeks off)
+  // the tool leads with watering and drops the frost noise; spring/autumn keep
+  // frost front-and-centre. Self-adjusts every year — no hardcoded dates.
+  const daysToAutumnFrost = frostData
+    ? Math.round((frostData.firstAutumnFrostDate.getTime() - Date.now()) / 86400000)
+    : Infinity;
+  const summerMode = !!frostData?.isSafe && daysToAutumnFrost > 42;
+
   // Don't render until localStorage check is done — prevents form flash (H2)
   if (!ready) {
     return (
@@ -431,17 +439,18 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
                 </div>
                 <ShareButton frostData={frostData} />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                {frostData.isSafe ? (
+              <h2 className={summerMode ? "text-lg sm:text-xl font-semibold text-white/90 mb-4" : "text-2xl sm:text-3xl font-bold text-white mb-4"}>
+                {!frostData.isSafe ? (
                   <>
-                    Frost season is over
+                    <span className="text-leaf-light">{frostData.daysUntilSafe} days</span>{" "}
+                    until it&apos;s safe to plant out
                   </>
+                ) : summerMode ? (
+                  <>Your growing season</>
                 ) : (
                   <>
-                    <span className="text-leaf-light">
-                      {frostData.daysUntilSafe} days
-                    </span>{" "}
-                    until it&apos;s safe to plant out
+                    First autumn frost in{" "}
+                    <span className="text-frost-light">~{daysToAutumnFrost} days</span>
                   </>
                 )}
               </h2>
@@ -500,14 +509,15 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
             </div>
           </div>
 
-          {/* Frost Risk */}
-          {forecast ? (
-            <FrostRiskBadge forecast={forecast} />
-          ) : frostData ? (
-            <p className="text-xs text-earth-lighter italic">
-              Live frost forecast unavailable — check your local weather for tonight&apos;s temperatures.
-            </p>
-          ) : null}
+          {/* Frost Risk — hidden in high summer (frost's long gone) */}
+          {!summerMode &&
+            (forecast ? (
+              <FrostRiskBadge forecast={forecast} />
+            ) : frostData ? (
+              <p className="text-xs text-earth-lighter italic">
+                Live frost forecast unavailable — check your local weather for tonight&apos;s temperatures.
+              </p>
+            ) : null)}
 
           {/* Allotment conditions dashboard */}
           {forecast && (
@@ -522,19 +532,40 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
                     <h3 className="font-semibold text-earth">Do I need to water?</h3>
                   </div>
                   {(() => {
-                    const netBalance = forecast.rainfall3Days! - (forecast.evapotranspiration! * 3);
+                    const rain = forecast.rainfall3Days!;
+                    const lost = Math.round(forecast.evapotranspiration! * 3 * 10) / 10;
+                    const netBalance = Math.round((rain - lost) * 10) / 10;
                     const gaining = netBalance > 0;
+                    const scale = Math.max(rain, lost, 1);
                     return (
                       <div>
-                        <p className={`text-sm font-medium ${gaining ? "text-allotment" : "text-amber"}`}>
-                          {gaining
-                            ? "Your soil is gaining moisture — no need to water"
-                            : "Your soil is drying out — water if you've sown recently"}
+                        <p className={`text-lg sm:text-xl font-semibold leading-tight ${gaining ? "text-allotment" : "text-amber-dark"}`}>
+                          {gaining ? "Hold off — the rain's doing the work" : "Time to water"}
                         </p>
-                        <p className="text-xs text-earth-lighter mt-1.5">
-                          {forecast.rainfall3Days}mm rain expected
-                          {" "}&minus;{" "}{Math.round(forecast.evapotranspiration! * 3 * 10) / 10}mm evaporation
-                          {" "}={" "}<span className="font-medium">{netBalance > 0 ? "+" : ""}{Math.round(netBalance * 10) / 10}mm net</span> over 3 days
+                        <p className="text-sm text-earth-light mt-1.5 leading-relaxed">
+                          {gaining
+                            ? "The next few days bring more rain than your soil will lose. Leave the watering can in the shed."
+                            : "Your soil is losing more than it's getting. Give a good soak to anything recently sown, your containers, and the thirsty ones — tomatoes, courgettes and beans drink heavily in this heat."}
+                        </p>
+                        <div className="mt-3.5 space-y-2">
+                          <div className="flex items-center gap-2.5">
+                            <span className="w-14 shrink-0 font-mono text-[10px] uppercase tracking-wide text-earth-lighter">Rain in</span>
+                            <div className="flex-1 h-2.5 bg-earth/10 rounded-full overflow-hidden">
+                              <div className="h-full bg-frost rounded-full" style={{ width: `${Math.min(100, (rain / scale) * 100)}%` }} />
+                            </div>
+                            <span className="w-12 shrink-0 text-right font-mono text-[11px] text-earth">{rain}mm</span>
+                          </div>
+                          <div className="flex items-center gap-2.5">
+                            <span className="w-14 shrink-0 font-mono text-[10px] uppercase tracking-wide text-earth-lighter">Lost</span>
+                            <div className="flex-1 h-2.5 bg-earth/10 rounded-full overflow-hidden">
+                              <div className="h-full bg-amber rounded-full" style={{ width: `${Math.min(100, (lost / scale) * 100)}%` }} />
+                            </div>
+                            <span className="w-12 shrink-0 text-right font-mono text-[11px] text-earth">{lost}mm</span>
+                          </div>
+                        </div>
+                        <p className="text-xs text-earth-lighter mt-2.5">
+                          {netBalance > 0 ? "+" : ""}{netBalance}mm net over 3 days{" "}&middot;{" "}
+                          <a href="/guides/watering" className="text-rust hover:text-earth underline decoration-rust/30">how to water well &rarr;</a>
                         </p>
                       </div>
                     );

@@ -150,7 +150,11 @@ export default function SuccessionSowingGuide() {
             trickle instead of one overwhelming flood.
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
-            It&apos;s the single thing that turns a small patch into a kitchen that&apos;s never short of something to pick.
+            It&apos;s the single thing that turns a small patch into a kitchen that&apos;s never short of something to pick &mdash; right through{" "}
+            <a href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+              the longest day
+            </a>{" "}
+            and beyond.
           </p>
         </div>
 

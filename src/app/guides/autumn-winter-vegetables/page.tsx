@@ -156,7 +156,11 @@ export default function AutumnWinterGuide() {
           <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
             Most growers down tools in September, and that&apos;s the mistake. The back half of the year quietly
             sets up the front half of the next &mdash; there are quick crops to eat before the cold, and hardy ones
-            to tuck in now for a harvest weeks ahead of everyone else come spring.
+            to tuck in now for a harvest weeks ahead of everyone else come spring. The cue to begin?{" "}
+            <a href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+              The longest day
+            </a>{" "}
+            &mdash; midsummer is when the autumn plot gets sown.
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             &ldquo;Autumn&rdquo; arrives at different times across the country, so let your own weather lead &mdash;{" "}
