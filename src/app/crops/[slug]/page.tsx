@@ -3,7 +3,8 @@ import Image from "next/image";
 import { crops, type Crop } from "@/data/crops";
 import { varieties } from "@/data/varieties";
 import { awinLink } from "@/lib/awin";
-import { merchantSlug } from "@/components/AffiliateLink";
+import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
+import { getPlaybook } from "@/data/crop-playbooks";
 import { varietySlug } from "@/lib/variety-routes";
 import type { Metadata } from "next";
 
@@ -190,18 +191,24 @@ export async function generateMetadata({
   if (!crop) return {};
 
   const photo = getCropPhoto(slug);
+  const playbook = getPlaybook(slug);
 
   return {
-    title: `When to Plant ${crop.name} in the UK — What To Sow`,
-    description: `Find out exactly when to sow and plant ${crop.name.toLowerCase()} based on your UK postcode. Get your local frost date and personalised planting times for ${crop.name.toLowerCase()}.`,
+    title: playbook
+      ? `How to Grow ${crop.name} in the UK — When to Plant, Care & Problems | What To Sow`
+      : `When to Plant ${crop.name} in the UK — What To Sow`,
+    description: playbook
+      ? `The complete UK guide to growing ${crop.name.toLowerCase()}: when to sow and plant for your postcode, the season step by step, what goes wrong and how to fix it, and the varieties worth growing.`
+      : `Find out exactly when to sow and plant ${crop.name.toLowerCase()} based on your UK postcode. Get your local frost date and personalised planting times for ${crop.name.toLowerCase()}.`,
     keywords: [
       `when to plant ${crop.name.toLowerCase()} UK`,
       `when to sow ${crop.name.toLowerCase()}`,
       `${crop.name.toLowerCase()} planting time UK`,
       `grow ${crop.name.toLowerCase()} UK`,
+      ...(playbook ? [`how to grow ${crop.name.toLowerCase()} UK`, `${crop.name.toLowerCase()} problems`] : []),
     ],
     openGraph: {
-      title: `When to Plant ${crop.name} in the UK`,
+      title: playbook ? `How to Grow ${crop.name} in the UK` : `When to Plant ${crop.name} in the UK`,
       description: `Personalised planting times for ${crop.name.toLowerCase()} based on your UK postcode and local frost date.`,
       type: "article",
       locale: "en_GB",
@@ -235,6 +242,19 @@ export default async function CropPage({
   const cropNo = crops.findIndex((c) => c.slug === crop.slug) + 1;
   const cropPhoto = getCropPhoto(crop.slug);
   const legendaryVariety = varieties.find((v) => v.cropSlug === crop.slug && v.rarity === "legendary");
+  const playbook = getPlaybook(crop.slug);
+
+  const faqJsonLd = playbook?.faq.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: playbook.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -317,6 +337,12 @@ export default async function CropPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
       <article id="main-content">
@@ -357,7 +383,7 @@ export default async function CropPage({
                   </span>
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-6">
-                  When to plant<br />
+                  {playbook ? "How to grow" : "When to plant"}<br />
                   <span className="font-normal">{crop.name.toLowerCase()}</span> in the UK
                 </h1>
                 <p className="font-serif text-xl text-earth-light leading-relaxed max-w-2xl">
@@ -432,11 +458,94 @@ export default async function CropPage({
               <p className="text-earth-light leading-relaxed">{crop.needs}</p>
             </div>
 
+            {/* The season, step by step — the playbook's care walkthrough */}
+            {playbook && playbook.care.length > 0 && (
+              <section className="mb-12">
+                <span className="font-serif italic text-lg text-allotment block mb-1">the season</span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-2">
+                  Growing {crop.name.toLowerCase()}, step by step
+                </h2>
+                <ol>
+                  {playbook.care.map((step, i) => (
+                    <li key={step.title} className="border-t border-earth/10 py-6 grid sm:grid-cols-[3rem_1fr] gap-x-5">
+                      <div className="font-mono text-[20px] text-amber leading-none pt-1 mb-2 sm:mb-0" aria-hidden="true">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <div>
+                        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter mb-1.5">
+                          {step.period}
+                        </div>
+                        <h3 className="font-serif text-xl text-earth mb-2">{step.title}</h3>
+                        <p className="text-earth-light leading-relaxed text-[15.5px]">{step.text}</p>
+                        {(step.link || step.buy) && (
+                          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+                            {step.link && (
+                              <a
+                                href={step.link.href}
+                                className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                              >
+                                {step.link.label} &rarr;
+                              </a>
+                            )}
+                            {step.buy && (
+                              <AffiliateLink
+                                href={step.buy.href}
+                                product={step.buy.product}
+                                className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                              >
+                                {step.buy.label} &rarr;
+                              </AffiliateLink>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+
             {/* Live blight risk — for blight-prone crops (tomatoes, potatoes) */}
             {crop.blightRisk && (
               <div className="mb-10">
                 <BlightRisk variant="compact" />
               </div>
+            )}
+
+            {/* When things go wrong — the playbook's problem clinic */}
+            {playbook && playbook.problems.length > 0 && (
+              <section className="mb-12">
+                <span className="font-serif italic text-lg text-allotment block mb-1">field notes</span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-2">
+                  When things go wrong
+                </h2>
+                <p className="text-earth-light leading-relaxed text-[15.5px] mb-4 max-w-[62ch]">
+                  Every {crop.name.toLowerCase().replace(/e?s$/, "")} year has a wobble or two &mdash; ours certainly do.
+                  None of these are the end of the crop, and most have a simple cause.
+                </p>
+                <div>
+                  {playbook.problems.map((p) => (
+                    <div key={p.name} className="border-t border-earth/10 py-5">
+                      <h3 className="font-serif text-xl text-earth mb-1.5">{p.name}</h3>
+                      <p className="text-earth-light text-[15px] leading-relaxed">{p.spot}</p>
+                      <p className="text-earth-light text-[15px] leading-relaxed mt-2">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-allotment mr-2">
+                          The fix
+                        </span>
+                        {p.fix}
+                      </p>
+                      {p.link && (
+                        <a
+                          href={p.link.href}
+                          className="inline-block mt-2.5 font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+                        >
+                          {p.link.label} &rarr;
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
             )}
 
             {/* The opinionated pick — drawn from this crop's standout variety */}
@@ -556,6 +665,53 @@ export default async function CropPage({
 
             {/* When to sow — month links */}
             <SowingMonths crop={crop} />
+
+            {/* Go deeper — the crop's satellite guides */}
+            {playbook?.guides && playbook.guides.length > 0 && (
+              <section className="mb-12">
+                <span className="font-serif italic text-lg text-allotment block mb-1">go deeper</span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-4">
+                  More on growing {crop.name.toLowerCase()}
+                </h2>
+                <div>
+                  {playbook.guides.map((g) => (
+                    <a
+                      key={g.href}
+                      href={g.href}
+                      className="flex items-center justify-between gap-4 py-4 border-t border-earth/10 group"
+                    >
+                      <div>
+                        <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
+                          {g.title}
+                        </span>
+                        <p className="text-sm text-earth-light leading-snug mt-0.5">{g.blurb}</p>
+                      </div>
+                      <span className="text-earth/20 group-hover:text-rust transition-colors text-xl shrink-0">
+                        &rarr;
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Common questions — mirrors the FAQPage JSON-LD */}
+            {playbook && playbook.faq.length > 0 && (
+              <section className="mb-12">
+                <span className="font-serif italic text-lg text-allotment block mb-1">questions</span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-4">
+                  {crop.name} questions, answered
+                </h2>
+                <div className="space-y-5">
+                  {playbook.faq.map((f) => (
+                    <div key={f.q}>
+                      <h3 className="font-serif text-lg text-earth mb-1">{f.q}</h3>
+                      <p className="text-earth-light text-[15px] leading-relaxed">{f.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Contextual email capture */}
             <div className="mb-10">
