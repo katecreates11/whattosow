@@ -47,8 +47,9 @@ Always write "courgette", never "zucchini".
 
 - Keep the site lightweight.
 - Keep the site fast.
-- Prefer vanilla HTML, CSS and JavaScript.
-- Avoid unnecessary libraries.
+- Work within the existing stack (Next.js, React, Tailwind).
+- Prefer static generation and server components; keep client-side JavaScript minimal.
+- Avoid adding new dependencies unless they clearly earn their place.
 - Prioritise accessibility.
 - Prioritise mobile usability.
 
