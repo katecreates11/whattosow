@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { crops, type Crop } from "@/data/crops";
 import { varieties } from "@/data/varieties";
 import { awinLink } from "@/lib/awin";
 import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 import { getPlaybook } from "@/data/crop-playbooks";
 import { varietySlug } from "@/lib/variety-routes";
+import { frostOffsetText, getCropNowAnswer } from "@/lib/crop-now-answer";
 import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
@@ -18,13 +20,6 @@ import LogPlanting from "@/components/LogPlanting";
 import PinButton from "@/components/PinButton";
 import UnsplashHero from "@/components/UnsplashHero";
 
-import {
-  HardyIllustration,
-  HalfHardyIllustration,
-  TenderIllustration,
-  getCropIcon,
-} from "@/components/SVGIllustrations";
-import { getCropImagePath } from "@/lib/crop-images";
 import { getCropPhoto } from "@/lib/crop-photos";
 import { getMinSoilTemp } from "@/data/crops";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
@@ -80,12 +75,12 @@ function CompanionSection({ crop }: { crop: Crop }) {
         </div>
       )}
       </div>
-      <a
+      <Link
         href="/guides/companion-planting"
         className="inline-block mt-4 font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
       >
         Full companion planting guide &amp; chart &rarr;
-      </a>
+      </Link>
     </div>
   );
 }
@@ -115,17 +110,6 @@ function categoryHeaderBg(cat: Crop["category"]): string {
       return "bg-ochre";
     case "tender":
       return "bg-blush";
-  }
-}
-
-function CategoryIllustration({ category, className }: { category: Crop["category"]; className?: string }) {
-  switch (category) {
-    case "hardy":
-      return <HardyIllustration className={className} />;
-    case "half-hardy":
-      return <HalfHardyIllustration className={className} />;
-    case "tender":
-      return <TenderIllustration className={className} />;
   }
 }
 
@@ -164,9 +148,76 @@ function SowingMonths({ crop }: { crop: Crop }) {
         ))}
       </div>
       <p className="text-xs text-earth-lighter mt-3">
-        Based on UK average frost date. <a href="/" className="text-rust hover:underline">Enter your postcode</a> for exact dates, or <a href="/sow-in" className="text-rust hover:underline">find your city</a>.
+        Based on UK average frost date. <Link href="/" className="text-rust hover:underline">Enter your postcode</Link> for exact dates, or <Link href="/sow-in" className="text-rust hover:underline">find your city</Link>.
       </p>
     </div>
+  );
+}
+
+function CropNowAnswerBlock({ crop }: { crop: Crop }) {
+  const answer = getCropNowAnswer(crop);
+  const headingId = `crop-now-answer-${crop.slug}`;
+
+  return (
+    <section
+      className="border border-earth/10 bg-cream/70 p-5 sm:p-6 mb-10"
+      aria-labelledby={headingId}
+    >
+      <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment mb-2">
+        UK average answer
+      </div>
+      <h2 id={headingId} className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-3">
+        Can I sow {crop.name.toLowerCase()} now?
+      </h2>
+      <p className="text-earth-light leading-relaxed max-w-[62ch]">
+        {answer.summary}
+      </p>
+
+      <dl className="mt-5 grid gap-3 sm:grid-cols-3">
+        <div className="border border-earth/8 bg-white/45 px-4 py-3">
+          <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
+            Status
+          </dt>
+          <dd className="font-serif text-lg text-earth mt-1">{answer.stateLabel}</dd>
+        </div>
+        <div className="border border-earth/8 bg-white/45 px-4 py-3">
+          <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
+            Best next step
+          </dt>
+          <dd className="font-serif text-lg text-earth mt-1">{answer.actionLabel}</dd>
+        </div>
+        <div className="border border-earth/8 bg-white/45 px-4 py-3">
+          <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
+            Usual window
+          </dt>
+          <dd className="font-serif text-lg text-earth mt-1">{answer.windowText}</dd>
+        </div>
+      </dl>
+
+      <p className="mt-5 text-sm text-earth-light leading-relaxed max-w-[62ch]">
+        <span className="font-semibold text-earth">What I&apos;d do now:</span>{" "}
+        {answer.practicalNote}
+      </p>
+      <p className="mt-4 text-sm text-earth-light leading-relaxed max-w-[62ch]">
+        For the broader month view, see{" "}
+        <Link href={answer.monthLink.href} className="text-rust underline decoration-rust/30 hover:text-earth">
+          {answer.monthLink.label}
+        </Link>
+        , or use the{" "}
+        <Link href="/calendar" className="text-rust underline decoration-rust/30 hover:text-earth">
+          UK sowing calendar
+        </Link>
+        {answer.guideLink ? (
+          <>
+            . For more detail, read the{" "}
+            <Link href={answer.guideLink.href} className="text-rust underline decoration-rust/30 hover:text-earth">
+              {answer.guideLink.label}
+            </Link>
+          </>
+        ) : null}
+        .
+      </p>
+    </section>
   );
 }
 
@@ -286,12 +337,12 @@ export default async function CropPage({
     name: `How to Grow ${crop.name} in the UK`,
     description: crop.tip,
     step: [
-      ...(crop.sowIndoorsWeeks
+      ...(crop.sowIndoorsWeeks !== null
         ? [
             {
               "@type": "HowToStep",
               name: "Start seeds indoors",
-              text: `Sow ${crop.name.toLowerCase()} seeds indoors ${crop.sowIndoorsWeeks} weeks before your last frost date.`,
+              text: `Start ${crop.name.toLowerCase()} from seed indoors ${frostOffsetText(crop.sowIndoorsWeeks)}.`,
             },
           ]
         : []),
@@ -300,7 +351,7 @@ export default async function CropPage({
             {
               "@type": "HowToStep",
               name: "Direct sow outdoors",
-              text: `Direct sow ${crop.name.toLowerCase()} seeds outdoors ${crop.directSowWeeks >= 0 ? `${crop.directSowWeeks} weeks after` : `${Math.abs(crop.directSowWeeks)} weeks before`} your last frost date.`,
+              text: `Direct sow ${crop.name.toLowerCase()} outdoors ${frostOffsetText(crop.directSowWeeks)}.`,
             },
           ]
         : []),
@@ -309,7 +360,7 @@ export default async function CropPage({
             {
               "@type": "HowToStep",
               name: "Plant out",
-              text: `Plant out ${crop.name.toLowerCase()} ${crop.plantOutWeeks >= 0 ? `${crop.plantOutWeeks} weeks after` : `${Math.abs(crop.plantOutWeeks)} weeks before`} your last frost date.`,
+              text: `Plant out ${crop.name.toLowerCase()} ${frostOffsetText(crop.plantOutWeeks)}.`,
             },
           ]
         : []),
@@ -428,6 +479,8 @@ export default async function CropPage({
                 <div className="font-serif text-xl text-earth mt-1 leading-none">{getMinSoilTemp(crop)}<span className="text-[13px] text-earth-light">&deg;C</span></div>
               </div>
             </div>
+
+            <CropNowAnswerBlock crop={crop} />
 
             <PersonalisedCropDates crop={crop} />
 
@@ -683,12 +736,12 @@ export default async function CropPage({
                 <p className="text-earth-light leading-relaxed max-w-[60ch]">
                   {crop.name} drink heavily through summer &mdash; a good soak at the roots beats a daily
                   sprinkle.{" "}
-                  <a
+                  <Link
                     href="/blog/watering-lance-allotment"
                     className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                   >
                     How I water, and the lance I use &rarr;
-                  </a>
+                  </Link>
                 </p>
               </div>
             )}
