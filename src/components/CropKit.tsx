@@ -41,7 +41,7 @@ function KitItemCard({ item }: { item: KitItem }) {
           href={item.amazonUrl}
           target="_blank"
           rel="noopener noreferrer"
-          data-umami-event="crop-kit-click"
+          data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
           data-umami-event-product={item.name}
           className="group shrink-0 inline-flex items-center gap-1 text-[11px] font-medium text-earth border border-earth/10 px-2.5 py-1.5 hover:border-allotment hover:text-allotment transition-colors duration-200"
         >

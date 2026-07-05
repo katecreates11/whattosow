@@ -72,7 +72,7 @@ function SowRow({ item }: { item: SowItem }) {
             href={item.seeds}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            data-umami-event="companion-seed-click"
+            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="autumn-winter"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
@@ -156,7 +156,11 @@ export default function AutumnWinterGuide() {
           <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
             Most growers down tools in September, and that&apos;s the mistake. The back half of the year quietly
             sets up the front half of the next &mdash; there are quick crops to eat before the cold, and hardy ones
-            to tuck in now for a harvest weeks ahead of everyone else come spring.
+            to tuck in now for a harvest weeks ahead of everyone else come spring. The cue to begin?{" "}
+            <a href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+              The longest day
+            </a>{" "}
+            &mdash; midsummer is when the autumn plot gets sown.
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             &ldquo;Autumn&rdquo; arrives at different times across the country, so let your own weather lead &mdash;{" "}
@@ -287,12 +291,12 @@ export default function AutumnWinterGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Horticultural fleece</span> &mdash; the cheapest few degrees
                 of frost protection there is. Drape it over hardy crops on cold nights.{" "}
-                <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Cloches</span> &mdash; little tunnels or bell covers that keep
                 salad and seedlings snug and the worst of the rain off.{" "}
-                <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame or small greenhouse</span> &mdash; the proper

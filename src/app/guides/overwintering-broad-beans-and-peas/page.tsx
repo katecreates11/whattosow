@@ -54,7 +54,7 @@ function VarRow({ item, topic }: { item: VarItem; topic: string }) {
             href={item.seeds}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            data-umami-event="companion-seed-click"
+            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic={topic}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >

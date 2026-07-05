@@ -115,6 +115,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/longest-day`,
+      lastModified: new Date("2026-06-16"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/still-time`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "daily",
@@ -171,6 +177,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/guides/succession-sowing`,
       lastModified: new Date("2026-06-07"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/watering-while-away`,
+      lastModified: new Date("2026-07-05"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/dealing-with-the-glut`,
+      lastModified: new Date("2026-07-05"),
       changeFrequency: "monthly",
       priority: 0.7,
     },

@@ -293,6 +293,22 @@ const guides = [
     tag: "Planning",
     number: "29",
   },
+  {
+    title: "Watering while you're away",
+    description:
+      "Going on holiday in high summer? Timers and drip lines, wicking tricks for pots, and the neighbour deal that beats every gadget — come home to a patch that barely noticed.",
+    href: "/guides/watering-while-away",
+    tag: "Seasonal",
+    number: "30",
+  },
+  {
+    title: "Dealing with the glut",
+    description:
+      "Too many courgettes, a wall of beans, a table of tomatoes. What keeps, what freezes, what to preserve and what to give away — the happiest problem of the growing year, handled.",
+    href: "/guides/dealing-with-the-glut",
+    tag: "Seasonal",
+    number: "31",
+  },
 ];
 
 export default function GuidesIndex() {

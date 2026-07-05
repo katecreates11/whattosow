@@ -8,6 +8,7 @@ import { allVarietyParams, getVarietyByRoute, varietiesForCrop, varietySlug } fr
 import { cropImage } from "@/lib/crop-image";
 import { getCropStatus, ukAverageFrost } from "@/lib/season-core";
 import { awinLink } from "@/lib/awin";
+import { merchantSlug } from "@/components/AffiliateLink";
 
 const rarityLabel: Record<string, string> = {
   legendary: "legendary",
@@ -149,8 +150,8 @@ export default async function VarietyPage({
                       href={awinLink(s.url)}
                       target="_blank"
                       rel="sponsored noopener noreferrer"
-                      data-umami-event="variety-seed-click"
-                      data-umami-event-variety={v.name}
+                      data-umami-event="affiliate-click"
+                      data-umami-event-product={v.name} data-umami-event-type="seed" data-umami-event-merchant={merchantSlug(s.name)}
                       className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                     >
                       {s.name} →

@@ -62,7 +62,7 @@ function SowRow({ item }: { item: SowItem }) {
             href={item.seeds}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            data-umami-event="companion-seed-click"
+            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="succession-sowing"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
@@ -150,7 +150,11 @@ export default function SuccessionSowingGuide() {
             trickle instead of one overwhelming flood.
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
-            It&apos;s the single thing that turns a small patch into a kitchen that&apos;s never short of something to pick.
+            It&apos;s the single thing that turns a small patch into a kitchen that&apos;s never short of something to pick &mdash; right through{" "}
+            <a href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+              the longest day
+            </a>{" "}
+            and beyond.
           </p>
         </div>
 
@@ -261,6 +265,10 @@ export default function SuccessionSowingGuide() {
             <div>
               <a href="/guides/what-to-sow-in-summer-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in summer</span>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
+              <a href="/guides/dealing-with-the-glut" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Already got the glut? Here&apos;s what to do with it</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
               <a href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">

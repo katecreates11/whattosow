@@ -19,6 +19,7 @@ import PlotStamp from "@/components/PlotStamp";
 import BlightRisk from "@/components/BlightRisk";
 import FeaturedVariety from "@/components/FeaturedVariety";
 import StageStrip from "@/components/StageStrip";
+import LongestDayBand from "@/components/LongestDayBand";
 import ShedFund from "@/components/ShedFund";
 import SeasonalKitEdit from "@/components/SeasonalKitEdit";
 import { featuredEntry, inSeasonCrops, plantOutCrops, harvestCrops, seasonCounts } from "@/lib/variety-status";
@@ -98,6 +99,19 @@ export default function Home() {
   );
   const leadJob = jobs[0]?.id;
 
+  // Season-aware homepage chrome: the hero eyebrow and which interactive map
+  // leads both shift with the calendar, so the site reads the season itself.
+  const nowMonth = now.getMonth();
+  const isSummerSeason = nowMonth >= 5 && nowMonth <= 7; // Jun–Aug
+  const heroEyebrow =
+    nowMonth >= 2 && nowMonth <= 4
+      ? "Sowing season is underway"
+      : isSummerSeason
+        ? "The growing season's in full swing"
+        : nowMonth >= 8 && nowMonth <= 10
+          ? "Sow now for autumn & winter"
+          : "Planning season — get ahead for spring";
+
   // Canonical stage labels — the numbers persist even as the sections reorder.
   const stageMeta = {
     sow: { num: "01", label: "Sow" },
@@ -158,7 +172,7 @@ export default function Home() {
           <div className="mt-6 border border-earth/10 bg-amber-bg/50 px-4 py-3 max-w-[64ch] text-sm text-earth-light leading-relaxed">
             <div className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-rust mb-1.5">Glut coming?</div>
             A wall of courgettes and beans all at once is the summer rite of passage.{" "}
-            <a href="/blog" className={ilink}>What to do with a glut &rarr;</a>{" · "}
+            <a href="/guides/dealing-with-the-glut" className={ilink}>What to do with a glut &rarr;</a>{" · "}
             <a href="/harvest-planner" className={ilink}>Plan your harvests &rarr;</a>
           </div>
         </>
@@ -256,7 +270,7 @@ export default function Home() {
           <div className="sm:hidden pt-10 pb-6 px-1">
             <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
-              Sowing season is underway
+              {heroEyebrow}
             </span>
             <h1 className="text-4xl font-serif text-earth tracking-tight leading-[0.95] mb-3">
               Know exactly
@@ -286,7 +300,7 @@ export default function Home() {
               <div className="px-10 lg:px-16 max-w-[42%]">
                 <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
-                  Sowing season is underway
+                  {heroEyebrow}
                 </span>
                 <h1 className="text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-5">
                   Know exactly
@@ -320,6 +334,9 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Midsummer moment — self-gates to the week around the solstice */}
+        <LongestDayBand />
+
         {/* This week on your plot — location/weather context + the week's hero */}
         <section id="this-week" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
           <div className="max-w-4xl mx-auto">
@@ -328,7 +345,7 @@ export default function Home() {
               This week on <span className="italic text-allotment">your plot</span>
             </h2>
             <p className="font-serif italic text-xl text-earth-light max-w-[44ch] mt-4 leading-snug">
-              The jobs that matter most right now, tuned to your frost dates &mdash; what to sow, what to plant out, and what&apos;s ready to pick.
+              The week across the whole patch &mdash; what to sow, what to plant out, and what&apos;s ready to pick. For dates tuned to your exact postcode, use the planner up top.
             </p>
 
             {leadJob && (
@@ -387,24 +404,55 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Frost map link */}
+        {/* Explore — season-aware map + the calendar, one tidy row */}
         <div className="px-6 sm:px-10 lg:px-16">
-        <div className="max-w-4xl mx-auto pt-14 sm:pt-20">
-          <a
-            href="/frost-map"
-            className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300 block"
-          >
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost mb-2 block">
-              Interactive map
-            </span>
-            <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
-              UK frost date map &rarr;
-            </span>
-            <p className="text-sm text-earth-light mt-1">
-              See frost dates across every region of the UK.
-            </p>
-          </a>
-        </div>
+          <div className="max-w-4xl mx-auto pt-14 sm:pt-20 grid sm:grid-cols-2 gap-4">
+            {isSummerSeason ? (
+              <a
+                href="/longest-day"
+                className="group border border-earth/6 border-l-4 border-l-amber bg-ochre p-6 hover:border-earth/15 transition-colors duration-300 block"
+              >
+                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber-dark mb-2 block">
+                  Interactive map
+                </span>
+                <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
+                  UK daylight map &rarr;
+                </span>
+                <p className="text-sm text-earth-light mt-1">
+                  How much daylight you get on the longest day, anywhere in the UK.
+                </p>
+              </a>
+            ) : (
+              <a
+                href="/frost-map"
+                className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300 block"
+              >
+                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost mb-2 block">
+                  Interactive map
+                </span>
+                <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
+                  UK frost date map &rarr;
+                </span>
+                <p className="text-sm text-earth-light mt-1">
+                  See frost dates across every region of the UK.
+                </p>
+              </a>
+            )}
+            <a
+              href="/calendar"
+              className="group border border-earth/6 border-l-4 border-l-leaf bg-sage/40 p-6 hover:border-earth/15 transition-colors duration-300 block"
+            >
+              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-2 block">
+                Sowing calendar
+              </span>
+              <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
+                Plan your whole season &rarr;
+              </span>
+              <p className="text-sm text-earth-light mt-1">
+                40 crops across 12 months, at a glance.
+              </p>
+            </a>
+          </div>
         </div>
 
         {/* Guides — editorial links */}
@@ -444,31 +492,6 @@ export default function Home() {
           </ScrollReveal>
           </div>
         </section>
-
-        {/* Calendar CTA — full-width dark */}
-        <FullWidthSection className="bg-allotment-dark" innerClassName="py-12 sm:py-16 lg:py-20">
-          <ScrollReveal>
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
-              <div>
-                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/70 mb-4 block">
-                  Sowing calendar
-                </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
-                  Plan your whole season
-                </h2>
-                <p className="text-white/70 mt-3 leading-relaxed">
-                  40 crops across 12 months — at a glance. Never miss a sowing window.
-                </p>
-              </div>
-              <a
-                href="/calendar"
-                className="inline-block bg-white text-allotment-dark font-semibold px-8 py-4 hover:bg-leaf-bg transition-colors duration-300 text-sm whitespace-nowrap tracking-wide"
-              >
-                Plan your season &rarr;
-              </a>
-            </div>
-          </ScrollReveal>
-        </FullWidthSection>
 
         {/* Editor's Note — a note from the plot, leading into the blog */}
         <EditorNote />

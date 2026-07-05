@@ -35,6 +35,19 @@ export function affiliateUrl(url: string): string {
   return awinLink(url);
 }
 
+/**
+ * Normalise a supplier display name ("Thompson & Morgan", "Mr Fothergill's")
+ * to the merchant slug used in tracking, so hand-placed links and
+ * AffiliateLink report under the same merchant values.
+ */
+export function merchantSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 /** Best-effort merchant label from a URL, for the tracking attribute. */
 function merchantFromUrl(url: string): string {
   try {

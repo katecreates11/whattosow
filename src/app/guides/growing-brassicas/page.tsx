@@ -61,7 +61,7 @@ function CropRow({ item, topic }: { item: CropItem; topic: string }) {
             href={item.seeds}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            data-umami-event="companion-seed-click"
+            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic={topic}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
@@ -227,7 +227,7 @@ export default function GrowingBrassicasGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Butterfly netting</span> &mdash; the headline act. Fine mesh held
                 off the leaves stops cabbage whites laying their eggs at all. The single most effective thing you can do.{" "}
-                <a href={az("brassica butterfly netting fine mesh")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="butterfly-netting" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <a href={az("brassica butterfly netting fine mesh")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="butterfly-netting" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Check for eggs &amp; caterpillars</span> &mdash; if anything gets
