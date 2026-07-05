@@ -348,6 +348,16 @@ export default function CompanionPlantingGuide() {
                 </a>
               ))}
             </div>
+            <p className="mt-4 text-sm">
+              Prefer it on paper?{" "}
+              <a
+                href="/guides/companion-planting-chart"
+                className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+              >
+                Print the quick-reference chart &rarr;
+              </a>{" "}
+              &mdash; the whole grid on one page, made for the shed door.
+            </p>
           </section>
 
           {/* Crop-by-crop companion chart */}
@@ -633,8 +643,8 @@ export default function CompanionPlantingGuide() {
                   href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")}
                   target="_blank"
                   rel="sponsored noopener noreferrer"
-                  data-umami-event="companion-seed-click"
-                  data-umami-event-plant="marigold"
+                  data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
+                  data-umami-event-product="marigold"
                   className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                 >
                   Marigold seeds &rarr;
@@ -643,8 +653,8 @@ export default function CompanionPlantingGuide() {
                   href={awinLink("https://search.thompson-morgan.com/seeds/Nasturtium")}
                   target="_blank"
                   rel="sponsored noopener noreferrer"
-                  data-umami-event="companion-seed-click"
-                  data-umami-event-plant="nasturtium"
+                  data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
+                  data-umami-event-product="nasturtium"
                   className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                 >
                   Nasturtium seeds &rarr;
@@ -693,7 +703,7 @@ export default function CompanionPlantingGuide() {
                   Here&apos;s how I plant my beds the square-foot way &rarr;
                 </a>{" "}
                 The colour-coded{" "}
-                <a href="https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="Seeding Square" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seeding square I use is on Amazon</a>.
+                <a href="https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="Seeding Square" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seeding square I use is on Amazon</a>.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
@@ -752,8 +762,8 @@ export default function CompanionPlantingGuide() {
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">The kit I use</span>
-                <a href="https://www.amazon.co.uk/s?k=wooden+garden+dibber&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="dibber" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Wooden dibber &rarr;</a>
-                <a href="https://www.amazon.co.uk/s?k=wooden+plant+labels+seed+markers&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="seed markers" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Seed markers &amp; plant labels &rarr;</a>
+                <a href="https://www.amazon.co.uk/s?k=wooden+garden+dibber&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="dibber" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Wooden dibber &rarr;</a>
+                <a href="https://www.amazon.co.uk/s?k=wooden+plant+labels+seed+markers&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="seed markers" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Seed markers &amp; plant labels &rarr;</a>
               </div>
             </div>
 
@@ -783,12 +793,23 @@ export default function CompanionPlantingGuide() {
                 </p>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Find the seeds</span>
-                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Sweetcorn")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="sweetcorn" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Sweetcorn &rarr;</a>
-                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Climbing%20French%20Bean")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="climbing-french-bean" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Climbing French beans &rarr;</a>
-                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Squash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="squash" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Squash &rarr;</a>
+                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Sweetcorn")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="sweetcorn" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Sweetcorn &rarr;</a>
+                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Climbing%20French%20Bean")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="climbing-french-bean" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Climbing French beans &rarr;</a>
+                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Squash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="squash" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Squash &rarr;</a>
                 </div>
               </div>
             </div>
+
+            <p className="mt-6 text-sm text-earth-light max-w-2xl">
+              Laying out beds from scratch this year?{" "}
+              <a
+                href="/blog/best-raised-beds-uk"
+                className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+              >
+                Our honest guide to the best raised beds in the UK &rarr;
+              </a>{" "}
+              covers sizes, timber against recycled plastic, and what&apos;s actually worth paying for.
+            </p>
           </section>
 
           {/* Evidence vs folklore — the honest, differentiating bit */}
@@ -823,9 +844,9 @@ export default function CompanionPlantingGuide() {
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
               <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Grow the pairing</span>
-              <a href={awinLink("https://search.thompson-morgan.com/seeds/Tomato")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="tomato" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Tomato seeds &rarr;</a>
-              <a href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="marigold" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">French marigold seeds &rarr;</a>
-              <a href={awinLink("https://search.thompson-morgan.com/seeds/Basil")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-plant="basil" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Basil seeds &rarr;</a>
+              <a href={awinLink("https://search.thompson-morgan.com/seeds/Tomato")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="tomato" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Tomato seeds &rarr;</a>
+              <a href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="marigold" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">French marigold seeds &rarr;</a>
+              <a href={awinLink("https://search.thompson-morgan.com/seeds/Basil")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="basil" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Basil seeds &rarr;</a>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-allotment/5 border border-allotment/15 p-5">
@@ -859,7 +880,7 @@ export default function CompanionPlantingGuide() {
             </p>
             <div className="space-y-3">
               <div className="border-l-2 border-tomato/40 pl-4">
-                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are a <a href="https://www.amazon.co.uk/s?k=enviromesh+fine+insect+mesh+netting&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="insect mesh" className="text-rust underline decoration-rust/30 hover:text-earth">fine insect-mesh</a> or fleece barrier, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <a href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</a> or garlic.</p>
+                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are a <a href="https://www.amazon.co.uk/s?k=enviromesh+fine+insect+mesh+netting&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="insect mesh" className="text-rust underline decoration-rust/30 hover:text-earth">fine insect-mesh</a> or fleece barrier, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <a href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</a> or garlic.</p>
               </div>
               <div className="border-l-2 border-tomato/40 pl-4">
                 <p className="text-sm"><strong className="text-earth">&ldquo;Basil makes tomatoes taste better.&rdquo;</strong> A lovely idea with no evidence behind it. Basil is still a fine neighbour for <a href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</a> &mdash; it may deter a few flies, and it crops in the same warm spot &mdash; but it won&apos;t change the flavour of the fruit.</p>
@@ -1026,7 +1047,7 @@ export default function CompanionPlantingGuide() {
                     href={b.url}
                     target="_blank"
                     rel="sponsored noopener noreferrer"
-                    data-umami-event="gear-affiliate-click"
+                    data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
                     data-umami-event-product={b.title}
                     className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap self-start shrink-0"
                   >

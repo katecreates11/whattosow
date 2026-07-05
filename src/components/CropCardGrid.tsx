@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CropEntry } from "@/lib/season-core";
+import { merchantSlug } from "@/components/AffiliateLink";
 import { cropImage } from "@/lib/crop-image";
 import { awinLink } from "@/lib/awin";
 import { RakedBedIllustration } from "@/components/SVGIllustrations";
@@ -111,8 +112,8 @@ export default function CropCardGrid({
                 href={awinLink(seed.url)}
                 target="_blank"
                 rel="sponsored noopener noreferrer"
-                data-umami-event="sow-seed-click"
-                data-umami-event-crop={e.crop.name}
+                data-umami-event="affiliate-click"
+                data-umami-event-product={e.crop.name} data-umami-event-type="seed" data-umami-event-merchant={merchantSlug(seed.name)}
                 className="inline-block mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 Get the seeds &rarr;

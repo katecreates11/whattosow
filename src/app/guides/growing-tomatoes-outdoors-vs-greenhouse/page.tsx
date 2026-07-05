@@ -175,13 +175,13 @@ export default function GrowingTomatoesGuide() {
                 Tie it to a cane or string, pinch out the side shoots that appear where each leaf meets the stem, and
                 &ldquo;stop&rdquo; it (nip the growing tip) once it has set four or five trusses outdoors, more under
                 glass. The classic greenhouse and supported-row tomato.{" "}
-                <a href={tm("Tomato%20Cordon")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-topic="growing-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">Cordon tomato seeds &rarr;</a>
+                <a href={tm("Tomato%20Cordon")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-topic="growing-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">Cordon tomato seeds &rarr;</a>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Bush (determinate)</span> &mdash; branches low and sprawls to a
                 set size, then crops more or less all at once. No side-shooting, no stopping &mdash; just let it go.
                 Perfect for pots, hanging baskets and easy outdoor growing.{" "}
-                <a href={tm("Tomato%20Bush")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="companion-seed-click" data-umami-event-topic="growing-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">Bush tomato seeds &rarr;</a>
+                <a href={tm("Tomato%20Bush")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-topic="growing-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">Bush tomato seeds &rarr;</a>
               </li>
             </ul>
           </section>
@@ -200,7 +200,7 @@ export default function GrowingTomatoesGuide() {
             </p>
             <p className="mb-3">
               Once the first truss of flowers has set, switch to a high-potash{" "}
-              <a href={az("tomato feed high potash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="tomato-feed" className="text-rust underline decoration-rust/30 hover:text-earth">tomato feed</a>{" "}
+              <a href={az("tomato feed high potash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="tomato-feed" className="text-rust underline decoration-rust/30 hover:text-earth">tomato feed</a>{" "}
               once a week &mdash; it steers the plant&apos;s energy into fruit rather than leaf. Keep removing the lower
               leaves as the trusses ripen, for airflow and to put the sun on the fruit, and pop a few pollinator flowers
               nearby &mdash; see{" "}

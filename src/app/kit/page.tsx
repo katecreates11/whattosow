@@ -56,7 +56,7 @@ function ProductList({ products }: { products: Product[] }) {
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              data-umami-event="gear-affiliate-click"
+              data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
               data-umami-event-product={p.name}
               className="font-serif text-lg text-earth hover:text-allotment transition-colors"
             >

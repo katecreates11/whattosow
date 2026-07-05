@@ -57,3 +57,66 @@ const FALLBACK: SeasonalKitEntry = {
 export function kitForMonth(month: number): SeasonalKitEntry {
   return MONTHS[month] ?? FALLBACK;
 }
+
+/**
+ * The one big-ticket buying guide that fits the month's jobs — rotated so the
+ * homepage teaser always points somewhere seasonal (propagators when the
+ * sowing itch starts, water butts in high summer, compost bins for the
+ * autumn clear-up). One guide per month, never a wall of shopping.
+ */
+export interface SeasonalBuyingGuide {
+  href: string;
+  label: string;
+  /** Editorial hook in voice — why this guide, this month. */
+  hook: string;
+}
+
+const PROPAGATORS: SeasonalBuyingGuide = {
+  href: "/blog/best-heated-propagators-grow-lights-uk",
+  label: "Heated propagators & grow lights",
+  hook: "The sowing season starts on a windowsill — a little warmth underneath makes all the difference.",
+};
+const RAISED_BEDS: SeasonalBuyingGuide = {
+  href: "/blog/best-raised-beds-uk",
+  label: "Raised beds",
+  hook: "Building or adding a bed this spring? Get the size and timber right before you fill it.",
+};
+const COLD_FRAMES: SeasonalBuyingGuide = {
+  href: "/blog/best-cold-frames-greenhouses-uk",
+  label: "Cold frames & greenhouses",
+  hook: "Hardening-off season — a cold frame is the halfway house every windowsill sower ends up wanting.",
+};
+const WATER_BUTTS: SeasonalBuyingGuide = {
+  href: "/blog/best-water-butts-uk",
+  label: "Water butts",
+  hook: "The beds dry out by teatime now. Free water off the shed roof is the best upgrade on the plot.",
+};
+const POLYTUNNELS: SeasonalBuyingGuide = {
+  href: "/blog/best-polytunnels-uk",
+  label: "Polytunnels",
+  hook: "Thinking about stretching the season? Autumn is the time to plan a tunnel for next year.",
+};
+const COMPOST_BINS: SeasonalBuyingGuide = {
+  href: "/blog/best-compost-bins-uk",
+  label: "Compost bins",
+  hook: "The clear-up months make more compostable material than the rest of the year put together.",
+};
+
+const BUYING_GUIDE_BY_MONTH: Record<number, SeasonalBuyingGuide> = {
+  0: PROPAGATORS,
+  1: PROPAGATORS,
+  2: RAISED_BEDS,
+  3: RAISED_BEDS,
+  4: COLD_FRAMES,
+  5: WATER_BUTTS,
+  6: WATER_BUTTS,
+  7: WATER_BUTTS,
+  8: POLYTUNNELS,
+  9: COMPOST_BINS,
+  10: COMPOST_BINS,
+  11: PROPAGATORS,
+};
+
+export function buyingGuideForMonth(month: number): SeasonalBuyingGuide {
+  return BUYING_GUIDE_BY_MONTH[month] ?? WATER_BUTTS;
+}

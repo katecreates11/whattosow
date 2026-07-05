@@ -174,7 +174,7 @@ export default function FrostProtectionGuide() {
                   The cheapest, most flexible frost insurance there is. Drape it over a bed or over hoops before a frosty
                   night and it traps a couple of degrees of the soil&apos;s warmth &mdash; often all a hardy crop needs.
                   Double it up for harder frosts. Keep a roll in the shed to throw over at short notice.{" "}
-                  <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                  <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -183,7 +183,7 @@ export default function FrostProtectionGuide() {
                   Rigid or hooped covers that sit over a row, keeping warmth in and rain off. Better than fleece for
                   carrying salad and seedlings through a sustained cold spell, and they double up to warm the soil for
                   early spring sowings.{" "}
-                  <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                  <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">

@@ -78,7 +78,7 @@ function SowRow({ item }: { item: SowItem }) {
             href={item.seeds}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            data-umami-event="companion-seed-click"
+            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="summer-sowing"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
@@ -237,7 +237,7 @@ export default function SummerSowingGuide() {
             Summer&apos;s one real enemy for the seed-sower is dry soil. Seeds need constant moisture to germinate, and a
             warm bed dries out in hours. Water the bottom of the drill before you sow, sow into the damp, and keep the
             surface moist until the seedlings are through &mdash; a sheet of{" "}
-            <a href={az("horticultural fleece plant protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">fleece</a>{" "}
+            <a href={az("horticultural fleece plant protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">fleece</a>{" "}
             laid over the row holds the moisture in beautifully. See our{" "}
             <a href="/guides/watering" className="text-rust underline decoration-rust/30 hover:text-earth">watering guide</a>{" "}
             for getting it right in the heat.

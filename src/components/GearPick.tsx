@@ -74,7 +74,7 @@ export default function GearPick({
         href={amazonUrl}
         target="_blank"
         rel="noopener noreferrer"
-        data-umami-event="gear-affiliate-click"
+        data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
         data-umami-event-product={name}
         className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-earth border border-earth/15 px-4 py-2.5 hover:border-allotment hover:text-allotment hover:bg-allotment/5 transition-all duration-200"
       >
@@ -142,7 +142,7 @@ export function TopPicksGrid({
           href={pick.amazonUrl}
           target="_blank"
           rel="noopener noreferrer"
-          data-umami-event="gear-affiliate-click"
+          data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
           data-umami-event-product={pick.name}
           className="group border border-earth/10 p-5 sm:p-6 hover:border-allotment/30 transition-colors duration-200"
         >

@@ -225,7 +225,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
               href={post.primaryProduct.url}
               target="_blank"
               rel="sponsored noopener noreferrer"
-              data-umami-event="gear-affiliate-click"
+              data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
               data-umami-event-product={post.primaryProduct.name}
               className="group flex items-center justify-between gap-4 border border-allotment/20 bg-sage/20 px-5 py-4 hover:border-allotment hover:bg-sage/30 transition-colors"
             >
@@ -509,7 +509,7 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
                     href={r.url}
                     target="_blank"
                     rel="sponsored noopener noreferrer"
-                    data-umami-event="gear-affiliate-click"
+                    data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
                     data-umami-event-product={r.name}
                     className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap"
                   >

@@ -72,7 +72,7 @@ function SowRow({ item }: { item: SowItem }) {
             href={item.seeds}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            data-umami-event="companion-seed-click"
+            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="autumn-winter"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
@@ -291,12 +291,12 @@ export default function AutumnWinterGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Horticultural fleece</span> &mdash; the cheapest few degrees
                 of frost protection there is. Drape it over hardy crops on cold nights.{" "}
-                <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Cloches</span> &mdash; little tunnels or bell covers that keep
                 salad and seedlings snug and the worst of the rain off.{" "}
-                <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="gear-affiliate-click" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame or small greenhouse</span> &mdash; the proper

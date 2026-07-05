@@ -8,7 +8,7 @@
  *                        homepage, funnelling traffic to the Sow page.
  */
 import Image from "next/image";
-import { kitForMonth } from "@/data/seasonal-kit";
+import { kitForMonth, buyingGuideForMonth } from "@/data/seasonal-kit";
 import { getKit, amazonLink } from "@/data/kit";
 import GearPick from "@/components/GearPick";
 
@@ -21,6 +21,7 @@ export default function SeasonalKitEdit({
 }) {
   const m = month ?? new Date().getMonth();
   const edit = kitForMonth(m);
+  const guide = buyingGuideForMonth(m);
   const products = getKit(edit.kitIds);
   if (products.length === 0) return null;
 
@@ -56,6 +57,17 @@ export default function SeasonalKitEdit({
           >
             See the {edit.month} edit &amp; what to sow now &rarr;
           </a>
+          <p className="mt-5 pt-5 border-t border-earth/10 text-sm text-earth-light max-w-[52ch]">
+            {guide.hook}{" "}
+            <a
+              href={guide.href}
+              data-umami-event="seasonal-buying-guide-click"
+              data-umami-event-product={guide.label}
+              className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors whitespace-nowrap"
+            >
+              {guide.label} &rarr;
+            </a>
+          </p>
         </div>
         <div className="relative w-full aspect-[4/5] overflow-hidden">
           <Image
@@ -95,6 +107,17 @@ export default function SeasonalKitEdit({
           />
         ))}
       </div>
+      <p className="text-sm text-earth-light mt-8 max-w-[56ch] leading-relaxed">
+        {guide.hook}{" "}
+        <a
+          href={guide.href}
+          data-umami-event="seasonal-buying-guide-click"
+          data-umami-event-product={guide.label}
+          className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors whitespace-nowrap"
+        >
+          {guide.label} &rarr;
+        </a>
+      </p>
       <p className="text-xs text-earth-lighter mt-6 max-w-[56ch] leading-relaxed">
         These are things I&apos;ve bought and use myself. The links are Amazon affiliate links — if you
         buy through them we earn a little, at no extra cost to you, towards the allotment shed.
