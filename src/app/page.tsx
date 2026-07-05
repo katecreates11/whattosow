@@ -172,7 +172,7 @@ export default function Home() {
           <div className="mt-6 border border-earth/10 bg-amber-bg/50 px-4 py-3 max-w-[64ch] text-sm text-earth-light leading-relaxed">
             <div className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-rust mb-1.5">Glut coming?</div>
             A wall of courgettes and beans all at once is the summer rite of passage.{" "}
-            <a href="/blog" className={ilink}>What to do with a glut &rarr;</a>{" · "}
+            <a href="/guides/dealing-with-the-glut" className={ilink}>What to do with a glut &rarr;</a>{" · "}
             <a href="/harvest-planner" className={ilink}>Plan your harvests &rarr;</a>
           </div>
         </>

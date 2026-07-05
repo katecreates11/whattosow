@@ -690,6 +690,13 @@ export default function WateringGuide() {
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
+              <a href="/guides/watering-while-away" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <div>
+                  <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Watering while you&apos;re away</span>
+                  <p className="text-sm text-earth-light mt-1">Timers, drip lines and the neighbour deal &mdash; holiday-proof the patch.</p>
+                </div>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
             </div>
           </section>
         </div>

@@ -181,6 +181,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/watering-while-away`,
+      lastModified: new Date("2026-07-05"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/dealing-with-the-glut`,
+      lastModified: new Date("2026-07-05"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/guides/growing-brassicas`,
       lastModified: new Date("2026-06-07"),
       changeFrequency: "monthly",

@@ -267,6 +267,10 @@ export default function SuccessionSowingGuide() {
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in summer</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
+              <a href="/guides/dealing-with-the-glut" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Already got the glut? Here&apos;s what to do with it</span>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </a>
               <a href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Starting from seed</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
