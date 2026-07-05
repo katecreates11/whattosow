@@ -111,3 +111,15 @@ If unsure, choose the simplest solution.
 Explain major architectural changes before implementing them.
 
 Do not remove existing functionality without approval.
+
+After finishing any task, before calling it done:
+
+1. Review your own work.
+2. Look for opportunities to improve UX.
+3. Improve SEO where appropriate.
+4. Improve accessibility.
+5. Improve performance.
+6. Remove unnecessary complexity.
+7. Refactor code where it genuinely improves maintainability.
+
+Iterate until it is production quality — do not stop at the first working solution. Check mobile first: most readers are in the garden on a phone.
