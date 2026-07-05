@@ -5,6 +5,7 @@ import { GuideHero, ColorSection } from "@/components/GuideVisuals";
 import { AffiliateDisclosure } from "@/components/GearPick";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Recommended Kit — What To Sow",
   description:
     "Honest equipment picks for UK allotment holders. No sponsorships, no freebies — just the tools, trays, and kit we actually use on our own plot.",
@@ -22,10 +23,10 @@ export const metadata: Metadata = {
     description:
       "Honest equipment picks for UK allotment holders. No sponsorships, no freebies — just the stuff we'd lend you over the fence.",
     type: "website",
-    url: "https://whattosow.co.uk/kit",
+    url: "https://whattosow.co.uk/guides",
   },
   alternates: {
-    canonical: "/kit",
+    canonical: "/guides",
   },
 };
 
@@ -190,7 +191,7 @@ export default function KitPage() {
         {/* ── Composting ──────────────────────────────────────────────── */}
         <ColorSection color="sky">
           <h2 className="text-2xl font-serif text-earth mb-2">Composting</h2>
-          <p className="text-sm text-earth-light mb-1">Turn your waste into the best soil improver money can't buy.</p>
+          <p className="text-sm text-earth-light mb-1">Turn your waste into the best soil improver money can&apos;t buy.</p>
           <ProductList
             products={[
               {

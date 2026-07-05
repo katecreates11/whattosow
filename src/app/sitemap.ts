@@ -85,12 +85,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/lucky-dip`,
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/my-garden`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "daily",
@@ -320,12 +314,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/guides/growing-fruit`,
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/kit`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
       priority: 0.8,

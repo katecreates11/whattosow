@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     title: "My Allotment — Your Garden Dashboard",
     description: "Plant seeds, track growth, get personalised weather advice. Free for every UK postcode.",
     type: "website",
-    url: "https://whattosow.co.uk/lucky-dip",
+    url: "https://whattosow.co.uk/my-garden",
   },
-  alternates: { canonical: "/lucky-dip" },
+  alternates: { canonical: "/my-garden" },
 };
 
 export default function LuckyDipPage() {
