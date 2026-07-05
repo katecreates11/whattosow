@@ -32,7 +32,6 @@ import CropKit from "@/components/CropKit";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import CropScrollDepth from "@/components/CropScrollDepth";
 import SpacingDiagram from "@/components/SpacingDiagram";
-import GrowingJourney from "@/components/GrowingJourney";
 import { getCropActionMonths, getAvgFrostDate, MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 
 function CompanionSection({ crop }: { crop: Crop }) {
@@ -443,9 +442,6 @@ export default async function CropPage({
               />
             </div>
 
-            {/* Growing journey timeline */}
-            <GrowingJourney crop={crop} />
-
             {/* Inline seed CTA — mobile-visible, high engagement position */}
             <SeedSupplierLinks crop={crop} variant="inline" />
 
@@ -477,6 +473,24 @@ export default async function CropPage({
                         </div>
                         <h3 className="font-serif text-xl text-earth mb-2">{step.title}</h3>
                         <p className="text-earth-light leading-relaxed text-[15.5px]">{step.text}</p>
+                        {step.image && (
+                          <figure className="mt-4">
+                            <div className="relative aspect-[3/2] overflow-hidden">
+                              <Image
+                                src={step.image.src}
+                                alt={step.image.alt}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 38vw"
+                                className="object-cover img-grade"
+                              />
+                            </div>
+                            {step.image.caption && (
+                              <figcaption className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter mt-2">
+                                {step.image.caption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        )}
                         {(step.link || step.buy) && (
                           <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
                             {step.link && (
@@ -523,6 +537,24 @@ export default async function CropPage({
                   Every {crop.name.toLowerCase().replace(/e?s$/, "")} year has a wobble or two &mdash; ours certainly do.
                   None of these are the end of the crop, and most have a simple cause.
                 </p>
+                {playbook.problemsImage && (
+                  <figure className="mb-6">
+                    <div className="relative aspect-[3/2] overflow-hidden">
+                      <Image
+                        src={playbook.problemsImage.src}
+                        alt={playbook.problemsImage.alt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 38vw"
+                        className="object-cover img-grade"
+                      />
+                    </div>
+                    {playbook.problemsImage.caption && (
+                      <figcaption className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter mt-2">
+                        {playbook.problemsImage.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                )}
                 <div>
                   {playbook.problems.map((p) => (
                     <div key={p.name} className="border-t border-earth/10 py-5">

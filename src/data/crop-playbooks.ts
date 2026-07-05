@@ -11,11 +11,20 @@
  * the thing genuinely solves the step's problem.
  */
 
+export interface PlaybookImage {
+  src: string;
+  alt: string;
+  /** Diary-style mono caption — "early June · staked, marigolds on the edge". */
+  caption?: string;
+}
+
 export interface CareStep {
   /** When, in plain months — "May", "June to September". Rendered as the mono label. */
   period: string;
   title: string;
   text: string;
+  /** Our own photo of this stage — the thing no competitor has. */
+  image?: PlaybookImage;
   /** Optional internal link, rendered after the text. */
   link?: { href: string; label: string };
   /** Optional affiliate buy-point for this step (via AffiliateLink). */
@@ -39,6 +48,8 @@ export interface CropFaq {
 export interface CropPlaybook {
   care: CareStep[];
   problems: CropProblem[];
+  /** One photo to open the problems section — honesty looks better with evidence. */
+  problemsImage?: PlaybookImage;
   faq: CropFaq[];
   /** Deeper reading — the crop's satellite guides. */
   guides?: { href: string; title: string; blurb: string }[];
@@ -54,16 +65,31 @@ export const cropPlaybooks: Record<string, CropPlaybook> = {
         period: "Late February to early April",
         title: "Sow indoors, somewhere warm",
         text: "Tomatoes start on a windowsill, not in the ground — they need warmth (18–21°C) to germinate and a long run-up to fruit in a British summer. Sow two seeds to a module, thin to the strongest, and resist the itch to start too early: a March sowing nearly always overtakes a January one, because light, not time, is what seedlings are short of. Your exact dates are worked out above from your postcode.",
+        image: {
+          src: "/photos/crops/tomato-seedlings-tray.webp",
+          alt: "Tomato seedlings coming up in a module tray on the windowsill",
+          caption: "march · the whole summer, one seed tray",
+        },
       },
       {
         period: "April",
         title: "Pot on, and plant them deep",
         text: "When the first true leaves appear (the serrated ones, after the seed leaves), move each seedling to its own pot — and here's the tomato's party trick: bury the stem right up to those first leaves. The buried stem grows roots along its whole length, and you get a sturdier, thirst-proof plant for free. Keep them somewhere bright and turn them every day or two so they grow straight.",
+        image: {
+          src: "/photos/blog/tomato-seedlings-pots.webp",
+          alt: "Tomato seedlings potted on into individual pots, buried deep to the first leaves",
+          caption: "april · potted on, buried up to the first leaves",
+        },
       },
       {
         period: "May",
         title: "Harden off, then plant out after the last frost",
         text: "One cold night undoes eight weeks of care, so wait for your frost date (above) and spend the week before it hardening them off — days outside, nights back in. Then plant into your sunniest, most sheltered spot, again burying deep, and get the support in on planting day; driving a cane in later tears the roots you just grew.",
+        image: {
+          src: "/photos/guides/companion-marigolds-02-bordering.webp",
+          alt: "Young tomato plants staked in a raised bed, edged with French marigolds",
+          caption: "mid june · staked on planting day, marigolds on the edge",
+        },
         buy: {
           href: az("tomato spiral support"),
           product: "spiral tomato supports",
@@ -79,6 +105,11 @@ export const cropPlaybooks: Record<string, CropPlaybook> = {
         period: "June to September",
         title: "Water steadily, feed weekly from the first truss",
         text: "Tomatoes want boring watering: the same deep drink at the roots on a steady rhythm, not a flood after a drought (that's where split fruit and blossom end rot both start). Keep water off the leaves — blight loves a wet leaf — and once the first truss of fruit has set, start a weekly high-potash feed. It's the single biggest difference you can make to yield.",
+        image: {
+          src: "/photos/blog/watering-marigolds-nasturtiums.webp",
+          alt: "Watering at the roots with a long lance in golden evening light",
+          caption: "july, evening · at the roots, never the leaves",
+        },
         link: { href: "/guides/watering", label: "How we water, and why less-but-deeper wins" },
         buy: {
           href: asin("B09RK3HPH5"),
@@ -90,9 +121,19 @@ export const cropPlaybooks: Record<string, CropPlaybook> = {
         period: "August to October",
         title: "Pick as they colour, and ripen the stragglers",
         text: "Pick little and often, the moment each fruit colours — it tells the plant to keep going, and a tomato ripened on the plant in the sun is the whole reason we do this. When the nights turn cool and the last fruits stall stubbornly green, bring them indoors to a bowl with a banana (the ethylene ripens them), and turn whatever refuses into green tomato chutney — the traditional end of the tomato year.",
+        image: {
+          src: "/photos/blog/tomatoes-cherry-truss-box.webp",
+          alt: "A box of just-picked cherry tomatoes, whole trusses still attached",
+          caption: "august · picked as they colour, little and often",
+        },
         link: { href: "/guides/dealing-with-the-glut", label: "A table full at once? The glut guide" },
       },
     ],
+    problemsImage: {
+      src: "/photos/blog/tomatoes-green-beefsteak.webp",
+      alt: "A heavy truss of beefsteak tomatoes, still green, waiting for the sun",
+      caption: "august · still green is not a problem, it's a queue",
+    },
     problems: [
       {
         name: "Blight",
