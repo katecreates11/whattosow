@@ -78,7 +78,7 @@ export default function RootLayout({
         <noscript>
           <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
             <h1>What To Sow</h1>
-            <p>This site needs JavaScript to generate your personalised sowing calendar. Please enable JavaScript to continue.</p>
+            <p>The UK sowing advice below works without JavaScript. Enable JavaScript if you want postcode-personalised dates for your own patch.</p>
           </div>
         </noscript>
         {children}

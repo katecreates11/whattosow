@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PlotStamp from "@/components/PlotStamp";
 import SeasonalGrid from "@/components/SeasonalGrid";
 import SeasonalKitEdit from "@/components/SeasonalKitEdit";
+import ServerSeasonalAnswer from "@/components/ServerSeasonalAnswer";
 
 export const metadata: Metadata = {
   title: "What to Sow Now — by your postcode | What To Sow",
@@ -32,6 +33,7 @@ export default function SowPage() {
 
         <section className="px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto">
+            <ServerSeasonalAnswer className="mb-12" />
             <SeasonalGrid lens="sow" emptyNote="A quiet week for sowing where you are — worth resting the beds, and checking back soon." />
           </div>
         </section>

@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Link from "next/link";
 import PlantingTool from "@/components/PlantingTool";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -25,6 +26,7 @@ import SeasonalKitEdit from "@/components/SeasonalKitEdit";
 import { featuredEntry, inSeasonCrops, plantOutCrops, harvestCrops, seasonCounts } from "@/lib/variety-status";
 import CropCardGrid from "@/components/CropCardGrid";
 import AffiliateLink from "@/components/AffiliateLink";
+import ServerSeasonalAnswer from "@/components/ServerSeasonalAnswer";
 
 export default function Home() {
   const jsonLd = {
@@ -334,6 +336,12 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16 border-t border-earth/10">
+          <div className="max-w-5xl mx-auto">
+            <ServerSeasonalAnswer context="home" />
+          </div>
+        </div>
+
         {/* Midsummer moment — self-gates to the week around the solstice */}
         <LongestDayBand />
 
@@ -476,10 +484,10 @@ export default function Home() {
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Starting from seed &rarr;</span>
               </a>
-              <a href="/guides/companion-planting" className="group bg-sage p-5 transition-colors">
+              <Link href="/guides/companion-planting" className="group bg-sage p-5 transition-colors">
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Planning</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Companion planting &rarr;</span>
-              </a>
+              </Link>
               <a href="/guides/growing-fruit" className="group bg-sage p-5 transition-colors">
                 <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Fruit</span>
                 <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Growing fruit &rarr;</span>
