@@ -3,14 +3,10 @@ import Link from "next/link";
 import PlantingTool from "@/components/PlantingTool";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CropIndex from "@/components/CropIndex";
 import ScrollReveal from "@/components/ScrollReveal";
 import FullWidthSection from "@/components/FullWidthSection";
 import { crops } from "@/data/crops";
-import SkyTonightLoader from "@/components/SkyTonightLoader";
-import EmailCapture from "@/components/EmailCapture";
 import Image from "next/image";
-import { getCurrentMicroSeason, getSeasonName } from "@/lib/seasons";
 import StickyPostcodeCTA from "@/components/StickyPostcodeCTA";
 import CountUp from "@/components/CountUp";
 import EditorNote from "@/components/EditorNote";
@@ -332,7 +328,7 @@ export default function Home() {
           </div>
 
           <div className="pt-10 sm:pt-14 pb-8 sm:pb-12">
-            <PlantingTool />
+            <PlantingTool answerOnly />
           </div>
         </FullWidthSection>
 

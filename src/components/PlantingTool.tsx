@@ -386,7 +386,12 @@ function HomepageAnswerReveal({
   );
 }
 
-export default function PlantingTool({ hideCropList }: { hideCropList?: boolean } = {}) {
+type PlantingToolProps = {
+  hideCropList?: boolean;
+  answerOnly?: boolean;
+};
+
+export default function PlantingTool({ hideCropList, answerOnly = false }: PlantingToolProps = {}) {
   const [postcode, setPostcode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -412,9 +417,11 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
       setForecast(f);
     });
 
-    getSoilType(location.latitude, location.longitude).then((s) => {
-      setSoilData(s);
-    });
+    if (!answerOnly) {
+      getSoilType(location.latitude, location.longitude).then((s) => {
+        setSoilData(s);
+      });
+    }
 
     if (shouldReveal && showAnswerReveal) {
       setFocusAnswerOnReveal(true);
@@ -423,7 +430,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
         resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     }
-  }, [showAnswerReveal]);
+  }, [answerOnly, showAnswerReveal]);
 
   // Check localStorage on mount — prevents form flash (H2)
   useEffect(() => {
@@ -546,7 +553,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
                 data-umami-event="postcode-search"
                 className="px-6 py-3 bg-allotment text-white font-semibold rounded-xl hover:bg-allotment-dark focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-50 transition-colors text-base whitespace-nowrap"
               >
-                {loading ? "Checking..." : "Go"}
+                {loading ? "Checking…" : "Go"}
               </button>
             </div>
             {error && (
@@ -557,7 +564,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
             </p>
             {loading && (
               <p className="mt-2 text-sm font-serif italic text-earth-light" aria-live="polite">
-                reading your sky... checking your frosts...
+                reading your sky… checking your frosts…
               </p>
             )}
           </form>
@@ -615,7 +622,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
       ) : null}
 
       {/* Results */}
-      {frostData && cropActions && (
+      {!answerOnly && frostData && cropActions && (
         <div ref={resultsRef} className="mt-6 space-y-6 scroll-mt-20" aria-live="polite">
           {/* Location + Frost Date — dark allotment card */}
           <div className="bg-allotment-dark rounded-2xl shadow-sm overflow-hidden text-white">
