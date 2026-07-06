@@ -21,6 +21,34 @@ export interface SeasonalKitEntry {
 }
 
 const MONTHS: Record<number, SeasonalKitEntry> = {
+  // January
+  0: {
+    month: "January",
+    intro:
+      "January is the armchair month — seed catalogues, graph paper, and the first hopeful sowings on a warm windowsill. The kit that matters now is the quiet indoor sort: modules for the slow starters, labels before the forgetting begins, and gloves for the one bright afternoon when the plot calls you out to tidy.",
+    kitIds: ["root-trainer", "labels", "gloves", "broadfork"],
+  },
+  // February
+  1: {
+    month: "February",
+    intro:
+      "February is all about the windowsill — the light is coming back, the first proper sowings go in, and suddenly every pot needs a name. Nothing here is glamorous; all of it is the difference between a tidy start and a March full of mystery seedlings.",
+    kitIds: ["root-trainer", "labels", "dibber", "gloves"],
+  },
+  // March
+  2: {
+    month: "March",
+    intro:
+      "March is when the year gets going and the soil finally lets you in. It's dibber-and-label season — short rows, first thinnings, and the year's first skirmish with the slugs, who wake up exactly as hungry as you'd fear.",
+    kitIds: ["dibber", "labels", "root-trainer", "slug-killer"],
+  },
+  // April
+  3: {
+    month: "April",
+    intro:
+      "April is planting-out month for the brave and kneeling weather for everyone — beds to prepare, rows to mark, and young plants that need protecting the moment they touch open soil. The slugs know the seedlings are coming before you do.",
+    kitIds: ["kneeler", "dibber", "slug-killer", "plant-ties"],
+  },
   // May
   4: {
     month: "May",
@@ -43,6 +71,41 @@ const MONTHS: Record<number, SeasonalKitEntry> = {
     intro:
       "July is watering season. The heat builds, the beds dry out by teatime, and the trick is getting water down to the roots rather than the leaves. It's also the month of the daily tie-in and the evening harvest — a length of twine and a good lance go a long way now.",
     kitIds: ["watering-lance", "twine", "plant-ties", "gloves"],
+  },
+  // August
+  7: {
+    month: "August",
+    intro:
+      "August is the month of full hands — evening watering, daily picking, and the constant tying-in of things grown taller than their owners. The kit now is whatever keeps the harvest moving and the water going where it's needed, not where it's easiest.",
+    kitIds: ["watering-lance", "twine", "gloves", "plant-ties"],
+  },
+  // September
+  8: {
+    month: "September",
+    intro:
+      "September turns the year — beds start clearing, the soil is warm and workable, and every gap is an invitation. It's the kindest month for the heavier jobs: forking over, hauling the summer's spent plants to the compost, and getting the hardy sowings tucked in.",
+    kitIds: ["broadfork", "gloves", "twine", "labels"],
+  },
+  // October
+  9: {
+    month: "October",
+    intro:
+      "October is planting weather — garlic and overwintering onions want to be in the ground while it still remembers summer. A bulb planter turns a hundred cloves from a chore into an hour's satisfying rhythm, and the kneeler earns its keep on the cold edges of the day.",
+    kitIds: ["bulb-planter", "gloves", "kneeler", "broadfork"],
+  },
+  // November
+  10: {
+    month: "November",
+    intro:
+      "November is the tidy-up month — the last leaves, the first frosts, and the deep roots that come out easiest from soft, wet soil. An hour of clearing now saves three in spring, and the plot goes into winter looking cared for rather than abandoned.",
+    kitIds: ["weed-puller", "broadfork", "gloves", "bulb-planter"],
+  },
+  // December
+  11: {
+    month: "December",
+    intro:
+      "December asks almost nothing of you, which is why the small jobs feel so good — cleaning and oiling the tools, sorting the seed tin, writing labels for a spring that's already on order. The quietest month in the garden is the best one on the potting bench.",
+    kitIds: ["gloves", "labels", "twine", "kneeler"],
   },
 };
 
