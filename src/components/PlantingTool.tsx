@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, type RefObject } from "react";
+import Link from "next/link";
 import {
   lookupPostcode,
   calculateFrostData,
@@ -15,7 +16,9 @@ import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
-import { getWateringBalance } from "@/lib/watering";
+import { getWateringBalance, getWateringNoteState } from "@/lib/watering";
+import { getWateringNoteCopy } from "@/data/watering-notes";
+import { inSeasonCrops, plantOutCrops, type CropEntry } from "@/lib/season-core";
 
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {
@@ -208,6 +211,181 @@ function ShareButton({ frostData }: { frostData: FrostData }) {
   );
 }
 
+function postcodePrefix(postcode: string): string {
+  return postcode.trim().split(/\s+/)[0] || postcode;
+}
+
+function formatPlainDate(date: Date): string {
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+  });
+}
+
+function getGardenInterpretation(frostData: FrostData): string {
+  const place = frostData.location.adminDistrict;
+  const lastFrost = formatPlainDate(frostData.lastFrostDate);
+
+  if (frostData.growingSeasonDays >= 190) {
+    return `${place} gives you a generous season — last frost usually gone by ${lastFrost}. Tender crops get a kinder runway here than in much of the country.`;
+  }
+
+  if (frostData.growingSeasonDays <= 160) {
+    return `${place} asks for a little patience — last frost usually clears around ${lastFrost}. We keep the tender things tucked up until the weather has properly settled.`;
+  }
+
+  return `${place} sits in a steady UK growing season — last frost usually gone by ${lastFrost}. Hardy things can get on with it, and tender crops are happiest once the soil has warmed.`;
+}
+
+function methodForAnswer(entry: CropEntry): string {
+  if (entry.status.method === "direct sow") return "direct";
+  if (entry.status.method === "sow indoors") return "modules";
+  if (entry.status.method === "plant out") return "plant out";
+  return "soon";
+}
+
+function answerEntries(frostData: FrostData, today: Date): CropEntry[] {
+  const sowEntries = inSeasonCrops(frostData.lastFrostDate, today)
+    .filter((entry) => entry.status.method !== "plant out");
+  const outEntries = plantOutCrops(frostData.lastFrostDate, today);
+  const seen = new Set<string>();
+  const picked: CropEntry[] = [];
+
+  const add = (entry: CropEntry) => {
+    if (seen.has(entry.crop.slug) || picked.length >= 4) return;
+    seen.add(entry.crop.slug);
+    picked.push(entry);
+  };
+
+  sowEntries.forEach(add);
+  outEntries.forEach(add);
+
+  return picked;
+}
+
+function getSowingSentence(entries: CropEntry[]): string {
+  if (entries.length === 0) {
+    return "The beds can pause for a breath this week; use the moment to water, clear space, and plan the next sowing.";
+  }
+
+  const directCount = entries.filter((entry) => methodForAnswer(entry) === "direct").length;
+  const moduleCount = entries.filter((entry) => methodForAnswer(entry) === "modules").length;
+
+  if (directCount >= moduleCount) {
+    return "Sow this week:";
+  }
+
+  return "Start this week:";
+}
+
+function getTonightSentence(forecast: FrostForecast | null): string {
+  if (!forecast) {
+    return "Tonight, check pots and new sowings by touch; if the top inch is dry, water slowly at the roots.";
+  }
+
+  const state = getWateringNoteState({
+    tempMaxToday: forecast.tempMax,
+    windMax: forecast.windMax,
+    rainfall3Days: forecast.rainfall3Days,
+    evapotranspiration: forecast.evapotranspiration,
+  });
+
+  return getWateringNoteCopy(state).sentence;
+}
+
+function HomepageAnswerReveal({
+  frostData,
+  forecast,
+  today,
+  onChangeLocation,
+  sectionRef,
+  headingRef,
+}: {
+  frostData: FrostData;
+  forecast: FrostForecast | null;
+  today: Date;
+  onChangeLocation: () => void;
+  sectionRef: RefObject<HTMLElement | null>;
+  headingRef: RefObject<HTMLHeadingElement | null>;
+}) {
+  const entries = answerEntries(frostData, today);
+  const sowingLead = getSowingSentence(entries);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="scroll-mt-8 max-w-xl mx-auto lg:mx-0 border-y border-earth/12 py-5 sm:py-6"
+      aria-labelledby="postcode-answer-heading"
+      aria-live="polite"
+    >
+      <div className="mb-4">
+        <button
+          type="button"
+          onClick={onChangeLocation}
+          className="inline-flex min-h-[40px] items-center gap-2 border border-earth/15 bg-cream px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-earth hover:border-allotment hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-allotment"
+        >
+          {postcodePrefix(frostData.location.postcode)} <span aria-hidden="true">&middot;</span> change
+        </button>
+      </div>
+
+      <h2
+        id="postcode-answer-heading"
+        ref={headingRef}
+        tabIndex={-1}
+        className="scroll-mt-24 font-serif text-2xl sm:text-3xl leading-tight text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-allotment"
+      >
+        Growing in {frostData.location.adminDistrict}, then.
+      </h2>
+
+      <p className="mt-3 font-serif text-lg leading-snug text-earth-light">
+        {getGardenInterpretation(frostData)}
+      </p>
+
+      <div className="mt-4 border-t border-earth/10 pt-4">
+        <p className="text-sm leading-relaxed text-earth">
+          <span className="font-semibold">{sowingLead}</span>{" "}
+          {entries.length > 0 ? (
+            entries.map((entry, index) => (
+              <span key={entry.crop.slug}>
+                <Link
+                  href={`/crops/${entry.crop.slug}`}
+                  className="font-serif text-lg text-allotment underline decoration-amber/50 underline-offset-4 hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-allotment"
+                >
+                  {entry.crop.name.toLowerCase()}
+                </Link>
+                <span className="ml-1 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+                  {methodForAnswer(entry)}
+                  {entry.status.state === "closing" ? " · closing" : ""}
+                </span>
+                {index < entries.length - 2 ? ", " : index === entries.length - 2 ? " — and " : "."}
+              </span>
+            ))
+          ) : null}
+        </p>
+      </div>
+
+      <p className="mt-4 font-serif text-base leading-snug text-earth-light">
+        Tonight: {getTonightSentence(forecast)}
+      </p>
+
+      <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+        <Link
+          href="/sow"
+          className="font-serif italic text-lg text-earth border-b-2 border-amber pb-px hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+        >
+          Everything for your postcode &rarr;
+        </Link>
+        <Link
+          href="/my-garden"
+          className="font-serif italic text-lg text-earth-light border-b border-earth/20 pb-px hover:text-allotment hover:border-amber focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+        >
+          Set up your garden &rarr;
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 export default function PlantingTool({ hideCropList }: { hideCropList?: boolean } = {}) {
   const [postcode, setPostcode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -218,9 +396,13 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
   const [showForm, setShowForm] = useState(true);
   const [ready, setReady] = useState(false);
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  const [focusAnswerOnReveal, setFocusAnswerOnReveal] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
+  const answerSectionRef = useRef<HTMLElement>(null);
+  const answerHeadingRef = useRef<HTMLHeadingElement>(null);
+  const showAnswerReveal = !hideCropList;
 
-  const submitWithLocation = useCallback(async (location: LocationData, shouldScroll: boolean) => {
+  const submitWithLocation = useCallback(async (location: LocationData, shouldReveal: boolean) => {
     const data = calculateFrostData(location);
     setFrostData(data);
     setPostcode(location.postcode);
@@ -234,12 +416,14 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
       setSoilData(s);
     });
 
-    if (shouldScroll) {
+    if (shouldReveal && showAnswerReveal) {
+      setFocusAnswerOnReveal(true);
+    } else if (shouldReveal) {
       setTimeout(() => {
         resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     }
-  }, []);
+  }, [showAnswerReveal]);
 
   // Check localStorage on mount — prevents form flash (H2)
   useEffect(() => {
@@ -257,6 +441,15 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
     };
   }, [submitWithLocation]);
 
+  useEffect(() => {
+    if (!focusAnswerOnReveal || !frostData || showForm) return;
+    window.requestAnimationFrame(() => {
+      answerSectionRef.current?.scrollIntoView({ block: "start" });
+      answerHeadingRef.current?.focus({ preventScroll: true });
+      setFocusAnswerOnReveal(false);
+    });
+  }, [focusAnswerOnReveal, frostData, showForm]);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
@@ -269,6 +462,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
     setError("");
     setFrostData(null);
     setForecast(null);
+    setSoilData(null);
 
     const result = await lookupPostcode(postcode);
 
@@ -298,6 +492,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
     setShowForm(true);
     setFrostData(null);
     setForecast(null);
+    setSoilData(null);
   }
 
   const today = new Date();
@@ -351,37 +546,19 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
                 data-umami-event="postcode-search"
                 className="px-6 py-3 bg-allotment text-white font-semibold rounded-xl hover:bg-allotment-dark focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-50 transition-colors text-base whitespace-nowrap"
               >
-                {loading ? (
-                  <span className="inline-flex items-center gap-2">
-                    <svg
-                      className="animate-spin w-4 h-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                      />
-                    </svg>
-                    Looking up...
-                  </span>
-                ) : (
-                  "Go"
-                )}
+                {loading ? "Checking..." : "Go"}
               </button>
             </div>
             {error && (
               <p className="mt-2 text-sm text-tomato" role="alert">{error}</p>
+            )}
+            <p className="mt-3 font-mono text-[10px] tracking-[0.08em] text-earth-lighter">
+              we&apos;ll work out your frosts, your season, and what makes sense tonight
+            </p>
+            {loading && (
+              <p className="mt-2 text-sm font-serif italic text-earth-light" aria-live="polite">
+                reading your sky... checking your frosts...
+              </p>
             )}
           </form>
 
@@ -401,6 +578,16 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
           )}
         </div>
       ) : frostData ? (
+        showAnswerReveal && cropActions ? (
+          <HomepageAnswerReveal
+            frostData={frostData}
+            forecast={forecast}
+            today={today}
+            onChangeLocation={handleChangeLocation}
+            sectionRef={answerSectionRef}
+            headingRef={answerHeadingRef}
+          />
+        ) : (
         /* Compact location bar when results are showing */
         <div className="max-w-md mx-auto lg:mx-0 mb-2">
           <div className="flex items-center justify-between gap-3 px-4 py-2.5 bg-allotment-bg rounded-xl">
@@ -424,6 +611,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
             </button>
           </div>
         </div>
+        )
       ) : null}
 
       {/* Results */}
