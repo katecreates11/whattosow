@@ -73,6 +73,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/crops`,
+      lastModified: new Date("2026-07-06"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/grow`,
       lastModified: new Date("2026-06-02"),
       changeFrequency: "weekly",

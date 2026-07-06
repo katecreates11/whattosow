@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LeafSprig } from "./SVGIllustrations";
 
 function StickyNavBar() {
@@ -6,11 +7,11 @@ function StickyNavBar() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <nav aria-label="Quick navigation" className="flex items-center justify-between py-2.5 text-xs overflow-x-auto gap-4">
           <div className="flex items-center gap-4 shrink-0">
-            <a href="/" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Home</a>
-            <a href="/calendar" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Calendar</a>
-            <a href="/frost-map" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Frost map</a>
-            <a href="/guides" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Guides</a>
-            <a href="/sow-in" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">By location</a>
+            <Link href="/" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Home</Link>
+            <Link href="/calendar" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Calendar</Link>
+            <Link href="/frost-map" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Frost map</Link>
+            <Link href="/guides" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Guides</Link>
+            <Link href="/sow-in" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">By location</Link>
           </div>
           <a
             href="https://ko-fi.com/whattosow"
@@ -64,13 +65,13 @@ export default function Footer() {
           <div>
             <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/60 mb-4">Grow</h3>
             <nav aria-label="Grow links" className="flex flex-col gap-2 text-sm">
-              <a href="/#explore-crops" className="text-white/70 hover:text-white transition-colors">Explore crops</a>
-              <a href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</a>
-              <a href="/still-time" className="text-white/70 hover:text-white transition-colors">Still time to sow</a>
-              <a href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</a>
-              <a href="/sow-in" className="text-white/70 hover:text-white transition-colors">Sow by location</a>
-              <a href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</a>
-              <a href="/blog" className="text-white/70 hover:text-white transition-colors">Blog</a>
+              <Link href="/crops" className="text-white/70 hover:text-white transition-colors">Explore crops</Link>
+              <Link href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</Link>
+              <Link href="/still-time" className="text-white/70 hover:text-white transition-colors">Still time to sow</Link>
+              <Link href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</Link>
+              <Link href="/sow-in" className="text-white/70 hover:text-white transition-colors">Sow by location</Link>
+              <Link href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</Link>
+              <Link href="/blog" className="text-white/70 hover:text-white transition-colors">Blog</Link>
             </nav>
           </div>
 
@@ -78,10 +79,10 @@ export default function Footer() {
           <div>
             <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/60 mb-4">Explore</h3>
             <nav aria-label="Explore links" className="flex flex-col gap-2 text-sm">
-              <a href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</a>
-              <a href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</a>
-              <a href="/about" className="text-white/70 hover:text-white transition-colors">About</a>
-              <a href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</a>
+              <Link href="/frost-map" className="text-white/70 hover:text-white transition-colors">Frost map</Link>
+              <Link href="/#common-questions" className="text-white/70 hover:text-white transition-colors">FAQ</Link>
+              <Link href="/about" className="text-white/70 hover:text-white transition-colors">About</Link>
+              <Link href="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</Link>
               <a href="/feed.xml" className="text-white/70 hover:text-white transition-colors">RSS</a>
               <a
                 href="https://ko-fi.com/whattosow"

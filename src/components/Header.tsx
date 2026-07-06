@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Marquee from "@/components/Marquee";
 import WeatherVane from "@/components/WeatherVane";
 
@@ -14,7 +15,7 @@ const NAV_LINKS = [
 
 const MORE_LINKS = [
   { href: "/my-plot", label: "My plot" },
-  { href: "/#explore-crops", label: "Crops" },
+  { href: "/crops", label: "Crops" },
   { href: "/frost-map", label: "Frost map" },
   { href: "/blight-watch", label: "Blight watch" },
 ];
@@ -33,21 +34,21 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
       </a>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <a href="/" className="font-serif text-lg text-white tracking-tight hover:text-leaf-light transition-colors">
+          <Link href="/" className="font-serif text-lg text-white tracking-tight hover:text-leaf-light transition-colors">
             What To Sow
-          </a>
+          </Link>
           {backLink && (
-            <a href={backLink.href} className="hidden sm:block text-xs text-leaf-light/60 hover:text-leaf-light transition-colors">
+            <Link href={backLink.href} className="hidden sm:block text-xs text-leaf-light/60 hover:text-leaf-light transition-colors">
               {backLink.label}
-            </a>
+            </Link>
           )}
         </div>
         <div className="flex items-center gap-1 sm:gap-5">
           <nav aria-label="Main" className="hidden sm:flex items-center gap-5">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="text-[13px] text-white/60 hover:text-white transition-colors">
+              <Link key={link.href} href={link.href} className="text-[13px] text-white/60 hover:text-white transition-colors">
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="relative">
               <button
@@ -64,13 +65,13 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
               {moreOpen && (
                 <div className="absolute right-0 top-full mt-2 bg-allotment-dark border border-white/10 py-2 min-w-[160px] z-20">
                   {MORE_LINKS.map((link) => (
-                    <a
+                    <Link
                       key={link.href}
                       href={link.href}
                       className="block px-4 py-2 text-[13px] text-white/60 hover:text-white transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -98,9 +99,9 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
         <nav aria-label="Mobile navigation" className="sm:hidden border-t border-white/10 bg-allotment-dark">
           <div className="max-w-4xl mx-auto px-4 py-3 flex flex-col gap-1">
             {[...NAV_LINKS, ...MORE_LINKS].map((link) => (
-              <a key={link.href} href={link.href} className="text-sm text-white/60 hover:text-white transition-colors py-2">
+              <Link key={link.href} href={link.href} className="text-sm text-white/60 hover:text-white transition-colors py-2">
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>

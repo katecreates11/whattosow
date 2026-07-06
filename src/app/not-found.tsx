@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -50,22 +51,22 @@ export default function NotFound() {
               where things are growing.
             </p>
 
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-cream bg-allotment hover:bg-allotment-dark transition-colors px-5 py-3"
             >
               Back to What To Sow &rarr;
-            </a>
+            </Link>
 
             <div className="mt-9 pt-7 border-t border-earth/10">
               <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter mb-3">
                 Or wander somewhere useful
               </p>
               <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-sm">
-                <a href="/sow" className="font-serif text-lg text-earth hover:text-allotment transition-colors">What to sow now</a>
-                <a href="/#explore-crops" className="font-serif text-lg text-earth hover:text-allotment transition-colors">Browse the crops</a>
-                <a href="/guides" className="font-serif text-lg text-earth hover:text-allotment transition-colors">Growing guides</a>
-                <a href="/frost-map" className="font-serif text-lg text-earth hover:text-allotment transition-colors">UK frost map</a>
+                <Link href="/sow" className="font-serif text-lg text-earth hover:text-allotment transition-colors">What to sow now</Link>
+                <Link href="/crops" className="font-serif text-lg text-earth hover:text-allotment transition-colors">Browse the crops</Link>
+                <Link href="/guides" className="font-serif text-lg text-earth hover:text-allotment transition-colors">Growing guides</Link>
+                <Link href="/frost-map" className="font-serif text-lg text-earth hover:text-allotment transition-colors">UK frost map</Link>
               </div>
             </div>
           </div>
