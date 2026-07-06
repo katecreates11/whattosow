@@ -4,6 +4,7 @@
 
 Also authoritative:
 
+- `docs/DIRECTION.md` — **the locked product & editorial direction** (page roles, homepage page-count rule, component move map, visual taste checklist, monetisation rulebook, the Codex phase plan). Read before any product, design or homepage work.
 - `docs/tone-of-voice.md` — how to write ALL copy (gentle friend at the allotment gate; Pooh warmth, Nigel Slater rhythm). Read before writing or editing any content.
 
 Working rules that live outside the repo (Kate's session conventions):
