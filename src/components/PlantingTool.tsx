@@ -15,6 +15,7 @@ import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
+import { getWateringBalance } from "@/lib/watering";
 
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {
@@ -242,11 +243,18 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
 
   // Check localStorage on mount — prevents form flash (H2)
   useEffect(() => {
-    const saved = loadLocation();
-    if (saved) {
-      submitWithLocation(saved, false);
-    }
-    setReady(true);
+    let cancelled = false;
+    Promise.resolve().then(() => {
+      if (cancelled) return;
+      const saved = loadLocation();
+      if (saved) {
+        submitWithLocation(saved, false);
+      }
+      if (!cancelled) setReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [submitWithLocation]);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -301,7 +309,7 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
   // the tool leads with watering and drops the frost noise; spring/autumn keep
   // frost front-and-centre. Self-adjusts every year — no hardcoded dates.
   const daysToAutumnFrost = frostData
-    ? Math.round((frostData.firstAutumnFrostDate.getTime() - Date.now()) / 86400000)
+    ? Math.round((frostData.firstAutumnFrostDate.getTime() - today.getTime()) / 86400000)
     : Infinity;
   const summerMode = !!frostData?.isSafe && daysToAutumnFrost > 42;
 
@@ -532,11 +540,12 @@ export default function PlantingTool({ hideCropList }: { hideCropList?: boolean 
                     <h3 className="font-semibold text-earth">Do I need to water?</h3>
                   </div>
                   {(() => {
-                    const rain = forecast.rainfall3Days!;
-                    const lost = Math.round(forecast.evapotranspiration! * 3 * 10) / 10;
-                    const netBalance = Math.round((rain - lost) * 10) / 10;
-                    const gaining = netBalance > 0;
-                    const scale = Math.max(rain, lost, 1);
+                    const balance = getWateringBalance({
+                      rainfall3Days: forecast.rainfall3Days,
+                      evapotranspiration: forecast.evapotranspiration,
+                    });
+                    if (!balance) return null;
+                    const { rain, lost, netBalance, gaining, scale } = balance;
                     return (
                       <div>
                         <p className={`text-lg sm:text-xl font-semibold leading-tight ${gaining ? "text-allotment" : "text-amber-dark"}`}>

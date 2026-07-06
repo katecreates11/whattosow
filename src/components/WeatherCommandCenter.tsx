@@ -28,7 +28,7 @@ function weatherLine(temp: number, code: number, sunset: string): string {
   let lead: string;
   if (stormy) lead = "Wind and weather about — stake anything tall before you leave.";
   else if (raining) lead = "Rain about, so the slugs will be out — go early and check everything.";
-  else if (temp >= 24) lead = "The soil is baking. Water at the roots, not the leaves.";
+  else if (temp >= 24) lead = "The heat is sitting on the beds now — a good evening to check ties, canes and anything tall.";
   else if (temp >= 18) lead = "The ground is properly warm now — this is what the tender crops have waited for.";
   else if (temp >= 12) lead = "Mild enough that nothing will panic. Good planting weather.";
   else if (temp >= 6) lead = "Still on the cool side; give anything tender another week.";
@@ -106,6 +106,14 @@ export default function WeatherCommandCenter() {
     return () => window.removeEventListener("whattosow:location-updated", refresh);
   }, []);
 
+  const metricLine = [
+    wx ? `${Math.round(wx.temp)}° now` : null,
+    wx?.soil != null ? `soil ${Math.round(wx.soil)}°` : null,
+    wx ? `${windDir(wx.windDir)} ${Math.round(wx.wind)} km/h` : null,
+    sky ? `sunset ${sky.sunset}` : null,
+    sky ? `${sky.daylight} daylight` : null,
+  ].filter(Boolean);
+
   return (
     <div className="border-y border-earth/15 py-7 sm:py-8" aria-live="polite">
       <p className="font-serif italic text-earth text-xl sm:text-2xl md:text-[28px] leading-snug max-w-[34ch]">
@@ -114,27 +122,9 @@ export default function WeatherCommandCenter() {
           : "Reading the sky over your veg patch…"}
       </p>
 
-      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-earth-light">
-        {wx && (
-          <span>
-            <b className="font-serif not-italic font-normal text-[28px] align-[-6px] mr-1 text-earth">
-              {Math.round(wx.temp)}&deg;
-            </b>{" "}
-            right now
-          </span>
-        )}
-        {wx?.soil != null && (
-          <span>
-            <b className="font-serif not-italic font-normal text-[28px] align-[-6px] mr-1 text-allotment">
-              {Math.round(wx.soil)}&deg;
-            </b>{" "}
-            soil
-          </span>
-        )}
-        {wx && <span>{windDir(wx.windDir)} {Math.round(wx.wind)} mph</span>}
-        {sky && <span>sunset {sky.sunset}</span>}
-        {sky && <span>{sky.daylight} daylight</span>}
-        <span className="inline-flex items-center gap-2 text-allotment">
+      <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.12em] text-earth-lighter">
+        {metricLine.length > 0 && <span>{metricLine.join(" · ")}</span>}
+        <span className="inline-flex items-center gap-2 text-allotment normal-case tracking-normal">
           <MoonGlyph phase={moon.phase} /> {moon.name.toLowerCase()} &middot; {Math.round(moon.illumination * 100)}%
         </span>
       </div>

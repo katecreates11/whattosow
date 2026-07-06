@@ -27,6 +27,8 @@ import { featuredEntry, inSeasonCrops, plantOutCrops, harvestCrops, seasonCounts
 import CropCardGrid from "@/components/CropCardGrid";
 import AffiliateLink from "@/components/AffiliateLink";
 import ServerSeasonalAnswer from "@/components/ServerSeasonalAnswer";
+import WateringNote from "@/components/WateringNote";
+import { formatDaylight, getSunTimes } from "@/lib/astronomy";
 
 export default function Home() {
   const jsonLd = {
@@ -47,6 +49,12 @@ export default function Home() {
 
   // Compute how many crops are sowable right now (server-side, build-time)
   const now = new Date();
+  const daylight = formatDaylight(getSunTimes(now).daylightMinutes);
+  const dateline = now.toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
   const avgFrost = new Date(now.getFullYear(), 3, 15);
   const weeksToFrost = (avgFrost.getTime() - now.getTime()) / (7 * 24 * 60 * 60 * 1000);
   const weeksAfterFrost = -weeksToFrost;
@@ -264,6 +272,11 @@ export default function Home() {
       />
 
       <Header />
+      <div className="px-6 sm:px-10 lg:px-16 border-b border-earth/6 bg-cream">
+        <div className="max-w-4xl mx-auto py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-earth-lighter">
+          {dateline} &middot; {daylight} of daylight
+        </div>
+      </div>
 
       <main id="main-content">
         {/* Hero — illustration banner with text */}
@@ -322,6 +335,8 @@ export default function Home() {
             <PlantingTool />
           </div>
         </FullWidthSection>
+
+        <WateringNote initialDateIso={now.toISOString()} />
 
         {/* Trust strip */}
         <div className="px-6 sm:px-10 lg:px-16">
