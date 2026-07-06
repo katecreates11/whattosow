@@ -32,7 +32,7 @@ export const varieties: Variety[] = [
     name: "Aquadulce Claudia",
     rarity: "common",
     personality:
-      "The broad bean your grandparents grew, and their grandparents before them. Sow in autumn, forget about it, and come spring it'll be the smuggest thing in the garden.",
+      "The broad bean your grandparents grew, and theirs before them. Sow it in November, let the winter do its worst, and by spring it's up and away while the rest of the garden is still yawning — the first proper harvest of the year, from the oldest trick in the book.",
     recipes: [
       {
         name: "Broad bean bruschetta",
@@ -56,7 +56,7 @@ export const varieties: Variety[] = [
     name: "The Sutton",
     rarity: "common",
     personality:
-      "A dwarf broad bean that tops out at about a foot tall. Perfect for pots, window boxes, and anyone who doesn't want to build scaffolding for their legumes.",
+      "A dwarf broad bean that tops out around a foot — happy in pots, window boxes and windy corners where a tall bean would struggle. All the pleasure of podding, at a size any space can manage.",
     recipes: [
       {
         name: "Broad bean and bacon salad",
@@ -75,7 +75,7 @@ export const varieties: Variety[] = [
     name: "Crimson Flowered",
     rarity: "legendary",
     personality:
-      "Nearly went extinct in the 1970s until a single packet was found in a Kent seed bank. Deep crimson flowers that stop people mid-path on the allotment. The beans are excellent too, but honestly, you're growing this for the drama.",
+      "Nearly lost in the 1970s, until a single packet turned up in a Kent seed bank. The deep crimson flowers stop people mid-path — and the beans that follow are small, sweet and well worth the growing. Beauty and supper from the same row.",
     recipes: [
       {
         name: "Broad bean and feta salad",
@@ -577,7 +577,7 @@ export const varieties: Variety[] = [
     name: "Sarpo Mira",
     rarity: "uncommon",
     personality:
-      "The blight-proof potato. While everyone else is nervously checking their leaves in August, you'll be sitting back with a cup of tea. Hungarian-bred, practically indestructible, and the flavour is genuinely good too.",
+      "The blight-resistant one, bred in Hungary and practically weatherproof — when a warm, wet August has us all watching our leaves, Sarpo Mira just carries on. Good flavour, heavy crops, and a very calm potato year.",
     recipes: [
       {
         name: "Chunky chips",
@@ -619,7 +619,7 @@ export const varieties: Variety[] = [
     name: "Swift",
     rarity: "common",
     personality:
-      "First early, ready in June, and there is absolutely nothing like digging your first potatoes of the year. Small, thin-skinned, and they taste like actual potatoes in a way that supermarket ones simply don't.",
+      "One of the very first earlies, ready from June — and there is nothing in the growing year quite like the first fork under your own new potatoes. Small, thin-skinned, and best boiled within an hour of lifting, with butter and a little mint.",
     recipes: [
       {
         name: "Crushed new potatoes with mint butter",
@@ -925,7 +925,7 @@ export const varieties: Variety[] = [
     name: "Snowball",
     rarity: "common",
     personality:
-      "White, round, and mild enough that even turnip sceptics come around. Pull them young and they're almost fruity. Leave them too long and they'll remind you why people think they don't like turnips.",
+      "White, round, and mild enough to win over the doubters. Pull them young — golf-ball size, six weeks or so — and they're crisp and almost fruity, a different vegetable from the ones winter dinners gave a bad name.",
     recipes: [
       {
         name: "Turnip mash",
@@ -1085,7 +1085,7 @@ export const varieties: Variety[] = [
     name: "Hispi",
     rarity: "common",
     personality:
-      "Pointed, fast-growing, and the sweetest spring cabbage you'll find. Chefs love it because it chars beautifully and has a tenderness that round cabbages can't match. The cool one.",
+      "Pointed, quick and the sweetest of the spring cabbages — tender enough to cut into wedges and char in a hot pan, which is exactly what the chefs do with it. From a spring sowing it hearts up in early summer, right when the garden needs a fresh green thing.",
     recipes: [
       {
         name: "Charred hispi cabbage with miso butter",
@@ -1143,7 +1143,7 @@ export const varieties: Variety[] = [
     name: "All the Year Round",
     rarity: "common",
     personality:
-      "Cauliflower is famously difficult, and this one makes it as easy as it gets. Reliable, adaptable, and produces good white curds without demanding a PhD in horticulture.",
+      "Cauliflower has a fussy reputation, and this is the kind one — adaptable, steady, and forgiving of an ordinary garden's ups and downs. Keep the water even and it rewards you with good white curds, sowing after sowing.",
     recipes: [
       {
         name: "Whole roasted cauliflower",
@@ -1255,7 +1255,7 @@ export const varieties: Variety[] = [
     name: "Solent Wight",
     rarity: "common",
     personality:
-      "A softneck bred for British conditions on the Isle of Wight. Plant in autumn, ignore it all winter, and by July you'll have fat bulbs with a mellow warmth that makes shop garlic taste like cardboard.",
+      "A softneck bred for British weather on the Isle of Wight. Plant in autumn, leave it to the winter, and by July there are fat, mellow bulbs plaited in the shed — the kind of harvest that keeps a kitchen going for months.",
     recipes: [
       {
         name: "Roasted garlic",
@@ -1313,7 +1313,7 @@ export const varieties: Variety[] = [
     name: "Moss Curled",
     rarity: "common",
     personality:
-      "The curly parsley that's been sitting on the side of plates since your grandparents went to restaurants. Underrated. Fantastic chopped into everything from tabbouleh to a buttery sauce. Give it the respect it deserves.",
+      "The tight, curly parsley that's garnished British plates for generations — and it deserves better than the edge of one. Chopped generously into buttery sauces, eggs and tabbouleh it's fresh, grassy and quietly essential. Hardy, too: it stands well into winter.",
     recipes: [
       {
         name: "Tabbouleh",
@@ -1614,7 +1614,7 @@ export const varieties: Variety[] = [
     name: "Jack O'Lantern",
     rarity: "common",
     personality:
-      "The classic carving pumpkin that looks exactly like the emoji. Grows to a satisfying size, carves easily, and — let's be honest — the kids are going to demand one. The flesh isn't the best for eating, but the seeds roast brilliantly.",
+      "The classic carving pumpkin — round, orange, and exactly what small people picture when they picture a pumpkin. It grows to a satisfying size and carves easily; the flesh is ordinary, but the seeds roast beautifully while the lantern does its one great night.",
     recipes: [
       {
         name: "Roasted pumpkin seeds",
@@ -2117,7 +2117,7 @@ export const varieties: Variety[] = [
     name: "Jalapeno",
     rarity: "common",
     personality:
-      "The world's most useful chilli. Warm enough to add bite, mild enough not to hospitalise anyone. Thick-walled and perfect for stuffing, slicing, and pickling. Grows well on a sunny UK windowsill and makes you feel like you're getting away with something.",
+      "The most useful chilli of the lot — warm enough to matter, gentle enough for everyday cooking, and thick-walled for stuffing, slicing and pickling. It grows happily on a sunny UK windowsill, and a couple of plants keep a kitchen in chillies all summer.",
     recipes: [
       {
         name: "Pickled jalapenos",
@@ -2142,7 +2142,7 @@ export const varieties: Variety[] = [
     name: "Ring of Fire",
     rarity: "uncommon",
     personality:
-      "A cayenne type that dries brilliantly — string them up in the kitchen and you've got a year's worth of chilli flakes and an instant rustic aesthetic. Productive, hot without being hostile, and genuinely easy to grow.",
+      "A cayenne type that dries beautifully — string the ripe ones up in the kitchen and you've a year of chilli flakes hanging within reach. Productive, warming rather than fierce, and one of the easiest chillies to do well with.",
     recipes: [
       {
         name: "Homemade chilli flakes",
@@ -2444,7 +2444,7 @@ export const varieties: Variety[] = [
     name: "Cambridge Favourite",
     rarity: "common",
     personality:
-      "The mid-season workhorse that's been in British gardens since the 1940s. Not the biggest berries, not the sweetest, but reliably productive and the one that actually tastes like strawberries — unlike supermarket giants bred for shelf life and nothing else.",
+      "The mid-season workhorse of British gardens since the 1940s — not the biggest berry, but reliable, generous, and full of the old-fashioned strawberry flavour that's the whole reason to grow your own.",
     recipes: [
       {
         name: "Strawberries and cream",
@@ -2463,7 +2463,7 @@ export const varieties: Variety[] = [
     name: "Mara des Bois",
     rarity: "rare",
     personality:
-      "A French perpetual variety that tastes like wild strawberries but is the size of a cultivated one. Produces from June until the first frost, which means months of berries with that intense, musky, woodland flavour. The one that strawberry snobs grow.",
+      "A French variety with the perfume of a wild strawberry in a garden-sized berry, cropping from June until the first frosts. Months of that intense woodland flavour, a few at a time — the bowl fills slowly and it doesn't matter a bit.",
     recipes: [
       {
         name: "Strawberry tart",
@@ -2483,7 +2483,7 @@ export const varieties: Variety[] = [
     name: "Royal Sovereign",
     rarity: "uncommon",
     personality:
-      "A heritage variety from 1892 with the most extraordinary flavour of any strawberry you'll ever taste — and the most modest yields. This is the strawberry that modern varieties were bred away from in pursuit of bigger, firmer, blander. If you want flavour over quantity, this is the one.",
+      "A heritage strawberry from 1892, grown for one reason: the flavour, which old hands still measure everything else against. The yields are modest and the berries soft, so eat them the day they're picked — a strawberry for pleasure, not for quantity.",
     recipes: [
       {
         name: "Eton mess",
@@ -2843,7 +2843,7 @@ export const varieties: Variety[] = [
     name: "Super Aguadulce",
     rarity: "uncommon",
     personality:
-      "A bigger, more vigorous sibling of Aquadulce Claudia. Longer pods with more beans per pod, and the same excellent autumn-sowing hardiness. For when the classic just isn't enough.",
+      "A bigger, more vigorous sibling of Aquadulce Claudia — longer pods, more beans in each, and the same cheerful hardiness through an autumn sowing. If the freezer empties too fast each spring, this is the answer.",
     recipes: [
       {
         name: "Broad bean and pecorino crostini",
@@ -2970,7 +2970,7 @@ export const varieties: Variety[] = [
     name: "Nero di Toscana",
     rarity: "uncommon",
     personality:
-      "The same as Cavolo Nero's close cousin — tall, dark, and handsome with strap-like leaves that look architectural in the winter garden. Slightly different seed stock to standard Cavolo Nero, often with a more pronounced savoy texture.",
+      "Cavolo Nero under its Italian name — tall, dark, strap-leaved and architectural in a winter bed. This seed line often carries a deeper savoy crinkle to the leaf, and like all the black kales it sweetens with every frost.",
     recipes: [
       {
         name: "Kale and sausage pasta",
@@ -3331,7 +3331,7 @@ export const varieties: Variety[] = [
     name: "Achievement",
     rarity: "common",
     personality:
-      "A heritage variety from 1906 that produces long, straight, stringless pods. The name is apt — growing a row of these feels like an achievement, and the flavour is sweeter and more tender than modern varieties. Sometimes old is gold.",
+      "A heritage runner from 1906 with long, straight, stringless pods and a sweetness the old varieties kept quietly to themselves. A row of these in August, straight as organ pipes, is one of the allotment's finer sights.",
     recipes: [
       {
         name: "Runner beans on toast",
@@ -3710,7 +3710,7 @@ export const varieties: Variety[] = [
     name: "Greek Basil",
     rarity: "common",
     personality:
-      "Tiny leaves on a compact, mound-shaped plant that looks like a tidy green dome. Intense flavour packed into small leaves, and the bushy shape means it doesn't go leggy and sad like Genovese often does. The basil for windowsills and pots.",
+      "Tiny leaves on a neat green dome of a plant, with a full-sized flavour. It keeps its tidy shape all season, thrives in a pot, and sits as happily on a windowsill as in the garden — the easiest basil to keep looking lovely.",
     recipes: [
       {
         name: "Greek salad with basil",
@@ -3732,7 +3732,7 @@ export const varieties: Variety[] = [
     name: "Moneymaker",
     rarity: "common",
     personality:
-      "An early-maturing variety bred for cooler climates — which is code for 'actually ripens in Britain.' Smaller fruits than Black Beauty, but you'll get more of them. The aubergine that doesn't make you beg for a heatwave.",
+      "An early kind bred for cooler summers, which is exactly what an aubergine needs to succeed here. The fruits come smaller than Black Beauty's but more freely, and a warm patio or greenhouse corner sees a steady supply from late summer.",
     recipes: [
       {
         name: "Aubergine curry",
