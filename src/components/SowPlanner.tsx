@@ -89,10 +89,7 @@ export default function SowPlanner({
   }
 
   return (
-    <div className="bg-sage/25 border border-earth/10 p-6 sm:p-7">
-      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-1">
-        Plan it for your plot
-      </span>
+    <div className="bg-sage/20 border border-earth/10 p-5 sm:p-6">
       <h3 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-1">Work out your own dates</h3>
       <p className="text-sm text-earth-light leading-relaxed mb-1 max-w-[54ch]">
         Starts from the recommended sow date for your area. Sowed on a different day, or planted out late?
@@ -131,7 +128,7 @@ export default function SowPlanner({
       </div>
 
       {/* Timeline */}
-      <div className="mt-6 flex items-stretch gap-2 sm:gap-3">
+      <div className="mt-6 grid gap-2 sm:grid-cols-3 sm:gap-3">
         <Step label="Sow" date={fmt(sowD)} tone="amber" />
         {hasPlantOut && plantOutD && (
           <Step label="Plant out" date={fmt(plantOutD)} tone="leaf" note={plantOutValue ? "your date" : "predicted"} />
@@ -142,13 +139,13 @@ export default function SowPlanner({
       <div className="mt-6 flex items-center gap-4 flex-wrap">
         <button
           onClick={save}
-          className="font-mono text-[11px] uppercase tracking-[0.08em] text-cream bg-allotment px-5 py-2.5 hover:bg-allotment-dark transition-colors"
+          className="font-mono text-[11px] uppercase tracking-[0.08em] text-cream bg-allotment px-5 py-2.5 hover:bg-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
         >
           Add to my plot &rarr;
         </button>
         {saved && (
           <span className="font-serif italic text-allotment">
-            Saved — <a href="/my-plot" className="border-b border-amber">see it in My plot</a>
+            Saved — <a href="/my-plot" className="border-b border-amber focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2">see it in My plot</a>
           </span>
         )}
       </div>
@@ -159,7 +156,7 @@ export default function SowPlanner({
 function Step({ label, date, tone, note, big }: { label: string; date: string; tone: string; note?: string; big?: boolean }) {
   const dot: Record<string, string> = { amber: "bg-amber", leaf: "bg-leaf", allotment: "bg-allotment" };
   return (
-    <div className={`flex-1 bg-cream border border-earth/10 px-3 py-3 ${big ? "ring-1 ring-allotment/20" : ""}`}>
+    <div className={`min-w-0 bg-cream border border-earth/10 px-3 py-3 ${big ? "ring-1 ring-allotment/20" : ""}`}>
       <span className="flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-earth-light mb-1.5">
         <span className={`w-1.5 h-1.5 rounded-full ${dot[tone]}`} />
         {label}

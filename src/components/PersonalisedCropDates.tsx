@@ -26,6 +26,10 @@ const dotColors: Record<string, string> = {
   "Harvest": "bg-earth-lighter",
 };
 
+function ukAverageFrostDate(): Date {
+  return new Date(new Date().getFullYear(), 3, 15);
+}
+
 function DateCard({
   label,
   weeks,
@@ -50,13 +54,15 @@ function DateCard({
           {label}
         </p>
       </div>
-      {hasPersonalised && targetDate ? (
+      {targetDate ? (
         <>
           <p className="text-lg font-semibold text-earth mt-2">
             From around {formatDateShort(targetDate)}
           </p>
           <p className="text-xs text-earth-lighter mt-1">
-            {weeksToText(weeks)} ({formatDateShort(frostDate)})
+            {hasPersonalised
+              ? `${weeksToText(weeks)} (${formatDateShort(frostDate)})`
+              : `${weeksToText(weeks)} on the UK average`}
           </p>
         </>
       ) : (
@@ -73,20 +79,21 @@ function DateCard({
 
 export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
   const [location, setLocation] = useState<LocationData | null>(null);
-  const [frostDate, setFrostDate] = useState<Date | null>(null);
-  const [ready, setReady] = useState(false);
+  const [frostDate, setFrostDate] = useState<Date>(ukAverageFrostDate);
 
   const loadFromStorage = useCallback(() => {
     const loc = loadLocation();
     if (loc) {
       setLocation(loc);
       setFrostDate(calculateLastFrostDate(loc.latitude, loc.longitude));
+    } else {
+      setLocation(null);
+      setFrostDate(ukAverageFrostDate());
     }
   }, []);
 
   useEffect(() => {
-    loadFromStorage();
-    setReady(true);
+    const initialLoad = window.setTimeout(loadFromStorage, 0);
 
     // Listen for postcode updates from PlantingTool
     function handleLocationUpdate() {
@@ -94,23 +101,13 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
     }
     window.addEventListener("whattosow:location-updated", handleLocationUpdate);
     return () => {
+      window.clearTimeout(initialLoad);
       window.removeEventListener("whattosow:location-updated", handleLocationUpdate);
     };
   }, [loadFromStorage]);
 
-  // Skeleton while loading
-  if (!ready) {
-    return (
-      <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 my-8">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="border border-earth/6 p-5 h-28 animate-pulse" />
-        ))}
-      </div>
-    );
-  }
-
   return (
-    <div className="my-8 space-y-5" aria-live="polite">
+    <div className="space-y-5" aria-live="polite">
       {/* Personalisation banner */}
       {location ? (
         <div className="flex items-center gap-2 text-xs text-allotment border border-allotment/15 px-4 py-2.5">
@@ -129,7 +126,7 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
             <path d="M12 16v-4M12 8h.01" />
           </svg>
           <span>
-            <a href="#get-dates" className="text-allotment hover:underline font-medium">Enter your postcode below</a> to see personalised planting dates
+            Using the UK-average guide. <a href="#get-dates" className="text-allotment hover:underline font-medium focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2">Enter your postcode below</a> to tune these dates to your patch.
           </span>
         </div>
       )}

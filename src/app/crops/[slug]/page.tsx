@@ -306,6 +306,56 @@ function CropVerdictBand({ crop }: { crop: Crop }) {
   );
 }
 
+function YourDatesSection({ crop }: { crop: Crop }) {
+  const headingId = `your-dates-${crop.slug}`;
+
+  return (
+    <section
+      className="border border-earth/10 bg-cream/70 p-5 sm:p-6 mb-10"
+      aria-labelledby={headingId}
+    >
+      <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment mb-2">
+        Your dates
+      </div>
+      <h2 id={headingId} className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-2">
+        Dates for {crop.name.toLowerCase()}
+      </h2>
+      <p className="text-sm text-earth-light leading-relaxed max-w-[62ch] mb-5">
+        These dates are adjusted from your saved location where available; otherwise they use a UK-average guide.
+      </p>
+
+      <PersonalisedCropDates crop={crop} />
+
+      <details className="group mt-6 border-t border-earth/10 pt-5">
+        <summary className="cursor-pointer list-none focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-4">
+          <span className="flex items-center justify-between gap-4">
+            <span className="min-w-0">
+              <span className="font-serif italic text-lg text-allotment block">
+                Sowed on a different day, or planted late?
+              </span>
+              <span className="text-sm text-earth-light leading-relaxed block mt-1">
+                Open the planner to adjust the dates and save this crop to My plot.
+              </span>
+            </span>
+            <span className="font-mono text-[18px] text-earth-lighter group-open:rotate-45 transition-transform shrink-0" aria-hidden="true">
+              +
+            </span>
+          </span>
+        </summary>
+        <div className="mt-5">
+          <SowPlanner
+            slug={crop.slug}
+            sowIndoorsWeeks={crop.sowIndoorsWeeks}
+            directSowWeeks={crop.directSowWeeks}
+            plantOutWeeks={crop.plantOutWeeks}
+            harvestWeeks={crop.harvestWeeks}
+          />
+        </div>
+      </details>
+    </section>
+  );
+}
+
 // Thirsty summer crops — these get a contextual link to the watering review.
 const THIRSTY = new Set([
   "tomatoes", "courgettes", "cucumbers", "runner-beans", "peppers",
@@ -569,18 +619,7 @@ export default async function CropPage({
 
             <CropNowAnswerBlock crop={crop} />
 
-            <PersonalisedCropDates crop={crop} />
-
-            {/* Interactive: plan your own dates from when you actually sowed */}
-            <div className="mt-8">
-              <SowPlanner
-                slug={crop.slug}
-                sowIndoorsWeeks={crop.sowIndoorsWeeks}
-                directSowWeeks={crop.directSowWeeks}
-                plantOutWeeks={crop.plantOutWeeks}
-                harvestWeeks={crop.harvestWeeks}
-              />
-            </div>
+            <YourDatesSection crop={crop} />
 
             {/* Inline seed CTA — mobile-visible, high engagement position */}
             <SeedSupplierLinks crop={crop} variant="inline" />
