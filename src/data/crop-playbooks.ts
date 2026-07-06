@@ -238,16 +238,16 @@ export const cropPlaybooks: Record<string, CropPlaybook> = {
         period: "Three to four weeks in",
         title: "Thin on a still evening",
         text: "However thinly you sowed, some seedlings will come up shoulder to shoulder. Thin them to a finger-width apart — and do it on a still evening, because the smell of crushed carrot leaves is a dinner bell for the fly. Firm the soil back afterwards and water gently. The thinnings from later rounds are your first taste of the year.",
+        image: {
+          src: "/photos/crops/carrot-seedlings-young.webp",
+          alt: "Young carrot seedlings with their first ferny true leaves, coming up along a row",
+          caption: "a few weeks in · the ferny true leaves arrive, and thinning time with them",
+        },
       },
       {
         period: "Through summer",
         title: "Weed, water lightly, then leave them be",
         text: "Carrots are one of the few crops that like being slightly ignored. Steady, light watering is all they want — a drought followed by a soak is what splits them. Rich feeding just grows you lovely ferny tops and thin roots, so save the feed for the hungry crops and let the carrots get on with it.",
-        image: {
-          src: "/photos/crops/carrots-young-tops.webp",
-          alt: "Young feathery carrot tops growing away in dark soil",
-          caption: "july · feathery tops away, roots quietly at work below",
-        },
       },
       {
         period: "From about fourteen weeks",
