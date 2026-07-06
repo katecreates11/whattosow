@@ -381,7 +381,7 @@ export async function generateMetadata({
 
   return {
     title: playbook
-      ? `How to Grow ${crop.name} in the UK — When to Plant, Care & Problems | What To Sow`
+      ? `How to Grow ${playbook.titleName ?? crop.name} in the UK — When to Plant, Care & Problems | What To Sow`
       : `When to Plant ${crop.name} in the UK — What To Sow`,
     description: playbook
       ? `The complete UK guide to growing ${crop.name.toLowerCase()}: when to sow and plant for your postcode, the season step by step, what goes wrong and how to fix it, and the varieties worth growing.`
@@ -394,7 +394,7 @@ export async function generateMetadata({
       ...(playbook ? [`how to grow ${crop.name.toLowerCase()} UK`, `${crop.name.toLowerCase()} problems`] : []),
     ],
     openGraph: {
-      title: playbook ? `How to Grow ${crop.name} in the UK` : `When to Plant ${crop.name} in the UK`,
+      title: playbook ? `How to Grow ${playbook.titleName ?? crop.name} in the UK` : `When to Plant ${crop.name} in the UK`,
       description: `Personalised planting times for ${crop.name.toLowerCase()} based on your UK postcode and local frost date.`,
       type: "article",
       locale: "en_GB",
@@ -572,7 +572,7 @@ export default async function CropPage({
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-6">
                   {playbook ? "How to grow" : "When to plant"}<br />
-                  <span className="font-normal">{crop.name.toLowerCase()}</span> in the UK
+                  <span className="font-normal">{(playbook?.titleName ?? crop.name).toLowerCase()}</span> in the UK
                 </h1>
                 <p className="font-serif text-xl text-earth-light leading-relaxed max-w-2xl">
                   <span className="float-left font-serif text-[58px] leading-[0.6] pr-3 pt-2 text-allotment">

@@ -163,6 +163,87 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
       },
     ],
   },
+  courgettes: {
+    intro: "Courgettes want rich soil, water and picking — almost nothing in a catalogue changes that. Two things earn their place.",
+    items: [
+      {
+        kind: "worth-buying",
+        name: "Organic slug pellets",
+        why: "The first fortnight after planting out is the dangerous one — a damp night's slugs can end a young courgette plant. Ferric phosphate pellets are organic-approved and get them through it.",
+        href: az("organic slug pellets ferric phosphate"),
+        product: "organic slug pellets",
+        cta: "Find slug pellets",
+      },
+      {
+        kind: "worth-buying",
+        name: "High-potash feed",
+        why: "Only really needed in pots, where the compost runs out of steam — a fortnightly tomato feed keeps a container courgette producing all summer.",
+        href: asin("B09RK3HPH5"),
+        product: "tomato feed",
+        cta: "Find tomato feed",
+      },
+      {
+        kind: "skip-this",
+        name: "More than three plants' worth of seed",
+        why: "One healthy plant makes a courgette every day or two in high summer. Six plants is not a plan, it is a glut with a fortnight's warning.",
+        instead: "Sow three, plant the best two, and spend what you saved on good compost for the planting holes.",
+      },
+    ],
+  },
+  "maincrop-potatoes": {
+    intro: "Potatoes are the least gadget-hungry crop on the plot. Good seed potatoes, rich soil and a fork cover almost all of it.",
+    items: [
+      {
+        kind: "worth-buying",
+        name: "Horticultural fleece",
+        why: "A late frost blackens young shoots just as they emerge. A night or two under fleece in a cold April snap protects weeks of growth.",
+        href: az("horticultural fleece plant frost protection"),
+        product: "horticultural fleece",
+        cta: "Find fleece",
+      },
+      {
+        kind: "worth-buying",
+        name: "Hessian or paper storage sacks",
+        why: "The harvest is only half the job — stored dark and cool in breathable sacks, a good maincrop lift feeds you into the new year. Plastic bags sweat and spoil them.",
+        href: az("hessian potato storage sacks"),
+        product: "potato storage sacks",
+        cta: "Find storage sacks",
+      },
+      {
+        kind: "skip-this",
+        name: "Chitting trays and gadgets",
+        why: "Egg boxes on a cool, bright windowsill do exactly the same job for nothing.",
+        instead: "Spend the money on certified seed potatoes instead — that is the purchase that actually decides the harvest.",
+      },
+    ],
+  },
+  "runner-beans": {
+    intro: "One good frame and steady water grow the whole crop. The kit list is short and mostly rope and sticks.",
+    items: [
+      {
+        kind: "worth-buying",
+        name: "8ft bamboo canes",
+        why: "Runners climb seven feet and a full row in August carries real weight and real wind. Tall, sturdy canes, crossed and braced, are the crop's one piece of engineering.",
+        href: az("bamboo canes 8ft garden"),
+        product: "8ft bamboo canes",
+        cta: "Find 8ft canes",
+      },
+      {
+        kind: "worth-buying",
+        name: "Jute twine",
+        why: "For lashing the frame and the hundred small tying jobs a bean row invents. Biodegradable, so the autumn clear-up goes straight on the compost, strings and all.",
+        href: az("jute garden twine"),
+        product: "jute twine",
+        cta: "Find jute twine",
+      },
+      {
+        kind: "skip-this",
+        name: "Bean feed and flower-set sprays",
+        why: "Dropped flowers are a watering problem, not a nutrition one — no spray fixes dry roots.",
+        instead: "A compost-rich planting trench, a thick mulch, and a deep soak at the base every few dry days once flowers show. That is the whole secret.",
+      },
+    ],
+  },
 };
 
 // ─── Crop-to-kit mapping ──────────────────────────────────────────────────────
