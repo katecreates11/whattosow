@@ -47,7 +47,7 @@ const VARIANTS: Record<WateringNoteState, WateringNoteCopy[]> = {
       fallbackFootnote: "warm dry spell · pots and new plantings first",
     },
     {
-      sentence: "Hot, dry day. Give pots and anything newly planted a proper drink tonight — the rest can wait if the soil still feels cool below the surface.",
+      sentence: "A dry one again. Pots and growbags first tonight, then anything planted this month — established plants with deep roots can wait a day or two more.",
       fallbackFootnote: "dry heat · deep and slow beats little and often",
     },
     {

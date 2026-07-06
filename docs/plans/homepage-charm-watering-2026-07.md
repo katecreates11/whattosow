@@ -53,9 +53,9 @@ Footnote is always mono, e.g. `rain 8mm last night · soil 19° · nothing due t
   is holding it nicely. Put the can down and go and see what's grown instead."
 - **Raining now:** "It's doing it for you right now. The only job tonight is
   admiring it from the shed with a cuppa."
-- **Hot, dry spell (soil losing):** "The beds have been giving water to the sky all
-  day. A slow, deep soak at the roots this evening — pots first, they're always
-  thirstiest."
+- **Hot, dry spell (soil losing):** "Hot, dry day. Give pots and anything newly
+  planted a proper drink tonight — the rest can wait if the soil still feels
+  cool below the surface."
 - **Heatwave (3+ hot days):** "Third hot day in a row, and the pots are running on
   fumes. Water deep tonight and again at dawn if you can — and leave a saucer out
   for the birds."

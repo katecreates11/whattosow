@@ -10,13 +10,17 @@ any user-facing string.
 2. **AI-poetic** — images that carry no information ("the thirsty earth yearns").
 3. **Try-hard whimsy** — charm applied like glitter ("your garden canvas awaits!").
 
-**The calibration rule:** warmth comes from verbs, honesty and specificity — never
-from adjectives. **One image per moment, maximum, and it must carry information.**
-"The beds have been giving water to the sky all day" earns its place (it *is*
-evaporation). "A small act of time travel" for frozen beans is right on the line —
-lovely once, purple if it has neighbours. If an image is doing personality without
-information, cut it. When in doubt, write the plain version; the plain version in
-this voice is already warm.
+**The calibration rule — set by Kate, learn it well:** warmth comes from verbs,
+honesty and specificity — never from adjectives and never from imagery. **Plain
+observation IS the voice.** Do not personify the weather, the soil, the beds or
+the plants: "the beds have been giving water to the sky all day" was written by
+an AI, held up as the good example, and **vetoed by Kate on sight** — treat that
+line as the permanent marker for where the ceiling is. Concrete *human* activity
+is fine ("admiring it from the shed with a cuppa"); landscape doing metaphors is
+not. "A small act of time travel" for frozen beans is over the same line. When
+in doubt, write the plain version — the plain version in this voice is already
+warm. If Kate silently edits a line out of a data file, that is a veto: learn
+from the diff, don't restore it.
 
 ---
 
@@ -41,12 +45,14 @@ this voice is already warm.
 - **Bad (cold):** "Watering recommended. Precipitation 0mm. Evapotranspiration
   high."
 - **Bad (poetic):** "The thirsty earth yearns for the watering can's gentle kiss."
-- **Better:** "The beds have been giving water to the sky all day. A slow, deep
-  soak at the roots this evening — pots first, they're always thirstiest."
-- **Why:** verdict in the first clause, one working image, then the instruction.
-  A note, not a reading.
-- **Avoid:** yearns/whispers/dances/kisses, hydration, moisture levels, two images
-  in one note, "don't forget to…" (nagging register).
+- **Bad (subtler, also vetoed):** "The beds have been giving water to the sky
+  all day."
+- **Better:** "Hot, dry day. Give pots and anything newly planted a proper drink
+  tonight — the rest can wait if the soil still feels cool below the surface."
+- **Why:** verdict in the first two words, then the instruction, then the
+  let-off. Plain observation, no imagery. A note, not a reading — and not a poem.
+- **Avoid:** yearns/whispers/dances/kisses, any personification of beds/soil/sky,
+  hydration, moisture levels, "don't forget to…" (nagging register).
 - **Ours:** "a proper drink" · "at the roots, never the leaves" · "the sky's
   taken this one" · "pots first" · "have the evening off".
 

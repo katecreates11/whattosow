@@ -78,8 +78,8 @@ matters tonight.
 
 **Bad:** four tiles: `23° right now | 25° soil | W 16 mph | sunset 21:33`
 **Good:**
-> The beds have been giving water to the sky all day. A slow, deep soak at the
-> roots this evening — pots first, they're always thirstiest.
+> Hot, dry day. Give pots and anything newly planted a proper drink tonight —
+> the rest can wait if the soil still feels cool below the surface.
 > `rain 0mm · soil 25° · nothing due till friday`
 
 **Codex notes:** metrics render as ONE `font-mono text-[10px]` line *below* the
