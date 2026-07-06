@@ -243,6 +243,11 @@ export const cropPlaybooks: Record<string, CropPlaybook> = {
         period: "Through summer",
         title: "Weed, water lightly, then leave them be",
         text: "Carrots are one of the few crops that like being slightly ignored. Steady, light watering is all they want — a drought followed by a soak is what splits them. Rich feeding just grows you lovely ferny tops and thin roots, so save the feed for the hungry crops and let the carrots get on with it.",
+        image: {
+          src: "/photos/crops/carrots-young-tops.webp",
+          alt: "Young feathery carrot tops growing away in dark soil",
+          caption: "july · feathery tops away, roots quietly at work below",
+        },
       },
       {
         period: "From about fourteen weeks",

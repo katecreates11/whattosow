@@ -35,6 +35,10 @@ const cropPhotos: Record<string, CropPhoto> = {
     hero: "/photos/crops/sweetcorn-harvest.webp",
     alt: "A freshly picked sweetcorn cob held up against a backdrop of sunflowers",
   },
+  basil: {
+    hero: "/photos/crops/purple-basil-seedling.webp",
+    alt: "A young purple basil seedling in dark soil at a UK allotment",
+  },
   pumpkins: {
     hero: "/photos/crops/pumpkin-patch-orange.webp",
     alt: "A ripening orange pumpkin nestled among its leaves in the pumpkin patch at a UK allotment",

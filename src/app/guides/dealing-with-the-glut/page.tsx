@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox } from "@/components/GuideVisuals";
@@ -139,6 +140,20 @@ export default function GlutGuide() {
               </AffiliateLink>{" "}
               by the back door makes the little-and-often habit a pleasure rather than a chore.
             </p>
+            <figure className="mt-6 max-w-sm">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src="/photos/blog/courgettes-first-pick-hand.webp"
+                  alt="Two courgettes picked small, flowers still attached, held up over the allotment"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 384px"
+                  className="object-cover img-grade"
+                />
+              </div>
+              <figcaption className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter mt-2">
+                july · picked small, flowers still on — how to keep them coming
+              </figcaption>
+            </figure>
           </section>
 
           {/* What keeps */}
