@@ -221,19 +221,31 @@ function formatPlainDate(date: Date): string {
   });
 }
 
-function getGardenInterpretation(frostData: FrostData): string {
+function getAnswerGreeting(frostData: FrostData): string {
   const place = frostData.location.adminDistrict;
   const lastFrost = formatPlainDate(frostData.lastFrostDate);
 
   if (frostData.growingSeasonDays >= 190) {
-    return `${place} gives you a generous season — last frost usually gone by ${lastFrost}. Tender crops get a kinder runway here than in much of the country.`;
+    return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so tender crops get a fair run.`;
   }
 
   if (frostData.growingSeasonDays <= 160) {
-    return `${place} asks for a little patience — last frost usually clears around ${lastFrost}. We keep the tender things tucked up until the weather has properly settled.`;
+    return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so the season asks for a little patience.`;
   }
 
-  return `${place} sits in a steady UK growing season — last frost usually gone by ${lastFrost}. Hardy things can get on with it, and tender crops are happiest once the soil has warmed.`;
+  return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so the season's properly open.`;
+}
+
+function getGardenInterpretation(frostData: FrostData): string {
+  if (frostData.growingSeasonDays >= 190) {
+    return "Keep tender crops moving while the soil is warm; this is the kind stretch they like.";
+  }
+
+  if (frostData.growingSeasonDays <= 160) {
+    return "Hardy sowings can get on with it now; tender things still appreciate a little shelter while they settle.";
+  }
+
+  return "Hardy things can get on with it, and tender crops are happiest now the soil has warmed.";
 }
 
 function methodForAnswer(entry: CropEntry): string {
@@ -331,7 +343,7 @@ function HomepageAnswerReveal({
         tabIndex={-1}
         className="scroll-mt-24 font-serif text-2xl sm:text-3xl leading-tight text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-allotment"
       >
-        Growing in {frostData.location.adminDistrict}, then.
+        {getAnswerGreeting(frostData)}
       </h2>
 
       <p className="mt-3 font-serif text-lg leading-snug text-earth-light">
