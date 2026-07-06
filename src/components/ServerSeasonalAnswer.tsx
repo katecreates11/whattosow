@@ -1,7 +1,13 @@
+import Image from "next/image";
+import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
+import { weeklyListForMonth } from "@/data/weekly-list";
+import { cropImage } from "@/lib/crop-image";
 import { getServerSeasonalAnswer, type AvoidSowingEntry } from "@/lib/server-seasonal-answer";
+import type { Crop } from "@/data/crops";
 import type { CropEntry } from "@/lib/season-core";
 
-const linkClass = "text-rust hover:text-earth underline decoration-rust/30 transition-colors";
+const cropLinkClass =
+  "font-serif text-xl sm:text-2xl leading-tight text-earth underline decoration-amber/45 underline-offset-4 hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment";
 
 function seasonalGuide(monthIndex: number) {
   if (monthIndex >= 2 && monthIndex <= 4) {
@@ -16,185 +22,306 @@ function seasonalGuide(monthIndex: number) {
   return { href: "/guides/seed-starting", label: "seed-starting guide" };
 }
 
-function cropLinks(entries: CropEntry[], limit = 8) {
-  if (entries.length === 0) return null;
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function pickLineWithoutPrefix(name: string, line: string): string {
+  const withoutIntro = line.replace(/^If you (sow|plant) one thing (this week|this month):\s*/i, "");
+  return withoutIntro.replace(new RegExp(`^${escapeRegExp(name)}\\s+[—-]\\s*`, "i"), "");
+}
+
+function methodTag(methods: Set<string>): "DIRECT" | "MODULES" | "EITHER" {
+  const direct = methods.has("direct sow");
+  const modules = methods.has("sow indoors");
+  if (direct && modules) return "EITHER";
+  if (modules) return "MODULES";
+  return "DIRECT";
+}
+
+interface SowingRow {
+  crop: Crop;
+  methods: Set<string>;
+  daysLeft: number | null;
+  closing: boolean;
+  note?: string;
+  isPick: boolean;
+}
+
+function buildSowingRows(entries: CropEntry[], notes: Record<string, string> | undefined, pickSlug: string): SowingRow[] {
+  const byCrop = new Map<string, SowingRow>();
+
+  for (const entry of entries) {
+    const row = byCrop.get(entry.crop.slug) ?? {
+      crop: entry.crop,
+      methods: new Set<string>(),
+      daysLeft: null,
+      closing: false,
+      note: notes?.[entry.crop.slug],
+      isPick: entry.crop.slug === pickSlug,
+    };
+    if (entry.status.method) row.methods.add(entry.status.method);
+    if (entry.status.daysLeft != null) {
+      row.daysLeft = row.daysLeft == null ? entry.status.daysLeft : Math.min(row.daysLeft, entry.status.daysLeft);
+    }
+    row.closing = row.closing || entry.status.state === "closing";
+    byCrop.set(entry.crop.slug, row);
+  }
+
+  return Array.from(byCrop.values()).sort((a, b) => {
+    if (a.isPick !== b.isPick) return a.isPick ? -1 : 1;
+    if (a.closing !== b.closing) return a.closing ? -1 : 1;
+    if ((a.daysLeft ?? 9999) !== (b.daysLeft ?? 9999)) return (a.daysLeft ?? 9999) - (b.daysLeft ?? 9999);
+    return a.crop.name.localeCompare(b.crop.name);
+  });
+}
+
+function SeedLink({ crop }: { crop: Crop }) {
+  const seed = crop.seedSuppliers?.[0];
+  if (!seed) return <span className="hidden sm:block" aria-hidden="true" />;
+
   return (
-    <ul className="mt-4 flex flex-wrap gap-2">
-      {entries.slice(0, limit).map((entry) => (
-        <li key={`${entry.status.method}-${entry.crop.slug}`}>
-          <a
-            href={`/crops/${entry.crop.slug}`}
-            className="inline-flex items-center gap-1.5 border border-earth/10 bg-white/55 px-3 py-1.5 text-sm text-earth hover:border-allotment/30 hover:text-allotment transition-colors"
-          >
-            {entry.crop.name}
-            {entry.status.state === "closing" && (
-              <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-rust">closing</span>
+    <AffiliateLink
+      href={seed.url}
+      product={crop.name}
+      type="seed"
+      merchant={merchantSlug(seed.name)}
+      className="inline-flex min-h-[44px] items-center justify-end font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+    >
+      Seeds &rarr;
+    </AffiliateLink>
+  );
+}
+
+function LeadThumb({ crop }: { crop: Crop }) {
+  const img = cropImage(crop);
+  if (!img) return null;
+
+  return (
+    <a
+      href={`/crops/${crop.slug}`}
+      className="relative hidden h-16 w-16 shrink-0 overflow-hidden sm:block focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+      aria-label={`${crop.name} growing guide`}
+    >
+      <Image
+        src={img.src}
+        alt=""
+        fill
+        sizes="64px"
+        className="object-cover img-grade"
+      />
+    </a>
+  );
+}
+
+function SowingRowItem({ row, lead }: { row: SowingRow; lead: boolean }) {
+  return (
+    <li className="border-t border-earth/10 py-3 sm:py-4">
+      <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-1 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+        {lead && <LeadThumb crop={row.crop} />}
+        <div className={lead ? "" : "sm:col-start-2"}>
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <a href={`/crops/${row.crop.slug}`} className={cropLinkClass}>
+              {row.crop.name}
+            </a>
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-light">
+              {methodTag(row.methods)}
+            </span>
+            {row.closing && (
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-rust">
+                closing{row.daysLeft != null ? ` · ${row.daysLeft}d` : ""}
+              </span>
             )}
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function avoidLinks(entries: AvoidSowingEntry[]) {
-  if (entries.length === 0) return null;
-  return (
-    <ul className="mt-4 space-y-2.5">
-      {entries.map((entry) => (
-        <li key={entry.crop.slug} className="text-sm text-earth-light leading-relaxed">
-          <a href={`/crops/${entry.crop.slug}`} className={linkClass}>
-            {entry.crop.name}
-          </a>
-          {": "}
-          {entry.reason}
-          {entry.nextMonthSlug && entry.nextMonthName ? (
-            <>
-              {" "}
-              <a href={`/sow/${entry.nextMonthSlug}`} className={linkClass}>
-                Plan for {entry.nextMonthName.toLowerCase()}
-              </a>
-              .
-            </>
-          ) : (
-            "."
+          </div>
+          {row.note && (
+            <p className="mt-1 max-w-[46ch] text-sm leading-relaxed text-earth-light">
+              {row.note}
+            </p>
           )}
+        </div>
+        <SeedLink crop={row.crop} />
+      </div>
+    </li>
+  );
+}
+
+function PlantOutRows({ entries }: { entries: CropEntry[] }) {
+  if (entries.length === 0) {
+    return (
+      <p className="mt-3 max-w-[48ch] text-sm leading-relaxed text-earth-light">
+        Nothing urgent to plant out on the UK average this week; keep young plants watered and ready.
+      </p>
+    );
+  }
+
+  return (
+    <ul className="mt-3">
+      {entries.slice(0, 8).map((entry) => (
+        <li key={entry.crop.slug} className="border-t border-earth/10 py-3">
+          <div className="flex min-h-[44px] items-center justify-between gap-4">
+            <a href={`/crops/${entry.crop.slug}`} className="font-serif text-lg text-earth underline decoration-amber/35 underline-offset-4 hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment">
+              {entry.crop.name}
+            </a>
+            <span className="shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.14em] text-earth-light">
+              {entry.status.state === "closing" ? "closing" : "plant out"}
+            </span>
+          </div>
         </li>
       ))}
     </ul>
   );
 }
 
-function AnswerBlock({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function joinLinkedCrops(entries: AvoidSowingEntry[]) {
+  return entries.map((entry, index) => (
+    <span key={entry.crop.slug}>
+      {index > 0 ? (index === entries.length - 1 ? " and " : ", ") : ""}
+      <a href={`/crops/${entry.crop.slug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+        {entry.crop.name.toLowerCase()}
+      </a>
+    </span>
+  ));
+}
+
+function WorthWaitingOn({ entries }: { entries: AvoidSowingEntry[] }) {
+  const tooLate = entries.filter((entry) => entry.reason.includes("too late"));
+  const waiting = entries.filter((entry) => !entry.reason.includes("too late"));
+
+  if (entries.length === 0) {
+    return (
+      <p className="text-sm leading-relaxed text-earth-light">
+        Worth waiting on: nothing much this week. The seed box is still open.
+      </p>
+    );
+  }
+
   return (
-    <section className="border border-earth/10 bg-cream/70 p-5 sm:p-6">
-      <h3 className="font-serif text-2xl text-earth tracking-tight">{title}</h3>
-      {children}
-    </section>
+    <div className="space-y-2 text-sm leading-relaxed text-earth-light">
+      {tooLate.length > 0 && (
+        <p>
+          <span className="font-medium text-earth">Worth waiting on:</span>{" "}
+          {joinLinkedCrops(tooLate)} from seed - they now need more weeks than the season has left. Young plants can still make sense where the season is warm enough.
+        </p>
+      )}
+      {waiting.length > 0 && (
+        <p>
+          Next windows:{" "}
+          {waiting.map((entry, index) => (
+            <span key={entry.crop.slug}>
+              {index > 0 ? (index === waiting.length - 1 ? " and " : ", ") : ""}
+              <a href={`/crops/${entry.crop.slug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                {entry.crop.name.toLowerCase()}
+              </a>
+              {entry.nextMonthSlug && entry.nextMonthName ? (
+                <>
+                  {" "}
+                  in{" "}
+                  <a href={`/sow/${entry.nextMonthSlug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                    {entry.nextMonthName.toLowerCase()}
+                  </a>
+                </>
+              ) : null}
+            </span>
+          ))}
+          .
+        </p>
+      )}
+    </div>
   );
 }
 
-export default function ServerSeasonalAnswer({
-  className = "",
-  context = "sow",
-}: {
-  className?: string;
-  context?: "home" | "sow";
-}) {
+export default function ServerSeasonalAnswer({ className = "" }: { className?: string }) {
   const answer = getServerSeasonalAnswer();
+  const weekly = weeklyListForMonth(answer.monthIndex);
   const guide = seasonalGuide(answer.monthIndex);
-  const sowNames = answer.sowNow.slice(0, 3).map((entry) => entry.crop.name.toLowerCase());
-  const sowSentence =
-    sowNames.length > 0
-      ? `${answer.monthName} is still useful for ${sowNames.join(", ")}${answer.sowNow.length > 3 ? " and a few quick follow-on crops" : ""}.`
-      : `${answer.monthName} is a quieter sowing month on the UK average, so focus on planning and caring for crops already growing.`;
-  const intro =
-    context === "home"
-      ? {
-          eyebrow: "Before you add your postcode",
-          heading: "The UK answer for right now",
-          body: `${sowSentence} Use this as your quick national baseline, then add your postcode above if you want the dates tightened to your own frost risk.`,
-        }
-      : {
-          eyebrow: "UK average answer",
-          heading: "What can I sow now?",
-          body: `${sowSentence} This is the plain UK answer, based on an average last frost around mid-April. Add your postcode afterwards to tune the dates to your own patch.`,
-        };
+  const sowRows = buildSowingRows([...answer.sowOutdoors, ...answer.startIndoors], weekly.notes, weekly.pick.slug);
+  const weekOf = answer.now.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+  const pickLine = pickLineWithoutPrefix(weekly.pick.name, weekly.pick.line);
 
   return (
-    <section className={className} aria-labelledby="server-seasonal-answer-heading">
-      <div className="mb-7">
-        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment mb-2">
-          {intro.eyebrow}
-        </div>
-        <h2
-          id="server-seasonal-answer-heading"
-          className="font-serif text-3xl sm:text-4xl text-earth tracking-tight leading-none"
-        >
-          {intro.heading}
-        </h2>
-        <p className="mt-3 text-earth-light leading-relaxed max-w-[68ch]">
-          {intro.body}
+    <section className={className} aria-labelledby="sow-list-heading">
+      <div className="mb-8 border-y border-earth/10 py-6 sm:py-8">
+        <p className="max-w-[62ch] font-serif text-xl sm:text-2xl leading-snug text-earth-light">
+          {weekly.standfirst}
         </p>
+        <div className="mt-6 max-w-2xl">
+          <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust">
+            If you sow one thing this week
+          </div>
+          <p className="mt-2 font-serif text-2xl sm:text-3xl leading-tight text-earth">
+            <a href={`/crops/${weekly.pick.slug}`} className="underline decoration-amber/45 underline-offset-4 hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment">
+              {weekly.pick.name}
+            </a>
+            {" - "}
+            {pickLine}
+          </p>
+        </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <AnswerBlock title="What to sow now">
-          <p className="mt-2 text-sm text-earth-light leading-relaxed">
-            Start with crops that still have enough season left to grow, crop, and earn their space.
-          </p>
-          {cropLinks(answer.sowNow, 10) ?? (
-            <p className="mt-4 text-sm text-earth-light">No urgent seed sowing on the UK average this week.</p>
-          )}
-          <p className="mt-4 text-sm text-earth-light">
-            See the full{" "}
-            <a href={`/sow/${answer.monthSlug}`} className={linkClass}>
-              what to sow in {answer.monthName}
-            </a>{" "}
-            page.
-          </p>
-        </AnswerBlock>
-
-        <AnswerBlock title="What to start indoors">
-          <p className="mt-2 text-sm text-earth-light leading-relaxed">
-            Use modules or pots for crops that benefit from a protected start before they meet slugs, heat, or rough weather.
-          </p>
-          {cropLinks(answer.startIndoors) ?? (
-            <p className="mt-4 text-sm text-earth-light">
-              Nothing really needs starting indoors on the UK average right now.
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] lg:items-start">
+        <div>
+          <h2 id="sow-list-heading" className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment">
+            The sowing list · week of {weekOf}
+          </h2>
+          {sowRows.length > 0 ? (
+            <ul className="mt-3">
+              {sowRows.map((row, index) => (
+                <SowingRowItem
+                  key={row.crop.slug}
+                  row={row}
+                  lead={index < 3 && (row.isPick || row.closing || index < 2)}
+                />
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-4 max-w-[48ch] font-serif text-xl leading-snug text-earth-light">
+              A quiet week for seed sowing on the UK average; use it to water, clear a little space, and plan the next good window.
             </p>
           )}
-        </AnswerBlock>
+        </div>
 
-        <AnswerBlock title="What to sow outdoors">
-          <p className="mt-2 text-sm text-earth-light leading-relaxed">
-            Direct sow where the soil is warm enough and the crop is quick enough to finish before cold weather returns.
-          </p>
-          {cropLinks(answer.sowOutdoors) ?? (
-            <p className="mt-4 text-sm text-earth-light">
-              Outdoor sowing is quiet just now; use the time for watering, feeding, and clearing space.
+        <aside className="lg:border-l lg:border-earth/10 lg:pl-8">
+          <section aria-labelledby="plant-out-heading">
+            <h2 id="plant-out-heading" className="font-mono text-[11px] uppercase tracking-[0.16em] text-earth-light">
+              And plant out
+            </h2>
+            <PlantOutRows entries={answer.plantOutNow} />
+          </section>
+
+          <section className="mt-8 border-t border-earth/10 pt-6" aria-labelledby="waiting-heading">
+            <h2 id="waiting-heading" className="font-mono text-[11px] uppercase tracking-[0.16em] text-earth-light">
+              Worth waiting on
+            </h2>
+            <div className="mt-3">
+              <WorthWaitingOn entries={answer.avoidSowingNow} />
+            </div>
+          </section>
+
+          <section className="mt-8 border-t border-earth/10 pt-6" aria-labelledby="deeper-heading">
+            <h2 id="deeper-heading" className="font-mono text-[11px] uppercase tracking-[0.16em] text-earth-light">
+              Go deeper
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-earth-light">
+              The full{" "}
+              <a href={`/sow/${answer.monthSlug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                {answer.monthName} sowing page
+              </a>{" "}
+              covers the whole month. The{" "}
+              <a href="/calendar" className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                calendar
+              </a>{" "}
+              gives the year at a glance, and the{" "}
+              <a href={guide.href} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                {guide.label}
+              </a>{" "}
+              has the slower jobs around the edges. Seeds and kit are gathered below in the{" "}
+              <a href="#kit" className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                monthly kit edit
+              </a>
+              .
             </p>
-          )}
-        </AnswerBlock>
-
-        <AnswerBlock title="What to plant out now">
-          <p className="mt-2 text-sm text-earth-light leading-relaxed">
-            If you have sturdy young plants ready, plant them out on a damp evening and water them in well.
-          </p>
-          {cropLinks(answer.plantOutNow) ?? (
-            <p className="mt-4 text-sm text-earth-light">
-              No major plant-out jobs on the UK average this week.
-            </p>
-          )}
-        </AnswerBlock>
-
-        <AnswerBlock title="What to avoid sowing now">
-          <p className="mt-2 text-sm text-earth-light leading-relaxed">
-            Some crops need a longer run-up than the season now gives them. Buy young plants, harvest what is already growing,
-            or plan them for the next window.
-          </p>
-          {avoidLinks(answer.avoidSowingNow)}
-        </AnswerBlock>
-
-        <AnswerBlock title="What to read next">
-          <p className="mt-2 text-sm text-earth-light leading-relaxed">
-            For the month-by-month view, use the{" "}
-            <a href="/calendar" className={linkClass}>
-              UK sowing calendar
-            </a>
-            . For the wider seasonal jobs, read the{" "}
-            <a href={guide.href} className={linkClass}>
-              {guide.label}
-            </a>
-            .
-          </p>
-        </AnswerBlock>
+          </section>
+        </aside>
       </div>
     </section>
   );
