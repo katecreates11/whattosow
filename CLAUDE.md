@@ -2,6 +2,8 @@
 
 **Read `PROJECT_CONTEXT.md` before starting any task. It is the source of truth for this project** — purpose, audience, brand voice, technical/UX/SEO/affiliate principles, and AI working rules.
 
+**Starting implementation work? `docs/NEXT_PHASES.md` is the handover** — the sequenced phase plan, blocked decisions needing Kate's explicit yes, the do-not-do list, and the QA checklists. Work the phases in order unless Kate says otherwise.
+
 Also authoritative:
 
 - `docs/DIRECTION.md` — **the locked product & editorial direction** (page roles, homepage page-count rule, component move map, visual taste checklist, monetisation rulebook, the Codex phase plan). Read before any product, design or homepage work.
