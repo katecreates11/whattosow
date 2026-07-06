@@ -23,10 +23,12 @@ import { getCropPhoto } from "@/lib/crop-photos";
 import { getMinSoilTemp } from "@/data/crops";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
 import CropKit from "@/components/CropKit";
+import CropBuyingAdvice from "@/components/CropBuyingAdvice";
 import ContextualEmailCapture from "@/components/ContextualEmailCapture";
 import CropScrollDepth from "@/components/CropScrollDepth";
 import SpacingDiagram from "@/components/SpacingDiagram";
 import { getCropActionMonths, getAvgFrostDate, MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
+import { hasCropBuyingAdvice } from "@/data/crop-kit";
 
 function CompanionSection({ crop }: { crop: Crop }) {
   if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
@@ -855,6 +857,8 @@ export default async function CropPage({
               );
             })()}
 
+            <CropBuyingAdvice slug={crop.slug} />
+
             {THIRSTY.has(crop.slug) && (
               <div className="mb-10 border-l-2 border-amber pl-5">
                 <p className="text-earth-light leading-relaxed max-w-[60ch]">
@@ -938,7 +942,9 @@ export default async function CropPage({
               </div>
 
               {/* Kit recommendations */}
-              <CropKit slug={crop.slug} cropName={crop.name} />
+              {!hasCropBuyingAdvice(crop.slug) && (
+                <CropKit slug={crop.slug} cropName={crop.name} />
+              )}
 
               {/* Personalise CTA */}
               <div id="get-dates" className="bg-allotment-dark p-6 sm:p-8 scroll-mt-20">

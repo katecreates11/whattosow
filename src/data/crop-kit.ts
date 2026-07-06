@@ -14,6 +14,29 @@ export interface KitItem {
   guideLink?: string;
 }
 
+export interface WorthBuyingAdviceItem {
+  kind: "worth-buying";
+  name: string;
+  why: string;
+  href: string;
+  product: string;
+  cta: string;
+}
+
+export interface SkipBuyingAdviceItem {
+  kind: "skip-this";
+  name: string;
+  why: string;
+  instead: string;
+}
+
+export type CropBuyingAdviceItem = WorthBuyingAdviceItem | SkipBuyingAdviceItem;
+
+export interface CropBuyingAdvice {
+  intro: string;
+  items: CropBuyingAdviceItem[];
+}
+
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?tag=${TAG}&k=${encodeURIComponent(q)}`;
 /** Direct product link by ASIN — better conversion than search links */
@@ -89,6 +112,57 @@ const HEATED_PROPAGATOR: KitItem = {
   why: "These crops need 24-30°C to germinate — a cold windowsill won't cut it. The difference between success and failure in the UK.",
   amazonUrl: asin("B015WFRWUI"),
   guideLink: "/guides/seed-starting-kit",
+};
+
+// ─── Trust-led buying advice ─────────────────────────────────────────────────
+
+const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
+  tomatoes: {
+    intro: "Tomatoes do not need many gadgets. A little support, steady feeding once fruit sets, and regular attention do most of the work.",
+    items: [
+      {
+        kind: "worth-buying",
+        name: "Tomato feed",
+        why: "Once the first truss has set, a weekly high-potash feed helps the plant put its energy into fruit rather than more leafy growth.",
+        href: TOMORITE.amazonUrl,
+        product: "tomato feed",
+        cta: "Find tomato feed",
+      },
+      {
+        kind: "worth-buying",
+        name: "Soft plant ties or clips",
+        why: "Cordon tomatoes need tying in as they grow. Soft ties hold the stem without cutting into it on a windy day.",
+        href: az("soft plant ties tomato clips"),
+        product: "soft plant ties",
+        cta: "Find soft ties",
+      },
+      {
+        kind: "skip-this",
+        name: "Gimmicky growbag frames",
+        why: "They promise a neat shortcut, but a sturdy cane, string line or simple pot support usually does the same job.",
+        instead: "Put the money into good compost, a deep pot if you are container growing, and a feed you will actually remember to use.",
+      },
+    ],
+  },
+  carrots: {
+    intro: "Carrots are simple until carrot fly arrives. Spend money on protection only if carrot fly is a real problem where you grow.",
+    items: [
+      {
+        kind: "worth-buying",
+        name: "Fine insect mesh",
+        why: "Carrot fly finds bruised carrot foliage by scent and flies low. A fine mesh cover from sowing day is the calmest defence.",
+        href: ENVIROMESH.amazonUrl,
+        product: "fine insect mesh",
+        cta: "Find insect mesh",
+      },
+      {
+        kind: "skip-this",
+        name: "Seed tapes",
+        why: "They are tidy, but often much dearer for fewer seeds, and the spacing is not magic.",
+        instead: "Sow thinly into fine soil, cover the row after sowing, and thin only if you must, preferably on a still evening.",
+      },
+    ],
+  },
 };
 
 // ─── Crop-to-kit mapping ──────────────────────────────────────────────────────
@@ -361,4 +435,12 @@ const cropKitMap: Record<string, KitItem[]> = {
 
 export function getCropKit(slug: string): KitItem[] {
   return cropKitMap[slug] ?? [];
+}
+
+export function getCropBuyingAdvice(slug: string): CropBuyingAdvice | null {
+  return cropBuyingAdviceMap[slug] ?? null;
+}
+
+export function hasCropBuyingAdvice(slug: string): boolean {
+  return slug in cropBuyingAdviceMap;
 }
