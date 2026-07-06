@@ -16,9 +16,11 @@ const AVOID_PRIORITY = new Map(
 
 type MonthSlug = (typeof MONTH_SLUGS)[number];
 type MonthName = (typeof MONTH_NAMES)[number];
+type AvoidReasonKind = "too-late-from-seed" | "wait-for-window";
 
 export interface AvoidSowingEntry {
   crop: Crop;
+  reasonKind: AvoidReasonKind;
   reason: string;
   nextMonthSlug: MonthSlug | null;
   nextMonthName: MonthName | null;
@@ -146,20 +148,29 @@ function monthFromTime(ms: number) {
   return { slug: MONTH_SLUGS[month], name: MONTH_NAMES[month] };
 }
 
+function nextYearFrostDate(frostDate: Date) {
+  return new Date(frostDate.getFullYear() + 1, frostDate.getMonth(), frostDate.getDate());
+}
+
 function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>): AvoidSowingEntry[] {
   const nowMs = now.getTime();
 
   return crops
     .filter((crop) => !activeSlugs.has(crop.slug))
     .map((crop): ScoredAvoidSowingEntry | null => {
-      const windows = windowsForCrop(crop, frostDate);
-      const previous = windows.filter((window) => window.closeAt < nowMs).sort((a, b) => b.closeAt - a.closeAt)[0];
+      const currentYearWindows = windowsForCrop(crop, frostDate);
+      const nextYearWindows = windowsForCrop(crop, nextYearFrostDate(frostDate));
+      const windows = [...currentYearWindows, ...nextYearWindows];
+      const previous = currentYearWindows
+        .filter((window) => window.closeAt < nowMs)
+        .sort((a, b) => b.closeAt - a.closeAt)[0];
       const next = windows.filter((window) => window.openAt > nowMs).sort((a, b) => a.openAt - b.openAt)[0];
 
       if (previous && (!next || nowMs - previous.closeAt < next.openAt - nowMs)) {
         return {
           crop,
-          reason: "too late to start from seed now",
+          reasonKind: "too-late-from-seed",
+          reason: "too late from seed this week",
           nextMonthSlug: next ? monthFromTime(next.openAt).slug : null,
           nextMonthName: next ? monthFromTime(next.openAt).name : null,
           score: (AVOID_PRIORITY.get(crop.slug) ?? 100) * MS_WEEK + (nowMs - previous.closeAt),
@@ -170,6 +181,7 @@ function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>
         const nextMonth = monthFromTime(next.openAt);
         return {
           crop,
+          reasonKind: "wait-for-window",
           reason: `wait until ${nextMonth.name.toLowerCase()}`,
           nextMonthSlug: nextMonth.slug,
           nextMonthName: nextMonth.name,
@@ -184,6 +196,7 @@ function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>
     .slice(0, 6)
     .map((entry) => ({
       crop: entry.crop,
+      reasonKind: entry.reasonKind,
       reason: entry.reason,
       nextMonthSlug: entry.nextMonthSlug,
       nextMonthName: entry.nextMonthName,

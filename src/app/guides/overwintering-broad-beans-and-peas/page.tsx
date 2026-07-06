@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
@@ -152,9 +153,9 @@ export default function OverwinteringLegumesGuide() {
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             It works best in milder, well-drained spots, so let your own weather guide you &mdash;{" "}
-            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               check your frost dates
-            </a>{" "}
+            </Link>{" "}
             before you sow.
           </p>
         </div>
@@ -207,7 +208,7 @@ export default function OverwinteringLegumesGuide() {
             <p className="mb-3">
               Aim for <strong className="text-earth">late October into November</strong>. The goal is plants a few inches
               tall going into the deep cold &mdash; established enough to be tough, but not so lush and soft that the
-              frost damages them. Sow too early and they grow leggy; too late and they barely get going.
+              frost damages them. Sow before the window and they grow leggy; sow after it and they barely get going.
             </p>
             <p className="mb-3">
               Sow broad beans about 5cm deep and 20cm apart in a double row; sow hardy peas a little shallower in a wide,
@@ -233,14 +234,14 @@ export default function OverwinteringLegumesGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Drainage first</span> &mdash; the real winter killer is
                 waterlogging, not cold. A free-draining bed, or a{" "}
-                <a href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised bed</a>,
+                <Link href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised bed</Link>,
                 does more than any cover.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A little cover in the hardest frosts</span> &mdash; the hardy
                 varieties cope with most winters, but a cloche or fleece helps in a brutal cold snap or an exposed,
                 northern garden. See{" "}
-                <a href="/guides/protecting-vegetables-from-frost" className="text-rust underline decoration-rust/30 hover:text-earth">protecting crops from frost</a>.
+                <Link href="/guides/protecting-vegetables-from-frost" className="text-rust underline decoration-rust/30 hover:text-earth">protecting crops from frost</Link>.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Guard against mice &amp; pigeons</span> &mdash; mice dig up the
@@ -289,22 +290,22 @@ export default function OverwinteringLegumesGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/crops/broad-beans" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/crops/broad-beans" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow broad beans</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/peas" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/peas" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow peas</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Protecting crops from frost</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
@@ -67,9 +68,9 @@ function SowRow({ item }: { item: SowItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
@@ -128,7 +129,7 @@ export default function SummerSowingGuide() {
       },
       {
         "@type": "Question",
-        name: "Is it too late to sow vegetables in July?",
+        name: "What can I still sow in July?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Far from it. July is prime time for successional salads and quick roots, and the ideal month to sow kale, purple sprouting broccoli and spring cabbage for winter and spring. The main thing to watch is water — summer-sown seeds dry out fast, so sow into moist soil and keep it damp until they're up.",
@@ -167,9 +168,9 @@ export default function SummerSowingGuide() {
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             Summer arrives at different times across the country, so let your own weather lead &mdash;{" "}
-            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               enter your postcode
-            </a>{" "}
+            </Link>{" "}
             for sowing dates tuned to where you are.
           </p>
         </div>
@@ -239,7 +240,7 @@ export default function SummerSowingGuide() {
             surface moist until the seedlings are through &mdash; a sheet of{" "}
             <a href={az("horticultural fleece plant protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">fleece</a>{" "}
             laid over the row holds the moisture in beautifully. See our{" "}
-            <a href="/guides/watering" className="text-rust underline decoration-rust/30 hover:text-earth">watering guide</a>{" "}
+            <Link href="/guides/watering" className="text-rust underline decoration-rust/30 hover:text-earth">watering guide</Link>{" "}
             for getting it right in the heat.
           </WarningBox>
 
@@ -265,7 +266,7 @@ export default function SummerSowingGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Keep records</strong> &mdash; jot down what you sowed and when. It&apos;s
                 the only way to learn your garden&apos;s real timings, and{" "}
-                <a href="/my-plot" className="text-rust underline decoration-rust/30 hover:text-earth">my plot</a> makes it easy.
+                <Link href="/my-plot" className="text-rust underline decoration-rust/30 hover:text-earth">my plot</Link> makes it easy.
               </li>
             </ul>
           </section>
@@ -280,7 +281,7 @@ export default function SummerSowingGuide() {
                 <p className="text-[15px]">Plenty &mdash; quick crops like salad leaves, rocket, radishes, beetroot and spring onions for late-summer and autumn eating; last-chance warm crops like French beans and courgettes in early summer; and the winter staples (kale, purple sprouting broccoli, spring cabbage, chard) that must be sown now to crop through the cold.</p>
               </div>
               <div>
-                <h3 className="font-serif text-lg text-earth mb-1.5">Is it too late to sow vegetables in July?</h3>
+                <h3 className="font-serif text-lg text-earth mb-1.5">What can I still sow in July?</h3>
                 <p className="text-[15px]">Far from it. July is prime time for successional salads and quick roots, and the ideal month to sow kale, sprouting broccoli and spring cabbage for winter and spring. Just watch the water &mdash; summer-sown seeds dry out fast, so sow into moist soil and keep it damp until they&apos;re up.</p>
               </div>
               <div>
@@ -294,22 +295,22 @@ export default function SummerSowingGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to sow in succession</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/still-time" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/still-time" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What can you still sow?</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Sowing dates for your postcode</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

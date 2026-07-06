@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
@@ -61,9 +62,9 @@ function SowRow({ item }: { item: SowItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
@@ -122,7 +123,7 @@ export default function AutumnWinterGuide() {
       },
       {
         "@type": "Question",
-        name: "Is it too late to plant vegetables in autumn?",
+        name: "What can I still plant in autumn?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Rarely. Early autumn still suits quick salads and leaves under cover, and right through autumn you can plant garlic, autumn onion sets, broad beans and hardy peas to overwinter. Once the soil drops below about 5°C in late autumn, growth more or less stops until spring, so you're then planting for spring rather than for now.",
@@ -157,16 +158,16 @@ export default function AutumnWinterGuide() {
             Most growers down tools in September, and that&apos;s the mistake. The back half of the year quietly
             sets up the front half of the next &mdash; there are quick crops to eat before the cold, and hardy ones
             to tuck in now for a harvest weeks ahead of everyone else come spring. The cue to begin?{" "}
-            <a href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               The longest day
-            </a>{" "}
+            </Link>{" "}
             &mdash; midsummer is when the autumn plot gets sown.
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             &ldquo;Autumn&rdquo; arrives at different times across the country, so let your own weather lead &mdash;{" "}
-            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               enter your postcode
-            </a>{" "}
+            </Link>{" "}
             for dates tuned to your first frost.
           </p>
         </div>
@@ -193,7 +194,7 @@ export default function AutumnWinterGuide() {
             Through autumn, scatter small pinches of salad and leaves every couple of weeks rather than one big
             sowing. You&apos;ll get a steady supply for the kitchen instead of a glut followed by nothing &mdash; and
             a few pots on the windowsill or in the{" "}
-            <a href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frame</a>{" "}
+            <Link href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frame</Link>{" "}
             keep cut-and-come-again leaves on the go almost all winter.
           </TipBox>
 
@@ -217,7 +218,7 @@ export default function AutumnWinterGuide() {
           <WarningBox title="It&apos;s wet, not just cold, that kills">
             Most overwintering losses come from plants sitting in cold, sodden ground, not from frost itself. Make
             sure beds drain freely, don&apos;t overwater, and if your soil is heavy, a{" "}
-            <a href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised bed</a>{" "}
+            <Link href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised bed</Link>{" "}
             that drains well is the single biggest help for winter growing.
           </WarningBox>
 
@@ -245,7 +246,7 @@ export default function AutumnWinterGuide() {
               <li className="border-l-2 border-leaf/50 pl-4 text-[15px]">
                 <strong className="text-earth">Cover the soil</strong> &mdash; bare winter soil is wasted soil. Fill
                 gaps with quick salad under a cloche, or sow a{" "}
-                <a href="/guides/green-manures" className="text-rust underline decoration-rust/30 hover:text-earth">green manure</a>{" "}
+                <Link href="/guides/green-manures" className="text-rust underline decoration-rust/30 hover:text-earth">green manure</Link>{" "}
                 to protect and feed the ground until spring.
               </li>
             </ul>
@@ -301,12 +302,12 @@ export default function AutumnWinterGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame or small greenhouse</span> &mdash; the proper
                 upgrade, for hardening off and overwintering tender things. See our{" "}
-                <a href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</a>.
+                <Link href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</Link>.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A polytunnel</span> &mdash; the biggest leap of all, if you&apos;ve
                 the room: a whole growing space that keeps you cropping right through winter. See our{" "}
-                <a href="/blog/best-polytunnels-uk" className="text-rust underline decoration-rust/30 hover:text-earth">polytunnels guide</a>.
+                <Link href="/blog/best-polytunnels-uk" className="text-rust underline decoration-rust/30 hover:text-earth">polytunnels guide</Link>.
               </li>
             </ul>
           </section>
@@ -319,7 +320,7 @@ export default function AutumnWinterGuide() {
             </h2>
             <p className="mb-3">
               The growing slows, but a few hours now save you weeks later. Spread a layer of{" "}
-              <a href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</a>{" "}
+              <Link href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</Link>{" "}
               or well-rotted muck over the beds and let the worms work it in &mdash; the no-dig way. Clear away spent
               crops and the slugs&apos; winter hideouts. Sort and store your seeds somewhere cool and dry. And put the
               plot to bed knowing the garlic and broad beans are already away.
@@ -336,7 +337,7 @@ export default function AutumnWinterGuide() {
                 <p className="text-[15px]">Two kinds: quick crops to eat before winter &mdash; radishes, oriental leaves, winter salad, rocket, spinach and turnips &mdash; and hardy crops to overwinter for an early spring harvest, like garlic, autumn onion sets, broad beans, hardy peas and spring onions.</p>
               </div>
               <div>
-                <h3 className="font-serif text-lg text-earth mb-1.5">Is it too late to plant vegetables in autumn?</h3>
+                <h3 className="font-serif text-lg text-earth mb-1.5">What can I still plant in autumn?</h3>
                 <p className="text-[15px]">Rarely. Early autumn still suits quick salads and leaves under cover, and right through autumn you can plant garlic, autumn onion sets, broad beans and hardy peas to overwinter. Once the soil drops below about 5°C in late autumn, growth more or less stops until spring &mdash; so you&apos;re then planting for spring rather than for now.</p>
               </div>
               <div>
@@ -350,38 +351,38 @@ export default function AutumnWinterGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/growing-winter-salad-leaves" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/growing-winter-salad-leaves" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Growing winter salad leaves</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/overwintering-broad-beans-and-peas" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/overwintering-broad-beans-and-peas" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Overwintering broad beans &amp; peas</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Protecting crops from frost</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/preparing-your-plot-for-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/preparing-your-plot-for-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Preparing your plot for winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/spring-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/spring-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Spring vegetables to plant</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/companion-planting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/companion-planting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting guide</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/still-time" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/still-time" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What can you still sow?</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Sowing dates for your postcode</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

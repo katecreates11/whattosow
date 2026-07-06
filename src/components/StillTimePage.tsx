@@ -137,9 +137,12 @@ export default function StillTimePage() {
   }, []);
 
   useEffect(() => {
-    refreshLocation();
+    const timer = window.setTimeout(refreshLocation, 0);
     window.addEventListener("whattosow:location-updated", refreshLocation);
-    return () => window.removeEventListener("whattosow:location-updated", refreshLocation);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("whattosow:location-updated", refreshLocation);
+    };
   }, [refreshLocation]);
 
   const now = new Date();
@@ -298,7 +301,7 @@ export default function StillTimePage() {
                     </span>
                   </div>
                   <span className="text-xs text-earth-lighter">
-                    Too late this year
+                    Past this year&apos;s {item.action} window
                   </span>
                 </div>
               </div>

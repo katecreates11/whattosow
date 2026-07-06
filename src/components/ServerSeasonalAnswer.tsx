@@ -183,9 +183,27 @@ function joinLinkedCrops(entries: AvoidSowingEntry[]) {
   ));
 }
 
+function joinLinkedNextWindows(entries: AvoidSowingEntry[]) {
+  return entries
+    .filter((entry) => entry.nextMonthSlug && entry.nextMonthName)
+    .map((entry, index) => (
+      <span key={`${entry.crop.slug}-next-window`}>
+        {index > 0 ? (index === entries.length - 1 ? " and " : ", ") : ""}
+        <a href={`/crops/${entry.crop.slug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+          {entry.crop.name.toLowerCase()}
+        </a>{" "}
+        in{" "}
+        <a href={`/sow/${entry.nextMonthSlug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+          {entry.nextMonthName?.toLowerCase()}
+        </a>
+      </span>
+    ));
+}
+
 function WorthWaitingOn({ entries }: { entries: AvoidSowingEntry[] }) {
-  const tooLate = entries.filter((entry) => entry.reason.includes("too late"));
-  const waiting = entries.filter((entry) => !entry.reason.includes("too late"));
+  const tooLateFromSeed = entries.filter((entry) => entry.reasonKind === "too-late-from-seed");
+  const waiting = entries.filter((entry) => entry.reasonKind === "wait-for-window");
+  const nextSeedWindows = joinLinkedNextWindows(tooLateFromSeed);
 
   if (entries.length === 0) {
     return (
@@ -197,10 +215,15 @@ function WorthWaitingOn({ entries }: { entries: AvoidSowingEntry[] }) {
 
   return (
     <div className="space-y-2 text-sm leading-relaxed text-earth-light">
-      {tooLate.length > 0 && (
+      {tooLateFromSeed.length > 0 && (
         <p>
           <span className="font-medium text-earth">Worth waiting on:</span>{" "}
-          {joinLinkedCrops(tooLate)} from seed - they now need more weeks than the season has left. Young plants can still make sense where the season is warm enough.
+          {joinLinkedCrops(tooLateFromSeed)} from seed. They need more season than this week can reliably give; sturdy young plants can still make sense where your season is warm enough, and plants already in the ground are worth feeding and watering on.
+        </p>
+      )}
+      {nextSeedWindows.length > 0 && (
+        <p>
+          Next seed windows: {nextSeedWindows}.
         </p>
       )}
       {waiting.length > 0 && (

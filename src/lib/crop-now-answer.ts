@@ -43,7 +43,7 @@ export interface CropNowAlternative {
 
 export interface CropVerdict {
   state: AnswerState;
-  stateLabel: "Too early" | "Good time" | "Last chance" | "Too late";
+  stateLabel: "Too early" | "Good time" | "Last chance" | "Too late from seed";
   action: CropVerdictAction;
   actionLabel: string;
   copy: string;
@@ -264,7 +264,7 @@ function practicalNote(crop: Crop, action: Action, state: AnswerState, window: A
   }
 
   if (action === "plant out") {
-    return `Do not start from seed now; plant out sturdy young plants on a damp evening and water them in well.`;
+    return `Skip seed-starting now; plant out sturdy young plants on a damp evening and water them in well.`;
   }
 
   if (state === "too-early" && window) {
@@ -306,14 +306,15 @@ export function getCropNowAnswer(crop: Crop, now: Date = new Date()): CropNowAns
 
   if (activePlantOut) {
     const daysLeft = daysBetween(now, activePlantOut.closeAt);
-    const stateLabel = daysLeft <= LAST_CHANCE_DAYS ? "Too late to sow; last chance to plant out" : "Too late to sow; plant out";
+    const stateLabel =
+      daysLeft <= LAST_CHANCE_DAYS ? "Past seed window; last chance to plant out" : "Past seed window; plant out";
 
     return {
       state: "too-late",
       stateLabel,
       action: "plant out",
       actionLabel: "Plant out",
-      summary: `It is too late to start ${crop.name.toLowerCase()} from seed on the UK average, but you can still plant out sturdy young plants.`,
+      summary: `The seed-starting window for ${crop.name.toLowerCase()} has passed on the UK average, but you can still plant out sturdy young plants.`,
       windowText: `Plant out: ${monthRange(activePlantOut.openAt, activePlantOut.closeAt)}`,
       practicalNote: practicalNote(crop, "plant out", "too-late", activePlantOut),
       monthLink: currentMonthLink(now),
@@ -343,7 +344,7 @@ export function getCropNowAnswer(crop: Crop, now: Date = new Date()): CropNowAns
 
   return {
     state: "too-late",
-    stateLabel: "Too late",
+    stateLabel: "Too late from seed",
     action: "wait",
     actionLabel: "Wait",
     summary: nextForLate
@@ -395,7 +396,7 @@ export function getCropVerdict(crop: Crop, now: Date = new Date()): CropVerdict 
         ? "Good time"
         : answer.state === "last-chance"
           ? "Last chance"
-          : "Too late";
+          : "Too late from seed";
 
   if (answer.state === "too-early") {
     return {
@@ -433,7 +434,7 @@ export function getCropVerdict(crop: Crop, now: Date = new Date()): CropVerdict 
       stateLabel,
       action: "buy young plants",
       actionLabel: labelForVerdictAction("buy young plants"),
-      copy: `Too late to start ${cropName} from seed on the UK average, but not necessarily too late to grow. Buy sturdy young plants, or plant out your own if they are ready.`,
+      copy: `The UK-average seed-starting window for ${cropName} has passed. Buy sturdy young plants, or plant out your own if they are ready.`,
       primaryLink: currentMonthLink,
       alternativeCrops: alternatives,
     };

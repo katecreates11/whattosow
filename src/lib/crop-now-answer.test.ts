@@ -24,7 +24,7 @@ describe("getCropNowAnswer", () => {
 
     expect(answer.state).toBe("too-late");
     expect(answer.action).toBe("wait");
-    expect(answer.stateLabel).toBe("Too late");
+    expect(answer.stateLabel).toBe("Too late from seed");
     expect(answer.summary).toContain("Not from seed now");
     expect(answer.guideLink?.href).toBe("/guides/growing-tomatoes-outdoors-vs-greenhouse");
   });
@@ -68,7 +68,7 @@ describe("getCropVerdict", () => {
   it("gives tomatoes a too-late verdict with alternatives instead of a dead end", () => {
     const verdict = getCropVerdict(crop("tomatoes"), new Date(2026, 6, 5));
 
-    expect(verdict.stateLabel).toBe("Too late");
+    expect(verdict.stateLabel).toBe("Too late from seed");
     expect(verdict.actionLabel).toBe("Choose another crop to sow now");
     expect(verdict.primaryLink.href).toBe("/sow/july");
     expect(verdict.alternativeCrops.length).toBeGreaterThan(0);
