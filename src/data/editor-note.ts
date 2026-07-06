@@ -1,4 +1,4 @@
 export const editorNote = {
-  text: "June has been all about the marigolds. I lost the first batch to an April heatwave — came back after two days away and every single one had fried. Ordered more, waited, planted again. The second attempt is holding on. Meanwhile the potatoes are coming up beautifully and I cannot stop checking on them. July cannot come soon enough.",
-  date: "June 2026",
+  text: "June was so hot it mostly won — too hot to get much done beyond keeping the water going. But the sweetcorn is finally planted out (very late, but they're in), and the pumpkins too, which I can't wait for — they're so easy once they're in the ground. The slugs took my sunflowers this year, so there'll be far fewer than last summer, and something is eating the potatoes, which looked so good a fortnight ago. Still: the peas are growing, the carrots are coming, and there's purple basil. Plenty to check on every evening.",
+  date: "July 2026",
 };
