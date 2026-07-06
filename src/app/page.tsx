@@ -22,9 +22,9 @@ import SeasonalKitEdit from "@/components/SeasonalKitEdit";
 import { featuredEntry, inSeasonCrops, plantOutCrops, harvestCrops, seasonCounts } from "@/lib/variety-status";
 import CropCardGrid from "@/components/CropCardGrid";
 import AffiliateLink from "@/components/AffiliateLink";
-import ServerSeasonalAnswer from "@/components/ServerSeasonalAnswer";
 import WateringNote from "@/components/WateringNote";
 import { formatDaylight, getSunTimes } from "@/lib/astronomy";
+import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 
 export default function Home() {
   const jsonLd = {
@@ -108,6 +108,8 @@ export default function Home() {
   // Season-aware homepage chrome: the hero eyebrow and which interactive map
   // leads both shift with the calendar, so the site reads the season itself.
   const nowMonth = now.getMonth();
+  const currentMonthName = MONTH_NAMES[nowMonth];
+  const currentMonthSlug = MONTH_SLUGS[nowMonth];
   const isSummerSeason = nowMonth >= 5 && nowMonth <= 7; // Jun–Aug
   const heroEyebrow =
     nowMonth >= 2 && nowMonth <= 4
@@ -347,9 +349,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16 border-t border-earth/10">
-          <div className="max-w-5xl mx-auto">
-            <ServerSeasonalAnswer context="home" />
+        <div className="px-6 sm:px-10 lg:px-16 py-7 sm:py-9 border-t border-earth/10">
+          <div className="max-w-4xl mx-auto">
+            <Link
+              href={`/sow/${currentMonthSlug}`}
+              className="font-serif italic text-lg text-earth border-b-2 border-amber pb-px hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+            >
+              {`See the full ${currentMonthName} sowing list`} &rarr;
+            </Link>
           </div>
         </div>
 
