@@ -16,8 +16,7 @@ import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
-import { getWateringBalance, getWateringNoteState } from "@/lib/watering";
-import { getWateringNoteCopy } from "@/data/watering-notes";
+import { getWateringBalance } from "@/lib/watering";
 import { inSeasonCrops, plantOutCrops, type CropEntry } from "@/lib/season-core";
 
 function categoryLabel(cat: Crop["category"]): string {
@@ -238,8 +237,8 @@ function getGardenInterpretation(frostData: FrostData): string {
 }
 
 function methodForAnswer(entry: CropEntry): string {
-  if (entry.status.method === "direct sow") return "direct";
-  if (entry.status.method === "sow indoors") return "modules";
+  if (entry.status.method === "direct sow") return "direct sow";
+  if (entry.status.method === "sow indoors") return "start in modules";
   if (entry.status.method === "plant out") return "plant out";
   return "soon";
 }
@@ -263,53 +262,51 @@ function answerEntries(frostData: FrostData, today: Date): CropEntry[] {
   return picked;
 }
 
-function getSowingSentence(entries: CropEntry[]): string {
+function getSowingHeading(entries: CropEntry[]): string {
   if (entries.length === 0) {
-    return "The beds can pause for a breath this week; use the moment to water, clear space, and plan the next sowing.";
+    return "Nothing urgent to sow this week";
   }
 
-  const directCount = entries.filter((entry) => methodForAnswer(entry) === "direct").length;
-  const moduleCount = entries.filter((entry) => methodForAnswer(entry) === "modules").length;
+  const directCount = entries.filter((entry) => methodForAnswer(entry) === "direct sow").length;
+  const moduleCount = entries.filter((entry) => methodForAnswer(entry) === "start in modules").length;
 
   if (directCount >= moduleCount) {
-    return "Sow this week:";
+    return "Sow this week";
   }
 
-  return "Start this week:";
+  return "Start this week";
 }
 
-function getTonightSentence(forecast: FrostForecast | null): string {
-  if (!forecast) {
-    return "Tonight, check pots and new sowings by touch; if the top inch is dry, water slowly at the roots.";
+function getPracticalAnswerNote(entries: CropEntry[]): string {
+  if (entries.length === 0) {
+    return "Use the pause to clear a little space, then follow the full list for your next good window.";
   }
 
-  const state = getWateringNoteState({
-    tempMaxToday: forecast.tempMax,
-    windMax: forecast.windMax,
-    rainfall3Days: forecast.rainfall3Days,
-    evapotranspiration: forecast.evapotranspiration,
-  });
+  const closing = entries.find((entry) => entry.status.state === "closing");
+  if (closing) {
+    return `If you only sow one thing, start with ${closing.crop.name.toLowerCase()} — that window is closest to closing.`;
+  }
 
-  return getWateringNoteCopy(state).sentence;
+  return "Start with the quickest crops and keep slower sowings for the full list.";
 }
 
 function HomepageAnswerReveal({
   frostData,
-  forecast,
   today,
   onChangeLocation,
   sectionRef,
   headingRef,
 }: {
   frostData: FrostData;
-  forecast: FrostForecast | null;
   today: Date;
   onChangeLocation: () => void;
   sectionRef: RefObject<HTMLElement | null>;
   headingRef: RefObject<HTMLHeadingElement | null>;
 }) {
   const entries = answerEntries(frostData, today);
-  const sowingLead = getSowingSentence(entries);
+  const sowingHeading = getSowingHeading(entries);
+  const practicalNote = getPracticalAnswerNote(entries);
+  const placeName = frostData.location.adminDistrict;
 
   return (
     <section
@@ -342,42 +339,46 @@ function HomepageAnswerReveal({
       </p>
 
       <div className="mt-4 border-t border-earth/10 pt-4">
-        <p className="text-sm leading-relaxed text-earth">
-          <span className="font-semibold">{sowingLead}</span>{" "}
-          {entries.length > 0 ? (
-            entries.map((entry, index) => (
-              <span key={entry.crop.slug}>
+        <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-earth-light">
+          {sowingHeading}
+        </h3>
+        {entries.length > 0 ? (
+          <ul className="mt-2 divide-y divide-earth/10">
+            {entries.map((entry) => (
+              <li
+                key={entry.crop.slug}
+                className="flex min-h-[44px] items-center justify-between gap-3 py-2"
+              >
                 <Link
                   href={`/crops/${entry.crop.slug}`}
-                  className="font-serif text-lg text-allotment underline decoration-amber/50 underline-offset-4 hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-allotment"
+                  className="flex min-h-[44px] flex-1 items-center font-serif text-lg leading-tight text-earth hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-allotment"
                 >
                   {entry.crop.name.toLowerCase()}
                 </Link>
-                <span className="ml-1 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+                {" "}
+                <span className="shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
                   {methodForAnswer(entry)}
                   {entry.status.state === "closing" ? " · closing" : ""}
                 </span>
-                {index < entries.length - 2 ? ", " : index === entries.length - 2 ? " — and " : "."}
-              </span>
-            ))
-          ) : null}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <p className="mt-3 text-sm leading-relaxed text-earth-light">
+          {practicalNote}
         </p>
       </div>
-
-      <p className="mt-4 font-serif text-base leading-snug text-earth-light">
-        Tonight: {getTonightSentence(forecast)}
-      </p>
 
       <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
         <Link
           href="/sow"
           className="font-serif italic text-lg text-earth border-b-2 border-amber pb-px hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
         >
-          Everything for your postcode &rarr;
+          {placeName ? `See your full ${placeName} sowing list` : "See your full sowing list"} &rarr;
         </Link>
         <Link
           href="/my-garden"
-          className="font-serif italic text-lg text-earth-light border-b border-earth/20 pb-px hover:text-allotment hover:border-amber focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+          className="font-serif italic text-base text-earth-light border-b border-earth/20 pb-px hover:text-allotment hover:border-amber focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
         >
           Set up your garden &rarr;
         </Link>
@@ -588,7 +589,6 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
         showAnswerReveal && cropActions ? (
           <HomepageAnswerReveal
             frostData={frostData}
-            forecast={forecast}
             today={today}
             onChangeLocation={handleChangeLocation}
             sectionRef={answerSectionRef}

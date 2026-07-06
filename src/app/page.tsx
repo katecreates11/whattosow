@@ -5,10 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import FullWidthSection from "@/components/FullWidthSection";
-import { crops } from "@/data/crops";
 import Image from "next/image";
 import StickyPostcodeCTA from "@/components/StickyPostcodeCTA";
-import CountUp from "@/components/CountUp";
 import EditorNote from "@/components/EditorNote";
 import LatestFromThePlot from "@/components/LatestFromThePlot";
 import WeatherCommandCenter from "@/components/WeatherCommandCenter";
@@ -43,7 +41,6 @@ export default function Home() {
     },
   };
 
-  // Compute how many crops are sowable right now (server-side, build-time)
   const now = new Date();
   const daylight = formatDaylight(getSunTimes(now).daylightMinutes);
   const dateline = now.toLocaleDateString("en-GB", {
@@ -51,25 +48,6 @@ export default function Home() {
     day: "numeric",
     month: "long",
   });
-  const avgFrost = new Date(now.getFullYear(), 3, 15);
-  const weeksToFrost = (avgFrost.getTime() - now.getTime()) / (7 * 24 * 60 * 60 * 1000);
-  const weeksAfterFrost = -weeksToFrost;
-  const sowableNowCount = crops.filter((crop) => {
-    const w = 3;
-    if (crop.sowIndoorsWeeks !== null) {
-      const diff = weeksToFrost - -crop.sowIndoorsWeeks;
-      if (diff >= -w && diff <= w) return true;
-    }
-    if (crop.directSowWeeks !== null) {
-      const diff = weeksToFrost - -crop.directSowWeeks;
-      if (diff >= -w && diff <= w) return true;
-    }
-    if (crop.plantOutWeeks !== null) {
-      const diff = weeksAfterFrost - crop.plantOutWeeks;
-      if (diff >= -w && diff <= w) return true;
-    }
-    return false;
-  }).length;
 
   // Seasonal field guide (server-side, UK-average frost; client refines by postcode later)
   const featured = featuredEntry();
@@ -336,19 +314,6 @@ export default function Home() {
 
         <WateringNote initialDateIso={now.toISOString()} />
 
-        {/* Trust strip */}
-        <div className="px-6 sm:px-10 lg:px-16">
-          <div className="max-w-4xl mx-auto flex items-center justify-center gap-3 sm:gap-5 py-5 text-xs text-earth-lighter flex-wrap">
-            <span className="font-medium text-earth-light"><CountUp target={sowableNowCount} /> crops to sow right now</span>
-            <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
-            <span>Met Office data</span>
-            <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
-            <span>Updated weekly</span>
-            <span className="hidden sm:inline text-earth/20" aria-hidden="true">|</span>
-            <span>Every UK postcode</span>
-          </div>
-        </div>
-
         <div className="px-6 sm:px-10 lg:px-16 py-7 sm:py-9 border-t border-earth/10">
           <div className="max-w-4xl mx-auto">
             <Link
@@ -609,7 +574,7 @@ export default function Home() {
         <div className="py-10 sm:py-14 text-center border-t border-earth/6 px-6 sm:px-10 lg:px-16">
           <div className="max-w-4xl mx-auto">
             <p className="text-earth-light mb-2">Ready to find out what to sow?</p>
-            <p className="text-sm text-earth-lighter mb-4">{sowableNowCount} crops are in season right now.</p>
+            <p className="text-sm text-earth-lighter mb-4">Your local sowing answer is waiting near the top.</p>
             <a
               href="#main-content"
               className="inline-flex items-center gap-2 text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
