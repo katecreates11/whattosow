@@ -12,6 +12,8 @@ export const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ] as const;
 
+const MS_WEEK = 7 * 24 * 60 * 60 * 1000;
+
 export function monthSlugToIndex(slug: string): number | null {
   const i = MONTH_SLUGS.indexOf(slug as (typeof MONTH_SLUGS)[number]);
   return i >= 0 ? i : null;
@@ -19,8 +21,22 @@ export function monthSlugToIndex(slug: string): number | null {
 
 /** Convert frost-relative weeks to a 0-indexed month */
 export function frostWeekToMonth(frostWeek: number, frostDate: Date): number {
-  const ms = frostDate.getTime() + frostWeek * 7 * 24 * 60 * 60 * 1000;
+  const ms = frostDate.getTime() + frostWeek * MS_WEEK;
   return new Date(ms).getMonth();
+}
+
+function latestSuccessionSowWeek(crop: Crop, frostDate: Date): number {
+  const autumnFrost = new Date(frostDate.getFullYear(), 9, 25);
+  const latestByHarvest = autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK;
+  return Math.floor((latestByHarvest - frostDate.getTime()) / MS_WEEK);
+}
+
+function actionCloseWeek(crop: Crop, action: SowingAction, openWeek: number, frostDate: Date, windowWeeks: number): number {
+  if ((action === "sowIndoors" || action === "directSow") && crop.successionWeeks != null) {
+    return Math.max(openWeek, latestSuccessionSowWeek(crop, frostDate));
+  }
+
+  return openWeek + windowWeeks;
 }
 
 /** Get the action months for a crop relative to a frost date */
@@ -40,7 +56,8 @@ export function getCropActionMonths(
   for (const { key, weeks } of actions) {
     if (weeks === null) continue;
     const months = new Set<number>();
-    for (let w = weeks; w <= weeks + windowWeeks; w++) {
+    const closeWeek = actionCloseWeek(crop, key, weeks, frostDate, windowWeeks);
+    for (let w = weeks; w <= closeWeek; w++) {
       months.add(frostWeekToMonth(w, frostDate));
     }
     results.push({ action: key, months: Array.from(months) });

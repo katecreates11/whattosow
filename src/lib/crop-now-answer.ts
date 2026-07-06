@@ -1,14 +1,15 @@
-import { type Crop } from "@/data/crops";
+import { crops, type Crop } from "@/data/crops";
 import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 
 const MS_WEEK = 7 * 24 * 60 * 60 * 1000;
 const MS_DAY = 24 * 60 * 60 * 1000;
-const LAST_CHANCE_DAYS = 12;
+const LAST_CHANCE_DAYS = 14;
 const PLANT_OUT_LEAD_WEEKS = 3;
 const PLANT_OUT_TAIL_WEEKS = 6;
 
-type AnswerState = "too-early" | "good-time" | "last-chance" | "too-late";
+export type AnswerState = "too-early" | "good-time" | "last-chance" | "too-late";
 type Action = "sow indoors" | "direct sow" | "plant out" | "wait";
+export type CropVerdictAction = Action | "buy young plants" | "choose another crop to sow now";
 
 interface ActionWindow {
   action: Action;
@@ -33,6 +34,24 @@ export interface CropNowAnswer {
     href: string;
     label: string;
   } | null;
+}
+
+export interface CropNowAlternative {
+  name: string;
+  href: string;
+}
+
+export interface CropVerdict {
+  state: AnswerState;
+  stateLabel: "Too early" | "Good time" | "Last chance" | "Too late";
+  action: CropVerdictAction;
+  actionLabel: string;
+  copy: string;
+  primaryLink: {
+    href: string;
+    label: string;
+  };
+  alternativeCrops: CropNowAlternative[];
 }
 
 function addWeeks(date: Date, weeks: number): Date {
@@ -79,6 +98,17 @@ function labelForAction(action: Action): string {
   }
 }
 
+function labelForVerdictAction(action: CropVerdictAction): string {
+  switch (action) {
+    case "buy young plants":
+      return "Buy young plants";
+    case "choose another crop to sow now":
+      return "Choose another crop to sow now";
+    default:
+      return labelForAction(action);
+  }
+}
+
 function currentMonthLink(now: Date) {
   return {
     href: monthHref(now),
@@ -90,6 +120,13 @@ function windowMonthLink(window: ActionWindow) {
   return {
     href: monthHref(window.openAt),
     label: `what to sow in ${monthName(window.openAt)}`,
+  };
+}
+
+function currentMonthCallToAction(now: Date) {
+  return {
+    href: monthHref(now),
+    label: `See what to sow in ${monthName(now)}`,
   };
 }
 
@@ -318,5 +355,97 @@ export function getCropNowAnswer(crop: Crop, now: Date = new Date()): CropNowAns
     practicalNote: practicalNote(crop, "wait", "too-late", nextForLate),
     monthLink: nextForLate ? windowMonthLink(nextForLate) : currentMonthLink(now),
     guideLink: guideForCrop(crop),
+  };
+}
+
+export function getSowNowAlternatives(
+  currentCropSlug: string,
+  now: Date = new Date(),
+  limit = 3
+): CropNowAlternative[] {
+  return crops
+    .filter((crop) => crop.slug !== currentCropSlug)
+    .map((crop) => {
+      const activeSowing = chooseActiveSowingWindow(cropWindows(crop, now), now);
+      return activeSowing
+        ? {
+            crop,
+            closeAt: activeSowing.closeAt,
+          }
+        : null;
+    })
+    .filter((entry): entry is { crop: Crop; closeAt: Date } => entry !== null)
+    .sort((a, b) => a.closeAt.getTime() - b.closeAt.getTime() || a.crop.name.localeCompare(b.crop.name))
+    .slice(0, limit)
+    .map(({ crop }) => ({
+      name: crop.name,
+      href: `/crops/${crop.slug}`,
+    }));
+}
+
+export function getCropVerdict(crop: Crop, now: Date = new Date()): CropVerdict {
+  const answer = getCropNowAnswer(crop, now);
+  const currentMonthLink = currentMonthCallToAction(now);
+  const alternatives = answer.state === "too-late" ? getSowNowAlternatives(crop.slug, now) : [];
+  const cropName = crop.name.toLowerCase();
+  const stateLabel: CropVerdict["stateLabel"] =
+    answer.state === "too-early"
+      ? "Too early"
+      : answer.state === "good-time"
+        ? "Good time"
+        : answer.state === "last-chance"
+          ? "Last chance"
+          : "Too late";
+
+  if (answer.state === "too-early") {
+    return {
+      state: answer.state,
+      stateLabel,
+      action: "wait",
+      actionLabel: labelForVerdictAction("wait"),
+      copy: `Not yet, and that is fine. On the UK average, ${cropName} usually start in ${answer.monthLink.label.replace("what to sow in ", "")}; waiting gives stronger plants.`,
+      primaryLink: {
+        href: answer.monthLink.href,
+        label: `Plan for ${answer.monthLink.label.replace("what to sow in ", "")}`,
+      },
+      alternativeCrops: [],
+    };
+  }
+
+  if (answer.state === "good-time" || answer.state === "last-chance") {
+    return {
+      state: answer.state,
+      stateLabel,
+      action: answer.action,
+      actionLabel: labelForVerdictAction(answer.action),
+      copy:
+        answer.state === "last-chance"
+          ? `Yes, but do it soon. The UK average window for ${cropName} is closing, so keep the sowing small and choose a quick variety if you have one.`
+          : `Yes. The UK average window is open now, so ${answer.action === "direct sow" ? "direct sow outdoors" : "sow indoors"} while the soil and season are on your side.`,
+      primaryLink: currentMonthLink,
+      alternativeCrops: [],
+    };
+  }
+
+  if (answer.action === "plant out") {
+    return {
+      state: answer.state,
+      stateLabel,
+      action: "buy young plants",
+      actionLabel: labelForVerdictAction("buy young plants"),
+      copy: `Too late to start ${cropName} from seed on the UK average, but not necessarily too late to grow. Buy sturdy young plants, or plant out your own if they are ready.`,
+      primaryLink: currentMonthLink,
+      alternativeCrops: alternatives,
+    };
+  }
+
+  return {
+    state: answer.state,
+    stateLabel,
+    action: "choose another crop to sow now",
+    actionLabel: labelForVerdictAction("choose another crop to sow now"),
+    copy: `Not from seed now. A sowing started today is unlikely to beat the autumn cold; use this page if you are already growing ${cropName}, or choose something still in season.`,
+    primaryLink: currentMonthLink,
+    alternativeCrops: alternatives,
   };
 }

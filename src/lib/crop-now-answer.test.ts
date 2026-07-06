@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { crops } from "@/data/crops";
-import { frostOffsetText, getCropNowAnswer } from "./crop-now-answer";
+import { frostOffsetText, getCropNowAnswer, getCropVerdict, getSowNowAlternatives } from "./crop-now-answer";
 
 function crop(slug: string) {
   const found = crops.find((entry) => entry.slug === slug);
@@ -44,6 +44,44 @@ describe("getCropNowAnswer", () => {
     expect(answer.state).toBe("last-chance");
     expect(answer.stateLabel).toBe("Last chance");
     expect(answer.practicalNote).toContain("Sow a small row now");
+  });
+});
+
+describe("getCropVerdict", () => {
+  it("gives lettuce a good-time direct sow verdict in July", () => {
+    const verdict = getCropVerdict(crop("lettuce"), new Date(2026, 6, 5));
+
+    expect(verdict.stateLabel).toBe("Good time");
+    expect(verdict.actionLabel).toBe("Direct sow outdoors");
+    expect(verdict.copy).toContain("UK average window is open");
+    expect(verdict.primaryLink.href).toBe("/sow/july");
+  });
+
+  it("gives carrots a last-chance direct sow verdict in July", () => {
+    const verdict = getCropVerdict(crop("carrots"), new Date(2026, 6, 5));
+
+    expect(verdict.stateLabel).toBe("Last chance");
+    expect(verdict.actionLabel).toBe("Direct sow outdoors");
+    expect(verdict.copy).toContain("UK average window for carrots is closing");
+  });
+
+  it("gives tomatoes a too-late verdict with alternatives instead of a dead end", () => {
+    const verdict = getCropVerdict(crop("tomatoes"), new Date(2026, 6, 5));
+
+    expect(verdict.stateLabel).toBe("Too late");
+    expect(verdict.actionLabel).toBe("Choose another crop to sow now");
+    expect(verdict.primaryLink.href).toBe("/sow/july");
+    expect(verdict.alternativeCrops.length).toBeGreaterThan(0);
+    expect(verdict.alternativeCrops.some((alternative) => alternative.href === "/crops/tomatoes")).toBe(false);
+  });
+});
+
+describe("getSowNowAlternatives", () => {
+  it("returns crawlable crop links for other crops with open sowing windows", () => {
+    const alternatives = getSowNowAlternatives("tomatoes", new Date(2026, 6, 5));
+
+    expect(alternatives.length).toBeGreaterThan(0);
+    expect(alternatives[0].href).toMatch(/^\/crops\//);
   });
 });
 

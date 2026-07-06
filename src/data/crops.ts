@@ -186,6 +186,7 @@ export const crops: Crop[] = [
     directSowWeeks: -3,
     plantOutWeeks: null,
     harvestWeeks: 14,
+    successionWeeks: 3,
     tip: "Sow thinly to avoid thinning — the smell of crushed leaves is a dinner bell for carrot fly. Cover with fleece to be safe.",
     needs: "Sun. Light, stone-free soil. No fresh manure or you'll get forked roots.",
     spacingCm: 8,

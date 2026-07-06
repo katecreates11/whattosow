@@ -7,7 +7,7 @@ import { awinLink } from "@/lib/awin";
 import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 import { getPlaybook } from "@/data/crop-playbooks";
 import { varietySlug } from "@/lib/variety-routes";
-import { frostOffsetText, getCropNowAnswer } from "@/lib/crop-now-answer";
+import { frostOffsetText, getCropNowAnswer, getCropVerdict, type CropVerdict } from "@/lib/crop-now-answer";
 import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
@@ -221,6 +221,91 @@ function CropNowAnswerBlock({ crop }: { crop: Crop }) {
   );
 }
 
+const verdictBandStyles: Record<CropVerdict["state"], { band: string; dot: string; label: string }> = {
+  "too-early": {
+    band: "border-frost/35 bg-frost-bg",
+    dot: "bg-frost",
+    label: "text-earth",
+  },
+  "good-time": {
+    band: "border-leaf/35 bg-leaf-bg",
+    dot: "bg-leaf",
+    label: "text-allotment-dark",
+  },
+  "last-chance": {
+    band: "border-amber/45 bg-amber-bg",
+    dot: "bg-amber",
+    label: "text-earth",
+  },
+  "too-late": {
+    band: "border-rust/35 bg-tomato-bg",
+    dot: "bg-rust",
+    label: "text-earth",
+  },
+};
+
+function CropVerdictBand({ crop }: { crop: Crop }) {
+  const verdict = getCropVerdict(crop);
+  const styles = verdictBandStyles[verdict.state];
+
+  return (
+    <section
+      aria-label={`UK sowing verdict for ${crop.name}`}
+      data-crop-verdict-band={crop.slug}
+      className={`border-y ${styles.band} px-6 sm:px-10 lg:px-16`}
+    >
+      <div className="max-w-4xl mx-auto py-4 sm:py-5">
+        <div className="grid gap-4 md:grid-cols-[1fr_14rem] md:items-center">
+          <div>
+            <div className={`font-mono text-[10px] uppercase tracking-[0.14em] ${styles.label} mb-2`}>
+              <span className={`inline-block h-2 w-2 rounded-full ${styles.dot} mr-2 align-middle`} aria-hidden="true" />
+              {verdict.stateLabel}
+            </div>
+            <p className="font-serif text-2xl sm:text-3xl text-earth tracking-tight leading-tight">
+              Can I sow {crop.name.toLowerCase()} now?
+            </p>
+            <p className="mt-2 text-sm sm:text-[15px] text-earth-light leading-relaxed max-w-[64ch]">
+              {verdict.copy}
+            </p>
+          </div>
+
+          <dl className="border border-earth/10 bg-white/45 px-4 py-3">
+            <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
+              Best next action
+            </dt>
+            <dd className="font-serif text-xl text-earth mt-1 leading-tight">{verdict.actionLabel}</dd>
+          </dl>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-earth-light">
+          <Link
+            href={verdict.primaryLink.href}
+            className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
+          >
+            {verdict.primaryLink.label} &rarr;
+          </Link>
+          {verdict.alternativeCrops.length > 0 && (
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+              <span>Still worth sowing:</span>
+              {verdict.alternativeCrops.map((alternative, index) => (
+                <span key={alternative.href} className="inline-flex items-baseline gap-x-2">
+                  <Link
+                    href={alternative.href}
+                    className="text-rust underline decoration-rust/30 hover:text-earth focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
+                  >
+                    {alternative.name.toLowerCase()}
+                  </Link>
+                  {index < verdict.alternativeCrops.length - 1 && <span aria-hidden="true">/</span>}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Thirsty summer crops — these get a contextual link to the watering review.
 const THIRSTY = new Set([
   "tomatoes", "courgettes", "cucumbers", "runner-beans", "peppers",
@@ -396,6 +481,8 @@ export default async function CropPage({
       <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
 
       <article id="main-content">
+        <CropVerdictBand crop={crop} />
+
         {/* Hero photo — local allotment photography preferred, Unsplash fallback */}
         {cropPhoto ? (
           <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
