@@ -3,6 +3,8 @@
  * Opinionated, not a generic product card — fits the guide editorial style.
  */
 
+import AffiliateLink from "@/components/AffiliateLink";
+
 interface GearPickProps {
   name: string;
   price: string; // e.g. "£8–12" or "~£15"
@@ -70,12 +72,11 @@ export default function GearPick({
           </p>
         </div>
       )}
-      <a
+      <AffiliateLink
         href={amazonUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-        data-umami-event-product={name}
+        product={name}
+        type="gear"
+        merchant="amazon"
         className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-earth border border-earth/15 px-4 py-2.5 hover:border-allotment hover:text-allotment hover:bg-allotment/5 transition-all duration-200"
       >
         View on Amazon
@@ -93,7 +94,7 @@ export default function GearPick({
           <polyline points="15,3 21,3 21,9" />
           <line x1="10" y1="14" x2="21" y2="3" />
         </svg>
-      </a>
+      </AffiliateLink>
         </div>
       </div>
     </div>
@@ -137,13 +138,12 @@ export function TopPicksGrid({
   return (
     <div className="grid sm:grid-cols-2 gap-4 my-10">
       {picks.map((pick, i) => (
-        <a
+        <AffiliateLink
           key={i}
           href={pick.amazonUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-          data-umami-event-product={pick.name}
+          product={pick.name}
+          type="gear"
+          merchant="amazon"
           className="group border border-earth/10 p-5 sm:p-6 hover:border-allotment/30 transition-colors duration-200"
         >
           <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-rust/50 block mb-2">
@@ -156,7 +156,7 @@ export function TopPicksGrid({
             {pick.why}
           </span>
           <span className="text-sm font-semibold text-rust tabular-nums">{pick.price}</span>
-        </a>
+        </AffiliateLink>
       ))}
     </div>
   );
@@ -166,9 +166,9 @@ export function AffiliateDisclosure() {
   return (
     <div className="my-8 bg-earth/[0.03] border border-earth/8 px-5 py-4">
       <p className="text-xs text-earth-lighter leading-relaxed">
-        <span className="font-semibold text-earth-light">Affiliate links</span> &mdash; This
-        guide contains links to Amazon. If you buy through them, we earn a small commission at
-        no extra cost to you. We only recommend things we&apos;d actually use on our own plot.
+        <span className="font-semibold text-earth-light">Affiliate links</span> &mdash; Some links
+        go to Amazon. If you buy through them, a little goes towards the allotment shed, at no
+        extra cost to you. We only recommend things we&apos;d actually use on our own plot.
       </p>
     </div>
   );

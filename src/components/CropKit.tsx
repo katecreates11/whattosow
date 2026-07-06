@@ -1,4 +1,5 @@
 import { getCropKit, type KitItem } from "@/data/crop-kit";
+import AffiliateLink from "@/components/AffiliateLink";
 
 interface CropKitProps {
   slug: string;
@@ -26,7 +27,7 @@ export default function CropKit({ slug, cropName }: CropKitProps) {
         ))}
       </div>
       <p className="text-[10px] text-earth-lighter mt-5 leading-relaxed">
-        Links go to Amazon. We earn a small commission at no extra cost to you.
+        Some links are affiliate links — if you buy through them, a little goes towards the allotment shed. We only include kit that solves a real growing problem.
       </p>
     </div>
   );
@@ -37,12 +38,11 @@ function KitItemCard({ item }: { item: KitItem }) {
     <div className="border-t border-earth/6 pt-3">
       <div className="flex items-start justify-between gap-3 mb-1">
         <span className="text-sm font-semibold text-earth">{item.name}</span>
-        <a
+        <AffiliateLink
           href={item.amazonUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-          data-umami-event-product={item.name}
+          product={item.name}
+          type="gear"
+          merchant="amazon"
           className="group shrink-0 inline-flex items-center gap-1 text-[11px] font-medium text-earth border border-earth/10 px-2.5 py-1.5 hover:border-allotment hover:text-allotment transition-colors duration-200"
         >
           Amazon
@@ -60,7 +60,7 @@ function KitItemCard({ item }: { item: KitItem }) {
             <polyline points="15,3 21,3 21,9" />
             <line x1="10" y1="14" x2="21" y2="3" />
           </svg>
-        </a>
+        </AffiliateLink>
       </div>
       <p className="text-xs text-earth-light leading-relaxed">{item.why}</p>
       {item.guideLink && (

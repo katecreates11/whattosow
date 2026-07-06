@@ -1,6 +1,7 @@
 "use client";
 
 import type { SeedSupplier } from "@/data/varieties";
+import { affiliateUrl, merchantSlug } from "@/components/AffiliateLink";
 
 interface AffiliateButtonsProps {
   suppliers: SeedSupplier[];
@@ -27,9 +28,13 @@ export default function AffiliateButtons({ suppliers, variety, rarity, eventPref
         {suppliers.map((s) => (
           <a
             key={s.name}
-            href={s.url}
+            href={affiliateUrl(s.url)}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
+            data-umami-event="affiliate-click"
+            data-umami-event-product={variety}
+            data-umami-event-type="seed"
+            data-umami-event-merchant={merchantSlug(s.name)}
             onClick={() => trackClick(s.name)}
             className="flex-1 text-center text-sm font-semibold text-white bg-allotment hover:bg-allotment-dark transition-colors px-5 py-3"
           >

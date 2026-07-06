@@ -75,6 +75,8 @@ export interface AffiliateLinkProps {
   type?: "seed" | "gear";
   /** Override the auto-detected merchant if you need to. */
   merchant?: string;
+  /** Optional placement label for existing Umami reports. */
+  position?: string;
   className?: string;
   children: React.ReactNode;
 }
@@ -84,6 +86,7 @@ export default function AffiliateLink({
   product,
   type = "gear",
   merchant,
+  position,
   className,
   children,
 }: AffiliateLinkProps) {
@@ -97,6 +100,7 @@ export default function AffiliateLink({
       data-umami-event-product={product}
       data-umami-event-merchant={merchant ?? merchantFromUrl(url)}
       data-umami-event-type={type}
+      data-umami-event-position={position}
       className={className}
     >
       {children}

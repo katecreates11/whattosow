@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { VarietyEntry } from "@/lib/variety-status";
-import { merchantSlug } from "@/components/AffiliateLink";
-import { awinLink } from "@/lib/awin";
+import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 
 const rarityLabel: Record<string, string> = {
   legendary: "legendary",
@@ -74,16 +73,15 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
             </span>
           )}
           {supplier && (
-            <a
-              href={awinLink(supplier.url)}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              data-umami-event="affiliate-click"
-              data-umami-event-product={variety.name} data-umami-event-type="seed" data-umami-event-merchant={merchantSlug(supplier.name)}
+            <AffiliateLink
+              href={supplier.url}
+              product={variety.name}
+              type="seed"
+              merchant={merchantSlug(supplier.name)}
               className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
             >
               Buy the seeds from {supplier.name} &rarr;
-            </a>
+            </AffiliateLink>
           )}
         </div>
       </div>

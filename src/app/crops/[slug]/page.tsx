@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { crops, type Crop } from "@/data/crops";
 import { varieties } from "@/data/varieties";
-import { awinLink } from "@/lib/awin";
 import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 import { getPlaybook } from "@/data/crop-playbooks";
 import { varietySlug } from "@/lib/variety-routes";
@@ -827,17 +826,16 @@ export default async function CropPage({
                               find the seeds
                             </span>
                             {v.seedSuppliers.map((s) => (
-                              <a
+                              <AffiliateLink
                                 key={s.name}
-                                href={awinLink(s.url)}
-                                target="_blank"
-                                rel="sponsored noopener noreferrer"
-                                data-umami-event="affiliate-click"
-                                data-umami-event-product={v.name} data-umami-event-type="seed" data-umami-event-merchant={merchantSlug(s.name)}
+                                href={s.url}
+                                product={v.name}
+                                type="seed"
+                                merchant={merchantSlug(s.name)}
                                 className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                               >
                                 {s.name} &rarr;
-                              </a>
+                              </AffiliateLink>
                             ))}
                           </div>
                         )}
