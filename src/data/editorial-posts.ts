@@ -2597,6 +2597,89 @@ export const editorialPosts: EditorialPost[] = [
     ],
     relatedCrops: ["tomatoes", "aubergine", "cucumbers", "peppers"],
   },
+  {
+    slug: "planting-sweetcorn-dry-soil-bulb-planter",
+    title: "How I planted out sweetcorn into bone-dry soil",
+    description:
+      "June baked my soil solid, so the corn went out with a trick borrowed from my potatoes: a bulb planter, a tape measure, and each hole filled with fresh compost. Late, honest, and working better than it has any right to.",
+    publishDate: new Date("2026-07-06"),
+    keywords: [
+      "planting out sweetcorn UK",
+      "planting sweetcorn late",
+      "planting in dry soil",
+      "bulb planter uses",
+      "sweetcorn plugs planting out",
+      "sweetcorn block planting",
+    ],
+    heroImage: "/photos/blog/sweetcorn-planting-bed-wide.webp",
+    heroAlt: "The allotment on planting day — netted beds, marigolds, and the corn bed waiting under a bright sky",
+    intro:
+      "June was so hot that most jobs simply didn't happen, and my sweetcorn plugs sat waiting while the ground baked solid. They're in now — late, but in — thanks to a trick I first used on the potatoes: don't fight the dry soil, plant into pockets of fresh compost instead.",
+    tags: ["allotment diary", "sweetcorn", "how I do it"],
+    sections: [
+      {
+        type: "text",
+        content:
+          "By the time the heat broke, my soil had set like a biscuit. You know the kind — a trowel bounces off it, and any hole you do manage crumbles in on itself in dust. Planting tender young plugs into that felt like a good way to lose them, and after the slugs had already had my sunflowers this year, I wasn't in the mood to lose anything else.\n\nSo the corn went in the way my potatoes did back in spring, and it's worked so well I'll be doing it this way from now on.",
+      },
+      {
+        type: "heading",
+        content: "The bulb planter trick",
+      },
+      {
+        type: "text",
+        content:
+          "It's very simple. I run my tape measure along the bed and use the bulb planter to pop out a neat hole at each mark — about 35 to 40 centimetres apart, in a block rather than a row, because sweetcorn is pollinated by the wind and wants neighbours on every side.\n\nThen each hole gets filled with fresh compost, the corn plug goes into that, and everything gets watered in well. That's the whole method.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/sweetcorn-holes-tape-measure.webp",
+        alt: "A bed of neat bulb-planter holes with a tape measure laid out and a tray of sweetcorn plugs waiting",
+        caption: "The bulb planter pops out a neat hole at every mark — the tape measure keeps the block honest.",
+      },
+      {
+        type: "text",
+        content:
+          "The reason it works: the roots start life in soft compost that actually holds water, instead of fighting soil that's set hard around them. The watering goes exactly where it's needed too — each compost pocket soaks it up like a sponge while the dry ground around it would just shrug it off. In a dry summer it's the difference between a plug that establishes and a plug that sulks.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/sweetcorn-plugs-planted.webp",
+        alt: "Young sweetcorn plugs planted out in a block across the bed",
+        caption: "The block, planted. Corn wants neighbours on every side, never a single line.",
+      },
+      {
+        type: "tip",
+        content:
+          "Sweetcorn always goes in a block, never a single row. The pollen falls from the tassels at the top onto the silks below, carried by the wind — in a block every plant catches its neighbours' pollen, and you get full cobs instead of gappy ones.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/sweetcorn-watering-in.webp",
+        alt: "Watering in the newly planted sweetcorn with a long lance, spray falling over the young plants",
+        caption: "Watered in well — each compost pocket takes the water straight down to the roots.",
+      },
+      {
+        type: "heading",
+        content: "The same trick, underground",
+      },
+      {
+        type: "text",
+        content:
+          "I planted my potatoes exactly this way earlier in the year — bulb planter, compost in the hole, seed potato into the compost. The difference is that potatoes disappear under the ridge, so you never get to see whether they're pleased about it.\n\nThe corn, you can watch. And just days after going in, it visibly perked up — greener, straighter, clearly happier than it had any right to be after sitting in plugs through a heatwave. There's something quietly wonderful about a plant telling you, in plain sight, that you did the right thing.",
+      },
+      {
+        type: "text",
+        content:
+          "I won't pretend the timing isn't tight — corn planted this late is asking a lot of the back end of the season, and I'll need September to stay warm to see full cobs. But the plants are in, they're growing, and watching sweetcorn get taller by the week is one of the best shows on the plot. If the autumn is kind, we'll be eating cobs minutes after picking them — and if it isn't, the trick still earned its keep, and next year's corn goes in earlier. Into compost pockets, of course.",
+      },
+    ],
+    relatedCrops: ["sweetcorn", "maincrop-potatoes", "courgettes"],
+    kit: ["bulb-planter", "watering-lance"],
+  },
 ];
 
 export function getEditorialPost(slug: string): EditorialPost | undefined {
