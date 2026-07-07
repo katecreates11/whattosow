@@ -51,10 +51,9 @@ const cropPhotos: Record<string, CropPhoto> = {
     hero: "/photos/crops/lettuce-with-marigolds.webp",
     alt: "Rows of lettuce growing alongside bright orange marigolds in a raised bed",
   },
-  squash: {
-    hero: "/photos/crops/courgette-with-flowers.webp",
-    alt: "Squash growing with yellow flowers on a UK allotment",
-  },
+  // No `squash` entry: our only close photo is a courgette, and a courgette
+  // captioned as squash is exactly the mislabelling we're trying to avoid.
+  // Squash falls back to its own hero image until we have a real squash photo.
 };
 
 export function getCropPhoto(slug: string): CropPhoto | null {

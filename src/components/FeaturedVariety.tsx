@@ -14,10 +14,9 @@ const rarityLabel: Record<string, string> = {
  * story (the variety's personality) + an editorial affiliate recommendation.
  */
 export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
-  const { variety, crop, status, no } = entry;
+  const { variety, crop, status, no, supplier, photo } = entry;
   const dropcap = variety.personality.charAt(0);
   const rest = variety.personality.slice(1);
-  const supplier = variety.seedSuppliers?.[0];
   const closing =
     status.state === "closing" && status.daysLeft != null
       ? ` · closing in ${status.daysLeft} day${status.daysLeft === 1 ? "" : "s"}`
@@ -31,10 +30,10 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
   return (
     <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-14 items-center mt-12 sm:mt-16">
       <div className="relative aspect-[4/5] overflow-hidden bg-sage">
-        {crop.unsplashId && (
+        {photo && (
           <Image
-            src={`https://images.unsplash.com/photo-${crop.unsplashId}?w=900&h=1125&fit=crop&auto=format&q=75`}
-            alt={`${variety.name} ${crop.name.toLowerCase()}`}
+            src={photo.src}
+            alt={photo.alt}
             fill
             sizes="(max-width: 768px) 100vw, 45vw"
             className="object-cover img-grade"
