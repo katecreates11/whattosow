@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { crops } from "@/data/crops";
@@ -6,10 +7,10 @@ import Image from "next/image";
 import SlotImage from "@/components/SlotImage";
 import { getCropImagePath } from "@/lib/crop-images";
 import { SectionDivider } from "@/components/GuideVisuals";
-import { awinLink } from "@/lib/awin";
 import PinButton from "@/components/PinButton";
 import BedDiagram from "@/components/BedDiagram";
 import { companionTopics } from "@/data/companion-topics";
+import AffiliateLink from "@/components/AffiliateLink";
 
 export const metadata: Metadata = {
   title:
@@ -36,13 +37,6 @@ export const metadata: Metadata = {
     canonical: "/guides/companion-planting",
   },
 };
-
-function slugify(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]/g, "");
-}
 
 // Flowers worth tucking in alongside each crop (not in the crop data, since
 // flowers aren't crops). Falls back to the all-rounders for anything unlisted.
@@ -232,9 +226,9 @@ export default function CompanionPlantingGuide() {
 
     if (slug) {
       return (
-        <a href={`/crops/${slug}`} className="hover:opacity-80 transition-opacity">
+        <Link href={`/crops/${slug}`} className="hover:opacity-80 transition-opacity">
           {content}
-        </a>
+        </Link>
       );
     }
     return content;
@@ -512,7 +506,7 @@ export default function CompanionPlantingGuide() {
                 <p className="text-sm text-earth-light leading-relaxed mb-2">
                   Brilliant as a &ldquo;trap crop&rdquo; &mdash; blackfly and
                   caterpillars prefer nasturtiums to your actual vegetables.
-                  The classic UK trick: grow a few near your <a href="/crops/broad-beans" className="text-rust underline decoration-rust/30 hover:text-earth">broad beans</a>,
+                  The classic UK trick: grow a few near your <Link href="/crops/broad-beans" className="text-rust underline decoration-rust/30 hover:text-earth">broad beans</Link>,
                   whose growing tips get swarmed with blackfly &mdash; the nasturtiums (and a pinch-out of the
                   bean tips) draw them off. Plant near brassicas too, to lure cabbage whites away. The
                   leaves and flowers are edible &mdash; peppery in salads.
@@ -628,53 +622,30 @@ export default function CompanionPlantingGuide() {
               </div>
             </div>
 
-            {/* Where to find the seeds — the companions worth sowing */}
-            <div className="mt-7 border border-earth/10 bg-sage/20 p-5 sm:p-6">
+            {/* From the plot — companions worth sowing */}
+            <div className="mt-7 border-t border-b border-earth/10 bg-sage/15 py-5 sm:py-6">
               <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-2">
                 From the plot
               </span>
-              <p className="text-sm text-earth-light leading-relaxed mb-3 max-w-[62ch]">
+              <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
                 Marigolds and nasturtiums earn their place every year on our plot &mdash; we tuck them around the
-                tomatoes and along the bed edges, and they pull their weight all summer. If you fancy doing the same,
-                here&apos;s where to find the seeds.
+                tomatoes and along the bed edges, and they pull their weight all summer. Start with one small patch;
+                if they self-sow, let them.
               </p>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                <a
-                  href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")}
-                  target="_blank"
-                  rel="sponsored noopener noreferrer"
-                  data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
-                  data-umami-event-product="marigold"
-                  className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
-                >
-                  Marigold seeds &rarr;
-                </a>
-                <a
-                  href={awinLink("https://search.thompson-morgan.com/seeds/Nasturtium")}
-                  target="_blank"
-                  rel="sponsored noopener noreferrer"
-                  data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
-                  data-umami-event-product="nasturtium"
-                  className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
-                >
-                  Nasturtium seeds &rarr;
-                </a>
-                <a
+                <Link
                   href="/blog/companion-planting-marigolds-allotment"
                   className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                 >
                   How we grow marigolds &rarr;
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/blog/square-foot-growing-allotment"
                   className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                 >
                   Try square-foot growing &rarr;
-                </a>
+                </Link>
               </div>
-              <p className="text-xs text-earth-lighter mt-3">
-                Some links are affiliate links &mdash; we may earn a little, at no extra cost to you, towards the allotment shed.
-              </p>
             </div>
           </section>
 
@@ -699,11 +670,10 @@ export default function CompanionPlantingGuide() {
                 The easiest way to do it on purpose is <strong className="text-earth">square planting</strong> &mdash;
                 dividing a bed into a grid and giving each square its own crop. You get all the diversity of a
                 polyculture, but tidy enough to keep track of.{" "}
-                <a href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+                <Link href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
                   Here&apos;s how I plant my beds the square-foot way &rarr;
-                </a>{" "}
-                The colour-coded{" "}
-                <a href="https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="Seeding Square" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seeding square I use is on Amazon</a>.
+                </Link>{" "}
+                A simple marked-out grid is enough; the point is rhythm, not a perfect drawing.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
@@ -752,20 +722,50 @@ export default function CompanionPlantingGuide() {
               />
             </div>
 
-            {/* Tools for marking out & sowing rows — contextual Amazon products */}
-            <div className="mt-5 bg-cream border border-earth/10 p-5 sm:p-6">
-              <p className="text-sm text-earth-light leading-relaxed mb-3">
-                Alternating rows like these are far easier to keep straight with two cheap things in your pocket: a
-                <strong className="text-earth"> dibber</strong> for marking even holes and station-sowing, and a few
-                <strong className="text-earth"> seed markers</strong> so you remember which row is which once the carrot
-                and onion seedlings look alike. Both live in my kit bag all season.
-              </p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">The kit I use</span>
-                <a href="https://www.amazon.co.uk/s?k=wooden+garden+dibber&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="dibber" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Wooden dibber &rarr;</a>
-                <a href="https://www.amazon.co.uk/s?k=wooden+plant+labels+seed+markers&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="seed markers" className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors">Seed markers &amp; plant labels &rarr;</a>
+            <aside className="mt-6 border-t border-b border-earth/10 py-5 sm:py-6" aria-labelledby="companion-buyer-note">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter block mb-2">
+                Worth buying / skip this
+              </span>
+              <h3 id="companion-buyer-note" className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-4">
+                One thing that can help with bed planning
+              </h3>
+              <div className="divide-y divide-earth/10">
+                <div className="py-4 sm:grid sm:grid-cols-[8rem_1fr] sm:gap-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-allotment mb-2 sm:mb-0">
+                    Worth buying
+                  </p>
+                  <div className="space-y-2">
+                    <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                      If you grow in square-foot blocks and like a guide under your hand, a seed spacer can earn its
+                      place. It keeps carrots, salads and spring onions even without measuring every row.
+                    </p>
+                    <AffiliateLink
+                      href="https://www.amazon.co.uk/dp/B00US8ESWK"
+                      product="Seeding Square"
+                      type="gear"
+                      merchant="amazon"
+                      position="companion-buyer-note"
+                      className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust transition-colors"
+                    >
+                      Seeding Square seed spacer &rarr;
+                    </AffiliateLink>
+                  </div>
+                </div>
+                <div className="py-4 sm:grid sm:grid-cols-[8rem_1fr] sm:gap-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-rust mb-2 sm:mb-0">
+                    Skip this
+                  </p>
+                  <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                    Skip laminated companion charts and expensive planting kits. The pairings on this page, a length
+                    of string and a few labels will do the job for most beds.
+                  </p>
+                </div>
               </div>
-            </div>
+              <p className="text-xs text-earth-lighter mt-3 max-w-[62ch]">
+                If you buy through the link above, a little goes towards the allotment shed. The advice is the same
+                either way.
+              </p>
+            </aside>
 
             {/* The Three Sisters — a worked example, with its UK caveat + seeds */}
             <div className="mt-6 grid sm:grid-cols-2 gap-5 items-start">
@@ -782,32 +782,26 @@ export default function CompanionPlantingGuide() {
                 <h3 className="font-serif text-lg text-earth tracking-tight mb-2">A North American classic &mdash; with a UK caveat</h3>
                 <p className="text-sm text-earth-light leading-relaxed mb-3">
                   The Three Sisters is the oldest companion planting of all, from Indigenous North American gardens.
-                  Use <a href="/crops/french-beans" className="text-rust underline decoration-rust/30 hover:text-earth">climbing French beans</a>, not
-                  runners (runners swamp the corn). Sow the <a href="/crops/sweetcorn" className="text-rust underline decoration-rust/30 hover:text-earth">corn</a> first,
-                  add beans when it&apos;s a hand high, and tuck <a href="/crops/pumpkins" className="text-rust underline decoration-rust/30 hover:text-earth">squash</a> around the edge.
+                  Use <Link href="/crops/french-beans" className="text-rust underline decoration-rust/30 hover:text-earth">climbing French beans</Link>, not
+                  runners (runners swamp the corn). Sow the <Link href="/crops/sweetcorn" className="text-rust underline decoration-rust/30 hover:text-earth">corn</Link> first,
+                  add beans when it&apos;s a hand high, and tuck <Link href="/crops/pumpkins" className="text-rust underline decoration-rust/30 hover:text-earth">squash</Link> around the edge.
                 </p>
                 <p className="text-sm text-earth-light leading-relaxed border-l-2 border-amber pl-4 mb-4">
                   <strong className="text-earth">Honest word for UK growers:</strong> it comes from a warmer climate, and
                   in a cool British summer the corn and squash can struggle to ripen. Worth a go for the fun of it &mdash;
                   give it your sunniest spot, start under cover, and treat a good crop as a bonus.
                 </p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Find the seeds</span>
-                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Sweetcorn")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="sweetcorn" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Sweetcorn &rarr;</a>
-                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Climbing%20French%20Bean")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="climbing-french-bean" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Climbing French beans &rarr;</a>
-                  <a href={awinLink("https://search.thompson-morgan.com/seeds/Squash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="squash" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Squash &rarr;</a>
-                </div>
               </div>
             </div>
 
             <p className="mt-6 text-sm text-earth-light max-w-2xl">
               Laying out beds from scratch this year?{" "}
-              <a
+              <Link
                 href="/blog/best-raised-beds-uk"
                 className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 Our honest guide to the best raised beds in the UK &rarr;
-              </a>{" "}
+              </Link>{" "}
               covers sizes, timber against recycled plastic, and what&apos;s actually worth paying for.
             </p>
           </section>
@@ -842,12 +836,6 @@ export default function CompanionPlantingGuide() {
               (Tagetes) growing among greenhouse tomatoes measurably reduced whitefly. Out on the plot they also
               pull in the hoverflies and ladybirds that deal with aphids.
             </p>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
-              <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Grow the pairing</span>
-              <a href={awinLink("https://search.thompson-morgan.com/seeds/Tomato")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="tomato" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Tomato seeds &rarr;</a>
-              <a href={awinLink("https://www.thompson-morgan.com/flowers-plants-shrubs/popular-flower-seeds/marigold-seeds")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="marigold" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">French marigold seeds &rarr;</a>
-              <a href={awinLink("https://search.thompson-morgan.com/seeds/Basil")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-product="basil" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Basil seeds &rarr;</a>
-            </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-allotment/5 border border-allotment/15 p-5">
                 <h3 className="font-semibold text-allotment mb-2">Worth doing &mdash; good evidence</h3>
@@ -862,8 +850,8 @@ export default function CompanionPlantingGuide() {
                 <h3 className="font-semibold text-tomato mb-2">Treat with a pinch of salt</h3>
                 <ul className="space-y-1.5 text-sm">
                   <li>Most specific &ldquo;X hates Y&rdquo; rules &mdash; largely traditional, rarely tested. Won&apos;t hurt to follow, but don&apos;t fret.</li>
-                  <li><strong className="text-earth">Real exceptions worth respecting:</strong> keep <a href="/crops/tomatoes" className="underline decoration-tomato/30 hover:text-earth">tomatoes</a> and <a href="/crops/maincrop-potatoes" className="underline decoration-tomato/30 hover:text-earth">potatoes</a> apart (shared blight), and keep fennel in its own corner (it genuinely suppresses neighbours).</li>
-                  <li>No amount of companion planting replaces healthy soil, decent spacing, and <a href="/guides/crop-rotation" className="underline decoration-tomato/30 hover:text-earth">crop rotation</a>.</li>
+                  <li><strong className="text-earth">Real exceptions worth respecting:</strong> keep <Link href="/crops/tomatoes" className="underline decoration-tomato/30 hover:text-earth">tomatoes</Link> and <Link href="/crops/maincrop-potatoes" className="underline decoration-tomato/30 hover:text-earth">potatoes</Link> apart (shared blight), and keep fennel in its own corner (it genuinely suppresses neighbours).</li>
+                  <li>No amount of companion planting replaces healthy soil, decent spacing, and <Link href="/guides/crop-rotation" className="underline decoration-tomato/30 hover:text-earth">crop rotation</Link>.</li>
                 </ul>
               </div>
             </div>
@@ -880,13 +868,13 @@ export default function CompanionPlantingGuide() {
             </p>
             <div className="space-y-3">
               <div className="border-l-2 border-tomato/40 pl-4">
-                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are a <a href="https://www.amazon.co.uk/s?k=enviromesh+fine+insect+mesh+netting&tag=whattosow21-21" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="insect mesh" className="text-rust underline decoration-rust/30 hover:text-earth">fine insect-mesh</a> or fleece barrier, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <a href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</a> or garlic.</p>
+                <p className="text-sm"><strong className="text-earth">&ldquo;Marigolds keep carrot fly away.&rdquo;</strong> They don&apos;t. Carrot fly finds carrots by scent, low to the ground &mdash; the things that actually work are <Link href="/guides/pests" className="text-rust underline decoration-rust/30 hover:text-earth">fine insect mesh or fleece</Link>, sowing thinly to avoid thinning (the bruised foliage is what draws them), and growing alongside <Link href="/crops/onion-sets" className="text-rust underline decoration-rust/30 hover:text-earth">onions</Link> or garlic.</p>
               </div>
               <div className="border-l-2 border-tomato/40 pl-4">
-                <p className="text-sm"><strong className="text-earth">&ldquo;Basil makes tomatoes taste better.&rdquo;</strong> A lovely idea with no evidence behind it. Basil is still a fine neighbour for <a href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</a> &mdash; it may deter a few flies, and it crops in the same warm spot &mdash; but it won&apos;t change the flavour of the fruit.</p>
+                <p className="text-sm"><strong className="text-earth">&ldquo;Basil makes tomatoes taste better.&rdquo;</strong> A lovely idea with no evidence behind it. Basil is still a fine neighbour for <Link href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</Link> &mdash; it may deter a few flies, and it crops in the same warm spot &mdash; but it won&apos;t change the flavour of the fruit.</p>
               </div>
               <div className="border-l-2 border-tomato/40 pl-4">
-                <p className="text-sm"><strong className="text-earth">&ldquo;Borage improves strawberry flavour.&rdquo;</strong> Borage is genuinely worth growing &mdash; it&apos;s a magnet for bees, and better pollination can mean better-set <a href="/crops/strawberries" className="text-rust underline decoration-rust/30 hover:text-earth">strawberries</a>. But it&apos;s the pollinators doing the work, not some change to the taste.</p>
+                <p className="text-sm"><strong className="text-earth">&ldquo;Borage improves strawberry flavour.&rdquo;</strong> Borage is genuinely worth growing &mdash; it&apos;s a magnet for bees, and better pollination can mean better-set <Link href="/crops/strawberries" className="text-rust underline decoration-rust/30 hover:text-earth">strawberries</Link>. But it&apos;s the pollinators doing the work, not some change to the taste.</p>
               </div>
               <div className="border-l-2 border-tomato/40 pl-4">
                 <p className="text-sm"><strong className="text-earth">&ldquo;Plant mint to repel pests.&rdquo;</strong> Strong-scented mint may muddle a few pests, but it spreads ferociously and will take over a bed in a season. If you grow it, keep it in a buried pot &mdash; never loose in the ground.</p>
@@ -976,7 +964,7 @@ export default function CompanionPlantingGuide() {
                 <h3 className="font-serif text-lg text-earth mb-2">What can I plant with tomatoes?</h3>
                 <p className="text-sm">
                   Basil, marigolds and nasturtiums are the classic friends &mdash; plus carrots, lettuce and
-                  onions. Keep <a href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30">tomatoes</a> away
+                  onions. Keep <Link href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30">tomatoes</Link> away
                   from potatoes (shared blight) and fennel.
                 </p>
               </div>
@@ -984,7 +972,7 @@ export default function CompanionPlantingGuide() {
                 <h3 className="font-serif text-lg text-earth mb-2">What grows well with carrots?</h3>
                 <p className="text-sm">
                   Onions, leeks and garlic &mdash; their scent helps hide carrots from carrot fly, and vice
-                  versa &mdash; along with lettuce, radishes and peas. Keep <a href="/crops/carrots" className="text-rust hover:text-earth underline decoration-rust/30">carrots</a> away
+                  versa &mdash; along with lettuce, radishes and peas. Keep <Link href="/crops/carrots" className="text-rust hover:text-earth underline decoration-rust/30">carrots</Link> away
                   from dill and fennel.
                 </p>
               </div>
@@ -999,67 +987,12 @@ export default function CompanionPlantingGuide() {
               <div className="pb-0">
                 <h3 className="font-serif text-lg text-earth mb-2">Can I companion plant in a small bed or pots?</h3>
                 <p className="text-sm">
-                  Definitely &mdash; <a href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30">square-foot growing</a> is
+                  Definitely &mdash; <Link href="/blog/square-foot-growing-allotment" className="text-rust hover:text-earth underline decoration-rust/30">square-foot growing</Link> is
                   companion planting on a small scale. Pair a tall crop with a low one and tuck a few flowers in
                   among the veg.
                 </p>
               </div>
             </div>
-          </section>
-
-          {/* Books worth having — Amazon affiliate */}
-          <section>
-            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-3 tracking-tight">
-              Books worth having
-            </h2>
-            <p className="mb-6 text-sm max-w-2xl">
-              A companion chart gets you started; these are the ones I&apos;d point any UK grower to &mdash; the
-              companion-planting classic, plus the two grow-your-own books I actually reach for.
-            </p>
-            <div className="border-t border-earth/10">
-              {[
-                {
-                  title: "Carrots Love Tomatoes",
-                  author: "Louise Riotte",
-                  blurb: "The original companion-planting reference — plain-English, and the book most companion-growers end up with.",
-                  url: "https://www.amazon.co.uk/dp/1580170277?tag=whattosow21-21",
-                },
-                {
-                  title: "No Dig",
-                  author: "Charles Dowding",
-                  blurb: "The no-dig bible — nurture the soil, weed less, grow more. The method behind most modern UK allotments.",
-                  url: "https://www.amazon.co.uk/dp/0241541816?tag=whattosow21-21",
-                },
-                {
-                  title: "Veg in One Bed",
-                  author: "Huw Richards",
-                  blurb: "How to grow an abundance from a single raised bed, month by month — the perfect first grow-your-own book.",
-                  url: "https://www.amazon.co.uk/dp/0241614805?tag=whattosow21-21",
-                },
-              ].map((b) => (
-                <div key={b.title} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 border-b border-earth/10 py-4">
-                  <div className="sm:flex-1">
-                    <span className="font-serif text-lg text-earth">{b.title}</span>
-                    <span className="text-earth-lighter text-sm"> &mdash; {b.author}</span>
-                    <p className="text-sm text-earth-light leading-snug mt-0.5">{b.blurb}</p>
-                  </div>
-                  <a
-                    href={b.url}
-                    target="_blank"
-                    rel="sponsored noopener noreferrer"
-                    data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-                    data-umami-event-product={b.title}
-                    className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap self-start shrink-0"
-                  >
-                    View on Amazon &rarr;
-                  </a>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-earth-lighter mt-3">
-              Amazon &amp; seed links here are affiliate links &mdash; we may earn a little, at no extra cost to
-              you, towards the allotment shed.
-            </p>
           </section>
 
           {/* Go deeper — the companion-planting cluster (crop-by-crop satellites) */}
@@ -1074,7 +1007,7 @@ export default function CompanionPlantingGuide() {
             </p>
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-1 max-w-2xl">
               {companionTopics.map((t) => (
-                <a
+                <Link
                   key={t.slug}
                   href={`/guides/companion-planting/${t.slug}`}
                   className="flex items-center justify-between py-4 border-b border-earth/8 group"
@@ -1083,7 +1016,7 @@ export default function CompanionPlantingGuide() {
                     {t.title}
                   </span>
                   <span className="text-earth/20 group-hover:text-rust transition-colors text-xl shrink-0">&rarr;</span>
-                </a>
+                </Link>
               ))}
             </div>
           </section>
@@ -1092,7 +1025,7 @@ export default function CompanionPlantingGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a
+              <Link
                 href="/"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -1100,8 +1033,8 @@ export default function CompanionPlantingGuide() {
                   What to sow this week
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/calendar"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -1109,8 +1042,8 @@ export default function CompanionPlantingGuide() {
                   Sowing calendar
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/spring-vegetables"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -1118,8 +1051,8 @@ export default function CompanionPlantingGuide() {
                   Spring vegetables
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/frost-map"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -1127,7 +1060,7 @@ export default function CompanionPlantingGuide() {
                   UK frost map
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
