@@ -1,222 +1,215 @@
-"use client";
+import { crops as allCrops, type Crop } from "@/data/crops";
+import { MONTH_NAMES } from "@/lib/calendar";
+import { cropWindows, ukAverageFrost } from "@/lib/crop-windows";
+import { getCropStatus } from "@/lib/season-core";
 
-import { useState, useEffect, useRef } from "react";
-import { type Crop } from "@/data/crops";
-import { isSowableNow } from "@/lib/sowable";
+const FRUIT_SLUGS = new Set([
+  "strawberries",
+  "raspberries",
+  "blackberries",
+  "gooseberries",
+  "blackcurrants",
+  "redcurrants",
+  "rhubarb",
+]);
 
-const borderColor: Record<string, string> = {
-  hardy: "border-l-[3px] border-l-leaf",
-  "half-hardy": "border-l-[3px] border-l-amber",
-  tender: "border-l-[3px] border-l-tomato",
-};
+const GROUPS = [
+  {
+    key: "hardy",
+    label: "Hardy",
+    note: "sow from late winter",
+    dotClass: "text-leaf",
+    match: (crop: Crop) => crop.category === "hardy" && !FRUIT_SLUGS.has(crop.slug),
+  },
+  {
+    key: "half-hardy",
+    label: "Half-hardy",
+    note: "sow as the soil warms",
+    dotClass: "text-amber-dark",
+    match: (crop: Crop) => crop.category === "half-hardy" && !FRUIT_SLUGS.has(crop.slug),
+  },
+  {
+    key: "tender",
+    label: "Tender",
+    note: "sow indoors, out after the frosts",
+    dotClass: "text-rust",
+    match: (crop: Crop) => crop.category === "tender" && !FRUIT_SLUGS.has(crop.slug),
+  },
+  {
+    key: "fruit",
+    label: "Fruit",
+    note: "plant once, pick for years",
+    dotClass: "text-allotment",
+    match: (crop: Crop) => FRUIT_SLUGS.has(crop.slug),
+  },
+];
 
-const hoverBg: Record<string, string> = {
-  hardy: "group-hover:bg-leaf-bg/40",
-  "half-hardy": "group-hover:bg-amber-bg/40",
-  tender: "group-hover:bg-tomato-bg/40",
-};
+type TagTone = "closing" | "sow" | "plant" | "wait";
 
-function CropCard({ crop, dimmed, isSowable, index }: { crop: Crop; dimmed: boolean; isSowable: boolean; index: number }) {
-  return (
-    <a
-      href={`/crops/${crop.slug}`}
-      className={`group block border border-earth/6 ${borderColor[crop.category]} ${hoverBg[crop.category]} p-4 sm:p-5 hover:border-earth/15 transition-all duration-300 ${dimmed ? "opacity-40" : ""}`}
-      style={{ animationDelay: `${index * 50}ms` }}
-    >
-      <div className="flex items-center gap-2 mb-0.5">
-        <span className="font-medium text-earth group-hover:text-allotment transition-colors duration-300">{crop.name}</span>
-        {isSowable && (
-          <span className="inline-block bg-allotment text-white text-[10px] font-semibold px-1.5 py-0.5 leading-none tracking-wide uppercase shrink-0">
-            Sow now
-          </span>
-        )}
-      </div>
-      <p className="text-sm text-earth-lighter leading-relaxed">
-        {crop.directSowWeeks !== null
-          ? `Direct sow ${Math.abs(crop.directSowWeeks)}w ${crop.directSowWeeks <= 0 ? "before" : "after"} frost`
-          : crop.sowIndoorsWeeks !== null
-            ? `Start indoors ${Math.abs(crop.sowIndoorsWeeks)}w before frost`
-            : ""}
-      </p>
-    </a>
-  );
+interface CropRow {
+  crop: Crop;
+  no: number;
+  tag: string;
+  tone: TagTone;
+  isLive: boolean;
 }
 
-function StaggerGrid({ children, className }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+function specimenNumber(crop: Crop): number {
+  return allCrops.findIndex((entry) => entry.slug === crop.slug) + 1;
+}
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+function shortMonth(month: number): string {
+  return MONTH_NAMES[month].slice(0, 3).toLowerCase();
+}
 
-    // Respect reduced motion
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
+function monthRange(openAt: Date, closeAt: Date): string {
+  const open = shortMonth(openAt.getMonth());
+  const close = shortMonth(closeAt.getMonth());
+  return open === close ? open : `${open}–${close}`;
+}
+
+function fallbackWindow(crop: Crop, frostDate: Date): string {
+  const windows = cropWindows(crop, new Date(frostDate.getFullYear(), 6, 1), frostDate);
+  const sowing = windows.find((window) => window.isSowing);
+  if (sowing) return `sow ${monthRange(sowing.openAt, sowing.closeAt)}`;
+
+  const planting = windows.find((window) => window.action === "plant out");
+  if (planting) return `plant ${monthRange(planting.openAt, planting.closeAt)}`;
+
+  return "wait";
+}
+
+function cropTag(crop: Crop, now: Date, frostDate: Date): Pick<CropRow, "tag" | "tone" | "isLive"> {
+  const status = getCropStatus(crop, frostDate, now);
+
+  if (status.state === "closing") {
+    return { tag: "last chance", tone: "closing", isLive: true };
+  }
+
+  if (status.state === "now") {
+    if (status.method === "plant out") {
+      return { tag: "plant out now", tone: "plant", isLive: true };
     }
+    return { tag: "sow now", tone: "sow", isLive: true };
+  }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  return { tag: fallbackWindow(crop, frostDate), tone: "wait", isLive: false };
+}
 
+function tagClass(tone: TagTone): string {
+  if (tone === "closing") return "text-rust";
+  if (tone === "sow") return "text-allotment";
+  if (tone === "plant") return "text-amber-dark";
+  return "text-earth-lighter";
+}
+
+function CropIndexRow({ row }: { row: CropRow }) {
   return (
-    <div
-      ref={ref}
-      className={className}
-      data-visible={visible ? "true" : "false"}
-    >
-      {children}
-    </div>
+    <li className={`crop-index-row break-inside-avoid border-t border-earth/10 ${row.isLive ? "is-live" : ""}`}>
+      <a
+        href={`/crops/${row.crop.slug}`}
+        className="grid min-h-[48px] grid-cols-[3.35rem_minmax(0,1fr)_auto] items-center gap-3 py-3 text-earth transition-colors hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+      >
+        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-amber-dark">
+          № {String(row.no).padStart(2, "0")}
+        </span>
+        <span className="min-w-0 font-serif text-xl leading-tight sm:text-2xl">
+          {row.crop.name}
+        </span>
+        <span className={`shrink-0 whitespace-nowrap text-right font-mono text-[10px] uppercase tracking-[0.14em] ${tagClass(row.tone)}`}>
+          {row.tag}
+        </span>
+      </a>
+    </li>
   );
 }
 
-export default function CropIndex({ crops, initialLimit }: { crops: Crop[]; initialLimit?: number }) {
-  const [showInSeason, setShowInSeason] = useState(false);
-  const [expanded, setExpanded] = useState(!initialLimit);
+function CropGroup({ label, note, dotClass, rows }: { label: string; note: string; dotClass: string; rows: CropRow[] }) {
+  return (
+    <section className="crop-index-group mt-12 first:mt-0" aria-labelledby={`crop-group-${label.toLowerCase().replace(/\s+/g, "-")}`}>
+      <h2
+        id={`crop-group-${label.toLowerCase().replace(/\s+/g, "-")}`}
+        className="font-mono text-[11px] uppercase tracking-[0.16em] text-earth-light"
+      >
+        <span className={dotClass} aria-hidden="true">●</span>{" "}
+        {label} <span className="text-earth-lighter">· {note}</span>
+      </h2>
+      <ul className="mt-4 md:columns-2 md:gap-x-12">
+        {rows.map((row) => (
+          <CropIndexRow key={row.crop.slug} row={row} />
+        ))}
+      </ul>
+    </section>
+  );
+}
 
-  const fruitSlugs = new Set(["strawberries", "raspberries", "blackberries", "gooseberries", "blackcurrants", "redcurrants", "rhubarb"]);
-  const fruitCrops = crops.filter((c) => fruitSlugs.has(c.slug));
-  const vegCrops = crops.filter((c) => !fruitSlugs.has(c.slug));
-  const hardyCrops = vegCrops.filter((c) => c.category === "hardy");
-  const halfHardyCrops = vegCrops.filter((c) => c.category === "half-hardy");
-  const tenderCrops = vegCrops.filter((c) => c.category === "tender");
-
-  const limit = expanded ? undefined : initialLimit;
-
-  const sowableSet = new Set(crops.filter(isSowableNow).map(c => c.slug));
-  const sowableNow = showInSeason ? sowableSet : null;
+export default function CropIndex({ crops }: { crops: Crop[]; initialLimit?: number }) {
+  const now = new Date();
+  const frostDate = ukAverageFrost(now);
+  const rowsBySlug = new Map(
+    crops.map((crop) => {
+      const tag = cropTag(crop, now, frostDate);
+      return [
+        crop.slug,
+        {
+          crop,
+          no: specimenNumber(crop),
+          ...tag,
+        },
+      ];
+    })
+  );
+  const liveCount = Array.from(rowsBySlug.values()).filter((row) => row.isLive).length;
 
   return (
-    <div>
-      {/* Toggle */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-2 block">
-            Crop index
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight">Explore crops</h2>
-          <p className="text-earth-lighter text-sm mt-2 leading-relaxed">
-            Select any crop for a personalised growing guide.
-          </p>
-        </div>
-        <button
-          onClick={() => setShowInSeason(!showInSeason)}
-          aria-pressed={showInSeason}
-          className={`shrink-0 ml-4 text-xs font-medium px-4 py-2 border transition-colors duration-300 ${
-            showInSeason
-              ? "bg-allotment text-white border-allotment"
-              : "bg-transparent text-earth-light border-earth/15 hover:border-earth/30"
-          }`}
+    <div className="crop-index">
+      <style>{`
+        #crop-index-live-toggle:checked ~ .crop-index-groups .crop-index-row:not(.is-live) {
+          display: none;
+        }
+        #crop-index-live-toggle:checked ~ .crop-index-empty {
+          display: block;
+        }
+      `}</style>
+      <input
+        id="crop-index-live-toggle"
+        type="checkbox"
+        className="peer sr-only"
+        aria-describedby="crop-index-toggle-note"
+      />
+      <div className="mb-8 flex items-end justify-between gap-6 border-t border-earth/10 pt-4">
+        <p id="crop-index-toggle-note" className="max-w-[42ch] text-sm leading-relaxed text-earth-light">
+          Full list by default. The seasonal tags use the UK-average guide for this week.
+        </p>
+        <label
+          htmlFor="crop-index-live-toggle"
+          className="shrink-0 cursor-pointer border-b border-amber pb-1 font-mono text-[10px] uppercase tracking-[0.16em] text-allotment hover:text-allotment-dark peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-allotment"
         >
-          {showInSeason ? "Showing in season" : "In season now"}
-        </button>
+          in season now →
+        </label>
       </div>
-
-      {showInSeason && (
-        <p className="text-xs text-earth-lighter mb-6 -mt-4">
-          Based on UK average frost date (mid-April). Enter your postcode above for personalised results.
+      {liveCount === 0 && (
+        <p className="crop-index-empty hidden border-t border-earth/10 pt-4 font-serif text-xl leading-snug text-earth-light">
+          Nothing much is shouting this week. The full field guide is still here, waiting with us.
         </p>
       )}
-
-      {/* Hardy */}
-      <div className="mb-10">
-        <h3 className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-leaf rounded-full" />
-          Hardy crops
-        </h3>
-        <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
-          {(limit ? hardyCrops.slice(0, limit) : hardyCrops).map((crop, i) => (
-            <CropCard
-              key={crop.slug}
-              crop={crop}
-              dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
-              isSowable={sowableSet.has(crop.slug)}
-              index={i}
+      <div className="crop-index-groups">
+        {GROUPS.map((group) => {
+          const rows = crops
+            .filter(group.match)
+            .map((crop) => rowsBySlug.get(crop.slug))
+            .filter((row): row is CropRow => Boolean(row));
+          return (
+            <CropGroup
+              key={group.key}
+              label={group.label}
+              note={group.note}
+              dotClass={group.dotClass}
+              rows={rows}
             />
-          ))}
-        </StaggerGrid>
+          );
+        })}
       </div>
-
-      {/* Half-hardy */}
-      <div className="mb-10">
-        <h3 className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-amber rounded-full" />
-          Half-hardy crops
-        </h3>
-        <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
-          {(limit ? halfHardyCrops.slice(0, limit) : halfHardyCrops).map((crop, i) => (
-            <CropCard
-              key={crop.slug}
-              crop={crop}
-              dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
-              isSowable={sowableSet.has(crop.slug)}
-              index={i}
-            />
-          ))}
-        </StaggerGrid>
-      </div>
-
-      {/* Tender */}
-      <div>
-        <h3 className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-tomato rounded-full" />
-          Tender crops
-        </h3>
-        <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
-          {(limit ? tenderCrops.slice(0, limit) : tenderCrops).map((crop, i) => (
-            <CropCard
-              key={crop.slug}
-              crop={crop}
-              dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
-              isSowable={sowableSet.has(crop.slug)}
-              index={i}
-            />
-          ))}
-        </StaggerGrid>
-      </div>
-
-      {/* Fruit */}
-      {fruitCrops.length > 0 && (
-        <div className="mt-10">
-          <h3 className="text-xs font-semibold text-earth-lighter uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
-            <span className="w-2 h-2 bg-rust rounded-full" />
-            Fruit
-          </h3>
-          <StaggerGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 stagger-grid">
-            {(limit ? fruitCrops.slice(0, limit) : fruitCrops).map((crop, i) => (
-              <CropCard
-                key={crop.slug}
-                crop={crop}
-                dimmed={sowableNow !== null && !sowableNow.has(crop.slug)}
-                isSowable={sowableSet.has(crop.slug)}
-                index={i}
-              />
-            ))}
-          </StaggerGrid>
-        </div>
-      )}
-
-      {/* Show all toggle */}
-      {!expanded && initialLimit && (
-        <div className="text-center mt-8">
-          <button
-            onClick={() => setExpanded(true)}
-            className="text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
-          >
-            Browse all {crops.length} growing guides &rarr;
-          </button>
-        </div>
-      )}
     </div>
   );
 }

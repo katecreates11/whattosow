@@ -5,9 +5,9 @@ import CropIndex from "@/components/CropIndex";
 import { crops } from "@/data/crops";
 
 export const metadata: Metadata = {
-  title: "Browse Crops | What To Sow",
+  title: "Vegetable & Fruit Growing Guides — Every Crop | What To Sow",
   description:
-    "Browse every What To Sow crop guide, from tomatoes and carrots to beans, salads, fruit and herbs.",
+    "The What To Sow field-guide index: every UK crop guide, numbered and grouped by hardiness, with this week's sowing and planting tags.",
   alternates: { canonical: "/crops" },
 };
 
@@ -16,16 +16,16 @@ export default function CropsPage() {
     <div className="min-h-screen overflow-x-hidden">
       <Header />
       <main id="main-content" className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
-        <div className="max-w-5xl mx-auto">
+        <div className="mx-auto max-w-6xl">
           <div className="mb-10">
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-allotment">
-              crop guides
+              crop index
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-earth tracking-tight leading-[0.96] mt-4 mb-5">
-              Browse the crops
+              The crops
             </h1>
-            <p className="text-lg text-earth-light leading-relaxed max-w-[48ch]">
-              Find the crop you are growing, then open its UK sowing, planting and harvest guide.
+            <p className="max-w-[52ch] text-lg leading-relaxed text-earth-light">
+              Everything in the field guide, numbered like the crop pages, with this week&apos;s moment at a glance.
             </p>
           </div>
           <CropIndex crops={crops} />
