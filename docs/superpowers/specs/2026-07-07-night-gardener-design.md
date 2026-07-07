@@ -58,8 +58,17 @@ caution is in the *shipping*. Nothing reaches `whattosow.co.uk` between Kate's r
    with Kate's or Codex's branches. Netlify builds the deploy preview and posts the URL on
    the PR. PR body includes: what was built, which phase/item, the item's QA checklist from
    `NEXT_PHASES.md` ticked, the preview URL, and any taste calls flagged for Kate's eye.
-7. **Morning report.** A concise digest (in the PR and/or the run summary): what's on preview
+7. **Morning brief.** A concise digest delivered **first thing** (see §7a): what's on preview
    with links, what was skipped and why, what decisions Kate now owes.
+
+## 7a. Morning brief delivery (decided 2026-07-07)
+
+Kate wants a summary waiting first thing. Best practice for a brief read before she's at her
+desk is **email** — so the default is a short morning email each build night (subject like
+"Night Gardener · 1 preview ready", body = what shipped to preview + links + anything she owes
+a decision on). Needs a one-time Gmail connection. **Fallback** if she'd rather not connect
+Gmail: the same digest committed as `MORNING-BRIEF.md` on the branch, which she reads when she
+opens the repo. The PR body always carries the full detail regardless.
 
 ## 5. Safety spine (non-negotiable invariants)
 
@@ -73,13 +82,18 @@ caution is in the *shipping*. Nothing reaches `whattosow.co.uk` between Kate's r
 
 ## 6. Work queue & state
 
-- **Source of truth for *what* to build:** `docs/NEXT_PHASES.md` (12 sequenced phases,
-  8 Kate-gated decisions, per-item QA checklists).
+**Division of labour (decided 2026-07-07):** The Night Gardener builds **approved Forager
+ideas only**. `docs/NEXT_PHASES.md` is **Codex's lane** — the Night Gardener does not touch
+it. This removes any priority conflict: its only source of build work is the ideas board.
+
+- **Source of truth for *what* to build:** items in `docs/ideas-board.md` marked
+  `approved` and ready to build (content-type ideas, or feature ideas that have been spec'd).
+  Highest payoff-vs-effort score first.
 - **State file:** `docs/night-gardener-queue.md` — the agent's memory between nights.
-  Records: which item is next, which items are done (with PR link + preview URL + date),
-  which are blocked on a Kate gate (with the question), and the last run's outcome. The
-  agent updates this file as part of each run and commits it on its branch.
-- Kate can re-order or veto items by editing either file; the agent obeys them as written.
+  Records: which approved idea is next, which are done (with PR link + preview URL + date),
+  which are blocked (build failing, or awaiting a Kate decision), and the last run's outcome.
+  The agent updates this file as part of each run and commits it on its branch.
+- Kate can re-order or veto by editing the board or this file; the agent obeys as written.
 
 ## 7. Cadence
 
@@ -108,9 +122,9 @@ URL. No new production wiring; previews are additive and never touch `main`.
 - **Next item is gated:** skip, record the pending decision, take next un-gated item; if *all*
   remaining items are gated → stop and report "everything left needs you."
 - **Empty / exhausted queue:** stop, report; do not invent work.
-- **Dirty or diverged remote / another `night/…` PR still open:** don't stack unreviewed work —
-  if the previous night's PR is unmerged, either continue a distinct item on a new branch or
-  stop and report, per Kate's preference (default: one open Night Gardener PR at a time).
+- **Previous night's PR still open:** **wait** (decided 2026-07-07). One open Night Gardener
+  PR at a time — never stack unreviewed work. If last night's PR is unmerged, the agent skips
+  building and just sends a brief nudge ("still one preview waiting for you").
 - **Taste uncertainty:** when a copy/design call is genuinely a judgement Kate would want,
   build the safe version and *flag it in the PR* rather than guessing boldly.
 
@@ -123,9 +137,9 @@ URL. No new production wiring; previews are additive and never touch `main`.
 - No `ANTI_PATTERNS.md` / lyricism-ceiling violations reach a PR Kate approves (measured by
   Kate's review; repeated misses feed back into the guardrail docs).
 
-## 12. Open questions for Kate's review
+## 12. Decisions (settled 2026-07-07)
 
-- Default of **one open Night Gardener PR at a time** (§10) — or allow it to keep building
-  new items on separate branches even while a previous PR is unreviewed?
-- Should the morning digest also land somewhere Kate reads first thing (e.g. a note/file),
-  or is the PR itself enough?
+- **Queue = approved Forager ideas only; NEXT_PHASES is Codex's** (§6).
+- **One open PR at a time — wait, never stack** (§10).
+- **Morning brief delivered first thing, email by default** (§7a).
+- **Build the Forager first**, then the Night Gardener to consume its approved ideas.

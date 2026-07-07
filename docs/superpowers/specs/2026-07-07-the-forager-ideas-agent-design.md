@@ -96,8 +96,11 @@ The agent works with whatever senses are live; it never blocks on a sense that i
    - **Payoff-vs-effort score** (drives the ranking)
    - For content: a ready-to-queue brief (target query, angle, internal links, voice notes)
    - Status: `proposed`
-5. **Write the board + digest.** Update `docs/ideas-board.md` (on a branch, never `main`)
-   and hand Kate a short "this week's shortlist and why" summary.
+5. **Write the board + Monday brief.** Update `docs/ideas-board.md` (on a branch, never
+   `main`) and deliver a short "this week's shortlist and why" summary **first thing Monday**
+   — email by default (best practice for a first-thing brief; needs a one-time Gmail connect),
+   fallback a committed `MORNING-BRIEF.md`. Same delivery channel as the Night Gardener (§7a
+   of its spec) so Kate has one morning-brief habit, not two.
 
 ## 7. The board & the handoff
 
@@ -111,10 +114,10 @@ The agent works with whatever senses are live; it never blocks on a sense that i
     can enter the build queue (too big for a one-night one-shot).
   - **Monetisation** → tracked; typically actioned by Kate; may become a content build if it's
     a buying guide.
-- **Night Gardener integration:** the Night Gardener's nightly pre-check treats board items
-  marked `approved` + type `content` (or a spec'd feature) as eligible queue work, alongside
-  `NEXT_PHASES.md`. Priority order between board ideas and NEXT_PHASES is Kate's to set
-  (default: NEXT_PHASES first, then highest-scored approved board ideas).
+- **Night Gardener integration (decided 2026-07-07):** the Night Gardener builds **approved
+  board ideas only** (content, or spec'd features), highest payoff-vs-effort score first.
+  `NEXT_PHASES.md` is **Codex's lane**, not the Night Gardener's — so there is no priority
+  contest between board ideas and NEXT_PHASES; the two builders work separate queues.
 
 ## 8. Guardrails (non-negotiable)
 
@@ -159,9 +162,10 @@ The agent works with whatever senses are live; it never blocks on a sense that i
 - Over time, a visible share of shipped WTS work traces back to a Forager card — the site is
   generating and acting on its own next moves.
 
-## 13. Open questions for Kate's review
+## 13. Decisions (settled 2026-07-07)
 
-- Priority when both NEXT_PHASES items and approved board ideas are queued (§7) — default is
-  NEXT_PHASES first; happy to flip to "highest-scored idea wins."
-- Should the weekly digest land somewhere Kate reads first thing (a note/file), or is updating
-  the board + a run summary enough?
+- **No priority contest:** Night Gardener builds approved board ideas; Codex owns NEXT_PHASES
+  (§7). Separate queues, separate builders.
+- **Monday brief delivered first thing, email by default** (§6, step 5).
+- **The Forager is built first** — it's the front of the pipeline; the Night Gardener consumes
+  its approved output.
