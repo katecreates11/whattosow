@@ -38,18 +38,24 @@ caution is in the *shipping*. Nothing reaches `whattosow.co.uk` between Kate's r
 ## 4. How a night runs
 
 1. **Wake + cheap pre-check.** Fires on the schedule. First action: read the work queue
-   (`docs/NEXT_PHASES.md` + the state file in §6). If no un-gated item is ready, **stop
-   immediately** and record a one-line "nothing queued" note. No build, minimal spend.
+   (`approved` ideas on `docs/ideas-board.md` + the state file in §6). If no approved,
+   build-ready idea is waiting — or a Night Gardener PR is still open — **stop immediately**
+   and record a one-line note. No build, minimal spend.
 2. **Load the taste guardrails before touching code.** Read, as hard constraints:
    `PROJECT_CONTEXT.md`, `docs/DIRECTION.md`, `docs/ANTI_PATTERNS.md`,
    `docs/COPY_REWRITES.md` (incl. the **lyricism ceiling — never personify nature**;
    plain observation is the voice), `docs/CUT_LIST.md`, and `CLAUDE.md` (brand colours).
    The WTS voice is: gentle friend, positive, weather-obsessed, Pooh warmth + Nigel Slater
    rhythm — never snarky/superior, never personify nature.
-3. **Pick exactly one item.** The next un-gated item in queue order. If the next item is
-   Kate-gated, skip it, record that Kate owes a decision, and take the next un-gated one.
-   **One item per night** — keeps the diff reviewable and cost bounded.
-4. **Build it fully** on a fresh branch cut from `origin/main`.
+3. **Pick exactly one approved idea.** The highest-scored `approved` idea on the board that's
+   build-ready. If it's flagged `needs-spec` (a feature too big for one night), skip it, note
+   it's waiting on a spec, and take the next approved idea. **One item per night** — keeps the
+   diff reviewable and cost bounded.
+4. **Build it fully — and creatively** on a fresh branch cut from `origin/main`. Content, whole
+   pages, and **interactive code features** (calculators, visualisers, playful tools — e.g. a
+   Christmas-dinner planner) are all in scope. **When building a feature, use the
+   frontend-design skill and `docs/DIRECTION.md`'s visual taste checklist** so it comes out
+   beautiful and on-brand, not generic-AI-looking — Kate cares about the web design.
 5. **Prove it's green.** `npm run build` (Next's build type-checks) exit 0 **and**
    `npm test` (`vitest run`) passing. If it cannot get green: commit what exists, open the
    PR as a **draft**, and state plainly in the body why it isn't done. Never present broken

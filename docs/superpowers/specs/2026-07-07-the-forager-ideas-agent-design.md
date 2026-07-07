@@ -60,6 +60,15 @@ routes correctly downstream:
 - **Monetisation** — affiliate angles, buying guides, product round-ups from buy-intent
   search + seasonality. → often actioned by Kate directly; tracked on the board regardless.
 
+**Creativity-first (added 2026-07-07):** Kate loves web design and delightful interactive
+things and wants the Forager to *feel free to be creative*. Every shortlist must include at
+least one or two **buildable feature ideas** (calculators, visualisers, playful tools) — not
+only content. Delight, design flair, and shareability ("would someone screenshot this?") are
+real ranking inputs alongside SEO/revenue. Money is woven in, never the only lens. Features
+are built to a preview URL by the Night Gardener (design skill + `DIRECTION.md` visual
+checklist); only genuinely multi-night features get `needs-spec`. See `docs/agents/forager.md`
+§"Creativity mandate".
+
 ## 5. The four senses
 
 Launch sequencing keeps auth off the critical path:

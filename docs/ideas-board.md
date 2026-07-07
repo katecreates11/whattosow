@@ -71,6 +71,24 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 - **Ready-to-queue brief:** feature → mini-spec first (backward date maths from 25 Dec per crop, location-aware, which crops qualify); target "grow your own christmas dinner uk"; fits longest-day/frost-map pattern; **be honest** about what's realistically still possible in July (sprouts/parsnips are already too late) — don't over-promise.
 - **Added:** 2026-07-07 · **Run:** forager-test-2026-07-07
 
+### 5. The Glut-o-meter — "drowning in courgettes?"
+- **Type:** feature
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · high delight + shareability
+- **Evidence:** August is peak "glut month" across every UK source — tomatoes, courgettes, beans and cucumbers all at once. WTS has a `dealing-with-the-glut` guide, but it's static prose. This is the single most *relatable* moment of the veg year and it's happening **now** — perfect for something playful.
+- **Pitch:** A cheerful interactive: pick what you're buried under and roughly how much, and it triages your haul — eat now / freeze / preserve / give away — with real quantities, quick methods, and kit links (maslin pan, freezer bags, dehydrator). A rising "glut level" meter with personality. Genuinely screenshot-worthy ("I have 3kg of courgettes, send help") and it turns a static guide into a tool people share and come back to. Commerce rides along naturally via the kit links.
+- **Ready-to-queue brief:** feature, buildable in a night if scoped to 4–5 glut crops; design flair encouraged (a filling meter, veg piling up); links → dealing-with-the-glut, watering-while-away, relevant crop pages; affiliate = preserving kit; voice = warm, funny-but-kind, never mocking the gardener.
+- **Added:** 2026-07-07 · **Run:** forager-test-2026-07-07
+
+### 6. Companion-planting playground — a drag-and-drop bed
+- **Type:** feature  _(→ may need a light spec)_
+- **Status:** proposed
+- **Score:** High payoff / High effort · turns your #1 asset into a toy
+- **Evidence:** "Companion planting uk chart" is one of your strongest queries and the companion hub is the **#1 page** on the site; you already hold the companion data in `crops.ts` plus a static chart. A live, playful version turns your best-performing, most-linkable asset into something people *play with* and share — pure upside on ground you already own.
+- **Pitch:** A visual bed you drag crops onto: good neighbours glow, clashes flag, and it suggests companions for whatever you've placed. Uses the data that's already there. Beautiful, tactile, evergreen, and it funnels straight to the #1 hub and seed affiliate links. The kind of thing a gardening account reshares.
+- **Ready-to-queue brief:** feature → light spec (drag/drop interaction, mobile fallback, reads `crops.ts` companion data); target = deepen the companion cluster; links → companion-planting hub + chart; affiliate = seed links per crop; design = tactile and lovely, follows DIRECTION visual checklist; must work on mobile (tap-to-place fallback).
+- **Added:** 2026-07-07 · **Run:** forager-test-2026-07-07
+
 ## Approved
 
 _(empty)_

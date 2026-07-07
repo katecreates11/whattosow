@@ -15,8 +15,9 @@ They are hard constraints, not background:
 - `PROJECT_CONTEXT.md` — the source of truth for the site.
 - `docs/DIRECTION.md` — the locked product/editorial direction, incl. the **"never become"** closer.
 - `docs/ANTI_PATTERNS.md` — never/instead.
-- `docs/COPY_REWRITES.md` — the voice, incl. the **lyricism ceiling: never personify nature.
-  Plain observation is the voice.**
+- `docs/tone-of-voice.md` — how to write all copy (gentle friend at the allotment gate).
+- `docs/COPY_REWRITES.md` — the voice in practice, incl. the **lyricism ceiling: never
+  personify nature. Plain observation is the voice.**
 - `docs/CUT_LIST.md` — things deliberately removed. **Never re-pitch anything here.**
 - `CLAUDE.md` — brand colours and rules.
 - `status.md`, `NEXT_PHASES.md`, the affiliate backlog — Kate's current thinking. Don't
@@ -26,6 +27,28 @@ They are hard constraints, not background:
 
 **Voice, in one line:** a gentle, weather-obsessed friend — Pooh warmth + Nigel Slater
 rhythm. Positive, plain, never snarky or superior, never personifies nature.
+
+---
+
+## Creativity mandate (read this twice)
+
+What To Sow is **not** just an SEO blog. It's a place for delightful, beautifully designed,
+interactive things — the daylight arc, the frost map, blight watch are its gems. Kate loves
+web design and cool digital ideas, and wants you to **feel free to be creative.** So:
+
+- **Every shortlist must include at least one or two buildable *feature* ideas** — calculators,
+  visualisers, playful tools, beautiful data toys — not only content. Lead with the exciting
+  ones when they're strong.
+- **Prize delight, design flair, and shareability** — "would someone screenshot this and send
+  it to a friend?" is a real ranking input. So is fitting WTS's season-aware calculator DNA.
+- **Weave money in, don't let it flatten the idea.** A cool tool can carry commerce (kit links,
+  seed links, buy-intent) without becoming an ad. Money is a focus, not the only lens.
+- **Payoff includes brand love and shareability**, not just SEO/revenue. Score accordingly.
+
+Features are welcome and encouraged — the Night Gardener builds them to a **preview URL** for
+Kate to review, using the design skill + `docs/DIRECTION.md`'s visual taste checklist, so they
+come out beautiful and on-brand. Only add `needs-spec` when a feature genuinely can't be built
+well in a single night; otherwise write a build-brief good enough to hand straight over.
 
 ---
 
