@@ -8,7 +8,6 @@ import FullWidthSection from "@/components/FullWidthSection";
 import Image from "next/image";
 import StickyPostcodeCTA from "@/components/StickyPostcodeCTA";
 import EditorNote from "@/components/EditorNote";
-import LatestFromThePlot from "@/components/LatestFromThePlot";
 import WeatherCommandCenter from "@/components/WeatherCommandCenter";
 import PlotStamp from "@/components/PlotStamp";
 import BlightRisk from "@/components/BlightRisk";
@@ -395,100 +394,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Explore — season-aware map + the calendar, one tidy row */}
-        <div className="px-6 sm:px-10 lg:px-16">
-          <div className="max-w-4xl mx-auto pt-14 sm:pt-20 grid sm:grid-cols-2 gap-4">
-            {isSummerSeason ? (
-              <a
-                href="/longest-day"
-                className="group border border-earth/6 border-l-4 border-l-amber bg-ochre p-6 hover:border-earth/15 transition-colors duration-300 block"
-              >
-                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-amber-dark mb-2 block">
-                  Interactive map
-                </span>
-                <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
-                  UK daylight map &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  How much daylight you get on the longest day, anywhere in the UK.
-                </p>
-              </a>
-            ) : (
-              <a
-                href="/frost-map"
-                className="group border border-earth/6 border-l-4 border-l-frost bg-sky p-6 hover:border-earth/15 transition-colors duration-300 block"
-              >
-                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-frost mb-2 block">
-                  Interactive map
-                </span>
-                <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
-                  UK frost date map &rarr;
-                </span>
-                <p className="text-sm text-earth-light mt-1">
-                  See frost dates across every region of the UK.
-                </p>
-              </a>
-            )}
-            <a
-              href="/calendar"
-              className="group border border-earth/6 border-l-4 border-l-leaf bg-sage/40 p-6 hover:border-earth/15 transition-colors duration-300 block"
-            >
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment mb-2 block">
-                Sowing calendar
-              </span>
-              <span className="text-lg font-semibold text-earth group-hover:text-allotment transition-colors">
-                Plan your whole season &rarr;
-              </span>
-              <p className="text-sm text-earth-light mt-1">
-                40 crops across 12 months, at a glance.
-              </p>
-            </a>
-          </div>
-        </div>
-
-        {/* Guides — editorial links */}
-        <section className="py-14 sm:py-20 px-6 sm:px-10 lg:px-16" aria-label="Growing guides">
-          <div className="max-w-4xl mx-auto">
-          <ScrollReveal>
-            <div className="flex items-baseline justify-between mb-6">
-              <h2 className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment">
-                Growing guides
-              </h2>
-              <a href="/guides" className="text-xs font-medium text-allotment hover:text-allotment-dark transition-colors">
-                View all &rarr;
-              </a>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <a href="/guides/beginners" className="group bg-sage p-5 transition-colors">
-                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
-                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Allotment for beginners &rarr;</span>
-              </a>
-              <a href="/guides/seed-starting" className="group bg-sage p-5 transition-colors">
-                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Getting started</span>
-                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Starting from seed &rarr;</span>
-              </a>
-              <Link href="/guides/companion-planting" className="group bg-sage p-5 transition-colors">
-                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Planning</span>
-                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Companion planting &rarr;</span>
-              </Link>
-              <a href="/guides/growing-fruit" className="group bg-sage p-5 transition-colors">
-                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Fruit</span>
-                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Growing fruit &rarr;</span>
-              </a>
-              <a href="/lucky-dip" className="group bg-sage p-5 transition-colors">
-                <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/60 mb-1 block">Discover</span>
-                <span className="font-semibold text-earth group-hover:text-allotment transition-colors">Lucky Dip &rarr;</span>
-              </a>
-            </div>
-          </ScrollReveal>
-          </div>
-        </section>
-
         {/* Editor's Note — a note from the plot, leading into the blog */}
         <EditorNote />
-
-        {/* Latest from the plot */}
-        <LatestFromThePlot />
 
         {/* FAQ */}
         <section id="common-questions" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 scroll-mt-20 bg-ochre" aria-labelledby="faq-heading">
@@ -570,22 +477,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Repeat CTA */}
-        <div className="py-10 sm:py-14 text-center border-t border-earth/6 px-6 sm:px-10 lg:px-16">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-earth-light mb-2">Ready to find out what to sow?</p>
-            <p className="text-sm text-earth-lighter mb-4">Your local sowing answer is waiting near the top.</p>
-            <a
-              href="#main-content"
-              className="inline-flex items-center gap-2 text-sm font-medium text-allotment hover:text-allotment-dark transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
-              Enter your postcode
-            </a>
-          </div>
-        </div>
       </main>
 
       <Footer />
