@@ -16,6 +16,8 @@ export interface Crop {
   harvestWeeks: number;
   /** Weeks between successional sowings. Omit for one-off crops */
   successionWeeks?: number;
+  /** Override the default four-week seed-starting window when UK guidance needs a longer named season */
+  sowWindowWeeks?: number;
   /** Quick growing tip */
   tip: string;
   /** What the crop needs in simple terms */
@@ -612,6 +614,7 @@ export const crops: Crop[] = [
     directSowWeeks: 1,
     plantOutWeeks: 2,
     harvestWeeks: 17,
+    sowWindowWeeks: 5,
     tip: "Plant in a block, not a row — they're wind-pollinated and need neighbours. Each plant gives you 1-2 cobs, so don't be stingy with numbers.",
     needs: "Full sun. Sheltered spot. Rich soil.",
     spacingCm: 45,
@@ -637,6 +640,7 @@ export const crops: Crop[] = [
     directSowWeeks: 1,
     plantOutWeeks: 2,
     harvestWeeks: 12,
+    sowWindowWeeks: 11,
     tip: "You only need 2-3 plants. Seriously. Pick them small (15cm) or they turn into marrows overnight.",
     needs: "Full sun. Rich soil. Lots of water.",
     spacingCm: 90,
@@ -711,6 +715,7 @@ export const crops: Crop[] = [
     directSowWeeks: null,
     plantOutWeeks: 2,
     harvestWeeks: 22,
+    sowWindowWeeks: 8,
     tip: "Limit each plant to 2-3 fruits for bigger pumpkins. Sit them on a tile or slate to stop rot from underneath.",
     needs: "Full sun. Very rich soil. Lots of water. Lots of space.",
     spacingCm: 120,
@@ -890,6 +895,7 @@ export const crops: Crop[] = [
     directSowWeeks: null,
     plantOutWeeks: 2,
     harvestWeeks: 18,
+    sowWindowWeeks: 8,
     tip: "Pinch out side shoots on cordon types. Feed weekly with tomato feed once the first truss sets. Don't overwater — flavour comes from a bit of stress.",
     needs: "Full sun. Sheltered. Rich soil. Regular feeding once fruiting.",
     spacingCm: 45,
@@ -1038,6 +1044,7 @@ export const crops: Crop[] = [
     directSowWeeks: 2,
     plantOutWeeks: 2,
     harvestWeeks: 8,
+    sowWindowWeeks: 13,
     tip: "Pinch out flower buds to keep leaves coming. Harvest from the top to encourage bushy growth. Loves heat — don't even think about putting it outside before June.",
     needs: "Full sun. Warmth. Sheltered spot. Rich, moist soil. Perfect for pots.",
     spacingCm: 20,

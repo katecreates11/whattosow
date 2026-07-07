@@ -19,14 +19,30 @@ describe("getCropNowAnswer", () => {
     expect(answer.summary).toContain("Yes");
   });
 
-  it("tells users not to start tender crops from seed after their seed and plant-out windows have passed", () => {
+  it("keeps tomatoes precise about seed-starting while young plants remain possible", () => {
     const answer = getCropNowAnswer(crop("tomatoes"), new Date(2026, 6, 5));
 
     expect(answer.state).toBe("too-late");
-    expect(answer.action).toBe("wait");
-    expect(answer.stateLabel).toBe("Too late from seed");
-    expect(answer.summary).toContain("Not from seed now");
+    expect(answer.action).toBe("plant out");
+    expect(answer.stateLabel).toBe("Past seed window; plant out");
+    expect(answer.summary).toContain("seed-starting window");
     expect(answer.guideLink?.href).toBe("/guides/growing-tomatoes-outdoors-vs-greenhouse");
+  });
+
+  it("keeps basil sowable in July instead of sending it to next March", () => {
+    const answer = getCropNowAnswer(crop("basil"), new Date(2026, 6, 5));
+
+    expect(answer.state).toBe("good-time");
+    expect(answer.action).toBe("direct sow");
+    expect(answer.monthLink.href).toBe("/sow/july");
+  });
+
+  it("treats early-July courgettes as a closing seed window", () => {
+    const answer = getCropNowAnswer(crop("courgettes"), new Date(2026, 6, 5));
+
+    expect(answer.state).toBe("last-chance");
+    expect(answer.action).toBe("direct sow");
+    expect(answer.practicalNote).toContain("Sow a small row now");
   });
 
   it("returns a too-early wait answer before the first sowing window opens", () => {
@@ -69,10 +85,28 @@ describe("getCropVerdict", () => {
     const verdict = getCropVerdict(crop("tomatoes"), new Date(2026, 6, 5));
 
     expect(verdict.stateLabel).toBe("Too late from seed");
-    expect(verdict.actionLabel).toBe("Choose another crop to sow now");
+    expect(verdict.actionLabel).toBe("Buy young plants");
     expect(verdict.primaryLink.href).toBe("/sow/july");
-    expect(verdict.alternativeCrops.length).toBeGreaterThan(0);
-    expect(verdict.alternativeCrops.some((alternative) => alternative.href === "/crops/tomatoes")).toBe(false);
+    expect(verdict.copy).toContain("seed-starting window");
+    expect(verdict.copy).toContain("plant out your own");
+  });
+
+  it("gives sweetcorn young-plant glue instead of contradicting the plant-out list", () => {
+    const answer = getCropNowAnswer(crop("sweetcorn"), new Date(2026, 6, 5));
+    const verdict = getCropVerdict(crop("sweetcorn"), new Date(2026, 6, 5));
+
+    expect(answer.action).toBe("plant out");
+    expect(answer.summary).toContain("sturdy young plants can still go out");
+    expect(verdict.actionLabel).toBe("Buy young plants");
+  });
+
+  it("frames July pumpkins as a young-plant gamble", () => {
+    const answer = getCropNowAnswer(crop("pumpkins"), new Date(2026, 6, 5));
+    const verdict = getCropVerdict(crop("pumpkins"), new Date(2026, 6, 5));
+
+    expect(answer.action).toBe("plant out");
+    expect(answer.stateLabel).toContain("young plants are a gamble");
+    expect(verdict.copy).toContain("A sturdy young plant is a gamble now");
   });
 });
 

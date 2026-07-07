@@ -1,5 +1,12 @@
 import { crops, type Crop } from "@/data/crops";
 import { varietyCounts } from "@/data/variety-counts";
+import {
+  cropWindows,
+  daysBetween,
+  hasActiveSowingWindow,
+  MS_WEEK,
+  ukAverageFrost,
+} from "@/lib/crop-windows";
 
 /**
  * Crop-level seasonal status — the heart of "what can I sow / grow / harvest
@@ -26,42 +33,19 @@ export interface CropEntry {
   no: number;
 }
 
-const MS_WEEK = 7 * 24 * 60 * 60 * 1000;
-const MS_DAY = 24 * 60 * 60 * 1000;
 const CLOSING_DAYS = 12;
 
-export function ukAverageFrost(now: Date = new Date()): Date {
-  return new Date(now.getFullYear(), 3, 15);
-}
+export { ukAverageFrost } from "@/lib/crop-windows";
 
 export function getCropStatus(crop: Crop, lastFrost: Date, now: Date = new Date()): VarietyStatus {
-  const year = lastFrost.getFullYear();
-  const autumnFrost = new Date(year, 9, 25);
-  const hasSuccession = crop.successionWeeks != null;
+  const open = cropWindows(crop, now, lastFrost)
+    .filter((window) => now >= window.openAt && now <= window.closeAt)
+    .map((window) => ({
+      method: window.action,
+      daysLeft: daysBetween(now, window.closeAt),
+    }));
 
-  type Win = { method: string; daysLeft: number };
-  const open: Win[] = [];
-
-  const addSow = (weeks: number, method: string) => {
-    const openDate = lastFrost.getTime() + weeks * MS_WEEK;
-    const latestByHarvest = autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK;
-    const closeDate = hasSuccession ? latestByHarvest : Math.min(openDate + 4 * MS_WEEK, latestByHarvest);
-    if (now.getTime() >= openDate && now.getTime() <= closeDate) {
-      open.push({ method, daysLeft: Math.ceil((closeDate - now.getTime()) / MS_DAY) });
-    }
-  };
-
-  if (crop.directSowWeeks !== null) addSow(crop.directSowWeeks, "direct sow");
-  if (crop.sowIndoorsWeeks !== null) addSow(crop.sowIndoorsWeeks, "sow indoors");
-
-  if (crop.plantOutWeeks !== null) {
-    const center = lastFrost.getTime() + crop.plantOutWeeks * MS_WEEK;
-    if (now.getTime() >= center - 3 * MS_WEEK && now.getTime() <= center + 3 * MS_WEEK) {
-      open.push({ method: "plant out", daysLeft: Math.ceil((center + 3 * MS_WEEK - now.getTime()) / MS_DAY) });
-    }
-  }
-
-  if (open.length === 0) return { state: "off", label: "out of season", daysLeft: null, method: null };
+  if (open.length === 0) return { state: "off", label: "waiting for its next sowing window", daysLeft: null, method: null };
 
   const best = open.reduce((a, b) => (b.daysLeft > a.daysLeft ? b : a));
   const d = best.daysLeft;
@@ -89,36 +73,37 @@ export function inSeasonCrops(lastFrost?: Date, now: Date = new Date()): CropEnt
     });
 }
 
-/**
- * Crops whose plant-out window is open now. The window runs from 3 weeks before
- * the crop's ideal plant-out date to 6 weeks after — planting out realistically
- * continues for weeks (successional sowings, slower northern springs, second
- * batches), so a longer tail keeps the section honest through the season.
- */
-const PLANT_OUT_LEAD = 3 * MS_WEEK;
-const PLANT_OUT_TAIL = 6 * MS_WEEK;
+/** Crops whose shared plant-out window is open now. */
 export function plantOutCrops(lastFrost?: Date, now: Date = new Date()): CropEntry[] {
   const frost = lastFrost ?? ukAverageFrost(now);
   const out: CropEntry[] = [];
   crops.forEach((crop, i) => {
-    if (crop.plantOutWeeks == null) return;
-    const center = frost.getTime() + crop.plantOutWeeks * MS_WEEK;
-    if (now.getTime() >= center - PLANT_OUT_LEAD && now.getTime() <= center + PLANT_OUT_TAIL) {
-      const daysLeft = Math.ceil((center + PLANT_OUT_TAIL - now.getTime()) / MS_DAY);
-      const state: SowState = daysLeft <= CLOSING_DAYS ? "closing" : "now";
-      out.push(
-        entry(
-          crop,
-          {
-            state,
-            label: state === "closing" ? `last chance · ${daysLeft}d` : "ready to plant out",
-            daysLeft,
-            method: "plant out",
-          },
-          i
-        )
-      );
-    }
+    const window = cropWindows(crop, now, frost).find(
+      (entry) => entry.action === "plant out" && now >= entry.openAt && now <= entry.closeAt
+    );
+    if (!window) return;
+    const daysLeft = daysBetween(now, window.closeAt);
+    const state: SowState = daysLeft <= CLOSING_DAYS ? "closing" : "now";
+    const activelySowable = hasActiveSowingWindow(crop, now, frost);
+    const label = crop.slug === "pumpkins" && window.plantOutPhase === "late"
+      ? "a gamble now"
+      : window.plantOutPhase === "late" && !activelySowable
+        ? "late plant out"
+        : activelySowable
+          ? "plant out now"
+          : "ready to plant out";
+    out.push(
+      entry(
+        crop,
+        {
+          state,
+          label: state === "closing" ? `last chance · ${daysLeft}d` : label,
+          daysLeft,
+          method: "plant out",
+        },
+        i
+      )
+    );
   });
   return out.sort((a, b) => (a.status.daysLeft ?? 9999) - (b.status.daysLeft ?? 9999));
 }

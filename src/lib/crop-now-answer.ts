@@ -1,22 +1,16 @@
 import { crops, type Crop } from "@/data/crops";
 import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
+import {
+  cropWindows,
+  daysBetween,
+  type CropWindow as ActionWindow,
+} from "@/lib/crop-windows";
 
-const MS_WEEK = 7 * 24 * 60 * 60 * 1000;
-const MS_DAY = 24 * 60 * 60 * 1000;
 const LAST_CHANCE_DAYS = 14;
-const PLANT_OUT_LEAD_WEEKS = 3;
-const PLANT_OUT_TAIL_WEEKS = 6;
 
 export type AnswerState = "too-early" | "good-time" | "last-chance" | "too-late";
 type Action = "sow indoors" | "direct sow" | "plant out" | "wait";
 export type CropVerdictAction = Action | "buy young plants" | "choose another crop to sow now";
-
-interface ActionWindow {
-  action: Action;
-  openAt: Date;
-  closeAt: Date;
-  isSowing: boolean;
-}
 
 export interface CropNowAnswer {
   state: AnswerState;
@@ -52,14 +46,6 @@ export interface CropVerdict {
     label: string;
   };
   alternativeCrops: CropNowAlternative[];
-}
-
-function addWeeks(date: Date, weeks: number): Date {
-  return new Date(date.getTime() + weeks * MS_WEEK);
-}
-
-function daysBetween(from: Date, to: Date): number {
-  return Math.ceil((to.getTime() - from.getTime()) / MS_DAY);
 }
 
 export function frostOffsetText(weeks: number): string {
@@ -128,57 +114,6 @@ function currentMonthCallToAction(now: Date) {
     href: monthHref(now),
     label: `See what to sow in ${monthName(now)}`,
   };
-}
-
-function sowingCloseAt(crop: Crop, openAt: Date, frostDate: Date): Date {
-  const autumnFrost = new Date(frostDate.getFullYear(), 9, 25);
-  const latestByHarvest = new Date(autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK);
-  const normalClose = crop.successionWeeks == null ? addWeeks(openAt, 4) : latestByHarvest;
-  return new Date(Math.min(normalClose.getTime(), latestByHarvest.getTime()));
-}
-
-function windowsForFrostYear(crop: Crop, year: number): ActionWindow[] {
-  const frostDate = new Date(year, 3, 15);
-  const windows: ActionWindow[] = [];
-
-  if (crop.sowIndoorsWeeks !== null) {
-    const openAt = addWeeks(frostDate, crop.sowIndoorsWeeks);
-    windows.push({
-      action: "sow indoors",
-      openAt,
-      closeAt: sowingCloseAt(crop, openAt, frostDate),
-      isSowing: true,
-    });
-  }
-
-  if (crop.directSowWeeks !== null) {
-    const openAt = addWeeks(frostDate, crop.directSowWeeks);
-    windows.push({
-      action: "direct sow",
-      openAt,
-      closeAt: sowingCloseAt(crop, openAt, frostDate),
-      isSowing: true,
-    });
-  }
-
-  if (crop.plantOutWeeks !== null) {
-    const idealPlantOut = addWeeks(frostDate, crop.plantOutWeeks);
-    windows.push({
-      action: "plant out",
-      openAt: addWeeks(idealPlantOut, -PLANT_OUT_LEAD_WEEKS),
-      closeAt: addWeeks(idealPlantOut, PLANT_OUT_TAIL_WEEKS),
-      isSowing: false,
-    });
-  }
-
-  return windows;
-}
-
-function cropWindows(crop: Crop, now: Date): ActionWindow[] {
-  const year = now.getFullYear();
-  return [year, year + 1]
-    .flatMap((windowYear) => windowsForFrostYear(crop, windowYear))
-    .sort((a, b) => a.openAt.getTime() - b.openAt.getTime());
 }
 
 function chooseActiveSowingWindow(windows: ActionWindow[], now: Date): ActionWindow | null {
@@ -307,14 +242,24 @@ export function getCropNowAnswer(crop: Crop, now: Date = new Date()): CropNowAns
   if (activePlantOut) {
     const daysLeft = daysBetween(now, activePlantOut.closeAt);
     const stateLabel =
-      daysLeft <= LAST_CHANCE_DAYS ? "Past seed window; last chance to plant out" : "Past seed window; plant out";
+      crop.slug === "pumpkins" && activePlantOut.plantOutPhase === "late"
+        ? "Too late from seed; young plants are a gamble"
+        : daysLeft <= LAST_CHANCE_DAYS
+          ? "Past seed window; last chance to plant out"
+          : "Past seed window; plant out";
+    const summary =
+      crop.slug === "pumpkins"
+        ? `The seed-starting window for ${crop.name.toLowerCase()} has passed on the UK average. A sturdy young plant is a gamble now, but not impossible if your autumn is kind.`
+        : crop.slug === "sweetcorn"
+          ? `The seed-starting window for ${crop.name.toLowerCase()} has passed on the UK average, but sturdy young plants can still go out if you are quick.`
+          : `The seed-starting window for ${crop.name.toLowerCase()} has passed on the UK average, but you can still plant out sturdy young plants.`;
 
     return {
       state: "too-late",
       stateLabel,
       action: "plant out",
       actionLabel: "Plant out",
-      summary: `The seed-starting window for ${crop.name.toLowerCase()} has passed on the UK average, but you can still plant out sturdy young plants.`,
+      summary,
       windowText: `Plant out: ${monthRange(activePlantOut.openAt, activePlantOut.closeAt)}`,
       practicalNote: practicalNote(crop, "plant out", "too-late", activePlantOut),
       monthLink: currentMonthLink(now),
@@ -429,12 +374,15 @@ export function getCropVerdict(crop: Crop, now: Date = new Date()): CropVerdict 
   }
 
   if (answer.action === "plant out") {
+    const isPumpkinGamble = crop.slug === "pumpkins";
     return {
       state: answer.state,
       stateLabel,
       action: "buy young plants",
       actionLabel: labelForVerdictAction("buy young plants"),
-      copy: `The UK-average seed-starting window for ${cropName} has passed. Buy sturdy young plants, or plant out your own if they are ready.`,
+      copy: isPumpkinGamble
+        ? `The UK-average seed-starting window for ${cropName} has passed. A sturdy young plant is a gamble now, honestly; plant it well, water it in, and let a kind autumn do the rest.`
+        : `The UK-average seed-starting window for ${cropName} has passed. Buy sturdy young plants, or plant out your own if they are ready.`,
       primaryLink: currentMonthLink,
       alternativeCrops: alternatives,
     };

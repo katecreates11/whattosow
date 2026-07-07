@@ -1,13 +1,16 @@
 import { crops, type Crop } from "@/data/crops";
 import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
-import { ukAverageFrost, type CropEntry, type SowState } from "@/lib/season-core";
+import { type CropEntry, type SowState } from "@/lib/season-core";
 import { varietyCounts } from "@/data/variety-counts";
+import {
+  cropWindows,
+  daysBetween,
+  hasActiveSowingWindow,
+  ukAverageFrost,
+  windowsForCropYear,
+} from "@/lib/crop-windows";
 
-const MS_WEEK = 7 * 24 * 60 * 60 * 1000;
-const MS_DAY = 24 * 60 * 60 * 1000;
 const CLOSING_DAYS = 12;
-const PLANT_OUT_LEAD = 3 * MS_WEEK;
-const PLANT_OUT_TAIL = 12 * MS_WEEK;
 const AVOID_PRIORITY = new Map(
   ["tomatoes", "peppers", "chillies", "aubergine", "sweetcorn", "pumpkins", "courgettes", "basil"].map(
     (slug, index) => [slug, index]
@@ -17,6 +20,7 @@ const AVOID_PRIORITY = new Map(
 type MonthSlug = (typeof MONTH_SLUGS)[number];
 type MonthName = (typeof MONTH_NAMES)[number];
 type AvoidReasonKind = "too-late-from-seed" | "wait-for-window";
+type SowingMethod = "direct sow" | "sow indoors";
 
 export interface AvoidSowingEntry {
   crop: Crop;
@@ -43,15 +47,6 @@ export interface ServerSeasonalAnswer {
   avoidSowingNow: AvoidSowingEntry[];
 }
 
-type SowingMethod = "direct sow" | "sow indoors";
-
-interface SowingWindow {
-  crop: Crop;
-  method: SowingMethod;
-  openAt: number;
-  closeAt: number;
-}
-
 function cropEntry(crop: Crop, method: SowingMethod, daysLeft: number, no: number): CropEntry {
   const state: SowState = daysLeft <= CLOSING_DAYS ? "closing" : "now";
   return {
@@ -70,32 +65,13 @@ function cropEntry(crop: Crop, method: SowingMethod, daysLeft: number, no: numbe
   };
 }
 
-function windowsForCrop(crop: Crop, frostDate: Date): SowingWindow[] {
-  const autumnFrost = new Date(frostDate.getFullYear(), 9, 25);
-  const latestByHarvest = autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK;
-  const closeFor = (openAt: number) =>
-    crop.successionWeeks != null ? latestByHarvest : Math.min(openAt + 4 * MS_WEEK, latestByHarvest);
-
-  const windows: SowingWindow[] = [];
-  if (crop.directSowWeeks !== null) {
-    const openAt = frostDate.getTime() + crop.directSowWeeks * MS_WEEK;
-    windows.push({ crop, method: "direct sow", openAt, closeAt: closeFor(openAt) });
-  }
-  if (crop.sowIndoorsWeeks !== null) {
-    const openAt = frostDate.getTime() + crop.sowIndoorsWeeks * MS_WEEK;
-    windows.push({ crop, method: "sow indoors", openAt, closeAt: closeFor(openAt) });
-  }
-  return windows;
-}
-
 function activeSowingEntries(method: SowingMethod, frostDate: Date, now: Date): CropEntry[] {
-  const nowMs = now.getTime();
   return crops
     .flatMap((crop, index) =>
-      windowsForCrop(crop, frostDate)
-        .filter((window) => window.method === method && nowMs >= window.openAt && nowMs <= window.closeAt)
+      cropWindows(crop, now, frostDate)
+        .filter((window) => window.action === method && now >= window.openAt && now <= window.closeAt)
         .map((window) =>
-          cropEntry(crop, method, Math.ceil((window.closeAt - nowMs) / MS_DAY), index + 1)
+          cropEntry(crop, method, daysBetween(now, window.closeAt), index + 1)
         )
     )
     .sort((a, b) => {
@@ -107,14 +83,22 @@ function activeSowingEntries(method: SowingMethod, frostDate: Date, now: Date): 
 }
 
 function activePlantOutEntries(frostDate: Date, now: Date): CropEntry[] {
-  const nowMs = now.getTime();
   return crops
     .flatMap((crop, index) => {
-      if (crop.plantOutWeeks === null) return [];
-      const center = frostDate.getTime() + crop.plantOutWeeks * MS_WEEK;
-      if (nowMs < center - PLANT_OUT_LEAD || nowMs > center + PLANT_OUT_TAIL) return [];
-      const daysLeft = Math.ceil((center + PLANT_OUT_TAIL - nowMs) / MS_DAY);
+      const window = cropWindows(crop, now, frostDate).find(
+        (entry) => entry.action === "plant out" && now >= entry.openAt && now <= entry.closeAt
+      );
+      if (!window) return [];
+      const daysLeft = daysBetween(now, window.closeAt);
       const state: SowState = daysLeft <= CLOSING_DAYS ? "closing" : "now";
+      const activelySowable = hasActiveSowingWindow(crop, now, frostDate);
+      const label = crop.slug === "pumpkins" && window.plantOutPhase === "late"
+        ? "a gamble now"
+        : window.plantOutPhase === "late" && !activelySowable
+          ? "late plant out"
+          : activelySowable
+            ? "plant out now"
+            : "ready to plant out";
       return [
         {
           crop,
@@ -124,7 +108,7 @@ function activePlantOutEntries(frostDate: Date, now: Date): CropEntry[] {
             state,
             method: "plant out",
             daysLeft,
-            label: state === "closing" ? `last chance · ${daysLeft}d` : "ready to plant out",
+            label: state === "closing" ? `last chance · ${daysLeft}d` : label,
           },
         },
       ];
@@ -143,8 +127,8 @@ function uniqueByCrop(entries: CropEntry[]): CropEntry[] {
   return Array.from(best.values());
 }
 
-function monthFromTime(ms: number) {
-  const month = new Date(ms).getMonth();
+function monthFromTime(value: Date | number) {
+  const month = new Date(value).getMonth();
   return { slug: MONTH_SLUGS[month], name: MONTH_NAMES[month] };
 }
 
@@ -153,27 +137,27 @@ function nextYearFrostDate(frostDate: Date) {
 }
 
 function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>): AvoidSowingEntry[] {
-  const nowMs = now.getTime();
-
   return crops
     .filter((crop) => !activeSlugs.has(crop.slug))
     .map((crop): ScoredAvoidSowingEntry | null => {
-      const currentYearWindows = windowsForCrop(crop, frostDate);
-      const nextYearWindows = windowsForCrop(crop, nextYearFrostDate(frostDate));
+      const currentYearWindows = windowsForCropYear(crop, frostDate).filter((window) => window.isSowing);
+      const nextYearWindows = windowsForCropYear(crop, nextYearFrostDate(frostDate)).filter((window) => window.isSowing);
       const windows = [...currentYearWindows, ...nextYearWindows];
       const previous = currentYearWindows
-        .filter((window) => window.closeAt < nowMs)
-        .sort((a, b) => b.closeAt - a.closeAt)[0];
-      const next = windows.filter((window) => window.openAt > nowMs).sort((a, b) => a.openAt - b.openAt)[0];
+        .filter((window) => window.closeAt < now)
+        .sort((a, b) => b.closeAt.getTime() - a.closeAt.getTime())[0];
+      const next = windows
+        .filter((window) => window.openAt > now)
+        .sort((a, b) => a.openAt.getTime() - b.openAt.getTime())[0];
 
-      if (previous && (!next || nowMs - previous.closeAt < next.openAt - nowMs)) {
+      if (previous && (!next || now.getTime() - previous.closeAt.getTime() < next.openAt.getTime() - now.getTime())) {
         return {
           crop,
           reasonKind: "too-late-from-seed",
           reason: "too late from seed this week",
           nextMonthSlug: next ? monthFromTime(next.openAt).slug : null,
           nextMonthName: next ? monthFromTime(next.openAt).name : null,
-          score: (AVOID_PRIORITY.get(crop.slug) ?? 100) * MS_WEEK + (nowMs - previous.closeAt),
+          score: (AVOID_PRIORITY.get(crop.slug) ?? 100) * 1000 + daysBetween(previous.closeAt, now),
         };
       }
 
@@ -185,7 +169,7 @@ function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>
           reason: `wait until ${nextMonth.name.toLowerCase()}`,
           nextMonthSlug: nextMonth.slug,
           nextMonthName: nextMonth.name,
-          score: next.openAt - nowMs,
+          score: daysBetween(now, next.openAt),
         };
       }
 

@@ -12,7 +12,7 @@ const cropBySlug = new Map(crops.map((c) => [c.slug, c]));
 
 export function getVarietyStatus(v: Variety, lastFrost?: Date, now: Date = new Date()): VarietyStatus {
   const crop = cropBySlug.get(v.cropSlug);
-  if (!crop) return { state: "off", label: "out of season", daysLeft: null, method: null };
+  if (!crop) return { state: "off", label: "waiting for its next sowing window", daysLeft: null, method: null };
   return getCropStatus(crop, lastFrost ?? ukAverageFrost(now), now);
 }
 

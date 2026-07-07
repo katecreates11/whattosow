@@ -13,10 +13,16 @@ describe("getServerSeasonalAnswer", () => {
     expect(answer.avoidSowingNow.length).toBeGreaterThan(0);
 
     expect(answer.sowNow.map((entry) => entry.crop.slug)).toContain("french-beans");
+    expect(answer.sowNow.map((entry) => entry.crop.slug)).toContain("basil");
+    expect(answer.sowNow.map((entry) => entry.crop.slug)).toContain("courgettes");
     expect(answer.startIndoors.map((entry) => entry.crop.slug)).toContain("peas");
     expect(answer.sowOutdoors.map((entry) => entry.crop.slug)).toContain("french-beans");
     expect(answer.plantOutNow.map((entry) => entry.crop.slug)).toContain("leeks");
+    expect(answer.plantOutNow.map((entry) => entry.crop.slug)).toContain("sweetcorn");
+    expect(answer.plantOutNow.map((entry) => entry.crop.slug)).toContain("pumpkins");
     expect(answer.avoidSowingNow.map((entry) => entry.crop.slug)).toContain("tomatoes");
+    expect(answer.avoidSowingNow.map((entry) => entry.crop.slug)).not.toContain("basil");
+    expect(answer.avoidSowingNow.map((entry) => entry.crop.slug)).not.toContain("courgettes");
     expect(answer.avoidSowingNow.map((entry) => entry.crop.slug)).not.toContain("carrots");
     expect(answer.avoidSowingNow.map((entry) => entry.crop.slug)).not.toContain("french-beans");
 
@@ -36,5 +42,12 @@ describe("getServerSeasonalAnswer", () => {
 
     expect(sweetcorn?.reasonKind).toBe("too-late-from-seed");
     expect(sweetcorn?.nextMonthSlug).toBe("march");
+
+    const pumpkin = answer.plantOutNow.find((entry) => entry.crop.slug === "pumpkins");
+    expect(pumpkin?.status.label).toBe("a gamble now");
+
+    const frenchBeans = answer.plantOutNow.find((entry) => entry.crop.slug === "french-beans");
+    expect(frenchBeans?.status.label).not.toBe("late plant out");
+    expect(frenchBeans?.status.label).toBe("plant out now");
   });
 });

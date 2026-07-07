@@ -116,7 +116,7 @@ export default async function VarietyPage({
             <div className="mt-8 border-y border-earth/10 py-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment">When to sow</span>
               <span className="font-serif text-lg text-earth">
-                {status.state === "off" ? "Out of season just now" : status.label}
+                {status.state === "off" ? "Waiting for its next sowing window" : status.label}
               </span>
               <a href={`/crops/${slug}`} className="font-serif italic text-allotment border-b border-amber pb-0.5 ml-auto">
                 Dates for your postcode →

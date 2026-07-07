@@ -163,7 +163,7 @@ function PlantOutRows({ entries }: { entries: CropEntry[] }) {
               {entry.crop.name}
             </a>
             <span className="shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.14em] text-earth-light">
-              {entry.status.state === "closing" ? "closing" : "plant out"}
+              {entry.status.state === "closing" ? "closing" : entry.status.label}
             </span>
           </div>
         </li>
@@ -183,12 +183,12 @@ function joinLinkedCrops(entries: AvoidSowingEntry[]) {
   ));
 }
 
-function joinLinkedNextWindows(entries: AvoidSowingEntry[]) {
-  return entries
-    .filter((entry) => entry.nextMonthSlug && entry.nextMonthName)
+function joinLinkedNextWindows(entries: AvoidSowingEntry[], prefix = "") {
+  const linkedEntries = entries.filter((entry) => entry.nextMonthSlug && entry.nextMonthName);
+  return linkedEntries
     .map((entry, index) => (
       <span key={`${entry.crop.slug}-next-window`}>
-        {index > 0 ? (index === entries.length - 1 ? " and " : ", ") : ""}
+        {index > 0 ? (index === linkedEntries.length - 1 ? " and " : ", ") : prefix}
         <a href={`/crops/${entry.crop.slug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
           {entry.crop.name.toLowerCase()}
         </a>{" "}
@@ -200,10 +200,13 @@ function joinLinkedNextWindows(entries: AvoidSowingEntry[]) {
     ));
 }
 
-function WorthWaitingOn({ entries }: { entries: AvoidSowingEntry[] }) {
+function WorthWaitingOn({ entries, plantOutEntries }: { entries: AvoidSowingEntry[]; plantOutEntries: CropEntry[] }) {
   const tooLateFromSeed = entries.filter((entry) => entry.reasonKind === "too-late-from-seed");
   const waiting = entries.filter((entry) => entry.reasonKind === "wait-for-window");
-  const nextSeedWindows = joinLinkedNextWindows(tooLateFromSeed);
+  const plantOutSlugs = new Set(plantOutEntries.map((entry) => entry.crop.slug));
+  const youngPlantOverlap = tooLateFromSeed.filter((entry) => plantOutSlugs.has(entry.crop.slug));
+  const pumpkinOverlap = youngPlantOverlap.some((entry) => entry.crop.slug === "pumpkins");
+  const nextWindows = joinLinkedNextWindows([...tooLateFromSeed, ...waiting]);
 
   if (entries.length === 0) {
     return (
@@ -214,41 +217,28 @@ function WorthWaitingOn({ entries }: { entries: AvoidSowingEntry[] }) {
   }
 
   return (
-    <div className="space-y-2 text-sm leading-relaxed text-earth-light">
-      {tooLateFromSeed.length > 0 && (
-        <p>
-          <span className="font-medium text-earth">Worth waiting on:</span>{" "}
-          {joinLinkedCrops(tooLateFromSeed)} from seed. They need more season than this week can reliably give; sturdy young plants can still make sense where your season is warm enough, and plants already in the ground are worth feeding and watering on.
-        </p>
-      )}
-      {nextSeedWindows.length > 0 && (
-        <p>
-          Next seed windows: {nextSeedWindows}.
-        </p>
-      )}
-      {waiting.length > 0 && (
-        <p>
-          Next windows:{" "}
-          {waiting.map((entry, index) => (
-            <span key={entry.crop.slug}>
-              {index > 0 ? (index === waiting.length - 1 ? " and " : ", ") : ""}
-              <a href={`/crops/${entry.crop.slug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
-                {entry.crop.name.toLowerCase()}
-              </a>
-              {entry.nextMonthSlug && entry.nextMonthName ? (
-                <>
-                  {" "}
-                  in{" "}
-                  <a href={`/sow/${entry.nextMonthSlug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
-                    {entry.nextMonthName.toLowerCase()}
-                  </a>
-                </>
-              ) : null}
-            </span>
-          ))}
-          .
-        </p>
-      )}
+    <div className="text-sm leading-relaxed text-earth-light">
+      <p>
+        {tooLateFromSeed.length > 0 && (
+          <>
+          {joinLinkedCrops(tooLateFromSeed)} from seed are worth waiting on; they need more season than this week can reliably give.
+          {youngPlantOverlap.length > 0 && (
+            <>
+              {" "}As young plants, {joinLinkedCrops(youngPlantOverlap)} {youngPlantOverlap.length === 1 ? "is" : "are"} still on the plant-out list above
+              {pumpkinOverlap ? "; pumpkins are a gamble now, honestly" : ""}.
+            </>
+          )}
+          {" "}Already growing them? Keep feeding and watering; that crop is still worth your care.
+          </>
+        )}
+        {waiting.length > 0 && (
+          <>
+            {tooLateFromSeed.length > 0 ? " " : null}
+            {joinLinkedCrops(waiting)} {waiting.length === 1 ? "has" : "have"} a later window.
+          </>
+        )}
+        {nextWindows.length > 0 && <> Their moment comes round again: {nextWindows}.</>}
+      </p>
     </div>
   );
 }
@@ -316,7 +306,7 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
               Worth waiting on
             </h2>
             <div className="mt-3">
-              <WorthWaitingOn entries={answer.avoidSowingNow} />
+              <WorthWaitingOn entries={answer.avoidSowingNow} plantOutEntries={answer.plantOutNow} />
             </div>
           </section>
 
