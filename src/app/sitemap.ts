@@ -85,6 +85,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/grow-your-christmas-dinner`,
+      lastModified: new Date("2026-07-07"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/harvest`,
       lastModified: new Date("2026-06-02"),
       changeFrequency: "weekly",
