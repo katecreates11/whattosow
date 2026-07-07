@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChristmasPlate from "@/components/ChristmasPlate";
+import ChristmasCountdown from "@/components/ChristmasCountdown";
 
 export const revalidate = 3600;
 
@@ -98,6 +99,9 @@ export default function ChristmasDinnerPage() {
               You can&rsquo;t hurry a sprout — but you&rsquo;d be surprised how much of the table you
               can still grow yourself. Here&rsquo;s what&rsquo;s in time, told straight.
             </p>
+            <div className="mt-12">
+              <ChristmasCountdown nowISO={new Date().toISOString()} />
+            </div>
           </div>
         </section>
 

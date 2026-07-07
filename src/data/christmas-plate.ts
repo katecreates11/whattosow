@@ -6,31 +6,42 @@
 // works in spring would tell cheerful lies about December. Each window below is
 // hand-checked. If in doubt, we say so — a shop-bought forgiveness beats a
 // confident wrong answer.
+//
+// Images: our own allotment photos where we have them, otherwise a placeholder
+// Unsplash shot (same ids the crop pages use) until Kate shoots her own.
+// Seed links go to Suttons (an active Awin merchant, so they earn); kit links
+// go to Amazon. Both are wrapped for tracking at render time.
 
 export type PlateCategory = "achievable" | "indoor" | "next-year";
 
 export type PlateStatus =
-  | "start-now" // plenty of time to begin
-  | "closing" // the window shuts within about two weeks
-  | "too-late" // missed for this year
-  | "always" // a windowsill job you can do any time
-  | "next-year"; // can't be rushed — one for spring
+  | "start-now"
+  | "closing"
+  | "too-late"
+  | "always"
+  | "next-year";
+
+const uns = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=680&h=520&fit=crop&auto=format&q=75`;
+const suttons = (q: string) => `https://www.suttons.co.uk/search?q=${q}`;
+const amazon = (q: string) => `https://www.amazon.co.uk/s?k=${q}`;
 
 export interface ChristmasCrop {
   name: string;
-  /** its job on the plate — used as a quiet eyebrow */
   role: string;
   category: PlateCategory;
-  /** "Sow" or "Plant" — the verb shown on the card */
   startVerb: "Sow" | "Plant";
-  /** last sensible date THIS year to begin, for an "achievable" crop */
   startBy?: { month: number; day: number }; // month is 1-indexed
-  /** the honest, in-voice note */
   note: string;
-  /** link to a crop or guide page, if we have one */
   href?: string;
-  /** true for the one showstopper we feature larger */
   showstopper?: boolean;
+  /** resolved image src (our photo or an Unsplash placeholder); null = no photo yet */
+  img?: string;
+  imgAlt?: string;
+  /** raw merchant URL for the seeds — wrapped for tracking at render */
+  seedUrl?: string;
+  /** optional growing kit — raw Amazon URL, wrapped at render */
+  kit?: { label: string; url: string };
 }
 
 export const CHRISTMAS_PLATE: ChristmasCrop[] = [
@@ -43,6 +54,10 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     note: "Cold-stored seed potatoes are sold for exactly this. Plant them in a deep bag by the end of August, keep them fed and watered, and move the bag somewhere frost-free before the first cold snap. Tip them out on Christmas Eve for new potatoes in midwinter — the trick that always gets a reaction round the table.",
     href: "/crops/early-potatoes",
     showstopper: true,
+    img: uns("1756361947495-7f56ed41ac38"),
+    imgAlt: "Freshly dug new potatoes",
+    seedUrl: suttons("christmas+seed+potatoes"),
+    kit: { label: "Potato grow bags", url: amazon("potato+grow+bags") },
   },
   {
     name: "Winter salad leaves",
@@ -52,6 +67,10 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startBy: { month: 9, day: 30 },
     note: "Winter lettuce, lamb's lettuce and land cress are bred to sit quietly through the cold. Sow into a pot or the greenhouse border by the end of September and you'll be picking soft leaves for the table when nothing else is green.",
     href: "/guides/growing-winter-salad-leaves",
+    img: "/photos/crops/lettuce-with-marigolds.webp",
+    imgAlt: "Soft lettuce leaves growing with marigolds",
+    seedUrl: suttons("winter+salad+leaves+seeds"),
+    kit: { label: "Garden cloche", url: amazon("garden+cloche+cover") },
   },
   {
     name: "Oriental leaves",
@@ -61,6 +80,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startBy: { month: 9, day: 15 },
     note: "Mizuna, mustard and pak choi come fast and take the cold well under a bit of cover. Sow by mid-September for a peppery handful to lift a plate of cold turkey on Boxing Day.",
     href: "/crops/pak-choi",
+    img: uns("1770977612447-2e5a525a7e82"),
+    imgAlt: "Oriental salad leaves",
+    seedUrl: suttons("oriental+leaves+seeds"),
   },
   {
     name: "Radishes",
@@ -70,6 +92,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startBy: { month: 10, day: 5 },
     note: "The fastest thing here. A winter variety sown under cover into early October gives you crisp, peppery roots — a bright bite next to all that rich food.",
     href: "/crops/radishes",
+    img: uns("1755780991082-5e73a0b63ec5"),
+    imgAlt: "Bunch of red radishes",
+    seedUrl: suttons("winter+radish+seeds"),
   },
   {
     name: "Rocket",
@@ -79,6 +104,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startBy: { month: 9, day: 20 },
     note: "Slower and milder in the cold than its summer self, but a September sowing under cover keeps a few sharp leaves coming right through the season.",
     href: "/crops/rocket",
+    img: uns("1692606280456-b138e165b11a"),
+    imgAlt: "Rocket leaves",
+    seedUrl: suttons("rocket+seeds"),
   },
   {
     name: "Spring onions",
@@ -88,6 +116,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startBy: { month: 9, day: 1 },
     note: "Sow a hardy variety by early September and they'll overwinter as slim, mild onions — lovely raw through a winter salad or scattered over mash.",
     href: "/crops/spring-onions",
+    img: uns("1602769515559-e15133a7e992"),
+    imgAlt: "Slim spring onions",
+    seedUrl: suttons("spring+onion+seeds"),
   },
   {
     name: "Baby carrots",
@@ -97,6 +128,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startBy: { month: 8, day: 10 },
     note: "Honestly, a bit of a gamble — but a late sowing under cover by mid-August can give you sweet, finger-sized carrots, and the carrot fly has usually lost interest by now. Worth a punt for the pleasure of pulling your own on the day.",
     href: "/crops/carrots",
+    img: "/photos/crops/carrots-fresh-harvest.webp",
+    imgAlt: "A fresh harvest of carrots",
+    seedUrl: suttons("early+carrot+seeds"),
   },
   {
     name: "Pea shoots",
@@ -105,6 +139,10 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startVerb: "Sow",
     note: "A tray of dried peas on a bright windowsill gives you sweet, curling shoots in a fortnight, any time you like. Snip them over the starter and feel unreasonably pleased with yourself.",
     href: "/crops/peas",
+    img: "/photos/crops/peas-on-vine.webp",
+    imgAlt: "Peas growing on the vine",
+    seedUrl: suttons("pea+seeds"),
+    kit: { label: "Windowsill seed trays", url: amazon("windowsill+seed+tray") },
   },
   {
     name: "Parsley & soft herbs",
@@ -113,6 +151,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startVerb: "Sow",
     note: "Pot up parsley, chervil or coriander now and keep them on a cool, bright sill. There's something quietly satisfying about cutting your own herbs for the bread sauce while it sleets outside.",
     href: "/crops/parsley",
+    img: uns("1758055660473-a61e426ade6e"),
+    imgAlt: "Fresh parsley",
+    seedUrl: suttons("parsley+seeds"),
   },
   {
     name: "Mustard & cress",
@@ -121,6 +162,7 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startVerb: "Sow",
     note: "The one a child can grow on a saucer. Sow a week before you want it for a fresh green garnish — proof that even in the dark of December, something is growing.",
     href: "/guides/seed-starting",
+    seedUrl: suttons("mustard+and+cress+seeds"),
   },
   {
     name: "Brussels sprouts",
@@ -129,6 +171,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startVerb: "Sow",
     note: "The classic — and the one you can't hurry. Sprouts need sowing back in early spring to stand tall by midwinter, so this year they're a shop-bought forgiveness. Make a note for March and next Christmas they're yours.",
     href: "/crops/brussels-sprouts",
+    img: uns("1769516909776-cc4179b2826e"),
+    imgAlt: "Brussels sprouts on the stalk",
+    seedUrl: suttons("brussels+sprout+seeds"),
   },
   {
     name: "Parsnips",
@@ -137,6 +182,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startVerb: "Sow",
     note: "Roast parsnips are all about that frost-sweetened flavour, but they're a slow crop sown in early spring. Nothing to be done for this year — but pencil them in, because a home-grown parsnip is worth the wait.",
     href: "/crops/parsnips",
+    img: uns("1741518009653-8c17d00345b8"),
+    imgAlt: "Freshly pulled parsnips",
+    seedUrl: suttons("parsnip+seeds"),
   },
   {
     name: "Red cabbage",
@@ -145,6 +193,9 @@ export const CHRISTMAS_PLATE: ChristmasCrop[] = [
     startVerb: "Sow",
     note: "That jewel-dark braised cabbage starts life in a spring seed tray. Too late to begin now, so buy a firm one this year and put a reminder in for April.",
     href: "/crops/cabbage",
+    img: uns("1772102501296-f50ad1be8d30"),
+    imgAlt: "A red cabbage",
+    seedUrl: suttons("red+cabbage+seeds"),
   },
 ];
 

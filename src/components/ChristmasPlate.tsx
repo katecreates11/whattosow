@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
+import { awinLink } from "@/lib/awin";
 import {
   CHRISTMAS_PLATE,
-  daysToChristmas,
   daysToStart,
   plateStatus,
   type ChristmasCrop,
@@ -11,6 +12,7 @@ import {
 } from "@/data/christmas-plate";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const AMAZON_TAG = "whattosow21-21";
 
 // Dark labels + a colour-coded dot keeps every pill above WCAG AA on the tint.
 const STATUS: Record<PlateStatus, { label: string; dot: string; bg: string; border: string }> = {
@@ -26,6 +28,22 @@ function startByLabel(crop: ChristmasCrop): string | null {
   return `${crop.startVerb} by ${crop.startBy.day} ${MONTHS[crop.startBy.month - 1]}`;
 }
 
+// Wrap a raw merchant URL for tracking (mirrors AffiliateLink, client-safe).
+function track(url: string): string {
+  if (url.includes("amazon.")) return url.includes("tag=") ? url : `${url}${url.includes("?") ? "&" : "?"}tag=${AMAZON_TAG}`;
+  return awinLink(url);
+}
+function merchantOf(url: string): string {
+  if (url.includes("amazon.")) return "amazon";
+  if (url.includes("suttons")) return "suttons";
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").split(".")[0];
+  } catch {
+    return "other";
+  }
+}
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
 type Row = { crop: ChristmasCrop; status: PlateStatus; left: number | null };
 
 export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
@@ -33,10 +51,8 @@ export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
   const [onlyDoable, setOnlyDoable] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
 
-  const days = daysToChristmas(now);
-
-  // Build rows, then split into three groups. "Plant now" is sorted by urgency —
-  // the tightest window first — so the thing to do today sits at the very top.
+  // "Plant now" is sorted by urgency — tightest window first — so the job to do
+  // today sits at the very top.
   const { plantNow, anytime, notThisYear } = useMemo(() => {
     const rows: Row[] = CHRISTMAS_PLATE.map((crop) => ({
       crop,
@@ -63,26 +79,9 @@ export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
         @media (prefers-reduced-motion: reduce) { .plate-rise { animation: none; } }
       `}</style>
 
-      {/* Countdown */}
-      <div className="plate-rise text-center">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-earth-light">
-          A What To Sow countdown
-        </p>
-        <p className="mt-5 font-serif leading-none text-earth">
-          <span className="block text-lg text-earth-light">Christmas dinner is</span>
-          <span
-            className="my-2 block text-7xl text-rust sm:text-8xl"
-            style={{ textShadow: "0 1px 0 rgba(212,148,58,0.35)" }}
-          >
-            {days}
-          </span>
-          <span className="block text-lg text-earth-light">{days === 1 ? "day" : "days"}&nbsp;away</span>
-        </p>
-      </div>
-
       {/* The single most pressing job — a mono ticker, Graza-style */}
       {lead && (
-        <div className="plate-rise mx-auto mt-8 flex max-w-xl items-center justify-center gap-3 rounded-full border border-allotment/25 bg-allotment-bg px-5 py-2.5 text-center">
+        <div className="plate-rise mx-auto flex max-w-xl items-center justify-center gap-3 rounded-full border border-allotment/25 bg-allotment-bg px-5 py-2.5 text-center">
           <span className="h-2 w-2 shrink-0 rounded-full bg-allotment" aria-hidden />
           <span className="font-mono text-[0.72rem] uppercase tracking-[0.15em] text-earth">
             Do this now · {lead.crop.startVerb} {lead.crop.name} by{" "}
@@ -93,7 +92,7 @@ export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
       )}
 
       {/* Filter toggle — a quiet text switch, not a control styled as a control */}
-      <div className="mt-8 flex items-center justify-center gap-1 font-mono text-[0.72rem] uppercase tracking-wider">
+      <div className="mt-7 flex items-center justify-center gap-1 font-mono text-[0.72rem] uppercase tracking-wider">
         {[
           { key: false, label: "The whole plate" },
           { key: true, label: "Only what I can still grow" },
@@ -113,7 +112,7 @@ export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
 
       {/* PLANT NOW — the actionable stuff, most urgent first */}
       {plantNow.length > 0 && (
-        <div className="mt-14">
+        <div className="mt-12">
           <SectionHead
             eyebrow="Start these first"
             title="Plant now"
@@ -205,6 +204,50 @@ function SectionHead({ eyebrow, title, note }: { eyebrow: string; title: string;
   );
 }
 
+function AffiliateRow({ crop }: { crop: ChristmasCrop }) {
+  const product = slugify(crop.name);
+  return (
+    <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+      {crop.seedUrl && (
+        <a
+          href={track(crop.seedUrl)}
+          target="_blank"
+          rel="sponsored noopener"
+          data-umami-event="affiliate-click"
+          data-umami-event-product={product}
+          data-umami-event-merchant={merchantOf(crop.seedUrl)}
+          data-umami-event-type="christmas-seed"
+          className="inline-flex items-center gap-1.5 rounded-full bg-allotment px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-cream transition-colors hover:bg-allotment-dark"
+        >
+          Buy the seeds →
+        </a>
+      )}
+      {crop.kit && (
+        <a
+          href={track(crop.kit.url)}
+          target="_blank"
+          rel="sponsored noopener"
+          data-umami-event="affiliate-click"
+          data-umami-event-product={product}
+          data-umami-event-merchant={merchantOf(crop.kit.url)}
+          data-umami-event-type="christmas-kit"
+          className="font-mono text-[0.7rem] uppercase tracking-wider text-earth-light underline decoration-earth/20 transition-colors hover:text-earth"
+        >
+          {crop.kit.label} →
+        </a>
+      )}
+      {crop.href && (
+        <a
+          href={crop.href}
+          className="font-mono text-[0.7rem] uppercase tracking-wider text-rust underline decoration-rust/30 transition-colors hover:text-earth"
+        >
+          How to grow it →
+        </a>
+      )}
+    </div>
+  );
+}
+
 function PlateCard({
   row,
   isOpen,
@@ -226,16 +269,36 @@ function PlateCard({
 
   return (
     <div
-      className={`plate-rise rounded-2xl border bg-cream/60 ${s.border} ${
+      className={`plate-rise overflow-hidden rounded-2xl border bg-cream/60 ${s.border} ${
         featured ? "shadow-[0_3px_28px_-10px_rgba(59,47,40,0.4)]" : ""
       } ${className}`}
       style={{ animationDelay: `${delay}s` }}
     >
+      {featured && crop.img && (
+        <div className="relative h-48 w-full sm:h-60">
+          <Image
+            src={crop.img}
+            alt={crop.imgAlt ?? crop.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-earth/20 to-transparent" aria-hidden />
+        </div>
+      )}
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
         className="flex w-full items-start gap-4 p-4 text-left sm:p-5"
       >
+        {!featured &&
+          (crop.img ? (
+            <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl sm:h-24 sm:w-24">
+              <Image src={crop.img} alt={crop.imgAlt ?? crop.name} fill sizes="96px" className="object-cover" />
+            </div>
+          ) : (
+            <div className="h-20 w-20 shrink-0 rounded-xl bg-sage/50 sm:h-24 sm:w-24" aria-hidden />
+          ))}
         <div className="min-w-0 flex-1">
           <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-earth-light">
             {crop.role}
@@ -270,14 +333,7 @@ function PlateCard({
           <p className={`max-w-prose leading-relaxed text-earth ${featured ? "text-base" : "text-[0.95rem]"}`}>
             {crop.note}
           </p>
-          {crop.href && (
-            <a
-              href={crop.href}
-              className="mt-3 inline-block font-mono text-[0.72rem] uppercase tracking-wider text-rust underline decoration-rust/30 transition-colors hover:text-earth"
-            >
-              How to grow it →
-            </a>
-          )}
+          <AffiliateRow crop={crop} />
         </div>
       )}
     </div>
