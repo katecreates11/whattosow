@@ -16,7 +16,7 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const STATUS: Record<PlateStatus, { label: string; dot: string; bg: string; border: string }> = {
   "start-now": { label: "Still time", dot: "bg-allotment", bg: "bg-allotment-bg", border: "border-allotment/25" },
   closing: { label: "Window closing", dot: "bg-amber", bg: "bg-amber-bg", border: "border-amber/40" },
-  "too-late": { label: "Missed for this year", dot: "bg-rust", bg: "bg-tomato-bg", border: "border-rust/30" },
+  "too-late": { label: "Just missed", dot: "bg-rust", bg: "bg-tomato-bg", border: "border-rust/30" },
   always: { label: "Any time, indoors", dot: "bg-frost", bg: "bg-frost-bg", border: "border-frost/30" },
   "next-year": { label: "One for spring", dot: "bg-earth-light", bg: "bg-cream", border: "border-earth/10" },
 };
@@ -26,66 +26,84 @@ function startByLabel(crop: ChristmasCrop): string | null {
   return `${crop.startVerb} by ${crop.startBy.day} ${MONTHS[crop.startBy.month - 1]}`;
 }
 
+type Row = { crop: ChristmasCrop; status: PlateStatus; left: number | null };
+
 export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
   const now = useMemo(() => new Date(nowISO), [nowISO]);
   const [onlyDoable, setOnlyDoable] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
 
   const days = daysToChristmas(now);
-  const rows = useMemo(
-    () =>
-      CHRISTMAS_PLATE.map((crop) => ({ crop, status: plateStatus(crop, now) })).filter(
-        (r) => !onlyDoable || r.status !== "next-year",
-      ),
-    [now, onlyDoable],
-  );
 
-  const showstopper = rows.find((r) => r.crop.showstopper);
-  const rest = rows.filter((r) => !r.crop.showstopper);
-  const thisYear = rest.filter((r) => r.status !== "next-year");
-  const spring = rest.filter((r) => r.status === "next-year");
+  // Build rows, then split into three groups. "Plant now" is sorted by urgency —
+  // the tightest window first — so the thing to do today sits at the very top.
+  const { plantNow, anytime, notThisYear } = useMemo(() => {
+    const rows: Row[] = CHRISTMAS_PLATE.map((crop) => ({
+      crop,
+      status: plateStatus(crop, now),
+      left: daysToStart(crop, now),
+    }));
+    const plantNow = rows
+      .filter((r) => r.status === "start-now" || r.status === "closing")
+      .sort((a, b) => (a.left ?? 9999) - (b.left ?? 9999));
+    const anytime = rows.filter((r) => r.status === "always");
+    const notThisYear = rows.filter((r) => r.status === "next-year" || r.status === "too-late");
+    return { plantNow, anytime, notThisYear };
+  }, [now]);
+
+  const lead = plantNow[0];
+  const restNow = plantNow.slice(1);
+  const toggle = (name: string) => setOpen(open === name ? null : name);
 
   return (
     <section className="mx-auto max-w-3xl px-5">
       <style>{`
-        @keyframes plate-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+        @keyframes plate-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
         .plate-rise { animation: plate-rise 0.6s cubic-bezier(0.2,0.7,0.2,1) both; }
         @media (prefers-reduced-motion: reduce) { .plate-rise { animation: none; } }
       `}</style>
 
       {/* Countdown */}
       <div className="plate-rise text-center">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-earth-light">
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-earth-light">
           A What To Sow countdown
         </p>
-        <p className="mt-4 font-serif text-earth">
+        <p className="mt-5 font-serif leading-none text-earth">
           <span className="block text-lg text-earth-light">Christmas dinner is</span>
           <span
-            className="my-1 block text-6xl leading-none text-rust sm:text-7xl"
+            className="my-2 block text-7xl text-rust sm:text-8xl"
             style={{ textShadow: "0 1px 0 rgba(212,148,58,0.35)" }}
           >
             {days}
           </span>
-          <span className="block text-lg text-earth-light">
-            {days === 1 ? "day" : "days"}&nbsp;away — here&rsquo;s what you can still grow for the table
-          </span>
+          <span className="block text-lg text-earth-light">{days === 1 ? "day" : "days"}&nbsp;away</span>
         </p>
       </div>
+
+      {/* The single most pressing job — a mono ticker, Graza-style */}
+      {lead && (
+        <div className="plate-rise mx-auto mt-8 flex max-w-xl items-center justify-center gap-3 rounded-full border border-allotment/25 bg-allotment-bg px-5 py-2.5 text-center">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-allotment" aria-hidden />
+          <span className="font-mono text-[0.72rem] uppercase tracking-[0.15em] text-earth">
+            Do this now · {lead.crop.startVerb} {lead.crop.name} by{" "}
+            {lead.crop.startBy!.day} {MONTHS[lead.crop.startBy!.month - 1]}
+            {lead.left !== null ? ` · ${lead.left} days left` : ""}
+          </span>
+        </div>
+      )}
 
       {/* Filter toggle — a quiet text switch, not a control styled as a control */}
       <div className="mt-8 flex items-center justify-center gap-1 font-mono text-[0.72rem] uppercase tracking-wider">
         {[
           { key: false, label: "The whole plate" },
-          { key: true, label: "What I can still grow" },
+          { key: true, label: "Only what I can still grow" },
         ].map((opt) => (
           <button
             key={String(opt.key)}
             onClick={() => setOnlyDoable(opt.key)}
             aria-pressed={onlyDoable === opt.key}
-            className={`rounded-full px-3 py-1.5 transition-colors ${
-              onlyDoable === opt.key
-                ? "bg-earth text-cream"
-                : "text-earth-light hover:text-earth"
+            className={`rounded-full px-3.5 py-1.5 transition-colors ${
+              onlyDoable === opt.key ? "bg-earth text-cream" : "text-earth-light hover:text-earth"
             }`}
           >
             {opt.label}
@@ -93,49 +111,79 @@ export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
         ))}
       </div>
 
-      {/* The showstopper, featured larger */}
-      {showstopper && (
-        <PlateCard
-          className="mt-8"
-          featured
-          row={showstopper}
-          isOpen={open === showstopper.crop.name}
-          onToggle={() => setOpen(open === showstopper.crop.name ? null : showstopper.crop.name)}
-          delay={0}
-        />
+      {/* PLANT NOW — the actionable stuff, most urgent first */}
+      {plantNow.length > 0 && (
+        <div className="mt-14">
+          <SectionHead
+            eyebrow="Start these first"
+            title="Plant now"
+            note="Ordered by how soon the window shuts — the top one is the most pressing."
+          />
+          {lead && (
+            <PlateCard
+              className="mt-6"
+              featured
+              row={lead}
+              isOpen={open === lead.crop.name}
+              onToggle={() => toggle(lead.crop.name)}
+              delay={0}
+            />
+          )}
+          {restNow.length > 0 && (
+            <ol className="mt-3 space-y-3">
+              {restNow.map((row, i) => (
+                <li key={row.crop.name}>
+                  <PlateCard
+                    row={row}
+                    isOpen={open === row.crop.name}
+                    onToggle={() => toggle(row.crop.name)}
+                    delay={0.05 * (i + 1)}
+                  />
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
       )}
 
-      {/* This year's plate */}
-      {thisYear.length > 0 && (
-        <ol className="mt-4 space-y-3">
-          {thisYear.map((row, i) => (
-            <li key={row.crop.name}>
-              <PlateCard
-                row={row}
-                isOpen={open === row.crop.name}
-                onToggle={() => setOpen(open === row.crop.name ? null : row.crop.name)}
-                delay={0.05 * (i + 1)}
-              />
-            </li>
-          ))}
-        </ol>
-      )}
-
-      {/* Honest footnote: the ones you can't rush */}
-      {spring.length > 0 && (
-        <div className="mt-10 plate-rise">
-          <h2 className="font-serif text-xl text-earth">Not this year — but worth the wait</h2>
-          <p className="mt-1 text-sm text-earth-light">
-            The classics of the Christmas plate are slow growers, sown back in spring. Buy these
-            in this year, and pencil them into the seed box for next.
-          </p>
-          <ol className="mt-4 space-y-3">
-            {spring.map((row, i) => (
+      {/* ANY TIME — the windowsill jobs */}
+      {anytime.length > 0 && (
+        <div className="mt-14">
+          <SectionHead
+            eyebrow="No rush"
+            title="Any time, on the windowsill"
+            note="A bright sill and a fortnight is all these need — do them whenever."
+          />
+          <ol className="mt-6 space-y-3">
+            {anytime.map((row, i) => (
               <li key={row.crop.name}>
                 <PlateCard
                   row={row}
                   isOpen={open === row.crop.name}
-                  onToggle={() => setOpen(open === row.crop.name ? null : row.crop.name)}
+                  onToggle={() => toggle(row.crop.name)}
+                  delay={0.05 * (i + 1)}
+                />
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {/* NOT THIS YEAR — the honest bit */}
+      {!onlyDoable && notThisYear.length > 0 && (
+        <div className="mt-14">
+          <SectionHead
+            eyebrow="Worth the wait"
+            title="Not this year"
+            note="The classics of the plate are slow, spring-sown crops. Buy these in this year, and pencil them into the seed box for next."
+          />
+          <ol className="mt-6 space-y-3">
+            {notThisYear.map((row, i) => (
+              <li key={row.crop.name}>
+                <PlateCard
+                  row={row}
+                  isOpen={open === row.crop.name}
+                  onToggle={() => toggle(row.crop.name)}
                   delay={0.05 * (i + 1)}
                 />
               </li>
@@ -147,6 +195,16 @@ export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
   );
 }
 
+function SectionHead({ eyebrow, title, note }: { eyebrow: string; title: string; note: string }) {
+  return (
+    <div className="plate-rise">
+      <p className="font-mono text-[0.66rem] uppercase tracking-[0.2em] text-allotment">{eyebrow}</p>
+      <h2 className="mt-2 font-serif text-3xl tracking-tight text-earth sm:text-4xl">{title}</h2>
+      <p className="mt-2 max-w-[54ch] text-earth-light leading-relaxed">{note}</p>
+    </div>
+  );
+}
+
 function PlateCard({
   row,
   isOpen,
@@ -155,23 +213,21 @@ function PlateCard({
   featured = false,
   className = "",
 }: {
-  row: { crop: ChristmasCrop; status: PlateStatus };
+  row: Row;
   isOpen: boolean;
   onToggle: () => void;
   delay: number;
   featured?: boolean;
   className?: string;
 }) {
-  const { crop, status } = row;
+  const { crop, status, left } = row;
   const s = STATUS[status];
   const startBy = startByLabel(crop);
-  const now = new Date();
-  const left = daysToStart(crop, now);
 
   return (
     <div
-      className={`plate-rise rounded-2xl border bg-cream/60 backdrop-blur-[1px] ${s.border} ${
-        featured ? "shadow-[0_2px_20px_-8px_rgba(59,47,40,0.35)]" : ""
+      className={`plate-rise rounded-2xl border bg-cream/60 ${s.border} ${
+        featured ? "shadow-[0_3px_28px_-10px_rgba(59,47,40,0.4)]" : ""
       } ${className}`}
       style={{ animationDelay: `${delay}s` }}
     >
@@ -184,12 +240,10 @@ function PlateCard({
           <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-earth-light">
             {crop.role}
           </p>
-          <h3
-            className={`mt-1 font-serif text-earth ${featured ? "text-2xl sm:text-3xl" : "text-xl"}`}
-          >
+          <h3 className={`mt-1 font-serif text-earth ${featured ? "text-3xl sm:text-4xl" : "text-xl"}`}>
             {crop.name}
           </h3>
-          <div className="mt-2 flex flex-wrap items-center gap-2">
+          <div className="mt-2.5 flex flex-wrap items-center gap-2">
             <span
               className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.7rem] font-medium text-earth ${s.bg} ${s.border}`}
             >
@@ -199,13 +253,13 @@ function PlateCard({
             {startBy && status !== "too-late" && (
               <span className="font-mono text-[0.7rem] uppercase tracking-wider text-earth-light">
                 {startBy}
-                {status === "closing" && left !== null && left >= 0 ? ` · ${left}d left` : ""}
+                {left !== null && left >= 0 ? ` · ${left}d left` : ""}
               </span>
             )}
           </div>
         </div>
         <span
-          className={`mt-1 shrink-0 text-earth-light transition-transform ${isOpen ? "rotate-45" : ""}`}
+          className={`mt-1 shrink-0 text-xl text-earth-light transition-transform ${isOpen ? "rotate-45" : ""}`}
           aria-hidden
         >
           +
@@ -213,7 +267,9 @@ function PlateCard({
       </button>
       {isOpen && (
         <div className="px-4 pb-5 sm:px-5">
-          <p className="max-w-prose text-[0.95rem] leading-relaxed text-earth">{crop.note}</p>
+          <p className={`max-w-prose leading-relaxed text-earth ${featured ? "text-base" : "text-[0.95rem]"}`}>
+            {crop.note}
+          </p>
           {crop.href && (
             <a
               href={crop.href}
