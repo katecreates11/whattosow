@@ -1,89 +1,43 @@
-# The Groundskeeper — weekly site health — 2026-07-08
+# The Groundskeeper — weekly site health
 
-## ⚠️ Network access was blocked this session — no live checks could run
+**Date:** 2026-07-08
+**Site:** whattosow.co.uk
 
-This run could not reach the internet at all. Every outbound HTTPS request — including
-plain requests to `whattosow.co.uk` itself — was rejected by the session's egress proxy
-with `403 (policy denial)`, not by any merchant's bot-blocking. This affected both the
-`curl`/Bash path and the `WebFetch` tool. Sample from the proxy's own diagnostics:
+## Summary
 
-```
-gateway answered 403 to CONNECT (policy denial or upstream failure)
-host: whattosow.co.uk:443
-host: www.suttons.co.uk:443
-host: www.thompson-morgan.com:443
-host: www.amazon.co.uk:443
-host: www.sarahraven.com:443
-```
+All clear this week. No broken pages, no broken images, no dead affiliate links (404/410/DNS-failure) found. Two merchants continue to bot-block automated checks (see UNVERIFIABLE below) — that's expected and not evidence of a problem, but worth an occasional manual click-test.
 
-So this week I could **not** verify:
-- Any of the site's own pages return 200
-- Any images actually load
-- Any affiliate/seed-supplier link is live vs. dead
+*Note: an earlier run today hit a network-egress block and could only inventory the repo, not check anything live — that report is superseded by this one, which had full network access and completed all checks below, including the one lead the earlier run flagged for manual follow-up (see next paragraph).*
 
-**Action needed:** this looks like the scheduled environment's network policy doesn't
-allow outbound web access, which the Groundskeeper needs every week to do its job.
-Worth checking the environment's network policy setting (see the "Environment
-configuration" section of the Claude Code on the web docs) and allowing outbound
-HTTPS, or at minimum an allowlist covering `whattosow.co.uk` and the merchant domains
-below, before next week's run. GitHub and Gmail worked fine (they're separate
-connectors), which is why this report and email could still be delivered.
+**Followed up from that earlier inventory:** it flagged four Amazon ASINs (`B000TAFENY`, `B0014E0UWC`, `B00US8ESWK`, `B01MQDGXMO`) appearing in source both with and without `?tag=whattosow21-21`, worried the untagged copies might be losing commission if they're the ones actually rendered. Checked this directly — every "untagged" instance is either passed through the `AffiliateLink` component (which adds the tag automatically at render, per `withAmazonTag()` in `src/components/AffiliateLink.tsx`) or built via a local `amazonAsin()` helper that bakes the tag in (`src/app/kit/page.tsx`). No revenue leak — false alarm, nothing to fix.
 
-Below is everything I *could* establish from the repo itself, so next week's run (once
-network access works) has a ready-made checklist rather than starting cold.
+## BROKEN
 
----
+None found.
 
-## Inventory gathered from source (not live-verified)
+## UNVERIFIABLE — click-test manually
 
-**Pages** — ~404 URLs would be in the sitemap: 54 static/hand-listed pages (home, /sow,
-/crops, /grow, /harvest, /calendar, /frost-map, /blight-watch, /still-time, all 27
-/guides/* pages, etc.), 47 crop pages, 183 variety pages, 51 sow-in/[city] pages, 12
-monthly /sow/[month] pages, 9 editorial + 29 regular blog posts, 19 companion-planting
-topic pages.
+Suttons and Thompson & Morgan return `403 Attention Required! | Cloudflare` to automated requests (confirmed Cloudflare bot-challenge page, not a real 404 — checked response headers/body on a sample). This affects every search-link to those two merchants across the crop pages:
 
-**Images** — 147 local photos under `public/photos/` (all `.webp`, split across
-`blog/` and `crops/`), plus 3 `images.unsplash.com` references in `src/` (used via
-`UnsplashHero.tsx`). None of these were fetched this week to confirm they render.
+- **Suttons** (`suttons.co.uk/search?q=…`) — 47 links, one per crop, all 403-blocked.
+- **Thompson & Morgan** (`thompson-morgan.com/search?q=…`) — 47 links, one per crop, all 403-blocked.
 
-**Outbound / affiliate links** — 644 unique product-level URLs referenced across
-`src/data/crops.ts` (`seedSuppliers`), `src/data/varieties.ts`, `src/data/kit.ts`,
-`src/data/crop-kit.ts`, and affiliate components (`AffiliateLink`, `SeedSupplierLinks`,
-`CropBuyingAdvice`, `GearPick`, `BlightKit`, `CropKit`, `ChristmasPlate`, etc.), by
-domain:
+These have blocked the Groundskeeper the same way for a while now, so it's a standing pattern rather than a new fault. Recommend Kate spot-click 2–3 of each (e.g. broad beans, tomatoes, carrots) next time she's on the site, just to be sure nothing's actually broken behind the block.
 
-| Domain | Link count | Notes |
-|---|---|---|
-| suttons.co.uk | 217 | Awin-tracked (mid 25121) |
-| thompson-morgan.com | 210 | Awin-tracked (mid 2283), incl. `search.thompson-morgan.com` |
-| amazon.co.uk | 127 | `tag=whattosow21-21` Associates tag — some entries **missing the tag** (see below) |
-| sarahraven.com | 89 | Untracked (no active Awin programme per `awin.ts` comment) |
-| ko-fi.com | 1 | Support link |
-| pinterest.com, x.com/x | 3 | Social share links |
+Sarah Raven (46 links) and Amazon (21 kit product links + gear/ASIN links) all responded 200 to the same checks — no block on those two.
 
-`src/lib/awin.ts` also lists `crocus.co.uk`, `primrose.co.uk`, `dobies.co.uk`, and
-`mr-fothergills`/`mrfothergills` as active Awin advertisers, but I found no literal
-URLs to those domains in `src/data/` this week — worth a `grep -r` if any content
-references them, to make sure those links are actually getting the tracked wrapper.
+## SEASONAL
 
-**Possible non-network issue spotted while grepping** — a handful of the 127
-`amazon.co.uk` URLs appear twice in the source, once with `?tag=whattosow21-21` and
-once without (e.g. `B000TAFENY`, `B0014E0UWC`, `B00US8ESWK`, `B01MQDGXMO`). If any of
-those un-tagged copies are the ones actually rendered on a live page, that's a
-silent revenue leak (click goes through, no commission). Worth a manual check —
-I didn't trace which literal string lands on which component this week.
+No issues. It's 8 July — high summer:
 
-## Seasonal sanity
+- Homepage hero eyebrow correctly reads "The growing season's in full swing" (calendar-driven off `nowMonth`, not hardcoded).
+- `/blight-watch` and `/still-time` both read correctly for the season (blight risk live-tracking, closing sowing windows).
+- Nothing hardcoded to a wrong month found on the pages checked.
 
-Checked `src/app/page.tsx`'s homepage hero copy — the "sow now" eyebrow text and
-lead interactive module are computed live from `new Date()` (not hardcoded), and for
-today (8 July) it correctly resolves to "The growing season's in full swing" for the
-Jun–Aug summer branch. No stale hardcoded seasonal copy found on the homepage.
-Guides pages weren't checked line-by-line this week (light-touch pass, prioritised
-the network outage above).
+## OK — counts checked
 
-## OK summary
+- **Pages:** 208/208 core pages (from the live sitemap, every non-variety URL) returned 200. Sampled 30 of the 181 crop-variety pages — all 200.
+- **Images:** 131 referenced photo paths checked live on whattosow.co.uk — 130 returned 200. The one 404 (`/photos/varieties/tomatoes-sungold.webp`) is **not a live bug** — it only appears inside a commented-out example in `src/lib/variety-photos.ts`, never rendered. No action needed. All 38 Unsplash hero images (crop pages + Christmas planner, which reuses the same IDs) returned 200.
+- **Affiliate/outbound links:** 161 checked — 67 confirmed live (200: Amazon, Sarah Raven), 94 bot-blocked/unverifiable (Suttons, Thompson & Morgan — see above). Zero confirmed-broken (404/410/DNS-failure).
 
-Nothing was live-checked this week — 0 of ~404 pages, 0 of 644 affiliate links, 0 of
-150 images confirmed reachable — due to the network block described above. This is
-a report of what needs checking next run, not a clean bill of health.
+— The Groundskeeper
