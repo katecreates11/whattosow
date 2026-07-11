@@ -70,7 +70,7 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 4. "Grow your Christmas dinner" — a backward-planner from 25 December
 - **Type:** feature  _(→ needs-spec on approval)_
-- **Status:** approved
+- **Status:** done — already built and LIVE at /grow-your-christmas-dinner (shipped 8 Jul, before this approval). Night Gardener: do not rebuild.
 - **Decided:** 2026-07-11 · via the potting bench
 - **Note (Kate):** We’ve done this! Built it as the test.
 - **Score:** High payoff / High effort
