@@ -81,7 +81,9 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 5. The Glut-o-meter — "drowning in courgettes?"
 - **Type:** feature
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-11 · via the potting bench
+- **Note (Kate):** Yes, this sounds great! I think it should have a visual like it’s weighing your harvest up
 - **Score:** High payoff / Medium effort · high delight + shareability
 - **Evidence:** August is peak "glut month" across every UK source — tomatoes, courgettes, beans and cucumbers all at once. WTS has a `dealing-with-the-glut` guide, but it's static prose. This is the single most *relatable* moment of the veg year and it's happening **now** — perfect for something playful.
 - **Pitch:** A cheerful interactive: pick what you're buried under and roughly how much, and it triages your haul — eat now / freeze / preserve / give away — with real quantities, quick methods, and kit links (maslin pan, freezer bags, dehydrator). A rising "glut level" meter with personality. Genuinely screenshot-worthy ("I have 3kg of courgettes, send help") and it turns a static guide into a tool people share and come back to. Commerce rides along naturally via the kit links.
