@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
 import { assessHutton, type BlightLevel } from "@/lib/blight";
@@ -35,23 +36,23 @@ function CoverCard() {
   return (
     <div className="border border-earth/10 bg-leaf-bg p-5">
       <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-allotment mb-3">
-        Keep the leaves dry
+        Worth buying now
       </h3>
       <p className="text-sm text-earth-light leading-relaxed mb-3">
         Blight needs wet leaves to take hold. Growing under cover is the single
         biggest protection; outdoors, a fleece over the plants through a warm,
-        humid spell buys you time.
+        humid spell buys you time. This is protection, not a cure.
       </p>
       <ul className="space-y-1.5 text-sm">
         <li>
-          <a href="/blog/best-polytunnels-uk" className={linkCls}>
+          <Link href="/blog/best-polytunnels-uk" className={linkCls}>
             Polytunnels — the options &rarr;
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/blog/best-cold-frames-greenhouses-uk" className={linkCls}>
+          <Link href="/blog/best-cold-frames-greenhouses-uk" className={linkCls}>
             Greenhouses &amp; cold frames &rarr;
-          </a>
+          </Link>
         </li>
         <li>
           <AffiliateLink
@@ -59,9 +60,10 @@ function CoverCard() {
             product="frost protection fleece"
             type="gear"
             merchant="suttons"
+            position="blight-defence-kit"
             className={linkCls}
           >
-            Frost protection fleece &rarr;
+            Check fleece for a humid week &rarr;
           </AffiliateLink>
         </li>
       </ul>
@@ -73,7 +75,7 @@ function SeedsCard() {
   return (
     <div className="border border-earth/10 bg-amber-bg p-5">
       <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-amber-dark mb-3">
-        Grow something tougher
+        Plan for next season
       </h3>
       <p className="text-sm text-earth-light leading-relaxed mb-3">
         The surest long game is a variety bred to shrug blight off — they keep
@@ -88,6 +90,7 @@ function SeedsCard() {
             product="grafted Crimson Crush tomato plant"
             type="seed"
             merchant="suttons"
+            position="blight-defence-kit"
             className={linkCls}
           >
             Grafted Crimson Crush plants (this year) &rarr;
@@ -99,6 +102,7 @@ function SeedsCard() {
             product="Crimson Crush tomato seeds"
             type="seed"
             merchant="suttons"
+            position="blight-defence-kit"
             className={linkCls}
           >
             Crimson Crush tomato seeds (next year) &rarr;
@@ -110,6 +114,7 @@ function SeedsCard() {
             product="Sarpo Mira seed potatoes"
             type="seed"
             merchant="suttons"
+            position="blight-defence-kit"
             className={linkCls}
           >
             Sarpo Mira seed potatoes &rarr;

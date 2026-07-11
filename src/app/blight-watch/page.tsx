@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import BlightMapLoader from "@/components/BlightMapLoader";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -100,14 +101,14 @@ export default function BlightWatchPage() {
                   </h3>
                   <ul className="space-y-2.5 text-sm text-earth-light leading-relaxed">
                     <li><strong className="text-earth">Grow tomatoes under cover.</strong> A{" "}
-                      <a href="/blog/best-cold-frames-greenhouses-uk" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">greenhouse</a>{" "}or{" "}
-                      <a href="/blog/best-polytunnels-uk" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">polytunnel</a>{" "}keeps the leaves dry — the single biggest protection. Outdoor tomatoes are most at risk.</li>
+                      <Link href="/blog/best-cold-frames-greenhouses-uk" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">greenhouse</Link>{" "}or{" "}
+                      <Link href="/blog/best-polytunnels-uk" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">polytunnel</Link>{" "}keeps the leaves dry — the single biggest protection. Outdoor tomatoes are most at risk.</li>
                     <li><strong className="text-earth">Choose resistant varieties.</strong> Some tomatoes and potatoes are bred to shrug blight off —{" "}
                       <a href="#resistant-varieties" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">see the ones worth growing &darr;</a></li>
                     <li><strong className="text-earth">Give them air.</strong> Space plants well, strip the lower leaves, and tie tomatoes up off the ground with{" "}
-                      <AffiliateLink href="https://www.amazon.co.uk/s?k=garden+plant+support+stakes+and+ties" product="plant supports and ties" type="gear" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">stakes and soft ties</AffiliateLink>{" "}so the breeze moves through.</li>
+                      <AffiliateLink href="https://www.amazon.co.uk/s?k=garden+plant+support+stakes+and+ties" product="plant supports and ties" type="gear" position="blight-inline-prevention" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">stakes and soft ties</AffiliateLink>{" "}so the breeze moves through.</li>
                     <li><strong className="text-earth">Water the soil, not the leaves</strong> — and in the morning, so any splashes dry fast. A{" "}
-                      <AffiliateLink href="https://www.amazon.co.uk/s?k=soaker+hose+garden" product="soaker hose" type="gear" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">soaker hose</AffiliateLink>{" "}waters at the roots and keeps foliage dry.</li>
+                      <AffiliateLink href="https://www.amazon.co.uk/s?k=soaker+hose+garden" product="soaker hose" type="gear" position="blight-inline-prevention" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">soaker hose</AffiliateLink>{" "}waters at the roots and keeps foliage dry.</li>
                     <li><strong className="text-earth">Grow earlies and lift early.</strong> First and second early potatoes harvested before the August peak often dodge it altogether.</li>
                   </ul>
                 </div>
@@ -119,7 +120,7 @@ export default function BlightWatchPage() {
                     <li><strong className="text-earth">Act the same day.</strong> Remove affected leaves the moment you spot the brown, water-soaked patches.</li>
                     <li><strong className="text-earth">Bin them — never compost.</strong> The spores survive a compost heap; bag them or burn them.</li>
                     <li><strong className="text-earth">On potatoes, cut the lot.</strong> The second blight hits the foliage, cut off and clear all the haulm — it stops spores washing down to the tubers. A sharp pair of{" "}
-                      <AffiliateLink href="https://www.amazon.co.uk/s?k=garden+secateurs" product="garden secateurs" type="gear" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">secateurs</AffiliateLink>{" "}makes short work of it.</li>
+                      <AffiliateLink href="https://www.amazon.co.uk/s?k=garden+secateurs" product="garden secateurs" type="gear" position="blight-inline-response" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">secateurs</AffiliateLink>{" "}makes short work of it.</li>
                     <li><strong className="text-earth">Then wait to lift.</strong> Leave potatoes 2–3 weeks after cutting back so the skins set before you dig.</li>
                     <li><strong className="text-earth">Don&apos;t count on sprays.</strong> The old copper fungicides are largely off the shelves for home growers now — prevention is the real tool.</li>
                   </ul>
@@ -131,6 +132,8 @@ export default function BlightWatchPage() {
                 </a>
               </p>
             </section>
+
+            <BlightKit />
 
             {/* The resistant-variety table — the surest long-term defence */}
             <section id="resistant-varieties" className="mt-12 scroll-mt-24">
@@ -165,6 +168,7 @@ export default function BlightWatchPage() {
                             product={`${v.name} ${v.crop === "Tomato" ? "tomato seeds" : "seed potatoes"}`}
                             type="seed"
                             merchant="suttons"
+                            position="blight-resistant-varieties"
                             className="font-mono text-[11px] uppercase tracking-[0.06em] text-rust hover:text-earth transition-colors border-b border-rust/40"
                           >
                             {v.crop === "Tomato" ? "Seeds" : "Seed potatoes"} &rarr;
@@ -181,8 +185,6 @@ export default function BlightWatchPage() {
                 carry you through most summers.
               </p>
             </section>
-
-            <BlightKit />
 
             <div className="mt-10 mesh-ochre px-6 py-6 text-sm text-earth-light space-y-3">
               <p>
