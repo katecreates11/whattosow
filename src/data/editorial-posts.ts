@@ -702,12 +702,6 @@ export const editorialPosts: EditorialPost[] = [
             caption: "Gentle enough for seed trays",
             aspect: "square",
           },
-          {
-            src: "/photos/blog/watering-lance-resting-tomato-bed.webp",
-            alt: "The watering lance resting across the tomato bed between waterings, marigolds around it",
-            caption: "Off duty, between beds",
-            aspect: "square",
-          },
         ],
       },
       {
@@ -718,13 +712,6 @@ export const editorialPosts: EditorialPost[] = [
         productUrl: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21",
         productBadge: "our-pick",
         caption: "The reach is the thing — the back of the bed, under the leaves, without trampling a single plant.",
-      },
-      {
-        type: "image",
-        content: "",
-        src: "/photos/blog/shed-water-butt.webp",
-        alt: "The black shed with a blue water butt plumbed off its roof",
-        caption: "The shed roof feeds the water butt — every downpour banked for a dry week.",
       },
       {
         type: "text",
