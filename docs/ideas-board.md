@@ -37,7 +37,9 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 1. Autumn-planting garlic & onions — a "plan & order now" hub
 - **Type:** monetisation
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-11 · via the potting bench
+- **Note (Kate):** This is great, a good focus on getting those affiliate clicks as well as useful content.
 - **Score:** High payoff / Low–medium effort
 - **Evidence:** UK suppliers (D.T. Brown, Dobies, Mr Fothergill's, Suttons) open autumn-allium **pre-orders late July–August**, sets shipping from September for Oct–Nov planting. Autumn-planted garlic/onions crop ~4 weeks earlier and bigger. Buy-intent + timing sweet spot happening **right now**, and WTS is already Awin-linked to Suttons and Dobies. There's a `growing-onions-garlic-leeks` guide but no timely "order your autumn sets now" piece.
 - **Pitch:** A short seasonal hub — why autumn planting gives bigger, earlier bulbs; the ordering window (now); a variety shortlist (hardneck vs softneck garlic, autumn onion/shallot sets) with real Awin links to Suttons/Dobies sets; when they arrive, when to plant. Slots into the existing alliums guide and the /sow autumn story. Catches the pre-order wave before competitors' evergreen pages reassert.
