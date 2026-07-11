@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, WateringCanIcon, ColorSection } from "@/components/GuideVisuals";
-import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
-import AffiliateLink from "@/components/AffiliateLink";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, ColorSection } from "@/components/GuideVisuals";
+import WateringBuyerNote from "@/components/WateringBuyerNote";
 
 export const metadata: Metadata = {
   title:
@@ -210,38 +210,9 @@ export default function WateringGuide() {
               <p className="text-sm text-earth-light leading-relaxed max-w-[60ch]">
                 The easiest way to get that soak down to the roots rather than the leaves is a long watering
                 lance &mdash; it reaches the back of the bed and in under the foliage without you trampling a
-                thing. I use the{" "}
-                <AffiliateLink href="https://www.amazon.co.uk/dp/B01MQDGXMO" product="Gardena watering lance" type="gear" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">Gardena lance</AffiliateLink>
-                {" "}&mdash;{" "}
-                <a href="/blog/watering-lance-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">here&apos;s why I love it &rarr;</a>
+                thing. I use a long Gardena lance;{" "}
+                <Link href="/blog/watering-lance-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">here&apos;s my allotment review &rarr;</Link>
               </p>
-            </div>
-
-            {/* Mid-content kit CTA — the buy-points where intent is highest */}
-            <div className="mt-6 bg-frost-bg rounded-xl p-5 sm:p-6">
-              <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-frost mb-1">
-                The kit that makes it easy
-              </h3>
-              <p className="text-sm text-earth-light mb-4 max-w-[58ch]">
-                A proper soak takes seconds with the right tool. These three earn their keep all summer:
-              </p>
-              <div className="grid sm:grid-cols-3 gap-3">
-                <AffiliateLink href="https://www.amazon.co.uk/dp/B01MQDGXMO" product="Gardena watering lance" type="gear" className="group block border border-earth/10 bg-white p-3.5 hover:border-earth/25 transition-colors">
-                  <span className="font-serif text-earth block leading-tight">Watering lance</span>
-                  <span className="text-xs text-earth-lighter">Deep soak, no trampling</span>
-                  <span className="block mt-1.5 font-mono text-[10px] uppercase tracking-wide text-rust group-hover:text-earth transition-colors">View &rarr;</span>
-                </AffiliateLink>
-                <AffiliateLink href="https://www.amazon.co.uk/dp/B0014E0UWC" product="Haws 8.8L watering can" type="gear" className="group block border border-earth/10 bg-white p-3.5 hover:border-earth/25 transition-colors">
-                  <span className="font-serif text-earth block leading-tight">Haws watering can</span>
-                  <span className="text-xs text-earth-lighter">A lifetime can, fine rose</span>
-                  <span className="block mt-1.5 font-mono text-[10px] uppercase tracking-wide text-rust group-hover:text-earth transition-colors">View &rarr;</span>
-                </AffiliateLink>
-                <AffiliateLink href="https://www.amazon.co.uk/dp/B000TAFENY" product="Hozelock soaker hose" type="gear" className="group block border border-earth/10 bg-white p-3.5 hover:border-earth/25 transition-colors">
-                  <span className="font-serif text-earth block leading-tight">Soaker hose</span>
-                  <span className="text-xs text-earth-lighter">Waters the roots while you&apos;re away</span>
-                  <span className="block mt-1.5 font-mono text-[10px] uppercase tracking-wide text-rust group-hover:text-earth transition-colors">View &rarr;</span>
-                </AffiliateLink>
-              </div>
             </div>
           </section>
 
@@ -261,17 +232,16 @@ export default function WateringGuide() {
               <div className="border-t border-earth/10 pt-5 pb-2">
                 <h3 className="font-serif text-earth text-lg mb-1.5">Thirsty crops</h3>
                 <p className="text-sm">
-                  <a href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">Tomatoes</a>,{" "}
-                  <a href="/crops/courgette" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">courgettes</a>,{" "}
-                  <a href="/crops/runner-beans" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">runner beans</a>,{" "}
-                  <a href="/crops/cucumber" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">cucumbers</a>,
+                  <Link href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">Tomatoes</Link>,{" "}
+                  <Link href="/crops/courgette" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">courgettes</Link>,{" "}
+                  <Link href="/crops/runner-beans" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">runner beans</Link>,{" "}
+                  <Link href="/crops/cucumber" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">cucumbers</Link>,
                   and celery. These need consistent, deep watering throughout
                   the growing season, especially once they start flowering and
                   fruiting. Tomatoes in particular &mdash; irregular watering
                   is the number one cause of blossom end rot and split fruit, so
-                  consistency matters: a{" "}
-                  <AffiliateLink href="https://www.amazon.co.uk/dp/B000TAFENY" product="Hozelock soaker hose" type="gear" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">soaker hose</AffiliateLink>{" "}
-                  along the row keeps them evenly watered even when you can&apos;t get to the plot.
+                  consistency matters. Water deeply at the base whenever the
+                  soil starts to dry below the surface.
                 </p>
               </div>
 
@@ -324,7 +294,7 @@ export default function WateringGuide() {
               Water them in thoroughly when you plant them out, then keep the
               soil moist for the first week or two while roots establish. After
               that, gradually reduce frequency. See our{" "}
-              <a href="/guides/seed-starting" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seed starting guide</a>{" "}
+              <Link href="/guides/seed-starting" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seed starting guide</Link>{" "}
               for more on raising strong seedlings.
             </WarningBox>
           </section>
@@ -354,7 +324,7 @@ export default function WateringGuide() {
                 evaporation. Mulched soil stays moist for days longer. It&apos;s
                 free if you use your own compost or grass clippings, and it
                 improves the{" "}
-                <a href="/guides/soil" className="text-cream underline decoration-cream/30 hover:text-white">soil</a>{" "}
+                <Link href="/guides/soil" className="text-cream underline decoration-cream/30 hover:text-white">soil</Link>{" "}
                 as it breaks down. Apply it after watering, once the soil is
                 already moist.
               </p>
@@ -369,7 +339,7 @@ export default function WateringGuide() {
             <div className="space-y-3">
               <p>
                 A basic{" "}
-                <a href="/blog/best-water-butts-uk" className="text-rust underline decoration-rust/30 hover:text-earth">200-litre water butt</a>{" "}
+                <Link href="/blog/best-water-butts-uk" className="text-rust underline decoration-rust/30 hover:text-earth">200-litre water butt</Link>{" "}
                 costs &pound;25&ndash;40 and
                 connects to the downpipe of any shed, greenhouse, or polytunnel
                 roof. Rainwater is actually better for plants than tap water
@@ -486,90 +456,12 @@ export default function WateringGuide() {
             </ul>
             <p className="mt-4 text-sm">
               For a full rundown of what to keep on your plot, see our{" "}
-              <a href="/guides/allotment-essentials" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">allotment kit guide</a>.
+              <Link href="/guides/allotment-essentials" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">allotment kit guide</Link>.
             </p>
           </section>
 
           <SectionDivider label="Equipment" />
-
-          {/* Watering equipment */}
-          <section>
-            <h2 className="text-2xl sm:text-3xl font-serif text-earth mb-4 tracking-tight">
-              Watering kit that&apos;s actually worth buying
-            </h2>
-            <p className="mb-6">
-              You don&apos;t need much, but the right watering gear makes a
-              genuine difference. A cheap plastic can with no rose will blast
-              seedlings flat. A decent one lasts decades and makes the job
-              quicker and easier.
-            </p>
-
-            <GearCategory title="Watering cans" number={1}>
-              <GearPick
-                name="Haws 8.8L Long Reach"
-                price="~£40"
-                description="The one you see on every allotment for good reason. Beautifully balanced, holds enough for a proper soak, and the long spout gives you precision without bending double."
-                amazonUrl="https://www.amazon.co.uk/dp/B0014E0UWC?tag=whattosow21-21"
-                badge="our-pick"
-                tip="The long spout gives a gentle flow that won't flatten seedlings."
-              />
-              <GearPick
-                name="10L Plastic Watering Can"
-                price="~£8"
-                description="Perfectly fine for getting started. Look for one with a detachable rose. It won't last forever but it'll do the job while you decide if you want the Haws."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=10l+plastic+watering+can"
-                badge="budget"
-              />
-            </GearCategory>
-
-            <GearCategory title="Hose & attachments" number={2}>
-              <GearPick
-                name="Hozelock Multi Spray Gun"
-                price="~£15"
-                description="Multiple spray patterns including a gentle shower for seedlings and a jet for cleaning pots. Locks on so you're not gripping it the whole time."
-                amazonUrl="https://www.amazon.co.uk/dp/B00HOVBEKS?tag=whattosow21-21"
-                badge="our-pick"
-              />
-              <GearPick
-                name="Hozelock Auto Reel"
-                price="~£65"
-                description="Wall-mounted reel that retracts the hose automatically. A luxury, but if you're sick of wrestling a tangled hose every visit, it's life-changing."
-                amazonUrl="https://www.amazon.co.uk/dp/B004BEN3TY?tag=whattosow21-21"
-                badge="upgrade"
-              />
-            </GearCategory>
-
-            <GearCategory title="Water butts" number={3}>
-              <GearPick
-                name="Ward 210L Slimline Water Butt"
-                price="~£45"
-                description="Slim enough to fit against a shed wall without eating into your growing space. 210 litres is a decent capacity — enough for a couple of weeks of careful watering."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=ward+slimline+water+butt+210l"
-                badge="our-pick"
-                tip="One butt per shed downpipe. Two is better — you'll be amazed how fast they empty in July."
-              />
-              <GearPick
-                name="Water Butt Diverter Kit"
-                price="~£8"
-                description="Connects your downpipe to the butt and diverts overflow back into the drain when it's full. Dead simple to fit — ten minutes with a hacksaw."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=water+butt+diverter+kit"
-                badge="essential"
-              />
-            </GearCategory>
-
-            <GearCategory title="Seep hose" number={4}>
-              <GearPick
-                name="Hozelock Porous Soaker Hose"
-                price="~£15"
-                description="A porous hose that seeps water gently along its entire length. Brilliant for rows of beans, courgettes, or tomatoes — delivers water right to the roots with almost zero waste."
-                amazonUrl="https://www.amazon.co.uk/dp/B000TAFENY?tag=whattosow21-21"
-                badge="our-pick"
-                tip="Lay it under mulch along your rows. Connect to a water butt or timer. Saves hours of standing around with a hose."
-              />
-            </GearCategory>
-
-            <AffiliateDisclosure />
-          </section>
+          <WateringBuyerNote />
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">
@@ -641,62 +533,62 @@ export default function WateringGuide() {
           <SectionDivider label="Next" />
           <section>
             <div className="space-y-0">
-              <a href="/guides/what-to-sow-in-summer-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/what-to-sow-in-summer-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in summer</span>
                   <p className="text-sm text-earth-light mt-1">Keep sowing through the hot months — the trick is watering them up.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Protecting crops from frost</span>
                   <p className="text-sm text-earth-light mt-1">The other end of the year — fleece, cloches and cold frames.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow this week</span>
                   <p className="text-sm text-earth-light mt-1">Personalised to your postcode.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/soil" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/soil" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Understanding your soil</span>
                   <p className="text-sm text-earth-light mt-1">Good soil holds water better. Start here.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/companion-planting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/companion-planting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting</span>
                   <p className="text-sm text-earth-light mt-1">What to grow together and what to keep apart.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Starting from seed</span>
                   <p className="text-sm text-earth-light mt-1">Get seedlings off to a strong start.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/blog/best-water-butts-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/blog/best-water-butts-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">The best water butts UK</span>
                   <p className="text-sm text-earth-light mt-1">Free rainwater all season &mdash; which butt to buy.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/watering-while-away" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/watering-while-away" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <div>
                   <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Watering while you&apos;re away</span>
                   <p className="text-sm text-earth-light mt-1">Timers, drip lines and the neighbour deal &mdash; holiday-proof the patch.</p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
