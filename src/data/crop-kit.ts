@@ -126,7 +126,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Once the first truss has set, a weekly high-potash feed helps the plant put its energy into fruit rather than more leafy growth.",
         href: TOMORITE.amazonUrl,
         product: "tomato feed",
-        cta: "Find tomato feed",
+        cta: "Check Tomorite-style tomato feed",
       },
       {
         kind: "worth-buying",
@@ -134,7 +134,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Cordon tomatoes need tying in as they grow. Soft ties hold the stem without cutting into it on a windy day.",
         href: az("soft plant ties tomato clips"),
         product: "soft plant ties",
-        cta: "Find soft ties",
+        cta: "Compare soft ties and tomato clips",
       },
       {
         kind: "skip-this",
@@ -153,7 +153,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Carrot fly finds bruised carrot foliage by scent and flies low. A fine mesh cover from sowing day is the calmest defence.",
         href: ENVIROMESH.amazonUrl,
         product: "fine insect mesh",
-        cta: "Find insect mesh",
+        cta: "Compare fine insect mesh",
       },
       {
         kind: "skip-this",
@@ -172,7 +172,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "The first fortnight after planting out is the dangerous one — a damp night's slugs can end a young courgette plant. Ferric phosphate pellets are organic-approved and get them through it.",
         href: az("organic slug pellets ferric phosphate"),
         product: "organic slug pellets",
-        cta: "Find slug pellets",
+        cta: "Check ferric phosphate slug pellets",
       },
       {
         kind: "worth-buying",
@@ -180,7 +180,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Only really needed in pots, where the compost runs out of steam — a fortnightly tomato feed keeps a container courgette producing all summer.",
         href: asin("B09RK3HPH5"),
         product: "tomato feed",
-        cta: "Find tomato feed",
+        cta: "Check tomato feed for pot-grown courgettes",
       },
       {
         kind: "skip-this",
@@ -199,7 +199,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "A late frost blackens young shoots just as they emerge. A night or two under fleece in a cold April snap protects weeks of growth.",
         href: az("horticultural fleece plant frost protection"),
         product: "horticultural fleece",
-        cta: "Find fleece",
+        cta: "Compare frost fleece",
       },
       {
         kind: "worth-buying",
@@ -207,7 +207,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "The harvest is only half the job — stored dark and cool in breathable sacks, a good maincrop lift feeds you into the new year. Plastic bags sweat and spoil them.",
         href: az("hessian potato storage sacks"),
         product: "potato storage sacks",
-        cta: "Find storage sacks",
+        cta: "Compare breathable potato sacks",
       },
       {
         kind: "skip-this",
@@ -226,7 +226,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Runners climb seven feet and a full row in August carries real weight and real wind. Tall, sturdy canes, crossed and braced, are the crop's one piece of engineering.",
         href: az("bamboo canes 8ft garden"),
         product: "8ft bamboo canes",
-        cta: "Find 8ft canes",
+        cta: "Compare tall bean canes",
       },
       {
         kind: "worth-buying",
@@ -234,7 +234,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "For lashing the frame and the hundred small tying jobs a bean row invents. Biodegradable, so the autumn clear-up goes straight on the compost, strings and all.",
         href: az("jute garden twine"),
         product: "jute twine",
-        cta: "Find jute twine",
+        cta: "Check biodegradable jute twine",
       },
       {
         kind: "skip-this",

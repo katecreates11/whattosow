@@ -27,7 +27,7 @@ export default function CropBuyingAdvice({ slug }: CropBuyingAdviceProps) {
 
       <div className="space-y-5">
         {advice.items.map((item) => (
-          <AdviceItem key={`${item.kind}-${item.name}`} item={item} />
+          <AdviceItem key={`${item.kind}-${item.name}`} item={item} slug={slug} />
         ))}
       </div>
 
@@ -40,7 +40,7 @@ export default function CropBuyingAdvice({ slug }: CropBuyingAdviceProps) {
   );
 }
 
-function AdviceItem({ item }: { item: CropBuyingAdviceItem }) {
+function AdviceItem({ item, slug }: { item: CropBuyingAdviceItem; slug: string }) {
   if (item.kind === "skip-this") {
     return (
       <article className="border-t border-earth/10 pt-5" data-crop-buying-skip>
@@ -74,6 +74,7 @@ function AdviceItem({ item }: { item: CropBuyingAdviceItem }) {
           product={item.product}
           type="gear"
           merchant="amazon"
+          position={`crop-buying-advice-${slug}`}
           className="mt-3 sm:mt-1 inline-flex shrink-0 items-center gap-1.5 border border-earth/10 px-3 py-2 text-xs font-medium text-earth hover:border-allotment hover:text-allotment transition-colors"
         >
           {item.cta}

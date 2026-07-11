@@ -2,14 +2,25 @@ import { describe, expect, it } from "vitest";
 import { getCropBuyingAdvice } from "@/data/crop-kit";
 
 describe("crop buying advice", () => {
-  it("only rolls out the worth buying block to tomatoes and carrots for now", () => {
-    expect(getCropBuyingAdvice("tomatoes")).toBeTruthy();
-    expect(getCropBuyingAdvice("carrots")).toBeTruthy();
+  const currentRollout = [
+    "tomatoes",
+    "carrots",
+    "courgettes",
+    "maincrop-potatoes",
+    "runner-beans",
+  ];
+
+  it("keeps the worth buying block to the current measured rollout", () => {
+    for (const slug of currentRollout) {
+      expect(getCropBuyingAdvice(slug)).toBeTruthy();
+    }
+
     expect(getCropBuyingAdvice("lettuce")).toBeNull();
+    expect(getCropBuyingAdvice("french-beans")).toBeNull();
   });
 
   it("keeps linked recommendations bounded and skip items link-free", () => {
-    for (const slug of ["tomatoes", "carrots"]) {
+    for (const slug of currentRollout) {
       const advice = getCropBuyingAdvice(slug);
       expect(advice).toBeTruthy();
       if (!advice) continue;
@@ -23,6 +34,21 @@ describe("crop buying advice", () => {
 
       for (const item of skipItems) {
         expect("href" in item).toBe(false);
+      }
+    }
+  });
+
+  it("uses specific editorial buy-lines rather than generic find labels", () => {
+    for (const slug of currentRollout) {
+      const advice = getCropBuyingAdvice(slug);
+      expect(advice).toBeTruthy();
+      if (!advice) continue;
+
+      for (const item of advice.items) {
+        if (item.kind !== "worth-buying") continue;
+
+        expect(item.cta).not.toMatch(/^Find /);
+        expect(item.cta.length).toBeGreaterThan(12);
       }
     }
   });
