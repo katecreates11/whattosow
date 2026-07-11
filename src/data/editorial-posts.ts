@@ -632,9 +632,9 @@ export const editorialPosts: EditorialPost[] = [
   },
   {
     slug: "watering-lance-allotment",
-    title: "The watering lance that turned a chore into my favourite hour",
+    title: "Why you need to get a watering lance for your allotment",
     description:
-      "I didn't know watering lances existed until I saw one on Instagram. Now I can't water without it. An honest, first-hand account of why a long metal watering lance changed how I water the allotment.",
+      "A watering lance is a long metal wand for the end of your hose that puts water exactly where the plant needs it. Why it's better than a hose attachment, and the one we use.",
     publishDate: new Date("2026-06-03"),
     keywords: [
       "watering lance",
@@ -644,43 +644,63 @@ export const editorialPosts: EditorialPost[] = [
       "watering allotment hot summer",
       "Gardena watering lance",
     ],
-    heroImage: "/photos/blog/watering-marigolds-nasturtiums.webp",
-    heroAlt: "Watering marigolds and nasturtiums on the allotment with a long metal watering lance in the evening light",
+    heroImage: "/photos/blog/watering-lance-golden-hour-spray.webp",
+    heroAlt: "A metal watering lance showering a bed of nasturtiums and marigolds on the allotment, the spray catching the evening sun",
     intro:
-      "I didn't know watering lances existed until I saw someone using one on Instagram. What is that, I thought — and went and did some googling, and now I can't imagine watering without one. It has quietly turned the evening water, which used to feel like a chore I was always behind on, into the part of the day I look forward to most.",
+      "I really love my watering lance, and I can't believe I didn't know they existed. I only found out when I saw someone using one on Instagram — years of fiddling with a standard hose attachment, and this was here all along. It's a long metal wand that fixes to the end of the hose, with a gentle rose at the tip, and it puts water exactly where the plant needs it.",
     tags: ["allotment diary", "tools"],
     sections: [
       {
         type: "text",
         content:
-          "It's a long wand you fix to the end of the hose, with a softened spray at the tip, and the gift of it is reach. You can stand comfortably and send water right to the back of a bed, in under the leaves where the roots actually want it, without trampling everything or stooping over each plant in turn. After years of a standard hose attachment, it felt like a small revelation — gentler on the plants, and so much nicer to use.",
+          "The point of it is reach. You stand comfortably at the edge of the bed and the lance does the bending for you — under the leaves, straight to the roots, right to the back row you'd otherwise have to trample in to reach. Watering a bed properly stops being a stretch and becomes a job you can do standing still.",
       },
       {
         type: "text",
         content:
-          "Mine's the metal sort, which has an unexpected pleasure to it: on a hot evening it stays cool in the hand, lovely to hold while everything around you is still giving off the day's heat.",
-      },
-      {
-        type: "quote",
-        content:
-          "One AirPod in — I always like to keep an ear on the world — something gentle playing, and the low sun turning everything gold. As cheesy as it sounds, it feels a little like being in a film.",
-      },
-      {
-        type: "text",
-        content:
-          "There's a particular guilt to an allotment in summer: the days you can't get down there, knowing everything's thirsty, willing the forecast to promise rain. But when I do make it down, watering is honestly one of my favourite things. There's no rushing it. You move along the beds, plant by plant, and the whole plot seems to soften and settle as the light goes.",
+          "It's much better than the hose attachment we used before. A spray gun soaks the foliage and the path and not much else; the lance's rose is gentler than most watering cans, so you can water seedlings without flattening them, and the water lands where it's actually wanted. Beds get watered at the roots, which is where it counts — especially in a dry spell, when every canful matters.",
       },
       {
         type: "image",
         content: "",
-        src: "/photos/blog/marigold-border-allotment-evening.webp",
-        alt: "An allotment bed edged with marigolds in the soft light of evening",
-        caption: "Evening on the plot, when the watering gets done.",
+        src: "/photos/blog/watering-lance-tomato-roots.webp",
+        alt: "The watering lance pouring water at the base of staked tomato plants inside a ring of marigolds",
+        caption: "Under the leaves, straight to the roots — the tomatoes get the water, not the foliage.",
+      },
+      {
+        type: "text",
+        content:
+          "A small thing I like: the metal stays cool in your hand when you're watering on a really hot day. Unless you've left it lying in the sun before picking it up — you'll only do that once.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "One tool, three jobs: watering-in new transplants, soaking the courgette bed, and a rose gentle enough for seed trays.",
+        images: [
+          {
+            src: "/photos/blog/watering-lance-watering-in-transplants.webp",
+            alt: "The watering lance soaking freshly planted seedlings in open ground, a hand fork resting beside them",
+            caption: "Watering-in new transplants",
+            aspect: "square",
+          },
+          {
+            src: "/photos/blog/watering-lance-courgette-bed.webp",
+            alt: "The watering lance arcing spray into a courgette bed edged with orange marigolds",
+            caption: "A proper soak for the courgette bed",
+            aspect: "square",
+          },
+          {
+            src: "/photos/blog/watering-lance-seed-trays.webp",
+            alt: "The watering lance head gently sprinkling trays of seedlings on the grass",
+            caption: "Gentle enough for seed trays",
+            aspect: "square",
+          },
+        ],
       },
       {
         type: "product",
         content:
-          "If you only upgrade one watering thing, make it this. The reach alone changes how it feels — you water more thoroughly, more calmly, and trample far less getting there. I'd go for a metal one: cool in the hand on a hot evening, and built to last.",
+          "If you only upgrade one watering thing, make it this. The reach changes how thoroughly you water, the rose is kind to seedlings, and a metal one is built to last years of being dropped on the path. Ours is the Gardena, and it's been faultless.",
         productName: "Gardena premium watering lance",
         productUrl: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21",
         productBadge: "our-pick",
@@ -689,7 +709,7 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
-          "As the summers get hotter I'm planning ahead: a dip tank, and more water butts, so there's always something of our own to draw from. The tap at the allotment gets busy in a dry spell — sometimes there's a queue for it, sometimes nothing free at all — and the more we can catch and keep ourselves, the better. But that's a project for another day. For now, there's an hour of golden light and a bed of thirsty marigolds, and I know exactly where I'd rather be.",
+          "As the summers get hotter we're planning ahead: a dip tank, and more water butts, so there's always something of our own to draw from. The tap gets busy in a dry spell — sometimes there's a queue, sometimes nothing free at all. But that's a project for another day. For now: hose on, lance in hand, and the evening water done properly.",
       },
     ],
     relatedCrops: ["courgettes", "tomatoes"],
