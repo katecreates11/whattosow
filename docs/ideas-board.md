@@ -92,7 +92,9 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 6. Companion-planting playground — a drag-and-drop bed
 - **Type:** feature  _(→ may need a light spec)_
-- **Status:** proposed
+- **Status:** parked
+- **Decided:** 2026-07-11 · via the potting bench
+- **Note (Kate):** I am keen on this, been trying out this idea before with my garden. Let’s park until we’ve got other improvements handled
 - **Score:** High payoff / High effort · turns your #1 asset into a toy
 - **Evidence:** "Companion planting uk chart" is one of your strongest queries and the companion hub is the **#1 page** on the site; you already hold the companion data in `crops.ts` plus a static chart. A live, playful version turns your best-performing, most-linkable asset into something people *play with* and share — pure upside on ground you already own.
 - **Pitch:** A visual bed you drag crops onto: good neighbours glow, clashes flag, and it suggests companions for whatever you've placed. Uses the data that's already there. Beautiful, tactile, evergreen, and it funnels straight to the #1 hub and seed affiliate links. The kind of thing a gardening account reshares.
