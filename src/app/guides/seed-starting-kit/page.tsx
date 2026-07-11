@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -9,10 +10,10 @@ import {
   WarningBox,
   ColorSection,
   BigNumber,
-  SeedIcon,
   InThisGuide,
 } from "@/components/GuideVisuals";
-import GearPick, { GearCategory, AffiliateDisclosure, TopPicksGrid } from "@/components/GearPick";
+import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
+import SeedStartingKitBuyerNote from "@/components/SeedStartingKitBuyerNote";
 
 export const metadata: Metadata = {
   title: "What You Need to Sow Seeds Indoors UK — Seed Starting Kit | What To Sow",
@@ -201,20 +202,7 @@ export default function SeedStartingKitGuide() {
             </div>
           </section>
 
-          {/* ─── TOP PICKS HERO ─── */}
-          <ColorSection color="sage">
-            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-allotment block mb-3">
-              If you only buy four things
-            </span>
-            <TopPicksGrid
-              picks={[
-                { name: "Nutley's 24-cell module trays", why: "Each seedling gets its own root space. Less faff when planting out.", price: "~£6 for 3", amazonUrl: "https://www.amazon.co.uk/dp/B00844031K?tag=whattosow21-21" },
-                { name: "Levington Seed Compost", why: "Fine, low-nutrient, free-draining. The #1 thing to get right.", price: "~£6 for 20L", amazonUrl: "https://www.amazon.co.uk/dp/B0F3W9KC7N?tag=whattosow21-21" },
-                { name: "Garland heated propagator", why: "Consistent bottom heat for peppers, chillies, and aubergines.", price: "~£25", amazonUrl: "https://www.amazon.co.uk/dp/B015WFRWUI?tag=whattosow21-21" },
-                { name: "Plant labels + pencil", why: "You will not remember what you sowed where. You won't.", price: "~£3 for 50", amazonUrl: "https://www.amazon.co.uk/s?tag=whattosow21-21&k=white+plastic+plant+labels" },
-              ]}
-            />
-          </ColorSection>
+          <SeedStartingKitBuyerNote />
 
           <InThisGuide
             items={[
@@ -539,7 +527,7 @@ export default function SeedStartingKitGuide() {
               More tools and guides
             </h2>
             <div>
-              <a
+              <Link
                 href="/guides/seed-starting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -552,8 +540,8 @@ export default function SeedStartingKitGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/allotment-essentials"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -566,8 +554,8 @@ export default function SeedStartingKitGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/harvest-planner"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -580,8 +568,8 @@ export default function SeedStartingKitGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -594,7 +582,7 @@ export default function SeedStartingKitGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
