@@ -95,6 +95,17 @@ Recommend products naturally and only where they genuinely add value.
 
 ---
 
+## Content Archive (photos)
+
+**Before any image work, check `docs/photo-catalogue.json` first.** It is the index of our entire photo archive — every raw photo described, tagged and quality-rated (1–3, with `hero-worthy` flags and dupe groups). This applies to everyone and everything: Claude, Codex, and the autonomous agents.
+
+- Find photos by grepping tags (`watering-lance`, `harvest`, `hero-worthy`, `cat`, crop names, year tags) — never re-browse the photo pool by eye.
+- Raw originals live in `photos-raw/` on Kate's machine only (gitignored). Local sessions may convert and place them (webp, into `public/photos/`); cloud agents use the catalogue descriptions plus any photo already placed in `public/photos/`.
+- New photos get catalogued on arrival, same JSON shape. The catalogue is a growing content archive — keep it complete and it stays cheap to use.
+- Real photos from the plot always beat stock. Prefer a `q:3`/`hero-worthy` shot; images must carry information, not decoration.
+
+---
+
 ## AI Working Rules
 
 Before making changes, ask:
