@@ -70,7 +70,9 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 4. "Grow your Christmas dinner" — a backward-planner from 25 December
 - **Type:** feature  _(→ needs-spec on approval)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-11 · via the potting bench
+- **Note (Kate):** We’ve done this! Built it as the test.
 - **Score:** High payoff / High effort
 - **Evidence:** July is exactly when Christmas-veg growing starts — "seed potatoes for a Christmas crop arrive in July, chit and plant in August for new potatoes on Christmas Day" (RHS/Hillier July advice). WTS already has a strong lineage of season-aware calculators (longest-day, frost-map, blight-watch) — this fits that DNA and is genuinely screenshot/pin-worthy. **Gap confirmed:** no existing Christmas feature.
 - **Pitch:** A playful interactive counting back from Christmas Day: pick the festive plate (new potatoes, winter salads, red cabbage…) and it shows what's still sowable/plantable now for a 25 Dec harvest in the user's location, what window's just closed, and links to crop pages + kit. Timely to ship in July/August; a natural annual traffic + pin magnet.
