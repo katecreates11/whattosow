@@ -59,7 +59,9 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 3. Saving your own seed — beans, peas & tomatoes
 - **Type:** content
-- **Status:** proposed
+- **Status:** parked
+- **Decided:** 2026-07-11 · via the potting bench
+- **Note (Kate):** I am parking this for now as I am not sure saving seeds is a topic we need to be spending time on. Real seeds have really good guides and they sell those heirloom seeds not f1. We’re linking to Sutton and dobies and a lot of their seeds are f1 I think.  Maybe we can do a sunflower one and marigold etc?
 - **Score:** Medium payoff / Low effort
 - **Evidence:** Every UK August jobs list (Suttons, Dobies, Kitchen Garden) names "save seed from healthy beans, peas and tomatoes" — but as a one-liner; almost none give a proper how-to. **No WTS seed-saving guide exists.** Evergreen, deeply on-voice (thrift, satisfaction, closing the loop to next spring's sowing — the site's whole premise), needs no new data.
 - **Pitch:** A simple, warm how-to for the three easiest seeds — dry pods for beans and peas, ferment-and-rinse for tomatoes — with when to collect, how to dry, how to store, and what *not* to save (F1 hybrids won't come true). Ends by pointing at next year's calendar: the seed you save now is the sowing you'll do in spring.
