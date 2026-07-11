@@ -48,7 +48,9 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 2. "Sow now, eat all winter" — the high-summer autumn/winter sowing guide
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-11 · via the potting bench
+- **Note (Kate):** This sounds good, can you tie it to using our postcode tool to plan when it will get cold where they are and if they are more cold locations, promote more cold kit stuff
 - **Score:** High payoff / Low effort
 - **Evidence:** "What to sow in July/August UK" is a large recurring seasonal cluster — RHS, She Grows Veg, Glorious Garden, Real Seeds all rank for it. The best hook (July soil is the warmest of the year → seeds germinate in days) plus the hungry-gap reassurance angle are underused. **Delta:** `/sow/[month]` already owns the raw *listing* query — so this is NOT a sow-list, it's the editorial narrative that links to it.
 - **Pitch:** A warm guide answering *why bother sowing in high summer* — warm soil, fast germination, a plot that keeps feeding you Oct→the hungry gap. Grouped by what to sow now (winter salads & oriental leaves, chard, turnips, late carrots less troubled by carrot fly, kale, spring cabbage, a last dwarf-French-bean gamble). Encouraging, not a "still time!" scold.
