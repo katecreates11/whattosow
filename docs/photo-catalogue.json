@@ -1,0 +1,6687 @@
+{
+ "_about": "Catalogue of photos-raw/ — subject, tags, quality 1-3 (3=site-worthy), dupe notes. Maintained by Claude; resumable.",
+ "photos": {
+  "IMG_5507.heic": {
+   "subject": "Young sweetcorn seedlings in rows, freshly planted bed, allotment behind",
+   "tags": [
+    "sweetcorn",
+    "seedlings",
+    "bed",
+    "june-planting"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:02"
+  },
+  "IMG_5502.heic": {
+   "subject": "Tomato wigwam with cane teepee, marigold border, midday sun",
+   "tags": [
+    "tomatoes",
+    "wigwam",
+    "marigolds",
+    "bed"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:02"
+  },
+  "IMG_5504.heic": {
+   "subject": "Raised bed of tomatoes edged with orange marigolds along woodchip path",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "raised-bed",
+    "companion"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:02"
+  },
+  "IMG_5498.heic": {
+   "subject": "Orange marigold border close with young sunflower stem",
+   "tags": [
+    "marigolds",
+    "border",
+    "close-up"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:02"
+  },
+  "IMG_5487.HEIC": {
+   "subject": "Tomato wigwam + marigolds (near-identical to IMG_5502)",
+   "tags": [
+    "tomatoes",
+    "wigwam",
+    "marigolds"
+   ],
+   "q": 2,
+   "dupe": "IMG_5502.heic",
+   "date": "2026-07-10 12:01",
+   "location": "_duplicates"
+  },
+  "IMG_5484.heic": {
+   "subject": "Young squash-family seedling rosette close-up in dark soil",
+   "tags": [
+    "seedling",
+    "close-up",
+    "soil"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:01"
+  },
+  "IMG_5492.heic": {
+   "subject": "Wide allotment scene: chamomile + marigold flower bed, green trug, big sky — good scene-setter",
+   "tags": [
+    "allotment",
+    "scene",
+    "flowers",
+    "wide"
+   ],
+   "q": 3,
+   "date": "2026-07-10 12:01"
+  },
+  "IMG_5493.heic": {
+   "subject": "Hooped bed with tomatoes and yellow/orange marigolds",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "hoops",
+    "bed"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:01"
+  },
+  "IMG_5489.heic": {
+   "subject": "Tomato + marigold raised bed corner, wide (similar to IMG_5504)",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "raised-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_5504.heic",
+   "date": "2026-07-10 12:01",
+   "location": "_duplicates"
+  },
+  "IMG_5481 copy.heic": {
+   "subject": "Young sweetcorn rows in bed, wider view",
+   "tags": [
+    "sweetcorn",
+    "seedlings",
+    "bed"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:01"
+  },
+  "IMG_5478.heic": {
+   "subject": "Netted hoop frame bed bordered with yellow + orange marigolds",
+   "tags": [
+    "marigolds",
+    "netting",
+    "bed",
+    "companion"
+   ],
+   "q": 2,
+   "date": "2026-07-10 12:00"
+  },
+  "IMG_5477.heic": {
+   "subject": "Hooped tomato bed with mixed marigold border (similar to IMG_5493)",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "hoops"
+   ],
+   "q": 2,
+   "dupe": "IMG_5493.heic",
+   "date": "2026-07-10 12:00",
+   "location": "_duplicates"
+  },
+  "IMG_5474.HEIC": {
+   "subject": "Overgrown plot corner with shed and debris — documentary only",
+   "tags": [
+    "plot",
+    "documentary"
+   ],
+   "q": 1,
+   "date": "2026-07-10 11:54"
+  },
+  "IMG_5463.HEIC": {
+   "subject": "Hand holding fresh-picked frilly salad leaves over the bed — charming harvest moment",
+   "tags": [
+    "salad-leaves",
+    "harvest",
+    "hands",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-10 11:53"
+  },
+  "IMG_5459 copy.HEIC": {
+   "subject": "Giant orange marigold bloom close-up (burst 1 of 4)",
+   "tags": [
+    "marigolds",
+    "close-up"
+   ],
+   "q": 2,
+   "dupe": "IMG_5458.HEIC",
+   "date": "2026-07-10 11:13",
+   "location": "_duplicates"
+  },
+  "IMG_5458.HEIC": {
+   "subject": "Orange marigold blooms close-up, crisp pair — best of the burst",
+   "tags": [
+    "marigolds",
+    "close-up",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-10 11:13"
+  },
+  "IMG_5457.HEIC": {
+   "subject": "Orange marigold close-up (burst 3 of 4)",
+   "tags": [
+    "marigolds",
+    "close-up"
+   ],
+   "q": 2,
+   "dupe": "IMG_5458.HEIC",
+   "date": "2026-07-10 11:13",
+   "location": "_duplicates"
+  },
+  "IMG_5460.HEIC": {
+   "subject": "Marigold close-up with red-tinged bud (burst 4 of 4)",
+   "tags": [
+    "marigolds",
+    "close-up"
+   ],
+   "q": 2,
+   "dupe": "IMG_5458.HEIC",
+   "date": "2026-07-10 11:13",
+   "location": "_duplicates"
+  },
+  "IMG_5456.HEIC": {
+   "subject": "Marigolds along woodchip bed edge",
+   "tags": [
+    "marigolds",
+    "bed-edge"
+   ],
+   "q": 2,
+   "date": "2026-07-10 11:13"
+  },
+  "IMG_5454.HEIC": {
+   "subject": "Hand holding green + yellow courgettes over paving — lovely harvest shot",
+   "tags": [
+    "courgettes",
+    "harvest",
+    "hands",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-10 11:10"
+  },
+  "IMG_5448.HEIC": {
+   "subject": "Single young sweetcorn seedling in bare soil",
+   "tags": [
+    "sweetcorn",
+    "seedling",
+    "soil"
+   ],
+   "q": 2,
+   "date": "2026-07-10 10:36"
+  },
+  "IMG_5447.HEIC": {
+   "subject": "Sweetcorn seedlings in bare bed — photographer's shadow in frame",
+   "tags": [
+    "sweetcorn",
+    "seedlings"
+   ],
+   "q": 1,
+   "date": "2026-07-10 10:35"
+  },
+  "IMG_5443.HEIC": {
+   "subject": "Green tomato trusses on the vine, close-up",
+   "tags": [
+    "tomatoes",
+    "green-fruit",
+    "close-up"
+   ],
+   "q": 3,
+   "date": "2026-07-10 10:26"
+  },
+  "IMG_5446.HEIC": {
+   "subject": "Pea plants with pods, marigolds behind",
+   "tags": [
+    "peas",
+    "pods",
+    "bed"
+   ],
+   "q": 2,
+   "date": "2026-07-10 10:26"
+  },
+  "IMG_5438.HEIC": {
+   "subject": "Pea plants heavy with pods, netting behind",
+   "tags": [
+    "peas",
+    "pods",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-10 10:24"
+  },
+  "IMG_5433.HEIC": {
+   "subject": "Pea bed wide with orange marigolds beyond",
+   "tags": [
+    "peas",
+    "marigolds",
+    "bed"
+   ],
+   "q": 2,
+   "date": "2026-07-10 10:24"
+  },
+  "IMG_5440.HEIC": {
+   "subject": "Pea plants with pods (near-identical to IMG_5438)",
+   "tags": [
+    "peas",
+    "pods"
+   ],
+   "q": 2,
+   "dupe": "IMG_5438.HEIC",
+   "date": "2026-07-10 10:24",
+   "location": "_duplicates"
+  },
+  "IMG_5428.HEIC": {
+   "subject": "Courgette plant with yellow fruit, red lettuce interplanted, overhead",
+   "tags": [
+    "courgettes",
+    "lettuce",
+    "interplanting"
+   ],
+   "q": 2,
+   "date": "2026-07-10 10:23"
+  },
+  "IMG_5429.HEIC": {
+   "subject": "Courgette + lettuce + marigolds overhead (burst — see IMG_5430/5427)",
+   "tags": [
+    "courgettes",
+    "lettuce",
+    "marigolds"
+   ],
+   "q": 2,
+   "dupe": "IMG_5430.HEIC",
+   "date": "2026-07-10 10:23",
+   "location": "_duplicates"
+  },
+  "IMG_5430.HEIC": {
+   "subject": "Lettuce head ringed by orange marigolds, overhead close — lovely companion shot",
+   "tags": [
+    "lettuce",
+    "marigolds",
+    "companion",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-10 10:23"
+  },
+  "IMG_5426.HEIC": {
+   "subject": "Courgette plant among marigolds overhead (burst)",
+   "tags": [
+    "courgettes",
+    "marigolds"
+   ],
+   "q": 2,
+   "dupe": "IMG_5427.HEIC",
+   "date": "2026-07-10 10:23",
+   "location": "_duplicates"
+  },
+  "IMG_5427.HEIC": {
+   "subject": "Whole companion bed overhead: courgette centre, marigold ring, lettuces — best of burst",
+   "tags": [
+    "courgettes",
+    "marigolds",
+    "lettuce",
+    "companion",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-10 10:23"
+  },
+  "IMG_5431.HEIC": {
+   "subject": "Lettuce + marigolds overhead (burst)",
+   "tags": [
+    "lettuce",
+    "marigolds"
+   ],
+   "q": 2,
+   "dupe": "IMG_5430.HEIC",
+   "date": "2026-07-10 10:23",
+   "location": "_duplicates"
+  },
+  "IMG_5243.HEIC": {
+   "subject": "Pea netting trellis along bed with calendula, golden evening light",
+   "tags": [
+    "peas",
+    "trellis",
+    "evening",
+    "golden-hour"
+   ],
+   "q": 3,
+   "date": "2026-07-02 19:56"
+  },
+  "IMG_5242.HEIC": {
+   "subject": "Pea trellis bed toward greenhouse, evening (similar to IMG_5243)",
+   "tags": [
+    "peas",
+    "trellis",
+    "evening"
+   ],
+   "q": 2,
+   "dupe": "IMG_5243.HEIC",
+   "date": "2026-07-02 19:56",
+   "location": "_duplicates"
+  },
+  "IMG_5236.HEIC": {
+   "subject": "Young pea plants on wire support, evening",
+   "tags": [
+    "peas",
+    "support"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:55"
+  },
+  "IMG_5241.HEIC": {
+   "subject": "Sparse carrot seedlings in dark compost",
+   "tags": [
+    "carrots",
+    "seedlings"
+   ],
+   "q": 1,
+   "date": "2026-07-02 19:55"
+  },
+  "IMG_5234.HEIC": {
+   "subject": "Hand holding two dark courgettes with flower attached, dusk sky + allotment behind — gorgeous",
+   "tags": [
+    "courgettes",
+    "harvest",
+    "hands",
+    "dusk",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-02 19:54"
+  },
+  "IMG_5221.HEIC": {
+   "subject": "Courgette plant with open yellow flowers, evening",
+   "tags": [
+    "courgettes",
+    "flowers",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:53"
+  },
+  "IMG_5226.HEIC": {
+   "subject": "Dark courgette fruit + flower on plant, evening close",
+   "tags": [
+    "courgettes",
+    "flowers",
+    "close-up"
+   ],
+   "q": 3,
+   "date": "2026-07-02 19:53"
+  },
+  "IMG_5176.HEIC": {
+   "subject": "Borage in flower, dusky pink-blue, evening",
+   "tags": [
+    "borage",
+    "flowers",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:41"
+  },
+  "IMG_5175.HEIC": {
+   "subject": "Borage clump in flower (near-identical to IMG_5176)",
+   "tags": [
+    "borage",
+    "flowers"
+   ],
+   "q": 2,
+   "dupe": "IMG_5176.HEIC",
+   "date": "2026-07-02 19:40",
+   "location": "_duplicates"
+  },
+  "IMG_5170 2.HEIC": {
+   "subject": "Pea plant with white flowers at jute netting, golden hour",
+   "tags": [
+    "peas",
+    "flowers",
+    "netting",
+    "golden-hour"
+   ],
+   "q": 3,
+   "date": "2026-07-02 19:30"
+  },
+  "IMG_5169.HEIC": {
+   "subject": "Pea + white flowers at netting (near-identical to IMG_5170 2)",
+   "tags": [
+    "peas",
+    "flowers",
+    "netting"
+   ],
+   "q": 2,
+   "dupe": "IMG_5170 2.HEIC",
+   "date": "2026-07-02 19:30",
+   "location": "_duplicates"
+  },
+  "IMG_5165.heic": {
+   "subject": "Young peas climbing jute netting, calendula above",
+   "tags": [
+    "peas",
+    "netting",
+    "calendula"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:30"
+  },
+  "IMG_5163.HEIC": {
+   "subject": "Pea rows + jute net trellis with tall calendula, evening — lovely bed portrait",
+   "tags": [
+    "peas",
+    "trellis",
+    "calendula",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-07-02 19:29"
+  },
+  "IMG_5156.HEIC": {
+   "subject": "Young squash plant with big leaves in open soil",
+   "tags": [
+    "squash",
+    "young-plant"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:28"
+  },
+  "IMG_5161.HEIC": {
+   "subject": "Tiny feathery seedling (cosmos/carrot) in stony soil",
+   "tags": [
+    "seedling",
+    "soil"
+   ],
+   "q": 1,
+   "date": "2026-07-02 19:28"
+  },
+  "IMG_5158.HEIC": {
+   "subject": "Young sweetcorn plants in rough new ground, sheds behind",
+   "tags": [
+    "sweetcorn",
+    "new-bed"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:28"
+  },
+  "IMG_5162.HEIC": {
+   "subject": "Single young sweetcorn in dug ground (similar to IMG_5158)",
+   "tags": [
+    "sweetcorn"
+   ],
+   "q": 1,
+   "dupe": "IMG_5158.HEIC",
+   "date": "2026-07-02 19:28",
+   "location": "_duplicates"
+  },
+  "IMG_5150.HEIC": {
+   "subject": "Young climbing bean plants in open ground",
+   "tags": [
+    "beans",
+    "young-plants"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:27"
+  },
+  "IMG_5153.HEIC": {
+   "subject": "Sweetcorn patch in rough ground (similar to IMG_5158)",
+   "tags": [
+    "sweetcorn",
+    "new-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_5158.HEIC",
+   "date": "2026-07-02 19:27",
+   "location": "_duplicates"
+  },
+  "IMG_5152 2.HEIC": {
+   "subject": "Sweetcorn rows in new ground, lavender in front, evening",
+   "tags": [
+    "sweetcorn",
+    "lavender",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-07-02 19:27"
+  },
+  "IMG_5062 2.HEIC": {
+   "subject": "Allotment path view with WHITE CAT sitting by the beds, yarrow + calendula — utterly charming",
+   "tags": [
+    "allotment",
+    "cat",
+    "scene",
+    "charm",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-30 18:04"
+  },
+  "IMG_5035.HEIC": {
+   "subject": "Tiny purple-leaved seedling in compost close-up",
+   "tags": [
+    "seedling",
+    "close-up"
+   ],
+   "q": 1,
+   "date": "2026-06-30 17:57"
+  },
+  "IMG_5013.HEIC": {
+   "subject": "Plot overview: young sweetcorn rows toward flower beds",
+   "tags": [
+    "sweetcorn",
+    "plot",
+    "overview"
+   ],
+   "q": 2,
+   "date": "2026-06-29 15:40"
+  },
+  "IMG_5011.HEIC": {
+   "subject": "Squash planted through opened weed membrane on new ground",
+   "tags": [
+    "squash",
+    "membrane",
+    "new-bed"
+   ],
+   "q": 2,
+   "date": "2026-06-29 15:40"
+  },
+  "IMG_5007.HEIC": {
+   "subject": "Full raised bed: marigold border + courgette + lettuce, path + sheds behind",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "courgettes",
+    "companion"
+   ],
+   "q": 3,
+   "date": "2026-06-29 15:27"
+  },
+  "IMG_5001.HEIC": {
+   "subject": "Sweetcorn seedling rows in fresh bed toward calendula",
+   "tags": [
+    "sweetcorn",
+    "seedlings"
+   ],
+   "q": 2,
+   "date": "2026-06-29 15:10"
+  },
+  "IMG_4998.HEIC": {
+   "subject": "Sprinkler watering a corner bed, sweetcorn + marigolds — watering in action",
+   "tags": [
+    "watering",
+    "sprinkler",
+    "sweetcorn"
+   ],
+   "q": 2,
+   "date": "2026-06-29 15:09"
+  },
+  "IMG_4976.HEIC": {
+   "subject": "Allotment overview: raised beds, calendula border, big cloud sky",
+   "tags": [
+    "allotment",
+    "overview",
+    "calendula",
+    "raised-bed"
+   ],
+   "q": 3,
+   "date": "2026-06-29 14:56"
+  },
+  "IMG_4979.HEIC": {
+   "subject": "Bare freshly-dug bed with hose end, planting holes",
+   "tags": [
+    "bed",
+    "soil",
+    "prep"
+   ],
+   "q": 1,
+   "date": "2026-06-29 14:56"
+  },
+  "IMG_4861.HEIC": {
+   "subject": "Calendula tower with jute netting + courgette in bed corner",
+   "tags": [
+    "calendula",
+    "netting",
+    "bed"
+   ],
+   "q": 2,
+   "date": "2026-06-28 19:43"
+  },
+  "IMG_4106.heic": {
+   "subject": "Hand holding a bunch of garlic scapes over the bed",
+   "tags": [
+    "garlic",
+    "scapes",
+    "harvest",
+    "hands"
+   ],
+   "q": 3,
+   "date": "2026-06-05 17:36"
+  },
+  "IMG_4107.HEIC": {
+   "subject": "Terracotta pot cane-topper on stake, beds behind",
+   "tags": [
+    "cane-topper",
+    "terracotta",
+    "detail"
+   ],
+   "q": 2,
+   "date": "2026-06-05 17:36"
+  },
+  "IMG_4108.heic": {
+   "subject": "Cane with terracotta topper in newly planted bed, onions behind",
+   "tags": [
+    "cane-topper",
+    "bed",
+    "young-plants"
+   ],
+   "q": 2,
+   "date": "2026-06-05 17:36"
+  },
+  "IMG_4103.heic": {
+   "subject": "Handful of garlic scapes close-up (similar to IMG_4106)",
+   "tags": [
+    "garlic",
+    "scapes",
+    "harvest"
+   ],
+   "q": 2,
+   "dupe": "IMG_4106.heic",
+   "date": "2026-06-05 17:36",
+   "location": "_duplicates"
+  },
+  "IMG_4095.HEIC": {
+   "subject": "Green wheelbarrow + compost bags by the shed at home",
+   "tags": [
+    "wheelbarrow",
+    "kit",
+    "home"
+   ],
+   "q": 2,
+   "date": "2026-06-05 17:34"
+  },
+  "IMG_4093.HEIC": {
+   "subject": "Wheelbarrow by water butt (similar to IMG_4095)",
+   "tags": [
+    "wheelbarrow",
+    "kit"
+   ],
+   "q": 2,
+   "dupe": "IMG_4095.HEIC",
+   "date": "2026-06-05 17:34",
+   "location": "_duplicates"
+  },
+  "IMG_4078.HEIC": {
+   "subject": "Raised-bed grid freshly planted, marigold edges, greenhouses beyond — June state of the plot",
+   "tags": [
+    "raised-bed",
+    "overview",
+    "june"
+   ],
+   "q": 3,
+   "date": "2026-06-05 17:31"
+  },
+  "IMG_4076.HEIC": {
+   "subject": "Raised beds newly planted, sheds behind (similar to IMG_4078)",
+   "tags": [
+    "raised-bed",
+    "overview"
+   ],
+   "q": 2,
+   "dupe": "IMG_4078.HEIC",
+   "date": "2026-06-05 17:31",
+   "location": "_duplicates"
+  },
+  "IMG_4074.HEIC": {
+   "subject": "Wild flowery corner: geraniums + evening primrose, plot beyond",
+   "tags": [
+    "flowers",
+    "wild-corner"
+   ],
+   "q": 2,
+   "date": "2026-06-05 17:28"
+  },
+  "IMG_4069.HEIC": {
+   "subject": "Greenhouse + water butt against a dramatic evening sky",
+   "tags": [
+    "greenhouse",
+    "sky",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-06-05 17:21"
+  },
+  "IMG_4059.heic": {
+   "subject": "Potato + broad bean patch under big cloudy sky (burst 1 of 3)",
+   "tags": [
+    "potatoes",
+    "broad-beans"
+   ],
+   "q": 2,
+   "dupe": "IMG_4063.heic",
+   "date": "2026-06-05 17:20",
+   "location": "_duplicates"
+  },
+  "IMG_4063.heic": {
+   "subject": "Potato patch in leaf under dramatic sky — best of burst",
+   "tags": [
+    "potatoes",
+    "plot",
+    "sky"
+   ],
+   "q": 3,
+   "date": "2026-06-05 17:20"
+  },
+  "IMG_4060.heic": {
+   "subject": "Potato patch (burst 3 of 3)",
+   "tags": [
+    "potatoes"
+   ],
+   "q": 2,
+   "dupe": "IMG_4063.heic",
+   "date": "2026-06-05 17:20",
+   "location": "_duplicates"
+  },
+  "IMG_4033.HEIC": {
+   "subject": "Cucumber seedling tied to cane at wire trellis",
+   "tags": [
+    "cucumbers",
+    "seedling",
+    "trellis"
+   ],
+   "q": 2,
+   "date": "2026-06-05 17:06"
+  },
+  "IMG_4029.HEIC": {
+   "subject": "Cucumber seedling at trellis, sheds behind (similar to IMG_4033)",
+   "tags": [
+    "cucumbers",
+    "seedling"
+   ],
+   "q": 2,
+   "dupe": "IMG_4033.HEIC",
+   "date": "2026-06-05 17:06",
+   "location": "_duplicates"
+  },
+  "IMG_4035.HEIC": {
+   "subject": "Pair of young seedlings (sunflower?) in open soil",
+   "tags": [
+    "seedlings",
+    "soil"
+   ],
+   "q": 1,
+   "date": "2026-06-05 17:06"
+  },
+  "IMG_4012.HEIC": {
+   "subject": "Wheelbarrow loaded with hand tools — spade, fork, trowels — kit still-life",
+   "tags": [
+    "tools",
+    "wheelbarrow",
+    "kit"
+   ],
+   "q": 2,
+   "date": "2026-06-05 16:53"
+  },
+  "IMG_4018.HEIC": {
+   "subject": "Wheelbarrow with tools on grass path (burst 1 of 5)",
+   "tags": [
+    "wheelbarrow",
+    "tools"
+   ],
+   "q": 2,
+   "dupe": "IMG_4021.HEIC",
+   "date": "2026-06-05 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_4014.HEIC": {
+   "subject": "Wheelbarrow with tools (burst 2 of 5)",
+   "tags": [
+    "wheelbarrow",
+    "tools"
+   ],
+   "q": 2,
+   "dupe": "IMG_4021.HEIC",
+   "date": "2026-06-05 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_4020.HEIC": {
+   "subject": "Wheelbarrow with tools + hose (burst 3 of 5)",
+   "tags": [
+    "wheelbarrow",
+    "tools"
+   ],
+   "q": 2,
+   "dupe": "IMG_4021.HEIC",
+   "date": "2026-06-05 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_4016.HEIC": {
+   "subject": "Wheelbarrow on path, wide with sky (burst 4 of 5)",
+   "tags": [
+    "wheelbarrow",
+    "tools"
+   ],
+   "q": 2,
+   "dupe": "IMG_4021.HEIC",
+   "date": "2026-06-05 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_4021.HEIC": {
+   "subject": "Wheelbarrow with spade + tools between beds, crimson flowers — best of the burst",
+   "tags": [
+    "wheelbarrow",
+    "tools",
+    "kit",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 16:53"
+  },
+  "IMG_4005.HEIC": {
+   "subject": "Fresh compost mound on new bed, pink campion beside",
+   "tags": [
+    "bed-prep",
+    "compost",
+    "soil"
+   ],
+   "q": 2,
+   "date": "2026-06-05 16:42"
+  },
+  "IMG_4003.HEIC": {
+   "subject": "New bed compost mound (similar to IMG_4005)",
+   "tags": [
+    "bed-prep",
+    "compost"
+   ],
+   "q": 1,
+   "dupe": "IMG_4005.HEIC",
+   "date": "2026-06-05 16:42",
+   "location": "_duplicates"
+  },
+  "IMG_3987.HEIC": {
+   "subject": "Wooden dibber + seed packets on dug soil — lovely sowing detail",
+   "tags": [
+    "dibber",
+    "seed-packets",
+    "sowing",
+    "detail",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 16:06"
+  },
+  "IMG_3986.HEIC": {
+   "subject": "Dibber + seed packets in soil (burst with IMG_3987)",
+   "tags": [
+    "dibber",
+    "sowing"
+   ],
+   "q": 2,
+   "dupe": "IMG_3987.HEIC",
+   "date": "2026-06-05 16:06",
+   "location": "_duplicates"
+  },
+  "IMG_3984.HEIC": {
+   "subject": "Dibber on woodchip + soil (burst)",
+   "tags": [
+    "dibber",
+    "sowing"
+   ],
+   "q": 2,
+   "dupe": "IMG_3987.HEIC",
+   "date": "2026-06-05 16:06",
+   "location": "_duplicates"
+  },
+  "IMG_3975.HEIC": {
+   "subject": "Weedy green ground patch — documentary",
+   "tags": [
+    "weeds",
+    "ground"
+   ],
+   "q": 1,
+   "date": "2026-06-05 15:52"
+  },
+  "IMG_3979.HEIC": {
+   "subject": "Bindweed flowers pink among dock leaves",
+   "tags": [
+    "bindweed",
+    "weeds",
+    "flowers"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:52"
+  },
+  "IMG_3980.HEIC": {
+   "subject": "Dock + bindweed tangle (similar to IMG_3979)",
+   "tags": [
+    "weeds"
+   ],
+   "q": 1,
+   "dupe": "IMG_3979.HEIC",
+   "date": "2026-06-05 15:52",
+   "location": "_duplicates"
+  },
+  "IMG_3976.HEIC": {
+   "subject": "Low weeds over woodchip",
+   "tags": [
+    "weeds"
+   ],
+   "q": 1,
+   "date": "2026-06-05 15:52"
+  },
+  "IMG_3977.HEIC": {
+   "subject": "Bindweed flower among dock (similar to IMG_3979)",
+   "tags": [
+    "bindweed",
+    "weeds"
+   ],
+   "q": 1,
+   "dupe": "IMG_3979.HEIC",
+   "date": "2026-06-05 15:52",
+   "location": "_duplicates"
+  },
+  "IMG_3971.HEIC": {
+   "subject": "Half-mulched new bed: compost over clay",
+   "tags": [
+    "bed-prep",
+    "compost",
+    "clay"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:49"
+  },
+  "IMG_3958.heic": {
+   "subject": "Rake resting on new soil mound, barrow behind — bed-making in progress",
+   "tags": [
+    "rake",
+    "bed-prep",
+    "tools"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:42"
+  },
+  "IMG_3962.heic": {
+   "subject": "Healthy potato rows in leaf, allotment behind",
+   "tags": [
+    "potatoes",
+    "rows"
+   ],
+   "q": 3,
+   "date": "2026-06-05 15:42"
+  },
+  "IMG_3959.heic": {
+   "subject": "Weeding scene: wheelbarrow + green trug of weeds by crimson flowers",
+   "tags": [
+    "weeding",
+    "wheelbarrow",
+    "trug"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:42"
+  },
+  "IMG_3955.heic": {
+   "subject": "Rake + soil mound (similar to IMG_3958)",
+   "tags": [
+    "rake",
+    "bed-prep"
+   ],
+   "q": 1,
+   "dupe": "IMG_3958.heic",
+   "date": "2026-06-05 15:42",
+   "location": "_duplicates"
+  },
+  "IMG_3964.heic": {
+   "subject": "Potato plant in leaf, close (trio with 3965/3966)",
+   "tags": [
+    "potatoes"
+   ],
+   "q": 2,
+   "dupe": "IMG_3965.heic",
+   "date": "2026-06-05 15:42",
+   "location": "_duplicates"
+  },
+  "IMG_3968.heic": {
+   "subject": "Rose arch + fork in half-dug ground under moody sky",
+   "tags": [
+    "arch",
+    "bed-prep",
+    "fork",
+    "moody-sky"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:42"
+  },
+  "IMG_3965.heic": {
+   "subject": "Potato plant mounded up, best of trio",
+   "tags": [
+    "potatoes",
+    "earthing-up"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:42"
+  },
+  "IMG_3966.heic": {
+   "subject": "Potato plant close (trio)",
+   "tags": [
+    "potatoes"
+   ],
+   "q": 2,
+   "dupe": "IMG_3965.heic",
+   "date": "2026-06-05 15:42",
+   "location": "_duplicates"
+  },
+  "IMG_3960.heic": {
+   "subject": "Weeding: barrow + green trug among crimson flowers, wide",
+   "tags": [
+    "weeding",
+    "wheelbarrow",
+    "trug"
+   ],
+   "q": 2,
+   "dupe": "IMG_3959.heic",
+   "date": "2026-06-05 15:42",
+   "location": "_duplicates"
+  },
+  "IMG_3961.heic": {
+   "subject": "Three potato rows in leaf from above — tidy and satisfying",
+   "tags": [
+    "potatoes",
+    "rows",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 15:42"
+  },
+  "IMG_3957.heic": {
+   "subject": "Rake across fresh soil mound, barrow behind",
+   "tags": [
+    "rake",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_3958.heic",
+   "date": "2026-06-05 15:42",
+   "location": "_duplicates"
+  },
+  "IMG_3954.heic": {
+   "subject": "Rake teeth in cloddy clay close-up",
+   "tags": [
+    "rake",
+    "clay",
+    "detail"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:41"
+  },
+  "IMG_3942.heic": {
+   "subject": "White cat flopped on garden paving with toy (set of 4)",
+   "tags": [
+    "cat",
+    "home",
+    "charm"
+   ],
+   "q": 2,
+   "dupe": "IMG_3946.heic",
+   "date": "2026-06-05 15:23",
+   "location": "_duplicates"
+  },
+  "IMG_3946.heic": {
+   "subject": "White cat stretched out on paving, banana toy — peak charm",
+   "tags": [
+    "cat",
+    "charm",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 15:23"
+  },
+  "IMG_3951.heic": {
+   "subject": "Cat on paving wide (set)",
+   "tags": [
+    "cat",
+    "home"
+   ],
+   "q": 2,
+   "dupe": "IMG_3946.heic",
+   "date": "2026-06-05 15:23",
+   "location": "_duplicates"
+  },
+  "IMG_3927.HEIC": {
+   "subject": "Cat face close-up looking up from paving",
+   "tags": [
+    "cat",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:17"
+  },
+  "IMG_3919.heic": {
+   "subject": "Wheelbarrow with compost bag between beds (trio)",
+   "tags": [
+    "wheelbarrow",
+    "compost"
+   ],
+   "q": 2,
+   "dupe": "IMG_3922.heic",
+   "date": "2026-06-05 15:07",
+   "location": "_duplicates"
+  },
+  "IMG_3922.heic": {
+   "subject": "Barrow + compost bag by the new bed, plot behind — best of trio",
+   "tags": [
+    "wheelbarrow",
+    "compost",
+    "bed-prep"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:07"
+  },
+  "IMG_3920.heic": {
+   "subject": "Barrow + compost bag (trio)",
+   "tags": [
+    "wheelbarrow",
+    "compost"
+   ],
+   "q": 2,
+   "dupe": "IMG_3922.heic",
+   "date": "2026-06-05 15:07",
+   "location": "_duplicates"
+  },
+  "IMG_3918.HEIC": {
+   "subject": "New green wheelbarrow empty on grass path, moody sky",
+   "tags": [
+    "wheelbarrow",
+    "kit"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:00"
+  },
+  "IMG_3916.HEIC": {
+   "subject": "New wheelbarrow on grass (pair with 3918)",
+   "tags": [
+    "wheelbarrow"
+   ],
+   "q": 2,
+   "dupe": "IMG_3918.HEIC",
+   "date": "2026-06-05 15:00",
+   "location": "_duplicates"
+  },
+  "IMG_3913.HEIC": {
+   "subject": "Broadfork standing in fresh bed, wide scene with sheds",
+   "tags": [
+    "broadfork",
+    "tools",
+    "bed-prep"
+   ],
+   "q": 2,
+   "date": "2026-06-05 15:00"
+  },
+  "IMG_3912.HEIC": {
+   "subject": "Broadfork tines driven into clay, orange handles — working close-up",
+   "tags": [
+    "broadfork",
+    "tools",
+    "clay",
+    "detail",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 14:56"
+  },
+  "IMG_3907.HEIC": {
+   "subject": "Broadfork upright portrait against beds + big sky",
+   "tags": [
+    "broadfork",
+    "tools",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 14:56"
+  },
+  "IMG_3902.HEIC": {
+   "subject": "Broadfork in new bed, arch + plot wide (pair)",
+   "tags": [
+    "broadfork",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_3904.HEIC",
+   "date": "2026-06-05 14:55",
+   "location": "_duplicates"
+  },
+  "IMG_3904.HEIC": {
+   "subject": "Broadfork standing in dug bed under moody sky — strong",
+   "tags": [
+    "broadfork",
+    "tools",
+    "moody-sky",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 14:55"
+  },
+  "IMG_3898.HEIC": {
+   "subject": "Green trug filled with weeds, overhead",
+   "tags": [
+    "trug",
+    "weeding"
+   ],
+   "q": 2,
+   "date": "2026-06-05 14:36"
+  },
+  "IMG_3901.HEIC": {
+   "subject": "Broadfork + trug of weeds in the bed being cleared",
+   "tags": [
+    "broadfork",
+    "trug",
+    "weeding"
+   ],
+   "q": 2,
+   "date": "2026-06-05 14:36"
+  },
+  "IMG_3893.HEIC": {
+   "subject": "Dry clay clods close-up — the heavy soil, honestly",
+   "tags": [
+    "clay",
+    "soil",
+    "detail"
+   ],
+   "q": 2,
+   "date": "2026-06-05 14:35"
+  },
+  "IMG_3889.HEIC": {
+   "subject": "Long bindweed root lifted whole across broadfork tines — THE blog shot",
+   "tags": [
+    "bindweed",
+    "root",
+    "broadfork",
+    "detail",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 14:35"
+  },
+  "IMG_3894.HEIC": {
+   "subject": "Bindweed root on tine + clay clod (burst)",
+   "tags": [
+    "bindweed",
+    "broadfork"
+   ],
+   "q": 2,
+   "dupe": "IMG_3889.HEIC",
+   "date": "2026-06-05 14:35",
+   "location": "_duplicates"
+  },
+  "IMG_3896.HEIC": {
+   "subject": "Broadfork tines under clod, boots in frame — working angle",
+   "tags": [
+    "broadfork",
+    "clay",
+    "working"
+   ],
+   "q": 2,
+   "date": "2026-06-05 14:35"
+  },
+  "IMG_3891.HEIC": {
+   "subject": "Bindweed root threaded through tines (burst)",
+   "tags": [
+    "bindweed",
+    "broadfork"
+   ],
+   "q": 2,
+   "dupe": "IMG_3889.HEIC",
+   "date": "2026-06-05 14:35",
+   "location": "_duplicates"
+  },
+  "IMG_3885.HEIC": {
+   "subject": "Potato patch with stripy-parasol shed behind (trio 1)",
+   "tags": [
+    "potatoes",
+    "shed",
+    "scene"
+   ],
+   "q": 2,
+   "dupe": "IMG_3884.HEIC",
+   "date": "2026-06-05 13:57",
+   "location": "_duplicates"
+  },
+  "IMG_3886.HEIC": {
+   "subject": "Potato patch + shed wide (trio 2)",
+   "tags": [
+    "potatoes",
+    "shed"
+   ],
+   "q": 2,
+   "dupe": "IMG_3884.HEIC",
+   "date": "2026-06-05 13:57",
+   "location": "_duplicates"
+  },
+  "IMG_3884.HEIC": {
+   "subject": "Potatoes in leaf toward the black shed + stripy parasol — best of trio",
+   "tags": [
+    "potatoes",
+    "shed",
+    "scene"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:56"
+  },
+  "IMG_3881.HEIC": {
+   "subject": "Marigold seedling just planted in gritty compost",
+   "tags": [
+    "marigolds",
+    "seedling",
+    "planting"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:51"
+  },
+  "IMG_3877.HEIC": {
+   "subject": "Broadfork mid-dig, tines in soil, orange handles close",
+   "tags": [
+    "broadfork",
+    "working",
+    "detail"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:50"
+  },
+  "IMG_3874.HEIC": {
+   "subject": "Hand fork + weeded clay, bindweed pulled",
+   "tags": [
+    "hand-fork",
+    "weeding",
+    "clay"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:50"
+  },
+  "IMG_3878.HEIC": {
+   "subject": "Courgette seedling planted into new dark bed",
+   "tags": [
+    "courgettes",
+    "seedling",
+    "planting"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:50"
+  },
+  "IMG_3879.HEIC": {
+   "subject": "Two courgette seedlings in fresh bed, marigolds behind",
+   "tags": [
+    "courgettes",
+    "seedlings",
+    "planting"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:50"
+  },
+  "IMG_3875.HEIC": {
+   "subject": "Hand fork resting on cleared soil",
+   "tags": [
+    "hand-fork",
+    "detail"
+   ],
+   "q": 1,
+   "date": "2026-06-05 13:50"
+  },
+  "IMG_3872.HEIC": {
+   "subject": "Broadfork upright, green trug beside, allotment behind (pair)",
+   "tags": [
+    "broadfork",
+    "tools"
+   ],
+   "q": 2,
+   "dupe": "IMG_3869.HEIC",
+   "date": "2026-06-05 13:50",
+   "location": "_duplicates"
+  },
+  "IMG_3869.HEIC": {
+   "subject": "Broadfork upright portrait mid-clearance — best of pair",
+   "tags": [
+    "broadfork",
+    "tools",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 13:50"
+  },
+  "IMG_3861.HEIC": {
+   "subject": "Bindweed root drawn from clay clod (set with 3858/3859)",
+   "tags": [
+    "bindweed",
+    "root",
+    "clay"
+   ],
+   "q": 2,
+   "dupe": "IMG_3858.HEIC",
+   "date": "2026-06-05 13:49",
+   "location": "_duplicates"
+  },
+  "IMG_3862.HEIC": {
+   "subject": "Crimson scabious drift with plot behind",
+   "tags": [
+    "flowers",
+    "scabious",
+    "scene"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:49"
+  },
+  "IMG_3858.HEIC": {
+   "subject": "Long unbroken bindweed root across dug soil — satisfying",
+   "tags": [
+    "bindweed",
+    "root",
+    "detail"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:49"
+  },
+  "IMG_3859.HEIC": {
+   "subject": "Bindweed root + broken stem in clay (set)",
+   "tags": [
+    "bindweed",
+    "root"
+   ],
+   "q": 2,
+   "dupe": "IMG_3858.HEIC",
+   "date": "2026-06-05 13:49",
+   "location": "_duplicates"
+  },
+  "IMG_3856.HEIC": {
+   "subject": "Raised bed corner: orange marigolds + squash, arch beyond (pair)",
+   "tags": [
+    "marigolds",
+    "raised-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_3854.HEIC",
+   "date": "2026-06-05 13:33",
+   "location": "_duplicates"
+  },
+  "IMG_3850.HEIC": {
+   "subject": "Double orange marigold bloom close in bed",
+   "tags": [
+    "marigolds",
+    "close-up"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:32"
+  },
+  "IMG_3854.HEIC": {
+   "subject": "Marigold row along raised bed edge, greenhouses beyond",
+   "tags": [
+    "marigolds",
+    "raised-bed"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:32"
+  },
+  "IMG_3844.HEIC": {
+   "subject": "Young squash plant settling into raised bed",
+   "tags": [
+    "squash",
+    "young-plant"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:32"
+  },
+  "IMG_3841.HEIC": {
+   "subject": "Potato rows toward black shed + stripy parasol",
+   "tags": [
+    "potatoes",
+    "shed",
+    "scene"
+   ],
+   "q": 2,
+   "dupe": "IMG_3884.HEIC",
+   "date": "2026-06-05 13:31",
+   "location": "_duplicates"
+  },
+  "IMG_3838.HEIC": {
+   "subject": "Painted lady butterfly on potato leaves",
+   "tags": [
+    "butterfly",
+    "potatoes",
+    "wildlife"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:31"
+  },
+  "IMG_3834.HEIC": {
+   "subject": "Potato foliage overhead (pair with 3832)",
+   "tags": [
+    "potatoes"
+   ],
+   "q": 2,
+   "dupe": "IMG_3832.HEIC",
+   "date": "2026-06-05 13:31",
+   "location": "_duplicates"
+  },
+  "IMG_3832.HEIC": {
+   "subject": "Two potato rows overhead, boots in frame",
+   "tags": [
+    "potatoes",
+    "rows"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:31"
+  },
+  "IMG_3821.HEIC": {
+   "subject": "Painted lady butterfly wings-open on potato leaf — best butterfly shot",
+   "tags": [
+    "butterfly",
+    "wildlife",
+    "potatoes",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-06-05 13:30"
+  },
+  "IMG_3796.HEIC": {
+   "subject": "Soapwort in full pink flower, close",
+   "tags": [
+    "flowers",
+    "soapwort",
+    "close-up"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:28"
+  },
+  "IMG_3792.HEIC": {
+   "subject": "White geranium flowers over bed edge (pair)",
+   "tags": [
+    "flowers",
+    "geranium"
+   ],
+   "q": 2,
+   "dupe": "IMG_3794.HEIC",
+   "date": "2026-06-05 13:28",
+   "location": "_duplicates"
+  },
+  "IMG_3794.HEIC": {
+   "subject": "Two white geranium blooms, soft green — pretty",
+   "tags": [
+    "flowers",
+    "geranium"
+   ],
+   "q": 2,
+   "date": "2026-06-05 13:28"
+  },
+  "IMG_3708.HEIC": {
+   "subject": "Purple toadflax flower spike close",
+   "tags": [
+    "flowers",
+    "toadflax"
+   ],
+   "q": 2,
+   "date": "2026-05-31 19:50"
+  },
+  "IMG_3692.HEIC": {
+   "subject": "Fresh-planted beds with marigold edges, evening (end of May, trio)",
+   "tags": [
+    "raised-bed",
+    "planting",
+    "may"
+   ],
+   "q": 2,
+   "dupe": "IMG_3698.HEIC",
+   "date": "2026-05-31 19:48",
+   "location": "_duplicates"
+  },
+  "IMG_3698.HEIC": {
+   "subject": "Bed with hoops + marigold seedling border, just planted — best of trio",
+   "tags": [
+    "raised-bed",
+    "hoops",
+    "marigolds",
+    "may"
+   ],
+   "q": 2,
+   "date": "2026-05-31 19:48"
+  },
+  "IMG_3695.HEIC": {
+   "subject": "Hooped bed + marigold border wide (trio)",
+   "tags": [
+    "raised-bed",
+    "hoops"
+   ],
+   "q": 2,
+   "dupe": "IMG_3698.HEIC",
+   "date": "2026-05-31 19:48",
+   "location": "_duplicates"
+  },
+  "IMG_3697 2.HEIC": {
+   "subject": "Hooped bed freshly planted, evening light (late-May set)",
+   "tags": [
+    "raised-bed",
+    "hoops",
+    "may"
+   ],
+   "q": 2,
+   "dupe": "IMG_3698.HEIC",
+   "date": "2026-05-31 19:48",
+   "location": "_duplicates"
+  },
+  "IMG_3691.HEIC": {
+   "subject": "Just-planted bed: squash centre, marigold border",
+   "tags": [
+    "raised-bed",
+    "squash",
+    "marigolds",
+    "may"
+   ],
+   "q": 2,
+   "date": "2026-05-31 19:48"
+  },
+  "IMG_3684.HEIC": {
+   "subject": "Bed with frame + tiny lettuce border, just planted",
+   "tags": [
+    "raised-bed",
+    "lettuce",
+    "planting"
+   ],
+   "q": 2,
+   "date": "2026-05-31 19:36"
+  },
+  "IMG_3685.HEIC": {
+   "subject": "Newly sown bed with pea sticks + seedling border",
+   "tags": [
+    "raised-bed",
+    "planting"
+   ],
+   "q": 2,
+   "date": "2026-05-31 19:36"
+  },
+  "IMG_3683.HEIC": {
+   "subject": "Fresh black-composted bed with single cane, marigold corners",
+   "tags": [
+    "raised-bed",
+    "bed-prep"
+   ],
+   "q": 2,
+   "date": "2026-05-31 19:36"
+  },
+  "IMG_3671.HEIC": {
+   "subject": "THE CAT lying in the freshly planted bed among squash seedlings — peak allotment charm",
+   "tags": [
+    "cat",
+    "charm",
+    "raised-bed",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-05-31 19:12"
+  },
+  "IMG_3674.HEIC": {
+   "subject": "Cat peeking over the raised-bed edge, evening",
+   "tags": [
+    "cat",
+    "charm",
+    "raised-bed"
+   ],
+   "q": 3,
+   "date": "2026-05-31 19:12"
+  },
+  "IMG_3669.HEIC": {
+   "subject": "Cat walking through the bean frame toward camera",
+   "tags": [
+    "cat",
+    "charm",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-05-31 19:12"
+  },
+  "IMG_3657.HEIC": {
+   "subject": "Potato rows by old sheds, late May",
+   "tags": [
+    "potatoes",
+    "sheds",
+    "scene"
+   ],
+   "q": 2,
+   "date": "2026-05-30 19:52"
+  },
+  "IMG_3659.HEIC": {
+   "subject": "Squash bed just planted, arch + plot beyond",
+   "tags": [
+    "squash",
+    "raised-bed"
+   ],
+   "q": 2,
+   "date": "2026-05-30 19:52"
+  },
+  "IMG_3654.HEIC": {
+   "subject": "Young potato rows in open ground (pair)",
+   "tags": [
+    "potatoes",
+    "rows"
+   ],
+   "q": 2,
+   "dupe": "IMG_3653.HEIC",
+   "date": "2026-05-30 19:52",
+   "location": "_duplicates"
+  },
+  "IMG_3653.HEIC": {
+   "subject": "Three young potato rows, membrane behind — tidy late-May",
+   "tags": [
+    "potatoes",
+    "rows"
+   ],
+   "q": 2,
+   "date": "2026-05-30 19:52"
+  },
+  "IMG_3651.HEIC": {
+   "subject": "Plot wide at dusk: beds, membrane, arch",
+   "tags": [
+    "plot",
+    "overview",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-05-30 19:51"
+  },
+  "IMG_3650.HEIC": {
+   "subject": "Cane frame + cucumber seedlings in bed corner",
+   "tags": [
+    "cucumbers",
+    "frame",
+    "raised-bed"
+   ],
+   "q": 2,
+   "date": "2026-05-30 19:45"
+  },
+  "IMG_3637.HEIC": {
+   "subject": "Long raised bed planted with tomatoes + marigold corner",
+   "tags": [
+    "tomatoes",
+    "raised-bed",
+    "may"
+   ],
+   "q": 2,
+   "date": "2026-05-30 19:40"
+  },
+  "IMG_3593.HEIC": {
+   "subject": "Sage in flower spilling over bed corner, plot beyond",
+   "tags": [
+    "sage",
+    "herbs",
+    "flowers"
+   ],
+   "q": 2,
+   "date": "2026-05-29 15:55"
+  },
+  "IMG_3575.HEIC": {
+   "subject": "Bed under weed membrane weighted with roof tiles (prep set)",
+   "tags": [
+    "membrane",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_3529.HEIC",
+   "date": "2026-05-29 15:28",
+   "location": "_duplicates"
+  },
+  "IMG_3576.HEIC": {
+   "subject": "Membrane-covered bed + marigold edge (prep set)",
+   "tags": [
+    "membrane",
+    "bed-prep"
+   ],
+   "q": 1,
+   "dupe": "IMG_3529.HEIC",
+   "date": "2026-05-29 15:28",
+   "location": "_duplicates"
+  },
+  "IMG_3569.HEIC": {
+   "subject": "Home raised planter with herbs by bamboo fence",
+   "tags": [
+    "home",
+    "planter",
+    "herbs"
+   ],
+   "q": 2,
+   "date": "2026-05-29 14:55"
+  },
+  "IMG_3529.HEIC": {
+   "subject": "Membrane bed with tiles + pink crocs in frame — bed-prep documentary",
+   "tags": [
+    "membrane",
+    "bed-prep",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-05-27 19:43"
+  },
+  "IMG_3483.HEIC": {
+   "subject": "Sunset over the home planter, aubretia spilling",
+   "tags": [
+    "home",
+    "sunset",
+    "flowers"
+   ],
+   "q": 2,
+   "date": "2026-05-25 19:35"
+  },
+  "IMG_3477.HEIC": {
+   "subject": "Rose arch silhouette at dusk, beds beyond",
+   "tags": [
+    "arch",
+    "dusk",
+    "scene"
+   ],
+   "q": 2,
+   "date": "2026-05-25 19:30"
+  },
+  "IMG_3481.HEIC": {
+   "subject": "Potato rows freshly watered, evening (set of 4)",
+   "tags": [
+    "potatoes",
+    "watering",
+    "evening"
+   ],
+   "q": 2,
+   "dupe": "IMG_3474.HEIC",
+   "date": "2026-05-25 19:30",
+   "location": "_duplicates"
+  },
+  "IMG_3476.HEIC": {
+   "subject": "Potato rows watered, membrane behind (set)",
+   "tags": [
+    "potatoes",
+    "watering"
+   ],
+   "q": 2,
+   "dupe": "IMG_3474.HEIC",
+   "date": "2026-05-25 19:18",
+   "location": "_duplicates"
+  },
+  "IMG_3474.HEIC": {
+   "subject": "Watered potato rows in evening light — best of set",
+   "tags": [
+    "potatoes",
+    "watering",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-05-25 19:18"
+  },
+  "IMG_3475.HEIC": {
+   "subject": "Potato rows just watered (set)",
+   "tags": [
+    "potatoes",
+    "watering"
+   ],
+   "q": 2,
+   "dupe": "IMG_3474.HEIC",
+   "date": "2026-05-25 19:18",
+   "location": "_duplicates"
+  },
+  "IMG_3470.HEIC": {
+   "subject": "WATERING LANCE at work — long wand delivering water at the roots of young potatoes",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "potatoes",
+    "kit",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-05-25 19:16"
+  },
+  "IMG_3471.HEIC": {
+   "subject": "Watering lance soaking soil at plant base, water pooling — the reach shot",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "detail",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-05-25 19:16"
+  },
+  "IMG_3467.HEIC": {
+   "subject": "Home corner: soapwort in flower, water butts + chicken by shed",
+   "tags": [
+    "home",
+    "flowers",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-05-25 19:14"
+  },
+  "IMG_3344.HEIC": {
+   "subject": "Membrane-covered raised beds under big cloud sky, mid-May",
+   "tags": [
+    "membrane",
+    "raised-bed",
+    "overview",
+    "may"
+   ],
+   "q": 2,
+   "date": "2026-05-15 15:01"
+  },
+  "IMG_3348.HEIC": {
+   "subject": "Membrane bed close, tiles as weights (mid-May set)",
+   "tags": [
+    "membrane",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_3344.HEIC",
+   "date": "2026-05-15 15:01",
+   "location": "_duplicates"
+  },
+  "IMG_3345.HEIC": {
+   "subject": "Membrane beds pair toward trees (set)",
+   "tags": [
+    "membrane",
+    "raised-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_3344.HEIC",
+   "date": "2026-05-15 15:01",
+   "location": "_duplicates"
+  },
+  "IMG_3342.HEIC": {
+   "subject": "Arch frame on open ground, greenhouse left (mid-May)",
+   "tags": [
+    "arch",
+    "plot",
+    "may"
+   ],
+   "q": 1,
+   "date": "2026-05-15 15:01"
+  },
+  "IMG_3343.HEIC": {
+   "subject": "Row of membraned beds with tile weights (set)",
+   "tags": [
+    "membrane",
+    "raised-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_3344.HEIC",
+   "date": "2026-05-15 15:01",
+   "location": "_duplicates"
+  },
+  "IMG_3346.HEIC": {
+   "subject": "Membraned bed + greenhouses behind (set)",
+   "tags": [
+    "membrane",
+    "raised-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_3344.HEIC",
+   "date": "2026-05-15 15:01",
+   "location": "_duplicates"
+  },
+  "IMG_3347.HEIC": {
+   "subject": "Membrane bed with brick name-tiles close (set)",
+   "tags": [
+    "membrane",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_3344.HEIC",
+   "date": "2026-05-15 15:01",
+   "location": "_duplicates"
+  },
+  "IMG_3335.HEIC": {
+   "subject": "Open plot mid-May: dug strips + membrane, big sky",
+   "tags": [
+    "plot",
+    "overview",
+    "may"
+   ],
+   "q": 2,
+   "date": "2026-05-15 15:00"
+  },
+  "IMG_3339.HEIC": {
+   "subject": "Pink saxifrage planter cascading, plot beyond",
+   "tags": [
+    "home",
+    "flowers"
+   ],
+   "q": 2,
+   "date": "2026-05-15 15:00"
+  },
+  "IMG_3334.HEIC": {
+   "subject": "Home patio corner: planter in full pink flower, table + chairs",
+   "tags": [
+    "home",
+    "flowers",
+    "scene"
+   ],
+   "q": 2,
+   "date": "2026-05-15 15:00"
+  },
+  "IMG_3340.HEIC": {
+   "subject": "Rough-dug strip awaiting beds, membrane + fleece beyond",
+   "tags": [
+    "plot",
+    "bed-prep",
+    "may"
+   ],
+   "q": 1,
+   "date": "2026-05-15 15:00"
+  },
+  "IMG_3341.HEIC": {
+   "subject": "Compost planting mounds in rows on open ground (May set)",
+   "tags": [
+    "bed-prep",
+    "compost",
+    "may"
+   ],
+   "q": 2,
+   "dupe": "IMG_3327.HEIC",
+   "date": "2026-05-15 15:00",
+   "location": "_duplicates"
+  },
+  "IMG_3336.HEIC": {
+   "subject": "Home planter froth: pink saxifrage + mint + squash ornament",
+   "tags": [
+    "home",
+    "flowers",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-05-15 15:00"
+  },
+  "IMG_3329.HEIC": {
+   "subject": "Long compost ridge freshly laid (May set)",
+   "tags": [
+    "bed-prep",
+    "compost"
+   ],
+   "q": 2,
+   "dupe": "IMG_3327.HEIC",
+   "date": "2026-05-15 14:56",
+   "location": "_duplicates"
+  },
+  "IMG_3327.HEIC": {
+   "subject": "Compost planting stations in rows, membrane behind — potato planting day",
+   "tags": [
+    "bed-prep",
+    "compost",
+    "potatoes",
+    "may"
+   ],
+   "q": 2,
+   "date": "2026-05-15 14:56"
+  },
+  "IMG_3330.HEIC": {
+   "subject": "Compost ridge close (May set)",
+   "tags": [
+    "bed-prep",
+    "compost"
+   ],
+   "q": 1,
+   "dupe": "IMG_3327.HEIC",
+   "date": "2026-05-15 14:56",
+   "location": "_duplicates"
+  },
+  "IMG_3325.heic": {
+   "subject": "Fresh raised bed + woodchip paths, sheds beyond",
+   "tags": [
+    "raised-bed",
+    "plot"
+   ],
+   "q": 2,
+   "date": "2026-05-15 14:45"
+  },
+  "IMG_3318.HEIC": {
+   "subject": "Plot panorama mid-May under towering clouds",
+   "tags": [
+    "plot",
+    "overview",
+    "sky"
+   ],
+   "q": 2,
+   "date": "2026-05-15 14:44"
+  },
+  "IMG_3320.heic": {
+   "subject": "Membraned beds group with tile weights, fleece caps beyond",
+   "tags": [
+    "membrane",
+    "raised-bed"
+   ],
+   "q": 2,
+   "dupe": "IMG_3344.HEIC",
+   "date": "2026-05-15 14:44",
+   "location": "_duplicates"
+  },
+  "IMG_3316.HEIC": {
+   "subject": "Rough strip with first seedlings + weeds, May",
+   "tags": [
+    "plot",
+    "seedlings"
+   ],
+   "q": 1,
+   "date": "2026-05-15 14:24"
+  },
+  "IMG_3200.HEIC": {
+   "subject": "Membraned bed + arches, old sheds behind (early May)",
+   "tags": [
+    "membrane",
+    "raised-bed",
+    "arch"
+   ],
+   "q": 2,
+   "date": "2026-05-07 13:51"
+  },
+  "IMG_3196.HEIC": {
+   "subject": "Plot wide, dark sky brewing over dug strips",
+   "tags": [
+    "plot",
+    "overview",
+    "moody-sky"
+   ],
+   "q": 2,
+   "date": "2026-05-07 13:50"
+  },
+  "IMG_3199.HEIC": {
+   "subject": "Dug strips + membrane, arch right, early May",
+   "tags": [
+    "plot",
+    "bed-prep"
+   ],
+   "q": 2,
+   "date": "2026-05-07 13:50"
+  },
+  "IMG_3190.HEIC": {
+   "subject": "First potato shoot through stony clay (quartet)",
+   "tags": [
+    "potatoes",
+    "shoots",
+    "clay"
+   ],
+   "q": 2,
+   "dupe": "IMG_3189.HEIC",
+   "date": "2026-05-07 13:04",
+   "location": "_duplicates"
+  },
+  "IMG_3191.HEIC": {
+   "subject": "Potato shoots emerging in clay (quartet)",
+   "tags": [
+    "potatoes",
+    "shoots"
+   ],
+   "q": 1,
+   "dupe": "IMG_3189.HEIC",
+   "date": "2026-05-07 13:04",
+   "location": "_duplicates"
+  },
+  "IMG_3189.HEIC": {
+   "subject": "Potato shoot pushing through brick-flecked clay, close — first-signs shot",
+   "tags": [
+    "potatoes",
+    "shoots",
+    "clay",
+    "detail"
+   ],
+   "q": 2,
+   "date": "2026-05-07 13:04"
+  },
+  "IMG_3188.HEIC": {
+   "subject": "Potato shoot in clay (quartet)",
+   "tags": [
+    "potatoes",
+    "shoots"
+   ],
+   "q": 1,
+   "dupe": "IMG_3189.HEIC",
+   "date": "2026-05-07 13:03",
+   "location": "_duplicates"
+  },
+  "IMG_3161.HEIC": {
+   "subject": "Arch tunnel + planter with CAT perched on top, houses behind",
+   "tags": [
+    "cat",
+    "arch",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-05-03 19:01"
+  },
+  "IMG_3160.heic": {
+   "subject": "Arches + cat on planter wide (pair)",
+   "tags": [
+    "cat",
+    "arch"
+   ],
+   "q": 2,
+   "dupe": "IMG_3161.HEIC",
+   "date": "2026-05-03 19:01",
+   "location": "_duplicates"
+  },
+  "IMG_3153.HEIC": {
+   "subject": "Cat sat atop the pink-flowered planter by the shed — very charming",
+   "tags": [
+    "cat",
+    "charm",
+    "flowers",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-05-03 18:59"
+  },
+  "IMG_3147.HEIC": {
+   "subject": "Patio bistro table + cat on planter + gnome, evening",
+   "tags": [
+    "cat",
+    "home",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-05-03 18:59"
+  },
+  "IMG_3143.HEIC": {
+   "subject": "Pink saxifrage cascading from planter, allotment evening (trio)",
+   "tags": [
+    "flowers",
+    "planter",
+    "home"
+   ],
+   "q": 2,
+   "dupe": "IMG_3138.HEIC",
+   "date": "2026-05-03 18:24",
+   "location": "_duplicates"
+  },
+  "IMG_3138.HEIC": {
+   "subject": "Saxifrage planter in full flower — best of trio",
+   "tags": [
+    "flowers",
+    "planter",
+    "spring"
+   ],
+   "q": 2,
+   "date": "2026-05-03 18:22"
+  },
+  "IMG_3139.HEIC": {
+   "subject": "Saxifrage planter (trio)",
+   "tags": [
+    "flowers",
+    "planter"
+   ],
+   "q": 2,
+   "dupe": "IMG_3138.HEIC",
+   "date": "2026-05-03 18:22",
+   "location": "_duplicates"
+  },
+  "IMG_3094.HEIC": {
+   "subject": "Tomato seedlings potted on, patio (April potting set of 9)",
+   "tags": [
+    "tomatoes",
+    "seedlings",
+    "potting-on"
+   ],
+   "q": 2,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3088.HEIC": {
+   "subject": "Four potted tomato seedlings in tray (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 2,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3092.HEIC": {
+   "subject": "Tray of potted-on tomato seedlings in spring sun — best of the potting set",
+   "tags": [
+    "tomatoes",
+    "seedlings",
+    "potting-on",
+    "april"
+   ],
+   "q": 2,
+   "date": "2026-04-30 10:34"
+  },
+  "IMG_3093.HEIC": {
+   "subject": "Leggy tomato seedlings in mixed pots (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 1,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3085.HEIC": {
+   "subject": "Potted tomatoes in crate (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 1,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3089.HEIC": {
+   "subject": "Two pots in green tray (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 1,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3090.HEIC": {
+   "subject": "Potting tray overhead (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 1,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3087.HEIC": {
+   "subject": "Four pots overhead (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 1,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3091.HEIC": {
+   "subject": "Potting tray angle 2 (potting set)",
+   "tags": [
+    "tomatoes",
+    "seedlings"
+   ],
+   "q": 1,
+   "dupe": "IMG_3092.HEIC",
+   "date": "2026-04-30 10:34",
+   "location": "_duplicates"
+  },
+  "IMG_3063.HEIC": {
+   "subject": "Cat sitting by the greenhouse (pair)",
+   "tags": [
+    "cat",
+    "greenhouse"
+   ],
+   "q": 2,
+   "dupe": "IMG_3062.HEIC",
+   "date": "2026-04-27 17:45",
+   "location": "_duplicates"
+  },
+  "IMG_3062.HEIC": {
+   "subject": "Cat posed on path before the greenhouse — tidy composition",
+   "tags": [
+    "cat",
+    "greenhouse",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-04-27 17:45"
+  },
+  "IMG_3060.HEIC": {
+   "subject": "Cat walking toward camera on the green (trio)",
+   "tags": [
+    "cat",
+    "charm"
+   ],
+   "q": 2,
+   "dupe": "IMG_3059.HEIC",
+   "date": "2026-04-27 17:42",
+   "location": "_duplicates"
+  },
+  "IMG_3059.HEIC": {
+   "subject": "Cat mid-stride on the grass, ears up — best of trio",
+   "tags": [
+    "cat",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-04-27 17:42"
+  },
+  "IMG_3058.HEIC": {
+   "subject": "Cat on the green, wide (trio)",
+   "tags": [
+    "cat"
+   ],
+   "q": 1,
+   "dupe": "IMG_3059.HEIC",
+   "date": "2026-04-27 17:42",
+   "location": "_duplicates"
+  },
+  "IMG_3026.HEIC": {
+   "subject": "Freshly dug + composted bed mound (April trio)",
+   "tags": [
+    "bed-prep",
+    "compost",
+    "april"
+   ],
+   "q": 1,
+   "dupe": "IMG_3027 2.HEIC",
+   "date": "2026-04-27 17:23",
+   "location": "_duplicates"
+  },
+  "IMG_3027 2.HEIC": {
+   "subject": "Fresh bed mound raked level — best of trio",
+   "tags": [
+    "bed-prep",
+    "compost"
+   ],
+   "q": 2,
+   "date": "2026-04-27 17:23"
+  },
+  "IMG_3024 2.HEIC": {
+   "subject": "Dug bed mound rough (April trio)",
+   "tags": [
+    "bed-prep"
+   ],
+   "q": 1,
+   "dupe": "IMG_3027 2.HEIC",
+   "date": "2026-04-27 17:03",
+   "location": "_duplicates"
+  },
+  "IMG_3011.HEIC": {
+   "subject": "Membraned bed with tile weights, beds behind (April)",
+   "tags": [
+    "membrane",
+    "raised-bed",
+    "april"
+   ],
+   "q": 2,
+   "date": "2026-04-27 13:06"
+  },
+  "IMG_3008.HEIC": {
+   "subject": "Wet dug strip by compost bays",
+   "tags": [
+    "bed-prep",
+    "april"
+   ],
+   "q": 1,
+   "date": "2026-04-27 13:06"
+  },
+  "IMG_2987.heic": {
+   "subject": "Potato trench with compost line (set of 3)",
+   "tags": [
+    "potatoes",
+    "trench",
+    "planting"
+   ],
+   "q": 2,
+   "dupe": "IMG_2988.HEIC",
+   "date": "2026-04-27 12:20",
+   "location": "_duplicates"
+  },
+  "IMG_2988.HEIC": {
+   "subject": "Compost-lined potato trench toward greenhouse — planting day",
+   "tags": [
+    "potatoes",
+    "trench",
+    "planting",
+    "april"
+   ],
+   "q": 2,
+   "date": "2026-04-27 12:20"
+  },
+  "IMG_2989.HEIC": {
+   "subject": "Dug ridge close (set)",
+   "tags": [
+    "potatoes",
+    "trench"
+   ],
+   "q": 1,
+   "dupe": "IMG_2988.HEIC",
+   "date": "2026-04-27 12:20",
+   "location": "_duplicates"
+  },
+  "IMG_2983.HEIC": {
+   "subject": "Potato planting stations in neat rows (pair)",
+   "tags": [
+    "potatoes",
+    "planting",
+    "rows"
+   ],
+   "q": 2,
+   "dupe": "IMG_2982 2.HEIC",
+   "date": "2026-04-27 12:20",
+   "location": "_duplicates"
+  },
+  "IMG_2982 2.HEIC": {
+   "subject": "Compost planting stations gridded across the strip — satisfying pattern",
+   "tags": [
+    "potatoes",
+    "planting",
+    "rows",
+    "april"
+   ],
+   "q": 2,
+   "date": "2026-04-27 12:19"
+  },
+  "IMG_2980 2.HEIC": {
+   "subject": "Planting holes dug in rows (trio)",
+   "tags": [
+    "planting",
+    "holes"
+   ],
+   "q": 1,
+   "dupe": "IMG_2982 2.HEIC",
+   "date": "2026-04-27 11:59",
+   "location": "_duplicates"
+  },
+  "IMG_2978.HEIC": {
+   "subject": "Holes marked out across dug strip (trio)",
+   "tags": [
+    "planting",
+    "holes"
+   ],
+   "q": 1,
+   "dupe": "IMG_2982 2.HEIC",
+   "date": "2026-04-27 11:58",
+   "location": "_duplicates"
+  },
+  "IMG_2977.HEIC": {
+   "subject": "Planting holes rows by membrane (trio)",
+   "tags": [
+    "planting",
+    "holes"
+   ],
+   "q": 1,
+   "dupe": "IMG_2982 2.HEIC",
+   "date": "2026-04-27 11:58",
+   "location": "_duplicates"
+  },
+  "IMG_2961.HEIC": {
+   "subject": "Evening plot with bird-feeder pole, soft sky",
+   "tags": [
+    "plot",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-04-26 17:43"
+  },
+  "IMG_2955.HEIC": {
+   "subject": "Pink flowers over planter edge by the black shed",
+   "tags": [
+    "flowers",
+    "planter"
+   ],
+   "q": 2,
+   "date": "2026-04-26 17:32"
+  },
+  "IMG_2949.heic": {
+   "subject": "Seedling row under lifted fleece (set of 4)",
+   "tags": [
+    "seedlings",
+    "fleece"
+   ],
+   "q": 1,
+   "dupe": "IMG_2946 2.heic",
+   "date": "2026-04-26 17:30",
+   "location": "_duplicates"
+  },
+  "IMG_2946 2.heic": {
+   "subject": "Seedlings down the fleece-edged row — best of set",
+   "tags": [
+    "seedlings",
+    "fleece",
+    "rows"
+   ],
+   "q": 2,
+   "date": "2026-04-26 17:30"
+  },
+  "IMG_2948.heic": {
+   "subject": "Fleece row seedlings (set)",
+   "tags": [
+    "seedlings",
+    "fleece"
+   ],
+   "q": 1,
+   "dupe": "IMG_2946 2.heic",
+   "date": "2026-04-26 17:30",
+   "location": "_duplicates"
+  },
+  "IMG_2951.HEIC": {
+   "subject": "Red-stemmed beetroot seedling backlit by low sun, macro — lovely light",
+   "tags": [
+    "beetroot",
+    "seedling",
+    "golden-hour",
+    "close-up"
+   ],
+   "q": 3,
+   "date": "2026-04-26 17:30"
+  },
+  "IMG_2947.heic": {
+   "subject": "Fleece row seedlings (set)",
+   "tags": [
+    "seedlings",
+    "fleece"
+   ],
+   "q": 1,
+   "dupe": "IMG_2946 2.heic",
+   "date": "2026-04-26 17:30",
+   "location": "_duplicates"
+  },
+  "IMG_2950.HEIC": {
+   "subject": "Young beetroot row catching evening light (pair)",
+   "tags": [
+    "beetroot",
+    "seedlings",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-04-26 17:30"
+  },
+  "IMG_2945 2.HEIC": {
+   "subject": "Struggling seedling in gritty soil",
+   "tags": [
+    "seedling"
+   ],
+   "q": 1,
+   "date": "2026-04-26 17:30"
+  },
+  "IMG_2943.HEIC": {
+   "subject": "Beetroot seedlings along board edge, evening (pair)",
+   "tags": [
+    "beetroot",
+    "seedlings"
+   ],
+   "q": 2,
+   "dupe": "IMG_2950.HEIC",
+   "date": "2026-04-26 17:29",
+   "location": "_duplicates"
+  },
+  "IMG_2944.HEIC": {
+   "subject": "Marigold seedlings along membrane bed edge, evening",
+   "tags": [
+    "marigolds",
+    "seedlings",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2026-04-26 17:29"
+  },
+  "IMG_2935.HEIC": {
+   "subject": "Strawberry plants + mint leaves in dark mulch",
+   "tags": [
+    "strawberries",
+    "mint"
+   ],
+   "q": 1,
+   "date": "2026-04-26 17:27"
+  },
+  "IMG_2936.HEIC": {
+   "subject": "Saxifrage tumbling over planter, dug plot behind",
+   "tags": [
+    "flowers",
+    "planter"
+   ],
+   "q": 2,
+   "dupe": "IMG_3138.HEIC",
+   "date": "2026-04-26 17:27",
+   "location": "_duplicates"
+  },
+  "IMG_2927 2.HEIC": {
+   "subject": "Brick tiles weighting membrane, twine line",
+   "tags": [
+    "membrane",
+    "bed-prep",
+    "detail"
+   ],
+   "q": 1,
+   "date": "2026-04-26 16:49"
+  },
+  "IMG_2902.heic": {
+   "subject": "Garlic rows greening up in spring bed",
+   "tags": [
+    "garlic",
+    "raised-bed",
+    "spring"
+   ],
+   "q": 2,
+   "date": "2026-04-24 18:18"
+  },
+  "IMG_2904.heic": {
+   "subject": "Freshly raked plot in long shadowed rows, golden evening (quartet)",
+   "tags": [
+    "plot",
+    "bed-prep",
+    "evening"
+   ],
+   "q": 2,
+   "dupe": "IMG_2907.heic",
+   "date": "2026-04-24 18:18",
+   "location": "_duplicates"
+  },
+  "IMG_2905.heic": {
+   "subject": "Raked rows toward sheds (quartet)",
+   "tags": [
+    "plot",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_2907.heic",
+   "date": "2026-04-24 18:18",
+   "location": "_duplicates"
+  },
+  "IMG_2906.heic": {
+   "subject": "Raked rows + greenhouse (quartet)",
+   "tags": [
+    "plot",
+    "bed-prep"
+   ],
+   "q": 2,
+   "dupe": "IMG_2907.heic",
+   "date": "2026-04-24 18:18",
+   "location": "_duplicates"
+  },
+  "IMG_2907.heic": {
+   "subject": "The whole plot freshly raked into ridges, low sun raking shadows — best of quartet",
+   "tags": [
+    "plot",
+    "bed-prep",
+    "evening",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-04-24 18:18"
+  },
+  "IMG_2842.HEIC": {
+   "subject": "WATERING LANCE head gently sprinkling seedling trays on the grass — lovely kit detail",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "seedlings",
+    "kit",
+    "detail",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-04-24 11:19"
+  },
+  "IMG_2793.HEIC": {
+   "subject": "Fresh compost bed with tiny lettuce border just planted",
+   "tags": [
+    "raised-bed",
+    "lettuce",
+    "planting"
+   ],
+   "q": 2,
+   "date": "2026-04-23 16:12"
+  },
+  "IMG_2783.HEIC": {
+   "subject": "Hooped bed filled with fresh compost (set)",
+   "tags": [
+    "raised-bed",
+    "hoops",
+    "compost"
+   ],
+   "q": 2,
+   "dupe": "IMG_2782.HEIC",
+   "date": "2026-04-23 14:42",
+   "location": "_duplicates"
+  },
+  "IMG_2782.HEIC": {
+   "subject": "Hooped bed composted, plot behind — ready to plant",
+   "tags": [
+    "raised-bed",
+    "hoops",
+    "compost"
+   ],
+   "q": 2,
+   "date": "2026-04-23 14:42"
+  },
+  "IMG_2781.HEIC": {
+   "subject": "Composted bed overhead, ready (set)",
+   "tags": [
+    "raised-bed",
+    "compost"
+   ],
+   "q": 1,
+   "dupe": "IMG_2782.HEIC",
+   "date": "2026-04-23 14:41",
+   "location": "_duplicates"
+  },
+  "IMG_2780.HEIC": {
+   "subject": "Two composted beds + greenhouse (set)",
+   "tags": [
+    "raised-bed",
+    "compost"
+   ],
+   "q": 2,
+   "dupe": "IMG_2782.HEIC",
+   "date": "2026-04-23 14:41",
+   "location": "_duplicates"
+  },
+  "IMG_2735.HEIC": {
+   "subject": "Home planter with young herbs, lawn beyond",
+   "tags": [
+    "home",
+    "planter",
+    "herbs"
+   ],
+   "q": 1,
+   "date": "2026-04-22 15:47"
+  },
+  "IMG_2737.HEIC": {
+   "subject": "Geraniums over planter edge, plot + compost behind",
+   "tags": [
+    "flowers",
+    "planter"
+   ],
+   "q": 1,
+   "date": "2026-04-22 15:47"
+  },
+  "IMG_2733.HEIC": {
+   "subject": "A FOX sitting calmly among the rhubarb in the sun (trio 1) — wildlife gold",
+   "tags": [
+    "fox",
+    "wildlife",
+    "charm",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2026-04-22 15:38"
+  },
+  "IMG_2732 2.HEIC": {
+   "subject": "Fox sat upright by the bed frame, looking at camera (trio 2)",
+   "tags": [
+    "fox",
+    "wildlife",
+    "charm"
+   ],
+   "q": 3,
+   "date": "2026-04-22 15:38"
+  },
+  "IMG_2731.HEIC": {
+   "subject": "Fox lounging on the grass by rhubarb (trio 3)",
+   "tags": [
+    "fox",
+    "wildlife",
+    "charm"
+   ],
+   "q": 2,
+   "dupe": "IMG_2733.HEIC",
+   "date": "2026-04-22 15:38",
+   "location": "_duplicates"
+  },
+  "IMG_2721.HEIC": {
+   "subject": "Fresh bed with lettuce border planted, grass path (pair)",
+   "tags": [
+    "raised-bed",
+    "lettuce",
+    "april"
+   ],
+   "q": 2,
+   "dupe": "IMG_2793.HEIC",
+   "date": "2026-04-22 15:15",
+   "location": "_duplicates"
+  },
+  "IMG_2720.HEIC": {
+   "subject": "Composted bed + lettuce border, trug beside (pair)",
+   "tags": [
+    "raised-bed",
+    "lettuce"
+   ],
+   "q": 2,
+   "dupe": "IMG_2793.HEIC",
+   "date": "2026-04-22 15:15",
+   "location": "_duplicates"
+  },
+  "IMG_2714.HEIC": {
+   "subject": "Rough-dug clay pile on the strip, April",
+   "tags": [
+    "bed-prep",
+    "clay"
+   ],
+   "q": 1,
+   "date": "2026-04-22 14:33"
+  },
+  "IMG_2656.HEIC": {
+   "subject": "Dug strip + membrane toward houses, bright April day",
+   "tags": [
+    "plot",
+    "bed-prep"
+   ],
+   "q": 1,
+   "date": "2026-04-21 10:18"
+  },
+  "IMG_2645 2.HEIC": {
+   "subject": "Clay mound on the strip under heavy sky",
+   "tags": [
+    "bed-prep",
+    "clay",
+    "moody-sky"
+   ],
+   "q": 1,
+   "date": "2026-04-20 15:55"
+  },
+  "IMG_9890.HEIC": {
+   "subject": "Kate wheeling compost bags in the barrow (from behind, blue jumper) — rare person shot",
+   "tags": [
+    "people",
+    "wheelbarrow",
+    "compost",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2026-04-13 10:15"
+  },
+  "IMG_2428.HEIC": {
+   "subject": "Strawberry plants potted up by the pond (pair)",
+   "tags": [
+    "strawberries",
+    "pots"
+   ],
+   "q": 2,
+   "dupe": "IMG_2429.HEIC",
+   "date": "2026-04-13 09:59",
+   "location": "_duplicates"
+  },
+  "IMG_2429.HEIC": {
+   "subject": "Strawberry pots refreshed, spring growth",
+   "tags": [
+    "strawberries",
+    "pots",
+    "spring"
+   ],
+   "q": 2,
+   "date": "2026-04-13 09:59"
+  },
+  "IMG_2369.HEIC": {
+   "subject": "Module tray of sweetcorn seedlings overhead (sowing quartet)",
+   "tags": [
+    "sweetcorn",
+    "seedlings",
+    "modules",
+    "april"
+   ],
+   "q": 2,
+   "date": "2026-04-08 08:46"
+  },
+  "IMG_2372.HEIC": {
+   "subject": "Module tray just sown (quartet)",
+   "tags": [
+    "modules",
+    "sowing"
+   ],
+   "q": 1,
+   "dupe": "IMG_2369.HEIC",
+   "date": "2026-04-08 08:46",
+   "location": "_duplicates"
+  },
+  "IMG_2371.HEIC": {
+   "subject": "Module tray sown, corner (quartet)",
+   "tags": [
+    "modules",
+    "sowing"
+   ],
+   "q": 1,
+   "dupe": "IMG_2369.HEIC",
+   "date": "2026-04-08 08:46",
+   "location": "_duplicates"
+  },
+  "IMG_2370.HEIC": {
+   "subject": "Brassica seedlings in green module tray (quartet)",
+   "tags": [
+    "brassicas",
+    "seedlings",
+    "modules"
+   ],
+   "q": 2,
+   "date": "2026-04-08 08:46"
+  },
+  "IMG_9802 2.HEIC": {
+   "subject": "Autumn plot: marigold-lined path, moody November sky (2025 archive)",
+   "tags": [
+    "autumn",
+    "marigolds",
+    "plot",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-11-06 14:07"
+  },
+  "IMG_9104.HEIC": {
+   "subject": "Green tomatoes hanging over the marigold path, September (2025)",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "autumn",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-09-25 15:02"
+  },
+  "IMG_8671.heic": {
+   "subject": "Sunflowers self-sown row, September evening (2025)",
+   "tags": [
+    "sunflowers",
+    "2025",
+    "evening"
+   ],
+   "q": 2,
+   "date": "2025-09-05 17:17"
+  },
+  "IMG_8562.HEIC": {
+   "subject": "Sunflower stand by the arch under big sky (2025 late Aug)",
+   "tags": [
+    "sunflowers",
+    "2025",
+    "scene"
+   ],
+   "q": 2,
+   "date": "2025-08-29 15:47"
+  },
+  "IMG_8525.HEIC": {
+   "subject": "Tomato truss ripening red through green on the vine (2025)",
+   "tags": [
+    "tomatoes",
+    "ripening",
+    "close-up",
+    "2025"
+   ],
+   "q": 3,
+   "date": "2025-08-29 15:36"
+  },
+  "IMG_8407.HEIC": {
+   "subject": "Hand holding a just-picked corn cob among the sunflowers — gorgeous harvest moment (2025)",
+   "tags": [
+    "sweetcorn",
+    "harvest",
+    "hands",
+    "sunflowers",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-08-29 13:48"
+  },
+  "IMG_8369.HEIC": {
+   "subject": "Golden path: marigolds + sunflowers either side, high summer (2025)",
+   "tags": [
+    "marigolds",
+    "sunflowers",
+    "path",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-08-22 16:21"
+  },
+  "IMG_8321.HEIC": {
+   "subject": "Harvest picnic: boxes of tomatoes, berries + lunchbox on the bench (2025) — glut day",
+   "tags": [
+    "harvest",
+    "tomatoes",
+    "glut",
+    "2025",
+    "charm"
+   ],
+   "q": 3,
+   "date": "2025-08-22 15:05"
+  },
+  "IMG_8315.HEIC": {
+   "subject": "Teddy-bear sunflower with classic sunflowers, blue sky (2025)",
+   "tags": [
+    "sunflowers",
+    "2025",
+    "close-up"
+   ],
+   "q": 3,
+   "date": "2025-08-22 14:49"
+  },
+  "IMG_8294.HEIC": {
+   "subject": "Takeaway box overflowing with cherry tomatoes on the bench, flowers behind (2025) — bouquet of a harvest",
+   "tags": [
+    "tomatoes",
+    "harvest",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-08-22 14:29"
+  },
+  "IMG_8299.HEIC": {
+   "subject": "Tomato box on the bench (pair with 8294)",
+   "tags": [
+    "tomatoes",
+    "harvest",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_8294.HEIC",
+   "date": "2025-08-22 14:29",
+   "location": "_duplicates"
+  },
+  "IMG_7977.HEIC": {
+   "subject": "Sunflowers towering backlit by low sun (2025)",
+   "tags": [
+    "sunflowers",
+    "2025",
+    "golden-hour"
+   ],
+   "q": 2,
+   "date": "2025-08-08 18:00"
+  },
+  "IMG_7972.HEIC": {
+   "subject": "Harvest box on the grass: tomatoes, courgette + flower (2025)",
+   "tags": [
+    "harvest",
+    "2025",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2025-08-08 18:00"
+  },
+  "IMG_7957.HEIC": {
+   "subject": "Borage buds silver-haired in evening light, bee incoming (2025)",
+   "tags": [
+    "borage",
+    "bee",
+    "2025",
+    "close-up"
+   ],
+   "q": 2,
+   "date": "2025-08-08 17:56"
+  },
+  "IMG_7937.HEIC": {
+   "subject": "THE golden path: arch over marigold-lined walk to the shed (2025) — signature allotment image",
+   "tags": [
+    "path",
+    "arch",
+    "marigolds",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-08-08 17:53"
+  },
+  "IMG_7933.HEIC": {
+   "subject": "Cucamelon vine with hanging fruit, calendula below (2025)",
+   "tags": [
+    "cucamelon",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-08-08 17:53"
+  },
+  "IMG_7911.HEIC": {
+   "subject": "Wildflower corner: gaura + grasses, evening (2025)",
+   "tags": [
+    "flowers",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-08-08 17:38"
+  },
+  "IMG_7906.HEIC": {
+   "subject": "Cat sitting under the bistro chair, evening (2025 pair)",
+   "tags": [
+    "cat",
+    "charm",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-08-08 17:36"
+  },
+  "IMG_7850.HEIC": {
+   "subject": "Sweetcorn tall against deep blue sky (2025)",
+   "tags": [
+    "sweetcorn",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-08-08 16:48"
+  },
+  "IMG_7812.HEIC": {
+   "subject": "Classic sunflower face with bee, blue sky (2025)",
+   "tags": [
+    "sunflowers",
+    "bee",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-08-08 16:22"
+  },
+  "IMG_7796.HEIC": {
+   "subject": "Cat slinking under the chair (2025 pair)",
+   "tags": [
+    "cat",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_7906.HEIC",
+   "date": "2025-08-08 16:17",
+   "location": "_duplicates"
+  },
+  "IMG_7392.HEIC": {
+   "subject": "Green beefsteak tomato on the vine (2025)",
+   "tags": [
+    "tomatoes",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-07-29 17:56"
+  },
+  "IMG_7286.jpeg": {
+   "subject": "Cherry tomato truss ripening green→orange→red beside rosemary (2025) — the ripening gradient",
+   "tags": [
+    "tomatoes",
+    "ripening",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-07-29 17:48"
+  },
+  "IMG_7240.HEIC": {
+   "subject": "Box of cherry tomatoes + courgette overhead (2025)",
+   "tags": [
+    "tomatoes",
+    "harvest",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-07-23 18:08"
+  },
+  "IMG_7062.HEIC": {
+   "subject": "Marigold-lined path in July evening light (2025)",
+   "tags": [
+    "marigolds",
+    "path",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_7937.HEIC",
+   "date": "2025-07-08 17:48",
+   "location": "_duplicates"
+  },
+  "IMG_7060.HEIC": {
+   "subject": "Beds edged with blazing marigolds, tomatoes centre (2025)",
+   "tags": [
+    "marigolds",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 3,
+   "date": "2025-07-08 17:48"
+  },
+  "IMG_7058.HEIC": {
+   "subject": "Squash bed + arch, netting behind (2025)",
+   "tags": [
+    "squash",
+    "arch",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-07-08 17:47"
+  },
+  "IMG_7026.HEIC": {
+   "subject": "Bean arch rising from marigold bed, evening (2025)",
+   "tags": [
+    "beans",
+    "arch",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-07-08 17:07"
+  },
+  "IMG_6992.HEIC": {
+   "subject": "Cherry tomato truss going orange at the top of the plant (2025)",
+   "tags": [
+    "tomatoes",
+    "ripening",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-07-08 16:02"
+  },
+  "IMG_6860 2.heic": {
+   "subject": "Cat flopped in the long grass by the bamboo fence (2025)",
+   "tags": [
+    "cat",
+    "charm",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-30 17:27"
+  },
+  "IMG_6820 2.HEIC": {
+   "subject": "Tomato bed staked, marigold border blazing (2025)",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-30 16:44"
+  },
+  "IMG_6747.HEIC": {
+   "subject": "WATERING LANCE arcing spray into the courgette + marigold bed from above (2025)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "marigolds",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-28 18:25"
+  },
+  "IMG_6736.HEIC": {
+   "subject": "Watering lance showering the nasturtium bed, golden evening (2025 pair)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "golden-hour",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-28 18:18"
+  },
+  "IMG_6739.HEIC": {
+   "subject": "Lance spray over nasturtiums + marigolds, low sun through the water (2025 pair) — THE lance shot",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "golden-hour",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-28 18:18"
+  },
+  "IMG_6420.heic": {
+   "subject": "Evening plot wide, cat a white dot among the beds (2025)",
+   "tags": [
+    "plot",
+    "evening",
+    "cat",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:53"
+  },
+  "IMG_6416.heic": {
+   "subject": "Cat rolling on the weed membrane, trowel beside (2025)",
+   "tags": [
+    "cat",
+    "charm",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:53"
+  },
+  "IMG_6404.heic": {
+   "subject": "Pink salvia over the planter corner (2025 home set)",
+   "tags": [
+    "flowers",
+    "planter",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_6402.heic",
+   "date": "2025-06-17 18:47",
+   "location": "_duplicates"
+  },
+  "IMG_6402.heic": {
+   "subject": "Long planter: marigolds + herbs + pink salvia, watering behind (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "flowers",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:47"
+  },
+  "IMG_6403.heic": {
+   "subject": "Planter + salvia (2025 home set)",
+   "tags": [
+    "planter",
+    "flowers",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_6402.heic",
+   "date": "2025-06-17 18:47",
+   "location": "_duplicates"
+  },
+  "IMG_6396.heic": {
+   "subject": "Fresh-mulched bed strip, evening, canes beyond (2025)",
+   "tags": [
+    "bed-prep",
+    "evening",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-06-17 18:47"
+  },
+  "IMG_6377.HEIC": {
+   "subject": "Courgette bed + double marigold rows overhead, evening (2025)",
+   "tags": [
+    "courgettes",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:40"
+  },
+  "IMG_6370.heic": {
+   "subject": "Watering lance head misting the nasturtium corner (2025)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_6739.HEIC",
+   "date": "2025-06-17 18:22",
+   "location": "_duplicates"
+  },
+  "IMG_6361 2.HEIC": {
+   "subject": "Lance spray drifting over blazing marigolds, backlit droplets (2025)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "marigolds",
+    "golden-hour",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-17 18:15"
+  },
+  "IMG_6362.HEIC": {
+   "subject": "Orange marigold border at the bed edge, evening (2025)",
+   "tags": [
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:15"
+  },
+  "IMG_6355.HEIC": {
+   "subject": "Nasturtium + marigold bed under hoop, evening (2025)",
+   "tags": [
+    "nasturtiums",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:12"
+  },
+  "IMG_6354.HEIC": {
+   "subject": "Lance resting over the tomato bed, marigold ring (2025)",
+   "tags": [
+    "watering-lance",
+    "tomatoes",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:12"
+  },
+  "IMG_6346.HEIC": {
+   "subject": "Marigold-cornered beds toward the evening sun (2025)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "evening",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:04"
+  },
+  "IMG_6344.HEIC": {
+   "subject": "Beds + marigolds, watering-can red dot, evening plot (2025)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-17 18:04"
+  },
+  "IMG_6019.HEIC": {
+   "subject": "Home planter: young tomatoes + fish watering ornament (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "tomatoes",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-10 19:40"
+  },
+  "IMG_6516.HEIC": {
+   "subject": "Marigold-edged beds down the cross paths, June evening (2025 pair)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "plot",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_6514.HEIC",
+   "date": "2025-06-08 19:42",
+   "location": "_duplicates"
+  },
+  "IMG_6520.HEIC": {
+   "subject": "Colander of fresh strawberries on the woodchip (2025) — harvest charm",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-08 19:42"
+  },
+  "IMG_6521.HEIC": {
+   "subject": "Squash bed ringed in marigolds, June (2025)",
+   "tags": [
+    "squash",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-08 19:42"
+  },
+  "IMG_6524.HEIC": {
+   "subject": "Nasturtiums spilling at the hooped bed corner, evening plot (2025)",
+   "tags": [
+    "nasturtiums",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-08 19:42"
+  },
+  "IMG_6514.HEIC": {
+   "subject": "The plot's marigold cross-paths at dusk (2025)",
+   "tags": [
+    "plot",
+    "marigolds",
+    "evening",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-08 19:42"
+  },
+  "IMG_6523.HEIC": {
+   "subject": "Tomato bed: staked plants inside a blazing marigold ring (2025)",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5824.HEIC",
+   "date": "2025-06-08 19:42",
+   "location": "_duplicates"
+  },
+  "IMG_6515.HEIC": {
+   "subject": "Tomato + cane bed, plot behind, dusk (2025)",
+   "tags": [
+    "tomatoes",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5824.HEIC",
+   "date": "2025-06-08 19:42",
+   "location": "_duplicates"
+  },
+  "IMG_5824.HEIC": {
+   "subject": "Marigold-ringed tomato bed, canes up, June evening (2025) — the companion look",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "companion",
+    "2025"
+   ],
+   "q": 3,
+   "date": "2025-06-06 17:32"
+  },
+  "IMG_5825.HEIC": {
+   "subject": "Hooped nasturtium + marigold bed, plot beyond (2025)",
+   "tags": [
+    "nasturtiums",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-06 17:32"
+  },
+  "IMG_5803.HEIC": {
+   "subject": "Watering lance soaking the tomato bed at the roots (2025 trio)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "tomatoes",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5805.HEIC",
+   "date": "2025-06-06 17:21",
+   "location": "_duplicates"
+  },
+  "IMG_5804.HEIC": {
+   "subject": "Lance watering along the marigold border (2025 trio)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5805.HEIC",
+   "date": "2025-06-06 17:21",
+   "location": "_duplicates"
+  },
+  "IMG_5805.HEIC": {
+   "subject": "Watering lance mid-pour at the base of staked tomatoes, marigold ring around (2025) — best of trio",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "tomatoes",
+    "marigolds",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-06 17:21"
+  },
+  "IMG_5806.HEIC": {
+   "subject": "Young sweetcorn + bean patch, storm light (2025)",
+   "tags": [
+    "sweetcorn",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-06 17:21"
+  },
+  "IMG_5799.HEIC": {
+   "subject": "Lance soaking fresh transplants in open clay, fork beside (2025 pair)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "planting",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5801.HEIC",
+   "date": "2025-06-06 17:03",
+   "location": "_duplicates"
+  },
+  "IMG_5801.HEIC": {
+   "subject": "Watering lance drenching just-planted seedlings — watering-in, close (2025)",
+   "tags": [
+    "watering-lance",
+    "watering",
+    "planting",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-06-06 17:03"
+  },
+  "IMG_5792.HEIC": {
+   "subject": "Seedlings planted out with pot collars in rough clay (2025)",
+   "tags": [
+    "planting",
+    "seedlings",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-06-06 16:25"
+  },
+  "IMG_5760.HEIC": {
+   "subject": "Home planter freshly planted: tomatoes, marigolds, fish ornament (2025 trio)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5759.HEIC",
+   "date": "2025-06-01 19:51",
+   "location": "_duplicates"
+  },
+  "IMG_5761.HEIC": {
+   "subject": "Home planter overhead (2025 trio)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_5759.HEIC",
+   "date": "2025-06-01 19:51",
+   "location": "_duplicates"
+  },
+  "IMG_5759.HEIC": {
+   "subject": "Home planter planted up, salvia behind, June evening (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-01 19:51"
+  },
+  "IMG_5756.HEIC": {
+   "subject": "Marigold-edged beds, canes + cloche, dusk (2025 trio)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5754.HEIC",
+   "date": "2025-06-01 19:47",
+   "location": "_duplicates"
+  },
+  "IMG_5754.HEIC": {
+   "subject": "Beds ringed with young marigolds at dusk — best of trio (2025)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-01 19:47"
+  },
+  "IMG_5755.HEIC": {
+   "subject": "Marigold beds dusk (2025 trio)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5754.HEIC",
+   "date": "2025-06-01 19:47",
+   "location": "_duplicates"
+  },
+  "IMG_5753.HEIC": {
+   "subject": "Nasturtiums filling the hooped bed corner (2025)",
+   "tags": [
+    "nasturtiums",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-01 19:46"
+  },
+  "IMG_5748.heic": {
+   "subject": "Young sunflower + staked tomatoes (2025 pair)",
+   "tags": [
+    "sunflowers",
+    "tomatoes",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5749.heic",
+   "date": "2025-06-01 19:42",
+   "location": "_duplicates"
+  },
+  "IMG_5749.heic": {
+   "subject": "Young sunflower standing tall over the bed (2025)",
+   "tags": [
+    "sunflowers",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-01 19:42"
+  },
+  "IMG_5746.HEIC": {
+   "subject": "Fresh beds with marigold edges toward the sheds (2025)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-01 19:41"
+  },
+  "IMG_5743.HEIC": {
+   "subject": "Bed with cloche + marigold border, canes up (2025)",
+   "tags": [
+    "raised-bed",
+    "cloche",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-06-01 19:41"
+  },
+  "IMG_5744.HEIC": {
+   "subject": "Hooped bed marigold-edged, just planted (2025)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5743.HEIC",
+   "date": "2025-06-01 19:41",
+   "location": "_duplicates"
+  },
+  "IMG_5628.HEIC": {
+   "subject": "Box of home-grown strawberries, full frame (2025 trio) — jewel shot",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2025",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2025-05-26 18:36"
+  },
+  "IMG_5627.HEIC": {
+   "subject": "Strawberry box (2025 trio)",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5628.HEIC",
+   "date": "2025-05-26 18:36",
+   "location": "_duplicates"
+  },
+  "IMG_5626.HEIC": {
+   "subject": "Strawberry box (2025 trio)",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5628.HEIC",
+   "date": "2025-05-26 18:36",
+   "location": "_duplicates"
+  },
+  "IMG_5623.HEIC": {
+   "subject": "Strawberries ripening over the planter edge, one deep red (2025 trio)",
+   "tags": [
+    "strawberries",
+    "ripening",
+    "2025"
+   ],
+   "q": 3,
+   "date": "2025-05-26 18:31"
+  },
+  "IMG_5622.HEIC": {
+   "subject": "Strawberries over the edge (2025 trio)",
+   "tags": [
+    "strawberries",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5623.HEIC",
+   "date": "2025-05-26 18:30",
+   "location": "_duplicates"
+  },
+  "IMG_5621.HEIC": {
+   "subject": "Strawberries over the edge (2025 trio)",
+   "tags": [
+    "strawberries",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5623.HEIC",
+   "date": "2025-05-26 18:30",
+   "location": "_duplicates"
+  },
+  "IMG_5584.HEIC": {
+   "subject": "Strawberry box held over the spring plot (2025 pair)",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-23 19:29"
+  },
+  "IMG_5583.HEIC": {
+   "subject": "Strawberry box over plot (2025 pair)",
+   "tags": [
+    "strawberries",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_5584.HEIC",
+   "date": "2025-05-23 19:29",
+   "location": "_duplicates"
+  },
+  "IMG_5576.HEIC": {
+   "subject": "First strawberry box of the year on woodchip (2025)",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-23 19:28"
+  },
+  "IMG_5479.HEIC": {
+   "subject": "Home planter newly planted, watering globes (2025 pair)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_5480.HEIC",
+   "date": "2025-05-22 19:18",
+   "location": "_duplicates"
+  },
+  "IMG_5480.HEIC": {
+   "subject": "Home planter + patio, spring evening (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-22 19:18"
+  },
+  "IMG_5481.HEIC": {
+   "subject": "Home planter + patio corner, evening (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_5480.HEIC",
+   "date": "2025-05-22 19:18",
+   "location": "_duplicates"
+  },
+  "IMG_5482.HEIC": {
+   "subject": "Home planter overhead, sage behind (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_5480.HEIC",
+   "date": "2025-05-22 19:18",
+   "location": "_duplicates"
+  },
+  "IMG_5414.HEIC": {
+   "subject": "Squash + bean bed young, canes up, dusk (2025)",
+   "tags": [
+    "squash",
+    "beans",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-21 19:25"
+  },
+  "IMG_5423.heic": {
+   "subject": "Marigold border planted round hooped bed, dusk (2025)",
+   "tags": [
+    "marigolds",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-21 19:25"
+  },
+  "IMG_5391.HEIC": {
+   "subject": "Marigolds ringing the empty bed, lance resting (2025)",
+   "tags": [
+    "marigolds",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-21 19:01"
+  },
+  "IMG_5348.heic": {
+   "subject": "Cat standing at the marigold bed corner, golden evening (2025)",
+   "tags": [
+    "cat",
+    "marigolds",
+    "charm",
+    "2025"
+   ],
+   "q": 3,
+   "date": "2025-05-21 18:36"
+  },
+  "IMG_5315.heic": {
+   "subject": "Marigold-edged bed, hose curling past, spring evening (2025)",
+   "tags": [
+    "marigolds",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-20 18:21"
+  },
+  "IMG_5135.HEIC": {
+   "subject": "Bed with drip-line + first seedling border (2025)",
+   "tags": [
+    "raised-bed",
+    "irrigation",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-05-16 17:09"
+  },
+  "IMG_4957.HEIC": {
+   "subject": "Dappled dawn sky over the netted spring plot (2025 pair)",
+   "tags": [
+    "plot",
+    "sky",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-11 19:06"
+  },
+  "IMG_4916.HEIC": {
+   "subject": "Netted beds under blue sky (2025 pair)",
+   "tags": [
+    "plot",
+    "netting",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_4957.HEIC",
+   "date": "2025-05-09 17:19",
+   "location": "_duplicates"
+  },
+  "IMG_4920.HEIC": {
+   "subject": "Beds under netting tunnels, spring (2025)",
+   "tags": [
+    "netting",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-09 17:19"
+  },
+  "IMG_4890.HEIC": {
+   "subject": "Strawberry flowers + first green fruit over planter edge (2025)",
+   "tags": [
+    "strawberries",
+    "flowers",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-08 18:14"
+  },
+  "IMG_4842.HEIC": {
+   "subject": "Young pea plants at the black trellis (2025 trio)",
+   "tags": [
+    "peas",
+    "trellis",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_4843.HEIC",
+   "date": "2025-05-06 17:56",
+   "location": "_duplicates"
+  },
+  "IMG_4843.HEIC": {
+   "subject": "Pea seedlings twining up the trellis (2025)",
+   "tags": [
+    "peas",
+    "trellis",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-05-06 17:56"
+  },
+  "IMG_4841.HEIC": {
+   "subject": "Peas at trellis (2025 trio)",
+   "tags": [
+    "peas",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_4843.HEIC",
+   "date": "2025-05-06 17:56",
+   "location": "_duplicates"
+  },
+  "IMG_4732.HEIC": {
+   "subject": "Water-beaded cloche dome over seedlings at sunset (2025) — lovely detail",
+   "tags": [
+    "cloche",
+    "detail",
+    "2025",
+    "golden-hour"
+   ],
+   "q": 3,
+   "date": "2025-04-28 19:05"
+  },
+  "IMG_4720.heic": {
+   "subject": "Home planter just planted, fish ornament (2025 trio)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_4718.heic",
+   "date": "2025-04-28 18:53",
+   "location": "_duplicates"
+  },
+  "IMG_4718.heic": {
+   "subject": "Home planter overhead with marigold plugs (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-28 18:53"
+  },
+  "IMG_4719.heic": {
+   "subject": "Home planter overhead (2025 trio)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_4718.heic",
+   "date": "2025-04-28 18:53",
+   "location": "_duplicates"
+  },
+  "IMG_4706.heic": {
+   "subject": "Strawberry flowers in soft light over box edge (2025)",
+   "tags": [
+    "strawberries",
+    "flowers",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-28 18:27"
+  },
+  "IMG_4709.heic": {
+   "subject": "Hose gun watering strawberry flowers in the planter (2025)",
+   "tags": [
+    "watering",
+    "strawberries",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-28 18:27"
+  },
+  "IMG_6422.HEIC": {
+   "subject": "Yellow tulips flowering in the planter bed (2025)",
+   "tags": [
+    "tulips",
+    "planter",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-25 16:32"
+  },
+  "IMG_6421.HEIC": {
+   "subject": "Planter corner + fish ornament, plot behind (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-04-25 16:32"
+  },
+  "IMG_6413.HEIC": {
+   "subject": "Netted bed, slug pellets + first seedlings (2025 pair)",
+   "tags": [
+    "netting",
+    "seedlings",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_6414.HEIC",
+   "date": "2025-04-25 15:22",
+   "location": "_duplicates"
+  },
+  "IMG_6414.HEIC": {
+   "subject": "Seedlings under netting grid, blue pellets close (2025)",
+   "tags": [
+    "netting",
+    "seedlings",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-04-25 15:22"
+  },
+  "IMG_4486.HEIC": {
+   "subject": "Bed under green netting tunnel, spring (2025)",
+   "tags": [
+    "netting",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-24 15:43"
+  },
+  "IMG_4488.HEIC": {
+   "subject": "Netted beds + arch under bright cloud (2025)",
+   "tags": [
+    "netting",
+    "plot",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-24 15:43"
+  },
+  "IMG_4474.HEIC": {
+   "subject": "Lettuce plugs bordering fresh bed (2025 pair)",
+   "tags": [
+    "lettuce",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-24 14:14"
+  },
+  "IMG_4472.HEIC": {
+   "subject": "Netting draped over lettuce-bordered bed (2025 pair)",
+   "tags": [
+    "netting",
+    "lettuce",
+    "2025"
+   ],
+   "q": 2,
+   "dupe": "IMG_4474.HEIC",
+   "date": "2025-04-24 14:13",
+   "location": "_duplicates"
+  },
+  "IMG_4462.HEIC": {
+   "subject": "Seedling row down the bed centre, string line (2025)",
+   "tags": [
+    "seedlings",
+    "raised-bed",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-24 13:11"
+  },
+  "IMG_4460.HEIC": {
+   "subject": "Tray of weeded seedlings on woodchip (2025)",
+   "tags": [
+    "seedlings",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-04-24 13:04"
+  },
+  "IMG_4461.HEIC": {
+   "subject": "Rows of young seedlings in open bed (2025)",
+   "tags": [
+    "seedlings",
+    "rows",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-24 13:04"
+  },
+  "IMG_6386.HEIC": {
+   "subject": "Home planter with young plants + hose (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-04-22 17:12"
+  },
+  "IMG_4325.HEIC": {
+   "subject": "Storm clouds over the April plot (2025)",
+   "tags": [
+    "plot",
+    "moody-sky",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-17 17:02"
+  },
+  "IMG_4191.HEIC": {
+   "subject": "Cardboard sheet-mulch lining the new bed (2025 pair)",
+   "tags": [
+    "bed-prep",
+    "cardboard",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-14 15:15"
+  },
+  "IMG_4190.HEIC": {
+   "subject": "Bed filled with fresh compost over cardboard (2025)",
+   "tags": [
+    "bed-prep",
+    "compost",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-14 14:44"
+  },
+  "IMG_4187.HEIC": {
+   "subject": "New bed composted, plot behind (2025)",
+   "tags": [
+    "bed-prep",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_4190.HEIC",
+   "date": "2025-04-14 14:44",
+   "location": "_duplicates"
+  },
+  "IMG_4083.HEIC": {
+   "subject": "Filling the new home planter with compost (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 1,
+   "date": "2025-04-10 17:22"
+  },
+  "IMG_4004.HEIC": {
+   "subject": "New planter by the plot, fish ornament in (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-06 16:45"
+  },
+  "IMG_4009.HEIC": {
+   "subject": "The new wooden planter finished by the black shed, April sun (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "build",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-06 16:45"
+  },
+  "IMG_4007.HEIC": {
+   "subject": "New planters + bistro table on the home patio (2025)",
+   "tags": [
+    "planter",
+    "home",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-06 16:45"
+  },
+  "IMG_3997.HEIC": {
+   "subject": "Bare-root plants in bags laid in planter (2025 set)",
+   "tags": [
+    "planting",
+    "planter",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_3991.HEIC",
+   "date": "2025-04-06 16:26",
+   "location": "_duplicates"
+  },
+  "IMG_3996.HEIC": {
+   "subject": "Bare-root bags in trough (2025 set)",
+   "tags": [
+    "planting",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_3991.HEIC",
+   "date": "2025-04-06 16:26",
+   "location": "_duplicates"
+  },
+  "IMG_3995.HEIC": {
+   "subject": "Planting the trough: bags + herbs (2025 set)",
+   "tags": [
+    "planting",
+    "planter",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_3991.HEIC",
+   "date": "2025-04-06 16:26",
+   "location": "_duplicates"
+  },
+  "IMG_3999.HEIC": {
+   "subject": "Bare-root bag in planter corner (2025 set)",
+   "tags": [
+    "planting",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_3991.HEIC",
+   "date": "2025-04-06 16:26",
+   "location": "_duplicates"
+  },
+  "IMG_3994.HEIC": {
+   "subject": "Bags along the trough edge (2025 set)",
+   "tags": [
+    "planting",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_3991.HEIC",
+   "date": "2025-04-06 16:26",
+   "location": "_duplicates"
+  },
+  "IMG_3991.HEIC": {
+   "subject": "Mail-order plants in bags on the bistro table — planting day flat-lay (2025)",
+   "tags": [
+    "planting",
+    "mail-order",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-06 16:15"
+  },
+  "IMG_3993.HEIC": {
+   "subject": "Trough planter filled with compost, plot behind (2025 pair)",
+   "tags": [
+    "planter",
+    "2025"
+   ],
+   "q": 1,
+   "dupe": "IMG_3992.HEIC",
+   "date": "2025-04-06 16:15",
+   "location": "_duplicates"
+  },
+  "IMG_3992.HEIC": {
+   "subject": "New trough planter composted, ready (2025)",
+   "tags": [
+    "planter",
+    "2025"
+   ],
+   "q": 2,
+   "date": "2025-04-06 16:15"
+  },
+  "IMG_0523.HEIC": {
+   "subject": "Glass Gem corn cob half-husked — jewel kernels (2024)",
+   "tags": [
+    "sweetcorn",
+    "glass-gem",
+    "harvest",
+    "2024",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2024-11-04 14:02"
+  },
+  "IMG_0186.HEIC": {
+   "subject": "Orange cherry tomatoes glowing on the vine, autumn (2024)",
+   "tags": [
+    "tomatoes",
+    "2024",
+    "close-up"
+   ],
+   "q": 3,
+   "date": "2024-10-08 14:47"
+  },
+  "IMG_5500.HEIC": {
+   "subject": "Green beefsteak tomatoes at the plant base (2024)",
+   "tags": [
+    "tomatoes",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-08-13 18:06"
+  },
+  "IMG_5499.HEIC": {
+   "subject": "Green tomatoes over yellow marigolds (2024)",
+   "tags": [
+    "tomatoes",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-08-13 18:06"
+  },
+  "IMG_4823.HEIC": {
+   "subject": "Courgette bed in marigold ring + polytunnel, July (2024)",
+   "tags": [
+    "courgettes",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-07-04 16:18"
+  },
+  "IMG_4817.HEIC": {
+   "subject": "Butterhead lettuces behind a blaze of orange marigolds (2024) — companion planting poster shot",
+   "tags": [
+    "lettuce",
+    "marigolds",
+    "companion",
+    "2024",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2024-07-04 16:18"
+  },
+  "IMG_4813.HEIC": {
+   "subject": "Squash + lettuce bed ringed in marigolds overhead (2024)",
+   "tags": [
+    "squash",
+    "lettuce",
+    "marigolds",
+    "companion",
+    "2024"
+   ],
+   "q": 3,
+   "date": "2024-07-04 16:17"
+  },
+  "IMG_4810.HEIC": {
+   "subject": "Marigold-ringed courgette bed, plot wide (2024)",
+   "tags": [
+    "courgettes",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-07-04 16:17"
+  },
+  "IMG_4816.HEIC": {
+   "subject": "Lettuce + marigold border close (2024)",
+   "tags": [
+    "lettuce",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "dupe": "IMG_4817.HEIC",
+   "date": "2024-07-04 16:17",
+   "location": "_duplicates"
+  },
+  "IMG_4808.HEIC": {
+   "subject": "Beds + mesh tunnel, high-summer 2024 (pair)",
+   "tags": [
+    "raised-bed",
+    "2024"
+   ],
+   "q": 2,
+   "dupe": "IMG_4805.HEIC",
+   "date": "2024-07-04 15:04",
+   "location": "_duplicates"
+  },
+  "IMG_4805.HEIC": {
+   "subject": "The 2024 plot: marigold beds + mesh tunnel — the peak companion year",
+   "tags": [
+    "plot",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-07-04 15:03"
+  },
+  "IMG_4806.HEIC": {
+   "subject": "Marigold-ringed beds + mesh tunnel, July 2024",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "dupe": "IMG_4805.HEIC",
+   "date": "2024-07-04 15:03",
+   "location": "_duplicates"
+  },
+  "IMG_4750.HEIC": {
+   "subject": "Watering the marigold courgette bed by hose, 2024",
+   "tags": [
+    "watering",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-07-01 16:14"
+  },
+  "IMG_4743.HEIC": {
+   "subject": "Hands cradling a perfect butterhead lettuce (2024) — beautiful harvest close",
+   "tags": [
+    "lettuce",
+    "harvest",
+    "hands",
+    "2024",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2024-07-01 16:13"
+  },
+  "IMG_4734.HEIC": {
+   "subject": "Huge glossy strawberry held over the marigolds (2024 pair) — iconic",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "hands",
+    "2024",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2024-07-01 15:19"
+  },
+  "IMG_4733.HEIC": {
+   "subject": "Strawberry held over marigold bed (2024 pair)",
+   "tags": [
+    "strawberries",
+    "hands",
+    "2024"
+   ],
+   "q": 2,
+   "dupe": "IMG_4734.HEIC",
+   "date": "2024-07-01 15:19",
+   "location": "_duplicates"
+  },
+  "IMG_3690.HEIC": {
+   "subject": "Lettuce + marigolds under netting, June 2024",
+   "tags": [
+    "lettuce",
+    "marigolds",
+    "netting",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-06-07 18:49"
+  },
+  "IMG_3681.HEIC": {
+   "subject": "Hose-gun spray watering the lettuce bed, 2024",
+   "tags": [
+    "watering",
+    "lettuce",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-06-07 18:35"
+  },
+  "IMG_3586.HEIC": {
+   "subject": "Paper wrap of fresh-picked strawberries on the grass (2024)",
+   "tags": [
+    "strawberries",
+    "harvest",
+    "2024",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2024-06-03 17:27"
+  },
+  "IMG_3577.HEIC": {
+   "subject": "Strawberries ripening under the bell cloche (2024)",
+   "tags": [
+    "strawberries",
+    "cloche",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-06-03 17:05"
+  },
+  "IMG_3454.HEIC": {
+   "subject": "Hooped bed, marigold border going in (2024)",
+   "tags": [
+    "raised-bed",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-05-29 17:20"
+  },
+  "IMG_3362.HEIC": {
+   "subject": "Marigold border + lettuce plugs overhead (2024)",
+   "tags": [
+    "marigolds",
+    "lettuce",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-05-24 16:56"
+  },
+  "IMG_3102.HEIC": {
+   "subject": "Netted bed with marigold border, May 2024",
+   "tags": [
+    "netting",
+    "marigolds",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-05-14 19:37"
+  },
+  "IMG_2894.HEIC": {
+   "subject": "Netted hooped bed, lettuce border (2024)",
+   "tags": [
+    "netting",
+    "raised-bed",
+    "2024"
+   ],
+   "q": 2,
+   "dupe": "IMG_3102.HEIC",
+   "date": "2024-05-04 16:41",
+   "location": "_duplicates"
+  },
+  "IMG_2856.HEIC": {
+   "subject": "Seedling rows under green net (2024)",
+   "tags": [
+    "netting",
+    "seedlings",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-05-02 15:35"
+  },
+  "IMG_2837.HEIC": {
+   "subject": "Hooped bed with lettuce border planted (2024)",
+   "tags": [
+    "raised-bed",
+    "lettuce",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-05-02 14:35"
+  },
+  "IMG_1221.HEIC": {
+   "subject": "The muddy March plot, beds under construction (2024) — where it began that year",
+   "tags": [
+    "plot",
+    "bed-prep",
+    "2024"
+   ],
+   "q": 2,
+   "date": "2024-03-06 13:41"
+  },
+  "IMG_8029.HEIC": {
+   "subject": "Harvest table: courgettes, cucumbers + pots of cherry tomatoes (2023) — abundance still-life",
+   "tags": [
+    "harvest",
+    "tomatoes",
+    "courgettes",
+    "2023",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2023-09-15 14:24"
+  },
+  "IMG_7450.heic": {
+   "subject": "Trug of rainbow cherry tomatoes + cucumbers on grass (2023)",
+   "tags": [
+    "tomatoes",
+    "harvest",
+    "glut",
+    "2023",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2023-08-18 18:48"
+  },
+  "IMG_7219.HEIC": {
+   "subject": "Peas split open in their pods on yellow cloth (2023) — gorgeous flat-lay",
+   "tags": [
+    "peas",
+    "harvest",
+    "2023",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2023-08-02 11:31"
+  },
+  "IMG_7027.HEIC": {
+   "subject": "Orange marigolds burning close-up (2023)",
+   "tags": [
+    "marigolds",
+    "2023"
+   ],
+   "q": 2,
+   "date": "2023-07-21 16:59"
+  },
+  "IMG_7010.HEIC": {
+   "subject": "Sunflower face + bumblebee, allotment behind (2023)",
+   "tags": [
+    "sunflowers",
+    "bee",
+    "2023"
+   ],
+   "q": 3,
+   "date": "2023-07-21 16:55"
+  },
+  "IMG_6841.HEIC": {
+   "subject": "Pea vines laden with fat pods (2023 pair)",
+   "tags": [
+    "peas",
+    "pods",
+    "2023"
+   ],
+   "q": 2,
+   "date": "2023-07-10 18:16"
+  },
+  "IMG_6837.HEIC": {
+   "subject": "Peas hanging thick on the vine (2023 pair)",
+   "tags": [
+    "peas",
+    "2023"
+   ],
+   "q": 2,
+   "dupe": "IMG_6841.HEIC",
+   "date": "2023-07-10 18:15",
+   "location": "_duplicates"
+  },
+  "IMG_6502.HEIC": {
+   "subject": "Striped courgettes + open flowers on the plant (2023)",
+   "tags": [
+    "courgettes",
+    "flowers",
+    "2023"
+   ],
+   "q": 3,
+   "date": "2023-06-28 14:14"
+  },
+  "IMG_5434.HEIC": {
+   "subject": "Squash seedling planted through membrane (2023)",
+   "tags": [
+    "squash",
+    "membrane",
+    "2023"
+   ],
+   "q": 1,
+   "date": "2023-05-12 17:13"
+  },
+  "IMG_5151.HEIC": {
+   "subject": "Watering-in new strawberry bed by hose (2023)",
+   "tags": [
+    "watering",
+    "strawberries",
+    "2023"
+   ],
+   "q": 2,
+   "date": "2023-05-03 15:31"
+  },
+  "IMG_5097.HEIC": {
+   "subject": "Squash + cucumber seedlings crowding their pots (2023 pair)",
+   "tags": [
+    "seedlings",
+    "pots",
+    "2023"
+   ],
+   "q": 2,
+   "date": "2023-05-01 20:21"
+  },
+  "IMG_5098.HEIC": {
+   "subject": "Golden Courgette seedling in terracotta, label up (2023)",
+   "tags": [
+    "courgettes",
+    "seedling",
+    "2023"
+   ],
+   "q": 2,
+   "date": "2023-05-01 20:21"
+  },
+  "IMG_4778.HEIC": {
+   "subject": "Windowsill seedlings boxed in cardboard (2023 pair)",
+   "tags": [
+    "seedlings",
+    "windowsill",
+    "2023"
+   ],
+   "q": 2,
+   "date": "2023-04-26 18:05"
+  },
+  "IMG_4599.HEIC": {
+   "subject": "Seedlings potted on in the cardboard nursery (2023)",
+   "tags": [
+    "seedlings",
+    "windowsill",
+    "2023"
+   ],
+   "q": 2,
+   "dupe": "IMG_4778.HEIC",
+   "date": "2023-04-22 17:34",
+   "location": "_duplicates"
+  },
+  "IMG_4493.HEIC": {
+   "subject": "THE DOG on his lead surveying the just-cleared plot (2023) — companion portrait",
+   "tags": [
+    "dog",
+    "charm",
+    "plot",
+    "2023",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2023-04-21 18:07"
+  },
+  "IMG_1030.HEIC": {
+   "subject": "Hand holding a bunch of just-dug carrots by the kitchen clock (2022) — homegrown pride",
+   "tags": [
+    "carrots",
+    "harvest",
+    "hands",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-11-18 17:22"
+  },
+  "IMG_9322.jpg": {
+   "subject": "Three carrots on the kitchen table (2022)",
+   "tags": [
+    "carrots",
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-10-01 18:25"
+  },
+  "IMG_9313.jpg": {
+   "subject": "Crate stuffed with carrots + ferny tops (2022)",
+   "tags": [
+    "carrots",
+    "harvest",
+    "2022"
+   ],
+   "q": 3,
+   "date": "2022-10-01 18:18"
+  },
+  "IMG_9270.HEIC": {
+   "subject": "Crate of French beans under the bean netting (2022)",
+   "tags": [
+    "beans",
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-10-01 17:38"
+  },
+  "IMG_9276.HEIC": {
+   "subject": "A proper orange pumpkin sat on the membrane (2022)",
+   "tags": [
+    "pumpkins",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-10-01 17:38"
+  },
+  "IMG_9090.HEIC": {
+   "subject": "The first-year beds, September (2022)",
+   "tags": [
+    "plot",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-19 15:14"
+  },
+  "IMG_9087.HEIC": {
+   "subject": "Membrane path + first frames going in (2022)",
+   "tags": [
+    "plot",
+    "bed-prep",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-09-19 15:04"
+  },
+  "IMG_8645.HEIC": {
+   "subject": "Gourds hanging from a neighbour's pergola (2022)",
+   "tags": [
+    "gourds",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-05 18:14"
+  },
+  "IMG_8625.HEIC": {
+   "subject": "Brassicas safe under the mesh tunnel (2022)",
+   "tags": [
+    "brassicas",
+    "netting",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-05 17:45"
+  },
+  "IMG_8621.HEIC": {
+   "subject": "Brassica bed under hoops, first-year plot, evening (2022 pair)",
+   "tags": [
+    "brassicas",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-05 17:28"
+  },
+  "IMG_8620.HEIC": {
+   "subject": "Brassicas + pumpkin peeking, 2022 evening (pair)",
+   "tags": [
+    "brassicas",
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8621.HEIC",
+   "date": "2022-09-05 17:28",
+   "location": "_duplicates"
+  },
+  "IMG_8615.HEIC": {
+   "subject": "Orange pumpkin nested in its leaves, backlit (2022)",
+   "tags": [
+    "pumpkins",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-09-05 17:27"
+  },
+  "IMG_8612.HEIC": {
+   "subject": "Hooped brassica bed by the pallet path (2022)",
+   "tags": [
+    "brassicas",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-05 17:23"
+  },
+  "IMG_8602.HEIC": {
+   "subject": "Purple pea pod split open in hand, peas in a row (2022) — lovely detail",
+   "tags": [
+    "peas",
+    "harvest",
+    "hands",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-09-05 16:52"
+  },
+  "IMG_8599.HEIC": {
+   "subject": "Climbing bean wigwam in full leaf (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-05 16:51"
+  },
+  "IMG_8595.HEIC": {
+   "subject": "Purple mangetout hanging on the vines (2022)",
+   "tags": [
+    "peas",
+    "mangetout",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-09-05 16:50"
+  },
+  "IMG_8506.jpg": {
+   "subject": "Dried sunflower head saved for seed (2022 trio)",
+   "tags": [
+    "sunflowers",
+    "seed-saving",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 17:53"
+  },
+  "IMG_8509.jpg": {
+   "subject": "Sunflower seed head (2022 trio)",
+   "tags": [
+    "sunflowers",
+    "seed-saving",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8506.jpg",
+   "date": "2022-08-30 17:53",
+   "location": "_duplicates"
+  },
+  "IMG_8508.jpg": {
+   "subject": "Sunflower seed head (2022 trio)",
+   "tags": [
+    "sunflowers",
+    "seed-saving",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_8506.jpg",
+   "date": "2022-08-30 17:53",
+   "location": "_duplicates"
+  },
+  "IMG_8471.HEIC": {
+   "subject": "Yellow squash swelling under the canopy (2022 pair)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 17:29"
+  },
+  "IMG_8470.HEIC": {
+   "subject": "Pumpkin patch sprawled across the plot (2022)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 17:29"
+  },
+  "IMG_8473.HEIC": {
+   "subject": "Big yellow squash in the grass, evening (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8471.HEIC",
+   "date": "2022-08-30 17:29",
+   "location": "_duplicates"
+  },
+  "IMG_8451.HEIC": {
+   "subject": "The first-year plot in late August (2022)",
+   "tags": [
+    "plot",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-30 17:07"
+  },
+  "IMG_8450.HEIC": {
+   "subject": "Shed + blue water butt, first year (2022)",
+   "tags": [
+    "shed",
+    "water-butt",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:57"
+  },
+  "IMG_8443.jpg": {
+   "subject": "Rainbow chard, red stems glowing (2022 pair)",
+   "tags": [
+    "chard",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:54"
+  },
+  "IMG_8447.jpg": {
+   "subject": "Carrot ferns thick in the bed (2022 pair)",
+   "tags": [
+    "carrots",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:54"
+  },
+  "IMG_8446.jpg": {
+   "subject": "Carrot tops + chard row (2022 pair)",
+   "tags": [
+    "carrots",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_8447.jpg",
+   "date": "2022-08-30 16:54",
+   "location": "_duplicates"
+  },
+  "IMG_8444.jpg": {
+   "subject": "Chard + carrot bed tangle (2022)",
+   "tags": [
+    "chard",
+    "carrots",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8443.jpg",
+   "date": "2022-08-30 16:54",
+   "location": "_duplicates"
+  },
+  "IMG_8445.jpg": {
+   "subject": "Red oak-leaf lettuce patch (2022)",
+   "tags": [
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:54"
+  },
+  "IMG_8440.HEIC": {
+   "subject": "Runner beans in full red flower up the canes (2022 pair)",
+   "tags": [
+    "beans",
+    "flowers",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:53"
+  },
+  "IMG_8442.jpg": {
+   "subject": "Runner bean flowers red + white (2022 pair)",
+   "tags": [
+    "beans",
+    "flowers",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8440.HEIC",
+   "date": "2022-08-30 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_8439.HEIC": {
+   "subject": "Bean pods forming on the vines (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-30 16:53"
+  },
+  "IMG_8434.HEIC": {
+   "subject": "French beans hanging in the leaf shade (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:51"
+  },
+  "IMG_8433.HEIC": {
+   "subject": "Flat bean pod held between fingers (2022)",
+   "tags": [
+    "beans",
+    "hands",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-30 16:50"
+  },
+  "IMG_8417.HEIC": {
+   "subject": "Pumpkin glowing in its silver-leaved patch (2022 pair)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8418.HEIC",
+   "date": "2022-08-29 18:49",
+   "location": "_duplicates"
+  },
+  "IMG_8418.HEIC": {
+   "subject": "Orange pumpkin riding the bed edge, leaves drying (2022)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 3,
+   "date": "2022-08-29 18:49"
+  },
+  "IMG_8336.HEIC": {
+   "subject": "Squash vines wandering the first-year beds (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:47"
+  },
+  "IMG_8334.HEIC": {
+   "subject": "Harvest tub on the decking: lettuce, tomatoes, herbs (2022)",
+   "tags": [
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:46"
+  },
+  "IMG_8335.HEIC": {
+   "subject": "Tomato bed + red dahlia, first-year (2022)",
+   "tags": [
+    "tomatoes",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:46"
+  },
+  "IMG_8332.HEIC": {
+   "subject": "Mesh tunnels over squash + brassicas (2022)",
+   "tags": [
+    "netting",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:46"
+  },
+  "IMG_8326.jpg": {
+   "subject": "Speckled orange pumpkin under a silver leaf (2022 trio)",
+   "tags": [
+    "pumpkins",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-08-27 18:46"
+  },
+  "IMG_8325.jpg": {
+   "subject": "Pumpkin close in the patch (2022 trio)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8326.jpg",
+   "date": "2022-08-27 18:46",
+   "location": "_duplicates"
+  },
+  "IMG_8324.jpg": {
+   "subject": "Pumpkin nested under leaves (2022 trio)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8326.jpg",
+   "date": "2022-08-27 18:45",
+   "location": "_duplicates"
+  },
+  "IMG_8309.HEIC": {
+   "subject": "Tiny first turnip held up over the plot, sunset (2022 pair) — humble + charming",
+   "tags": [
+    "turnips",
+    "harvest",
+    "hands",
+    "sunset",
+    "2022",
+    "charm"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:38"
+  },
+  "IMG_8307.HEIC": {
+   "subject": "Little turnip against the sunset (2022 pair)",
+   "tags": [
+    "turnips",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8309.HEIC",
+   "date": "2022-08-27 18:38",
+   "location": "_duplicates"
+  },
+  "IMG_8302.HEIC": {
+   "subject": "Red chard leaf held to the evening sky, stem glowing (2022 trio) — luminous",
+   "tags": [
+    "chard",
+    "hands",
+    "sunset",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-08-27 18:37"
+  },
+  "IMG_8303.HEIC": {
+   "subject": "Chard leaf backlit at sunset (2022 trio)",
+   "tags": [
+    "chard",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8302.HEIC",
+   "date": "2022-08-27 18:37",
+   "location": "_duplicates"
+  },
+  "IMG_8304.HEIC": {
+   "subject": "Chard leaf to the sky (2022 trio)",
+   "tags": [
+    "chard",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8302.HEIC",
+   "date": "2022-08-27 18:37",
+   "location": "_duplicates"
+  },
+  "IMG_8298.HEIC": {
+   "subject": "Spring onions held up to the setting sun (2022)",
+   "tags": [
+    "onions",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:37"
+  },
+  "IMG_8296.HEIC": {
+   "subject": "Spring onions roots-and-all at sunset (2022 pair)",
+   "tags": [
+    "onions",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8298.HEIC",
+   "date": "2022-08-27 18:37",
+   "location": "_duplicates"
+  },
+  "IMG_8301.HEIC": {
+   "subject": "Chard leaf held aloft over the plot (2022)",
+   "tags": [
+    "chard",
+    "hands",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8302.HEIC",
+   "date": "2022-08-27 18:37",
+   "location": "_duplicates"
+  },
+  "IMG_8288.HEIC": {
+   "subject": "Carrot + chard beds by the mesh tunnel (2022)",
+   "tags": [
+    "carrots",
+    "chard",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:28"
+  },
+  "IMG_8284.HEIC": {
+   "subject": "Bronze oak-leaf lettuce catching evening sun (2022)",
+   "tags": [
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:27"
+  },
+  "IMG_8285.HEIC": {
+   "subject": "Bean wigwam tall against the sky (2022 trio)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8287.HEIC",
+   "date": "2022-08-27 18:27",
+   "location": "_duplicates"
+  },
+  "IMG_8286.HEIC": {
+   "subject": "Bean wigwam (2022 trio)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8287.HEIC",
+   "date": "2022-08-27 18:27",
+   "location": "_duplicates"
+  },
+  "IMG_8287.HEIC": {
+   "subject": "Runner bean wigwam in evening light, chard below — first-year abundance",
+   "tags": [
+    "beans",
+    "chard",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:27"
+  },
+  "IMG_8282.HEIC": {
+   "subject": "Purple-podded pea held between fingers (2022)",
+   "tags": [
+    "peas",
+    "hands",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 18:01"
+  },
+  "IMG_8278.HEIC": {
+   "subject": "Bean leaves + pods tangle (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-27 18:00"
+  },
+  "IMG_8250.HEIC": {
+   "subject": "Decking still-life: teal watering can, lettuce, punnet of tomatoes, red scissors (2022 pair) — charming",
+   "tags": [
+    "harvest",
+    "still-life",
+    "2022",
+    "charm",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-08-27 17:55"
+  },
+  "IMG_8252.HEIC": {
+   "subject": "Harvest on the decking: lettuce + tomatoes + can (2022 pair)",
+   "tags": [
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8250.HEIC",
+   "date": "2022-08-27 17:55",
+   "location": "_duplicates"
+  },
+  "IMG_8248.HEIC": {
+   "subject": "Runner beans flowering scarlet against blue sky (2022)",
+   "tags": [
+    "beans",
+    "flowers",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 17:44"
+  },
+  "IMG_8246.HEIC": {
+   "subject": "Purple mangetout pods dangling, tunnel behind (2022 pair)",
+   "tags": [
+    "peas",
+    "mangetout",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 17:43"
+  },
+  "IMG_8245.HEIC": {
+   "subject": "Mangetout vines backlit (2022 pair)",
+   "tags": [
+    "peas",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8246.HEIC",
+   "date": "2022-08-27 17:43",
+   "location": "_duplicates"
+  },
+  "IMG_8227.HEIC": {
+   "subject": "Bean canes + flowers toward the plot (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8248.HEIC",
+   "date": "2022-08-27 17:33",
+   "location": "_duplicates"
+  },
+  "IMG_8232 2.jpg": {
+   "subject": "Chard clump + bronze lettuce in the grid bed (2022 pair)",
+   "tags": [
+    "chard",
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 17:33"
+  },
+  "IMG_8233.jpg": {
+   "subject": "Bronze lettuce + chard, evening (2022 pair)",
+   "tags": [
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8232 2.jpg",
+   "date": "2022-08-27 17:33",
+   "location": "_duplicates"
+  },
+  "IMG_8225.HEIC": {
+   "subject": "Runner beans on their canes, high summer sky (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_8248.HEIC",
+   "date": "2022-08-27 17:33",
+   "location": "_duplicates"
+  },
+  "IMG_8220.HEIC": {
+   "subject": "Mixed first-year bed: kale, lettuce, herbs (2022)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-27 17:31"
+  },
+  "IMG_8004.HEIC": {
+   "subject": "Squash vines filling the corner bed (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-20 18:14"
+  },
+  "IMG_7998.HEIC": {
+   "subject": "Lettuce + chard corner by the decking (2022)",
+   "tags": [
+    "lettuce",
+    "chard",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-20 18:13"
+  },
+  "IMG_7994.HEIC": {
+   "subject": "Bean cane rows in the evening sun (2022 trio)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-20 18:13"
+  },
+  "IMG_7996.jpg": {
+   "subject": "Bean canes + blue ties close (2022 trio)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7994.HEIC",
+   "date": "2022-08-20 18:13",
+   "location": "_duplicates"
+  },
+  "IMG_7997.jpg": {
+   "subject": "Chard patch bright in the sun (2022)",
+   "tags": [
+    "chard",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-20 18:13"
+  },
+  "IMG_7975.HEIC": {
+   "subject": "Turnip + radish leaves filling the grid bed (2022)",
+   "tags": [
+    "turnips",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-19 12:05"
+  },
+  "IMG_7970.HEIC": {
+   "subject": "French bean canes podding up (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-19 11:58"
+  },
+  "IMG_7950.HEIC": {
+   "subject": "Carrot ferns + onion rows overhead (2022 trio)",
+   "tags": [
+    "carrots",
+    "onions",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-19 11:47"
+  },
+  "IMG_7951.HEIC": {
+   "subject": "Carrots, lettuce + mixed leaves overhead (2022 trio)",
+   "tags": [
+    "carrots",
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-19 11:47"
+  },
+  "IMG_7955.HEIC": {
+   "subject": "Chard + carrot ferns overhead (2022 trio)",
+   "tags": [
+    "chard",
+    "carrots",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7951.HEIC",
+   "date": "2022-08-19 11:47",
+   "location": "_duplicates"
+  },
+  "IMG_7947.HEIC": {
+   "subject": "First-year grid beds in August leaf (2022)",
+   "tags": [
+    "plot",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-19 11:46"
+  },
+  "IMG_7941.HEIC": {
+   "subject": "Purple mangetout hanging (2022 pair)",
+   "tags": [
+    "peas",
+    "mangetout",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-19 11:42"
+  },
+  "IMG_7939.HEIC": {
+   "subject": "Mangetout pod on the vine (2022 pair)",
+   "tags": [
+    "peas",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7941.HEIC",
+   "date": "2022-08-19 11:42",
+   "location": "_duplicates"
+  },
+  "IMG_7788.HEIC": {
+   "subject": "Tomato bed corner + marigolds, first year (2022 trio)",
+   "tags": [
+    "tomatoes",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-12 17:27"
+  },
+  "IMG_7789.HEIC": {
+   "subject": "Tomato bed + marigolds (2022 trio)",
+   "tags": [
+    "tomatoes",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7788.HEIC",
+   "date": "2022-08-12 17:27",
+   "location": "_duplicates"
+  },
+  "IMG_7786.HEIC": {
+   "subject": "Beds + squash tunnel, first summer (2022 trio)",
+   "tags": [
+    "plot",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-12 17:26"
+  },
+  "IMG_7766.HEIC": {
+   "subject": "Chard bunch laid on the decking (2022 pair)",
+   "tags": [
+    "chard",
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-12 16:57"
+  },
+  "IMG_7774.HEIC": {
+   "subject": "Rainbow chard + a tiny carrot on the decking bowl (2022)",
+   "tags": [
+    "chard",
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7766.HEIC",
+   "date": "2022-08-12 16:57",
+   "location": "_duplicates"
+  },
+  "IMG_7778.HEIC": {
+   "subject": "Squash bed with slug-trap saucer (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-12 16:57"
+  },
+  "IMG_7756.jpg": {
+   "subject": "First patty-pan squash forming under leaves (2022 pair)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-12 16:53"
+  },
+  "IMG_7757.jpg": {
+   "subject": "Squash canopy leaves (2022 pair)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7756.jpg",
+   "date": "2022-08-12 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_7759.jpg": {
+   "subject": "Squash canopy backlit leaves (2022 quartet)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7754.HEIC",
+   "date": "2022-08-12 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_7758.jpg": {
+   "subject": "Squash leaves (2022 quartet)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7754.HEIC",
+   "date": "2022-08-12 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_7760.jpg": {
+   "subject": "Squash leaves (2022 quartet)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7754.HEIC",
+   "date": "2022-08-12 16:53",
+   "location": "_duplicates"
+  },
+  "IMG_7754.HEIC": {
+   "subject": "Pale squash fruit peeking through the canopy (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-12 16:53"
+  },
+  "IMG_7733.HEIC": {
+   "subject": "Yellow pumpkin swelling under giant leaves (2022 trio)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-12 16:50"
+  },
+  "IMG_7734.HEIC": {
+   "subject": "Pumpkin under leaves (2022 trio)",
+   "tags": [
+    "pumpkins",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7733.HEIC",
+   "date": "2022-08-12 16:50",
+   "location": "_duplicates"
+  },
+  "IMG_7735.HEIC": {
+   "subject": "Squash canopy toward beds (2022 trio)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7733.HEIC",
+   "date": "2022-08-12 16:50",
+   "location": "_duplicates"
+  },
+  "IMG_7674.HEIC": {
+   "subject": "First tomatoes reddening on the staked vine (2022)",
+   "tags": [
+    "tomatoes",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-10 16:56"
+  },
+  "IMG_7661.HEIC": {
+   "subject": "Sunflower + bee against blue sky, first year (2022)",
+   "tags": [
+    "sunflowers",
+    "bee",
+    "2022"
+   ],
+   "q": 3,
+   "date": "2022-08-10 15:48"
+  },
+  "IMG_7624.HEIC": {
+   "subject": "Lettuce pair + tomato on the bench seat (2022 pair)",
+   "tags": [
+    "lettuce",
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-09 10:42"
+  },
+  "IMG_7623.HEIC": {
+   "subject": "Lettuces on the bench (2022 pair)",
+   "tags": [
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7624.HEIC",
+   "date": "2022-08-09 10:42",
+   "location": "_duplicates"
+  },
+  "IMG_7616.HEIC": {
+   "subject": "Flower corner + seed trays by the fence (2022)",
+   "tags": [
+    "flowers",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-09 10:34"
+  },
+  "IMG_7614.HEIC": {
+   "subject": "Blackberries ripening red to black on the bramble (2022 trio)",
+   "tags": [
+    "blackberries",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-09 10:22"
+  },
+  "IMG_7610.HEIC": {
+   "subject": "Blackberry cluster (2022 trio)",
+   "tags": [
+    "blackberries",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7614.HEIC",
+   "date": "2022-08-09 10:21",
+   "location": "_duplicates"
+  },
+  "IMG_7611.HEIC": {
+   "subject": "Blackberries over the allotment path (2022 trio)",
+   "tags": [
+    "blackberries",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7614.HEIC",
+   "date": "2022-08-09 10:21",
+   "location": "_duplicates"
+  },
+  "IMG_7607.HEIC": {
+   "subject": "Pale yellow squash on the vine (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-09 10:03"
+  },
+  "IMG_7605.HEIC": {
+   "subject": "Squash bed young + boards, first year (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-09 10:02"
+  },
+  "IMG_7602.HEIC": {
+   "subject": "Courgette flower wide open, golden (2022 pair)",
+   "tags": [
+    "courgettes",
+    "flowers",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-09 10:02"
+  },
+  "IMG_7601.HEIC": {
+   "subject": "Courgette flower (2022 pair)",
+   "tags": [
+    "courgettes",
+    "flowers",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7602.HEIC",
+   "date": "2022-08-09 10:02",
+   "location": "_duplicates"
+  },
+  "IMG_7597.HEIC": {
+   "subject": "Three cucumbers laid at the plant's foot (2022)",
+   "tags": [
+    "cucumbers",
+    "harvest",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-09 09:59"
+  },
+  "IMG_7596.HEIC": {
+   "subject": "Cucumbers clustered at the plant base (2022)",
+   "tags": [
+    "cucumbers",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7597.HEIC",
+   "date": "2022-08-09 09:59",
+   "location": "_duplicates"
+  },
+  "IMG_7593.HEIC": {
+   "subject": "First-year salad bed thriving (2022)",
+   "tags": [
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-09 09:55"
+  },
+  "IMG_7592.HEIC": {
+   "subject": "Squash + slug saucer in grid bed (2022)",
+   "tags": [
+    "squash",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-09 09:55"
+  },
+  "IMG_7494.HEIC": {
+   "subject": "Grid bed: carrots, lettuce + bean canes (2022)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-05 16:39"
+  },
+  "IMG_7488.HEIC": {
+   "subject": "The shed mid-makeover: black paint going on (2022 story set)",
+   "tags": [
+    "shed",
+    "makeover",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-05 16:38"
+  },
+  "IMG_7484.HEIC": {
+   "subject": "The black shed finished: rainbow window + mint bench (2022) — the shed story payoff",
+   "tags": [
+    "shed",
+    "makeover",
+    "2022",
+    "charm",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-08-05 16:37"
+  },
+  "IMG_7482.HEIC": {
+   "subject": "Compost bay + red grape hod under big sky (2022)",
+   "tags": [
+    "compost",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-05 15:14"
+  },
+  "IMG_7477.HEIC": {
+   "subject": "Shed nearly painted black (2022 story set)",
+   "tags": [
+    "shed",
+    "makeover",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7484.HEIC",
+   "date": "2022-08-05 14:56",
+   "location": "_duplicates"
+  },
+  "IMG_7469.HEIC": {
+   "subject": "Shed half-painted, tins out (2022 story set)",
+   "tags": [
+    "shed",
+    "makeover",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-05 13:56"
+  },
+  "IMG_7458.HEIC": {
+   "subject": "The original white shed, before (2022 story set)",
+   "tags": [
+    "shed",
+    "makeover",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-05 13:56"
+  },
+  "IMG_7408.HEIC": {
+   "subject": "Bean canes + squash in evening light (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-04 20:01"
+  },
+  "IMG_7403.HEIC": {
+   "subject": "The pink-mulched grid bed: beets, lettuce, herbs (2022 pair) — distinctive",
+   "tags": [
+    "raised-bed",
+    "grid",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-04 19:46"
+  },
+  "IMG_7401.HEIC": {
+   "subject": "Pink grid bed + bean canes (2022 pair)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7403.HEIC",
+   "date": "2022-08-04 19:46",
+   "location": "_duplicates"
+  },
+  "IMG_7398.HEIC": {
+   "subject": "Cucumbers resting on pink mulch (2022)",
+   "tags": [
+    "cucumbers",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-08-04 19:33"
+  },
+  "IMG_7314.HEIC": {
+   "subject": "Grid bed filling in, August (2022)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-08-01 19:22"
+  },
+  "IMG_7251.HEIC": {
+   "subject": "Young peas + cane wigwam (2022)",
+   "tags": [
+    "peas",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:59"
+  },
+  "IMG_7242.HEIC": {
+   "subject": "Beet seedlings red-stemmed in the grid (2022)",
+   "tags": [
+    "beetroot",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-29 19:58"
+  },
+  "IMG_7238.HEIC": {
+   "subject": "Fresh sowings in the grid squares (2022)",
+   "tags": [
+    "sowing",
+    "grid",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:58"
+  },
+  "IMG_7245.HEIC": {
+   "subject": "Turnip leaves flea-beetle-nibbled but thriving (2022)",
+   "tags": [
+    "turnips",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:58"
+  },
+  "IMG_7246.HEIC": {
+   "subject": "Beans climbing the string wigwam (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:58"
+  },
+  "IMG_7234.HEIC": {
+   "subject": "Red + green lettuces in the grid (2022)",
+   "tags": [
+    "lettuce",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-29 19:57"
+  },
+  "IMG_7229.HEIC": {
+   "subject": "Grid bed coming along, canes up (2022 set)",
+   "tags": [
+    "raised-bed",
+    "grid",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7212.HEIC",
+   "date": "2022-07-29 19:57",
+   "location": "_duplicates"
+  },
+  "IMG_7232.HEIC": {
+   "subject": "Rocket bolting in the grid (2022)",
+   "tags": [
+    "rocket",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:57"
+  },
+  "IMG_7230.HEIC": {
+   "subject": "Spring onion seedlings in the grid (2022)",
+   "tags": [
+    "onions",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:57"
+  },
+  "IMG_7226.HEIC": {
+   "subject": "Beans on the cane + string frame (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-29 19:50"
+  },
+  "IMG_7212.HEIC": {
+   "subject": "The first grid bed: lettuce, herbs, canes + yellow hose (2022)",
+   "tags": [
+    "raised-bed",
+    "grid",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-29 19:42"
+  },
+  "IMG_7205.HEIC": {
+   "subject": "Blackberries ripening pink to black, heavy cluster (2022)",
+   "tags": [
+    "blackberries",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-07-29 19:41"
+  },
+  "IMG_7207.HEIC": {
+   "subject": "Courgette crown: fruits fanned out under the leaf (2022)",
+   "tags": [
+    "courgettes",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-07-29 19:41"
+  },
+  "IMG_7198.jpg": {
+   "subject": "Blackberry cluster on the bramble (2022)",
+   "tags": [
+    "blackberries",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7205.HEIC",
+   "date": "2022-07-29 19:40",
+   "location": "_duplicates"
+  },
+  "IMG_7182.jpg": {
+   "subject": "Sunflower against a pink dusk sky (2022 set of 5)",
+   "tags": [
+    "sunflowers",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7187.HEIC",
+   "date": "2022-07-29 19:38",
+   "location": "_duplicates"
+  },
+  "IMG_7184.jpg": {
+   "subject": "Sunflower at dusk (2022 set)",
+   "tags": [
+    "sunflowers",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7187.HEIC",
+   "date": "2022-07-29 19:38",
+   "location": "_duplicates"
+  },
+  "E0991F7B-1AD3-4CAE-A8FF-339B5B15817F.JPG": {
+   "subject": "Sunflower face full-frame at dusk (2022 set)",
+   "tags": [
+    "sunflowers",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7187.HEIC",
+   "date": "2022-07-29 19:38",
+   "location": "_duplicates"
+  },
+  "IMG_7187.HEIC": {
+   "subject": "Sunflower glowing against cotton-candy dusk — best of the set (2022)",
+   "tags": [
+    "sunflowers",
+    "sunset",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-07-29 19:38"
+  },
+  "IMG_7165.jpg": {
+   "subject": "Sunflower at dusk, wide (2022 set)",
+   "tags": [
+    "sunflowers",
+    "sunset",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_7187.HEIC",
+   "date": "2022-07-29 19:36",
+   "location": "_duplicates"
+  },
+  "IMG_7151.HEIC": {
+   "subject": "Grid bed evening, canes + lettuce (2022)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-28 20:16"
+  },
+  "Bed layout.PNG": {
+   "subject": "Kate's first-year BED LAYOUT PLAN diagram — peas/beans/turnip/chard/pak choi grid (2022 artifact)",
+   "tags": [
+    "planning",
+    "diagram",
+    "2022",
+    "archive"
+   ],
+   "q": 2,
+   "date": "2022-07-26 14:32"
+  },
+  "IMG_7100.HEIC": {
+   "subject": "String climbing frame over young beans (2022)",
+   "tags": [
+    "beans",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-25 20:20"
+  },
+  "IMG_7084.HEIC": {
+   "subject": "Grid bed + canes, July evening (2022)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_7212.HEIC",
+   "date": "2022-07-25 19:51",
+   "location": "_duplicates"
+  },
+  "IMG_7079.HEIC": {
+   "subject": "Sunset rays bursting over the allotment treeline (2022)",
+   "tags": [
+    "sunset",
+    "sky",
+    "2022",
+    "hero-worthy"
+   ],
+   "q": 3,
+   "date": "2022-07-25 19:35"
+  },
+  "IMG_7076.HEIC": {
+   "subject": "Brassica seedlings under hoops, first year (2022)",
+   "tags": [
+    "brassicas",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-25 19:35"
+  },
+  "IMG_7074.HEIC": {
+   "subject": "Grid bed: brassicas, lettuce + canes (2022)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-25 19:33"
+  },
+  "IMG_7072.HEIC": {
+   "subject": "Golden evening over the first-year plot (2022)",
+   "tags": [
+    "plot",
+    "evening",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-25 19:27"
+  },
+  "IMG_6671.HEIC": {
+   "subject": "First courgette + open flowers (2022)",
+   "tags": [
+    "courgettes",
+    "flowers",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-11 19:33"
+  },
+  "IMG_6508.HEIC": {
+   "subject": "Tomato bed staked, first July (2022)",
+   "tags": [
+    "tomatoes",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-07 18:05"
+  },
+  "IMG_6460.HEIC": {
+   "subject": "Freshly watered rows + canes (2022)",
+   "tags": [
+    "plot",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-07 16:50"
+  },
+  "IMG_6348.HEIC": {
+   "subject": "First-year beds toward the sheds (2022)",
+   "tags": [
+    "plot",
+    "2022"
+   ],
+   "q": 1,
+   "date": "2022-07-06 19:32"
+  },
+  "IMG_6287.HEIC": {
+   "subject": "Storm light over the young beds (2022)",
+   "tags": [
+    "plot",
+    "moody-sky",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-07-02 19:18"
+  },
+  "IMG_5994.HEIC": {
+   "subject": "Potato patch bushy, first June (2022 trio)",
+   "tags": [
+    "potatoes",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-06-27 17:49"
+  },
+  "IMG_5999.HEIC": {
+   "subject": "New beds planted, tape measure out (2022 trio)",
+   "tags": [
+    "raised-bed",
+    "2022"
+   ],
+   "q": 1,
+   "dupe": "IMG_5994.HEIC",
+   "date": "2022-06-27 17:49",
+   "location": "_duplicates"
+  },
+  "IMG_5996.HEIC": {
+   "subject": "Potatoes + beans rows (2022 trio)",
+   "tags": [
+    "potatoes",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_5994.HEIC",
+   "date": "2022-06-27 17:49",
+   "location": "_duplicates"
+  },
+  "IMG_5984.HEIC": {
+   "subject": "First courgette swelling in bare soil (2022)",
+   "tags": [
+    "courgettes",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-06-27 17:39"
+  },
+  "IMG_5466.HEIC": {
+   "subject": "Asparagus ferns + pink dusk sky over the plot (2022)",
+   "tags": [
+    "asparagus",
+    "dusk",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-06-20 20:22"
+  },
+  "IMG_5459.HEIC": {
+   "subject": "Beds under construction, June (2022 build set)",
+   "tags": [
+    "bed-prep",
+    "build",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-06-20 20:18"
+  },
+  "IMG_5295.HEIC": {
+   "subject": "Building the raised beds, timber angles (2022 build set)",
+   "tags": [
+    "build",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-06-15 11:52"
+  },
+  "IMG_5273.HEIC": {
+   "subject": "New beds + potato rows (2022 build set)",
+   "tags": [
+    "build",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_5295.HEIC",
+   "date": "2022-06-15 11:49",
+   "location": "_duplicates"
+  },
+  "IMG_5279.HEIC": {
+   "subject": "Bed frames going together (2022 build set)",
+   "tags": [
+    "build",
+    "2022"
+   ],
+   "q": 2,
+   "dupe": "IMG_5295.HEIC",
+   "date": "2022-06-15 11:49",
+   "location": "_duplicates"
+  },
+  "IMG_5230.HEIC": {
+   "subject": "First frames on the bare plot (2022)",
+   "tags": [
+    "build",
+    "2022"
+   ],
+   "q": 2,
+   "date": "2022-06-14 11:24"
+  },
+  "IMG_3934.HEIC": {
+   "subject": "The bare plot, first strips marked out — where it all began (Apr 2022)",
+   "tags": [
+    "plot",
+    "origin",
+    "2022",
+    "archive"
+   ],
+   "q": 2,
+   "date": "2022-04-17 18:04"
+  },
+  "IMG_3933.HEIC": {
+   "subject": "Day one: bare dug earth, April 2022 — the beginning",
+   "tags": [
+    "plot",
+    "origin",
+    "2022",
+    "archive"
+   ],
+   "q": 2,
+   "date": "2022-04-17 18:04"
+  }
+ }
+}
