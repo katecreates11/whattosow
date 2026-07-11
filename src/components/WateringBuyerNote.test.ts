@@ -4,17 +4,24 @@ import { describe, expect, it } from "vitest";
 import WateringBuyerNote from "@/components/WateringBuyerNote";
 
 describe("WateringBuyerNote", () => {
-  it("offers one rule-aware buying decision with two tracked links", () => {
+  it("offers an early rule-aware watering kit shortlist with tracked links", () => {
     const html = renderToStaticMarkup(createElement(WateringBuyerNote));
 
-    expect(html).toContain("Start with two good watering cans");
-    expect(html).toContain("Check your allotment rules");
+    expect(html).toContain("What I&#x27;d buy first");
+    expect(html).toContain("Two 10-litre watering cans");
+    expect(html).toContain("A long watering lance");
+    expect(html).toContain("A water butt with a stand");
+    expect(html).toContain("Buy if");
+    expect(html).toContain("Skip if");
     expect(html).toContain("keep the water in your hand");
-    expect(html).toContain("Skip the automatic setup");
+    expect(html).toContain("Skip timers and sprinklers");
+    expect(html).toContain("Compare simple 10L cans");
+    expect(html).toContain("Check the Gardena lance");
+    expect(html).toContain("Compare 200L water butts");
     expect(html).not.toContain("Haws");
 
-    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(2);
-    expect(html.match(/rel="sponsored noopener noreferrer"/g)).toHaveLength(2);
-    expect(html.match(/data-umami-event-position="watering-buyer-note"/g)).toHaveLength(2);
+    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(3);
+    expect(html.match(/rel="sponsored noopener noreferrer"/g)).toHaveLength(3);
+    expect(html.match(/data-umami-event-position="watering-buyer-note"/g)).toHaveLength(3);
   });
 });

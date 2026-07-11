@@ -8,29 +8,38 @@ export default function WateringBuyerNote() {
       className="border-y border-earth/10 py-8 sm:py-10"
     >
       <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-rust">
-        Worth buying / check first
+        Watering kit shortlist
       </p>
       <h2
         id="watering-buyer-note"
         className="mt-2 font-serif text-2xl text-earth sm:text-3xl"
       >
-        Buy for the water supply you actually have
+        What I&apos;d buy first
       </h2>
       <p className="mt-3 max-w-[62ch] text-earth-light">
-        Check your allotment rules before buying hose kit. Some sites allow a
-        lance while you stand at the tap; others expect you to fill from a
-        communal tank and keep the water in your hand throughout.
+        If you are buying one watering setup, buy for the water supply you
+        actually have. On some allotments you can use a hose while you stand
+        there holding it; on others you fill cans from a communal tank and keep
+        the water in your hand throughout.
       </p>
 
       <div className="mt-7 divide-y divide-earth/10 border-t border-earth/10">
         <div className="py-5">
           <h3 className="font-serif text-xl text-earth">
-            Start with two good watering cans
+            Two 10-litre watering cans
           </h3>
           <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
-            For a communal dip tank, two sturdy 10-litre cans balance the walk
-            back to the plot. Look for a wide opening, a comfortable handle and
-            a detachable rose; an ordinary plastic pair is perfectly useful.
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Buy if
+            </span>{" "}
+            hoses are banned, busy or awkward. Two cans balance the walk back
+            to the bed; a detachable rose gives seedlings a softer drink.
+            Ordinary plastic is fine.{" "}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Skip if
+            </span>{" "}
+            you only grow in a small courtyard and can reach everything from
+            the kitchen tap.
           </p>
           <AffiliateLink
             href="https://www.amazon.co.uk/s?k=10l+plastic+watering+can+detachable+rose"
@@ -39,18 +48,25 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Find a simple 10L can with a rose &rarr;
+            Compare simple 10L cans with roses &rarr;
           </AffiliateLink>
         </div>
 
         <div className="py-5">
           <h3 className="font-serif text-xl text-earth">
-            If your site allows hose use
+            A long watering lance
           </h3>
           <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
-            A long lance reaches under leaves and across beds without trampling
-            the soil. It suits sites where you can use a hose while staying at
-            the tap and keeping hold of it.
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Buy if
+            </span>{" "}
+            your site allows hose use and you are watering deep beds, beans or
+            tomatoes. A lance reaches under leaves and across beds without
+            trampling the soil, while you stay in control of the water.{" "}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Skip if
+            </span>{" "}
+            your rules say cans only.
           </p>
           <AffiliateLink
             href="https://www.amazon.co.uk/dp/B01MQDGXMO"
@@ -59,7 +75,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            See the Gardena lance I use &rarr;
+            Check the Gardena lance I use &rarr;
           </AffiliateLink>
           <Link
             href="/blog/watering-lance-allotment"
@@ -71,18 +87,45 @@ export default function WateringBuyerNote() {
 
         <div className="py-5">
           <h3 className="font-serif text-xl text-earth">
-            Skip the automatic setup until you have checked
+            A water butt with a stand
           </h3>
           <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
-            Soaker hoses, sprinklers and timers can be useful, but many
-            allotments restrict them or forbid unattended watering. Check your
-            tenancy or site rules before spending anything.
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Buy if
+            </span>{" "}
+            you have a shed, greenhouse or polytunnel roof. Saved rainwater is
+            the quiet winner, and a stand matters: without the height, getting
+            a watering can under the tap becomes a daily nuisance.{" "}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Skip if
+            </span>{" "}
+            you have nowhere solid and level to put it yet.
+          </p>
+          <AffiliateLink
+            href="https://www.amazon.co.uk/s?k=water+butt+with+stand+and+tap+200l"
+            product="200L water butt with stand and tap"
+            type="gear"
+            position="watering-buyer-note"
+            className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
+          >
+            Compare 200L water butts with stands &rarr;
+          </AffiliateLink>
+        </div>
+
+        <div className="py-5">
+          <h3 className="font-serif text-xl text-earth">
+            Skip timers and sprinklers until you have checked
+          </h3>
+          <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
+            Soaker hoses, sprinklers and timers can be useful in the right
+            garden, but many allotments restrict them or forbid unattended
+            watering. Read the site rules before spending anything.
           </p>
         </div>
       </div>
 
       <p className="mt-5 max-w-[62ch] font-mono text-[10px] leading-relaxed text-earth-lighter">
-        The two buying links above help the allotment shed fund. The advice is
+        The buying links above help the allotment shed fund. The advice is
         the same whether you use them or not.
       </p>
     </aside>

@@ -151,6 +151,8 @@ export default function WateringGuide() {
             </div>
           </section>
 
+          <WateringBuyerNote />
+
           <PullQuote>
             The goal isn&apos;t to water constantly. It&apos;s to water consistently.
           </PullQuote>
@@ -459,9 +461,6 @@ export default function WateringGuide() {
               <Link href="/guides/allotment-essentials" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">allotment kit guide</Link>.
             </p>
           </section>
-
-          <SectionDivider label="Equipment" />
-          <WateringBuyerNote />
 
           {/* FAQ */}
           <section className="border-t border-earth/6 pt-10">
