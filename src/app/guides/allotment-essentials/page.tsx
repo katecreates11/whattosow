@@ -11,7 +11,8 @@ import {
   BigNumber,
   InThisGuide,
 } from "@/components/GuideVisuals";
-import GearPick, { GearCategory, AffiliateDisclosure, TopPicksGrid } from "@/components/GearPick";
+import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
+import AllotmentEssentialsBuyerNote from "@/components/AllotmentEssentialsBuyerNote";
 
 export const metadata: Metadata = {
   title: "What You Need for Your First Allotment UK — Essential Kit | What To Sow",
@@ -232,20 +233,7 @@ export default function AllotmentEssentialsGuide() {
             </div>
           </section>
 
-          {/* ─── TOP PICKS HERO ─── */}
-          <ColorSection color="ochre">
-            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-rust block mb-3">
-              The five things you need on day one
-            </span>
-            <TopPicksGrid
-              picks={[
-                { name: "Spear & Jackson fork", why: "Your most-used tool. Loosening soil, turning compost, lifting root veg.", price: "~£28", amazonUrl: "https://www.amazon.co.uk/dp/B0006UF6DA?tag=whattosow21-21" },
-                { name: "Showa 370 gloves", why: "The best gardening gloves. Incredible grip, breathable, machine washable.", price: "~£5", amazonUrl: "https://www.amazon.co.uk/dp/B0017HEJC0?tag=whattosow21-21" },
-                { name: "Felco 2 secateurs", why: "Swiss-made, lasts decades, every part replaceable. The only pair you'll ever need.", price: "~£45", amazonUrl: "https://www.amazon.co.uk/dp/B00023RYS6?tag=whattosow21-21" },
-                { name: "Horticultural fleece", why: "Protects from frost, keeps pests off, gives everything a head start.", price: "~£8 for 10m", amazonUrl: "https://www.amazon.co.uk/s?tag=whattosow21-21&k=horticultural+fleece+17g" },
-              ]}
-            />
-          </ColorSection>
+          <AllotmentEssentialsBuyerNote />
 
           <InThisGuide
             items={[
