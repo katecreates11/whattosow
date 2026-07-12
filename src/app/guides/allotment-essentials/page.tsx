@@ -267,6 +267,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="If you're going no-dig (and you should), a broadfork is the tool you'll reach for most. The Terradix has four 25cm prongs and a 31cm working width — push it in, rock back, and you've aerated the soil without turning it. Brilliant build quality, lasts forever."
                 amazonUrl="https://www.amazon.co.uk/dp/B0BBRW2M3Y?tag=whattosow21-21"
+                position="allotment-kit-detail-broadfork"
                 tip="An investment, but the only digging tool many no-dig growers use."
               />
               <GearPick
@@ -275,6 +276,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="Your most-used traditional tool. Loosening soil, turning compost, lifting root veg, breaking up clods. A stainless steel fork with a wooden handle is worth the money. Spear &amp; Jackson make the classic one."
                 amazonUrl="https://www.amazon.co.uk/dp/B0006UF6DA?tag=whattosow21-21"
+                position="allotment-kit-detail-digging-fork"
                 tip="Check car boot sales — old Bulldog forks go for a fiver and outlast modern budget ones."
               />
               <GearPick
@@ -283,6 +285,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="For edging beds, digging planting holes, moving soil. The Spear &amp; Jackson Traditional is stainless steel with a hardwood handle — the one you see on every allotment because it works and lasts. If you're going no-dig, you'll use it less than you'd think — but you still need one."
                 amazonUrl="https://www.amazon.co.uk/dp/B0006UF6D0?tag=whattosow21-21"
+                position="allotment-kit-detail-digging-spade"
               />
               <GearPick
                 name="Rake"
@@ -290,6 +293,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="For levelling soil, creating a fine tilth for sowing, and raking out stones. Get a flat-headed soil rake (not a lawn rake — those are the springy fan-shaped ones). You'll use it more than you expect."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=soil+rake+garden"
+                position="allotment-kit-detail-rake"
               />
             </section>
           </GearCategory>
@@ -310,6 +314,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="If you could only have one hand tool, this is it. A Japanese soil knife that digs, cuts, weeds, measures planting depth, divides plants, and opens bags of compost. The serrated edge on one side and the sharp blade on the other mean it replaces your trowel, weeding knife, and dibber in one go. Every allotment holder who buys one says the same thing: 'Why didn't I get this sooner?'"
                 amazonUrl="https://www.amazon.co.uk/dp/B07TJ9V989?tag=whattosow21-21"
+                position="allotment-kit-detail-hori-hori"
                 tip="Comes with a canvas holster — clip it to your belt and you'll reach for it constantly."
               />
               <GearPick
@@ -318,6 +323,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="For planting out, digging small holes, working in tight spaces between plants. A stainless steel one with a comfortable grip is worth the few extra quid. If you get a Hori Hori you'll use this less, but it's still nice to have for delicate work."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=stainless+steel+hand+trowel"
+                position="allotment-kit-detail-hand-trowel"
               />
               <GearPick
                 name="Felco 2 secateurs"
@@ -325,6 +331,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="The gold standard. Swiss-made bypass secateurs that last decades — every part is replaceable, from the blade to the spring. They cut cleanly, the grip is comfortable all day, and they hold their edge. Expensive upfront but you'll never buy another pair."
                 amazonUrl="https://www.amazon.co.uk/dp/B00023RYS6?tag=whattosow21-21"
+                position="allotment-kit-detail-felco-secateurs"
                 tip="Clean and oil the blade after each session and they'll outlast you."
               />
               <GearPick
@@ -333,6 +340,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="upgrade"
                 description="The Japanese alternative to Felco — and some say better. Which? Best Buy. The blade stays sharper longer and cuts with less effort. Lighter in the hand than Felcos. If you're choosing between the two, try both if you can — it's genuinely personal preference at this level."
                 amazonUrl="https://www.amazon.co.uk/dp/B001Y54F88?tag=whattosow21-21"
+                position="allotment-kit-detail-okatsune-secateurs"
               />
               <GearPick
                 name="Budget bypass secateurs"
@@ -340,6 +348,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="budget"
                 description="If £45+ feels steep, any decent bypass secateurs will do the job. Darlac make good ones for the price. Lidl&apos;s Parkside range is surprisingly decent too. Just avoid anvil secateurs — they crush stems instead of cutting cleanly. Keep them sharp and clean."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=bypass+secateurs"
+                position="allotment-kit-detail-budget-secateurs"
               />
             </section>
           </GearCategory>
@@ -360,6 +369,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="The best gardening gloves you can buy, and half the price of most 'gardening' branded alternatives. Nitrile-coated palm gives incredible grip even when wet. The back breathes so your hands don't sweat. They protect against thorns, nettles, and rough surfaces without losing dexterity. Machine washable. Once you try these, you won't go back to anything else."
                 amazonUrl="https://www.amazon.co.uk/dp/B0017HEJC0?tag=whattosow21-21"
+                position="allotment-kit-detail-showa-gloves"
                 tip="Buy 2–3 pairs. You'll lose one, leave one in the shed, and want a dry pair when the others are drying."
               />
               <GearPick
@@ -367,6 +377,7 @@ export default function AllotmentEssentialsGuide() {
                 price="£8–15"
                 description="For bramble clearing, handling prickly prunings, and anything the Showas can't handle. You don't need these often, but when you do, you really do. Any gauntlet-style leather or synthetic pair will do."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=thorn+proof+gardening+gloves"
+                position="allotment-kit-detail-thorn-gloves"
               />
             </section>
           </GearCategory>
@@ -390,6 +401,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="Push it just below the soil surface on a dry day and it severs weed roots without disturbing your crops. The single most time-saving tool on an allotment. Hoe weekly and you'll never have a weed problem. The blade should be sharp — file it occasionally."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=dutch+hoe+garden"
+                position="allotment-kit-detail-dutch-hoe"
                 tip="Hoe on a dry morning — cut weeds wilt in the sun. Hoe in the rain and they just re-root."
               />
               <GearPick
@@ -398,6 +410,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="Memory foam kneeler that actually makes a difference. Thicker and more supportive than the cheap foam pads — your knees will thank you after an hour of weeding. Wipes clean, lasts years, comes in nice colours. One of those things you don't think you need until you've used one."
                 amazonUrl="https://www.amazon.co.uk/dp/B004CRVDV2?tag=whattosow21-21"
+                position="allotment-kit-detail-kneeler"
               />
             </section>
           </GearCategory>
@@ -413,6 +426,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="A standard 10-litre can with a detachable rose. Two of these saves trips to the tap. Plastic is fine — metal looks nicer but costs more and dents. Make sure the rose is removable so you can direct-water established plants."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=10+litre+watering+can"
+                position="allotment-kit-detail-watering-can"
                 tip="Get two. You'll spend half your life walking back to the tap otherwise."
               />
               <GearPick
@@ -421,6 +435,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="upgrade"
                 description="If your site has standpipes and allows hoses, a reinforced hose with quick-connect fittings saves enormous amounts of time in summer. Check your site rules first — some allotment sites don't allow hoses during dry spells."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=garden+hose+50m+reinforced"
+                position="allotment-kit-detail-hose"
               />
             </section>
           </GearCategory>
@@ -439,6 +454,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="For runner beans, climbing French beans, tomato supports, and propping up anything that needs it. 6ft is the most versatile length. You'll use them every year."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=bamboo+canes+6ft+garden"
+                position="allotment-kit-detail-bamboo-canes"
               />
               <GearPick
                 name="Garden twine (jute)"
@@ -446,6 +462,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="For tying plants to canes, stringing up climbing beans, and a hundred other jobs. Jute twine is biodegradable and won't cut into stems. A single ball lasts most of the season."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=jute+garden+twine"
+                position="allotment-kit-detail-jute-twine"
               />
               <GearPick
                 name="Horticultural fleece"
@@ -453,6 +470,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="Protects tender seedlings from late frosts, gives crops a head start in spring, and keeps carrot fly off your carrots. The single most useful protective material on the allotment. Get the lightest weight (17g/m²) for most jobs."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=horticultural+fleece+17g"
+                position="allotment-kit-detail-fleece"
                 tip="Peg it down properly or the wind takes it. Tent pegs work well."
               />
               <GearPick
@@ -460,6 +478,7 @@ export default function AllotmentEssentialsGuide() {
                 price="~£8 for 6m"
                 description="Essential for brassicas (cabbage, broccoli, kale) unless you enjoy feeding caterpillars. Fine mesh netting (6mm or smaller) also keeps carrot fly out. Drape over hoops or canes to keep it off the plants."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=butterfly+netting+garden+fine+mesh"
+                position="allotment-kit-detail-netting"
               />
             </section>
           </GearCategory>
@@ -485,6 +504,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="Spread 5–10cm on top of your beds in autumn or early spring. It feeds the soil, improves structure, suppresses weeds, and retains moisture. Horse manure from a local stable is often free — just make sure it's well-rotted (dark, crumbly, doesn't smell). Bagged farmyard manure from garden centres works too."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=well+rotted+farmyard+manure+bag"
+                position="allotment-kit-detail-manure-compost"
                 tip="Ask around your site — there's usually someone with a manure contact."
               />
               <GearPick
@@ -492,6 +512,7 @@ export default function AllotmentEssentialsGuide() {
                 price="~£6"
                 description="A general-purpose fertiliser for hungry crops like brassicas and potatoes. Scatter and rake in before planting. Not essential if you're mulching with compost, but useful for a quick nutrient boost."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=chicken+manure+pellets+garden"
+                position="allotment-kit-detail-chicken-manure"
               />
             </section>
           </GearCategory>
@@ -505,6 +526,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="essential"
                 description="You will move an absurd amount of stuff on an allotment — compost, manure, weeds, harvested veg, tools. A standard builder's wheelbarrow from a DIY store is fine. Pneumatic tyre, not solid. Don't buy the cheapest one — the axle bends."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=wheelbarrow+garden+pneumatic+tyre"
+                position="allotment-kit-detail-wheelbarrow"
                 tip="Don't buy one immediately — see if your site has a communal one first."
               />
               <GearPick
@@ -513,6 +535,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="Flexible plastic trugs that every allotment holder ends up buying several of. Carrying weeds, mixing compost, collecting harvests, soaking bare roots — they do everything. Squeeze the sides to pour, stack them to store. Indestructible and they come in every colour. You'll wonder how you managed without them."
                 amazonUrl="https://www.amazon.co.uk/dp/B000UJSQUM?tag=whattosow21-21"
+                position="allotment-kit-detail-tubtrugs"
                 tip="Get at least 3. You'll always have one full of something."
               />
               <GearPick
@@ -521,6 +544,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="budget"
                 description="The cheap alternative to Tubtrugs. Not flexible, but sturdy and stackable. Good for mixing liquid feeds, soaking modules before planting out, and leaving on the plot permanently."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=builders+bucket+14+litre"
+                position="allotment-kit-detail-builders-buckets"
               />
               <GearPick
                 name="Mepal Take a Break containers"
@@ -528,6 +552,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="For taking your harvest home without squashing it. Mepal containers are airtight, leakproof, and stack neatly in a bag. The 900ml midi size is perfect for salad leaves, herbs, and berries. The larger ones fit courgettes and beans. Much better than a carrier bag full of crushed tomatoes."
                 amazonUrl="https://www.amazon.co.uk/dp/B0BTT1T9TW?tag=whattosow21-21"
+                position="allotment-kit-detail-harvest-containers"
                 tip="Get a couple of sizes — the midi for delicate stuff, a bigger one for bulkier crops."
               />
             </section>
@@ -547,6 +572,7 @@ export default function AllotmentEssentialsGuide() {
                 badge="our-pick"
                 description="Kiln-dried kindling that actually lights first time. Getting a bonfire going with damp hedge prunings is miserable — proper kindling makes the difference between a productive burn and an hour of swearing at smoke. Certainly Wood is consistently dry and well-cut."
                 amazonUrl="https://www.amazon.co.uk/dp/B01LXA92FN?tag=whattosow21-21"
+                position="allotment-kit-detail-kindling"
                 tip="Keep a bag in the shed. You'll use it every time you need to burn off old brassica stumps or diseased material."
               />
             </section>
