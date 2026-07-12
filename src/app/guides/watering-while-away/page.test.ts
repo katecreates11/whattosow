@@ -15,5 +15,6 @@ describe("WateringWhileAwayGuide", () => {
     expect(html).toContain('data-umami-event-position="holiday-watering-timer"');
     expect(html).toContain('data-umami-event-position="holiday-watering-soaker-hose"');
     expect(html).toContain('data-umami-event-position="holiday-watering-drip-kit"');
+    expect(html.match(/data-umami-event-merchant="amazon-uk"/g)).toHaveLength(4);
   });
 });

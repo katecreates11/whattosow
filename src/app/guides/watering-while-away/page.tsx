@@ -177,7 +177,6 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href={az("terracotta watering spikes bottle")}
                   product="watering spikes"
-                  merchant="amazon"
                   position="holiday-watering-spikes"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
@@ -208,7 +207,6 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href={az("hozelock water timer tap")}
                   product="tap timer"
-                  merchant="amazon"
                   position="holiday-watering-timer"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
@@ -223,7 +221,6 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href="https://www.amazon.co.uk/dp/B000TAFENY"
                   product="soaker hose"
-                  merchant="amazon"
                   position="holiday-watering-soaker-hose"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
@@ -236,7 +233,6 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href={az("drip irrigation kit pots garden")}
                   product="drip irrigation kit"
-                  merchant="amazon"
                   position="holiday-watering-drip-kit"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
