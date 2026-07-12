@@ -8,7 +8,8 @@ describe("CompanionPlantingGuide", () => {
     const html = renderToStaticMarkup(createElement(CompanionPlantingGuide));
 
     expect(html).toContain("Worth buying / skip this");
-    expect(html).toContain("Check the Seeding Square seed spacer");
+    expect(html).toContain("Compare companion flower seeds");
+    expect(html).toContain("marigolds, calendula, nasturtiums or borage");
     expect(html).toContain('data-umami-event-position="companion-buyer-note"');
     expect(html.match(/data-umami-event-position="companion-buyer-note"/g)).toHaveLength(1);
     expect(html).toContain("Skip laminated companion charts");

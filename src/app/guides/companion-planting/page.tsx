@@ -727,7 +727,7 @@ export default function CompanionPlantingGuide() {
                 Worth buying / skip this
               </span>
               <h3 id="companion-buyer-note" className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-4">
-                One thing that can help with bed planning
+                One thing worth buying for companion planting
               </h3>
               <div className="divide-y divide-earth/10">
                 <div className="py-4 sm:grid sm:grid-cols-[8rem_1fr] sm:gap-6">
@@ -736,18 +736,20 @@ export default function CompanionPlantingGuide() {
                   </p>
                   <div className="space-y-2">
                     <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
-                      If you grow in square-foot blocks and like a guide under your hand, a seed spacer can earn its
-                      place. It keeps carrots, salads and spring onions even without measuring every row.
+                      If you are planning beds for pest confusion and pollinators, buy simple flower seed:
+                      marigolds, calendula, nasturtiums or borage. They earn their space beside tomatoes,
+                      brassicas, beans and courgettes, and they make the plot better even when the old folklore
+                      over-promises.
                     </p>
                     <AffiliateLink
-                      href="https://www.amazon.co.uk/dp/B00US8ESWK"
-                      product="Seeding Square"
-                      type="gear"
+                      href="https://www.amazon.co.uk/s?k=marigold+calendula+nasturtium+borage+seeds"
+                      product="companion flower seeds"
+                      type="seed"
                       merchant="amazon"
                       position="companion-buyer-note"
                       className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust transition-colors"
                     >
-                      Check the Seeding Square seed spacer &rarr;
+                      Compare companion flower seeds &rarr;
                     </AffiliateLink>
                   </div>
                 </div>
