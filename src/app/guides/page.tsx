@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { getWeatherState } from "@/lib/weather-intelligence";
+import { conditionsFrom, guideScore, whyNow } from "@/lib/guide-relevance";
+
+export const revalidate = 3600; // the page re-tunes itself to the weather every hour
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,23 +12,38 @@ const TAG = "whattosow21-21";
 const az = (asin: string) => `https://www.amazon.co.uk/dp/${asin}?tag=${TAG}`;
 
 // editorial photo per guide (topic-matched), with a gentle fallback
-const guideImages: Record<string, string> = {
-  "/guides/beginners": "/photos/guides/allotment-wide-summer.webp",
+const GUIDE_IMG: Record<string, string> = {
+  "/guides/beginners": "/photos/guides/allotment-overview-june.webp",
   "/guides/seed-starting": "/photos/guides/seed-starting-windowsill.webp",
   "/guides/soil": "/photos/guides/freshly-prepared-allotment-bed.webp",
+  "/guides/seed-starting-kit": "/photos/guides/seed-starting-courgette-seedling.webp",
+  "/guides/allotment-essentials": "/photos/guides/wheelbarrow-tools.webp",
+  "/guides/composting": "/photos/guides/compost-bay.webp",
+  "/guides/growing-fruit": "/photos/crops/strawberry-harvest-punnet.webp",
   "/guides/companion-planting": "/photos/guides/companion-planting-marigold-lettuce.webp",
   "/guides/crop-rotation": "/photos/guides/allotment-fresh-beds.webp",
-  "/guides/watering": "/photos/guides/watering-strawberry-bed.webp",
+  "/guides/green-manures": "/photos/guides/bed-compost-mulch.webp",
+  "/guides/sun-mapping": "/photos/guides/allotment-sunset-rays.webp",
+  "/guides/watering": "/photos/blog/watering-lance-golden-hour-spray.webp",
   "/guides/pests": "/photos/blog/allotment-netting-cloches-2024.webp",
   "/guides/tomato-blight": "/photos/crops/tomatoes-cherry-on-vine.webp",
   "/guides/spring-vegetables": "/photos/guides/spring-flowers-planter-allotment.webp",
-  "/guides/seed-starting-kit": "/photos/guides/seed-starting-courgette-seedling.webp",
-  "/guides/allotment-essentials": "/photos/guides/allotment-wide-summer.webp",
-  "/guides/composting": "/photos/guides/allotment-fresh-beds.webp",
-  "/guides/growing-fruit": "/photos/crops/strawberry-harvest-punnet.webp",
   "/guides/autumn-winter-vegetables": "/photos/blog/plot-late-summer.webp",
-  "/guides/green-manures": "/photos/guides/freshly-prepared-allotment-bed.webp",
-  "/guides/sun-mapping": "/photos/guides/allotment-wide-summer.webp",
+  "/guides/what-to-sow-in-summer-uk": "/photos/guides/summer-golden-path.webp",
+  "/guides/succession-sowing": "/photos/guides/salad-leaves-hand.webp",
+  "/guides/growing-brassicas": "/photos/guides/brassicas-netted.webp",
+  "/guides/growing-tomatoes-outdoors-vs-greenhouse": "/photos/guides/tomato-truss-ripening.webp",
+  "/guides/growing-onions-garlic-leeks": "/photos/guides/garlic-scapes-hand.webp",
+  "/guides/growing-winter-salad-leaves": "/photos/guides/lettuce-marigold-ring.webp",
+  "/guides/preparing-your-plot-for-winter": "/photos/guides/plot-autumn-marigolds.webp",
+  "/guides/protecting-vegetables-from-frost": "/photos/guides/cloche-dome-beaded.webp",
+  "/guides/overwintering-broad-beans-and-peas": "/photos/guides/peas-pods-heavy.webp",
+  "/guides/growing-root-vegetables": "/photos/guides/carrot-crate.webp",
+  "/guides/growing-squash-pumpkins-courgettes": "/photos/guides/pumpkin-backlit.webp",
+  "/guides/growing-veg-in-containers": "/photos/guides/strawberry-pots.webp",
+  "/guides/companion-planting-chart": "/photos/guides/companion-bed-overhead.webp",
+  "/guides/watering-while-away": "/photos/guides/sprinkler-watering.webp",
+  "/guides/dealing-with-the-glut": "/photos/guides/harvest-glut-boxes.webp",
 };
 const FALLBACK_IMG = "/photos/guides/allotment-wide-summer.webp";
 
@@ -311,7 +330,13 @@ const guides = [
   },
 ];
 
-export default function GuidesIndex() {
+export default async function GuidesIndex() {
+  // one UK-representative reading (the site's postcode-level tuning comes later)
+  const weather = await getWeatherState(52.42, -1.9).catch(() => null);
+  const now = conditionsFrom(weather);
+  const scored = [...guides].sort((a, b) => guideScore(b.href, now) - guideScore(a.href, now));
+  const thisWeek = scored.slice(0, 4);
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -365,9 +390,38 @@ export default function GuidesIndex() {
           </div>
         </div>
 
+        {/* What the plot needs this week — tuned to the month and the sky */}
+        <section className="bg-cream px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
+          <div className="mx-auto max-w-6xl">
+            <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-earth-light">
+              {new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "Europe/London" }).format(new Date())}
+              {" · "}
+              {now.desc}
+            </p>
+            <h2 className="mt-2 font-serif text-2xl text-earth sm:text-3xl">What the plot needs this week</h2>
+            <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {thisWeek.map((g) => (
+                <a key={g.href} href={g.href} className="group block">
+                  <div className="overflow-hidden rounded-xl">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={GUIDE_IMG[g.href] ?? FALLBACK_IMG}
+                      alt=""
+                      className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="mt-3 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-rust">{whyNow(g.href, now)}</p>
+                  <h3 className="mt-1 font-serif text-lg leading-snug text-earth group-hover:text-allotment">{g.title}</h3>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Guide sections — pastel grounds, magazine layout with photos */}
         {SECTIONS.map((section) => {
-          const items = guides.filter((g) => g.tag === section.tag);
+          const items = scored.filter((g) => g.tag === section.tag);
           if (items.length === 0) return null;
           const featureFirst = items.length >= 3;
           return (
@@ -385,7 +439,7 @@ export default function GuidesIndex() {
                       >
                         <div className={`relative overflow-hidden ${feature ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
                           <Image
-                            src={guideImages[guide.href] ?? FALLBACK_IMG}
+                            src={GUIDE_IMG[guide.href] ?? FALLBACK_IMG}
                             alt={guide.title}
                             fill
                             sizes={feature ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
