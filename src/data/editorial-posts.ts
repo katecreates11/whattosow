@@ -310,6 +310,17 @@ export const editorialPosts: EditorialPost[] = [
         content:
           "And if you want the fuller list — the things to add as you go, and the one big upgrade worth saving for — it's all in my tools roundup below.",
       },
+      {
+        type: "gallery",
+        content: "",
+        caption: "The same ground, four years apart: bare earth in April 2022, the first summer's beds, the 2024 marigold year, and the plot as it stands in 2026.",
+        images: [
+          { src: "/photos/blog/plot-2022-day-one.webp", alt: "Bare dug earth on day one of the allotment, April 2022", caption: "April 2022", aspect: "square" },
+          { src: "/photos/blog/plot-2022-first-summer.webp", alt: "The first summer's young beds in golden evening light, 2022", caption: "First summer", aspect: "square" },
+          { src: "/photos/blog/plot-2024-marigold-beds.webp", alt: "Marigold-edged raised beds and a mesh tunnel, summer 2024", caption: "2024", aspect: "square" },
+          { src: "/photos/blog/plot-2026-raised-beds.webp", alt: "The full raised-bed grid freshly planted, June 2026", caption: "2026", aspect: "square" },
+        ],
+      },
     ],
     relatedCrops: ["courgettes", "peas", "pumpkins", "tomatoes", "runner-beans", "sunflowers"],
   },
@@ -947,6 +958,15 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "The best part about growing tomatoes is the sheer abundance. One plant produces kilos of fruit over the season. I gave boxes away to neighbours, took them to work, and still had more than I could eat. If you are thinking about growing your own, tomatoes are where to start.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "Year one against year four: the first trusses we ever ripened, and what an ordinary picking day looks like now.",
+        images: [
+          { src: "/photos/blog/tomatoes-2022-first-ripening.webp", alt: "The very first tomatoes ripening on a staked vine, 2022", caption: "2022: the first ones", aspect: "square" },
+          { src: "/photos/blog/tomatoes-2025-harvest-box.webp", alt: "A box overflowing with cherry tomatoes on the bench, 2025", caption: "2025: an ordinary Tuesday", aspect: "square" },
+        ],
       },
       {
         type: "heading",
