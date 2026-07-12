@@ -148,6 +148,18 @@ export const editorialPosts: EditorialPost[] = [
       {
         type: "text",
         content:
+          "For what it's worth, here is the actual plan from my first year. Peas and beans across one end, then golden turnip, chard and pak choi square by square down the bed. Not everything did what the plan said it would — but drawing it out like this turned a bare bed from a blank page into a list of small jobs. Sow a square, cross it off, move on.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/bed-layout-2022-plan.webp",
+        alt: "A hand-made square-foot bed plan from 2022: a coloured grid marking squares of peas, beans, golden turnip, swiss chard, pak choi, carrots, coriander and lettuce",
+        caption: "The 2022 plan, square by square.",
+      },
+      {
+        type: "text",
+        content:
           "What made it easy (and, honestly, a lot of fun) was a little tool I bought: a colour-coded seeding square. It has different hole patterns pressed into it — one big hole for the things that need room, lots of little ones for the close-spaced crops — so you just press it into the soil, sow into the dimples in the right pattern, and move on to the next square. No measuring, no guesswork. I direct-sowed nearly everything that first summer straight through it.",
       },
       {
@@ -163,6 +175,13 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "The other lovely thing is how naturally it works with companion planting. Once you're sowing different crops side by side in neighbouring squares, you can put good companions together on purpose — lettuce in the shade of taller things, carrots near alliums, flowers tucked in to pull the pollinators. It's the same idea, just on a tidy little grid.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/guides/companion-bed-overhead.webp",
+        alt: "Overhead view of a raised bed with a courgette plant in the centre, a ring of orange marigolds and lettuces filling the remaining squares",
+        caption: "The same thinking, four summers on — courgette in the middle, marigolds round the edge, lettuce in the gaps.",
       },
       {
         type: "image",
@@ -322,6 +341,21 @@ export const editorialPosts: EditorialPost[] = [
           { src: "/photos/blog/plot-2022-first-summer.webp", alt: "The first summer's young beds in golden evening light, 2022", caption: "First summer", aspect: "square" },
           { src: "/photos/blog/plot-2024-marigold-beds.webp", alt: "Marigold-edged raised beds and a mesh tunnel, summer 2024", caption: "2024", aspect: "square" },
           { src: "/photos/blog/plot-2026-raised-beds.webp", alt: "The full raised-bed grid freshly planted, June 2026", caption: "2026", aspect: "square" },
+        ],
+      },
+      {
+        type: "text",
+        content:
+          "And the sunflowers are the thing that has come back every single year since. A different corner of the plot each summer, the same craning up at them by August. If you plant nothing else frivolous in your first year, plant sunflowers.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "One sunflower a year, more or less.",
+        images: [
+          { src: "/photos/blog/sunflower-2022-dusk.webp", alt: "A sunflower glowing against a pink and blue dusk sky, 2022", caption: "2022 — the first one, at dusk", aspect: "square" },
+          { src: "/photos/blog/sunflower-2023-bee.webp", alt: "A sunflower face with a bumblebee on it, the allotment behind, 2023", caption: "2023 — the bees found them", aspect: "square" },
+          { src: "/photos/blog/sunflowers-teddy-bear.webp", alt: "A fluffy teddy-bear sunflower among classic sunflowers against a blue sky, 2025", caption: "2025 — a teddy-bear variety joined in", aspect: "square" },
         ],
       },
     ],
@@ -1214,6 +1248,13 @@ export const editorialPosts: EditorialPost[] = [
           "The purple-podded variety — stunning on the plant and the peas inside are still green.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/purple-pea-pod-hand.webp",
+        alt: "A purple pea pod split open in the hand to show a row of green peas, allotment beds behind",
+        caption: "Split open on the spot. These never made it home.",
+      },
+      {
         type: "heading",
         content: "Courgettes: the glut was real",
       },
@@ -1257,6 +1298,13 @@ export const editorialPosts: EditorialPost[] = [
           "The carrot harvest. Wonky, muddy, and absolutely delicious.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/carrots-2022-kitchen.webp",
+        alt: "A hand holding a bunch of just-dug carrots with their tops on, indoors by the kitchen clock",
+        caption: "The bit that never stops feeling good — dinner, dug an hour earlier.",
+      },
+      {
         type: "heading",
         content: "Pumpkins: the grand finale",
       },
@@ -1290,6 +1338,13 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "Absolutely. In terms of pure monetary value, I probably grew a couple of hundred pounds worth of vegetables and fruit. But the real value is not financial. It is standing on your plot on a summer evening, picking tomatoes that are still warm from the sun, eating peas straight from the pod, and knowing that you grew all of it from a tiny seed.\n\nIf you are on an allotment waiting list or thinking about getting a plot, do it. The first year is messy and overwhelming and wonderful. Start with the easy wins — tomatoes, courgettes, peas, strawberries — and build from there.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/harvest-2022-decking.webp",
+        alt: "An evening still life on the decking: a teal watering can, a freshly cut lettuce, a punnet of tomatoes and a pair of red scissors",
+        caption: "An August evening's picking, laid out on the decking before going in.",
       },
       {
         type: "image",
@@ -1366,6 +1421,21 @@ export const editorialPosts: EditorialPost[] = [
         type: "tip",
         content:
           "Grow an everbearing variety like Flamenco alongside your standard June bearers. You get strawberries from June right through to October instead of a three-week glut.",
+      },
+      {
+        type: "text",
+        content:
+          "Ours have earned their keep three summers running now. The bed went in as runners in spring 2023, watered in with the hose while most of the plot around it was still bare soil. The next summer it was throwing out properly big berries, and by last year we were carrying boxes of them home with plenty still ripening on the plants.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "The same strawberry bed, three summers running.",
+        images: [
+          { src: "/photos/guides/watering-strawberry-bed.webp", alt: "Watering in a newly planted strawberry bed with a hose, 2023", caption: "2023 — watered in as new runners", aspect: "square" },
+          { src: "/photos/blog/strawberry-2024-marigolds.webp", alt: "A large glossy red strawberry held up over a bed of marigolds, 2024", caption: "2024 — the first properly big ones", aspect: "square" },
+          { src: "/photos/blog/strawberries-2025-box.webp", alt: "A cardboard box filled with freshly picked home-grown strawberries, 2025", caption: "2025 — boxes of them", aspect: "square" },
+        ],
       },
       {
         type: "heading",
@@ -2128,6 +2198,13 @@ export const editorialPosts: EditorialPost[] = [
           "The potatoes are the most satisfying thing on the plot right now. They went in using a bulb planter — which I am a convert to — and they have come up well and been earthed up once. They are a first early variety and should be ready to harvest in July. I am looking forward to that more than I should probably admit.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/potato-rows-june-2026.webp",
+        alt: "Three tidy rows of potato plants in full leaf, seen from above, allotment behind",
+        caption: "The potato rows in full leaf — earthed up and romping away.",
+      },
+      {
         type: "heading",
         content: "The marigolds",
       },
@@ -2186,6 +2263,32 @@ export const editorialPosts: EditorialPost[] = [
         alt: "Close-up of small purple verbena flowers in full bloom at an allotment",
         caption:
           "Verbena. One of the best value flowering plants for an allotment — it goes on and on all summer.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/painted-lady-potato-leaf.webp",
+        alt: "A painted lady butterfly with wings open, resting on a potato leaf",
+        caption: "A painted lady on the potato leaves. It stayed exactly long enough for one photo.",
+      },
+      {
+        type: "heading",
+        content: "The month, start to finish",
+      },
+      {
+        type: "text",
+        content:
+          "And because this is the time of year when everything happens at once, here is June in two photographs — the beds freshly planted at the start of the month, and the same plot filling out by the end of it.",
+      },
+      {
+        type: "pair",
+        content: "",
+        src: "/photos/blog/beds-planted-early-june.webp",
+        alt: "Raised beds freshly planted with young plants and marigold edges in early June, greenhouses beyond",
+        caption: "5 June — just planted.",
+        src2: "/photos/blog/companion-bed-full-2026.webp",
+        alt2: "A raised bed full to the edges with a courgette, lettuces and a marigold border at the end of June",
+        caption2: "29 June — full to the edges.",
       },
       {
         type: "tip",
