@@ -14,6 +14,32 @@ function Cell({ children }: { children: ReactNode }) {
   return <td className="border-t border-earth/10 py-3 pr-4 align-top text-[15px] text-earth-light">{children}</td>;
 }
 
+function TomatoBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="tomato-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="tomato-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for tomatoes
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <p className="text-earth">
+          <span className="font-serif">Worth buying:</span> one high-potash tomato feed once the first truss has set.
+          It is the useful kind of tomato kit: simple, cheap, and aimed at fruit rather than extra leaf.
+        </p>
+        <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon" position="tomatoes-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+          Compare tomato feed &rarr;
+        </AffiliateLink>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip feeding gadgets.</span> A bottle of feed and a steady weekly
+          habit beat timers, probes and clever-looking dispensers.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Growing Tomatoes Outdoors vs in a Greenhouse (UK Guide) | What To Sow",
   description:
@@ -201,13 +227,12 @@ export default function GrowingTomatoesGuide() {
               hot weather.
             </p>
             <p className="mb-3">
-              Once the first truss of flowers has set, switch to a high-potash{" "}
-              <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon" position="tomatoes-feed" className="text-rust underline decoration-rust/30 hover:text-earth">Compare tomato feed</AffiliateLink>{" "}
-              once a week &mdash; it steers the plant&apos;s energy into fruit rather than leaf. Keep removing the lower
-              leaves as the trusses ripen, for airflow and to put the sun on the fruit, and pop a few pollinator flowers
-              nearby &mdash; see{" "}
+              Once the first truss of flowers has set, switch to a high-potash feed once a week &mdash; it steers the
+              plant&apos;s energy into fruit rather than leaf. Keep removing the lower leaves as the trusses ripen, for
+              airflow and to put the sun on the fruit, and pop a few pollinator flowers nearby &mdash; see{" "}
               <Link href="/guides/companion-planting/companion-plants-for-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for tomatoes</Link>.
             </p>
+            <TomatoBuyerNote />
           </section>
 
           <WarningBox title="Blight is the outdoor grower's watch-word">

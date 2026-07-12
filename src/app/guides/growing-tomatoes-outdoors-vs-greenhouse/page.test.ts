@@ -7,11 +7,14 @@ describe("GrowingTomatoesGuide", () => {
   it("uses positioned affiliate links for tomato seeds and feed", () => {
     const html = renderToStaticMarkup(createElement(GrowingTomatoesGuide));
 
+    expect(html).toContain("Worth buying for tomatoes");
+    expect(html).toContain("Skip feeding gadgets");
     expect(html).toContain("Cordon tomato seeds at T&amp;M");
     expect(html).toContain("Bush tomato seeds at T&amp;M");
     expect(html).toContain("Compare tomato feed");
     expect(html).toContain('data-umami-event-position="tomatoes-cordon-seeds"');
     expect(html).toContain('data-umami-event-position="tomatoes-bush-seeds"');
     expect(html).toContain('data-umami-event-position="tomatoes-feed"');
+    expect(html.match(/data-umami-event-position="tomatoes-feed"/g)).toHaveLength(1);
   });
 });
