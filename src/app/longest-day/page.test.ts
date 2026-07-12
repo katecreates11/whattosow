@@ -9,7 +9,7 @@ describe("LongestDayPage", () => {
 
     expect(html).toContain("Compare winter veg seeds");
     expect(html).toContain('data-umami-event-position="longest-day-winter-seeds"');
-    expect(html).toContain('data-umami-event-merchant="amazon"');
+    expect(html).toContain('data-umami-event-merchant="amazon-uk"');
     expect(html).not.toContain("Get the seeds");
   });
 });

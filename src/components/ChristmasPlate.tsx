@@ -33,8 +33,9 @@ function track(url: string): string {
   if (url.includes("amazon.")) return url.includes("tag=") ? url : `${url}${url.includes("?") ? "&" : "?"}tag=${AMAZON_TAG}`;
   return awinLink(url);
 }
-function merchantOf(url: string): string {
-  if (url.includes("amazon.")) return "amazon";
+export function christmasAffiliateMerchant(url: string): string {
+  if (url.includes("amazon.com/")) return "amazon-us";
+  if (url.includes("amazon.")) return "amazon-uk";
   if (url.includes("suttons")) return "suttons";
   try {
     return new URL(url).hostname.replace(/^www\./, "").split(".")[0];
@@ -45,7 +46,7 @@ function merchantOf(url: string): string {
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 export function christmasSeedCtaLabel(url: string): string {
-  const merchant = merchantOf(url);
+  const merchant = christmasAffiliateMerchant(url);
   if (merchant === "suttons") return "Seeds at Suttons";
   if (merchant === "thompson-morgan") return "Seeds at T&M";
   return "Compare seeds";
@@ -222,7 +223,7 @@ function AffiliateRow({ crop }: { crop: ChristmasCrop }) {
           rel="sponsored noopener noreferrer"
           data-umami-event="affiliate-click"
           data-umami-event-product={product}
-          data-umami-event-merchant={merchantOf(crop.seedUrl)}
+          data-umami-event-merchant={christmasAffiliateMerchant(crop.seedUrl)}
           data-umami-event-type="christmas-seed"
           className="inline-flex items-center gap-1.5 rounded-full bg-allotment px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-cream transition-colors hover:bg-allotment-dark"
         >
@@ -236,7 +237,7 @@ function AffiliateRow({ crop }: { crop: ChristmasCrop }) {
           rel="sponsored noopener noreferrer"
           data-umami-event="affiliate-click"
           data-umami-event-product={product}
-          data-umami-event-merchant={merchantOf(crop.kit.url)}
+          data-umami-event-merchant={christmasAffiliateMerchant(crop.kit.url)}
           data-umami-event-type="christmas-kit"
           className="font-mono text-[0.7rem] uppercase tracking-wider text-earth-light underline decoration-earth/20 transition-colors hover:text-earth"
         >

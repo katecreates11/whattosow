@@ -97,6 +97,9 @@ export default function AffiliateLink({
   ...rest
 }: AffiliateLinkProps) {
   const url = affiliateUrl(href);
+  const trackedMerchant =
+    merchant && merchant !== "amazon" ? merchant : merchantFromUrl(url);
+
   return (
     <a
       {...rest}
@@ -105,7 +108,7 @@ export default function AffiliateLink({
       rel="sponsored noopener noreferrer"
       data-umami-event="affiliate-click"
       data-umami-event-product={product}
-      data-umami-event-merchant={merchant ?? merchantFromUrl(url)}
+      data-umami-event-merchant={trackedMerchant}
       data-umami-event-type={type}
       data-umami-event-position={position}
       className={className}

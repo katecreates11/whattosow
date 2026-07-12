@@ -9,7 +9,7 @@ describe("BlogPostPage", () => {
 
     expect(html).toContain("Compare on Amazon");
     expect(html).toContain('data-umami-event-position="blog-primary-product"');
-    expect(html).toContain('data-umami-event-merchant="amazon"');
+    expect(html).toContain('data-umami-event-merchant="amazon-uk"');
     expect(html).not.toContain("Check price on Amazon");
   });
 });

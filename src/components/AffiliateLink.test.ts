@@ -42,6 +42,23 @@ describe("AffiliateLink", () => {
     expect(usHtml).toContain('data-umami-event-merchant="amazon-us"');
   });
 
+  it("normalises legacy amazon merchant overrides by URL", () => {
+    const html = renderToStaticMarkup(
+      createElement(
+        AffiliateLink,
+        {
+          href: "https://www.amazon.co.uk/s?k=fleece",
+          product: "horticultural fleece",
+          merchant: "amazon",
+        },
+        "Compare fleece",
+      ),
+    );
+
+    expect(html).toContain('data-umami-event-merchant="amazon-uk"');
+    expect(html).not.toContain('data-umami-event-merchant="amazon"');
+  });
+
   it("forwards extra tracking attributes without losing the core affiliate event", () => {
     const html = renderToStaticMarkup(
       createElement(
