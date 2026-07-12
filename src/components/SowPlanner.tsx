@@ -29,12 +29,15 @@ export default function SowPlanner({
   directSowWeeks,
   plantOutWeeks,
   harvestWeeks,
+  focus = "sowing",
 }: {
   slug: string;
   sowIndoorsWeeks: number | null;
   directSowWeeks: number | null;
   plantOutWeeks: number | null;
   harvestWeeks: number;
+  /** "harvest" leads with when-do-I-eat-it; "sowing" leads with when-to-sow. */
+  focus?: "harvest" | "sowing";
 }) {
   const hasPlantOut = plantOutWeeks != null && sowIndoorsWeeks != null;
   // weeks (relative to frost) of the sowing this plan follows
@@ -92,8 +95,9 @@ export default function SowPlanner({
     <div className="bg-sage/20 border border-earth/10 p-5 sm:p-6">
       <h3 className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-1">Work out your own dates</h3>
       <p className="text-sm text-earth-light leading-relaxed mb-1 max-w-[54ch]">
-        Starts from the recommended sow date for your area. Sowed on a different day, or planted out late?
-        Adjust below and the harvest moves with it.
+        {focus === "harvest"
+          ? "Set the day you sowed (and planted out, if you did) — your harvest date is below."
+          : "Starts from the recommended sow date for your area. Sowed on a different day, or planted out late? Adjust below and the harvest moves with it."}
       </p>
       <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter mb-5">
         {place ? `Tuned to your last frost · ${place} · ${fmt(frost)}` : `Using the UK-average last frost · ${fmt(frost)} · add your postcode to tune it`}
@@ -133,7 +137,7 @@ export default function SowPlanner({
         {hasPlantOut && plantOutD && (
           <Step label="Plant out" date={fmt(plantOutD)} tone="leaf" note={plantOutValue ? "your date" : "predicted"} />
         )}
-        <Step label="Harvest from" date={fmt(harvestD)} tone="allotment" big />
+        <Step label={focus === "harvest" ? "Ready to eat from" : "Harvest from"} date={fmt(harvestD)} tone="allotment" big hero={focus === "harvest"} />
       </div>
 
       <div className="mt-6 flex items-center gap-4 flex-wrap">
@@ -153,15 +157,15 @@ export default function SowPlanner({
   );
 }
 
-function Step({ label, date, tone, note, big }: { label: string; date: string; tone: string; note?: string; big?: boolean }) {
+function Step({ label, date, tone, note, big, hero }: { label: string; date: string; tone: string; note?: string; big?: boolean; hero?: boolean }) {
   const dot: Record<string, string> = { amber: "bg-amber", leaf: "bg-leaf", allotment: "bg-allotment" };
   return (
-    <div className={`min-w-0 bg-cream border border-earth/10 px-3 py-3 ${big ? "ring-1 ring-allotment/20" : ""}`}>
+    <div className={`min-w-0 border px-3 py-3 ${hero ? "bg-allotment/8 border-allotment/30 ring-1 ring-allotment/20" : big ? "bg-cream border-earth/10 ring-1 ring-allotment/20" : "bg-cream border-earth/10"}`}>
       <span className="flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-earth-light mb-1.5">
         <span className={`w-1.5 h-1.5 rounded-full ${dot[tone]}`} />
         {label}
       </span>
-      <span className="font-serif text-earth text-base sm:text-lg leading-tight block">{date}</span>
+      <span className={`font-serif text-earth leading-tight block ${hero ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}`}>{date}</span>
       {note && <span className="font-mono text-[9px] uppercase tracking-[0.08em] text-earth-lighter">{note}</span>}
     </div>
   );

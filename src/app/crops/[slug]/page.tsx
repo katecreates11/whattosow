@@ -7,6 +7,7 @@ import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 import { getPlaybook } from "@/data/crop-playbooks";
 import { varietySlug } from "@/lib/variety-routes";
 import { frostOffsetText, getCropNowAnswer, getCropVerdict, type CropVerdict } from "@/lib/crop-now-answer";
+import { londonMonth } from "@/lib/guide-relevance";
 import type { Metadata } from "next";
 
 import PlantingTool from "@/components/PlantingTool";
@@ -279,6 +280,14 @@ function CropVerdictBand({ crop }: { crop: Crop }) {
         </div>
 
         <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-earth-light">
+          {seasonFocus() === "harvest" && (
+            <a
+              href={`#your-dates-${crop.slug}`}
+              className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
+            >
+              Already growing it? See when yours will be ready &rarr;
+            </a>
+          )}
           <Link
             href={verdict.primaryLink.href}
             className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
@@ -307,52 +316,76 @@ function CropVerdictBand({ crop }: { crop: Crop }) {
   );
 }
 
+/**
+ * The page's seasonal focus. From high summer into autumn the visitor has
+ * usually already sown — the question on their mind is "when do I get to eat
+ * it?", so the harvest planner leads. The rest of the year, sowing dates lead.
+ */
+function seasonFocus(): "harvest" | "sowing" {
+  const m = londonMonth();
+  return m >= 6 && m <= 9 ? "harvest" : "sowing"; // July–October
+}
+
 function YourDatesSection({ crop }: { crop: Crop }) {
   const headingId = `your-dates-${crop.slug}`;
+  const focus = seasonFocus();
+
+  const planner = (
+    <SowPlanner
+      slug={crop.slug}
+      sowIndoorsWeeks={crop.sowIndoorsWeeks}
+      directSowWeeks={crop.directSowWeeks}
+      plantOutWeeks={crop.plantOutWeeks}
+      harvestWeeks={crop.harvestWeeks}
+      focus={focus}
+    />
+  );
 
   return (
     <section
-      className="border border-earth/10 bg-cream/70 p-5 sm:p-6 mb-10"
-      aria-labelledby={headingId}
+      id={headingId}
+      className="border border-earth/10 bg-cream/70 p-5 sm:p-6 mb-10 scroll-mt-24"
+      aria-labelledby={`${headingId}-h`}
     >
       <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment mb-2">
         Your dates
       </div>
-      <h2 id={headingId} className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-2">
-        Dates for {crop.name.toLowerCase()}
+      <h2 id={`${headingId}-h`} className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-2">
+        {focus === "harvest"
+          ? `When will your ${crop.name.toLowerCase()} be ready to eat?`
+          : `Dates for ${crop.name.toLowerCase()}`}
       </h2>
       <p className="text-sm text-earth-light leading-relaxed max-w-[62ch] mb-5">
-        These dates are adjusted from your saved location where available; otherwise they use a UK-average guide.
+        {focus === "harvest"
+          ? "Put in the day you actually sowed — the harvest date moves with it. Tuned to your saved location where available."
+          : "These dates are adjusted from your saved location where available; otherwise they use a UK-average guide."}
       </p>
 
-      <PersonalisedCropDates crop={crop} />
-
-      <details className="group mt-6 border-t border-earth/10 pt-5">
-        <summary className="cursor-pointer list-none focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-4">
-          <span className="flex items-center justify-between gap-4">
-            <span className="min-w-0">
-              <span className="font-serif italic text-lg text-allotment block">
-                Sowed on a different day, or planted late?
+      {focus === "harvest" ? (
+        <>
+          {planner}
+          <details className="group mt-6 border-t border-earth/10 pt-5">
+            <summary className="cursor-pointer list-none focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-4">
+              <span className="flex items-center justify-between gap-4">
+                <span className="font-serif italic text-lg text-allotment">
+                  Not sown yet? The standard dates for {crop.name.toLowerCase()}
+                </span>
+                <span className="font-mono text-[18px] text-earth-lighter group-open:rotate-45 transition-transform shrink-0" aria-hidden="true">
+                  +
+                </span>
               </span>
-              <span className="text-sm text-earth-light leading-relaxed block mt-1">
-                Open the planner to adjust the dates and save this crop to My plot.
-              </span>
-            </span>
-            <span className="font-mono text-[18px] text-earth-lighter group-open:rotate-45 transition-transform shrink-0" aria-hidden="true">
-              +
-            </span>
-          </span>
-        </summary>
-        <div className="mt-5">
-          <SowPlanner
-            slug={crop.slug}
-            sowIndoorsWeeks={crop.sowIndoorsWeeks}
-            directSowWeeks={crop.directSowWeeks}
-            plantOutWeeks={crop.plantOutWeeks}
-            harvestWeeks={crop.harvestWeeks}
-          />
-        </div>
-      </details>
+            </summary>
+            <div className="mt-5">
+              <PersonalisedCropDates crop={crop} />
+            </div>
+          </details>
+        </>
+      ) : (
+        <>
+          <PersonalisedCropDates crop={crop} />
+          <div className="mt-6 border-t border-earth/10 pt-5">{planner}</div>
+        </>
+      )}
     </section>
   );
 }
@@ -362,6 +395,9 @@ const THIRSTY = new Set([
   "tomatoes", "courgettes", "cucumbers", "runner-beans", "peppers",
   "chillies", "aubergine", "pumpkins", "sweetcorn", "celery",
 ]);
+
+// Re-render daily so the seasonal focus (sowing vs harvest) tracks the calendar.
+export const revalidate = 86400;
 
 export async function generateStaticParams() {
   return crops.map((crop) => ({ slug: crop.slug }));

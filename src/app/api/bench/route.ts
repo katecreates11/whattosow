@@ -9,22 +9,56 @@ export const dynamic = "force-dynamic";
 
 const REPO = "katecreates11/whattosow";
 const BOARD_PATH = "docs/ideas-board.md";
-const API = `https://api.github.com/repos/${REPO}/contents/${encodeURIComponent(BOARD_PATH)}`;
+const GH = `https://api.github.com/repos/${REPO}`;
+const API = `${GH}/contents/${encodeURIComponent(BOARD_PATH)}`;
+
+function ghHeaders(): Record<string, string> {
+  return {
+    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
+}
 
 function authorised(key: string | null): boolean {
   const expected = process.env.BENCH_KEY;
   return Boolean(expected && key && key === expected);
 }
 
+/** Branches Kate can merge from the bench — the Dreamer's, and nothing else. */
+const MERGEABLE_PREFIX = "dreams/";
+
+export interface DreamBranch {
+  name: string;
+  message: string; // last commit's subject line
+  date: string; // YYYY-MM-DD of the last commit
+  commits: number;
+}
+
+/** The Dreamer's branches that haven't been merged into main yet. */
+async function unmergedDreams(): Promise<DreamBranch[]> {
+  const res = await fetch(`${GH}/branches?per_page=100`, { headers: ghHeaders(), cache: "no-store" });
+  if (!res.ok) return [];
+  const branches = (await res.json()) as { name: string }[];
+  const out: DreamBranch[] = [];
+  for (const b of branches.filter((b) => b.name.startsWith(MERGEABLE_PREFIX))) {
+    const cmp = await fetch(`${GH}/compare/main...${encodeURIComponent(b.name)}`, { headers: ghHeaders(), cache: "no-store" });
+    if (!cmp.ok) continue;
+    const json = (await cmp.json()) as { ahead_by: number; commits: { commit: { message: string; author: { date: string } } }[] };
+    if (json.ahead_by === 0) continue; // already in main — nothing to let in
+    const last = json.commits[json.commits.length - 1]?.commit;
+    out.push({
+      name: b.name,
+      message: (last?.message ?? "").split("\n")[0],
+      date: (last?.author?.date ?? "").slice(0, 10),
+      commits: json.ahead_by,
+    });
+  }
+  return out;
+}
+
 async function fetchBoard(): Promise<{ content: string; sha: string }> {
-  const res = await fetch(`${API}?ref=main`, {
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-    cache: "no-store",
-  });
+  const res = await fetch(`${API}?ref=main`, { headers: ghHeaders(), cache: "no-store" });
   if (!res.ok) throw new Error(`GitHub read failed (${res.status})`);
   const json = (await res.json()) as { content: string; sha: string };
   return { content: Buffer.from(json.content, "base64").toString("utf8"), sha: json.sha };
@@ -33,11 +67,7 @@ async function fetchBoard(): Promise<{ content: string; sha: string }> {
 async function commitBoard(content: string, sha: string, message: string): Promise<Response> {
   return fetch(API, {
     method: "PUT",
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
+    headers: ghHeaders(),
     body: JSON.stringify({ message, content: Buffer.from(content, "utf8").toString("base64"), sha, branch: "main" }),
   });
 }
@@ -46,15 +76,15 @@ export async function GET(req: NextRequest) {
   if (!authorised(req.nextUrl.searchParams.get("k"))) return NextResponse.json({ error: "unauthorised" }, { status: 401 });
   if (!process.env.GITHUB_TOKEN) return NextResponse.json({ error: "not configured" }, { status: 503 });
   try {
-    const { content } = await fetchBoard();
-    return NextResponse.json({ ideas: proposedIdeas(content) });
+    const [{ content }, dreams] = await Promise.all([fetchBoard(), unmergedDreams()]);
+    return NextResponse.json({ ideas: proposedIdeas(content), dreams });
   } catch {
     return NextResponse.json({ error: "couldn't reach the board" }, { status: 502 });
   }
 }
 
 export async function POST(req: NextRequest) {
-  let body: { k?: string; heading?: string; verdict?: string; note?: string };
+  let body: { k?: string; heading?: string; verdict?: string; note?: string; merge?: string };
   try {
     body = await req.json();
   } catch {
@@ -62,6 +92,29 @@ export async function POST(req: NextRequest) {
   }
   if (!authorised(body.k ?? null)) return NextResponse.json({ error: "unauthorised" }, { status: 401 });
   if (!process.env.GITHUB_TOKEN) return NextResponse.json({ error: "not configured" }, { status: 503 });
+
+  // Merge a dream branch into main — only the Dreamer's branches, nothing else.
+  if (body.merge) {
+    const branch = body.merge.trim();
+    if (!branch.startsWith(MERGEABLE_PREFIX)) return NextResponse.json({ error: "bad request" }, { status: 400 });
+    try {
+      const res = await fetch(`${GH}/merges`, {
+        method: "POST",
+        headers: ghHeaders(),
+        body: JSON.stringify({
+          base: "main",
+          head: branch,
+          commit_message: `bench: Kate merged ${branch} — the crew reads this dream now`,
+        }),
+      });
+      if (res.ok) return NextResponse.json({ ok: true, merged: branch });
+      if (res.status === 204) return NextResponse.json({ ok: true, merged: branch, already: true });
+      if (res.status === 409) return NextResponse.json({ error: "conflict" }, { status: 409 });
+      throw new Error(`GitHub merge failed (${res.status})`);
+    } catch {
+      return NextResponse.json({ error: "couldn't merge the dream" }, { status: 502 });
+    }
+  }
 
   const verdict = body.verdict as Verdict;
   const heading = (body.heading ?? "").trim();

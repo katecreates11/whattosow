@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { BenchIdea, Verdict } from "@/lib/bench";
+import type { DreamBranch } from "@/app/api/bench/route";
 
 // The Potting Bench — Kate's thumb-friendly verdict page. Each proposed idea is a
 // card with Approve / Park / Bin. A tap commits the verdict to the board on main;
@@ -25,6 +26,7 @@ export default function BenchClient() {
   const [phase, setPhase] = useState<Phase>("loading");
   const [key, setKey] = useState("");
   const [ideas, setIdeas] = useState<BenchIdea[]>([]);
+  const [dreams, setDreams] = useState<DreamBranch[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
@@ -42,12 +44,37 @@ export default function BenchClient() {
       .then(async (res) => {
         if (res.status === 401) return setPhase("nokey");
         if (!res.ok) return setPhase("error");
-        const json = (await res.json()) as { ideas: BenchIdea[] };
+        const json = (await res.json()) as { ideas: BenchIdea[]; dreams?: DreamBranch[] };
         setIdeas(json.ideas);
+        setDreams(json.dreams ?? []);
         setPhase("ready");
       })
       .catch(() => setPhase("error"));
   }, []);
+
+  async function mergeDream(branch: string) {
+    setBusy(branch);
+    try {
+      const res = await fetch("/api/bench", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ k: key, merge: branch }),
+      });
+      if (res.ok) {
+        setDreams((prev) => prev.filter((d) => d.name !== branch));
+        setToast("Merged — the whole crew reads this dream now");
+      } else if (res.status === 409) {
+        setToast("This dream clashes with the board — it needs the laptop");
+      } else {
+        setToast("Couldn't merge just now — try again in a moment");
+      }
+    } catch {
+      setToast("Couldn't merge just now — try again in a moment");
+    } finally {
+      setBusy(null);
+      setTimeout(() => setToast(null), 3500);
+    }
+  }
 
   async function decide(idea: BenchIdea, verdict: Verdict) {
     setBusy(idea.heading);
@@ -100,7 +127,34 @@ export default function BenchClient() {
           </div>
         )}
 
-        {phase === "ready" && ideas.length === 0 && (
+        {phase === "ready" && dreams.length > 0 && (
+          <section className="mt-8">
+            <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-earth-light">🌙 From the Dreamer</p>
+            <ul className="mt-3 space-y-4">
+              {dreams.map((d) => (
+                <li key={d.name} className="rounded-2xl border border-allotment/20 bg-allotment/5 p-5">
+                  <h2 className="font-serif text-lg leading-snug text-earth">{d.message}</h2>
+                  <p className="mt-1.5 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-earth-lighter">
+                    {d.date} · {d.commits} {d.commits === 1 ? "commit" : "commits"} · {d.name}
+                  </p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-earth-light">
+                    What she learned from your verdicts this week. Merge it and the whole crew reads it before their next
+                    run — nothing changes on the site itself.
+                  </p>
+                  <button
+                    onClick={() => mergeDream(d.name)}
+                    disabled={busy === d.name}
+                    className="mt-4 w-full rounded-full bg-allotment py-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream transition-opacity active:opacity-80 disabled:opacity-40"
+                  >
+                    {busy === d.name ? "…" : "Merge — let the crew read it"}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {phase === "ready" && ideas.length === 0 && dreams.length === 0 && (
           <div className="mt-12 rounded-2xl border border-earth/10 bg-white/60 p-8 text-center">
             <p className="font-serif text-xl text-earth">The bench is clear. 🌱</p>
             <p className="mt-2 text-sm text-earth-light">Nothing waiting on your word — the Forager pitches on Sunday morning.</p>
