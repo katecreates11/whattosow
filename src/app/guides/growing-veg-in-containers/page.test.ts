@@ -7,6 +7,8 @@ describe("GrowingInContainersGuide", () => {
   it("uses specific, measurable affiliate labels for container growing", () => {
     const html = renderToStaticMarkup(createElement(GrowingInContainersGuide));
 
+    expect(html).toContain("Worth buying for container veg");
+    expect(html).toContain("Skip tiny decorative pots for food crops");
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare peat-free compost");
     expect(html).toContain("Compare potato grow bags");

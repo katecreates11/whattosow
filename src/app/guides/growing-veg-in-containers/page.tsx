@@ -77,6 +77,46 @@ function CropRow({ item }: { item: CropItem }) {
   );
 }
 
+function ContainerBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="container-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="container-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for container veg
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <div>
+          <p className="text-earth">
+            <span className="font-serif">Worth buying:</span> roomy containers or grow bags, decent peat-free compost,
+            and one liquid feed. They solve the real container problems: roots running out of space, compost drying out,
+            and hungry plants stalling after a few weeks.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+            <AffiliateLink href={az("peat free multipurpose compost")} product="peat-free compost" type="gear" merchant="amazon" position="containers-compost" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+              Compare peat-free compost &rarr;
+            </AffiliateLink>
+            <AffiliateLink href={az("potato grow bags planter")} product="potato grow bags" type="gear" merchant="amazon" position="containers-grow-bag" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+              Compare potato grow bags
+            </AffiliateLink>
+            <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" merchant="amazon" position="containers-liquid-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+              Compare liquid feed
+            </AffiliateLink>
+          </div>
+        </div>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip tiny decorative pots for food crops.</span> They look lovely for
+          herbs, but tomatoes, beans and potatoes need volume more than prettiness.
+        </p>
+        <p className="text-xs text-earth-lighter">
+          Some links help the shed fund. I only include kit that solves a real container-growing problem.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export default function GrowingInContainersGuide() {
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -206,15 +246,15 @@ export default function GrowingInContainersGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Use a good peat-free compost</span> &mdash; multipurpose for most
                 crops; for hungry, long-season plants like tomatoes, mix in some soil-based John Innes, which holds water
-                and food better. Don&apos;t fill pots with garden soil alone &mdash; it compacts and drains badly.{" "}
-                <AffiliateLink href={az("peat free multipurpose compost")} product="peat-free compost" type="gear" merchant="amazon" position="containers-compost" className="text-rust underline decoration-rust/30 hover:text-earth">Compare peat-free compost &rarr;</AffiliateLink>
+                and food better. Don&apos;t fill pots with garden soil alone &mdash; it compacts and drains badly.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Almost anything can be a container</span> &mdash; proper pots,
-                troughs, an old bucket with holes drilled, a{" "}
-                <AffiliateLink href={az("potato grow bags planter")} product="potato grow bags" type="gear" merchant="amazon" position="containers-grow-bag" className="text-rust underline decoration-rust/30 hover:text-earth">Compare potato grow bags</AffiliateLink>. If it holds compost and drains, it&apos;ll grow something.
+                troughs, an old bucket with holes drilled, a potato grow bag. If it holds compost and drains, it&apos;ll
+                grow something.
               </li>
             </ul>
+            <ContainerBuyerNote />
           </section>
 
           {/* Watering & feeding */}
@@ -231,9 +271,8 @@ export default function GrowingInContainersGuide() {
             </p>
             <p className="mb-3">
               And they need feeding. The food in fresh compost runs out after about six weeks, and all that watering
-              washes it through, so after the first month or so, feed regularly: a balanced{" "}
-              <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" merchant="amazon" position="containers-liquid-feed" className="text-rust underline decoration-rust/30 hover:text-earth">Compare liquid feed</AffiliateLink>{" "}
-              for leafy crops, and a high-potash tomato feed once tomatoes, chillies and beans begin to flower.
+              washes it through, so after the first month or so, feed regularly: a balanced liquid feed for leafy crops,
+              and a high-potash tomato feed once tomatoes, chillies and beans begin to flower.
             </p>
 
             <figure className="mt-6 max-w-[24rem] mx-auto sm:mx-0">
