@@ -45,7 +45,7 @@ export default function WateringBuyerNote() {
             href="https://www.amazon.co.uk/s?k=10l+plastic+watering+can+detachable+rose"
             product="10L watering can with detachable rose"
             type="gear"
-            position="watering-buyer-note"
+            position="watering-buyer-note-cans"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
             Compare simple 10L cans with roses &rarr;
@@ -72,7 +72,7 @@ export default function WateringBuyerNote() {
             href="https://www.amazon.co.uk/dp/B01MQDGXMO"
             product="Gardena watering lance"
             type="gear"
-            position="watering-buyer-note"
+            position="watering-buyer-note-lance"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
             Check the Gardena lance I use &rarr;
@@ -105,7 +105,7 @@ export default function WateringBuyerNote() {
             href="https://www.amazon.co.uk/s?k=water+butt+with+stand+and+tap+200l"
             product="200L water butt with stand and tap"
             type="gear"
-            position="watering-buyer-note"
+            position="watering-buyer-note-butt"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
             Compare 200L water butts with stands &rarr;

@@ -247,9 +247,9 @@ export default function WateringGuide() {
                 <h3 className="font-serif text-earth text-lg mb-1.5">Thirsty crops</h3>
                 <p className="text-sm">
                   <Link href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">Tomatoes</Link>,{" "}
-                  <Link href="/crops/courgette" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">courgettes</Link>,{" "}
+                  <Link href="/crops/courgettes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">courgettes</Link>,{" "}
                   <Link href="/crops/runner-beans" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">runner beans</Link>,{" "}
-                  <Link href="/crops/cucumber" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">cucumbers</Link>,
+                  <Link href="/crops/cucumbers" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">cucumbers</Link>,
                   and celery. These need consistent, deep watering throughout
                   the growing season, especially once they start flowering and
                   fruiting. Tomatoes in particular &mdash; irregular watering

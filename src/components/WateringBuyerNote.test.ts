@@ -22,6 +22,9 @@ describe("WateringBuyerNote", () => {
 
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(3);
     expect(html.match(/rel="sponsored noopener noreferrer"/g)).toHaveLength(3);
-    expect(html.match(/data-umami-event-position="watering-buyer-note"/g)).toHaveLength(3);
+    expect(html).toContain('data-umami-event-position="watering-buyer-note-cans"');
+    expect(html).toContain('data-umami-event-position="watering-buyer-note-lance"');
+    expect(html).toContain('data-umami-event-position="watering-buyer-note-butt"');
+    expect(html.match(/data-umami-event-merchant="amazon-uk"/g)).toHaveLength(3);
   });
 });
