@@ -77,9 +77,10 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
               product={variety.name}
               type="seed"
               merchant={merchantSlug(supplier.name)}
+              position="featured-variety-seeds"
               className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
             >
-              Buy the seeds from {supplier.name} &rarr;
+              Seeds at {supplier.name} &rarr;
             </AffiliateLink>
           )}
         </div>
