@@ -21,7 +21,11 @@ describe("SeedStartingKitBuyerNote", () => {
 
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(4);
     expect(html.match(/rel="sponsored noopener noreferrer"/g)).toHaveLength(4);
-    expect(html.match(/data-umami-event-position="seed-starting-kit-top"/g)).toHaveLength(4);
+    expect(html).toContain('data-umami-event-position="seed-starting-kit-module-trays"');
+    expect(html).toContain('data-umami-event-position="seed-starting-kit-seed-compost"');
+    expect(html).toContain('data-umami-event-position="seed-starting-kit-plant-labels"');
+    expect(html).toContain('data-umami-event-position="seed-starting-kit-heated-propagator"');
+    expect(html).not.toContain('data-umami-event-position="seed-starting-kit-top"');
     expect(html).not.toContain("View on Amazon");
   });
 });

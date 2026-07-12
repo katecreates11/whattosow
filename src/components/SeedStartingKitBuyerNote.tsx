@@ -6,6 +6,7 @@ const starterPicks = [
     label: "Essential",
     product: "Nutley's 24-cell module trays",
     href: "https://www.amazon.co.uk/dp/B00844031K",
+    position: "seed-starting-kit-module-trays",
     reason: "Start here if you want seedlings that lift out cleanly and plant on without a wrestling match.",
     cta: "Compare sturdy module trays",
   },
@@ -14,6 +15,7 @@ const starterPicks = [
     label: "Essential",
     product: "Levington Seed & Cutting Compost 20L",
     href: "https://www.amazon.co.uk/dp/B0F3W9KC7N",
+    position: "seed-starting-kit-seed-compost",
     reason: "This is the one bag that changes results. Fine, low-feed compost gives small seeds a much better start.",
     cta: "Compare seed compost",
   },
@@ -22,6 +24,7 @@ const starterPicks = [
     label: "Essential",
     product: "White plastic plant labels and pencil",
     href: "https://www.amazon.co.uk/s?k=white+plastic+plant+labels+pencil",
+    position: "seed-starting-kit-plant-labels",
     reason: "Cheap, dull, necessary. You will not remember which tray is which by the time the second sowing is up.",
     cta: "Get labels before you forget",
   },
@@ -30,6 +33,7 @@ const starterPicks = [
     label: "Only for heat-lovers",
     product: "Garland One Top heated propagator",
     href: "https://www.amazon.co.uk/dp/B015WFRWUI",
+    position: "seed-starting-kit-heated-propagator",
     reason: "Worth buying for chillies, peppers and aubergines. For lettuce, brassicas and tomatoes, a warm windowsill is usually enough.",
     cta: "Compare heated propagators for chillies",
   },
@@ -70,7 +74,7 @@ export default function SeedStartingKitBuyerNote() {
               href={pick.href}
               product={pick.product}
               type="gear"
-              position="seed-starting-kit-top"
+              position={pick.position}
               className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
             >
               {pick.cta} &rarr;
