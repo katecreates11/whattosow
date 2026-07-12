@@ -315,7 +315,7 @@ export const editorialPosts: EditorialPost[] = [
   },
   {
     slug: "garden-tubs-trugs-allotment",
-    title: "In praise of the humble tub (and the veg trug)",
+    title: "Garden tubs and trugs: the most useful cheap kit on the allotment",
     description:
       "You don't expect to love a plastic tub, but the flexible garden tub might be the most useful thing on my plot. Plus the proper veg trug for gathering the harvest.",
     publishDate: new Date("2026-06-03"),
@@ -542,7 +542,7 @@ export const editorialPosts: EditorialPost[] = [
   },
   {
     slug: "wheelbarrow-allotment-haemmerlin",
-    title: "Four years, one squeaky wheelbarrow, and the treat that replaced it",
+    title: "Haemmerlin wheelbarrow review: worth the upgrade after four years",
     description:
       "My first wheelbarrow was free, cement-crusted and faithful. After four years I treated myself to a Haemmerlin puncture-free one — here's the honest story of both.",
     publishDate: new Date("2026-06-03"),
@@ -725,7 +725,7 @@ export const editorialPosts: EditorialPost[] = [
   },
   {
     slug: "broadfork-clay-bindweed",
-    title: "The broadfork that made light work of my clay",
+    title: "Why a broadfork is the best tool for heavy clay soil",
     description:
       "Why a wide broadfork turned heavy clay — and an awful lot of bindweed — into an enjoyable spring morning's work. An honest, first-hand review of the Terradix 5x300.",
     publishDate: new Date("2026-06-02"),
@@ -854,6 +854,13 @@ export const editorialPosts: EditorialPost[] = [
           "Early March — seedlings on the windowsill. Labels are essential when everything looks the same at this stage.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/potting-on-tomatoes-april.webp",
+        alt: "A tray of tomato seedlings freshly potted on into their own pots, out in the April sun",
+        caption: "Six weeks on: potted into their own pots and starting to harden off outside on kind days.",
+      },
+      {
         type: "text",
         content:
           "The key at this stage is light. Windowsill seedlings get leggy fast if they are not getting enough, and mine were no exception. I rotated the pots every couple of days and moved them to the sunniest window I had. By April, they were sturdy little plants with their first true leaves.",
@@ -881,9 +888,35 @@ export const editorialPosts: EditorialPost[] = [
           "June — green fruit forming on the beefsteak plants. The marigolds are doing their job keeping aphids at bay.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/tomato-bed-marigold-ring.webp",
+        alt: "Staked tomato plants planted out in a bed ringed with orange marigolds, June evening",
+        caption: "Planted out into a marigold ring — canes in first, plants tied in as they climb.",
+      },
+      {
         type: "text",
         content:
           "Watering is the single most important thing once tomatoes are in the ground. Inconsistent watering causes blossom end rot — those annoying black patches on the bottom of the fruit. I watered at the base every morning during dry spells, and mulched around the plants to keep moisture in.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "The long middle: trusses set green, and then — weeks later — the gradient begins.",
+        images: [
+          {
+            src: "/photos/blog/tomatoes-green-trusses.webp",
+            alt: "Green cherry tomato trusses hanging on the vine in July",
+            caption: "July: set, and waiting",
+            aspect: "square",
+          },
+          {
+            src: "/photos/guides/tomato-truss-ripening.webp",
+            alt: "A cherry tomato truss ripening from green through orange to red",
+            caption: "August: the gradient",
+            aspect: "square",
+          },
+        ],
       },
       {
         type: "heading",
