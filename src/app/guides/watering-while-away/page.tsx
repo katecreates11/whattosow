@@ -138,6 +138,79 @@ export default function WateringWhileAwayGuide() {
             </p>
           </section>
 
+          <aside className="border-y border-earth/10 py-6 sm:py-7" aria-labelledby="holiday-watering-kit">
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-rust mb-2">
+              Worth buying / skip this
+            </p>
+            <h2 id="holiday-watering-kit" className="font-serif text-2xl text-earth mb-3">
+              Holiday watering kit, without the panic buys
+            </h2>
+            <p className="max-w-[62ch] text-sm text-earth-light leading-relaxed mb-5">
+              Buy for the way water is actually allowed to move on your plot. Pots need slow release. Beds need a
+              tested line or a person. Anything unattended only makes sense if your site rules allow it.
+            </p>
+            <div className="divide-y divide-earth/10 border-t border-earth/10">
+              <div className="py-4">
+                <h3 className="font-serif text-lg text-earth">For pots and growbags</h3>
+                <p className="mt-1.5 text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                  Bottle spikes are cheap and useful for a few days; a drip kit is better for a patio full of containers.
+                </p>
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                  <AffiliateLink
+                    href={az("terracotta watering spikes bottle")}
+                    product="watering spikes"
+                    position="holiday-watering-spikes"
+                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                  >
+                    Compare watering spikes &rarr;
+                  </AffiliateLink>
+                  <AffiliateLink
+                    href={az("drip irrigation kit pots garden")}
+                    product="drip irrigation kit"
+                    position="holiday-watering-drip-kit"
+                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                  >
+                    Compare drip kits &rarr;
+                  </AffiliateLink>
+                </div>
+              </div>
+              <div className="py-4">
+                <h3 className="font-serif text-lg text-earth">For beds, if unattended watering is allowed</h3>
+                <p className="mt-1.5 text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                  A tap timer and soaker hose are the reliable version, but set them up a week early and watch them run.
+                </p>
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                  <AffiliateLink
+                    href={az("hozelock water timer tap")}
+                    product="tap timer"
+                    position="holiday-watering-timer"
+                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                  >
+                    Compare tap timers &rarr;
+                  </AffiliateLink>
+                  <AffiliateLink
+                    href="https://www.amazon.co.uk/dp/B000TAFENY"
+                    product="soaker hose"
+                    position="holiday-watering-soaker-hose"
+                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                  >
+                    Compare soaker hoses &rarr;
+                  </AffiliateLink>
+                </div>
+              </div>
+              <div className="py-4">
+                <p className="max-w-[62ch] text-sm text-earth-light leading-relaxed">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-rust">Skip this</span>{" "}
+                  Skip anything unattended if your site rules say water has to stay in your hand. In that case, make the
+                  neighbour deal simple and leave the cans by the tap.
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 max-w-[62ch] font-mono text-[10px] leading-relaxed text-earth-lighter">
+              The buying links help the allotment shed fund. The advice is the same whether you use them or not.
+            </p>
+          </aside>
+
           <TipBox title="The night before you go">
             Water everything slowly and deeply &mdash; evening is best, so it soaks in rather than steaming off. A long
             drink at the roots the night before you leave is worth three hasty sprinkles, and it buys every plant on the
@@ -173,15 +246,7 @@ export default function WateringWhileAwayGuide() {
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">The upturned bottle.</strong> A wine bottle or two-litre bottle filled with
-                water and pushed neck-down into the compost drips out slowly as the soil dries. A cheap{" "}
-                <AffiliateLink
-                  href={az("terracotta watering spikes bottle")}
-                  product="watering spikes"
-                  position="holiday-watering-spikes"
-                  className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
-                >
-                  Compare watering spikes
-                </AffiliateLink>{" "}
+                water and pushed neck-down into the compost drips out slowly as the soil dries. A cheap bottle spike
                 makes it drip evenly instead of glugging out in an hour.
               </li>
             </ul>
@@ -203,41 +268,17 @@ export default function WateringWhileAwayGuide() {
             <ul className="space-y-3 mb-3">
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">A tap timer</strong> &mdash; the brains of it. Set it for early morning so
-                the water soaks in before the heat.{" "}
-                <AffiliateLink
-                  href={az("hozelock water timer tap")}
-                  product="tap timer"
-                  position="holiday-watering-timer"
-                  className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
-                >
-                  Compare tap timers &rarr;
-                </AffiliateLink>
+                the water soaks in before the heat.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Soaker hose along the beds</strong> &mdash; sweats water gently down its
                 whole length, straight to the roots, no leaves wetted (the{" "}
                 <Link href="/blight-watch" className="text-rust underline decoration-rust/30 hover:text-earth">blight</Link>{" "}
-                won&apos;t thank you, and that&apos;s the point).{" "}
-                <AffiliateLink
-                  href="https://www.amazon.co.uk/dp/B000TAFENY"
-                  product="soaker hose"
-                  position="holiday-watering-soaker-hose"
-                  className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
-                >
-                  Compare soaker hoses &rarr;
-                </AffiliateLink>
+                won&apos;t thank you, and that&apos;s the point).
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">A drip kit for pots and growbags</strong> &mdash; thin spaghetti lines with
-                a dripper pegged into each container. Fiddlier to set up, unbeatable for a patio of pots.{" "}
-                <AffiliateLink
-                  href={az("drip irrigation kit pots garden")}
-                  product="drip irrigation kit"
-                  position="holiday-watering-drip-kit"
-                  className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
-                >
-                  Compare drip kits &rarr;
-                </AffiliateLink>
+                a dripper pegged into each container. Fiddlier to set up, unbeatable for a patio of pots.
               </li>
             </ul>
             <p className="mb-3">
