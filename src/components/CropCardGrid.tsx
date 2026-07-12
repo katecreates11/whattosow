@@ -112,9 +112,10 @@ export default function CropCardGrid({
                 product={e.crop.name}
                 type="seed"
                 merchant={merchantSlug(seed.name)}
+                position="sow-card-seeds"
                 className="inline-block mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
-                Get the seeds &rarr;
+                Seeds at {seed.name} &rarr;
               </AffiliateLink>
             )}
           </div>
