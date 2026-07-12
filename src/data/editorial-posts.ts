@@ -809,6 +809,14 @@ export const editorialPosts: EditorialPost[] = [
         ],
       },
       {
+        type: "video",
+        content: "",
+        src: "/videos/blog/lance-spray-loop.mp4",
+        poster: "/videos/blog/lance-spray-loop-poster.webp",
+        alt: "The watering lance arcing a fine mist over a freshly planted bed of seedlings",
+        caption: "Five seconds of the actual job — the fine rose, the reach, the seedlings untouched.",
+      },
+      {
         type: "ownedSince",
         content: "",
         since: "summer 2025",

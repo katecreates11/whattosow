@@ -3,7 +3,15 @@
   "clips": {
     "IMG_5479.MOV": {
       "subject": "Handheld pan across the July plot — calendula bed in the foreground, pea netting arches, tomatoes under the hoops, sheds and neighbouring plots behind",
-      "tags": ["plot-pan", "calendula", "peas", "tomatoes", "july", "2026", "portrait"],
+      "tags": [
+        "plot-pan",
+        "calendula",
+        "peas",
+        "tomatoes",
+        "july",
+        "2026",
+        "portrait"
+      ],
       "q": 2,
       "duration_s": 5.1,
       "width": 1080,
@@ -11,6 +19,552 @@
       "date": "2026-07-10 12:00",
       "loopable": false,
       "notes": "a pan, not a loop — better as an ambient establishing clip (July diary) than a repeating loop; midday light, a touch harsh"
+    },
+    "IMG_2646.MOV": {
+      "subject": "Slow pan over a freshly dug bed — heavy clods of clay, bare spring plot and hoops behind",
+      "tags": [
+        "digging",
+        "clay",
+        "spring",
+        "bare-plot",
+        "2026",
+        "april"
+      ],
+      "q": 1,
+      "duration_s": 2.4,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-20 15:55",
+      "loopable": false,
+      "notes": "dull light, rough ground — record shot"
+    },
+    "IMG_2722.MOV": {
+      "subject": "Tour across the April beds just after planting — tiny lettuce borders in, watering cans and trays about",
+      "tags": [
+        "raised-beds",
+        "spring-planting",
+        "lettuce",
+        "april",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 9.0,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-22 15:15",
+      "loopable": false,
+      "notes": "good spring-work establishing clip"
+    },
+    "IMG_2838.MOV": {
+      "subject": "THE LANCE in action — fine mist arcing from the watering lance over a freshly planted bed, seedlings in dark soil",
+      "tags": [
+        "watering-lance",
+        "watering",
+        "spray",
+        "seedlings",
+        "april",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 5.7,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-24 11:12",
+      "loopable": true,
+      "notes": "the #1 wanted clip — spray clearly visible; sits above the Gardena buy-point"
+    },
+    "IMG_2843.MOV": {
+      "subject": "Watering module trays on the grass with the lance, gentle rose spray",
+      "tags": [
+        "watering-lance",
+        "seed-trays",
+        "watering-in",
+        "april",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 4.7,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-24 11:19",
+      "loopable": true
+    },
+    "IMG_2865.MOV": {
+      "subject": "Pan over the grassy orchard corner — membrane beds, hoops, fruit trees",
+      "tags": [
+        "plot-pan",
+        "orchard",
+        "spring",
+        "2026"
+      ],
+      "q": 1,
+      "duration_s": 8.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-24 17:37",
+      "loopable": false
+    },
+    "IMG_2986.MOV": {
+      "subject": "Rows of planting stations freshly dug across a bed — the bulb-planter hole pattern, tool at the top edge",
+      "tags": [
+        "planting-stations",
+        "bulb-planter",
+        "planting",
+        "april",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 5.7,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-27 12:20",
+      "loopable": false,
+      "notes": "pairs with the bulb-planter potato/sweetcorn posts"
+    },
+    "IMG_3015.MOV": {
+      "subject": "Bumblebee working the pink soapwort flowers, close up, moving bloom to bloom",
+      "tags": [
+        "bee",
+        "soapwort",
+        "flowers",
+        "pollinators",
+        "april",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 8.7,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-27 15:52",
+      "loopable": true,
+      "notes": "lovely wildlife loop — trim to the busiest 5s"
+    },
+    "IMG_3023.MOV": {
+      "subject": "A FOX trotting across the plot in daylight — over the membrane and between the beds",
+      "tags": [
+        "fox",
+        "wildlife",
+        "charm",
+        "april",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 26.3,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-27 16:44",
+      "loopable": false,
+      "notes": "unique — trim to the best 6-8s of the crossing; screenshot-bait, perfect for a diary or Dot-adjacent charm moment"
+    },
+    "IMG_3055.MOV": {
+      "subject": "Walking pan up the path towards the rose arch, spring plot either side",
+      "tags": [
+        "plot-pan",
+        "arch",
+        "path",
+        "spring",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 8.0,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-04-27 17:37",
+      "loopable": false
+    },
+    "IMG_3197.MOV": {
+      "subject": "Static wide of the plot under a moody grey sky, hoops and empty beds",
+      "tags": [
+        "plot-wide",
+        "moody-sky",
+        "may",
+        "2026"
+      ],
+      "q": 1,
+      "duration_s": 3.5,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-05-07 13:50",
+      "loopable": false
+    },
+    "IMG_3530.MOV": {
+      "subject": "Lance watering young plants through the membrane planting grid, evening light",
+      "tags": [
+        "watering-lance",
+        "membrane",
+        "evening",
+        "may",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 4.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-05-27 19:43",
+      "loopable": true
+    },
+    "IMG_3675.MOV": {
+      "subject": "The white cat sitting on the bed edge among squash seedlings and young sunflowers, looking about",
+      "tags": [
+        "cat",
+        "squash",
+        "seedlings",
+        "charm",
+        "may",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 2.8,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-05-31 19:12",
+      "loopable": true,
+      "notes": "Dot post / diary charm — short but complete"
+    },
+    "IMG_4071.MOV": {
+      "subject": "White flowers and feathery seed heads swaying in the breeze, close, plot soft behind",
+      "tags": [
+        "flowers",
+        "breeze",
+        "ambient",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 3.9,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-05 17:28",
+      "loopable": true,
+      "notes": "good ambient loop"
+    },
+    "IMG_4292.MOV": {
+      "subject": "Pan down the grass path past lush potato rows in full leaf",
+      "tags": [
+        "potatoes",
+        "plot-pan",
+        "path",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 3.6,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06 (export-stamped 07-12)",
+      "loopable": false,
+      "notes": "file number places it mid-June; creation date was re-stamped on export"
+    },
+    "IMG_4579.MOV": {
+      "subject": "Staked tomato plants in rows in the dark composted bed",
+      "tags": [
+        "tomatoes",
+        "stakes",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 3.9,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-19 14:52",
+      "loopable": false
+    },
+    "IMG_4633.MOV": {
+      "subject": "Watering-can rose pouring a wide gentle spray over young plants, rosemary behind",
+      "tags": [
+        "watering-can",
+        "watering",
+        "spray",
+        "june",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 2.9,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-19 14:55",
+      "loopable": true,
+      "notes": "lovely close watering loop — pairs with the Haws can link"
+    },
+    "IMG_4747.MOV": {
+      "subject": "Morning wide over the wildflower corner — hoops and a big sky",
+      "tags": [
+        "wildflowers",
+        "ambient",
+        "morning",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 3.4,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-25 09:41",
+      "loopable": false
+    },
+    "IMG_4752.MOV": {
+      "subject": "Pan from the bell cloches across to the arch and the marigold companion beds",
+      "tags": [
+        "cloche",
+        "marigolds",
+        "companion",
+        "arch",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 4.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-25 09:42",
+      "loopable": false
+    },
+    "IMG_4753.MOV": {
+      "subject": "One-second blip of the greenhouse and marigold courgette bed",
+      "tags": [
+        "marigolds",
+        "courgette",
+        "june",
+        "2026"
+      ],
+      "q": 1,
+      "duration_s": 1.3,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-25 09:42",
+      "loopable": false,
+      "notes": "too short to use",
+      "dupe": "IMG_4752.MOV"
+    },
+    "IMG_4895.MOV": {
+      "subject": "SUNSET pan across the whole plot — arches, marigold beds, courgettes under a golden sky",
+      "tags": [
+        "sunset",
+        "plot-pan",
+        "golden-hour",
+        "marigolds",
+        "june",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 12.1,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-28 20:12",
+      "loopable": false,
+      "notes": "the establishing beauty shot — trim to the best 6-7s"
+    },
+    "IMG_4919.MOV": {
+      "subject": "Young courgette leaves close in low evening light, membrane behind",
+      "tags": [
+        "courgette",
+        "evening",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 3.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-28 20:18",
+      "loopable": true
+    },
+    "IMG_4939.MOV": {
+      "subject": "From the bench corner at sunset — white chair, tall flower spike silhouetted against the pink sky",
+      "tags": [
+        "sunset",
+        "bench",
+        "ambient",
+        "charm",
+        "june",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 7.3,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-28 20:20",
+      "loopable": false,
+      "notes": "end-of-day mood — diary material"
+    },
+    "IMG_4951.MOV": {
+      "subject": "Long meadow grass golden in the dusk, treeline behind",
+      "tags": [
+        "meadow",
+        "dusk",
+        "ambient",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 3.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06/07 (export-stamped 07-12)",
+      "loopable": true
+    },
+    "IMG_4994.MOV": {
+      "subject": "Sprinkler arc over the netted bed with yellow achillea and lettuces",
+      "tags": [
+        "sprinkler",
+        "watering",
+        "netting",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 1.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06/07 (export-stamped 07-12)",
+      "loopable": false,
+      "notes": "only 1.2s — too short unless stitched"
+    },
+    "IMG_4994 2.MOV": {
+      "subject": "Sprinkler burst duplicate",
+      "tags": [
+        "sprinkler"
+      ],
+      "q": 1,
+      "duration_s": 1.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06/07",
+      "loopable": false,
+      "dupe": "IMG_4994.MOV"
+    },
+    "IMG_4994 3.MOV": {
+      "subject": "Sprinkler burst duplicate",
+      "tags": [
+        "sprinkler"
+      ],
+      "q": 1,
+      "duration_s": 1.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06/07",
+      "loopable": false,
+      "dupe": "IMG_4994.MOV"
+    },
+    "IMG_5060.MOV": {
+      "subject": "High-summer pan — onions standing tall, yellow achillea, borage and white flowers, the whole plot with sheds and greenhouse under big clouds",
+      "tags": [
+        "plot-pan",
+        "onions",
+        "flowers",
+        "high-summer",
+        "june",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 9.4,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-30 18:04",
+      "loopable": false,
+      "notes": "gorgeous 'the plot in full swing' establishing clip — trim to 6-7s"
+    },
+    "IMG_5060 2.MOV": {
+      "subject": "High-summer pan duplicate",
+      "tags": [
+        "plot-pan"
+      ],
+      "q": 1,
+      "duration_s": 9.4,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-30",
+      "loopable": false,
+      "dupe": "IMG_5060.MOV"
+    },
+    "IMG_5060 3.MOV": {
+      "subject": "High-summer pan duplicate",
+      "tags": [
+        "plot-pan"
+      ],
+      "q": 1,
+      "duration_s": 9.4,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-06-30",
+      "loopable": false,
+      "dupe": "IMG_5060.MOV"
+    },
+    "IMG_5257.MOV": {
+      "subject": "Tall airy seed-head spike against the dusk sky, slow look up and around",
+      "tags": [
+        "dusk",
+        "seedheads",
+        "ambient",
+        "july",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 10.8,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-07-02 20:02",
+      "loopable": false
+    },
+    "IMG_5274.MOV": {
+      "subject": "Nasturtiums, yellow achillea and kale in a bright companion tangle",
+      "tags": [
+        "nasturtiums",
+        "achillea",
+        "kale",
+        "companion",
+        "july",
+        "2026"
+      ],
+      "q": 2,
+      "duration_s": 4.2,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-07 (export-stamped 07-12)",
+      "loopable": true
+    },
+    "IMG_5345.mov": {
+      "subject": "Watering-can rose sparkling water over the lettuce, kale and marigold bed, close",
+      "tags": [
+        "watering-can",
+        "watering",
+        "lettuce",
+        "marigolds",
+        "july",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 4.5,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-07 (export-stamped 07-12)",
+      "loopable": true,
+      "notes": "beautiful close watering loop, water catching the light"
+    },
+    "IMG_5468.MOV": {
+      "subject": "A hand holding up a huge frilly just-cut lettuce to the camera",
+      "tags": [
+        "lettuce",
+        "harvest",
+        "charm",
+        "july",
+        "2026",
+        "hero-worthy"
+      ],
+      "q": 3,
+      "duration_s": 2.5,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-07-10 11:53",
+      "loopable": true,
+      "notes": "harvest charm — pairs with salad content"
     }
   }
 }
