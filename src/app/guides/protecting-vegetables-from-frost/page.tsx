@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 
 const TAG = "whattosow21-21";
@@ -174,7 +176,7 @@ export default function FrostProtectionGuide() {
                   The cheapest, most flexible frost insurance there is. Drape it over a bed or over hoops before a frosty
                   night and it traps a couple of degrees of the soil&apos;s warmth &mdash; often all a hardy crop needs.
                   Double it up for harder frosts. Keep a roll in the shed to throw over at short notice.{" "}
-                  <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                  <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon" position="frost-protection-fleece" className="text-rust underline decoration-rust/30 hover:text-earth">Compare horticultural fleece &rarr;</AffiliateLink>
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -183,7 +185,7 @@ export default function FrostProtectionGuide() {
                   Rigid or hooped covers that sit over a row, keeping warmth in and rain off. Better than fleece for
                   carrying salad and seedlings through a sustained cold spell, and they double up to warm the soil for
                   early spring sowings.{" "}
-                  <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                  <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="frost-protection-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Compare cloche tunnels &rarr;</AffiliateLink>
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -191,7 +193,7 @@ export default function FrostProtectionGuide() {
                 <p className="text-[15px] mt-1">
                   The snug box for the tenderest winter pickings and the best tool for hardening off in spring. A proper
                   upgrade that earns its keep all year. See our{" "}
-                  <a href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</a>.
+                  <Link href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</Link>.
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -199,7 +201,7 @@ export default function FrostProtectionGuide() {
                 <p className="text-[15px] mt-1">
                   The biggest leap &mdash; a whole sheltered space that keeps you cropping right through winter and gets
                   you sowing weeks earlier in spring. See our{" "}
-                  <a href="/blog/best-polytunnels-uk" className="text-rust underline decoration-rust/30 hover:text-earth">polytunnels guide</a>.
+                  <Link href="/blog/best-polytunnels-uk" className="text-rust underline decoration-rust/30 hover:text-earth">polytunnels guide</Link>.
                 </p>
               </li>
             </ul>
@@ -235,7 +237,7 @@ export default function FrostProtectionGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Don&apos;t forget spring</strong> &mdash; the late frosts of April and May
                 catch out tender plants put out too early. The same fleece protects newly planted-out crops then. Watch
-                your <a href="/" className="text-rust underline decoration-rust/30 hover:text-earth">local last-frost date</a> before planting tender things out.
+                your <Link href="/" className="text-rust underline decoration-rust/30 hover:text-earth">local last-frost date</Link> before planting tender things out.
               </li>
             </ul>
           </section>
@@ -287,10 +289,10 @@ export default function FrostProtectionGuide() {
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a href="/blog/best-cold-frames-greenhouses-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/blog/best-cold-frames-greenhouses-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Best cold frames &amp; greenhouses</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
