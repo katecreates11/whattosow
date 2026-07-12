@@ -86,6 +86,13 @@ export const editorialPosts: EditorialPost[] = [
           "You don't need much, and you certainly don't need it all at once. But a few good tools make the heavy days lighter and the fiddly jobs quicker. These are mine — honestly rated, all of them things I use, not things I was sent.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/wheelbarrow-loaded-tools.webp",
+        alt: "A wheelbarrow loaded with well-used hand tools — spade, fork and trowels — on the allotment path",
+        caption: "The barrow-load in question, on its way down the path.",
+      },
+      {
         type: "heading",
         content: "At a glance",
       },
@@ -103,6 +110,21 @@ export const editorialPosts: EditorialPost[] = [
           { name: "Burgon & Ball wooden trug", use: "Gathering the harvest (the nicest job)", url: "https://www.amazon.co.uk/dp/B003UMY4I4?tag=whattosow21-21" },
           { name: "Haemmerlin puncture-free wheelbarrow", use: "Hauling soil, woodchip and the harvest", url: "https://www.amazon.co.uk/dp/B07BPNJ8KH?tag=whattosow21-21" },
           { name: "Terradix 5x300 broadfork", use: "Breaking heavy clay with your weight, not your back", price: "~£129", url: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21" },
+        ],
+      },
+      {
+        type: "text",
+        content:
+          "And because a list is easy to write and photographs are not — here are three of them actually working for their place.",
+      },
+      {
+        type: "gallery",
+        content: "",
+        caption: "The lance at golden hour, the tub doing weeding duty, and the broadfork's party trick — a bindweed root out whole.",
+        images: [
+          { src: "/photos/blog/watering-lance-golden-hour-spray.webp", alt: "The watering lance arcing a fine spray over a bed at golden hour", caption: "The lance, on the evening round", aspect: "square" },
+          { src: "/photos/blog/trug-2026-weeds.webp", alt: "A green flexible tub filled to the brim with pulled weeds, seen from above", caption: "The tub, full of weeds again", aspect: "square" },
+          { src: "/photos/blog/broadfork-bindweed-root.webp", alt: "A long pale bindweed root drawn out whole across the broadfork's tines", caption: "The broadfork's party trick", aspect: "square" },
         ],
       },
       {
@@ -526,6 +548,13 @@ export const editorialPosts: EditorialPost[] = [
         productBadge: "our-pick",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/dibber-seed-packets.webp",
+        alt: "A wooden-handled dibber lying on freshly dug soil beside a few seed packets, ready for sowing",
+        caption: "Sowing morning — dibber, packets, and a bed ready for both.",
+      },
+      {
         type: "heading",
         content: "Add as you go",
       },
@@ -550,6 +579,13 @@ export const editorialPosts: EditorialPost[] = [
         productUrl: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21",
         productBadge: "our-pick",
         caption: "The reach is the thing — a good soak without trampling a single plant.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/watering-lance-golden-hour-spray.webp",
+        alt: "The watering lance arcing a fine spray over the nasturtiums and marigolds at golden hour",
+        caption: "The evening round, summer 2025 — the job it was bought for.",
       },
       {
         type: "text",
@@ -577,6 +613,13 @@ export const editorialPosts: EditorialPost[] = [
         productUrl: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21",
         productBadge: "upgrade",
         caption: "The width is the joy — you cover far more ground with every lift.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/broadfork-bindweed-root.webp",
+        alt: "A long pale bindweed root lifted out whole and unbroken across the broadfork's tines",
+        caption: "The proof: a bindweed root out whole, not snapped off to regrow.",
       },
       {
         type: "text",
