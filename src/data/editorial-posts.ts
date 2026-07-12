@@ -383,6 +383,14 @@ export const editorialPosts: EditorialPost[] = [
           { src: "/photos/blog/sunflowers-teddy-bear.webp", alt: "A fluffy teddy-bear sunflower among classic sunflowers against a blue sky, 2025", caption: "2025 — a teddy-bear variety joined in", aspect: "square" },
         ],
       },
+      {
+        type: "video",
+        content: "",
+        src: "/videos/blog/sunflower-face-2025.mp4",
+        poster: "/videos/blog/sunflower-face-2025-poster.webp",
+        alt: "A big sunflower face glowing in September light",
+        caption: "Last September's finest, five summers in.",
+      },
     ],
     relatedCrops: ["courgettes", "peas", "pumpkins", "tomatoes", "runner-beans", "sunflowers"],
   },
@@ -1071,6 +1079,14 @@ export const editorialPosts: EditorialPost[] = [
           "The best part about growing tomatoes is the sheer abundance. One plant produces kilos of fruit over the season. I gave boxes away to neighbours, took them to work, and still had more than I could eat. If you are thinking about growing your own, tomatoes are where to start.",
       },
       {
+        type: "video",
+        content: "",
+        src: "/videos/blog/tomato-trug-2025.mp4",
+        poster: "/videos/blog/tomato-trug-2025-poster.webp",
+        alt: "A blue trug filled with cherry and plum tomatoes on the grass, moving close over the harvest",
+        caption: "One September evening's picking, by the trugful.",
+      },
+      {
         type: "gallery",
         content: "",
         caption: "Year one against year four: the first trusses we ever ripened, and what an ordinary picking day looks like now.",
@@ -1309,6 +1325,14 @@ export const editorialPosts: EditorialPost[] = [
         caption: "Split open on the spot. These never made it home.",
       },
       {
+        type: "video",
+        content: "",
+        src: "/videos/blog/mangetout-backlit.mp4",
+        poster: "/videos/blog/mangetout-backlit-poster.webp",
+        alt: "A mangetout pod glowing with sunlight through it on the vine",
+        caption: "Still growing them every year since — one of last summer's, backlit on the vine.",
+      },
+      {
         type: "heading",
         content: "Courgettes: the glut was real",
       },
@@ -1490,6 +1514,14 @@ export const editorialPosts: EditorialPost[] = [
           { src: "/photos/blog/strawberry-2024-marigolds.webp", alt: "A large glossy red strawberry held up over a bed of marigolds, 2024", caption: "2024 — the first properly big ones", aspect: "square" },
           { src: "/photos/blog/strawberries-2025-box.webp", alt: "A cardboard box filled with freshly picked home-grown strawberries, 2025", caption: "2025 — boxes of them", aspect: "square" },
         ],
+      },
+      {
+        type: "video",
+        content: "",
+        src: "/videos/blog/strawberry-box-2025.mp4",
+        poster: "/videos/blog/strawberry-box-2025-poster.webp",
+        alt: "A box of just-picked strawberries sitting on the woodchip path",
+        caption: "And one of those boxes, still warm from the sun.",
       },
       {
         type: "heading",
@@ -2180,6 +2212,14 @@ export const editorialPosts: EditorialPost[] = [
           "She is the best gardening companion. Not much practical help, admittedly — she has settled in a freshly sown bed more than once, and she likes to walk across whatever I have just planted and look back as if I should be grateful. But she watches over us while we work, and the plot is better for having her in it.",
       },
       {
+        type: "video",
+        content: "",
+        src: "/videos/blog/cat-squash-bed.mp4",
+        poster: "/videos/blog/cat-squash-bed-poster.webp",
+        alt: "The white cat sitting on the bed edge among squash seedlings and young sunflowers",
+        caption: "Supervising the squash bed, May this year.",
+      },
+      {
         type: "image",
         content: "",
         src: "/photos/blog/dot-allotment-cat-seedlings.webp",
@@ -2199,6 +2239,14 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "There is something about an allotment cat. She is part of the plot now, in a way I cannot quite explain. She turns up, settles in the sun nearby, and watches over us while we get on with the watering and the weeding. Every visit is better for it.",
+      },
+      {
+        type: "video",
+        content: "",
+        src: "/videos/blog/fox-crossing.mp4",
+        poster: "/videos/blog/fox-crossing-poster.webp",
+        alt: "A fox trotting along the raised beds in broad daylight",
+        caption: "She is also not the only one who treats the place as hers. A fox, late one April afternoon, inspecting the beds.",
       },
     ],
     relatedCrops: [],
@@ -2504,6 +2552,14 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "I grow most things for a reason — marigolds for the aphids, borage for the bees, nasturtiums to lure blackfly off the beans. Tumbling Ted has no practical use at all. In May, when everything else is still mostly underground, it is the thing that makes the plot feel like somewhere worth coming to.",
+      },
+      {
+        type: "video",
+        content: "",
+        src: "/videos/blog/bee-soapwort.mp4",
+        poster: "/videos/blog/bee-soapwort-poster.webp",
+        alt: "A bumblebee working the pink Tumbling Ted flowers, moving bloom to bloom",
+        caption: "The case for the defence: one of this April's regulars, working the flowers.",
       },
     ],
     relatedCrops: ["borage", "marigolds"],
@@ -3038,6 +3094,27 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "I won't pretend the timing isn't tight — corn planted this late is asking a lot of the back end of the season, and I'll need September to stay warm to see full cobs. But the plants are in, they're growing, and watching sweetcorn get taller by the week is one of the best shows on the plot. If the autumn is kind, we'll be eating cobs minutes after picking them — and if it isn't, the trick still earned its keep, and next year's corn goes in earlier. Into compost pockets, of course.",
+      },
+      {
+        type: "text",
+        content:
+          "And in case you are wondering whether sweetcorn is worth all this fuss — here is last summer's answer, in two parts.",
+      },
+      {
+        type: "video",
+        content: "",
+        src: "/videos/blog/corn-husk-reveal.mp4",
+        poster: "/videos/blog/corn-husk-reveal-poster.webp",
+        alt: "A hand peeling the husk back from a pale corn cob among the sunflowers",
+        caption: "The reveal — husked on the spot, among the sunflowers.",
+      },
+      {
+        type: "video",
+        content: "",
+        src: "/videos/blog/buttered-corn.mp4",
+        poster: "/videos/blog/buttered-corn-poster.webp",
+        alt: "A buttered corn on the cob on a plate with char marks and salt",
+        caption: "And the next day. Boiled within the hour, buttered without restraint.",
       },
     ],
     relatedCrops: ["sweetcorn", "maincrop-potatoes", "courgettes"],

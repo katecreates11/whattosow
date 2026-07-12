@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, ColorSection } from "@/components/GuideVisuals";
 import WateringBuyerNote from "@/components/WateringBuyerNote";
+import LoopClip from "@/components/LoopClip";
 
 export const metadata: Metadata = {
   title:
@@ -216,6 +217,17 @@ export default function WateringGuide() {
                 <Link href="/blog/watering-lance-allotment" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">here&apos;s my allotment review &rarr;</Link>
               </p>
             </div>
+
+            <figure className="mt-8">
+              <LoopClip
+                src="/videos/blog/lance-spray-loop.mp4"
+                poster="/videos/blog/lance-spray-loop-poster.webp"
+                alt="The watering lance arcing a fine mist over a freshly planted bed of seedlings"
+              />
+              <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+                What a proper soak looks like &mdash; the lance&apos;s fine rose, gentle enough for seedlings.
+              </figcaption>
+            </figure>
           </section>
 
           <SectionDivider label="By crop" />
@@ -301,12 +313,16 @@ export default function WateringGuide() {
             </WarningBox>
           </section>
 
-          <GuideImage
-            src="/photos/guides/watering-strawberry-bed.webp"
-            alt="Watering a raised strawberry bed on a UK allotment with a hose attachment"
-            caption="Water at the base, not the leaves — especially with strawberries and tomatoes."
-            aspect="landscape"
-          />
+          <figure>
+            <LoopClip
+              src="/videos/blog/watering-can-lettuce.mp4"
+              poster="/videos/blog/watering-can-lettuce-poster.webp"
+              alt="A watering-can rose sprinkling water over a bed of lettuce, kale and marigolds"
+            />
+            <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+              Water at the base, not the leaves &mdash; a wide gentle rose, low over the soil.
+            </figcaption>
+          </figure>
 
           <SectionDivider label="Saving water" />
 

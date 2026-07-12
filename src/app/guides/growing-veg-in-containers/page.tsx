@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import AffiliateLink from "@/components/AffiliateLink";
+import LoopClip from "@/components/LoopClip";
 
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}`;
@@ -231,6 +232,17 @@ export default function GrowingInContainersGuide() {
               <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" className="text-rust underline decoration-rust/30 hover:text-earth">liquid feed</AffiliateLink>{" "}
               for leafy crops, and a high-potash tomato feed once tomatoes, chillies and beans begin to flower.
             </p>
+
+            <figure className="mt-6">
+              <LoopClip
+                src="/videos/blog/container-watering.mp4"
+                poster="/videos/blog/container-watering-poster.webp"
+                alt="A watering can sprinkling a trough planter on a patio, pots and seed trays all around"
+              />
+              <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+                The daily round, on our own patio &mdash; thoroughly, until it runs from the bottom.
+              </figcaption>
+            </figure>
           </section>
 
           <TipBox title="Group your pots together">
