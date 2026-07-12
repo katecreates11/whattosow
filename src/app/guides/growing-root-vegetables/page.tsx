@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox } from "@/components/GuideVisuals";
 import AffiliateLink from "@/components/AffiliateLink";
 
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
@@ -49,9 +50,9 @@ function CropRow({ item }: { item: CropItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
@@ -60,9 +61,11 @@ function CropRow({ item }: { item: CropItem }) {
             href={item.seeds}
             product={`${item.name} seeds`}
             type="seed"
+            merchant="thompson-morgan"
+            position="root-vegetables-seeds"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
+            Seeds at T&amp;M &rarr;
           </AffiliateLink>
         )}
       </div>
@@ -156,9 +159,9 @@ export default function GrowingRootsGuide() {
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             This is the family overview &mdash; for sowing dates and varieties of each, follow the links through to its
             own page, or check{" "}
-            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               dates tuned to your postcode
-            </a>.
+            </Link>.
           </p>
         </div>
 
@@ -194,7 +197,7 @@ export default function GrowingRootsGuide() {
             </p>
             <p className="mb-3">
               If your ground is heavy clay or full of stones, don&apos;t fight it &mdash; a deep{" "}
-              <a href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised bed</a>{" "}
+              <Link href="/blog/best-raised-beds-uk" className="text-rust underline decoration-rust/30 hover:text-earth">raised bed</Link>{" "}
               filled with sieved soil or compost gives long, straight roots where the open ground never would. Short,
               stump-rooted carrot varieties are the other good answer for difficult soil.
             </p>
@@ -216,7 +219,7 @@ export default function GrowingRootsGuide() {
               Water the bottom of the drill before you sow in dry weather, sow into the damp, and be patient with the
               slow ones &mdash; parsnips can take three weeks to show, so sow a few quick radishes along the same row to
               mark it while you wait. Sow little and often for a steady supply; see{" "}
-              <a href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">succession sowing</a>.
+              <Link href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">succession sowing</Link>.
             </p>
           </section>
 
@@ -243,12 +246,12 @@ export default function GrowingRootsGuide() {
                 <span className="font-serif text-earth">A mesh barrier</span> &mdash; because the fly flies low, a 60cm
                 wall of fine insect mesh or fleece around the bed keeps the great majority out. The single most reliable
                 method.{" "}
-                <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="insect mesh" type="gear" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</AffiliateLink>
+                <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon" position="root-vegetables-carrot-fly-mesh" className="text-rust underline decoration-rust/30 hover:text-earth">Compare fine insect mesh &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Mask the scent</span> &mdash; grow onions or other alliums
                 alongside (see{" "}
-                <a href="/guides/companion-planting/companion-plants-for-carrots" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for carrots</a>), and avoid bruising the foliage by sowing thinly.
+                <Link href="/guides/companion-planting/companion-plants-for-carrots" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for carrots</Link>), and avoid bruising the foliage by sowing thinly.
               </li>
             </ul>
           </section>
@@ -300,22 +303,22 @@ export default function GrowingRootsGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/companion-planting/companion-plants-for-carrots" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/companion-planting/companion-plants-for-carrots" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion plants for carrots</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Succession sowing</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/carrots" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/carrots" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow carrots</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/beetroot" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/beetroot" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow beetroot</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
