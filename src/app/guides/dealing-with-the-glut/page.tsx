@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox } from "@/components/GuideVisuals";
@@ -127,16 +128,18 @@ export default function GlutGuide() {
             <p className="mb-3">
               It feels wrong to pick beans you can&apos;t eat, but the moment a plant ripens seed it starts winding down.
               Pick everything as it comes ready &mdash; small and often &mdash; and{" "}
-              <a href="/crops/courgettes" className="text-rust underline decoration-rust/30 hover:text-earth">courgettes</a>,{" "}
-              <a href="/crops/runner-beans" className="text-rust underline decoration-rust/30 hover:text-earth">runner beans</a> and{" "}
-              <a href="/crops/french-beans" className="text-rust underline decoration-rust/30 hover:text-earth">French beans</a>{" "}
+              <Link href="/crops/courgettes" className="text-rust underline decoration-rust/30 hover:text-earth">courgettes</Link>,{" "}
+              <Link href="/crops/runner-beans" className="text-rust underline decoration-rust/30 hover:text-earth">runner beans</Link> and{" "}
+              <Link href="/crops/french-beans" className="text-rust underline decoration-rust/30 hover:text-earth">French beans</Link>{" "}
               will keep producing for weeks longer. Stop picking, and they stop too. A good{" "}
               <AffiliateLink
                 href={az("garden trug wooden harvest basket")}
                 product="harvest trug"
+                merchant="amazon"
+                position="glut-harvest-trug"
                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
               >
-                trug
+                Compare harvest trugs
               </AffiliateLink>{" "}
               by the back door makes the little-and-often habit a pleasure rather than a chore.
             </p>
@@ -197,7 +200,7 @@ export default function GlutGuide() {
             <p className="mb-3">
               <strong className="text-earth">Beans.</strong> Runner and French beans freeze beautifully (blanch first) and
               pickle surprisingly well. Leave a few pods of French beans to fatten at the season&apos;s end and you get
-              free <a href="/guides/seed-starting" className="text-rust underline decoration-rust/30 hover:text-earth">seed for next spring</a>{" "}
+              free <Link href="/guides/seed-starting" className="text-rust underline decoration-rust/30 hover:text-earth">seed for next spring</Link>{" "}
               &mdash; the glut paying for next year.
             </p>
             <p className="mb-3">
@@ -207,9 +210,11 @@ export default function GlutGuide() {
               <AffiliateLink
                 href={az("maslin pan preserving jam")}
                 product="maslin pan"
+                merchant="amazon"
+                position="glut-maslin-pan"
                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
               >
-                maslin pan
+                Compare maslin pans
               </AffiliateLink>{" "}
               turns a table of tomatoes into a shelf of chutney in an afternoon &mdash; and the green ones at
               season&apos;s end make the best chutney of all.
@@ -225,9 +230,9 @@ export default function GlutGuide() {
               A basket of just-picked veg is the best gift most people get all year. Neighbours, the school gate, the
               office kitchen, the food bank &mdash; gluts are how veg growers make friends. If you&apos;re ever away when
               the wave breaks, the{" "}
-              <a href="/guides/watering-while-away" className="text-rust underline decoration-rust/30 hover:text-earth">
+              <Link href="/guides/watering-while-away" className="text-rust underline decoration-rust/30 hover:text-earth">
                 neighbour-waters-and-keeps-the-pickings deal
-              </a>{" "}
+              </Link>{" "}
               solves two problems at once.
             </p>
           </section>
@@ -239,13 +244,13 @@ export default function GlutGuide() {
             </h2>
             <p className="mb-3">
               A glut is really a scheduling problem, planned in April and discovered in July.{" "}
-              <a href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">
+              <Link href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">
                 Succession sowing
-              </a>{" "}
+              </Link>{" "}
               &mdash; little and often &mdash; spreads the quick crops into a steady trickle, and the{" "}
-              <a href="/harvest-planner" className="text-rust underline decoration-rust/30 hover:text-earth">
+              <Link href="/harvest-planner" className="text-rust underline decoration-rust/30 hover:text-earth">
                 harvest planner
-              </a>{" "}
+              </Link>{" "}
               shows you when everything you&apos;ve sown will land, so you can see the wave coming while there&apos;s
               still time to stagger it.
             </p>
@@ -270,7 +275,7 @@ export default function GlutGuide() {
               </div>
               <div>
                 <h3 className="font-serif text-lg text-earth mb-1.5">How do I avoid a glut next year?</h3>
-                <p className="text-[15px]">Sow little and often instead of all at once &mdash; our <a href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">succession sowing guide</a> is the cure. For one-plant gluts like courgettes, simply grow fewer plants than you think you need.</p>
+                <p className="text-[15px]">Sow little and often instead of all at once &mdash; our <Link href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">succession sowing guide</Link> is the cure. For one-plant gluts like courgettes, simply grow fewer plants than you think you need.</p>
               </div>
             </div>
           </section>
@@ -279,22 +284,22 @@ export default function GlutGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Succession sowing &mdash; the glut cure</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/harvest-planner" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/harvest-planner" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">See when your harvests will land</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/watering-while-away" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/watering-while-away" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Going away? Keep it all watered</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/harvest" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/harvest" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What&apos;s ready to harvest now</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

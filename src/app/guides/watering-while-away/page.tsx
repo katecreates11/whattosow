@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
@@ -126,9 +127,9 @@ export default function WateringWhileAwayGuide() {
               week of an ordinary British summer &mdash; especially after a proper soak and a mulch. What suffers is
               anything in a <strong className="text-earth">pot</strong> (a container can dry out in a single hot day),
               anything <strong className="text-earth">newly planted</strong>, and the thirsty summer crops in full
-              production &mdash; <a href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</a>,{" "}
-              <a href="/crops/courgettes" className="text-rust underline decoration-rust/30 hover:text-earth">courgettes</a>,{" "}
-              <a href="/crops/runner-beans" className="text-rust underline decoration-rust/30 hover:text-earth">runner beans</a>{" "}
+              production &mdash; <Link href="/crops/tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">tomatoes</Link>,{" "}
+              <Link href="/crops/courgettes" className="text-rust underline decoration-rust/30 hover:text-earth">courgettes</Link>,{" "}
+              <Link href="/crops/runner-beans" className="text-rust underline decoration-rust/30 hover:text-earth">runner beans</Link>{" "}
               and anything in a growbag.
             </p>
             <p className="mb-3">
@@ -162,7 +163,7 @@ export default function WateringWhileAwayGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Mulch anything bare.</strong> A couple of inches of compost or grass
                 clippings over damp soil slows evaporation right down. Our{" "}
-                <a href="/guides/watering" className="text-rust underline decoration-rust/30 hover:text-earth">watering guide</a>{" "}
+                <Link href="/guides/watering" className="text-rust underline decoration-rust/30 hover:text-earth">watering guide</Link>{" "}
                 covers why mulch does more than most watering ever will.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -176,9 +177,11 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href={az("terracotta watering spikes bottle")}
                   product="watering spikes"
+                  merchant="amazon"
+                  position="holiday-watering-spikes"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
-                  terracotta or dripper spike
+                  Compare watering spikes
                 </AffiliateLink>{" "}
                 makes it drip evenly instead of glugging out in an hour.
               </li>
@@ -205,22 +208,26 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href={az("hozelock water timer tap")}
                   product="tap timer"
+                  merchant="amazon"
+                  position="holiday-watering-timer"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
-                  See tap timers &rarr;
+                  Compare tap timers &rarr;
                 </AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Soaker hose along the beds</strong> &mdash; sweats water gently down its
                 whole length, straight to the roots, no leaves wetted (the{" "}
-                <a href="/blight-watch" className="text-rust underline decoration-rust/30 hover:text-earth">blight</a>{" "}
+                <Link href="/blight-watch" className="text-rust underline decoration-rust/30 hover:text-earth">blight</Link>{" "}
                 won&apos;t thank you, and that&apos;s the point).{" "}
                 <AffiliateLink
                   href="https://www.amazon.co.uk/dp/B000TAFENY"
                   product="soaker hose"
+                  merchant="amazon"
+                  position="holiday-watering-soaker-hose"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
-                  The soaker hose we use &rarr;
+                  Compare soaker hoses &rarr;
                 </AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -229,9 +236,11 @@ export default function WateringWhileAwayGuide() {
                 <AffiliateLink
                   href={az("drip irrigation kit pots garden")}
                   product="drip irrigation kit"
+                  merchant="amazon"
+                  position="holiday-watering-drip-kit"
                   className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                 >
-                  See drip kits &rarr;
+                  Compare drip kits &rarr;
                 </AffiliateLink>
               </li>
             </ul>
@@ -239,9 +248,9 @@ export default function WateringWhileAwayGuide() {
               No outside tap? A timer that works from a{" "}
               <strong className="text-earth">water butt</strong> needs a gravity-fed drip kit (look for one made for it,
               as ordinary timers need mains pressure) &mdash; and if you&apos;re thinking about a butt anyway, our{" "}
-              <a href="/blog/best-water-butts-uk" className="text-rust underline decoration-rust/30 hover:text-earth">
+              <Link href="/blog/best-water-butts-uk" className="text-rust underline decoration-rust/30 hover:text-earth">
                 water butts guide
-              </a>{" "}
+              </Link>{" "}
               is the place to start.
             </p>
           </section>
@@ -289,7 +298,7 @@ export default function WateringWhileAwayGuide() {
               </div>
               <div>
                 <h3 className="font-serif text-lg text-earth mb-1.5">Should I harvest everything before going away?</h3>
-                <p className="text-[15px]">Pick everything that&apos;s ready or nearly ready, even slightly small. It keeps beans, peas and courgettes producing while you&apos;re gone &mdash; and if the picking is heavy, our <a href="/guides/dealing-with-the-glut" className="text-rust underline decoration-rust/30 hover:text-earth">glut guide</a> is next door.</p>
+                <p className="text-[15px]">Pick everything that&apos;s ready or nearly ready, even slightly small. It keeps beans, peas and courgettes producing while you&apos;re gone &mdash; and if the picking is heavy, our <Link href="/guides/dealing-with-the-glut" className="text-rust underline decoration-rust/30 hover:text-earth">glut guide</Link> is next door.</p>
               </div>
             </div>
           </section>
@@ -298,22 +307,22 @@ export default function WateringWhileAwayGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/watering" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/watering" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">The full watering guide &mdash; when, how much, and why</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/blog/best-water-butts-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/blog/best-water-butts-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">The best water butts for UK gardens</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/dealing-with-the-glut" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/dealing-with-the-glut" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Home to a mountain of courgettes? The glut guide</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Sowing dates for your postcode</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
