@@ -15,6 +15,7 @@ interface GearPickProps {
   image?: string; // square product photo, e.g. "/photos/kit/broadfork.webp"
   imageAlt?: string;
   ctaLabel?: string;
+  position?: string;
 }
 
 const badgeStyles: Record<string, { label: string; className: string; icon: string }> = {
@@ -35,6 +36,7 @@ export default function GearPick({
   image,
   imageAlt,
   ctaLabel,
+  position = "gear-pick",
 }: GearPickProps) {
   const badgeInfo = badge ? badgeStyles[badge] : null;
   const isHighlight = badge === "our-pick" || badge === "essential";
@@ -79,7 +81,7 @@ export default function GearPick({
         product={name}
         type="gear"
         merchant="amazon"
-        position="gear-pick"
+        position={position}
         className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-earth border border-earth/15 px-4 py-2.5 hover:border-allotment hover:text-allotment hover:bg-allotment/5 transition-all duration-200"
       >
         {ctaLabel ?? `Compare ${name}`}

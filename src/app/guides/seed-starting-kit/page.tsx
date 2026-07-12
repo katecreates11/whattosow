@@ -233,6 +233,7 @@ export default function SeedStartingKitGuide() {
                 badge="essential"
                 description="The workhorse. Big enough for most seeds, small enough to fit on a windowsill. Nutley's are thicker plastic than the cheap ones — they last years and have proper drainage holes. Get a solid base tray underneath to catch water."
                 amazonUrl="https://www.amazon.co.uk/dp/B00844031K?tag=whattosow21-21"
+                position="seed-kit-detail-module-trays"
                 tip="3 trays gives you 72 cells — enough for most beginners. Buy 2 packs for a serious season."
               />
               <GearPick
@@ -241,6 +242,7 @@ export default function SeedStartingKitGuide() {
                 badge="upgrade"
                 description="The trays Charles Dowding uses every day. 60 tapered cells with wide drainage holes — the rootballs slide out without sticking or tearing. Made from thick recycled polypropylene that lasts years. More expensive than standard trays but if you're sowing seriously, the difference in ease of use is worth it."
                 amazonUrl="https://www.amazon.co.uk/dp/B0CB661NZP?tag=whattosow21-21"
+                position="seed-kit-detail-cd60-trays"
                 tip="Also available in CD30 (bigger cells) and CD15 (big seeds like beans and squash)."
               />
               <GearPick
@@ -249,6 +251,7 @@ export default function SeedStartingKitGuide() {
                 badge="budget"
                 description="If you're sowing a lot of one thing (like lettuce or spring onions), open trays are cheaper. Scatter sow, then prick out into modules once they're big enough. More faff, but you get more plants per tray."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=standard+seed+trays+with+drainage"
+                position="seed-kit-detail-open-seed-trays"
               />
               <GearPick
                 name="9cm square pots"
@@ -256,6 +259,7 @@ export default function SeedStartingKitGuide() {
                 badge="essential"
                 description="For bigger seeds — courgettes, squash, sweetcorn, beans. These need more root room from the start. 9cm pots are the perfect size: big enough for the seedling to develop a proper root system before planting out."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=9cm+square+plant+pots"
+                position="seed-kit-detail-9cm-pots"
                 tip="Also useful for potting on seedlings from modules."
               />
             </section>
@@ -279,6 +283,7 @@ export default function SeedStartingKitGuide() {
                 badge="essential"
                 description="Fine, low-nutrient, free-draining. Exactly what tiny seedlings need. Levington is peat-free and widely available. Don't use multi-purpose for small seeds — it's too chunky and too rich. The seedlings drown or get burned."
                 amazonUrl="https://www.amazon.co.uk/dp/B0F3W9KC7N?tag=whattosow21-21"
+                position="seed-kit-detail-seed-compost"
                 tip="One 20L bag does about 10 full trays — it goes further than you'd think."
               />
               <GearPick
@@ -286,12 +291,14 @@ export default function SeedStartingKitGuide() {
                 price="~£6 for 40L"
                 description="Fine for large seeds (beans, squash, sweetcorn) and for potting on. Not ideal for small seeds. When potting on, mix in some perlite for drainage if it feels heavy and wet."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=peat+free+multi+purpose+compost"
+                position="seed-kit-detail-multipurpose-compost"
               />
               <GearPick
                 name="Vermiculite"
                 price="~£5 for 10L"
                 description="A light covering over surface-sown seeds keeps them moist without burying them. Also brilliant for mixing into compost to improve drainage. Not essential, but useful to have around."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=vermiculite+for+seed+sowing"
+                position="seed-kit-detail-vermiculite"
               />
             </section>
           </GearCategory>
@@ -318,6 +325,7 @@ export default function SeedStartingKitGuide() {
                 badge="essential"
                 description="Plastic lids that sit on standard seed trays. Trap moisture and warmth, creating a mini greenhouse effect. Remove as soon as seeds germinate — seedlings need air circulation or they'll dampen off."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=propagator+lids+for+seed+trays"
+                position="seed-kit-detail-propagator-lids"
                 tip="Cling film over a tray does the same job in a pinch."
               />
               <GearPick
@@ -326,6 +334,7 @@ export default function SeedStartingKitGuide() {
                 badge="upgrade"
                 description="A small electric mat in the base that provides consistent bottom heat (around 22–25°C). The Garland One Top is the one everyone recommends — simple, reliable, fits a standard tray. Worth it for peppers, chillies, and aubergines — they need warmth to germinate and a cold windowsill at night can stall them for weeks."
                 amazonUrl="https://www.amazon.co.uk/dp/B015WFRWUI?tag=whattosow21-21"
+                position="seed-kit-detail-heated-propagator"
                 tip="Not necessary for tomatoes, lettuce, or anything hardy — just the heat-lovers."
               />
               <GearPick
@@ -334,6 +343,7 @@ export default function SeedStartingKitGuide() {
                 badge="budget"
                 description="A flexible heating pad you put under your trays. Does the same job as a heated propagator but cheaper, and you can use your own trays and lids. Look for ones with a thermostat — without one they can run too hot."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=seedling+heat+mat+thermostat+UK"
+                position="seed-kit-detail-heat-mat"
               />
             </section>
           </GearCategory>
@@ -352,6 +362,7 @@ export default function SeedStartingKitGuide() {
                 badge="our-pick"
                 description="A 1–2 litre can with a fine brass rose gives a gentle shower that won't flatten seedlings. Much better than using a jug or mug. The Haws Indoor can is beautiful if you want to treat yourself, but any small can with a rose works."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=small+watering+can+fine+rose+indoor"
+                position="seed-kit-detail-watering-can"
               />
               <GearPick
                 name="Spray bottle"
@@ -359,6 +370,7 @@ export default function SeedStartingKitGuide() {
                 badge="budget"
                 description="A fine mist spray bottle is handy for misting the surface of seed trays and freshly pricked-out seedlings. Gentler than any watering can. Get one from the pound shop."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=fine+mist+spray+bottle+plants"
+                position="seed-kit-detail-spray-bottle"
               />
             </section>
           </GearCategory>
@@ -384,6 +396,7 @@ export default function SeedStartingKitGuide() {
                 badge="essential"
                 description="Cheap, simple, effective. Write the variety and date sown on each one. Buy more than you think you need."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=white+plastic+plant+labels"
+                position="seed-kit-detail-plant-labels"
                 tip="Always use a pencil, not a marker — markers fade in sunlight within weeks."
               />
               <GearPick
@@ -392,6 +405,7 @@ export default function SeedStartingKitGuide() {
                 badge="budget"
                 description="Biodegradable alternative. Work fine for indoor seedlings. They can go a bit mouldy in damp conditions outdoors, but for the windowsill they're great."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=wooden+plant+labels"
+                position="seed-kit-detail-wooden-labels"
               />
             </section>
           </GearCategory>
@@ -412,6 +426,7 @@ export default function SeedStartingKitGuide() {
                 badge="upgrade"
                 description="A simple LED strip on a timer gives seedlings consistent light without the leggy stretch you get on a windowsill. Not essential if you have a good south-facing window, but a game-changer if you don't. Set it 5–10cm above the seedlings and run it for 14–16 hours a day."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=LED+grow+light+strip+seedlings"
+                position="seed-kit-detail-grow-light"
                 tip="Look for full-spectrum or 6500K — avoid the purple/pink ones, they're designed for flowering plants."
               />
             </section>
@@ -432,12 +447,14 @@ export default function SeedStartingKitGuide() {
                 price="~£6 for 20"
                 description="The next step up from modules for most seedlings. Tomatoes, peppers, and courgettes will spend a few weeks in these before planting out or moving up again."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=1+litre+plant+pots+plastic"
+                position="seed-kit-detail-one-litre-pots"
               />
               <GearPick
                 name="Perlite"
                 price="~£6 for 10L"
                 description="Mix a handful into your potting compost to improve drainage and aeration. Particularly useful if your multi-purpose compost feels heavy and waterlogged. Not essential, but cheap and makes a noticeable difference."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=perlite+for+plants"
+                position="seed-kit-detail-perlite"
               />
             </section>
           </GearCategory>

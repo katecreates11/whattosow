@@ -40,4 +40,19 @@ describe("GearPick", () => {
     expect(html).toContain("data-umami-event=\"affiliate-click\"");
     expect(html).toContain("rel=\"sponsored noopener noreferrer\"");
   });
+
+  it("allows buying guides to track specific gear pick positions", () => {
+    const html = renderToStaticMarkup(
+      createElement(GearPick, {
+        name: "Seed compost",
+        price: "£6",
+        description: "Fine compost for tiny seedlings.",
+        amazonUrl: "https://www.amazon.co.uk/s?k=seed+compost",
+        position: "seed-kit-compost",
+      }),
+    );
+
+    expect(html).toContain("data-umami-event-position=\"seed-kit-compost\"");
+    expect(html).not.toContain("data-umami-event-position=\"gear-pick\"");
+  });
 });
