@@ -1,4 +1,5 @@
 import { Crop } from "@/data/crops";
+import { cropWindows, daysBetween } from "@/lib/crop-windows";
 
 export interface CropUrgency {
   crop: Crop;
@@ -9,14 +10,18 @@ export interface CropUrgency {
 }
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
-const WINDOW_BUFFER_DAYS = 21; // 3 weeks after target week
 
 /**
- * For each crop, calculate the latest possible date for each sowing action
- * and return urgency data sorted by deadline (soonest first).
+ * What can still be sown (or planted out) right now, and what just closed.
  *
- * A crop is "urgent" if its sowing window is still open but closing soon.
- * A crop is "just missed" if its window closed in the last 7 days.
+ * A thin adapter over the site's canonical windows model (crop-windows.ts) —
+ * the same engine the homepage and /sow pages use — so this page never
+ * disagrees with the rest of the site. The old implementation here modelled a
+ * single spring window per crop relative to the last frost, which decayed to
+ * zero by mid-July and stayed there until the following spring.
+ *
+ * "Urgent" = a window open today, most urgent action per crop, soonest first.
+ * "Just missed" = a window that closed within the last 7 days.
  */
 export function getCropUrgencies(
   crops: Crop[],
@@ -27,36 +32,14 @@ export function getCropUrgencies(
   const justMissed: CropUrgency[] = [];
 
   for (const crop of crops) {
-    const entries: { action: CropUrgency["action"]; weeksOffset: number }[] = [];
-
-    if (crop.sowIndoorsWeeks !== null) {
-      entries.push({ action: "sow indoors", weeksOffset: crop.sowIndoorsWeeks });
-    }
-    if (crop.directSowWeeks !== null) {
-      entries.push({ action: "direct sow", weeksOffset: crop.directSowWeeks });
-    }
-    if (crop.plantOutWeeks !== null) {
-      entries.push({ action: "plant out", weeksOffset: crop.plantOutWeeks });
-    }
-
-    for (const { action, weeksOffset } of entries) {
-      // Target date = frostDate + weeksOffset * 7 days
-      // (negative weeksOffset = before frost, positive = after)
-      const targetDate = new Date(frostDate.getTime() + weeksOffset * 7 * MS_PER_DAY);
-      // Deadline = target date + buffer (can still sow up to 3 weeks after target)
-      const deadline = new Date(targetDate.getTime() + WINDOW_BUFFER_DAYS * MS_PER_DAY);
-      const daysLeft = Math.ceil((deadline.getTime() - now.getTime()) / MS_PER_DAY);
-
-      // Window start = target date - 3 weeks
-      const windowStart = new Date(targetDate.getTime() - WINDOW_BUFFER_DAYS * MS_PER_DAY);
-      const hasStarted = now >= windowStart;
-
-      if (daysLeft > 0 && hasStarted) {
+    for (const window of cropWindows(crop, now, frostDate)) {
+      const daysLeft = daysBetween(now, window.closeAt);
+      if (now >= window.openAt && now <= window.closeAt) {
         const level: CropUrgency["level"] =
           daysLeft <= 7 ? "red" : daysLeft <= 14 ? "amber" : "green";
-        urgent.push({ crop, action, deadline, daysLeft, level });
-      } else if (daysLeft >= -7 && daysLeft <= 0 && hasStarted) {
-        justMissed.push({ crop, action, deadline, daysLeft, level: "red" });
+        urgent.push({ crop, action: window.action, deadline: window.closeAt, daysLeft, level });
+      } else if (now > window.closeAt && now.getTime() - window.closeAt.getTime() <= 7 * MS_PER_DAY) {
+        justMissed.push({ crop, action: window.action, deadline: window.closeAt, daysLeft, level: "red" });
       }
     }
   }
@@ -75,6 +58,8 @@ export function getCropUrgencies(
   const seenMissed = new Set<string>();
   const dedupedMissed = justMissed.filter((item) => {
     if (seenMissed.has(item.crop.slug)) return false;
+    // a crop with a window still open isn't "just missed" — another route in remains
+    if (seenUrgent.has(item.crop.slug)) return false;
     seenMissed.add(item.crop.slug);
     return true;
   });
