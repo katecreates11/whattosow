@@ -566,8 +566,12 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
     case "video":
       return (
         <figure className="max-w-3xl mx-auto px-5 sm:px-6 my-11 sm:my-14">
-          <LoopClip src={section.src ?? ""} poster={section.poster ?? ""} alt={section.alt ?? ""} className="img-grade" />
-          {section.caption && <Caption>{section.caption}</Caption>}
+          <LoopClip src={section.src ?? ""} poster={section.poster ?? ""} alt={section.alt ?? ""} className="img-grade" wide={section.wide} />
+          {section.caption && (
+            <div className={section.wide ? "" : "max-w-[24rem] mx-auto"}>
+              <Caption>{section.caption}</Caption>
+            </div>
+          )}
         </figure>
       );
     case "tip":

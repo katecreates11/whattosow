@@ -15,11 +15,14 @@ export default function LoopClip({
   poster,
   alt,
   className = "",
+  wide = false,
 }: {
   src: string;
   poster: string;
   alt: string;
   className?: string;
+  /** Landscape clips can fill the column; portrait (the default) sits at a modest centred width. */
+  wide?: boolean;
 }) {
   const ref = useRef<HTMLVideoElement | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -46,7 +49,7 @@ export default function LoopClip({
   const autoPlays = !reducedMotion || userPlayed;
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${wide ? "" : "max-w-[24rem] mx-auto"} ${className}`}>
       <video
         ref={ref}
         src={src}

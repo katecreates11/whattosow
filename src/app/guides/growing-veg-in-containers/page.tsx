@@ -233,7 +233,7 @@ export default function GrowingInContainersGuide() {
               for leafy crops, and a high-potash tomato feed once tomatoes, chillies and beans begin to flower.
             </p>
 
-            <figure className="mt-6">
+            <figure className="mt-6 max-w-[24rem] mx-auto sm:mx-0">
               <LoopClip
                 src="/videos/blog/container-watering.mp4"
                 poster="/videos/blog/container-watering-poster.webp"

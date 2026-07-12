@@ -218,7 +218,7 @@ export default function WateringGuide() {
               </p>
             </div>
 
-            <figure className="mt-8">
+            <figure className="mt-8 max-w-[24rem] mx-auto sm:mx-0">
               <LoopClip
                 src="/videos/blog/lance-spray-loop.mp4"
                 poster="/videos/blog/lance-spray-loop-poster.webp"
@@ -313,7 +313,7 @@ export default function WateringGuide() {
             </WarningBox>
           </section>
 
-          <figure>
+          <figure className="max-w-[24rem] mx-auto">
             <LoopClip
               src="/videos/blog/watering-can-lettuce.mp4"
               poster="/videos/blog/watering-can-lettuce-poster.webp"

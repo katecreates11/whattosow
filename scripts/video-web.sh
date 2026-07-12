@@ -17,10 +17,10 @@ POSTER="$OUT_DIR/$NAME-poster.webp"
 TRIM=(-ss "$START")
 [ -n "$DUR" ] && TRIM+=(-t "$DUR")
 
-# scale: long edge to 720, keep aspect, even dims for h264
+# scale: long edge to 1080, 30fps, CRF 25 — sharp at the ~420-480px display width, ~2MB for 5s
 ffmpeg -v warning "${TRIM[@]}" -i "$RAW" \
-  -vf "scale='if(gt(iw,ih),720,-2)':'if(gt(iw,ih),-2,720)'" \
-  -c:v libx264 -crf 27 -preset slow -pix_fmt yuv420p -movflags +faststart -an \
+  -vf "scale='if(gt(iw,ih),1080,-2)':'if(gt(iw,ih),-2,1080)',fps=30" \
+  -c:v libx264 -crf 25 -preset slow -pix_fmt yuv420p -movflags +faststart -an \
   "$OUT" -y
 
 # poster: first frame → jpg → cwebp (this ffmpeg build has no libwebp encoder)

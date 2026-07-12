@@ -34,8 +34,10 @@ export interface EditorialSection {
   /** For "table": a scannable comparison, one buy link per row */
   rows?: { name: string; use: string; price?: string; url: string }[];
   /** For "video": a short, silent allotment clip (3-8s web loop from scripts/video-web.sh).
-   *  src = /videos/blog/<name>.mp4, poster = its first-frame webp. alt + caption as for images. */
+   *  src = /videos/blog/<name>.mp4, poster = its first-frame webp. alt + caption as for images.
+   *  Portrait clips render at a modest centred width; set wide for landscape clips. */
   poster?: string;
+  wide?: boolean;
 }
 
 export interface EditorialPost {
