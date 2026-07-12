@@ -101,6 +101,37 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 - **Ready-to-queue brief:** feature → light spec (drag/drop interaction, mobile fallback, reads `crops.ts` companion data); target = deepen the companion cluster; links → companion-planting hub + chart; affiliate = seed links per crop; design = tactile and lovely, follows DIRECTION visual checklist; must work on mobile (tap-to-place fallback).
 - **Added:** 2026-07-07 · **Run:** forager-test-2026-07-07
 
+---
+
+_Shortlist from the Forager's run of 12 July — ranked best-first. Checked against `docs/CUT_LIST.md` and every card above before pitching; nothing here repeats a proposed, approved, parked or binned idea._
+
+### 7. Why your seeds won't come up — the summer sowing trick nobody's telling UK gardeners
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** the Met Office recorded a provisional 37.3°C at Santon Downham on 26 June 2026 — the hottest June day ever recorded in England. Above roughly 25°C soil, lettuce and most salad seed goes into thermo-dormancy and simply won't germinate until it cools, whatever you sow into it. Nine WTS guides mention germination in passing; none explain this specific failure. Every source we found covering it (Harvest to Table, Mother Earth News, UC Master Gardeners Sacramento) is American — no UK gardening site is currently answering "why won't my lettuce seeds come up" for this summer's heat.
+- **Pitch:** a short, practical piece solving the exact frustration behind "Sow now, eat all winter" (card 2, approved) rather than repeating it — the fix (a night in the fridge before sowing, sowing at dusk into cool soil, a plank or folded newspaper over the row until it germinates, then off it comes) handed over the fence, neighbour to neighbour. A natural, honest home for shade netting as the one buy-point, and it links straight into the late-summer sowing piece once that's built.
+- **Ready-to-queue brief:** target "seeds not germinating hot weather" / "lettuce won't germinate heatwave UK"; angle = the trick, not the theory; links → guides/succession-sowing, guides/growing-winter-salad-leaves, and the sow-now-eat-all-winter piece once live; voice = "we've found" register, one concrete method, no soil-science lecture.
+- **Added:** 2026-07-12 · **Run:** forager-2026-07-12
+
+### 8. "Every Drop" — what your roof could give the garden
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · high delight + shareability
+- **Evidence:** three water companies are already under hosepipe restrictions (South East Water in Kent, Southern Water in Hampshire and the Isle of Wight, Anglian Water across the East of England) covering roughly 6.85 million people, with Cambridge Water and Affinity Water joining on 17 July — taking it towards 11 million. Existing rainwater calculators (gardencalc.uk and several trade sites) stop at litres and tank size; none translate that into what it actually buys a vegetable grower. WTS already has a water-butt buying guide (`best-water-butts-uk`, published June) and the postcode engine — nothing joins the two into something you play with.
+- **Pitch:** enter roughly the size of your shed, greenhouse or garage roof and your postcode (reusing the existing location plumbing), and it shows what a typical year's rain would actually fill — then turns the litres into something felt rather than read: "about eleven good soaks for a tomato bed" instead of a number sitting on its own. A quiet, honest nudge toward a second butt or a linking kit where the answer genuinely is yes, pointing straight at the existing buying guide. Playful and shareable, and it earns its place on ground the site already owns.
+- **Ready-to-queue brief:** feature → light spec first (roof-footprint input, regional rainfall lookup, litres→soaks translation using the watering guide's own figures); reuses postcode infrastructure; affiliate = the water butts already linked from `best-water-butts-uk`; design = one interpreted sentence first, mono footnote beneath, no metric-tile row.
+- **Added:** 2026-07-12 · **Run:** forager-2026-07-12
+
+### 9. National Allotments Week (10–16 August) — a page from the plot
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort
+- **Evidence:** National Allotments Week runs 10–16 August 2026, theme "Grow to Learn" (National Allotment Society). WTS has no allotment-culture or diary content at all — the site is entirely crop- and task-led — and `NEXT_PHASES.md` already flags that the auto-generated posts are being retired specifically so Kate's actual diary posts can carry `/blog`. This is the one week the whole allotment world is already talking, and the site currently has nothing to say back.
+- **Pitch:** not a piece about the awareness week — a genuine week from Kate's own plot in mid-August, written the way the blog is meant to read. Low effort, no new data, and exactly the kind of post that makes the diary feel like a diary rather than a template.
+- **Ready-to-queue brief:** no real target query, this is a voice piece rather than an SEO play; angle = one real week, specific and plot-shaped, not a listicle about the awareness week itself; links → /my-garden and whatever guides come up naturally in the telling; voice = pure diary register, no framing sentence about National Allotments Week at all.
+- **Added:** 2026-07-12 · **Run:** forager-2026-07-12
+
 ## Approved
 
 _(empty)_
