@@ -8,9 +8,14 @@
  *                        homepage, funnelling traffic to the Sow page.
  */
 import Image from "next/image";
+import Link from "next/link";
 import { kitForMonth, buyingGuideForMonth } from "@/data/seasonal-kit";
 import { getKit, amazonLink } from "@/data/kit";
 import GearPick from "@/components/GearPick";
+
+function trackingSlug(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
 
 export default function SeasonalKitEdit({
   variant = "full",
@@ -50,23 +55,23 @@ export default function SeasonalKitEdit({
               </li>
             ))}
           </ul>
-          <a
+          <Link
             href="/sow#kit"
             data-umami-event="shop-season-teaser-click"
             className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
           >
             See the {edit.month} edit &amp; what to sow now &rarr;
-          </a>
+          </Link>
           <p className="mt-5 pt-5 border-t border-earth/10 text-sm text-earth-light max-w-[52ch]">
             {guide.hook}{" "}
-            <a
+            <Link
               href={guide.href}
               data-umami-event="seasonal-buying-guide-click"
               data-umami-event-product={guide.label}
               className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors whitespace-nowrap"
             >
               {guide.label} &rarr;
-            </a>
+            </Link>
           </p>
         </div>
         <div className="relative w-full aspect-[4/5] overflow-hidden">
@@ -104,19 +109,20 @@ export default function SeasonalKitEdit({
             badge={p.badge}
             tip={p.tip}
             image={p.image}
+            position={`seasonal-kit-${trackingSlug(edit.month)}-${p.id}`}
           />
         ))}
       </div>
       <p className="text-sm text-earth-light mt-8 max-w-[56ch] leading-relaxed">
         {guide.hook}{" "}
-        <a
+        <Link
           href={guide.href}
           data-umami-event="seasonal-buying-guide-click"
           data-umami-event-product={guide.label}
           className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors whitespace-nowrap"
         >
           {guide.label} &rarr;
-        </a>
+        </Link>
       </p>
       <p className="text-xs text-earth-lighter mt-6 max-w-[56ch] leading-relaxed">
         These are things I&apos;ve bought and use myself. The links are Amazon affiliate links — if you
