@@ -118,7 +118,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 8. "Every Drop" — what your roof could give the garden
 - **Type:** feature  _(→ needs-spec on approval)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-12 · via the potting bench
+- **Note (Kate):** With hose pipe bans, I think allotments are excempt? Because it’s vegetable growing you are allowed to continue watering them. It would be pretty rubbish to lose all your hard work. But obvs allotments try to be responsible, like the no leaving it unattended – you can’t hog the hose setting up a soaker system for your plot and using it all day. My allotment encourages “water harvesting” which is using lots of water butts  My water butt is really nice, it’s like a terracotta pot, I got that as s
 - **Score:** High payoff / Medium effort · high delight + shareability
 - **Evidence:** three water companies are already under hosepipe restrictions (South East Water in Kent, Southern Water in Hampshire and the Isle of Wight, Anglian Water across the East of England) covering roughly 6.85 million people, with Cambridge Water and Affinity Water joining on 17 July — taking it towards 11 million. Existing rainwater calculators (gardencalc.uk and several trade sites) stop at litres and tank size; none translate that into what it actually buys a vegetable grower. WTS already has a water-butt buying guide (`best-water-butts-uk`, published June) and the postcode engine — nothing joins the two into something you play with.
 - **Pitch:** enter roughly the size of your shed, greenhouse or garage roof and your postcode (reusing the existing location plumbing), and it shows what a typical year's rain would actually fill — then turns the litres into something felt rather than read: "about eleven good soaks for a tomato bed" instead of a number sitting on its own. A quiet, honest nudge toward a second butt or a linking kit where the answer genuinely is yes, pointing straight at the existing buying guide. Playful and shareable, and it earns its place on ground the site already owns.
