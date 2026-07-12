@@ -107,7 +107,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 7. Why your seeds won't come up — the summer sowing trick nobody's telling UK gardeners
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-12 · via the potting bench
+- **Note (Kate):** Yes, everyone is talking the heatwave and its effects. I didn’t know this, very interesting! Can you use the postcode info here too? Like check to see if it’s too hot for you lettuce seeds where you are – if they are already done it, should be showing them a personalised result about it
 - **Score:** High payoff / Low effort
 - **Evidence:** the Met Office recorded a provisional 37.3°C at Santon Downham on 26 June 2026 — the hottest June day ever recorded in England. Above roughly 25°C soil, lettuce and most salad seed goes into thermo-dormancy and simply won't germinate until it cools, whatever you sow into it. Nine WTS guides mention germination in passing; none explain this specific failure. Every source we found covering it (Harvest to Table, Mother Earth News, UC Master Gardeners Sacramento) is American — no UK gardening site is currently answering "why won't my lettuce seeds come up" for this summer's heat.
 - **Pitch:** a short, practical piece solving the exact frustration behind "Sow now, eat all winter" (card 2, approved) rather than repeating it — the fix (a night in the fridge before sowing, sowing at dusk into cool soil, a plank or folded newspaper over the row until it germinates, then off it comes) handed over the fence, neighbour to neighbour. A natural, honest home for shade netting as the one buy-point, and it links straight into the late-summer sowing piece once that's built.
