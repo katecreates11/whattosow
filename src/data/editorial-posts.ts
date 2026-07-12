@@ -4,7 +4,7 @@
  */
 
 export interface EditorialSection {
-  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery" | "table";
+  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery" | "table" | "ownedSince";
   content: string;
   /** For images: src path */
   src?: string;
@@ -28,6 +28,9 @@ export interface EditorialSection {
   productPrice?: string;
   productUrl?: string;
   productBadge?: "our-pick" | "budget" | "upgrade" | "essential";
+  /** For "ownedSince": the wear-and-tear proof unit — year of purchase + photos across seasons */
+  since?: string;
+  note?: string;
   /** For "table": a scannable comparison, one buy link per row */
   rows?: { name: string; use: string; price?: string; url: string }[];
 }
@@ -358,6 +361,16 @@ export const editorialPosts: EditorialPost[] = [
         type: "tip",
         content:
           "Keep a couple of small tubs at the plot, not at home. There's nothing more annoying than starting to weed and having nowhere to put them. The small ones are perfect for moving along a row beside you; when one's full, tip it into a big one to bring home. A little fleet of them, big and small, is the trick.",
+      },
+      {
+        type: "ownedSince",
+        content: "",
+        since: "2025",
+        images: [
+          { src: "/photos/blog/trug-2025-weeding.webp", alt: "The green trug on weeding duty, 2025", caption: "2025" },
+          { src: "/photos/blog/trug-2026-weeds.webp", alt: "The same trug, still hauling weeds, 2026", caption: "2026" },
+        ],
+        note: "Dragged, overfilled, left out all winter — the trug doesn't care. That's the review.",
       },
       {
         type: "product",
@@ -714,6 +727,16 @@ export const editorialPosts: EditorialPost[] = [
             aspect: "square",
           },
         ],
+      },
+      {
+        type: "ownedSince",
+        content: "",
+        since: "summer 2025",
+        images: [
+          { src: "/photos/blog/watering-lance-golden-hour-spray.webp", alt: "The watering lance in use, June 2025", caption: "June 2025" },
+          { src: "/photos/blog/watering-lance-potato-row.webp", alt: "The same lance watering-in potatoes, May 2026", caption: "May 2026" },
+        ],
+        note: "Two summers of daily use, dropped on the path more times than I can count. Same lance, still watering.",
       },
       {
         type: "product",
@@ -2397,6 +2420,17 @@ export const editorialPosts: EditorialPost[] = [
         content:
           "Once it's built, the fun begins: gridding it up the square-foot way and tucking in good companions. I've written about both — they turn one tidy bed into a surprising amount of food.",
       },
+      {
+        type: "ownedSince",
+        content: "",
+        since: "spring 2022",
+        images: [
+          { src: "/photos/blog/beds-2022-built.webp", alt: "The first bed frames on the bare plot, 2022", caption: "Built 2022" },
+          { src: "/photos/blog/plot-2024-marigold-beds.webp", alt: "The beds in their marigold year, 2024", caption: "2024" },
+          { src: "/photos/blog/plot-2026-raised-beds.webp", alt: "The same timber, fully planted, 2026", caption: "Still standing, 2026" },
+        ],
+        note: "The same timber through five seasons of British weather — this page recommends nothing we haven't stood on, filled, and left out in the rain.",
+      },
     ],
     relatedCrops: ["carrots", "beetroot", "lettuce", "radishes"],
   },
@@ -2464,6 +2498,16 @@ export const editorialPosts: EditorialPost[] = [
         content:
           "Pair it with a heated propagator for the earliest sowings and you've got a proper little production line from January onwards — there's a guide to those below.",
       },
+      {
+        type: "ownedSince",
+        content: "",
+        since: "2024",
+        images: [
+          { src: "/photos/blog/cloche-2024-strawberries.webp", alt: "Strawberries ripening under the bell cloche, 2024", caption: "2024" },
+          { src: "/photos/guides/cloche-dome-beaded.webp", alt: "The same cloche beaded with water at sunset, 2025", caption: "2025" },
+        ],
+        note: "The bell cloche has earned its keep two springs running — cheap protection that keeps working.",
+      },
     ],
     relatedCrops: ["tomatoes", "peppers", "chillies", "cucumbers"],
   },
@@ -2530,6 +2574,16 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "For how and when to water once you've banked the rain, there's a full watering guide below — including the watering lance that turned the job from a chore into a pleasure.",
+      },
+      {
+        type: "ownedSince",
+        content: "",
+        since: "2022",
+        images: [
+          { src: "/photos/blog/water-butt-2022.webp", alt: "The first blue water butt by the shed, 2022", caption: "2022" },
+          { src: "/photos/blog/water-butt-2025.webp", alt: "The greenhouse water butt at dusk, 2025", caption: "2025" },
+        ],
+        note: "Ours have been out in every frost since 2022. A good butt is a one-time buy.",
       },
     ],
     relatedCrops: ["tomatoes", "courgettes", "runner-beans", "cucumbers"],

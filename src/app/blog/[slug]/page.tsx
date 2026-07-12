@@ -479,6 +479,26 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
           <div className="mx-auto w-8 h-px bg-amber mt-7" />
         </figure>
       );
+    case "ownedSince":
+      return (
+        <div className="max-w-[44rem] mx-auto px-6 my-10">
+          <div className="border border-allotment/25 bg-sage/15 px-5 py-5 sm:px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-allotment">
+              &#9632; Owned since {section.since} &middot; still in use
+            </p>
+            <div className={`mt-4 grid gap-3 ${(section.images?.length ?? 0) >= 3 ? "grid-cols-3" : "grid-cols-2"}`}>
+              {section.images?.map((img, j) => (
+                <figure key={j}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={img.src} alt={img.alt ?? ""} loading="lazy" className="aspect-square w-full object-cover" />
+                  <figcaption className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-light">{img.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+            {section.note && <p className="mt-4 text-[0.9rem] leading-relaxed text-earth-light">{section.note}</p>}
+          </div>
+        </div>
+      );
     case "pair":
       return (
         <GalleryGroup
