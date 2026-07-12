@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
@@ -52,9 +53,9 @@ function CropRow({ item }: { item: CropItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
@@ -63,9 +64,11 @@ function CropRow({ item }: { item: CropItem }) {
             href={item.seeds}
             product={`${item.name} seeds`}
             type="seed"
+            merchant="thompson-morgan"
+            position="containers-seeds"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
+            Seeds at T&amp;M &rarr;
           </AffiliateLink>
         )}
       </div>
@@ -204,12 +207,12 @@ export default function GrowingInContainersGuide() {
                 <span className="font-serif text-earth">Use a good peat-free compost</span> &mdash; multipurpose for most
                 crops; for hungry, long-season plants like tomatoes, mix in some soil-based John Innes, which holds water
                 and food better. Don&apos;t fill pots with garden soil alone &mdash; it compacts and drains badly.{" "}
-                <AffiliateLink href={az("peat free multipurpose compost")} product="peat-free compost" type="gear" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</AffiliateLink>
+                <AffiliateLink href={az("peat free multipurpose compost")} product="peat-free compost" type="gear" merchant="amazon" position="containers-compost" className="text-rust underline decoration-rust/30 hover:text-earth">Compare peat-free compost &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Almost anything can be a container</span> &mdash; proper pots,
                 troughs, an old bucket with holes drilled, a{" "}
-                <AffiliateLink href={az("potato grow bags planter")} product="potato grow bags" type="gear" className="text-rust underline decoration-rust/30 hover:text-earth">potato grow bag</AffiliateLink>. If it holds compost and drains, it&apos;ll grow something.
+                <AffiliateLink href={az("potato grow bags planter")} product="potato grow bags" type="gear" merchant="amazon" position="containers-grow-bag" className="text-rust underline decoration-rust/30 hover:text-earth">Compare potato grow bags</AffiliateLink>. If it holds compost and drains, it&apos;ll grow something.
               </li>
             </ul>
           </section>
@@ -229,7 +232,7 @@ export default function GrowingInContainersGuide() {
             <p className="mb-3">
               And they need feeding. The food in fresh compost runs out after about six weeks, and all that watering
               washes it through, so after the first month or so, feed regularly: a balanced{" "}
-              <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" className="text-rust underline decoration-rust/30 hover:text-earth">liquid feed</AffiliateLink>{" "}
+              <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" merchant="amazon" position="containers-liquid-feed" className="text-rust underline decoration-rust/30 hover:text-earth">Compare liquid feed</AffiliateLink>{" "}
               for leafy crops, and a high-potash tomato feed once tomatoes, chillies and beans begin to flower.
             </p>
 
@@ -287,22 +290,22 @@ export default function GrowingInContainersGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/companion-planting/companion-planting-small-gardens" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/companion-planting/companion-planting-small-gardens" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting for small gardens &amp; containers</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/growing-winter-salad-leaves" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/growing-winter-salad-leaves" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Growing winter salad leaves</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Succession sowing</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow now for your postcode</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
