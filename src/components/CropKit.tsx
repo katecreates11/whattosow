@@ -34,6 +34,10 @@ export default function CropKit({ slug, cropName }: CropKitProps) {
 }
 
 function KitItemCard({ item }: { item: KitItem }) {
+  const compareLabel = `Compare ${item.name
+    .replace(/\s*\([^)]*\)/g, "")
+    .toLowerCase()}`;
+
   return (
     <div className="border-t border-earth/6 pt-3">
       <div className="flex items-start justify-between gap-3 mb-1">
@@ -44,7 +48,7 @@ function KitItemCard({ item }: { item: KitItem }) {
           type="gear"
           className="group shrink-0 inline-flex items-center gap-1 text-[11px] font-medium text-earth border border-earth/10 px-2.5 py-1.5 hover:border-allotment hover:text-allotment transition-colors duration-200"
         >
-          Compare options
+          {compareLabel}
           <svg
             className="w-2.5 h-2.5 opacity-30 group-hover:opacity-70 transition-opacity duration-200"
             fill="none"

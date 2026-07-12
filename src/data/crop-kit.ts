@@ -466,7 +466,7 @@ const cropKitMap: Record<string, KitItem[]> = {
     TOMORITE,
     {
       name: "Soft plant ties",
-      why: "If using canes instead of spirals. Beginners use string that cuts into stems — soft ties or figure-8 clips are kinder.",
+      why: "Cordon tomatoes need tying in as they grow. Soft ties or figure-8 clips hold the stem without cutting into it.",
       amazonUrl: az("tomato plant clips"),
     },
   ],
