@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import BedDiagram from "@/components/BedDiagram";
-import { awinLink } from "@/lib/awin";
 
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
-const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
+const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
 
 export const metadata: Metadata = {
   title: "What to Sow in Autumn & Winter in the UK — Complete Guide | What To Sow",
@@ -69,16 +69,16 @@ function SowRow({ item }: { item: SowItem }) {
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
         {item.seeds && (
-          <a
+          <AffiliateLink
             href={item.seeds}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
-            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
-            data-umami-event-topic="autumn-winter"
+            product={item.name}
+            type="seed"
+            merchant="thompson-morgan"
+            position="autumn-winter-seeds"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
-          </a>
+            Seeds at T&amp;M &rarr;
+          </AffiliateLink>
         )}
       </div>
       <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{item.note}</p>
@@ -292,12 +292,12 @@ export default function AutumnWinterGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Horticultural fleece</span> &mdash; the cheapest few degrees
                 of frost protection there is. Drape it over hardy crops on cold nights.{" "}
-                <a href={az("horticultural fleece plant frost protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon" position="autumn-winter-fleece" className="text-rust underline decoration-rust/30 hover:text-earth">Compare horticultural fleece &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Cloches</span> &mdash; little tunnels or bell covers that keep
                 salad and seedlings snug and the worst of the rain off.{" "}
-                <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="autumn-winter-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Compare cloche tunnels &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame or small greenhouse</span> &mdash; the proper
