@@ -316,11 +316,7 @@ const cropKitMap: Record<string, KitItem[]> = {
     },
   ],
   "maincrop-potatoes": [
-    {
-      name: "Chitting trays",
-      why: "Start chitting 6 weeks before planting. Egg boxes work, but proper trays are a few quid and stack neatly.",
-      amazonUrl: az("seed potato chitting tray"),
-    },
+    FLEECE,
     {
       name: "Potato grow bags",
       why: "If space is tight or your soil has blight history. Fabric bags with an access flap let you harvest without tipping the whole thing out.",
@@ -467,11 +463,6 @@ const cropKitMap: Record<string, KitItem[]> = {
 
   // ── TENDER ──
   tomatoes: [
-    {
-      name: "Spiral tomato supports",
-      why: "Reusable, no tying needed — just wind the stem as it grows. Much easier than canes and string once you've tried them.",
-      amazonUrl: az("tomato spiral support"),
-    },
     TOMORITE,
     {
       name: "Soft plant ties",

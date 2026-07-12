@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getCropBuyingAdvice } from "@/data/crop-kit";
+import { getCropBuyingAdvice, getCropKit } from "@/data/crop-kit";
 
 describe("crop buying advice", () => {
   const currentRollout = [
@@ -51,5 +51,17 @@ describe("crop buying advice", () => {
         expect(item.cta.length).toBeGreaterThan(12);
       }
     }
+  });
+
+  it("keeps older crop kit rails aligned with trust-led skip advice", () => {
+    expect(getCropKit("tomatoes").map((item) => item.name)).not.toContain(
+      "Spiral tomato supports",
+    );
+    expect(getCropKit("maincrop-potatoes").map((item) => item.name)).not.toContain(
+      "Chitting trays",
+    );
+    expect(getCropKit("maincrop-potatoes").map((item) => item.name)).toContain(
+      "Hessian storage sacks",
+    );
   });
 });
