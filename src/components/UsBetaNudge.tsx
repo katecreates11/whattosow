@@ -88,7 +88,7 @@ export default function UsBetaNudge() {
     const timer = window.setTimeout(() => {
       writeChoice("redirected");
       track("us-beta-auto-redirect", { path: pathname });
-      router.push("/us");
+      router.push("/us?source=homepage-auto");
     }, 1200);
 
     return () => window.clearTimeout(timer);
@@ -125,7 +125,7 @@ export default function UsBetaNudge() {
     <div className="fixed inset-x-0 top-0 z-50 border-b border-allotment/20 bg-allotment-dark px-4 py-2 text-white shadow-[0_6px_20px_rgba(0,0,0,0.16)]">
       <div className="mx-auto flex max-w-5xl items-center gap-3 text-sm">
         <Link
-          href="/us"
+          href="/us?source=page-nudge"
           onClick={() => {
             writeChoice("redirected");
             track("us-beta-nudge-click", { path: pathname });

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import UsSeedBuyerNote from "@/components/UsSeedBuyerNote";
+import { normaliseUsBetaSource } from "@/lib/us-beta-source";
 import { getUsZipSowingAnswer, type UsZipSowingAnswer } from "@/lib/us-zip";
 
 type UmamiWindow = Window & {
@@ -10,9 +12,17 @@ type UmamiWindow = Window & {
   };
 };
 
+function readSource() {
+  if (typeof window === "undefined") return "direct";
+  return normaliseUsBetaSource(new URLSearchParams(window.location.search).get("source"));
+}
+
 function trackZipAnswer(answer: UsZipSowingAnswer) {
   if (typeof window === "undefined") return;
-  (window as UmamiWindow).umami?.track("us-zip-submitted", answer.tracking);
+  (window as UmamiWindow).umami?.track("us-zip-submitted", {
+    ...answer.tracking,
+    source: readSource(),
+  });
 }
 
 export default function UsZipTool() {
@@ -61,7 +71,7 @@ export default function UsZipTool() {
           <p className="mt-4 text-earth-light leading-relaxed max-w-[58ch]">
             {answer
               ? `${answer.zoneBand}. ${answer.interpretation}`
-              : "This is a small American test from a UK allotment site: broad region first, better local detail only if people actually use it."}
+              : "This is broad US guidance for now. If enough gardeners use it, we will build the county-level version with USDA zones and local extension links."}
           </p>
         </div>
 
@@ -150,6 +160,7 @@ export default function UsZipTool() {
             <p className="mt-4 text-xs leading-relaxed text-earth-light">
               {answer.caveat} For exact planting dates, check your local cooperative extension.
             </p>
+            <UsSeedBuyerNote />
           </div>
         ) : (
           <div>

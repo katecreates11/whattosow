@@ -12,5 +12,6 @@ describe("UsPage", () => {
     expect(html).toContain("/crops/basil");
     expect(html).toContain("/crops/french-beans");
     expect(html).toContain("data-umami-event=\"us-zip-start\"");
+    expect(html).toContain("This is broad US guidance for now");
   });
 });
