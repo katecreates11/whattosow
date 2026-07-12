@@ -7,9 +7,10 @@ describe("BlogPostPage", () => {
     const element = await BlogPostPage({ params: Promise.resolve({ slug: "watering-lance-allotment" }) });
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("Compare on Amazon");
+    expect(html).toContain("Compare watering lances");
     expect(html).toContain('data-umami-event-position="blog-primary-product"');
     expect(html).toContain('data-umami-event-merchant="amazon-uk"');
+    expect(html).not.toContain("Compare on Amazon");
     expect(html).not.toContain("Check price on Amazon");
   });
 });

@@ -237,7 +237,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                 {post.primaryProduct.price ? ` · ${post.primaryProduct.price}` : ""}
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2.5 whitespace-nowrap group-hover:bg-allotment-dark transition-colors">
-                Compare on Amazon &rarr;
+                {post.primaryProduct.ctaLabel ?? "Compare this pick"} &rarr;
               </span>
             </AffiliateLink>
             <p className="text-[11px] text-earth-lighter mt-1.5">Affiliate link — we may earn a little, at no extra cost to you.</p>

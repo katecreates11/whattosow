@@ -59,7 +59,7 @@ export interface EditorialPost {
   /** "What I used" — kit catalogue ids (see src/data/kit.ts) shown as a shoppable strip */
   kit?: string[];
   /** Single-product reviews: drives an above-the-fold Amazon CTA + Review schema (stars in Google) */
-  primaryProduct?: { name: string; url: string; price?: string };
+  primaryProduct?: { name: string; url: string; price?: string; ctaLabel?: string };
   /** Kate's honest rating out of 5 for the primaryProduct (for Review structured data) */
   rating?: number;
 }
@@ -224,7 +224,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["lettuce", "radishes", "carrots", "beetroot", "spring-onions"],
-    primaryProduct: { name: "Seeding Square colour-coded seed spacer", url: "https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21" },
+    primaryProduct: { name: "Seeding Square colour-coded seed spacer", url: "https://www.amazon.co.uk/dp/B00US8ESWK?tag=whattosow21-21", ctaLabel: "Compare seed spacers" },
     rating: 5,
   },
   {
@@ -483,7 +483,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: [],
-    primaryProduct: { name: "Red Gorilla flexible tub (small, 14L)", url: "https://www.amazon.co.uk/dp/B011AEXWI6?tag=whattosow21-21" },
+    primaryProduct: { name: "Red Gorilla flexible tub (small, 14L)", url: "https://www.amazon.co.uk/dp/B011AEXWI6?tag=whattosow21-21", ctaLabel: "Compare flexible tubs" },
     rating: 5,
   },
   {
@@ -741,7 +741,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: [],
-    primaryProduct: { name: "Haemmerlin Original 90L puncture-free wheelbarrow", url: "https://www.amazon.co.uk/dp/B07BPNJ8KH?tag=whattosow21-21" },
+    primaryProduct: { name: "Haemmerlin Original 90L puncture-free wheelbarrow", url: "https://www.amazon.co.uk/dp/B07BPNJ8KH?tag=whattosow21-21", ctaLabel: "Compare wheelbarrows" },
     rating: 5,
   },
   {
@@ -852,7 +852,7 @@ export const editorialPosts: EditorialPost[] = [
       },
     ],
     relatedCrops: ["courgettes", "tomatoes"],
-    primaryProduct: { name: "Gardena premium watering lance", url: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21" },
+    primaryProduct: { name: "Gardena premium watering lance", url: "https://www.amazon.co.uk/dp/B01MQDGXMO?tag=whattosow21-21", ctaLabel: "Compare watering lances" },
     rating: 5,
   },
   {
@@ -944,7 +944,7 @@ export const editorialPosts: EditorialPost[] = [
     ],
     relatedCrops: ["potatoes", "sunflowers"],
     kit: ["gloves", "kneeler", "weed-puller"],
-    primaryProduct: { name: "Terradix 5x300 broadfork", url: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21", price: "~£129" },
+    primaryProduct: { name: "Terradix 5x300 broadfork", url: "https://www.amazon.co.uk/dp/B09J4QWJLW?tag=whattosow21-21", price: "~£129", ctaLabel: "Compare broadforks" },
     rating: 5,
   },
   {
