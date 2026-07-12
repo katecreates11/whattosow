@@ -132,6 +132,26 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 - **Ready-to-queue brief:** no real target query, this is a voice piece rather than an SEO play; angle = one real week, specific and plot-shaped, not a listicle about the awareness week itself; links → /my-garden and whatever guides come up naturally in the telling; voice = pure diary register, no framing sentence about National Allotments Week at all.
 - **Added:** 2026-07-12 · **Run:** forager-2026-07-12
 
+### 10. Save your own flower seed — marigolds, nasturtiums, sunflowers
+- **Type:** content
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-07-11)
+- **Score:** Medium payoff / Low effort
+- **Evidence:** Kate parked the veg seed-saving pitch (#3 above) specifically because Real Seeds already covers it well and our affiliate partners (Suttons, Dobies) sell mostly F1 seed, which sits oddly next to a save-your-own-veg-seed piece. In the same note she suggested the pivot herself: "maybe we can do a sunflower one and marigold etc?" Ornamental seed isn't the F1-heavy category the affiliate mismatch was about, and marigolds/nasturtiums are companion-planting flowers — a natural link into the site's #1-performing hub.
+- **Pitch:** A simple, warm how-to for saving flower seed from the easiest three — marigolds, nasturtiums, sunflowers — when to collect the dried heads/pods, how to store over winter, and a nod to next spring's companion-planting bed. Same thrift-and-closing-the-loop voice as the parked veg piece, without the affiliate mismatch.
+- **Ready-to-queue brief:** target "how to save marigold seed" / "saving nasturtium and sunflower seed uk"; angle = thrift + feeds next year's companion planting; links → companion-planting hub, relevant crop/flower pages; voice = satisfied, unfussy, no F1 caveat needed (these are grown from seed you'd save either way).
+- **Added:** 2026-07-11 · **Run:** dream-2026-07-11
+
+### 11. "Good neighbours for your alliums" — a companion-planting tie-in for the autumn hub
+- **Type:** content
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-07-11)
+- **Score:** High payoff / Very low effort
+- **Evidence:** Idea #1 (autumn garlic & onion hub) was just approved with praise for pairing useful content and affiliate focus. The companion-planting hub is the site's #1-performing page, built on data already in `crops.ts`. No new build — just a section or internal link inside the already-approved hub pointing at good/bad allium neighbours, using data that exists today.
+- **Pitch:** One short section (or a cross-link, if the hub's already been scoped tight) in the autumn allium hub: what to plant alongside garlic and onions, and what to keep well away, drawn from the existing companion data. Extends dwell time on an already-timely, already-approved page and deepens the site's strongest cluster, for near-zero extra effort.
+- **Ready-to-queue brief:** target = ride the autumn hub's own query, no new target needed; angle = one practical addition, not a new page; links → companion-planting hub; fold into idea #1's build rather than shipping separately.
+- **Added:** 2026-07-11 · **Run:** dream-2026-07-11
+
 ## Approved
 
 _(empty)_
