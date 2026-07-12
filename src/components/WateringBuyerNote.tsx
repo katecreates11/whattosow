@@ -14,13 +14,13 @@ export default function WateringBuyerNote() {
         id="watering-buyer-note"
         className="mt-2 font-serif text-2xl text-earth sm:text-3xl"
       >
-        What I&apos;d buy first
+        The watering kit worth buying first
       </h2>
       <p className="mt-3 max-w-[62ch] text-earth-light">
         If you are buying one watering setup, buy for the water supply you
         actually have. On some allotments you can use a hose while you stand
-        there holding it; on others you fill cans from a communal tank and keep
-        the water in your hand throughout.
+        there holding it; on others you fill cans from a communal tank, dip
+        tank or trough and keep the water in your hand throughout.
       </p>
 
       <div className="mt-7 divide-y divide-earth/10 border-t border-earth/10">
@@ -32,9 +32,10 @@ export default function WateringBuyerNote() {
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Buy if
             </span>{" "}
-            hoses are banned, busy or awkward. Two cans balance the walk back
-            to the bed; a detachable rose gives seedlings a softer drink.
-            Ordinary plastic is fine.{" "}
+            hoses are banned, busy or awkward. If your allotment tanks run dry
+            or the hoses are always in use, two cans are the difference between
+            watering properly and going home annoyed. A detachable rose gives
+            seedlings a softer drink, and ordinary plastic is fine.{" "}
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Skip if
             </span>{" "}
@@ -48,7 +49,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note-cans"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Compare simple 10L cans with roses &rarr;
+            Compare sturdy 10L cans with removable roses &rarr;
           </AffiliateLink>
         </div>
 
@@ -60,9 +61,10 @@ export default function WateringBuyerNote() {
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Buy if
             </span>{" "}
-            your site allows hose use and you are watering deep beds, beans or
-            tomatoes. A lance reaches under leaves and across beds without
-            trampling the soil, while you stay in control of the water.{" "}
+            your site allows hose use while you hold it and you are watering
+            deep beds, beans or tomatoes. A lance reaches under leaves and
+            across beds without trampling the soil, while you stay in control
+            of the water.{" "}
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Skip if
             </span>{" "}
@@ -75,7 +77,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note-lance"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Check the Gardena lance I use &rarr;
+            Compare the Gardena lance I use &rarr;
           </AffiliateLink>
           <Link
             href="/blog/watering-lance-allotment"
@@ -93,9 +95,10 @@ export default function WateringBuyerNote() {
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Buy if
             </span>{" "}
-            you have a shed, greenhouse or polytunnel roof. Saved rainwater is
-            the quiet winner, and a stand matters: without the height, getting
-            a watering can under the tap becomes a daily nuisance.{" "}
+            you have a shed, greenhouse or polytunnel roof and permission to
+            store water. Saved rainwater is the quiet winner, and a stand
+            matters: without the height, getting a watering can under the tap
+            becomes a daily nuisance.{" "}
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Skip if
             </span>{" "}
