@@ -73,6 +73,38 @@ function CropRow({ item }: { item: CropItem }) {
   );
 }
 
+function SquashBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="squash-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="squash-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for squash and courgettes
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <p className="text-earth">
+          <span className="font-serif">Worth buying:</span> a high-potash feed once flowering starts, and ground-cover
+          membrane or a thick mulch if your fruit will sit on bare soil. Feed keeps the plants cropping; a dry, clean
+          surface keeps pumpkins and winter squash from sulking in damp.
+        </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <AffiliateLink href={az("high potash tomato feed vegetables")} product="high-potash feed" type="gear" merchant="amazon" position="squash-family-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+            Compare high-potash feed &rarr;
+          </AffiliateLink>
+          <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" merchant="amazon" position="squash-family-membrane" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+            Compare ground cover membrane
+          </AffiliateLink>
+        </div>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip decorative supports.</span> Courgettes and squash want space,
+          water and food far more than fancy frames.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export default function GrowingSquashGuide() {
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -195,6 +227,7 @@ export default function GrowingSquashGuide() {
               generously and deeply, at the roots, all summer. Give them room, too: a courgette wants a square metre to
               itself, a pumpkin far more. Crowd them and you get mildew and sulks.
             </p>
+            <SquashBuyerNote />
           </section>
 
           <TipBox title="Water at the roots, not the leaves">
@@ -248,9 +281,8 @@ export default function GrowingSquashGuide() {
               Winter squash and pumpkins are the opposite: leave them on the vine to colour up fully and let the stem
               begin to cork, ideally before the first frost. Then <strong className="text-earth">cure</strong> them &mdash;
               a fortnight somewhere warm and dry to harden the skins. Cured and stored somewhere cool, dry and airy, a
-              good winter squash keeps for months, the slow reward of the whole sprawling summer. A length of{" "}
-              <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" merchant="amazon" position="squash-family-membrane" className="text-rust underline decoration-rust/30 hover:text-earth">Compare ground cover membrane</AffiliateLink>{" "}
-              under the swelling fruits keeps them clean and off the damp soil as they ripen.
+              good winter squash keeps for months, the slow reward of the whole sprawling summer. Keep swelling fruits
+              clean and off damp soil as they ripen.
             </p>
           </section>
 
