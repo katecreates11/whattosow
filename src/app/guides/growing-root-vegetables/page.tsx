@@ -74,6 +74,33 @@ function CropRow({ item }: { item: CropItem }) {
   );
 }
 
+function RootBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="root-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="root-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for carrots
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <p className="text-earth">
+          <span className="font-serif">Worth buying:</span> fine insect mesh if carrot fly is a regular problem where
+          you grow. It is more useful than most carrot gadgets because it prevents the damage before the fly finds the
+          row.
+        </p>
+        <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon" position="root-vegetables-carrot-fly-mesh" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+          Compare fine insect mesh &rarr;
+        </AffiliateLink>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip seed tapes.</span> They are tidy, but careful thin sowing is
+          usually cheaper and gives you more control over gaps.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export default function GrowingRootsGuide() {
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -245,8 +272,7 @@ export default function GrowingRootsGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A mesh barrier</span> &mdash; because the fly flies low, a 60cm
                 wall of fine insect mesh or fleece around the bed keeps the great majority out. The single most reliable
-                method.{" "}
-                <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon" position="root-vegetables-carrot-fly-mesh" className="text-rust underline decoration-rust/30 hover:text-earth">Compare fine insect mesh &rarr;</AffiliateLink>
+                method.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Mask the scent</span> &mdash; grow onions or other alliums
@@ -254,6 +280,7 @@ export default function GrowingRootsGuide() {
                 <Link href="/guides/companion-planting/companion-plants-for-carrots" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for carrots</Link>), and avoid bruising the foliage by sowing thinly.
               </li>
             </ul>
+            <RootBuyerNote />
           </section>
 
           {/* Harvest */}

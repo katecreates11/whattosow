@@ -7,6 +7,8 @@ describe("GrowingRootsGuide", () => {
   it("uses clear, centrally tracked seed and carrot-fly mesh links", () => {
     const html = renderToStaticMarkup(createElement(GrowingRootsGuide));
 
+    expect(html).toContain("Worth buying for carrots");
+    expect(html).toContain("Skip seed tapes");
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare fine insect mesh");
     expect(html).toContain('data-umami-event-position="root-vegetables-seeds"');
