@@ -241,7 +241,16 @@ export default function SummerSowingGuide() {
             Summer&apos;s one real enemy for the seed-sower is dry soil. Seeds need constant moisture to germinate, and a
             warm bed dries out in hours. Water the bottom of the drill before you sow, sow into the damp, and keep the
             surface moist until the seedlings are through &mdash; a sheet of{" "}
-            <a href={az("horticultural fleece plant protection")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="fleece" className="text-rust underline decoration-rust/30 hover:text-earth">fleece</a>{" "}
+            <AffiliateLink
+              href={az("horticultural fleece plant protection")}
+              product="horticultural fleece"
+              type="gear"
+              merchant="amazon"
+              position="summer-sowing-fleece"
+              className="text-rust underline decoration-rust/30 hover:text-earth"
+            >
+              fleece
+            </AffiliateLink>{" "}
             laid over the row holds the moisture in beautifully. See our{" "}
             <Link href="/guides/watering" className="text-rust underline decoration-rust/30 hover:text-earth">watering guide</Link>{" "}
             for getting it right in the heat.

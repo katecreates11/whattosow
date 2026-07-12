@@ -21,6 +21,7 @@ const AWIN_MIDS: { match: string; mid: string }[] = [
 
 export function awinLink(url: string): string {
   if (!url) return url;
+  if (url.includes("awin1.com/cread.php")) return url;
   const mid = AWIN_MIDS.find((m) => url.includes(m.match))?.mid;
   if (!mid) return url; // not an active Awin merchant — leave as a plain link
   return `https://www.awin1.com/cread.php?awinmid=${mid}&awinaffid=${AWIN_AFFID}&ued=${encodeURIComponent(url)}`;

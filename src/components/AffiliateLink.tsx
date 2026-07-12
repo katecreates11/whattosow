@@ -15,13 +15,15 @@
  */
 import { awinLink } from "@/lib/awin";
 
-const AMAZON_TAG = "whattosow21-21";
+const AMAZON_UK_TAG = "whattosow21-21";
+const AMAZON_US_TAG = "whattosowus-20";
 
 /** Ensure an Amazon URL carries our associates tag (don't double-tag). */
 function withAmazonTag(url: string): string {
   if (url.includes("tag=")) return url;
   const sep = url.includes("?") ? "&" : "?";
-  return `${url}${sep}tag=${AMAZON_TAG}`;
+  const tag = url.includes("amazon.com/") ? AMAZON_US_TAG : AMAZON_UK_TAG;
+  return `${url}${sep}tag=${tag}`;
 }
 
 /**
@@ -52,7 +54,8 @@ export function merchantSlug(name: string): string {
 function merchantFromUrl(url: string): string {
   try {
     const host = new URL(url).hostname.replace(/^www\./, "");
-    if (host.includes("amazon")) return "amazon";
+    if (host === "amazon.com" || host.endsWith(".amazon.com")) return "amazon-us";
+    if (host.includes("amazon")) return "amazon-uk";
     if (host.includes("thompson-morgan")) return "thompson-morgan";
     if (host.includes("suttons")) return "suttons";
     if (host.includes("crocus")) return "crocus";
@@ -66,7 +69,9 @@ function merchantFromUrl(url: string): string {
   }
 }
 
-export interface AffiliateLinkProps {
+export interface AffiliateLinkProps
+  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "target" | "rel" | "children"> {
+  [key: `data-${string}`]: string | undefined;
   /** Raw destination URL (un-tagged is fine — we wrap it). */
   href: string;
   /** What's being linked, e.g. "horticultural fleece" or "Aquadulce broad bean". */
@@ -78,7 +83,7 @@ export interface AffiliateLinkProps {
   /** Optional placement label for existing Umami reports. */
   position?: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function AffiliateLink({
@@ -89,10 +94,12 @@ export default function AffiliateLink({
   position,
   className,
   children,
+  ...rest
 }: AffiliateLinkProps) {
   const url = affiliateUrl(href);
   return (
     <a
+      {...rest}
       href={url}
       target="_blank"
       rel="sponsored noopener noreferrer"

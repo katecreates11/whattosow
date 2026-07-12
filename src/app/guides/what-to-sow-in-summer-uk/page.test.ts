@@ -9,6 +9,7 @@ describe("SummerSowingGuide", () => {
 
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain('data-umami-event-position="summer-sowing-seeds"');
+    expect(html).toContain('data-umami-event-position="summer-sowing-fleece"');
     expect(html).toContain('data-umami-event-merchant="thompson-morgan"');
     expect(html).not.toContain("Find seeds");
   });

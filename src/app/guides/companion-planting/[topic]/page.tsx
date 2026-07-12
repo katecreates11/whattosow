@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import PinButton from "@/components/PinButton";
 import SlotImage from "@/components/SlotImage";
 import { companionTopics, getCompanionTopic } from "@/data/companion-topics";
@@ -183,19 +185,19 @@ export default async function CompanionTopicPage({
           {t.seedLinks && t.seedLinks.length > 0 && (
             <section className="mb-10">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Find the seeds</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Seeds that fit this plan</span>
                 {t.seedLinks.map((l) => (
-                  <a
+                  <AffiliateLink
                     key={l.label}
                     href={awinLink(l.url)}
-                    target="_blank"
-                    rel="sponsored noopener noreferrer"
-                    data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
-                    data-umami-event-product={l.label}
+                    product={l.label}
+                    type="seed"
+                    merchant="thompson-morgan"
+                    position="companion-topic-seeds"
                     className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                   >
                     {l.label} &rarr;
-                  </a>
+                  </AffiliateLink>
                 ))}
               </div>
             </section>
@@ -227,9 +229,9 @@ export default async function CompanionTopicPage({
               <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter block mb-3">Grow them well</span>
               <div className="flex flex-wrap gap-x-5 gap-y-2">
                 {related.map((c) => (
-                  <a key={c.slug} href={`/crops/${c.slug}`} className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+                  <Link key={c.slug} href={`/crops/${c.slug}`} className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
                     {c.name} &rarr;
-                  </a>
+                  </Link>
                 ))}
               </div>
             </section>
@@ -238,9 +240,9 @@ export default async function CompanionTopicPage({
           {/* Back to the hub — the link-equity funnel */}
           <section className="mb-10 bg-sage/30 border border-earth/10 -mx-6 sm:mx-0 px-6 sm:px-7 py-7 text-center">
             <p className="font-serif italic text-lg text-earth mb-3">Want the whole picture?</p>
-            <a href="/guides/companion-planting" className="font-serif text-xl text-allotment border-b-2 border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+            <Link href="/guides/companion-planting" className="font-serif text-xl text-allotment border-b-2 border-amber pb-0.5 hover:text-allotment-dark transition-colors">
               The complete companion planting guide &rarr;
-            </a>
+            </Link>
           </section>
 
           {/* Sibling topics */}
@@ -248,9 +250,9 @@ export default async function CompanionTopicPage({
             <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter block mb-3">More companion guides</span>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               {siblings.map((s) => (
-                <a key={s.slug} href={`/guides/companion-planting/${s.slug}`} className="text-[15px] text-allotment hover:text-rust transition-colors">
+                <Link key={s.slug} href={`/guides/companion-planting/${s.slug}`} className="text-[15px] text-allotment hover:text-rust transition-colors">
                   {s.title}
-                </a>
+                </Link>
               ))}
             </div>
           </section>
