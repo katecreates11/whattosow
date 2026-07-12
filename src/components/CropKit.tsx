@@ -42,10 +42,9 @@ function KitItemCard({ item }: { item: KitItem }) {
           href={item.amazonUrl}
           product={item.name}
           type="gear"
-          merchant="amazon"
           className="group shrink-0 inline-flex items-center gap-1 text-[11px] font-medium text-earth border border-earth/10 px-2.5 py-1.5 hover:border-allotment hover:text-allotment transition-colors duration-200"
         >
-          Amazon
+          Compare options
           <svg
             className="w-2.5 h-2.5 opacity-30 group-hover:opacity-70 transition-opacity duration-200"
             fill="none"

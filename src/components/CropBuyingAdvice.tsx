@@ -73,7 +73,6 @@ function AdviceItem({ item, slug }: { item: CropBuyingAdviceItem; slug: string }
           href={item.href}
           product={item.product}
           type="gear"
-          merchant="amazon"
           position={`crop-buying-advice-${slug}`}
           className="mt-3 sm:mt-1 inline-flex shrink-0 items-center gap-1.5 border border-earth/10 px-3 py-2 text-xs font-medium text-earth hover:border-allotment hover:text-allotment transition-colors"
         >

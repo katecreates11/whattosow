@@ -20,6 +20,7 @@ describe("CropBuyingAdvice", () => {
     expect(
       html.match(/data-umami-event-position="crop-buying-advice-tomatoes"/g),
     ).toHaveLength(2);
+    expect(html.match(/data-umami-event-merchant="amazon-uk"/g)).toHaveLength(2);
     expect(html).not.toContain("Find tomato feed");
   });
 });
