@@ -1048,6 +1048,31 @@ export const editorialPosts: EditorialPost[] = [
           "French marigolds in full bloom — they flower continuously from June right through to the first frost.",
       },
       {
+        type: "gallery",
+        content: "",
+        caption: "One bed, one season: plugs in June, bordering up by midsummer, a blaze by July the next year.",
+        images: [
+          {
+            src: "/photos/guides/companion-marigolds-01-plugs.webp",
+            alt: "French marigold plugs just planted along the borders of a raised bed in early June",
+            caption: "June: plugs in",
+            aspect: "square",
+          },
+          {
+            src: "/photos/guides/companion-marigolds-02-bordering.webp",
+            alt: "Marigolds bordering the bed by mid-June, tomatoes climbing their canes",
+            caption: "Mid-June: bordering up",
+            aspect: "square",
+          },
+          {
+            src: "/photos/blog/marigold-lettuce-blaze-2024.webp",
+            alt: "Butterhead lettuces behind a full blaze of orange marigolds in high summer",
+            caption: "High summer: the blaze",
+            aspect: "square",
+          },
+        ],
+      },
+      {
         type: "heading",
         content: "The verdict",
       },
@@ -1409,6 +1434,13 @@ export const editorialPosts: EditorialPost[] = [
           "After potting on — buried deeper, out in the sun for the first time.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/blog/windowsill-seedlings-cardboard.webp",
+        alt: "Seedlings in mixed pots boxed in cardboard on the windowsill, first year",
+        caption: "Year one: the windowsill nursery, cardboard box and all. It works.",
+      },
+      {
         type: "tip",
         content:
           "Bury tomato stems deep at every potting on. The buried length sprouts roots and the plant ends up sturdier for it.",
@@ -1531,6 +1563,25 @@ export const editorialPosts: EditorialPost[] = [
         caption: "Covered and waiting.",
       },
       {
+        type: "gallery",
+        content: "",
+        caption: "The no-dig order of work: cardboard down, compost on top, planting stations marked out.",
+        images: [
+          {
+            src: "/photos/blog/cardboard-compost-bed.webp",
+            alt: "A raised bed filled with fresh compost over a cardboard sheet-mulch layer",
+            caption: "Cardboard, then compost",
+            aspect: "square",
+          },
+          {
+            src: "/photos/blog/compost-planting-stations.webp",
+            alt: "Compost planting stations marked out in neat rows across a dug strip",
+            caption: "Stations marked out",
+            aspect: "square",
+          },
+        ],
+      },
+      {
         type: "text",
         content:
           "I use heavy-duty woven membrane held down at the edges with bricks. It also warms the soil slightly and holds moisture in — both useful in a UK spring that can turn cold without much warning.",
@@ -1614,6 +1665,13 @@ export const editorialPosts: EditorialPost[] = [
         src: "/photos/blog/seedling-planted-out.webp",
         alt: "A small seedling just planted into allotment soil, with freshly prepared earth around it",
         caption: "One of the first things in the ground.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/cat-in-fresh-bed.webp",
+        alt: "The allotment cat lying in the freshly planted bed among the squash seedlings",
+        caption: "Quality control inspected the new bed and declared it comfortable.",
       },
       {
         type: "heading",
