@@ -9,7 +9,7 @@ import AffiliateLink from "@/components/AffiliateLink";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}`;
 
 export const metadata: Metadata = {
-  title: "Dealing With the Glut — What to Do With Too Many Courgettes, Beans & Tomatoes | What To Sow",
+  title: "What to Do With a Glut of Courgettes, Beans & Tomatoes | What To Sow",
   description:
     "Too many courgettes? A wall of runner beans? How to keep, freeze, preserve and share the summer glut — what stores well, what doesn't, and how to enjoy the most abundant weeks of the growing year.",
   keywords: [

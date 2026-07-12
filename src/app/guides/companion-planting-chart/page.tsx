@@ -5,7 +5,7 @@ import PinButton from "@/components/PinButton";
 import { crops } from "@/data/crops";
 
 export const metadata: Metadata = {
-  title: "Printable Companion Planting Chart (UK) — Grow Together / Keep Apart | What To Sow",
+  title: "Printable Companion Planting Chart (UK) | What To Sow",
   description:
     "A printable, at-a-glance companion planting chart for UK vegetables: what to grow together and what to keep apart, crop by crop. Save it, print it or pin it — then dig into the full guide for the why.",
   keywords: [

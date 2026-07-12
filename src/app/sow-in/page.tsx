@@ -8,7 +8,7 @@ import LocationSearch from "@/components/LocationSearch";
 export const metadata: Metadata = {
   title: "What to Sow by Location — UK Sowing Guides by City",
   description:
-    "Find out what to sow right now in your city. Local frost dates, personalised sowing calendars, and month-by-month planting guides for 50 UK cities and towns.",
+    "What to sow right now, wherever you garden — local frost dates and month-by-month planting calendars for 50 UK cities and towns.",
   keywords: [
     "what to sow UK",
     "sowing guide by city",

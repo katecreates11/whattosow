@@ -40,7 +40,7 @@ function FrostBuyerNote() {
 }
 
 export const metadata: Metadata = {
-  title: "Protecting Vegetables from Frost — Fleece, Cloches & Cold Frames (UK) | What To Sow",
+  title: "Protecting Vegetables from Frost (UK) — Fleece & Cloches | What To Sow",
   description:
     "How to protect vegetables from frost in the UK: which crops are hardy and which need cover, and how to choose between fleece, cloches, cold frames and polytunnels. Beat both winter cold and late spring frosts.",
   keywords: [

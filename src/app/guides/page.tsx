@@ -92,7 +92,7 @@ const guides = [
   {
     title: "Starting from seed",
     description:
-      "Everything you need to know about sowing seeds indoors — compost, temperature, light, watering, and hardening off.",
+      "Warmth, light and the right compost — how to raise sturdy seedlings on a windowsill, and harden them off without a check.",
     href: "/guides/seed-starting",
     tag: "Getting started",
     number: "02",

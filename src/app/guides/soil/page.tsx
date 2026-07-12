@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Understanding Your Soil — A Practical UK Guide | What To Sow",
   description:
-    "Learn how to identify your soil type, test pH, and improve your ground for growing vegetables. Practical UK guide covering clay, sandy, loam, chalk, and peat soils.",
+    "Clay, sandy, loam, chalk or peat — identify your soil type, test its pH, and improve the ground you grow in. A practical UK guide to knowing your soil.",
   keywords: [
     "soil types UK",
     "clay soil gardening",

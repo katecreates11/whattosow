@@ -9,7 +9,7 @@ import { awinLink } from "@/lib/awin";
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
 
 export const metadata: Metadata = {
-  title: "Overwintering Broad Beans & Peas — Autumn Sowing for an Early Crop (UK) | What To Sow",
+  title: "Overwintering Broad Beans & Peas — Autumn Sowing (UK) | What To Sow",
   description:
     "How to overwinter broad beans and peas in the UK: sow hardy varieties in autumn for a harvest weeks ahead of spring sowings. The best varieties, how to protect them, and the pitfalls to avoid.",
   keywords: [

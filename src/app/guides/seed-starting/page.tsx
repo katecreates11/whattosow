@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How to Start Seeds — Growing from Seed Guide",
     description:
-      "Everything you need to know about starting seeds in the UK. Practical advice from compost to hardening off.",
+      "From seed compost and gentle warmth to hardening off — how to raise strong seedlings in the UK, and which crops to start indoors or sow direct.",
     type: "article",
     url: "https://whattosow.co.uk/guides/seed-starting",
   },
