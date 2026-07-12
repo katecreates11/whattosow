@@ -14,6 +14,7 @@ import {
 import { getEditorialPost, editorialPosts, type EditorialPost, type EditorialSection } from "@/data/editorial-posts";
 import { ColorSection, SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import GearPick from "@/components/GearPick";
+import LoopClip from "@/components/LoopClip";
 import PinButton from "@/components/PinButton";
 import { getKit, amazonLink } from "@/data/kit";
 
@@ -559,6 +560,13 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
         <figure className="max-w-3xl mx-auto px-5 sm:px-6 my-11 sm:my-14">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={section.src} alt={section.alt || ""} className="w-full h-auto block img-grade" loading="lazy" decoding="async" />
+          {section.caption && <Caption>{section.caption}</Caption>}
+        </figure>
+      );
+    case "video":
+      return (
+        <figure className="max-w-3xl mx-auto px-5 sm:px-6 my-11 sm:my-14">
+          <LoopClip src={section.src ?? ""} poster={section.poster ?? ""} alt={section.alt ?? ""} className="img-grade" />
           {section.caption && <Caption>{section.caption}</Caption>}
         </figure>
       );

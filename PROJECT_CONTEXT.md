@@ -104,6 +104,15 @@ Recommend products naturally and only where they genuinely add value.
 - New photos get catalogued on arrival, same JSON shape. The catalogue is a growing content archive — keep it complete and it stays cheap to use.
 - Real photos from the plot always beat stock. Prefer a `q:3`/`hero-worthy` shot; images must carry information, not decoration.
 
+### Video (same rules, same economy)
+
+**Before any video work, check `docs/video-catalogue.json` first.** Raw clips live in `videos-raw/` (gitignored, Kate's machine only).
+
+- To catalogue new clips: `python3 scripts/video-sheets.py` builds contact sheets (3 frames per clip + duration/dims/date) in `videos-raw/_sheets/` — read the sheets, never watch clips one by one. Then append entries to the catalogue (subject, tags, q 1–3, `loopable`).
+- To publish a clip: `scripts/video-web.sh videos-raw/<file> <name> [start] [duration]` → a silent 720p mp4 + poster webp in `public/videos/blog/`. Site loops should be **3–8 seconds and ≲2MB** — trim to the best moment, don't ship whole clips.
+- In a post, use the `video` section type (`src` + `poster` + `alt` + `caption`) — rendered by `LoopClip`: plays only on screen, always muted, honours reduced-motion. Video is a living photograph, not a film: no sound-led content, no long clips, no YouTube embeds.
+- A clip must earn its place the way a photo does — movement should carry the information (spray arcing, bees working, rain on leaves). If a still says it as well, use the still.
+
 ---
 
 ## AI Working Rules

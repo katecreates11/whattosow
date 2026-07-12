@@ -4,7 +4,7 @@
  */
 
 export interface EditorialSection {
-  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery" | "table" | "ownedSince";
+  type: "text" | "image" | "tip" | "heading" | "product" | "quote" | "pair" | "gallery" | "table" | "ownedSince" | "video";
   content: string;
   /** For images: src path */
   src?: string;
@@ -33,6 +33,9 @@ export interface EditorialSection {
   note?: string;
   /** For "table": a scannable comparison, one buy link per row */
   rows?: { name: string; use: string; price?: string; url: string }[];
+  /** For "video": a short, silent allotment clip (3-8s web loop from scripts/video-web.sh).
+   *  src = /videos/blog/<name>.mp4, poster = its first-frame webp. alt + caption as for images. */
+  poster?: string;
 }
 
 export interface EditorialPost {

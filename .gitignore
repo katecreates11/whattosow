@@ -48,3 +48,4 @@ next-env.d.ts
 
 # Superpowers brainstorm artifacts
 .superpowers/
+/videos-raw/

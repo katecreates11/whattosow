@@ -1,0 +1,16 @@
+{
+  "_about": "Catalogue of videos-raw/ — one entry per clip: subject, tags, quality 1-3 (3 = site-worthy), duration, dims (rotation-corrected), shot date, loopable (works as a silent 3-8s web loop), dupe notes. Maintained by Claude via scripts/video-sheets.py (contact sheets, so nobody has to watch video to know what we have). Web conversion: scripts/video-web.sh. Check this file before any video work — same rule as the photo catalogue.",
+  "clips": {
+    "IMG_5479.MOV": {
+      "subject": "Handheld pan across the July plot — calendula bed in the foreground, pea netting arches, tomatoes under the hoops, sheds and neighbouring plots behind",
+      "tags": ["plot-pan", "calendula", "peas", "tomatoes", "july", "2026", "portrait"],
+      "q": 2,
+      "duration_s": 5.1,
+      "width": 1080,
+      "height": 1920,
+      "date": "2026-07-10 12:00",
+      "loopable": false,
+      "notes": "a pan, not a loop — better as an ambient establishing clip (July diary) than a repeating loop; midday light, a touch harsh"
+    }
+  }
+}
