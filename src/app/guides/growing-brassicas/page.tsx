@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
@@ -50,23 +52,23 @@ function CropRow({ item, topic }: { item: CropItem; topic: string }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
         {item.seeds && (
-          <a
+          <AffiliateLink
             href={item.seeds}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
-            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
-            data-umami-event-topic={topic}
+            product={`${item.name} seeds`}
+            type="seed"
+            merchant="thompson-morgan"
+            position={`${topic}-seeds`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
-          </a>
+            Seeds at T&amp;M &rarr;
+          </AffiliateLink>
         )}
       </div>
       <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{item.note}</p>
@@ -205,10 +207,10 @@ export default function GrowingBrassicasGuide() {
           <TipBox title="Feed them well">
             Brassicas are hungry, and the leafy ones especially love nitrogen. Grow them on ground that was well manured
             for a previous crop, or work in plenty of{" "}
-            <a href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</a>.
+            <Link href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</Link>.
             They&apos;re the classic crop to follow{" "}
-            <a href="/crops/peas" className="text-rust underline decoration-rust/30 hover:text-earth">peas</a> and{" "}
-            <a href="/crops/runner-beans" className="text-rust underline decoration-rust/30 hover:text-earth">beans</a> in
+            <Link href="/crops/peas" className="text-rust underline decoration-rust/30 hover:text-earth">peas</Link> and{" "}
+            <Link href="/crops/runner-beans" className="text-rust underline decoration-rust/30 hover:text-earth">beans</Link> in
             the rotation, lapping up the nitrogen the legumes leave behind.
           </TipBox>
 
@@ -227,7 +229,7 @@ export default function GrowingBrassicasGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Butterfly netting</span> &mdash; the headline act. Fine mesh held
                 off the leaves stops cabbage whites laying their eggs at all. The single most effective thing you can do.{" "}
-                <a href={az("brassica butterfly netting fine mesh")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="butterfly-netting" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon" position="brassica-protection-inline" className="text-rust underline decoration-rust/30 hover:text-earth">Compare fine butterfly netting &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Check for eggs &amp; caterpillars</span> &mdash; if anything gets
@@ -244,7 +246,7 @@ export default function GrowingBrassicasGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Companion planting</span> &mdash; aromatic herbs and onions help
                 confuse the pests. See{" "}
-                <a href="/guides/companion-planting/companion-plants-for-brassicas" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for brassicas</a>{" "}
+                <Link href="/guides/companion-planting/companion-plants-for-brassicas" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for brassicas</Link>{" "}
                 for the supporting cast &mdash; though netting is still the headliner.
               </li>
             </ul>
@@ -285,22 +287,22 @@ export default function GrowingBrassicasGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/companion-planting/companion-plants-for-brassicas" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/companion-planting/companion-plants-for-brassicas" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion plants for brassicas</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/crop-rotation" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/crop-rotation" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Crop rotation</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/pests" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/pests" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Pests &amp; diseases</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/kale" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/kale" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow kale</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
