@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
@@ -48,9 +49,9 @@ function CropRow({ item }: { item: CropItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
@@ -59,9 +60,11 @@ function CropRow({ item }: { item: CropItem }) {
             href={item.seeds}
             product={`${item.name} seeds`}
             type="seed"
+            merchant="thompson-morgan"
+            position="squash-family-seeds"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
+            Seeds at T&amp;M &rarr;
           </AffiliateLink>
         )}
       </div>
@@ -217,7 +220,7 @@ export default function GrowingSquashGuide() {
             <p className="mb-3">
               So the single most valuable thing you can do is bring in the bees: plant borage, nasturtiums and calendula
               nearby (see{" "}
-              <a href="/guides/companion-planting/companion-plants-for-courgettes" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for courgettes &amp; squash</a>). In cool, dull or early-season weather when bees are scarce, do their job
+              <Link href="/guides/companion-planting/companion-plants-for-courgettes" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for courgettes &amp; squash</Link>). In cool, dull or early-season weather when bees are scarce, do their job
               yourself: pick a male flower, strip the petals, and dab its pollen into the centre of the female flowers in
               the cool of the morning. It takes seconds and makes all the difference.
             </p>
@@ -246,7 +249,7 @@ export default function GrowingSquashGuide() {
               begin to cork, ideally before the first frost. Then <strong className="text-earth">cure</strong> them &mdash;
               a fortnight somewhere warm and dry to harden the skins. Cured and stored somewhere cool, dry and airy, a
               good winter squash keeps for months, the slow reward of the whole sprawling summer. A length of{" "}
-              <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" className="text-rust underline decoration-rust/30 hover:text-earth">weed-suppressing membrane</AffiliateLink>{" "}
+              <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" merchant="amazon" position="squash-family-membrane" className="text-rust underline decoration-rust/30 hover:text-earth">Compare ground cover membrane</AffiliateLink>{" "}
               under the swelling fruits keeps them clean and off the damp soil as they ripen.
             </p>
           </section>
@@ -279,22 +282,22 @@ export default function GrowingSquashGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/companion-planting/companion-plants-for-courgettes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/companion-planting/companion-plants-for-courgettes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion plants for courgettes &amp; squash</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/companion-planting/companion-plants-for-sweetcorn" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/companion-planting/companion-plants-for-sweetcorn" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">The Three Sisters: companion plants for sweetcorn</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/courgettes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/courgettes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow courgettes</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/pumpkins" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/pumpkins" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow pumpkins</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
