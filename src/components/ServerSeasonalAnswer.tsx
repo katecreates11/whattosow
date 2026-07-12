@@ -86,9 +86,10 @@ function SeedLink({ crop }: { crop: Crop }) {
       product={crop.name}
       type="seed"
       merchant={merchantSlug(seed.name)}
+      position="sow-list-seeds"
       className="inline-flex min-h-[44px] items-center justify-end font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
     >
-      Seeds &rarr;
+      Seeds at {seed.name} &rarr;
     </AffiliateLink>
   );
 }
