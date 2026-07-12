@@ -70,6 +70,7 @@ export default function Footer() {
               <Link href="/still-time" className="text-white/70 hover:text-white transition-colors">Still time to sow</Link>
               <Link href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</Link>
               <Link href="/sow-in" className="text-white/70 hover:text-white transition-colors">Sow by location</Link>
+              <Link href="/us" className="text-white/70 hover:text-white transition-colors">US ZIP beta</Link>
               <Link href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</Link>
               <Link href="/blog" className="text-white/70 hover:text-white transition-colors">Blog</Link>
             </nav>

@@ -16,6 +16,7 @@ describe("sitemap", () => {
 
   it("includes canonical SEO and commercial guide routes", () => {
     expect(urls).toContain("https://whattosow.co.uk/sow");
+    expect(urls).toContain("https://whattosow.co.uk/us");
     expect(urls).toContain("https://whattosow.co.uk/calendar");
     expect(urls).toContain("https://whattosow.co.uk/guides/allotment-essentials");
     expect(urls).toContain("https://whattosow.co.uk/guides/seed-starting-kit");
