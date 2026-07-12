@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -8,7 +9,6 @@ import {
   getPostBySlug,
   getNextPost,
   getPrevPost,
-  type BlogPost,
   type CropEntry,
 } from "@/data/blog-posts";
 import { getEditorialPost, editorialPosts, type EditorialPost, type EditorialSection } from "@/data/editorial-posts";
@@ -16,6 +16,7 @@ import { ColorSection, SectionDivider, TipBox, WarningBox } from "@/components/G
 import GearPick from "@/components/GearPick";
 import LoopClip from "@/components/LoopClip";
 import PinButton from "@/components/PinButton";
+import AffiliateLink from "@/components/AffiliateLink";
 import { getKit, amazonLink } from "@/data/kit";
 
 // ─── Static generation ──────────────────────────────────────────────────────
@@ -341,19 +342,19 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
               Every veg patch is different. Enter your postcode and we&apos;ll work out
               your frost date and tell you exactly what to sow right now.
             </p>
-            <a
+            <Link
               href="/"
               className="inline-block text-[11px] font-bold tracking-[0.08em] uppercase text-white bg-allotment hover:bg-allotment-dark transition-colors px-5 py-2.5"
             >
               Enter your postcode
-            </a>
+            </Link>
           </div>
 
           {/* Back to blog */}
           <nav className="border-t border-earth/10 py-8">
-            <a href="/blog" className="font-serif text-earth hover:text-rust transition-colors">
+            <Link href="/blog" className="font-serif text-earth hover:text-rust transition-colors">
               &larr; All guides
-            </a>
+            </Link>
           </nav>
           </div>
         </article>
@@ -526,16 +527,16 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
                 </div>
                 {r.price && <div className="font-mono text-sm text-rust sm:w-[14%] tabular-nums">{r.price}</div>}
                 <div className="sm:ml-auto">
-                  <a
+                  <AffiliateLink
                     href={r.url}
-                    target="_blank"
-                    rel="sponsored noopener noreferrer"
-                    data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-                    data-umami-event-product={r.name}
+                    product={r.name}
+                    type="gear"
+                    merchant="amazon"
+                    position="blog-table"
                     className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap"
                   >
-                    View on Amazon &rarr;
-                  </a>
+                    Check this option &rarr;
+                  </AffiliateLink>
                 </div>
               </div>
             ))}
@@ -900,12 +901,12 @@ export default async function BlogPostPage({
               Every veg patch is different. Enter your postcode and we&apos;ll work out
               your frost date and tell you exactly what to sow right now.
             </p>
-            <a
+            <Link
               href="/"
               className="inline-block text-[11px] font-bold tracking-[0.08em] uppercase text-white bg-allotment hover:bg-allotment-dark transition-colors px-5 py-2.5"
             >
               Enter your postcode
-            </a>
+            </Link>
           </div>
 
           {/* ─── Prev / Next navigation ───────────────────────────────── */}
