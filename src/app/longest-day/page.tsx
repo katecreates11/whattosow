@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
@@ -193,15 +194,15 @@ export default function LongestDayPage() {
                   <p className="text-sm text-earth-light leading-relaxed mb-3">
                     Sow a short row of something quick every couple of weeks and you&apos;ll never have a
                     gap:{" "}
-                    <a href="/crops/lettuce" className={cropLink}>salad leaves</a>,{" "}
-                    <a href="/crops/beetroot" className={cropLink}>beetroot</a>,{" "}
-                    <a href="/crops/french-beans" className={cropLink}>dwarf beans</a>,{" "}
-                    <a href="/crops/carrots" className={cropLink}>carrots</a>,{" "}
-                    <a href="/crops/spring-onions" className={cropLink}>spring onions</a>.
+                    <Link href="/crops/lettuce" className={cropLink}>salad leaves</Link>,{" "}
+                    <Link href="/crops/beetroot" className={cropLink}>beetroot</Link>,{" "}
+                    <Link href="/crops/french-beans" className={cropLink}>dwarf beans</Link>,{" "}
+                    <Link href="/crops/carrots" className={cropLink}>carrots</Link>,{" "}
+                    <Link href="/crops/spring-onions" className={cropLink}>spring onions</Link>.
                   </p>
-                  <a href="/guides/succession-sowing" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+                  <Link href="/guides/succession-sowing" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
                     The succession-sowing guide &rarr;
-                  </a>
+                  </Link>
                 </div>
                 <div className="border border-earth/10 bg-amber-bg p-5">
                   <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-amber-dark mb-3">
@@ -209,37 +210,39 @@ export default function LongestDayPage() {
                   </h3>
                   <p className="text-sm text-earth-light leading-relaxed mb-3">
                     Now&apos;s the window for the crops that overwinter or crop late:{" "}
-                    <a href="/crops/kale" className={cropLink}>kale</a>,{" "}
-                    <a href="/crops/leeks" className={cropLink}>leeks</a>,{" "}
-                    <a href="/crops/swiss-chard" className={cropLink}>chard</a>,{" "}
-                    <a href="/crops/cabbage" className={cropLink}>cabbage</a>, and winter salads.
+                    <Link href="/crops/kale" className={cropLink}>kale</Link>,{" "}
+                    <Link href="/crops/leeks" className={cropLink}>leeks</Link>,{" "}
+                    <Link href="/crops/swiss-chard" className={cropLink}>chard</Link>,{" "}
+                    <Link href="/crops/cabbage" className={cropLink}>cabbage</Link>, and winter salads.
                   </p>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-                    <a href="/guides/autumn-winter-vegetables" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+                    <Link href="/guides/autumn-winter-vegetables" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
                       The full guide &rarr;
-                    </a>
+                    </Link>
                     <AffiliateLink
                       href="https://www.amazon.co.uk/s?k=winter+vegetable+seeds"
                       product="winter vegetable seeds"
                       type="seed"
+                      merchant="amazon"
+                      position="longest-day-winter-seeds"
                       className="font-mono text-[11px] uppercase tracking-[0.06em] text-rust border-b border-rust/40 hover:text-earth transition-colors"
                     >
-                      Get the seeds &rarr;
+                      Compare winter veg seeds &rarr;
                     </AffiliateLink>
                   </div>
                 </div>
               </div>
               <p className="mt-6 text-earth-light leading-relaxed max-w-[62ch]">
                 And from here the balance tips from sowing towards gathering. As your crops come in, the{" "}
-                <a href="/harvest-planner" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">harvest planner</a>{" "}
+                <Link href="/harvest-planner" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">harvest planner</Link>{" "}
                 works out when each is ready for your postcode &mdash; and come autumn, the{" "}
-                <a href="/frost-map" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">frost map</a>{" "}
+                <Link href="/frost-map" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">frost map</Link>{" "}
                 shows how long you&apos;ve got before the cold closes in.
               </p>
               <p className="mt-5 text-sm">
-                <a href="/sow" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">
+                <Link href="/sow" className="text-rust hover:text-earth transition-colors underline decoration-rust/30">
                   See everything worth sowing this week, tuned to your postcode &rarr;
-                </a>
+                </Link>
               </p>
               <div className="mt-10">
                 <p className="text-earth-light leading-relaxed max-w-[62ch] mb-1">

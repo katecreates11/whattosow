@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox } from "@/components/GuideVisuals";
 import BedDiagram from "@/components/BedDiagram";
 import { awinLink } from "@/lib/awin";
@@ -206,16 +208,18 @@ export default function GreenManuresGuide() {
                   <div className="flex items-center gap-x-5 gap-y-1 flex-wrap mt-3">
                     <span className="text-xs text-earth-lighter"><span className="font-semibold text-earth-light">Sow by:</span> {m.sowBy}</span>
                     <span className="text-xs text-earth-lighter"><span className="font-semibold text-earth-light">Clear:</span> {m.clear}</span>
-                    <a
+                    <AffiliateLink
                       href={m.seeds}
-                      target="_blank"
-                      rel="sponsored noopener noreferrer"
+                      product={`${m.name} green manure seeds`}
+                      type="seed"
+                      merchant="thompson-morgan"
+                      position="green-manure-seeds"
                       data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
                       data-umami-event-topic="green-manure"
                       className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                     >
-                      Find seeds &rarr;
-                    </a>
+                      Cover crop seeds at T&amp;M &rarr;
+                    </AffiliateLink>
                   </div>
                 </div>
               ))}
@@ -248,7 +252,7 @@ export default function GreenManuresGuide() {
           <TipBox title="The no-dig way">
             You don&apos;t have to dig it in. If you grow no-dig, cut the green manure down at the surface in spring,
             leave the tops as a mulch (or add them to the{" "}
-            <a href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</a>), and let the worms
+            <Link href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</Link>), and let the worms
             pull the goodness down. Either way, leave two or three weeks between clearing it and sowing your next
             crop, so the rotting roots don&apos;t check your seedlings.
           </TipBox>
@@ -266,7 +270,7 @@ export default function GreenManuresGuide() {
             <p className="mt-4 text-[15px]">
               One thing to watch: mustard is a brassica, so don&apos;t sow it where cabbages, kale or other brassicas
               will follow &mdash; keep it out of that part of your{" "}
-              <a href="/guides/crop-rotation" className="text-rust underline decoration-rust/30 hover:text-earth">crop rotation</a>.
+              <Link href="/guides/crop-rotation" className="text-rust underline decoration-rust/30 hover:text-earth">crop rotation</Link>.
             </p>
           </section>
 
@@ -294,26 +298,26 @@ export default function GreenManuresGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/preparing-your-plot-for-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/preparing-your-plot-for-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Preparing your plot for winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/composting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/composting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Composting for allotments</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/crop-rotation" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/crop-rotation" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Crop rotation</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/soil" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/soil" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Understanding your soil</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

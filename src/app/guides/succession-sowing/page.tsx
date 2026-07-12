@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
@@ -51,23 +53,25 @@ function SowRow({ item }: { item: SowItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
         {item.seeds && (
-          <a
+          <AffiliateLink
             href={item.seeds}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
+            product={`${item.name} seeds`}
+            type="seed"
+            merchant="thompson-morgan"
+            position="succession-sowing-seeds"
             data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="succession-sowing"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
-          </a>
+            Seeds at T&amp;M &rarr;
+          </AffiliateLink>
         )}
       </div>
       <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{item.note}</p>
@@ -151,9 +155,9 @@ export default function SuccessionSowingGuide() {
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             It&apos;s the single thing that turns a small patch into a kitchen that&apos;s never short of something to pick &mdash; right through{" "}
-            <a href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/longest-day" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               the longest day
-            </a>{" "}
+            </Link>{" "}
             and beyond.
           </p>
         </div>
@@ -227,7 +231,7 @@ export default function SuccessionSowingGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Keep a note of what you sowed and when</strong> &mdash; it&apos;s the only
                 way to spot the gaps before they happen.{" "}
-                <a href="/my-plot" className="text-rust underline decoration-rust/30 hover:text-earth">My plot</a> tracks
+                <Link href="/my-plot" className="text-rust underline decoration-rust/30 hover:text-earth">My plot</Link> tracks
                 it for you and works out the harvest dates.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -263,26 +267,26 @@ export default function SuccessionSowingGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/what-to-sow-in-summer-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/what-to-sow-in-summer-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in summer</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/dealing-with-the-glut" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/dealing-with-the-glut" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Already got the glut? Here&apos;s what to do with it</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Starting from seed</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/my-plot" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/my-plot" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Track your sowings on my plot</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Sowing dates for your postcode</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

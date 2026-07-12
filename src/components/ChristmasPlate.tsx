@@ -44,6 +44,13 @@ function merchantOf(url: string): string {
 }
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+export function christmasSeedCtaLabel(url: string): string {
+  const merchant = merchantOf(url);
+  if (merchant === "suttons") return "Seeds at Suttons";
+  if (merchant === "thompson-morgan") return "Seeds at T&M";
+  return "Compare seeds";
+}
+
 type Row = { crop: ChristmasCrop; status: PlateStatus; left: number | null };
 
 export default function ChristmasPlate({ nowISO }: { nowISO: string }) {
@@ -212,21 +219,21 @@ function AffiliateRow({ crop }: { crop: ChristmasCrop }) {
         <a
           href={track(crop.seedUrl)}
           target="_blank"
-          rel="sponsored noopener"
+          rel="sponsored noopener noreferrer"
           data-umami-event="affiliate-click"
           data-umami-event-product={product}
           data-umami-event-merchant={merchantOf(crop.seedUrl)}
           data-umami-event-type="christmas-seed"
           className="inline-flex items-center gap-1.5 rounded-full bg-allotment px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-cream transition-colors hover:bg-allotment-dark"
         >
-          Buy the seeds →
+          {christmasSeedCtaLabel(crop.seedUrl)} →
         </a>
       )}
       {crop.kit && (
         <a
           href={track(crop.kit.url)}
           target="_blank"
-          rel="sponsored noopener"
+          rel="sponsored noopener noreferrer"
           data-umami-event="affiliate-click"
           data-umami-event-product={product}
           data-umami-event-merchant={merchantOf(crop.kit.url)}

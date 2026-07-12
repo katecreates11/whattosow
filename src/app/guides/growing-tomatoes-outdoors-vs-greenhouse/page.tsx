@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
-import { awinLink } from "@/lib/awin";
 
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
-const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
+const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
+
+function Cell({ children }: { children: ReactNode }) {
+  return <td className="border-t border-earth/10 py-3 pr-4 align-top text-[15px] text-earth-light">{children}</td>;
+}
 
 export const metadata: Metadata = {
   title: "Growing Tomatoes Outdoors vs in a Greenhouse (UK Guide) | What To Sow",
@@ -92,10 +98,6 @@ export default function GrowingTomatoesGuide() {
     ],
   };
 
-  const Cell = ({ children }: { children: React.ReactNode }) => (
-    <td className="border-t border-earth/10 py-3 pr-4 align-top text-[15px] text-earth-light">{children}</td>
-  );
-
   return (
     <div className="min-h-screen overflow-x-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
@@ -119,9 +121,9 @@ export default function GrowingTomatoesGuide() {
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             Here&apos;s how the two compare, and how to get the best from whichever you choose. For sowing dates and our
             opinionated variety picks, see the{" "}
-            <a href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">tomato crop page</a>;
+            <Link href="/crops/tomatoes" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">tomato crop page</Link>;
             and if you&apos;re raising your own from seed, our{" "}
-            <a href="/guides/seed-starting-kit" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seed-starting kit guide</a>{" "}
+            <Link href="/guides/seed-starting-kit" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">seed-starting kit guide</Link>{" "}
             covers the trays, compost and warmth that get them off to a flying start.
           </p>
         </div>
@@ -175,13 +177,13 @@ export default function GrowingTomatoesGuide() {
                 Tie it to a cane or string, pinch out the side shoots that appear where each leaf meets the stem, and
                 &ldquo;stop&rdquo; it (nip the growing tip) once it has set four or five trusses outdoors, more under
                 glass. The classic greenhouse and supported-row tomato.{" "}
-                <a href={tm("Tomato%20Cordon")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-topic="growing-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">Cordon tomato seeds &rarr;</a>
+                <AffiliateLink href={tm("Tomato%20Cordon")} product="cordon tomato seeds" type="seed" merchant="thompson-morgan" position="tomatoes-cordon-seeds" className="text-rust underline decoration-rust/30 hover:text-earth">Cordon tomato seeds at T&amp;M &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Bush (determinate)</span> &mdash; branches low and sprawls to a
                 set size, then crops more or less all at once. No side-shooting, no stopping &mdash; just let it go.
                 Perfect for pots, hanging baskets and easy outdoor growing.{" "}
-                <a href={tm("Tomato%20Bush")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan" data-umami-event-topic="growing-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">Bush tomato seeds &rarr;</a>
+                <AffiliateLink href={tm("Tomato%20Bush")} product="bush tomato seeds" type="seed" merchant="thompson-morgan" position="tomatoes-bush-seeds" className="text-rust underline decoration-rust/30 hover:text-earth">Bush tomato seeds at T&amp;M &rarr;</AffiliateLink>
               </li>
             </ul>
           </section>
@@ -200,11 +202,11 @@ export default function GrowingTomatoesGuide() {
             </p>
             <p className="mb-3">
               Once the first truss of flowers has set, switch to a high-potash{" "}
-              <a href={az("tomato feed high potash")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="tomato-feed" className="text-rust underline decoration-rust/30 hover:text-earth">tomato feed</a>{" "}
+              <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon" position="tomatoes-feed" className="text-rust underline decoration-rust/30 hover:text-earth">Compare tomato feed</AffiliateLink>{" "}
               once a week &mdash; it steers the plant&apos;s energy into fruit rather than leaf. Keep removing the lower
               leaves as the trusses ripen, for airflow and to put the sun on the fruit, and pop a few pollinator flowers
               nearby &mdash; see{" "}
-              <a href="/guides/companion-planting/companion-plants-for-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for tomatoes</a>.
+              <Link href="/guides/companion-planting/companion-plants-for-tomatoes" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for tomatoes</Link>.
             </p>
           </section>
 
@@ -213,7 +215,7 @@ export default function GrowingTomatoesGuide() {
             and fruit to brown mush in days. Greenhouse plants mostly escape it because their leaves stay dry. Outdoors,
             stack the odds: grow blight-resistant varieties, space plants for airflow, water the soil not the foliage,
             keep them well away from potatoes, and watch our live{" "}
-            <a href="/guides/tomato-blight" className="text-rust underline decoration-rust/30 hover:text-earth">tomato &amp; potato blight risk</a>{" "}
+            <Link href="/guides/tomato-blight" className="text-rust underline decoration-rust/30 hover:text-earth">tomato &amp; potato blight risk</Link>{" "}
             so you can pick early or spray before it takes hold.
           </WarningBox>
 
@@ -245,22 +247,22 @@ export default function GrowingTomatoesGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/crops/tomatoes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/crops/tomatoes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow tomatoes — dates &amp; varieties</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/tomato-blight" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/tomato-blight" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Tomato &amp; potato blight — live risk</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/companion-planting/companion-plants-for-tomatoes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/companion-planting/companion-plants-for-tomatoes" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion plants for tomatoes</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/blog/best-cold-frames-greenhouses-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/blog/best-cold-frames-greenhouses-uk" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Best cold frames &amp; greenhouses</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

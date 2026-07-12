@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
@@ -47,23 +49,25 @@ function CropRow({ item, topic }: { item: CropItem; topic: string }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
         {item.seeds && (
-          <a
+          <AffiliateLink
             href={item.seeds}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
+            product={`${item.name} stock`}
+            type="seed"
+            merchant="thompson-morgan"
+            position="allium-family-stock"
             data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic={topic}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
-          </a>
+            Allium stock at T&amp;M &rarr;
+          </AffiliateLink>
         )}
       </div>
       <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{item.note}</p>
@@ -204,7 +208,7 @@ export default function GrowingAlliumsGuide() {
           <TipBox title="Don't grow them on fresh muck">
             Alliums prefer ground that was manured for a previous crop, not freshly fed. Too much nitrogen gives lush
             leaves, soft bulbs and poor keeping. They&apos;re the ideal crop to follow a hungry feeder like brassicas in
-            the <a href="/guides/crop-rotation" className="text-rust underline decoration-rust/30 hover:text-earth">rotation</a>,
+            the <Link href="/guides/crop-rotation" className="text-rust underline decoration-rust/30 hover:text-earth">rotation</Link>,
             taking what&apos;s left rather than wanting a fresh helping.
           </TipBox>
 
@@ -235,7 +239,7 @@ export default function GrowingAlliumsGuide() {
             </ul>
             <p className="mt-3">
               They&apos;re wonderful companions, too &mdash; see{" "}
-              <a href="/guides/companion-planting/companion-plants-for-onions-garlic" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for onions &amp; garlic</a>{" "}
+              <Link href="/guides/companion-planting/companion-plants-for-onions-garlic" className="text-rust underline decoration-rust/30 hover:text-earth">companion plants for onions &amp; garlic</Link>{" "}
               for what to grow alongside (and the one crop to keep them away from).
             </p>
           </section>
@@ -294,22 +298,22 @@ export default function GrowingAlliumsGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/companion-planting/companion-plants-for-onions-garlic" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/companion-planting/companion-plants-for-onions-garlic" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion plants for onions &amp; garlic</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/garlic" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/garlic" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow garlic</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/crops/leeks" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/crops/leeks" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">How to grow leeks</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/crop-rotation" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/crop-rotation" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Crop rotation</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

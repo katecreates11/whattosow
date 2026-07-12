@@ -22,7 +22,7 @@ export default function AffiliateButtons({ suppliers, variety, rarity, eventPref
   return (
     <div className="my-8">
       <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-rust block mb-3">
-        Get the seeds
+        Seed suppliers
       </span>
       <div className="flex flex-col sm:flex-row gap-3">
         {suppliers.map((s) => (

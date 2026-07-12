@@ -223,12 +223,12 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
         {/* Above-the-fold buy CTA for single-product reviews */}
         {post.primaryProduct && (
           <div className="max-w-[44rem] mx-auto px-6 mb-2">
-            <a
+            <AffiliateLink
               href={post.primaryProduct.url}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-              data-umami-event-product={post.primaryProduct.name}
+              product={post.primaryProduct.name}
+              type="gear"
+              merchant="amazon"
+              position="blog-primary-product"
               className="group flex items-center justify-between gap-4 border border-allotment/20 bg-sage/20 px-5 py-4 hover:border-allotment hover:bg-sage/30 transition-colors"
             >
               <span className="font-serif text-earth leading-tight">
@@ -237,9 +237,9 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                 {post.primaryProduct.price ? ` · ${post.primaryProduct.price}` : ""}
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2.5 whitespace-nowrap group-hover:bg-allotment-dark transition-colors">
-                Check price on Amazon &rarr;
+                Compare on Amazon &rarr;
               </span>
-            </a>
+            </AffiliateLink>
             <p className="text-[11px] text-earth-lighter mt-1.5">Affiliate link — we may earn a little, at no extra cost to you.</p>
           </div>
         )}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
@@ -51,16 +52,18 @@ function VarRow({ item, topic }: { item: VarItem; topic: string }) {
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         <span className="font-serif text-lg text-earth">{item.name}</span>
         {item.seeds && (
-          <a
+          <AffiliateLink
             href={item.seeds}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
+            product={`${item.name} seeds`}
+            type="seed"
+            merchant="thompson-morgan"
+            position="overwinter-legumes-seeds"
             data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic={topic}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
-          </a>
+            Seeds at T&amp;M &rarr;
+          </AffiliateLink>
         )}
       </div>
       <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{item.note}</p>
