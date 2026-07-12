@@ -81,15 +81,17 @@ function SeedLink({ crop }: { crop: Crop }) {
   if (!seed) return <span className="hidden sm:block" aria-hidden="true" />;
 
   return (
-    <AffiliateLink
+      <AffiliateLink
       href={seed.url}
-      product={crop.name}
+      product={`${crop.name} seeds`}
       type="seed"
       merchant={merchantSlug(seed.name)}
       position="sow-list-seeds"
+      data-umami-event-crop={crop.slug}
+      aria-label={`${crop.name} seeds at ${seed.name}`}
       className="inline-flex min-h-[44px] items-center justify-end font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
     >
-      Seeds at {seed.name} &rarr;
+      {crop.name} seeds at {seed.name} &rarr;
     </AffiliateLink>
   );
 }
