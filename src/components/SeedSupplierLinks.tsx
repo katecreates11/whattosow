@@ -67,7 +67,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
 
   // inline variant — after PersonalisedCropDates
   return (
-    <div className="border border-leaf/20 bg-leaf-bg/30 p-5 sm:p-6 mb-10">
+    <div className="lg:hidden border border-leaf/20 bg-leaf-bg/30 p-5 sm:p-6 mb-10">
       <h2 className="font-semibold text-earth mb-3">
         Get {crop.name.toLowerCase()} seeds
       </h2>

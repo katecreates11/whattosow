@@ -32,4 +32,16 @@ describe("SeedSupplierLinks", () => {
     expect(html).toContain('data-umami-event-position="variety-card"');
     expect(html).not.toContain("Buy seeds");
   });
+
+  it("keeps inline crop-page seed links mobile-only to avoid desktop rail duplication", () => {
+    if (!tomatoes) throw new Error("Tomatoes crop fixture missing");
+
+    const html = renderToStaticMarkup(
+      createElement(SeedSupplierLinks, { crop: tomatoes, variant: "inline" }),
+    );
+
+    expect(html).toContain("Get tomatoes seeds");
+    expect(html).toContain('data-umami-event-position="inline"');
+    expect(html).toContain("lg:hidden");
+  });
 });
