@@ -2765,6 +2765,13 @@ export const editorialPosts: EditorialPost[] = [
           "The right bin depends on how quickly you want results and how much you'll turn it. A cheap 'dalek' bin and a bit of patience makes lovely compost in a year. A hot bin or tumbler makes it in weeks, but costs more and likes a bit of attention. A wormery suits a small garden or balcony and gives you a brilliant liquid feed as a bonus.",
       },
       {
+        type: "image",
+        content: "",
+        src: "/photos/guides/compost-bay.webp",
+        alt: "A home-made pallet compost bay at the allotment, half full of garden waste",
+        caption: "Ours is the \u00a30 option \u2014 a bay knocked together from pallets. Slower than a sealed bin, but it swallows everything the plot produces.",
+      },
+      {
         type: "heading",
         content: "What to look for",
       },
@@ -2825,6 +2832,13 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "January and February are when the long-season crops should be going in — and they're exactly the weeks our windowsills can't deliver. Seeds want gentle, steady warmth from below to germinate; seedlings then want bright light from above or they stretch into pale, leggy things reaching for a sun that isn't there. A heated propagator solves the first problem, a grow light the second. Together they're the difference between a sturdy plant by April and a disappointment.",
+      },
+      {
+        type: "image",
+        content: "",
+        src: "/photos/blog/windowsill-seedlings-cardboard.webp",
+        alt: "Seedlings in mixed pots boxed in with cardboard on a windowsill",
+        caption: "Our windowsill era, spring 2023 \u2014 cardboard boxing to bounce the light back at the seedlings. It works, just about. This is the era a propagator and a small light bring to an end.",
       },
       {
         type: "text",
