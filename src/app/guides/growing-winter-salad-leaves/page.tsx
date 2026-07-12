@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
-import { awinLink } from "@/lib/awin";
 
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
-const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
+const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
 
 export const metadata: Metadata = {
   title: "Growing Winter Salad Leaves in the UK — Sow Now for Winter Picking | What To Sow",
@@ -53,23 +54,23 @@ function SowRow({ item }: { item: SowItem }) {
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         {item.slug ? (
-          <a href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
+          <Link href={`/crops/${item.slug}`} className="font-serif text-lg text-earth hover:text-rust transition-colors">
             {item.name}
-          </a>
+          </Link>
         ) : (
           <span className="font-serif text-lg text-earth">{item.name}</span>
         )}
         {item.seeds && (
-          <a
+          <AffiliateLink
             href={item.seeds}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
-            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
-            data-umami-event-topic="winter-salad"
+            product={item.name}
+            type="seed"
+            merchant="thompson-morgan"
+            position="winter-salad-seeds"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Find seeds &rarr;
-          </a>
+            Seeds at T&amp;M &rarr;
+          </AffiliateLink>
         )}
       </div>
       <p className="text-sm text-earth-light mt-1.5 leading-relaxed">{item.note}</p>
@@ -161,9 +162,9 @@ export default function WinterSaladGuide() {
           </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             Sow timing shifts with where you are, so let your own weather lead &mdash;{" "}
-            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               enter your postcode
-            </a>{" "}
+            </Link>{" "}
             for dates tuned to your first frost.
           </p>
         </div>
@@ -191,7 +192,7 @@ export default function WinterSaladGuide() {
             short days arrive &mdash; sow from August into early autumn and they&apos;ll be big enough to pick from as
             the cold sets in. Sow a short row every couple of weeks while you can, and tuck pinches into any gap a summer
             crop leaves behind. See{" "}
-            <a href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">succession sowing</a>{" "}
+            <Link href="/guides/succession-sowing" className="text-rust underline decoration-rust/30 hover:text-earth">succession sowing</Link>{" "}
             for the rhythm.
           </TipBox>
 
@@ -210,12 +211,12 @@ export default function WinterSaladGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cloche</span> &mdash; the simplest fix. A little tunnel or row
                 cover keeps the rain off and a few degrees of warmth in.{" "}
-                <a href={az("garden cloche tunnel plant cover")} target="_blank" rel="sponsored noopener noreferrer" data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon" data-umami-event-product="cloche" className="text-rust underline decoration-rust/30 hover:text-earth">On Amazon &rarr;</a>
+                <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="winter-salad-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Compare cloche tunnels &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame</span> &mdash; the snug spot for the best winter
                 pickings, and brilliant for hardening off in spring too. See our{" "}
-                <a href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</a>.
+                <Link href="/blog/best-cold-frames-greenhouses-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold frames &amp; greenhouses guide</Link>.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">An unheated greenhouse or polytunnel</span> &mdash; if you have
@@ -278,22 +279,22 @@ export default function WinterSaladGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              <Link href="/guides/autumn-winter-vegetables" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/protecting-vegetables-from-frost" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Protecting crops from frost</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/guides/succession-sowing" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Succession sowing</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+              </Link>
+              <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Sowing dates for your postcode</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
