@@ -8,6 +8,37 @@ import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
 
+function FrostBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="frost-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="frost-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for frost protection
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <p className="text-earth">
+          <span className="font-serif">Worth buying:</span> a roll of horticultural fleece first. Add a cloche tunnel if
+          you want to keep a row of salad or seedlings moving through a cold spell.
+        </p>
+        <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
+          <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon" position="frost-protection-fleece" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+            Compare horticultural fleece &rarr;
+          </AffiliateLink>
+          <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="frost-protection-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+            Compare cloche tunnels &rarr;
+          </AffiliateLink>
+        </div>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip emergency gadgets.</span> Most frost saves come from timing,
+          tucking the edges down, and simple cover close to the crop.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Protecting Vegetables from Frost — Fleece, Cloches & Cold Frames (UK) | What To Sow",
   description:
@@ -175,8 +206,7 @@ export default function FrostProtectionGuide() {
                 <p className="text-[15px] mt-1">
                   The cheapest, most flexible frost insurance there is. Drape it over a bed or over hoops before a frosty
                   night and it traps a couple of degrees of the soil&apos;s warmth &mdash; often all a hardy crop needs.
-                  Double it up for harder frosts. Keep a roll in the shed to throw over at short notice.{" "}
-                  <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon" position="frost-protection-fleece" className="text-rust underline decoration-rust/30 hover:text-earth">Compare horticultural fleece &rarr;</AffiliateLink>
+                  Double it up for harder frosts. Keep a roll in the shed to throw over at short notice.
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -184,8 +214,7 @@ export default function FrostProtectionGuide() {
                 <p className="text-[15px] mt-1">
                   Rigid or hooped covers that sit over a row, keeping warmth in and rain off. Better than fleece for
                   carrying salad and seedlings through a sustained cold spell, and they double up to warm the soil for
-                  early spring sowings.{" "}
-                  <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="frost-protection-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Compare cloche tunnels &rarr;</AffiliateLink>
+                  early spring sowings.
                 </p>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
@@ -205,6 +234,7 @@ export default function FrostProtectionGuide() {
                 </p>
               </li>
             </ul>
+            <FrostBuyerNote />
           </section>
 
           <TipBox title="The free protection you already have">
