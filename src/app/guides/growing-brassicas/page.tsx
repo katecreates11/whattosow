@@ -76,6 +76,33 @@ function CropRow({ item, topic }: { item: CropItem; topic: string }) {
   );
 }
 
+function BrassicaBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="brassica-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="brassica-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for brassicas
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <p className="text-earth">
+          <span className="font-serif">Worth buying:</span> fine butterfly netting, held off the leaves and pegged tight.
+          It solves the real problem before it starts: cabbage whites cannot lay eggs on plants they cannot reach, and
+          pigeons are less likely to shred the winter crop.
+        </p>
+        <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon" position="brassica-protection-inline" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+          Compare fine butterfly netting &rarr;
+        </AffiliateLink>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip butterfly decoys.</span> They are charming, but checking leaves
+          and covering the bed does far more work.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export default function GrowingBrassicasGuide() {
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -228,8 +255,7 @@ export default function GrowingBrassicasGuide() {
             <ul className="space-y-3 mb-2">
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Butterfly netting</span> &mdash; the headline act. Fine mesh held
-                off the leaves stops cabbage whites laying their eggs at all. The single most effective thing you can do.{" "}
-                <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon" position="brassica-protection-inline" className="text-rust underline decoration-rust/30 hover:text-earth">Compare fine butterfly netting &rarr;</AffiliateLink>
+                off the leaves stops cabbage whites laying their eggs at all. The single most effective thing you can do.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Check for eggs &amp; caterpillars</span> &mdash; if anything gets
@@ -250,6 +276,7 @@ export default function GrowingBrassicasGuide() {
                 for the supporting cast &mdash; though netting is still the headliner.
               </li>
             </ul>
+            <BrassicaBuyerNote />
           </section>
 
           <WarningBox title="Mind the clubroot">
