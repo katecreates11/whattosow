@@ -7,8 +7,10 @@ const starterPicks = [
     product: "Nutley's 24-cell module trays",
     href: "https://www.amazon.co.uk/dp/B00844031K",
     position: "seed-starting-kit-module-trays",
-    reason: "Start here if you want seedlings that lift out cleanly and plant on without a wrestling match.",
-    cta: "Compare sturdy module trays",
+    buyIf: "you are sowing tomatoes, brassicas, beans, salads or anything you will plant out as plugs.",
+    skipIf: "you already have clean yoghurt pots or old trays with drainage holes.",
+    reason: "Reusable modules make seedlings easier to water, label and transplant without root damage.",
+    cta: "Compare reusable 24-cell module trays",
   },
   {
     name: "Seed compost",
@@ -16,8 +18,10 @@ const starterPicks = [
     product: "Levington Seed & Cutting Compost 20L",
     href: "https://www.amazon.co.uk/dp/B0F3W9KC7N",
     position: "seed-starting-kit-seed-compost",
-    reason: "This is the one bag that changes results. Fine, low-feed compost gives small seeds a much better start.",
-    cta: "Compare seed compost",
+    buyIf: "your seedlings often stall, rot or emerge unevenly in ordinary multipurpose compost.",
+    skipIf: "you only sow big seeds like beans and courgettes, which are less fussy.",
+    reason: "Fine, low-feed compost gives small seeds close contact with moisture without overwhelming them.",
+    cta: "Compare fine seed compost",
   },
   {
     name: "Plant labels",
@@ -25,8 +29,10 @@ const starterPicks = [
     product: "White plastic plant labels and pencil",
     href: "https://www.amazon.co.uk/s?k=white+plastic+plant+labels+pencil",
     position: "seed-starting-kit-plant-labels",
-    reason: "Cheap, dull, necessary. You will not remember which tray is which by the time the second sowing is up.",
-    cta: "Get labels before you forget",
+    buyIf: "you are sowing more than one variety, or sowing the same crop twice a few weeks apart.",
+    skipIf: "you are doing one tray today and can label it with masking tape for now.",
+    reason: "A pencil label survives watering and saves you from guessing what the tray was meant to be.",
+    cta: "Compare white labels and garden pencils",
   },
   {
     name: "Heated propagator",
@@ -34,7 +40,9 @@ const starterPicks = [
     product: "Garland One Top heated propagator",
     href: "https://www.amazon.co.uk/dp/B015WFRWUI",
     position: "seed-starting-kit-heated-propagator",
-    reason: "Worth buying for chillies, peppers and aubergines. For lettuce, brassicas and tomatoes, a warm windowsill is usually enough.",
+    buyIf: "you want reliable chillies, peppers or aubergines from seed in a normal UK house.",
+    skipIf: "you mainly sow brassicas, lettuce, peas, beans or later-season tomatoes.",
+    reason: "Bottom heat is useful for true heat-lovers. It is not a starter tax for every seed packet.",
     cta: "Compare heated propagators for chillies",
   },
 ];
@@ -68,7 +76,14 @@ export default function SeedStartingKitBuyerNote() {
             </p>
             <h3 className="font-serif text-xl text-earth">{pick.name}</h3>
             <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
-              {pick.reason}
+              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+                Buy if
+              </span>{" "}
+              {pick.buyIf}{" "}
+              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+                Skip if
+              </span>{" "}
+              {pick.skipIf} {pick.reason}
             </p>
             <AffiliateLink
               href={pick.href}
