@@ -139,6 +139,7 @@ function BlightDetail({ point, onClose }: { point: BlightPoint; onClose: () => v
               product="frost protection fleece"
               type="gear"
               merchant="suttons"
+              position="blight-map-protect-plants"
               className="font-mono text-[11px] uppercase tracking-[0.08em] text-rust border-b border-rust/40 hover:text-earth transition-colors"
             >
               Protect your plants &rarr;

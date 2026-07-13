@@ -16,6 +16,14 @@ const rarityLabel: Record<string, string> = {
   common: "common",
 };
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function generateStaticParams() {
   return allVarietyParams();
 }
@@ -150,6 +158,7 @@ export default async function VarietyPage({
                       product={v.name}
                       type="seed"
                       merchant={merchantSlug(s.name)}
+                      position={`variety-page-seeds-${slug}-${variety}-${trackingSlug(s.name)}`}
                       className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                     >
                       {s.name} →

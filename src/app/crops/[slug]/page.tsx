@@ -31,6 +31,14 @@ import SpacingDiagram from "@/components/SpacingDiagram";
 import { getCropActionMonths, getAvgFrostDate, MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 import { hasCropBuyingAdvice } from "@/data/crop-kit";
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function CompanionSection({ crop }: { crop: Crop }) {
   if (!crop.companionPlants?.length && !crop.avoidPlants?.length) return null;
 
@@ -721,6 +729,7 @@ export default async function CropPage({
                               <AffiliateLink
                                 href={step.buy.href}
                                 product={step.buy.product}
+                                position={`crop-playbook-${crop.slug}-${trackingSlug(step.buy.product)}`}
                                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                               >
                                 {step.buy.label} &rarr;
@@ -870,6 +879,7 @@ export default async function CropPage({
                                 product={v.name}
                                 type="seed"
                                 merchant={merchantSlug(s.name)}
+                                position={`crop-page-variety-seeds-${crop.slug}-${trackingSlug(v.name)}-${trackingSlug(s.name)}`}
                                 className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                               >
                                 {s.name} &rarr;
