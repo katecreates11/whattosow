@@ -152,7 +152,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 11. "Good neighbours for your alliums" — a companion-planting tie-in for the autumn hub
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-13 · via the potting bench
+- **Note (Kate):** Yes sounds good, make sure it’s revenue focused with affiliate links.
 - **Source:** from-a-dream (The Dreamer, 2026-07-11)
 - **Score:** High payoff / Very low effort
 - **Evidence:** Idea #1 (autumn garlic & onion hub) was just approved with praise for pairing useful content and affiliate focus. The companion-planting hub is the site's #1-performing page, built on data already in `crops.ts`. No new build — just a section or internal link inside the already-approved hub pointing at good/bad allium neighbours, using data that exists today.
