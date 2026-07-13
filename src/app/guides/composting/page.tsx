@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -238,7 +239,7 @@ export default function CompostingGuide() {
                 <p>
                   There are four main ways to compost. Most allotment holders end up with
                   a{" "}
-                  <a href="/blog/best-compost-bins-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold bin</a>{" "}
+                  <Link href="/blog/best-compost-bins-uk" className="text-rust underline decoration-rust/30 hover:text-earth">cold bin</Link>{" "}
                   or pallet bay &mdash; it&apos;s simple, cheap, and works.
                   But if you want compost faster, or you&apos;re short on space, the
                   other methods are worth knowing about.
@@ -308,6 +309,7 @@ export default function CompostingGuide() {
                 badge="our-pick"
                 description="Three pallets stood on end, screwed together in a U-shape. That's it. The biggest capacity, the easiest to turn with a fork, and completely free if you can find pallets (ask local businesses or check Facebook Marketplace). Ideally build two bays side by side — fill one while the other finishes."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=galvanised+screws+75mm+wood"
+                position="composting-detail-pallet-bay-screws"
                 tip="Line the inside with cardboard to stop compost falling through the gaps."
               />
               <GearPick
@@ -316,6 +318,7 @@ export default function CompostingGuide() {
                 badge="essential"
                 description="The BBC Gardeners' World Best Budget Buy. A tidy black cone that looks neater than a pallet bay if your site has rules about appearance. Removable lid keeps rain out, and the dark colour absorbs heat to speed things up. Made from recycled UK plastic with a 5-year guarantee. Check if your council offers these subsidised — many do for £20-30."
                 amazonUrl="https://www.amazon.co.uk/dp/B0030ZJZMQ?tag=whattosow21-21"
+                position="composting-detail-blackwall-bin"
                 tip="Check your council website first — subsidised bins can be half the price."
               />
               <GearPick
@@ -323,6 +326,7 @@ export default function CompostingGuide() {
                 price="£60–120"
                 description="A drum on a frame that you spin to aerate the compost. Faster than a static bin because turning is effortless — just crank the handle. Vermin-proof, which matters if rats are a problem on your site. Downside: limited capacity, and you can't add material continuously like a bay."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=compost+tumbler+bin+garden"
+                position="composting-detail-tumbler"
               />
             </section>
           </GearCategory>
@@ -351,6 +355,7 @@ export default function CompostingGuide() {
                 badge="our-pick"
                 description="An insulated bin that maintains 40-60°C internally, producing finished compost in 30-90 days — even in winter. You can add cooked food and small bones (unlike cold bins), and it kills weed seeds. The initial cost is steep but you'll produce more compost, faster, in less space than a cold system. The compost quality is noticeably better too."
                 amazonUrl="https://www.amazon.co.uk/dp/B008JDTXYY?tag=whattosow21-21"
+                position="composting-detail-hotbin"
                 tip="Add a handful of shredded paper or cardboard with every food waste addition to maintain the carbon balance."
               />
             </section>
@@ -381,6 +386,7 @@ export default function CompostingGuide() {
                 badge="our-pick"
                 description="The UK's specialist wormery company, run from a Herefordshire family farm. Their Urbalive wormery is well-designed, compact, and comes with everything you need including a worm voucher. The stackable tray system means the worms migrate upward as they finish each layer — you harvest from the bottom. Works indoors, in a shed, or outside in a sheltered spot."
                 amazonUrl="https://www.amazon.co.uk/dp/B0DLB9TW96?tag=whattosow21-21"
+                position="composting-detail-wormery"
                 tip="Start slowly — add small amounts and let the worms establish before increasing. They eat half their body weight per day."
               />
             </section>
@@ -410,6 +416,7 @@ export default function CompostingGuide() {
                 price="~£40"
                 description="A bucket with an airtight lid and a tap for draining liquid. You'll need two bins to keep a continuous cycle going — fill one while the other ferments. The liquid is a concentrated feed (dilute 100:1). The fermented waste needs burying in soil to finish composting, so it works best alongside a garden or allotment."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=bokashi+bin+starter+kit"
+                position="composting-detail-bokashi-kit"
                 tip="Perfect for flats with no garden — ferment indoors, then bury at the allotment."
               />
               <GearPick
@@ -417,6 +424,7 @@ export default function CompostingGuide() {
                 price="~£8 for 1kg"
                 description="The bran is the ongoing cost. A 1kg bag lasts about 2 months of regular use. You can make your own with wheat bran, molasses, and EM-1 solution, but the bought stuff is consistent and not expensive."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=bokashi+bran+1kg"
+                position="composting-detail-bokashi-bran"
               />
             </section>
           </GearCategory>
@@ -435,6 +443,7 @@ export default function CompostingGuide() {
                 price="~£10"
                 description="A long-probe thermometer that tells you what's happening inside your heap. Essential for hot composting (you're aiming for 40-60°C), useful for cold composting to know if anything is actually going on in there. A 50cm probe reaches the centre of most bins."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=compost+thermometer+long+probe"
+                position="composting-detail-thermometer"
               />
               <GearPick
                 name="Garden sieve / riddle"
@@ -442,6 +451,7 @@ export default function CompostingGuide() {
                 badge="essential"
                 description="For sifting finished compost before use. Removes twigs, stones, and anything that hasn't broken down yet (chuck it back in the bin). A 37cm sieve with 9-12mm mesh sits nicely over a wheelbarrow. Bulldog make a good one."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=garden+sieve+compost+riddle"
+                position="composting-detail-sieve"
                 tip="Rest it on a wheelbarrow and shovel compost through — the finished stuff drops in, the rough stuff stays on top."
               />
               <GearPick
@@ -449,6 +459,7 @@ export default function CompostingGuide() {
                 price="~£15"
                 description="A small countertop bin for collecting food scraps before taking them to the allotment. Get one with a charcoal filter lid if you're worried about smell — it makes a real difference. Empty it every few days."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=kitchen+compost+caddy+charcoal+filter"
+                position="composting-detail-caddy"
               />
             </section>
           </GearCategory>
@@ -569,7 +580,7 @@ export default function CompostingGuide() {
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
+              <Link
                 href="/blog/best-compost-bins-uk"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -582,8 +593,8 @@ export default function CompostingGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -596,7 +607,7 @@ export default function CompostingGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
