@@ -36,7 +36,7 @@ describe("GearPick", () => {
       }),
     );
 
-    expect(html).toContain("data-umami-event-position=\"top-picks-grid\"");
+    expect(html).toContain("data-umami-event-position=\"top-picks-grid-compost-bin\"");
     expect(html).toContain("data-umami-event=\"affiliate-click\"");
     expect(html).toContain("rel=\"sponsored noopener noreferrer\"");
   });
