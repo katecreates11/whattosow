@@ -28,7 +28,7 @@ function TomatoBuyerNote() {
           <span className="font-serif">Worth buying:</span> one high-potash tomato feed once the first truss has set.
           It is the useful kind of tomato kit: simple, cheap, and aimed at fruit rather than extra leaf.
         </p>
-        <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon" position="tomatoes-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+        <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon-uk" position="tomatoes-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
           Compare tomato feed &rarr;
         </AffiliateLink>
         <p className="text-earth-light">

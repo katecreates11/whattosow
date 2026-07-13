@@ -101,7 +101,7 @@ function WinterSaladBuyerNote() {
           <span className="font-serif">Worth buying:</span> one simple cloche tunnel if your leaves sit out in winter
           rain. It keeps the crop clean and pickable, which matters more than extra heat.
         </p>
-        <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="winter-salad-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+        <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon-uk" position="winter-salad-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
           Compare cloche tunnels &rarr;
         </AffiliateLink>
         <p className="text-earth-light">

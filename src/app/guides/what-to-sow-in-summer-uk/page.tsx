@@ -252,7 +252,7 @@ export default function SummerSowingGuide() {
               href={az("horticultural fleece plant protection")}
               product="horticultural fleece"
               type="gear"
-              merchant="amazon"
+              merchant="amazon-uk"
               position="summer-sowing-fleece"
               className="text-rust underline decoration-rust/30 hover:text-earth"
             >

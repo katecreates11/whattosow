@@ -99,7 +99,7 @@ function BrassicaBuyerNote() {
           It solves the real problem before it starts: cabbage whites cannot lay eggs on plants they cannot reach, and
           pigeons are less likely to shred the winter crop.
         </p>
-        <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon" position="brassica-protection-inline" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+        <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon-uk" position="brassica-protection-inline" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
           Compare fine butterfly netting &rarr;
         </AffiliateLink>
         <p className="text-earth-light">

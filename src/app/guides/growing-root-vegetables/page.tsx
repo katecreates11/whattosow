@@ -97,7 +97,7 @@ function RootBuyerNote() {
           you grow. It is more useful than most carrot gadgets because it prevents the damage before the fly finds the
           row.
         </p>
-        <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon" position="root-vegetables-carrot-fly-mesh" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+        <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon-uk" position="root-vegetables-carrot-fly-mesh" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
           Compare fine insect mesh &rarr;
         </AffiliateLink>
         <p className="text-earth-light">

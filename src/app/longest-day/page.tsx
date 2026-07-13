@@ -223,7 +223,7 @@ export default function LongestDayPage() {
                       href="https://www.amazon.co.uk/s?k=winter+vegetable+seeds"
                       product="winter vegetable seeds"
                       type="seed"
-                      merchant="amazon"
+                      merchant="amazon-uk"
                       position="longest-day-winter-seeds"
                       className="font-mono text-[11px] uppercase tracking-[0.06em] text-rust border-b border-rust/40 hover:text-earth transition-colors"
                     >

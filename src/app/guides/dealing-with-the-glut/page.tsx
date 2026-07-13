@@ -135,7 +135,7 @@ export default function GlutGuide() {
               <AffiliateLink
                 href={az("garden trug wooden harvest basket")}
                 product="harvest trug"
-                merchant="amazon"
+                merchant="amazon-uk"
                 position="glut-harvest-trug"
                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
               >
@@ -210,7 +210,7 @@ export default function GlutGuide() {
               <AffiliateLink
                 href={az("maslin pan preserving jam")}
                 product="maslin pan"
-                merchant="amazon"
+                merchant="amazon-uk"
                 position="glut-maslin-pan"
                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
               >

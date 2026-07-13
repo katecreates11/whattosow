@@ -88,7 +88,7 @@ export default function GearPick({
         href={amazonUrl}
         product={name}
         type="gear"
-        merchant="amazon"
+        merchant="amazon-uk"
         position={position ?? `gear-pick-${trackingSlug(name)}`}
         className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-earth border border-earth/15 px-4 py-2.5 hover:border-allotment hover:text-allotment hover:bg-allotment/5 transition-all duration-200"
       >
@@ -156,7 +156,7 @@ export function TopPicksGrid({
           href={pick.amazonUrl}
           product={pick.name}
           type="gear"
-          merchant="amazon"
+          merchant="amazon-uk"
           position={`top-picks-grid-${trackingSlug(pick.name)}`}
           className="group border border-earth/10 p-5 sm:p-6 hover:border-allotment/30 transition-colors duration-200"
         >

@@ -745,7 +745,7 @@ export default function CompanionPlantingGuide() {
                       href="https://www.amazon.co.uk/s?k=marigold+calendula+nasturtium+borage+seeds"
                       product="companion flower seeds"
                       type="seed"
-                      merchant="amazon"
+                      merchant="amazon-uk"
                       position="companion-buyer-note"
                       className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust transition-colors"
                     >
