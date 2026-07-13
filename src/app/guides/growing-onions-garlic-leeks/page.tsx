@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
-import { SectionDivider, TipBox, WarningBox, GuideHero } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
@@ -200,6 +200,15 @@ export default function GrowingAlliumsGuide() {
               than soil. The hole blanches a long white stem as the leek swells.
             </p>
           </section>
+
+          <GuidePair
+            images={[
+              { src: "/photos/guides/alliums-pair-rows.webp", alt: "Rows of garlic greening up in a raised bed in spring" },
+              { src: "/photos/guides/alliums-pair-scapes.webp", alt: "A hand holding a bunch of just-cut garlic scapes over the bed" },
+            ]}
+            caption="Garlic goes in as single cloves in autumn and greens up through spring — then hands you a bonus in early summer: the scapes, snapped off to swell the bulbs and just as good in the pan."
+            aspect="portrait"
+          />
 
           <TipBox title="Don't grow them on fresh muck">
             Alliums prefer ground that was manured for a previous crop, not freshly fed. Too much nitrogen gives lush

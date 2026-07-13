@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, WarningBox, GuideHero } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 import AffiliateLink from "@/components/AffiliateLink";
 
@@ -179,6 +179,15 @@ export default function GrowingBrassicasGuide() {
               ))}
             </div>
           </section>
+
+          <GuidePair
+            images={[
+              { src: "/photos/guides/brassicas-pair-mesh.webp", alt: "Brassicas growing safely under a fine mesh tunnel on the allotment" },
+              { src: "/photos/guides/brassicas-pair-hooped.webp", alt: "A hooped brassica bed of cabbages and greens by the pallet path" },
+            ]}
+            caption="The whole family grows under cover on our plot — fine mesh and hoops against the cabbage whites, pigeons and flea beetle that would strip them overnight."
+            aspect="portrait"
+          />
 
           {/* Sowing & planting */}
           <SectionDivider label="The method" />

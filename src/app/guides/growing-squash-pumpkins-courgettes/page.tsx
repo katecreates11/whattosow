@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, WarningBox, GuideHero } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 import AffiliateLink from "@/components/AffiliateLink";
 
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
@@ -205,6 +205,15 @@ export default function GrowingSquashGuide() {
               ))}
             </div>
           </section>
+
+          <GuidePair
+            images={[
+              { src: "/photos/guides/squash-pair-courgette.webp", alt: "A courgette plant in full flow, fruits and yellow flowers fanned out under the leaves" },
+              { src: "/photos/guides/squash-pair-pumpkin.webp", alt: "An orange pumpkin swelling on the membrane with the allotment behind" },
+            ]}
+            caption="The summer glut and the winter larder from one family: a courgette plant in full flow, and a pumpkin swelling on the membrane for the months of soup ahead."
+            aspect="portrait"
+          />
 
           {/* Sowing & growing */}
           <SectionDivider label="The method" />

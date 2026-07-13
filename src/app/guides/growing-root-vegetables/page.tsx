@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, GuideHero } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 import AffiliateLink from "@/components/AffiliateLink";
 
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
@@ -204,6 +204,15 @@ export default function GrowingRootsGuide() {
               ))}
             </div>
           </section>
+
+          <GuidePair
+            images={[
+              { src: "/photos/guides/rootveg-pair-beet.webp", alt: "A red-stemmed beetroot seedling backlit by low sun in the bed" },
+              { src: "/photos/guides/rootveg-pair-carrots.webp", alt: "A hand holding a bunch of just-dug carrots by the kitchen wall" },
+            ]}
+            caption="From a backlit seedling to a fistful pulled clear of the soil — get the ground light and stone-free, and roots very nearly look after themselves."
+            aspect="portrait"
+          />
 
           {/* Soil */}
           <SectionDivider label="The one thing that matters" />
