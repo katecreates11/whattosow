@@ -8,11 +8,14 @@ describe("GrowingInContainersGuide", () => {
     const html = renderToStaticMarkup(createElement(GrowingInContainersGuide));
 
     expect(html).toContain("Worth buying for container veg");
+    expect(html).toContain("Buy compost if");
+    expect(html).toContain("Buy grow bags if");
+    expect(html).toContain("Buy feed if");
     expect(html).toContain("Skip tiny decorative pots for food crops");
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain("Compare peat-free compost");
-    expect(html).toContain("Compare potato grow bags");
-    expect(html).toContain("Compare liquid feed");
+    expect(html).toContain("Compare peat-free compost for hungry pots");
+    expect(html).toContain("Compare potato grow bags for deep roots");
+    expect(html).toContain("Compare liquid feed for fruiting crops");
     expect(html).toContain('data-umami-event-position="containers-seeds-lettuce"');
     expect(html).toContain('data-umami-event-position="containers-seeds-tomatoes"');
     expect(html).toContain('data-umami-event-position="containers-seeds-french-beans"');

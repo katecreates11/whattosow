@@ -91,19 +91,22 @@ function ContainerBuyerNote() {
       <div className="space-y-4 text-[15px] leading-relaxed">
         <div>
           <p className="text-earth">
-            <span className="font-serif">Worth buying:</span> roomy containers or grow bags, decent peat-free compost,
-            and one liquid feed. They solve the real container problems: roots running out of space, compost drying out,
-            and hungry plants stalling after a few weeks.
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy compost if</span>{" "}
+            you are filling fresh pots: container crops live or sulk by the compost they sit in.{" "}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy grow bags if</span>{" "}
+            you want potatoes or tomatoes without committing a permanent bed.{" "}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy feed if</span>{" "}
+            tomatoes, beans or chillies are flowering and the compost has been worked for a few weeks.
           </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
             <AffiliateLink href={az("peat free multipurpose compost")} product="peat-free compost" type="gear" merchant="amazon-uk" position="containers-compost" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-              Compare peat-free compost &rarr;
+              Compare peat-free compost for hungry pots &rarr;
             </AffiliateLink>
             <AffiliateLink href={az("potato grow bags planter")} product="potato grow bags" type="gear" merchant="amazon-uk" position="containers-grow-bag" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-              Compare potato grow bags
+              Compare potato grow bags for deep roots
             </AffiliateLink>
             <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" merchant="amazon-uk" position="containers-liquid-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-              Compare liquid feed
+              Compare liquid feed for fruiting crops
             </AffiliateLink>
           </div>
         </div>
