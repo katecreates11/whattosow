@@ -8,7 +8,9 @@ describe("OverwinteringLegumesGuide", () => {
     const html = renderToStaticMarkup(createElement(OverwinteringLegumesGuide));
 
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain('data-umami-event-position="overwinter-legumes-seeds"');
+    expect(html).toContain('data-umami-event-position="overwinter-legumes-seeds-aquadulce-claudia"');
+    expect(html).toContain('data-umami-event-position="overwinter-legumes-seeds-meteor"');
+    expect(html).not.toContain('data-umami-event-position="overwinter-legumes-seeds"');
     expect(html).toContain('data-umami-event-merchant="thompson-morgan"');
     expect(html).not.toContain("Find seeds");
   });

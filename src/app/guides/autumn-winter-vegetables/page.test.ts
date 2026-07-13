@@ -10,7 +10,9 @@ describe("AutumnWinterGuide", () => {
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare horticultural fleece");
     expect(html).toContain("Compare cloche tunnels");
-    expect(html).toContain('data-umami-event-position="autumn-winter-seeds"');
+    expect(html).toContain('data-umami-event-position="autumn-winter-seeds-garlic"');
+    expect(html).toContain('data-umami-event-position="autumn-winter-seeds-broad-beans"');
+    expect(html).not.toContain('data-umami-event-position="autumn-winter-seeds"');
     expect(html).toContain('data-umami-event-position="autumn-winter-fleece"');
     expect(html).toContain('data-umami-event-position="autumn-winter-cloche"');
     expect(html).not.toContain("Find seeds");

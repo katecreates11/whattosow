@@ -11,7 +11,9 @@ describe("WinterSaladGuide", () => {
     expect(html).toContain("Skip heated gadgets");
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare cloche tunnels");
-    expect(html).toContain('data-umami-event-position="winter-salad-seeds"');
+    expect(html).toContain('data-umami-event-position="winter-salad-seeds-lambs-lettuce-corn-salad"');
+    expect(html).toContain('data-umami-event-position="winter-salad-seeds-spinach-hardy-types"');
+    expect(html).not.toContain('data-umami-event-position="winter-salad-seeds"');
     expect(html).toContain('data-umami-event-position="winter-salad-cloche"');
     expect(html.match(/data-umami-event-position="winter-salad-cloche"/g)).toHaveLength(1);
     expect(html).not.toContain("Find seeds");

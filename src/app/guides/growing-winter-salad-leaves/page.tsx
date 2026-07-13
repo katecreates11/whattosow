@@ -9,6 +9,15 @@ const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export const metadata: Metadata = {
   title: "Growing Winter Salad Leaves in the UK — Sow Now for Winter Picking | What To Sow",
   description:
@@ -66,7 +75,7 @@ function SowRow({ item }: { item: SowItem }) {
             product={item.name}
             type="seed"
             merchant="thompson-morgan"
-            position="winter-salad-seeds"
+            position={`winter-salad-seeds-${trackingSlug(item.name)}`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
             Seeds at T&amp;M &rarr;
