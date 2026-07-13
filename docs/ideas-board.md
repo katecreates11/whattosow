@@ -129,7 +129,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 9. National Allotments Week (10–16 August) — a page from the plot
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-13 · via the potting bench
+- **Note (Kate):** So this is purely traffic driving content? Sounds good as long as we use lots of photos and videos. I have learnt a lot since getting my allotment and feel much more connected to my food
 - **Score:** Medium payoff / Low effort
 - **Evidence:** National Allotments Week runs 10–16 August 2026, theme "Grow to Learn" (National Allotment Society). WTS has no allotment-culture or diary content at all — the site is entirely crop- and task-led — and `NEXT_PHASES.md` already flags that the auto-generated posts are being retired specifically so Kate's actual diary posts can carry `/blog`. This is the one week the whole allotment world is already talking, and the site currently has nothing to say back.
 - **Pitch:** not a piece about the awareness week — a genuine week from Kate's own plot in mid-August, written the way the blog is meant to read. Low effort, no new data, and exactly the kind of post that makes the diary feel like a diary rather than a template.
