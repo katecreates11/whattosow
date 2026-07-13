@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, GuideHero } from "@/components/GuideVisuals";
 import AffiliateLink from "@/components/AffiliateLink";
 
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
@@ -170,19 +170,15 @@ export default function GrowingRootsGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Growing root vegetables"
+          subtitle="There's a particular magic to lifting a root — sown straight into the ground, left to get on with it, and pulled fresh or stored through winter. Get the soil right and the rest very nearly looks after itself."
+          image="/photos/guides/rootveg-hero-crate.webp"
+          color="amber"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Growing guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Growing root vegetables
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            There&apos;s a particular magic to lifting a root &mdash; the moment a carrot or a beetroot comes clear of
-            the soil is one of the quiet joys of growing your own. And roots are wonderfully low-fuss: most are sown
-            straight into the ground, left to get on with it, and pulled fresh or stored to see you through winter. Get
-            the soil right and the rest very nearly looks after itself.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             This is the family overview &mdash; for sowing dates and varieties of each, follow the links through to its
             own page, or check{" "}

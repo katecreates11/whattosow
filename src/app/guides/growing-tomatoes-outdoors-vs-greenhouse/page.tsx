@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
@@ -105,19 +105,15 @@ export default function GrowingTomatoesGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Growing tomatoes: outdoors vs in a greenhouse"
+          subtitle="A greenhouse buys a longer, surer season and an edge against blight — but outdoors, in a warm, sheltered spot, many swear the fruit tastes sweeter. You can grow a cracking crop either way."
+          image="/photos/guides/tomatoes-hero-vine.webp"
+          color="tomato"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Growing guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Growing tomatoes: outdoors vs in a greenhouse
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            Tomatoes are the crop everyone wants to get right, and the first big question is where to grow them. A
-            greenhouse gives you a longer, surer season and a real edge against blight; outdoors, in a warm and sheltered
-            spot, you get tomatoes that many swear taste even sweeter for the open air. The truth is you can grow a
-            cracking crop either way &mdash; you just grow them a little differently.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             Here&apos;s how the two compare, and how to get the best from whichever you choose. For sowing dates and our
             opinionated variety picks, see the{" "}
@@ -200,6 +196,16 @@ export default function GrowingTomatoesGuide() {
               black patch on the base). Water consistently, aiming at the soil rather than the leaves, daily for pots in
               hot weather.
             </p>
+
+            <GuidePair
+              images={[
+                { src: "/photos/guides/tomatoes-watering-base.webp", alt: "A watering lance pouring at the base of staked outdoor tomatoes, marigolds alongside" },
+                { src: "/photos/guides/tomato-truss-ripening.webp", alt: "A tomato truss ripening red through green on the vine" },
+              ]}
+              caption="Water at the soil, never the leaves, and keep it steady — do that and the trusses ripen sweetly, red through green, without a split."
+              aspect="portrait"
+            />
+
             <p className="mb-3">
               Once the first truss of flowers has set, switch to a high-potash{" "}
               <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon" position="tomatoes-feed" className="text-rust underline decoration-rust/30 hover:text-earth">Compare tomato feed</AffiliateLink>{" "}

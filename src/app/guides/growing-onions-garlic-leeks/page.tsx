@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
@@ -144,19 +144,15 @@ export default function GrowingAlliumsGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Growing onions, garlic & leeks"
+          subtitle="The quiet backbone of the veg patch — little room, little fuss, stored for months, and a scent that muddles the pests that hunt by smell. About the most useful ground you can give over to anything."
+          image="/photos/guides/alliums-hero-onions.webp"
+          color="allotment"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Growing guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Growing onions, garlic &amp; leeks
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            The allium family &mdash; onions, garlic, shallots, leeks and spring onions &mdash; are the quiet backbone of
-            the veg patch. They take up little room, ask for little fuss, store for months, and flavour almost everything you
-            cook. Better still, their pungent scent is a gift to their neighbours, muddling the pests that hunt by smell.
-            A bed of alliums is about the most useful ground you can give over to anything.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             This is the family overview &mdash; for full sowing dates and varieties of each, follow the links through to
             its own page.

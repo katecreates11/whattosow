@@ -230,6 +230,52 @@ export function GuideImage({
   );
 }
 
+// ─── Photo pair — two shots side by side, one shared caption ─────────────────
+// Codifies "pairs, not stacked portraits": a before/after or care/reward
+// comparison. Both cells crop to a shared aspect via object-cover, so mixed
+// source orientations still read as a matched pair. Stays two-up on mobile.
+export function GuidePair({
+  images,
+  caption,
+  credit,
+  aspect = "portrait",
+}: {
+  images: [{ src: string; alt: string }, { src: string; alt: string }];
+  caption?: string;
+  credit?: string;
+  aspect?: "portrait" | "landscape" | "square";
+}) {
+  const aspectMap = {
+    portrait: "aspect-[4/5]",
+    landscape: "aspect-[3/2]",
+    square: "aspect-square",
+  };
+
+  return (
+    <figure className="my-12 sm:my-16 max-w-2xl">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        {images.map((img, i) => (
+          <div key={i} className={`${aspectMap[aspect]} overflow-hidden bg-earth/5`}>
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
+      {(caption || credit) && (
+        <figcaption className="mt-3">
+          {caption && <span className="text-xs text-earth-light font-serif italic">{caption}</span>}
+          {credit && <span className="text-[10px] text-earth-lighter block mt-0.5">{credit}</span>}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 // ─── "In this guide" — warm sky background ──────────────────────────────────
 export function InThisGuide({ items }: { items: { label: string; anchor: string }[] }) {
   return (

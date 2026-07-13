@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 import AffiliateLink from "@/components/AffiliateLink";
 
@@ -145,19 +145,15 @@ export default function GrowingBrassicasGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Growing brassicas: cabbage, kale, broccoli & sprouts"
+          subtitle="The workhorse of the winter garden — kale in the snow, sprouting broccoli in the hungry gap, sprouts for Christmas. They ask for firm ground, and protection from everything that wants to eat them first."
+          image="/photos/guides/brassicas-hero-bed.webp"
+          color="allotment"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Growing guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Growing brassicas: cabbage, kale, broccoli &amp; sprouts
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            The cabbage family is the workhorse of the winter garden &mdash; the crops that keep the kitchen going when
-            everything else has packed up. Get a few right and you&apos;ll be picking kale in the snow, cutting sprouting
-            broccoli in the hungry gap, and pulling sprouts for Christmas dinner you grew yourself. They ask for two
-            things in return: firm ground, and protection from everything that wants to eat them first.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             This is the family overview &mdash; for the full sowing dates and varieties of each crop, follow the links
             through to its own page.
