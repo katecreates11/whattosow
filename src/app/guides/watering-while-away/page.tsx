@@ -152,57 +152,85 @@ export default function WateringWhileAwayGuide() {
             <div className="divide-y divide-earth/10 border-t border-earth/10">
               <div className="py-4">
                 <h3 className="font-serif text-lg text-earth">For pots and growbags</h3>
-                <p className="mt-1.5 text-sm text-earth-light leading-relaxed max-w-[62ch]">
-                  Bottle spikes are cheap and useful for a few days; a drip kit is better for a patio full of containers.
-                </p>
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                <div className="mt-3 space-y-4">
+                  <div>
+                    <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+                      you have a few pots that need to last a long weekend.{" "}
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+                      you are away for a fortnight or the pots sit in full sun all day. Bottle spikes are cheap,
+                      useful and limited.
+                    </p>
                   <AffiliateLink
                     href={az("terracotta watering spikes bottle")}
                     product="watering spikes"
                     position="holiday-watering-spikes"
-                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                    className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare watering spikes &rarr;
+                    Compare bottle spikes for pots &rarr;
                   </AffiliateLink>
+                  </div>
+                  <div>
+                    <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+                      you have a patio full of containers or growbags.{" "}
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+                      you only need to cover two or three pots; spikes or a neighbour will be simpler.
+                    </p>
                   <AffiliateLink
                     href={az("drip irrigation kit pots garden")}
                     product="drip irrigation kit"
                     position="holiday-watering-drip-kit"
-                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                    className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare drip kits &rarr;
+                    Compare container drip kits &rarr;
                   </AffiliateLink>
+                  </div>
                 </div>
               </div>
               <div className="py-4">
                 <h3 className="font-serif text-lg text-earth">For beds, if unattended watering is allowed</h3>
-                <p className="mt-1.5 text-sm text-earth-light leading-relaxed max-w-[62ch]">
-                  A tap timer and soaker hose are the reliable version, but set them up a week early and watch them run.
-                </p>
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                <div className="mt-3 space-y-4">
+                  <div>
+                    <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+                      your rules allow unattended watering and you can watch a trial run.{" "}
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+                      the tap is shared or the hose has to stay in your hand.
+                    </p>
                   <AffiliateLink
                     href={az("hozelock water timer tap")}
                     product="tap timer"
                     position="holiday-watering-timer"
-                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                    className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare tap timers &rarr;
+                    Compare tap timers for permitted unattended watering &rarr;
                   </AffiliateLink>
+                  </div>
+                  <div>
+                    <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+                      you already have permission to run a line along beds.{" "}
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+                      you mainly need to keep pots alive; a container drip kit is the better match.
+                    </p>
                   <AffiliateLink
                     href="https://www.amazon.co.uk/dp/B000TAFENY"
                     product="soaker hose"
                     position="holiday-watering-soaker-hose"
-                    className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
+                    className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare soaker hoses &rarr;
+                    Compare soaker hoses for beds &rarr;
                   </AffiliateLink>
+                  </div>
                 </div>
               </div>
               <div className="py-4">
                 <p className="max-w-[62ch] text-sm text-earth-light leading-relaxed">
                   <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-rust">Skip this</span>{" "}
-                  Skip anything unattended if your site rules say water has to stay in your hand. In that case, make the
-                  neighbour deal simple and leave the cans by the tap.
+                  Skip anything unattended if your site rules say water has to stay in your hand. If water has to stay
+                  in someone’s hand, make the neighbour deal simple: leave full cans by the tap, group the pots, and
+                  write down the three things that actually need watering.
                 </p>
               </div>
             </div>

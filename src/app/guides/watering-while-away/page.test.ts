@@ -9,10 +9,13 @@ describe("WateringWhileAwayGuide", () => {
 
     expect(html).toContain("Worth buying / skip this");
     expect(html).toContain("Holiday watering kit, without the panic buys");
-    expect(html).toContain("Compare watering spikes");
-    expect(html).toContain("Compare tap timers");
-    expect(html).toContain("Compare soaker hoses");
-    expect(html).toContain("Compare drip kits");
+    expect(html.match(/Buy if/g)).toHaveLength(4);
+    expect(html.match(/Skip if/g)).toHaveLength(4);
+    expect(html).toContain("Compare bottle spikes for pots");
+    expect(html).toContain("Compare container drip kits");
+    expect(html).toContain("Compare tap timers for permitted unattended watering");
+    expect(html).toContain("Compare soaker hoses for beds");
+    expect(html).toContain("If water has to stay in someone’s hand");
     expect(html).toContain("Skip anything unattended if your site rules say water has to stay in your hand");
     expect(html).toContain('data-umami-event-position="holiday-watering-spikes"');
     expect(html).toContain('data-umami-event-position="holiday-watering-timer"');
