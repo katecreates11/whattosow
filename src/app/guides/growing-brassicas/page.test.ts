@@ -8,8 +8,11 @@ describe("GrowingBrassicasGuide", () => {
     const html = renderToStaticMarkup(createElement(GrowingBrassicasGuide));
 
     expect(html).toContain("Worth buying for brassicas");
+    expect(html).toContain("Buy if");
+    expect(html).toContain("Skip if");
     expect(html).toContain("Skip butterfly decoys");
-    expect(html).toContain("Compare fine butterfly netting");
+    expect(html).toContain("Compare brassica netting");
+    expect(html).toContain("cabbage whites or pigeons have ruined a crop before");
     expect(html).toContain('data-umami-event-position="growing-brassicas-seeds-kale"');
     expect(html).toContain('data-umami-event-position="growing-brassicas-seeds-cabbage"');
     expect(html).toContain('data-umami-event-position="brassica-protection-inline"');

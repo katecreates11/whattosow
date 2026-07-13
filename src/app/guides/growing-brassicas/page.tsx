@@ -95,12 +95,15 @@ function BrassicaBuyerNote() {
       </h3>
       <div className="space-y-4 text-[15px] leading-relaxed">
         <p className="text-earth">
-          <span className="font-serif">Worth buying:</span> fine butterfly netting, held off the leaves and pegged tight.
-          It solves the real problem before it starts: cabbage whites cannot lay eggs on plants they cannot reach, and
-          pigeons are less likely to shred the winter crop.
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+          cabbage whites or pigeons have ruined a crop before, or you are setting out a proper bed of kale, cabbage or
+          sprouts. Fine mesh solves the real problem before it starts: cabbage whites cannot lay eggs on plants they
+          cannot reach.{" "}
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+          you are only growing a few sacrificial leaves and you will check them often by hand.
         </p>
         <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon-uk" position="brassica-protection-inline" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare fine butterfly netting &rarr;
+          Compare brassica netting &rarr;
         </AffiliateLink>
         <p className="text-earth-light">
           <span className="font-serif text-earth">Skip butterfly decoys.</span> They are charming, but checking leaves
