@@ -28,7 +28,7 @@ describe("CropCardGrid", () => {
     );
 
     expect(html).toContain("Seeds at ");
-    expect(html).toContain('data-umami-event-position="sow-card-seeds"');
+    expect(html).toContain('data-umami-event-position="sow-card-seeds-tomatoes-thompson-and-morgan"');
     expect(html).toContain('data-umami-event-type="seed"');
     expect(html).toContain('rel="sponsored noopener noreferrer"');
     expect(html).not.toContain("Get the seeds");

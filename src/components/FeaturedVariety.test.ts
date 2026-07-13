@@ -14,6 +14,7 @@ const entry = {
   },
   crop: {
     name: "Tomatoes",
+    slug: "tomatoes",
   },
   status: {
     state: "open",
@@ -36,6 +37,6 @@ describe("FeaturedVariety", () => {
     expect(html).toContain("Seeds at Suttons");
     expect(html).toContain('data-umami-event="affiliate-click"');
     expect(html).toContain('data-umami-event-type="seed"');
-    expect(html).toContain('data-umami-event-position="featured-variety-seeds"');
+    expect(html).toContain('data-umami-event-position="featured-variety-seeds-tomatoes-gardeners-delight-suttons"');
   });
 });

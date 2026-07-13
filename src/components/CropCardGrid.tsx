@@ -16,6 +16,14 @@ const ASPECT = ["aspect-[3/4]", "aspect-[3/4.4]", "aspect-[3/3.7]", "aspect-[3/4
 const ROT = ["-1.5deg", "1.2deg", "0.8deg", "-1deg", "1.6deg", "-0.7deg", "1.1deg", "-1.3deg"];
 const TAPE = ["left-1/2 -translate-x-1/2", "left-5", "right-6", "left-8"];
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function CropCardGrid({
   entries,
   emptyNote,
@@ -112,7 +120,7 @@ export default function CropCardGrid({
                 product={e.crop.name}
                 type="seed"
                 merchant={merchantSlug(seed.name)}
-                position="sow-card-seeds"
+                position={`sow-card-seeds-${e.crop.slug}-${trackingSlug(seed.name)}`}
                 className="inline-block mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 Seeds at {seed.name} &rarr;

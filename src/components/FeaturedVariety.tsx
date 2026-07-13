@@ -9,6 +9,14 @@ const rarityLabel: Record<string, string> = {
   common: "common",
 };
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 /**
  * The "featured this week" variety — Natoora-style long-form: photo + dropcap
  * story (the variety's personality) + an editorial affiliate recommendation.
@@ -77,7 +85,7 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
               product={variety.name}
               type="seed"
               merchant={merchantSlug(supplier.name)}
-              position="featured-variety-seeds"
+              position={`featured-variety-seeds-${crop.slug}-${trackingSlug(variety.name)}-${trackingSlug(supplier.name)}`}
               className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
             >
               Seeds at {supplier.name} &rarr;
