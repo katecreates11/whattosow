@@ -8,9 +8,12 @@ describe("FrostProtectionGuide", () => {
     const html = renderToStaticMarkup(createElement(FrostProtectionGuide));
 
     expect(html).toContain("Worth buying for frost protection");
+    expect(html).toContain("Buy fleece if");
+    expect(html).toContain("Add a cloche if");
+    expect(html).toContain("Skip if the forecast is mild");
     expect(html).toContain("Skip emergency gadgets");
-    expect(html).toContain("Compare horticultural fleece");
-    expect(html).toContain("Compare cloche tunnels");
+    expect(html).toContain("Compare fleece for quick frost cover");
+    expect(html).toContain("Compare cloche tunnels for salad rows");
     expect(html).toContain('data-umami-event-position="frost-protection-fleece"');
     expect(html).toContain('data-umami-event-position="frost-protection-cloche"');
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(2);

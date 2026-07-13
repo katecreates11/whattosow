@@ -19,15 +19,19 @@ function FrostBuyerNote() {
       </h3>
       <div className="space-y-4 text-[15px] leading-relaxed">
         <p className="text-earth">
-          <span className="font-serif">Worth buying:</span> a roll of horticultural fleece first. Add a cloche tunnel if
-          you want to keep a row of salad or seedlings moving through a cold spell.
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy fleece if</span>{" "}
+          you grow tender plants, early potatoes or spring seedlings and need quick cover for surprise frosts.{" "}
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Add a cloche if</span>{" "}
+          you want one row of salad or seedlings to keep moving through a cold spell.{" "}
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if the forecast is mild</span>{" "}
+          and you are only growing hardy winter crops.
         </p>
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
           <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon-uk" position="frost-protection-fleece" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-            Compare horticultural fleece &rarr;
+            Compare fleece for quick frost cover &rarr;
           </AffiliateLink>
           <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon-uk" position="frost-protection-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-            Compare cloche tunnels &rarr;
+            Compare cloche tunnels for salad rows &rarr;
           </AffiliateLink>
         </div>
         <p className="text-earth-light">
