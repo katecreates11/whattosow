@@ -25,11 +25,15 @@ function TomatoBuyerNote() {
       </h3>
       <div className="space-y-4 text-[15px] leading-relaxed">
         <p className="text-earth">
-          <span className="font-serif">Worth buying:</span> one high-potash tomato feed once the first truss has set.
-          It is the useful kind of tomato kit: simple, cheap, and aimed at fruit rather than extra leaf.
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+          the first flowers have set into tiny tomatoes, especially in pots or growbags where nutrients run out fast.
+          One high-potash feed is the useful kind of tomato kit: simple, cheap, and aimed at fruit rather than extra
+          leaf.{" "}
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+          your plants are still all leaf and no fruit, or you already feed weekly with a high-potash liquid feed.
         </p>
         <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon-uk" position="tomatoes-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare tomato feed &rarr;
+          Compare high-potash tomato feed &rarr;
         </AffiliateLink>
         <p className="text-earth-light">
           <span className="font-serif text-earth">Skip feeding gadgets.</span> A bottle of feed and a steady weekly
