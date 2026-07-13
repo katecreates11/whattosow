@@ -140,7 +140,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 10. Save your own flower seed — marigolds, nasturtiums, sunflowers
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-13 · via the potting bench
+- **Note (Kate):** Yes! But make sure it is all about companion planting, this is our most successful page. Use lots of photos and videos. People want to see what companion planting looks like. Make sure it is revenue generating, suggest what they can buy from envelopes to store etc.
 - **Source:** from-a-dream (The Dreamer, 2026-07-11)
 - **Score:** Medium payoff / Low effort
 - **Evidence:** Kate parked the veg seed-saving pitch (#3 above) specifically because Real Seeds already covers it well and our affiliate partners (Suttons, Dobies) sell mostly F1 seed, which sits oddly next to a save-your-own-veg-seed piece. In the same note she suggested the pivot herself: "maybe we can do a sunflower one and marigold etc?" Ornamental seed isn't the F1-heavy category the affiliate mismatch was about, and marigolds/nasturtiums are companion-planting flowers — a natural link into the site's #1-performing hub.
