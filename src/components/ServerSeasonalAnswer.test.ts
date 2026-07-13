@@ -11,7 +11,8 @@ describe("ServerSeasonalAnswer", () => {
     expect(html).toContain(" seeds at ");
     expect(html).toContain("data-umami-event=\"affiliate-click\"");
     expect(html).toContain("data-umami-event-type=\"seed\"");
-    expect(html).toContain("data-umami-event-position=\"sow-list-seeds\"");
+    expect(html).toContain("data-umami-event-position=\"sow-list-seeds-");
+    expect(html).not.toContain("data-umami-event-position=\"sow-list-seeds\"");
     expect(html).toContain("data-umami-event-crop=");
     expect(html).toContain("rel=\"sponsored noopener noreferrer\"");
   });
