@@ -73,7 +73,6 @@ function SowRow({ item }: { item: SowItem }) {
             type="seed"
             merchant="thompson-morgan"
             position={`succession-sowing-seeds-${trackingSlug(item.slug ?? item.name)}`}
-            data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="succession-sowing"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >

@@ -221,7 +221,6 @@ export default function GreenManuresGuide() {
                       type="seed"
                       merchant="thompson-morgan"
                       position={`green-manure-seeds-${trackingSlug(m.name)}`}
-                      data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
                       data-umami-event-topic="green-manure"
                       className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                     >
