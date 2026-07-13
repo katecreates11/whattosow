@@ -736,10 +736,12 @@ export default function CompanionPlantingGuide() {
                   </p>
                   <div className="space-y-2">
                     <p className="text-sm text-earth-light leading-relaxed max-w-[62ch]">
-                      If you are planning beds for pest confusion and pollinators, buy simple flower seed:
-                      marigolds, calendula, nasturtiums or borage. They earn their space beside tomatoes,
-                      brassicas, beans and courgettes, and they make the plot better even when the old folklore
-                      over-promises.
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+                      you have bare edges, bed ends or gaps around tomatoes, beans and brassicas. Simple flower seed:
+                      marigolds, calendula, nasturtiums or borage, earns its space by bringing in pollinators and
+                      pest predators.{" "}
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+                      the bed is already packed; airflow matters more than squeezing in another plant.
                     </p>
                     <AffiliateLink
                       href="https://www.amazon.co.uk/s?k=marigold+calendula+nasturtium+borage+seeds"
@@ -749,7 +751,7 @@ export default function CompanionPlantingGuide() {
                       position="companion-buyer-note"
                       className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust transition-colors"
                     >
-                      Compare companion flower seeds &rarr;
+                      Compare marigold, calendula and nasturtium seeds &rarr;
                     </AffiliateLink>
                   </div>
                 </div>

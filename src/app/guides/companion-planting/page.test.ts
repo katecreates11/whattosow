@@ -8,8 +8,12 @@ describe("CompanionPlantingGuide", () => {
     const html = renderToStaticMarkup(createElement(CompanionPlantingGuide));
 
     expect(html).toContain("Worth buying / skip this");
-    expect(html).toContain("Compare companion flower seeds");
+    expect(html).toContain("Buy if");
+    expect(html).toContain("Skip if");
+    expect(html).toContain("Compare marigold, calendula and nasturtium seeds");
     expect(html).toContain("marigolds, calendula, nasturtiums or borage");
+    expect(html).toContain("you have bare edges, bed ends or gaps around tomatoes, beans and brassicas");
+    expect(html).not.toContain("Compare companion flower seeds");
     expect(html).toContain('data-umami-event-position="companion-buyer-note"');
     expect(html.match(/data-umami-event-position="companion-buyer-note"/g)).toHaveLength(1);
     expect(html).toContain("Skip laminated companion charts");
