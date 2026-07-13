@@ -16,7 +16,7 @@ describe("GearPick", () => {
 
     expect(html).toContain("Compare Dutch hoe");
     expect(html).toContain("data-umami-event=\"affiliate-click\"");
-    expect(html).toContain("data-umami-event-position=\"gear-pick\"");
+    expect(html).toContain("data-umami-event-position=\"gear-pick-dutch-hoe\"");
     expect(html).toContain("rel=\"sponsored noopener noreferrer\"");
     expect(html).not.toContain("Check this pick");
     expect(html).not.toContain("View on Amazon");

@@ -26,6 +26,14 @@ const badgeStyles: Record<string, { label: string; className: string; icon: stri
   "skip-it": { label: "You can skip this", className: "bg-earth/5 text-earth-lighter", icon: "–" },
 };
 
+const trackingSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/['']/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 export default function GearPick({
   name,
   price,
@@ -36,7 +44,7 @@ export default function GearPick({
   image,
   imageAlt,
   ctaLabel,
-  position = "gear-pick",
+  position,
 }: GearPickProps) {
   const badgeInfo = badge ? badgeStyles[badge] : null;
   const isHighlight = badge === "our-pick" || badge === "essential";
@@ -81,7 +89,7 @@ export default function GearPick({
         product={name}
         type="gear"
         merchant="amazon"
-        position={position}
+        position={position ?? `gear-pick-${trackingSlug(name)}`}
         className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-earth border border-earth/15 px-4 py-2.5 hover:border-allotment hover:text-allotment hover:bg-allotment/5 transition-all duration-200"
       >
         {ctaLabel ?? `Compare ${name}`}
