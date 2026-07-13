@@ -34,6 +34,14 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ] as const;
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -250,6 +258,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
             <EditorialSectionRenderer
               key={i}
               section={section}
+              postSlug={post.slug}
               dropcap={section.type === "text" && i === post.sections.findIndex((s) => s.type === "text")}
             />
           ))}
@@ -270,6 +279,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                     price={item.price ?? ""}
                     description={item.description}
                     amazonUrl={amazonLink(item.asin)}
+                    position={`blog-kit-${post.slug}-${item.id}`}
                     badge={item.badge}
                     tip={item.tip}
                     image={item.image}
@@ -446,7 +456,15 @@ function GalleryGroup({
   );
 }
 
-function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSection; dropcap?: boolean }) {
+function EditorialSectionRenderer({
+  section,
+  postSlug,
+  dropcap,
+}: {
+  section: EditorialSection;
+  postSlug: string;
+  dropcap?: boolean;
+}) {
   switch (section.type) {
     case "heading":
       return (
@@ -532,7 +550,7 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
                     product={r.name}
                     type="gear"
                     merchant="amazon"
-                    position="blog-table"
+                    position={`blog-table-${postSlug}-${trackingSlug(r.name)}`}
                     className="inline-block font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2 hover:bg-allotment-dark transition-colors whitespace-nowrap"
                   >
                     Check this option &rarr;
@@ -591,6 +609,7 @@ function EditorialSectionRenderer({ section, dropcap }: { section: EditorialSect
             price={section.productPrice ?? ""}
             description={section.content}
             amazonUrl={section.productUrl ?? "#"}
+            position={`blog-product-${postSlug}-${trackingSlug(section.productName ?? "product")}`}
             badge={section.productBadge}
             tip={section.caption}
           />
