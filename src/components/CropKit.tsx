@@ -23,7 +23,7 @@ export default function CropKit({ slug, cropName }: CropKitProps) {
       </p>
       <div className="space-y-4">
         {items.map((item) => (
-          <KitItemCard key={item.name} item={item} />
+          <KitItemCard key={item.name} cropSlug={slug} item={item} />
         ))}
       </div>
       <p className="text-[10px] text-earth-lighter mt-5 leading-relaxed">
@@ -33,7 +33,15 @@ export default function CropKit({ slug, cropName }: CropKitProps) {
   );
 }
 
-function KitItemCard({ item }: { item: KitItem }) {
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function KitItemCard({ cropSlug, item }: { cropSlug: string; item: KitItem }) {
   const compareLabel = `Compare ${item.name
     .replace(/\s*\([^)]*\)/g, "")
     .toLowerCase()}`;
@@ -46,6 +54,7 @@ function KitItemCard({ item }: { item: KitItem }) {
           href={item.amazonUrl}
           product={item.name}
           type="gear"
+          position={`crop-kit-${cropSlug}-${trackingSlug(item.name)}`}
           className="group shrink-0 inline-flex items-center gap-1 text-[11px] font-medium text-earth border border-earth/10 px-2.5 py-1.5 hover:border-allotment hover:text-allotment transition-colors duration-200"
         >
           {compareLabel}
