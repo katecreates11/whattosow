@@ -8,9 +8,12 @@ describe("GrowingRootsGuide", () => {
     const html = renderToStaticMarkup(createElement(GrowingRootsGuide));
 
     expect(html).toContain("Worth buying for carrots");
+    expect(html).toContain("Buy if");
+    expect(html).toContain("Skip if");
     expect(html).toContain("Skip seed tapes");
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain("Compare fine insect mesh");
+    expect(html).toContain("Compare fine mesh for carrot fly");
+    expect(html).toContain("you have lost carrots to rust-coloured tunnels before");
     expect(html).toContain('data-umami-event-position="root-vegetables-seeds-carrots"');
     expect(html).toContain('data-umami-event-position="root-vegetables-seeds-beetroot"');
     expect(html).not.toContain('data-umami-event-position="root-vegetables-seeds"');

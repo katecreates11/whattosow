@@ -93,12 +93,14 @@ function RootBuyerNote() {
       </h3>
       <div className="space-y-4 text-[15px] leading-relaxed">
         <p className="text-earth">
-          <span className="font-serif">Worth buying:</span> fine insect mesh if carrot fly is a regular problem where
-          you grow. It is more useful than most carrot gadgets because it prevents the damage before the fly finds the
-          row.
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
+          you have lost carrots to rust-coloured tunnels before, or nearby plots get carrot fly every year. Fine mesh
+          is more useful than most carrot gadgets because it prevents the damage before the fly finds the row.{" "}
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
+          you are sowing a tiny late row and can risk it, or you already have fleece you can peg down tightly.
         </p>
         <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon-uk" position="root-vegetables-carrot-fly-mesh" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare fine insect mesh &rarr;
+          Compare fine mesh for carrot fly &rarr;
         </AffiliateLink>
         <p className="text-earth-light">
           <span className="font-serif text-earth">Skip seed tapes.</span> They are tidy, but careful thin sowing is
