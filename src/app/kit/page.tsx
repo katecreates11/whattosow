@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GuideHero, ColorSection } from "@/components/GuideVisuals";
 import { AffiliateDisclosure } from "@/components/GearPick";
+import AffiliateLink from "@/components/AffiliateLink";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: true },
@@ -47,22 +48,29 @@ interface Product {
   url: string;
 }
 
+function productPosition(name: string): string {
+  return `kit-pick-${name
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
+}
+
 function ProductList({ products }: { products: Product[] }) {
   return (
     <div className="space-y-5 mt-6">
       {products.map((p) => (
         <div key={p.name} className="border-t border-earth/10 pt-5 first:border-t-0 first:pt-0">
           <div className="flex items-baseline justify-between gap-4 mb-1.5">
-            <a
+            <AffiliateLink
               href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-umami-event="affiliate-click" data-umami-event-type="gear" data-umami-event-merchant="amazon"
-              data-umami-event-product={p.name}
+              product={p.name}
+              type="gear"
+              position={productPosition(p.name)}
               className="font-serif text-lg text-earth hover:text-allotment transition-colors"
             >
               {p.name}
-            </a>
+            </AffiliateLink>
             <span className="text-sm font-semibold text-rust tabular-nums shrink-0">{p.price}</span>
           </div>
           <p className="text-sm text-earth-light leading-relaxed">{p.blurb}</p>
