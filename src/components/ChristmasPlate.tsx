@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { awinLink } from "@/lib/awin";
+import AffiliateLink from "@/components/AffiliateLink";
 import {
   CHRISTMAS_PLATE,
   daysToStart,
@@ -12,7 +12,6 @@ import {
 } from "@/data/christmas-plate";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const AMAZON_TAG = "whattosow21-21";
 
 // Dark labels + a colour-coded dot keeps every pill above WCAG AA on the tint.
 const STATUS: Record<PlateStatus, { label: string; dot: string; bg: string; border: string }> = {
@@ -28,11 +27,6 @@ function startByLabel(crop: ChristmasCrop): string | null {
   return `${crop.startVerb} by ${crop.startBy.day} ${MONTHS[crop.startBy.month - 1]}`;
 }
 
-// Wrap a raw merchant URL for tracking (mirrors AffiliateLink, client-safe).
-function track(url: string): string {
-  if (url.includes("amazon.")) return url.includes("tag=") ? url : `${url}${url.includes("?") ? "&" : "?"}tag=${AMAZON_TAG}`;
-  return awinLink(url);
-}
 export function christmasAffiliateMerchant(url: string): string {
   if (url.includes("amazon.com/")) return "amazon-us";
   if (url.includes("amazon.")) return "amazon-uk";
@@ -44,6 +38,10 @@ export function christmasAffiliateMerchant(url: string): string {
   }
 }
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+export function christmasAffiliatePosition(cropName: string, kind: "seeds" | "kit"): string {
+  return `christmas-plate-${kind}-${slugify(cropName)}`;
+}
 
 export function christmasSeedCtaLabel(url: string): string {
   const merchant = christmasAffiliateMerchant(url);
@@ -213,36 +211,31 @@ function SectionHead({ eyebrow, title, note }: { eyebrow: string; title: string;
 }
 
 function AffiliateRow({ crop }: { crop: ChristmasCrop }) {
-  const product = slugify(crop.name);
   return (
     <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
       {crop.seedUrl && (
-        <a
-          href={track(crop.seedUrl)}
-          target="_blank"
-          rel="sponsored noopener noreferrer"
-          data-umami-event="affiliate-click"
-          data-umami-event-product={product}
-          data-umami-event-merchant={christmasAffiliateMerchant(crop.seedUrl)}
-          data-umami-event-type="christmas-seed"
+        <AffiliateLink
+          href={crop.seedUrl}
+          product={crop.name}
+          type="seed"
+          merchant={christmasAffiliateMerchant(crop.seedUrl)}
+          position={christmasAffiliatePosition(crop.name, "seeds")}
           className="inline-flex items-center gap-1.5 rounded-full bg-allotment px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-cream transition-colors hover:bg-allotment-dark"
         >
           {christmasSeedCtaLabel(crop.seedUrl)} →
-        </a>
+        </AffiliateLink>
       )}
       {crop.kit && (
-        <a
-          href={track(crop.kit.url)}
-          target="_blank"
-          rel="sponsored noopener noreferrer"
-          data-umami-event="affiliate-click"
-          data-umami-event-product={product}
-          data-umami-event-merchant={christmasAffiliateMerchant(crop.kit.url)}
-          data-umami-event-type="christmas-kit"
+        <AffiliateLink
+          href={crop.kit.url}
+          product={`${crop.name} ${crop.kit.label}`}
+          type="gear"
+          merchant={christmasAffiliateMerchant(crop.kit.url)}
+          position={christmasAffiliatePosition(crop.name, "kit")}
           className="font-mono text-[0.7rem] uppercase tracking-wider text-earth-light underline decoration-earth/20 transition-colors hover:text-earth"
         >
           {crop.kit.label} →
-        </a>
+        </AffiliateLink>
       )}
       {crop.href && (
         <a
