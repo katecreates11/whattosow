@@ -8,6 +8,14 @@ import AffiliateLink from "@/components/AffiliateLink";
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}`;
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export const metadata: Metadata = {
   title: "Growing Root Vegetables — Carrots, Beetroot, Parsnips & More (UK) | What To Sow",
   description:
@@ -62,7 +70,7 @@ function CropRow({ item }: { item: CropItem }) {
             product={`${item.name} seeds`}
             type="seed"
             merchant="thompson-morgan"
-            position="root-vegetables-seeds"
+            position={`root-vegetables-seeds-${trackingSlug(item.slug ?? item.name)}`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
             Seeds at T&amp;M &rarr;

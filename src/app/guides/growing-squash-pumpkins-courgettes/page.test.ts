@@ -12,7 +12,9 @@ describe("GrowingSquashGuide", () => {
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare high-potash feed");
     expect(html).toContain("Compare ground cover membrane");
-    expect(html).toContain('data-umami-event-position="squash-family-seeds"');
+    expect(html).toContain('data-umami-event-position="squash-family-seeds-courgettes"');
+    expect(html).toContain('data-umami-event-position="squash-family-seeds-pumpkins"');
+    expect(html).not.toContain('data-umami-event-position="squash-family-seeds"');
     expect(html).toContain('data-umami-event-position="squash-family-feed"');
     expect(html).toContain('data-umami-event-position="squash-family-membrane"');
     expect(html).not.toContain("Find seeds");

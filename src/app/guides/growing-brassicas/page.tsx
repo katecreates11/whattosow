@@ -10,6 +10,14 @@ const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export const metadata: Metadata = {
   title: "Growing Brassicas — Cabbage, Kale, Broccoli & Sprouts (UK Guide) | What To Sow",
   description:
@@ -64,7 +72,7 @@ function CropRow({ item, topic }: { item: CropItem; topic: string }) {
             product={`${item.name} seeds`}
             type="seed"
             merchant="thompson-morgan"
-            position={`${topic}-seeds`}
+            position={`${topic}-seeds-${trackingSlug(item.slug ?? item.name)}`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
             Seeds at T&amp;M &rarr;

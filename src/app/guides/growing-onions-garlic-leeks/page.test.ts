@@ -8,7 +8,9 @@ describe("GrowingAlliumsGuide", () => {
     const html = renderToStaticMarkup(createElement(GrowingAlliumsGuide));
 
     expect(html).toContain("Allium stock at T&amp;M");
-    expect(html).toContain('data-umami-event-position="allium-family-stock"');
+    expect(html).toContain('data-umami-event-position="allium-family-stock-onion-sets"');
+    expect(html).toContain('data-umami-event-position="allium-family-stock-garlic"');
+    expect(html).not.toContain('data-umami-event-position="allium-family-stock"');
     expect(html).toContain('data-umami-event-merchant="thompson-morgan"');
     expect(html).not.toContain("Find seeds");
   });

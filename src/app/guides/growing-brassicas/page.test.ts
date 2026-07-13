@@ -10,6 +10,8 @@ describe("GrowingBrassicasGuide", () => {
     expect(html).toContain("Worth buying for brassicas");
     expect(html).toContain("Skip butterfly decoys");
     expect(html).toContain("Compare fine butterfly netting");
+    expect(html).toContain('data-umami-event-position="growing-brassicas-seeds-kale"');
+    expect(html).toContain('data-umami-event-position="growing-brassicas-seeds-cabbage"');
     expect(html).toContain('data-umami-event-position="brassica-protection-inline"');
     expect(html).toContain('data-umami-event-merchant="amazon-uk"');
     expect(html.match(/data-umami-event-position="brassica-protection-inline"/g)).toHaveLength(1);

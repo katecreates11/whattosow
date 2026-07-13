@@ -11,7 +11,9 @@ describe("GrowingRootsGuide", () => {
     expect(html).toContain("Skip seed tapes");
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare fine insect mesh");
-    expect(html).toContain('data-umami-event-position="root-vegetables-seeds"');
+    expect(html).toContain('data-umami-event-position="root-vegetables-seeds-carrots"');
+    expect(html).toContain('data-umami-event-position="root-vegetables-seeds-beetroot"');
+    expect(html).not.toContain('data-umami-event-position="root-vegetables-seeds"');
     expect(html).toContain('data-umami-event-position="root-vegetables-carrot-fly-mesh"');
     expect(html).not.toContain("Find seeds");
     expect(html).not.toContain("On Amazon");
