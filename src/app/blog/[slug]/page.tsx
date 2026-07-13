@@ -236,7 +236,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
               product={post.primaryProduct.name}
               type="gear"
               merchant="amazon"
-              position="blog-primary-product"
+              position={`blog-primary-product-${post.slug}-${trackingSlug(post.primaryProduct.name)}`}
               className="group flex items-center justify-between gap-4 border border-allotment/20 bg-sage/20 px-5 py-4 hover:border-allotment hover:bg-sage/30 transition-colors"
             >
               <span className="font-serif text-earth leading-tight">

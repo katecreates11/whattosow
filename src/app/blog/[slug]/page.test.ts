@@ -8,7 +8,7 @@ describe("BlogPostPage", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("Compare watering lances");
-    expect(html).toContain('data-umami-event-position="blog-primary-product"');
+    expect(html).toContain('data-umami-event-position="blog-primary-product-watering-lance-allotment-gardena-premium-watering-lance"');
     expect(html).toContain('data-umami-event-merchant="amazon-uk"');
     expect(html).not.toContain("Compare on Amazon");
     expect(html).not.toContain("Check price on Amazon");
