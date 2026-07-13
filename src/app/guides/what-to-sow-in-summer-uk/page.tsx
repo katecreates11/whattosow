@@ -9,6 +9,13 @@ import { awinLink } from "@/lib/awin";
 const TAG = "whattosow21-21";
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
+const trackingSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/['']/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 export const metadata: Metadata = {
   title: "What to Sow in Summer in the UK — June, July & August | What To Sow",
@@ -81,7 +88,7 @@ function SowRow({ item }: { item: SowItem }) {
             product={`${item.name} seeds`}
             type="seed"
             merchant="thompson-morgan"
-            position="summer-sowing-seeds"
+            position={`summer-sowing-seeds-${trackingSlug(item.slug ?? item.name)}`}
             data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="summer-sowing"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"

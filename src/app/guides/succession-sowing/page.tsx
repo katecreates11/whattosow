@@ -7,6 +7,13 @@ import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
+const trackingSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/['']/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 export const metadata: Metadata = {
   title: "Succession Sowing — How to Grow a Steady Harvest (UK Guide) | What To Sow",
@@ -65,7 +72,7 @@ function SowRow({ item }: { item: SowItem }) {
             product={`${item.name} seeds`}
             type="seed"
             merchant="thompson-morgan"
-            position="succession-sowing-seeds"
+            position={`succession-sowing-seeds-${trackingSlug(item.slug ?? item.name)}`}
             data-umami-event="affiliate-click" data-umami-event-type="seed" data-umami-event-merchant="thompson-morgan"
             data-umami-event-topic="succession-sowing"
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"

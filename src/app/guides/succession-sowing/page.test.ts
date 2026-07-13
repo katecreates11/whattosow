@@ -8,7 +8,9 @@ describe("SuccessionSowingGuide", () => {
     const html = renderToStaticMarkup(createElement(SuccessionSowingGuide));
 
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain('data-umami-event-position="succession-sowing-seeds"');
+    expect(html).toContain('data-umami-event-position="succession-sowing-seeds-lettuce"');
+    expect(html).toContain('data-umami-event-position="succession-sowing-seeds-french-beans"');
+    expect(html).not.toContain('data-umami-event-position="succession-sowing-seeds"');
     expect(html).toContain('data-umami-event-merchant="thompson-morgan"');
     expect(html).not.toContain("Find seeds");
   });

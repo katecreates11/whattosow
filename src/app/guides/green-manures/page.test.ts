@@ -8,7 +8,8 @@ describe("GreenManuresGuide", () => {
     const html = renderToStaticMarkup(createElement(GreenManuresGuide));
 
     expect(html).toContain("Cover crop seeds at T&amp;M");
-    expect(html).toContain('data-umami-event-position="green-manure-seeds"');
+    expect(html).toContain('data-umami-event-position="green-manure-seeds-');
+    expect(html).not.toContain('data-umami-event-position="green-manure-seeds"');
     expect(html).toContain('data-umami-event-merchant="thompson-morgan"');
     expect(html).not.toContain("Find seeds");
   });
