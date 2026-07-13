@@ -144,9 +144,9 @@ export default function Home() {
             <strong className="text-earth">Before they go in:</strong> harden off over{" "}
             <a href="/guides/seed-starting#hardening-off" className={ilink}>7&ndash;10 days</a>, mind a{" "}
             <a href="/frost-map" className={ilink}>late frost</a>, and water in well &mdash;{" "}
-            <AffiliateLink href="https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728" product="frost protection fleece" type="gear" merchant="suttons" className={ilink}>fleece</AffiliateLink>{" "}
+            <AffiliateLink href="https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728" product="frost protection fleece" type="gear" merchant="suttons" position="homepage-plant-out-fleece" className={ilink}>fleece</AffiliateLink>{" "}
             the tender ones on cold nights. No seedlings of your own?{" "}
-            <AffiliateLink href="https://www.suttons.co.uk/vegetable-fruit-plants/" product="vegetable plants" type="seed" merchant="suttons" className={ilink}>Buy young veg plants &rarr;</AffiliateLink>
+            <AffiliateLink href="https://www.suttons.co.uk/vegetable-fruit-plants/" product="vegetable plants" type="seed" merchant="suttons" position="homepage-plant-out-young-plants" className={ilink}>Buy young veg plants &rarr;</AffiliateLink>
           </p>
         </>
       ) : (
