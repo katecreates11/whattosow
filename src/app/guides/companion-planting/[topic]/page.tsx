@@ -10,6 +10,14 @@ import { companionTopics, getCompanionTopic } from "@/data/companion-topics";
 import { crops } from "@/data/crops";
 import { awinLink } from "@/lib/awin";
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export async function generateStaticParams() {
   return companionTopics.map((t) => ({ topic: t.slug }));
 }
@@ -193,7 +201,7 @@ export default async function CompanionTopicPage({
                     product={l.label}
                     type="seed"
                     merchant="thompson-morgan"
-                    position="companion-topic-seeds"
+                    position={`companion-topic-seeds-${t.slug}-${trackingSlug(l.label)}`}
                     className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
                   >
                     {l.label} &rarr;
