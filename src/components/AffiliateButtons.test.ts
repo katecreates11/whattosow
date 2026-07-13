@@ -15,6 +15,7 @@ describe("AffiliateButtons", () => {
 
     expect(html).toContain("Seed suppliers");
     expect(html).toContain('data-umami-event-type="seed"');
+    expect(html).toContain('data-umami-event-position="lucky-dip-seeds-aquadulce-claudia-suttons"');
     expect(html).not.toContain("Get the seeds");
   });
 });
