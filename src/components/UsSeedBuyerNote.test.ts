@@ -16,4 +16,16 @@ describe("UsSeedBuyerNote", () => {
     expect(html).toContain("Skip for now");
     expect(html).not.toContain("data-umami-event-position=\"us-zip-skip\"");
   });
+
+  it("can separate US seed clicks by beta source and broad region", () => {
+    const html = renderToStaticMarkup(
+      createElement(UsSeedBuyerNote, {
+        source: "homepage-auto",
+        regionKey: "west-coast",
+      }),
+    );
+
+    expect(html).toContain("data-umami-event-position=\"us-zip-seeds-homepage-auto-west-coast\"");
+    expect(html).not.toContain("90210");
+  });
 });

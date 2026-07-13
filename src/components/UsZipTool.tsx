@@ -160,7 +160,7 @@ export default function UsZipTool() {
             <p className="mt-4 text-xs leading-relaxed text-earth-light">
               {answer.caveat} For exact planting dates, check your local cooperative extension.
             </p>
-            <UsSeedBuyerNote />
+            <UsSeedBuyerNote source={readSource()} regionKey={answer.regionKey} />
           </div>
         ) : (
           <div>

@@ -1,6 +1,14 @@
 import AffiliateLink from "@/components/AffiliateLink";
 
-export default function UsSeedBuyerNote() {
+type UsSeedBuyerNoteProps = {
+  source?: string;
+  regionKey?: string;
+};
+
+export default function UsSeedBuyerNote({ source, regionKey }: UsSeedBuyerNoteProps) {
+  const position =
+    source && regionKey ? `us-zip-seeds-${source}-${regionKey}` : "us-zip-seeds";
+
   return (
     <aside aria-labelledby="us-seeds-heading" className="mt-8 border-t border-earth/15 pt-5">
       <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-earth-light">
@@ -19,7 +27,7 @@ export default function UsSeedBuyerNote() {
           product="US quick crop seeds"
           merchant="amazon-us"
           type="seed"
-          position="us-zip-seeds"
+          position={position}
           className="font-serif text-lg italic text-allotment underline decoration-amber decoration-2 underline-offset-4 focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream"
         >
           Compare quick-crop seeds on Amazon &rarr;
