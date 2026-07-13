@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, ProcessDiagram, GuideHero, PullQuote, SectionDivider, RotationIcon } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, ProcessDiagram, GuideHero, PullQuote, SectionDivider } from "@/components/GuideVisuals";
 import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
 
 export const metadata: Metadata = {
@@ -183,28 +184,28 @@ export default function CropRotationGuide() {
               <p>
                 Every vegetable family takes different nutrients from the soil
                 and leaves different problems behind. Growing{" "}
-                <a
+                <Link
                   href="/crops/cabbage"
                   className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   cabbages
-                </a>{" "}
+                </Link>{" "}
                 in the same bed year after year lets clubroot spores build up
                 in the soil. Once it&apos;s there, it can persist for 20 years.
                 The same goes for white rot with{" "}
-                <a
+                <Link
                   href="/crops/onions"
                   className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   onions
-                </a>{" "}
+                </Link>{" "}
                 and blight with{" "}
-                <a
+                <Link
                   href="/crops/potatoes"
                   className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   potatoes
-                </a>
+                </Link>
                 .
               </p>
               <p>Rotation solves three problems at once:</p>
@@ -387,19 +388,19 @@ export default function CropRotationGuide() {
                   Forgetting that tomatoes are nightshades
                 </h3>
                 <p className="text-sm">
-                  <a
+                  <Link
                     href="/crops/tomatoes"
                     className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     Tomatoes
-                  </a>
+                  </Link>
                   ,{" "}
-                  <a
+                  <Link
                     href="/crops/potatoes"
                     className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     potatoes
-                  </a>
+                  </Link>
                   , peppers, and aubergines are all in the same family
                   (Solanaceae). They share blight and should be treated as one
                   group for rotation purposes. Growing tomatoes where potatoes
@@ -422,12 +423,12 @@ export default function CropRotationGuide() {
                 </h3>
                 <p className="text-sm">
                   That self-seeded{" "}
-                  <a
+                  <Link
                     href="/crops/kale"
                     className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     kale
-                  </a>{" "}
+                  </Link>{" "}
                   or sprouting broccoli from last year? It&apos;s still a
                   brassica sitting in the brassica bed, keeping clubroot happy.
                   Pull it out if it&apos;s in the wrong rotation spot.
@@ -569,7 +570,7 @@ export default function CropRotationGuide() {
               Related guides
             </h2>
             <div>
-              <a
+              <Link
                 href="/guides/growing-brassicas"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -582,8 +583,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/growing-onions-garlic-leeks"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -596,8 +597,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/companion-planting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -610,8 +611,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -624,8 +625,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/calendar"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -638,8 +639,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/beginners"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -652,8 +653,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/soil"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -666,8 +667,8 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/composting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -680,7 +681,7 @@ export default function CropRotationGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
 
@@ -696,6 +697,7 @@ export default function CropRotationGuide() {
                 price="~£7"
                 description="A basic liquid or strip test kit that tells you whether your soil is acid, neutral, or alkaline. Essential before rotating brassicas into a bed — they need pH 6.5–7.5 and will struggle in acidic soil."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=soil+pH+test+kit+garden"
+                position="crop-rotation-kit-ph-test"
                 badge="our-pick"
                 tip="Test each bed before rotating brassicas in. They need pH 6.5–7.5 — add lime if it's acidic."
               />
@@ -704,12 +706,14 @@ export default function CropRotationGuide() {
                 price="~£10"
                 description="Any notebook will do, but a dedicated allotment planner with bed layouts and monthly pages makes it dead simple to record what went where. The single most useful thing for keeping your rotation on track year to year."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=allotment+garden+planner+notebook"
+                position="crop-rotation-kit-planner"
               />
               <GearPick
                 name="Weatherproof bed labels"
                 price="~£6"
                 description="Cheap metal or plastic labels you push into each bed at the start of the season. Write the crop group and year on them. When February comes around, you won't have to guess what was growing where."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=garden+bed+labels+weatherproof"
+                position="crop-rotation-kit-bed-labels"
               />
             </GearCategory>
           </section>
