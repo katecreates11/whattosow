@@ -44,10 +44,35 @@ const STEPS: [string, string][] = [
   ["Harvest ahead of it", "If blight takes hold, pick every usable green tomato and ripen them indoors. For potatoes, cut off the foliage (haulms) to stop spores reaching the tubers, then lift after a couple of weeks."],
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://whattosow.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Guides", item: "https://whattosow.co.uk/guides" },
+    { "@type": "ListItem", position: 3, name: "Tomato & Potato Blight", item: "https://whattosow.co.uk/guides/tomato-blight" },
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to prevent and beat tomato & potato blight",
+  description: "Practical steps to stop late blight taking hold outdoors, and what to do if it strikes.",
+  step: STEPS.map(([name, text], i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name,
+    text,
+  })),
+};
+
 export default function TomatoBlightGuide() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <Header />
 
       <main id="main-content">

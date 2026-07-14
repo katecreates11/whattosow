@@ -46,9 +46,19 @@ const resistantVarieties: { name: string; crop: "Tomato" | "Potato"; note: strin
   { name: "Cara", crop: "Potato", note: "A popular maincrop with good blight resistance and real drought tolerance; big, baking-friendly tubers.", url: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/all/potato-cara_MH-20080" },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://whattosow.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Blight Watch", item: "https://whattosow.co.uk/blight-watch" },
+  ],
+};
+
 export default function BlightWatchPage() {
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header backLink={{ href: "/", label: "← Home" }} />
 
       <main id="main-content">
