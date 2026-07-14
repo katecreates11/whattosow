@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getWeatherState } from "@/lib/weather-intelligence";
 import { conditionsFrom, guideScore, whyNow } from "@/lib/guide-relevance";
 
@@ -477,6 +478,7 @@ export default async function GuidesIndex() {
                 badge="essential"
                 amazonUrl={az("B00023RYS6")}
                 description="The last secateurs you will buy. Sharp, repairable, and they make clean cuts that heal fast — worth every penny over a lifetime of pruning."
+                position="guides-kit-secateurs"
                 tip="Buy once, sharpen often."
               />
               <GearPick
@@ -485,6 +487,7 @@ export default async function GuidesIndex() {
                 badge="our-pick"
                 amazonUrl={az("B07TJ9V989")}
                 description="Half trowel, half knife, all useful. It plants out, weeds, cuts twine and divides clumps — it lives in the back pocket and barely sees the shed."
+                position="guides-kit-hori-hori"
                 tip="Get the holster too."
               />
               <GearPick
@@ -493,6 +496,7 @@ export default async function GuidesIndex() {
                 badge="budget"
                 amazonUrl={az("B0006UF6DA")}
                 description="A proper stainless fork at an honest price. Lighter than a full digging fork and ideal for raised beds and lifting roots without slicing them."
+                position="guides-kit-border-fork"
                 tip="Border size suits most plots."
               />
             </div>
@@ -503,22 +507,22 @@ export default async function GuidesIndex() {
             <div className="mt-10 border-t border-earth/10 pt-8">
               <div className="font-serif italic text-lg text-allotment mb-4">honest reviews from the shed</div>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
-                <a href="/blog/best-first-tools-new-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The tools I&apos;d buy first &rarr;</a>
-                <a href="/blog/watering-lance-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The watering lance &rarr;</a>
-                <a href="/blog/broadfork-clay-bindweed" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The broadfork &rarr;</a>
-                <a href="/blog/wheelbarrow-allotment-haemmerlin" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The wheelbarrow &rarr;</a>
+                <Link href="/blog/best-first-tools-new-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The tools I&apos;d buy first &rarr;</Link>
+                <Link href="/blog/watering-lance-allotment" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The watering lance &rarr;</Link>
+                <Link href="/blog/broadfork-clay-bindweed" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The broadfork &rarr;</Link>
+                <Link href="/blog/wheelbarrow-allotment-haemmerlin" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">The wheelbarrow &rarr;</Link>
               </div>
             </div>
 
             <div className="mt-10 border-t border-earth/10 pt-8">
               <div className="font-serif italic text-lg text-allotment mb-4">buying guides — kit worth getting right</div>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
-                <a href="/blog/best-raised-beds-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best raised beds &rarr;</a>
-                <a href="/blog/best-cold-frames-greenhouses-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Cold frames &amp; greenhouses &rarr;</a>
-                <a href="/blog/best-water-butts-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best water butts &rarr;</a>
-                <a href="/blog/best-compost-bins-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best compost bins &rarr;</a>
-                <a href="/blog/best-heated-propagators-grow-lights-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Propagators &amp; grow lights &rarr;</a>
-                <a href="/blog/best-polytunnels-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Polytunnels &rarr;</a>
+                <Link href="/blog/best-raised-beds-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best raised beds &rarr;</Link>
+                <Link href="/blog/best-cold-frames-greenhouses-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Cold frames &amp; greenhouses &rarr;</Link>
+                <Link href="/blog/best-water-butts-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best water butts &rarr;</Link>
+                <Link href="/blog/best-compost-bins-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Best compost bins &rarr;</Link>
+                <Link href="/blog/best-heated-propagators-grow-lights-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Propagators &amp; grow lights &rarr;</Link>
+                <Link href="/blog/best-polytunnels-uk" className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">Polytunnels &rarr;</Link>
               </div>
             </div>
           </div>
@@ -532,24 +536,24 @@ export default async function GuidesIndex() {
               <p className="text-earth-light mb-3 font-serif italic">
                 Need personalised sowing dates?
               </p>
-              <a
+              <Link
                 href="/"
                 className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 Enter your postcode &rarr;
-              </a>
+              </Link>
             </div>
             <div>
               <div className="h-px bg-amber w-12 mb-6" />
               <p className="text-earth-light mb-3 font-serif italic">
                 Looking for kit recommendations?
               </p>
-              <a
+              <Link
                 href="/guides/seed-starting-kit"
                 className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
                 See our picks &rarr;
-              </a>
+              </Link>
             </div>
           </div>
         </div>

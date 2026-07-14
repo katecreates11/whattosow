@@ -78,6 +78,32 @@ function SowRow({ item }: { item: SowItem }) {
   );
 }
 
+function WinterSaladBuyerNote() {
+  return (
+    <aside className="my-8 border-y border-earth/10 py-5" aria-labelledby="winter-salad-buyer-note">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust mb-2">
+        Buyer note
+      </p>
+      <h3 id="winter-salad-buyer-note" className="font-serif text-xl text-earth mb-3">
+        Worth buying for winter salad
+      </h3>
+      <div className="space-y-4 text-[15px] leading-relaxed">
+        <p className="text-earth">
+          <span className="font-serif">Worth buying:</span> one simple cloche tunnel if your leaves sit out in winter
+          rain. It keeps the crop clean and pickable, which matters more than extra heat.
+        </p>
+        <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="winter-salad-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
+          Compare cloche tunnels &rarr;
+        </AffiliateLink>
+        <p className="text-earth-light">
+          <span className="font-serif text-earth">Skip heated gadgets.</span> Winter salad needs shelter and airflow, not
+          a warm little gadget that encourages soft, sluggy growth.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
 export default function WinterSaladGuide() {
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -210,8 +236,7 @@ export default function WinterSaladGuide() {
             <ul className="space-y-3 mb-2">
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cloche</span> &mdash; the simplest fix. A little tunnel or row
-                cover keeps the rain off and a few degrees of warmth in.{" "}
-                <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon" position="winter-salad-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Compare cloche tunnels &rarr;</AffiliateLink>
+                cover keeps the rain off and a few degrees of warmth in.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame</span> &mdash; the snug spot for the best winter
@@ -227,6 +252,7 @@ export default function WinterSaladGuide() {
                 leaves indoors keep a salad going when the garden is frozen solid.
               </li>
             </ul>
+            <WinterSaladBuyerNote />
           </section>
 
           <WarningBox title="The enemy is wet, not cold">

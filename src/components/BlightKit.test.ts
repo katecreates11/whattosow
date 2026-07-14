@@ -15,7 +15,11 @@ describe("BlightKit", () => {
 
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(4);
     expect(html.match(/rel="sponsored noopener noreferrer"/g)).toHaveLength(4);
-    expect(html.match(/data-umami-event-position="blight-defence-kit"/g)).toHaveLength(4);
+    expect(html).toContain('data-umami-event-position="blight-defence-fleece"');
+    expect(html).toContain('data-umami-event-position="blight-defence-grafted-crimson-crush"');
+    expect(html).toContain('data-umami-event-position="blight-defence-crimson-crush-seeds"');
+    expect(html).toContain('data-umami-event-position="blight-defence-sarpo-mira"');
+    expect(html).not.toContain('data-umami-event-position="blight-defence-kit"');
     expect(html).not.toContain("View on Amazon");
   });
 });

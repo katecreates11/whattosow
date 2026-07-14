@@ -60,7 +60,7 @@ function CoverCard() {
             product="frost protection fleece"
             type="gear"
             merchant="suttons"
-            position="blight-defence-kit"
+            position="blight-defence-fleece"
             className={linkCls}
           >
             Check fleece for a humid week &rarr;
@@ -90,7 +90,7 @@ function SeedsCard() {
             product="grafted Crimson Crush tomato plant"
             type="seed"
             merchant="suttons"
-            position="blight-defence-kit"
+            position="blight-defence-grafted-crimson-crush"
             className={linkCls}
           >
             Grafted Crimson Crush plants (this year) &rarr;
@@ -102,7 +102,7 @@ function SeedsCard() {
             product="Crimson Crush tomato seeds"
             type="seed"
             merchant="suttons"
-            position="blight-defence-kit"
+            position="blight-defence-crimson-crush-seeds"
             className={linkCls}
           >
             Crimson Crush tomato seeds (next year) &rarr;
@@ -114,7 +114,7 @@ function SeedsCard() {
             product="Sarpo Mira seed potatoes"
             type="seed"
             merchant="suttons"
-            position="blight-defence-kit"
+            position="blight-defence-sarpo-mira"
             className={linkCls}
           >
             Sarpo Mira seed potatoes &rarr;

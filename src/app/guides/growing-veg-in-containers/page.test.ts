@@ -13,7 +13,10 @@ describe("GrowingInContainersGuide", () => {
     expect(html).toContain("Compare peat-free compost");
     expect(html).toContain("Compare potato grow bags");
     expect(html).toContain("Compare liquid feed");
-    expect(html).toContain('data-umami-event-position="containers-seeds"');
+    expect(html).toContain('data-umami-event-position="containers-seeds-lettuce"');
+    expect(html).toContain('data-umami-event-position="containers-seeds-tomatoes"');
+    expect(html).toContain('data-umami-event-position="containers-seeds-french-beans"');
+    expect(html).not.toContain('data-umami-event-position="containers-seeds"');
     expect(html).toContain('data-umami-event-position="containers-compost"');
     expect(html).toContain('data-umami-event-position="containers-grow-bag"');
     expect(html).toContain('data-umami-event-position="containers-liquid-feed"');

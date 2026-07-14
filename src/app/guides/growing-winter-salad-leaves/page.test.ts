@@ -7,10 +7,13 @@ describe("WinterSaladGuide", () => {
   it("uses clear, centrally tracked seed and cloche links", () => {
     const html = renderToStaticMarkup(createElement(WinterSaladGuide));
 
+    expect(html).toContain("Worth buying for winter salad");
+    expect(html).toContain("Skip heated gadgets");
     expect(html).toContain("Seeds at T&amp;M");
     expect(html).toContain("Compare cloche tunnels");
     expect(html).toContain('data-umami-event-position="winter-salad-seeds"');
     expect(html).toContain('data-umami-event-position="winter-salad-cloche"');
+    expect(html.match(/data-umami-event-position="winter-salad-cloche"/g)).toHaveLength(1);
     expect(html).not.toContain("Find seeds");
     expect(html).not.toContain("On Amazon");
   });

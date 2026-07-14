@@ -7,6 +7,8 @@ describe("FrostProtectionGuide", () => {
   it("uses specific, centrally tracked frost-protection buy lines", () => {
     const html = renderToStaticMarkup(createElement(FrostProtectionGuide));
 
+    expect(html).toContain("Worth buying for frost protection");
+    expect(html).toContain("Skip emergency gadgets");
     expect(html).toContain("Compare horticultural fleece");
     expect(html).toContain("Compare cloche tunnels");
     expect(html).toContain('data-umami-event-position="frost-protection-fleece"');

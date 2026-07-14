@@ -49,6 +49,8 @@ const bestForPots: CropItem[] = [
 ];
 
 function CropRow({ item }: { item: CropItem }) {
+  const seedPosition = item.slug ? `containers-seeds-${item.slug}` : "containers-seeds";
+
   return (
     <div className="border-t border-earth/8 py-4">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
@@ -65,7 +67,7 @@ function CropRow({ item }: { item: CropItem }) {
             product={`${item.name} seeds`}
             type="seed"
             merchant="thompson-morgan"
-            position="containers-seeds"
+            position={seedPosition}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
             Seeds at T&amp;M &rarr;

@@ -1,0 +1,18 @@
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { describe, expect, it } from "vitest";
+import GrowingBrassicasGuide from "@/app/guides/growing-brassicas/page";
+
+describe("GrowingBrassicasGuide", () => {
+  it("uses one trust-led brassica protection buyer note", () => {
+    const html = renderToStaticMarkup(createElement(GrowingBrassicasGuide));
+
+    expect(html).toContain("Worth buying for brassicas");
+    expect(html).toContain("Skip butterfly decoys");
+    expect(html).toContain("Compare fine butterfly netting");
+    expect(html).toContain('data-umami-event-position="brassica-protection-inline"');
+    expect(html).toContain('data-umami-event-merchant="amazon-uk"');
+    expect(html.match(/data-umami-event-position="brassica-protection-inline"/g)).toHaveLength(1);
+    expect(html).not.toContain("On Amazon");
+  });
+});

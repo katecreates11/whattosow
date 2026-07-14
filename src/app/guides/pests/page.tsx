@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, BugIcon, PullQuote, SectionDivider, FullBleedSection, InThisGuide, TopicCard, GuideImage, ColorSection } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, InThisGuide, TopicCard, ColorSection } from "@/components/GuideVisuals";
 import GearPick, { GearCategory, AffiliateDisclosure } from "@/components/GearPick";
 
 export const metadata: Metadata = {
@@ -173,12 +174,12 @@ export default function PestsGuide() {
                   <strong className="text-earth">Companion plant.</strong>{" "}
                   Marigolds, nasturtiums, and herbs can confuse or repel pests.
                   See our{" "}
-                  <a
+                  <Link
                     href="/guides/companion-planting"
                     className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     companion planting guide
-                  </a>{" "}
+                  </Link>{" "}
                   for the full list.
                 </li>
               </ul>
@@ -552,6 +553,7 @@ export default function PestsGuide() {
                 description="The only slug pellets worth using. Ferric phosphate breaks down harmlessly in the soil — safe for wildlife, pets, and the worms you're trying to encourage. Metaldehyde pellets kill hedgehogs and song thrushes. Don't use them."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=organic+slug+pellets+ferric+phosphate"
                 badge="essential"
+                position="pest-kit-slug-pellets"
                 tip="Scatter thinly around new transplants. Reapply after heavy rain."
               />
               <GearPick
@@ -559,12 +561,14 @@ export default function PestsGuide() {
                 price="~£5"
                 description="Wrap it around raised beds and pots — slugs get a mild electrical reaction on contact and turn back. Works best when kept clean and bright. Not a silver bullet on its own, but a useful part of the arsenal."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=copper+tape+slug"
+                position="pest-kit-copper-tape"
               />
               <GearPick
                 name="Beer traps"
                 price="~£8"
                 description="Sink them into the soil so the rim is at ground level, fill with cheap lager. Slugs are attracted to the yeast and drown. You'll be horrified by how many you catch on a wet night. Empty and refill every few days."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=slug+beer+trap+garden"
+                position="pest-kit-beer-traps"
               />
             </GearCategory>
 
@@ -575,6 +579,7 @@ export default function PestsGuide() {
                 description="The single most effective thing you can buy for brassicas. Keeps cabbage whites out completely — no caterpillars, no holes, no drama. Make sure it's fine enough that butterflies can't squeeze through."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=butterfly+netting+vegetable+garden"
                 badge="essential"
+                position="pest-kit-butterfly-netting"
               />
               <GearPick
                 name="Enviromesh insect netting"
@@ -582,6 +587,7 @@ export default function PestsGuide() {
                 description="Finer mesh than standard butterfly netting. Blocks carrot fly, cabbage root fly, flea beetle, and most other small flying pests. More expensive but genuinely multi-purpose — one piece does the job of three different barriers."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=enviromesh+insect+netting"
                 badge="our-pick"
+                position="pest-kit-enviromesh"
                 tip="Stops carrot fly, cabbage root fly, and flea beetle. Worth every penny — one piece lasts years."
               />
               <GearPick
@@ -590,6 +596,7 @@ export default function PestsGuide() {
                 description="You need something to hold your netting up off the plants. These simple hoops push into the soil and give the netting structure. Without them you end up with a flat sheet resting on leaves, which defeats the point."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=garden+netting+hoops"
                 badge="essential"
+                position="pest-kit-netting-hoops"
               />
             </GearCategory>
 
@@ -600,12 +607,14 @@ export default function PestsGuide() {
                 description="Flat discs that sit around the base of brassica stems, blocking cabbage root fly from laying eggs in the soil. Dead simple, surprisingly effective. You can make your own from cardboard, but these last longer."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=cabbage+root+fly+collars"
                 badge="essential"
+                position="pest-kit-brassica-collars"
               />
               <GearPick
                 name="Carrot fly barrier (60cm)"
                 price="~£8"
                 description="Carrot fly is a low flyer — it rarely goes above 60cm. A barrier at that height around your carrot bed blocks them completely. Simpler than netting and you can still weed and thin without removing anything."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=carrot+fly+barrier+60cm"
+                position="pest-kit-carrot-fly-barrier"
               />
             </GearCategory>
 
@@ -616,6 +625,7 @@ export default function PestsGuide() {
                 description="Microscopic worms that seek out and kill slugs in the soil — including the underground ones you never see. You water them on and they get to work. More targeted than pellets and no risk to other wildlife."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=nemaslug+nematodes"
                 badge="upgrade"
+                position="pest-kit-nemaslug"
                 tip="Apply in spring when soil is warm enough. More effective than pellets but more expensive. Best for beds you can't easily scatter pellets on."
               />
             </GearCategory>
@@ -625,14 +635,14 @@ export default function PestsGuide() {
 
           {/* Cross-links to related guides */}
           <div className="flex flex-col sm:flex-row gap-4 my-8">
-            <a
+            <Link
               href="/guides/companion-planting"
               className="flex-1 border border-earth/10 px-5 py-4 group hover:border-allotment/30 transition-colors"
             >
               <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-rust/50 block mb-1">Related guide</span>
               <span className="font-serif text-lg text-earth group-hover:text-allotment transition-colors">Companion planting</span>
               <p className="text-xs text-earth-light mt-1">Pest-repelling companions that actually work.</p>
-            </a>
+            </Link>
             <a
               href="/guides/allotment-essentials"
               className="flex-1 border border-earth/10 px-5 py-4 group hover:border-allotment/30 transition-colors"
@@ -732,7 +742,7 @@ export default function PestsGuide() {
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
+              <Link
                 href="/guides/companion-planting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -745,7 +755,7 @@ export default function PestsGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
               <a
                 href="/guides/crop-rotation"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
@@ -774,7 +784,7 @@ export default function PestsGuide() {
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </a>
-              <a
+              <Link
                 href="/"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -787,7 +797,7 @@ export default function PestsGuide() {
                   </p>
                 </div>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>
