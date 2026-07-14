@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 import { awinLink } from "@/lib/awin";
 
 const tm = (q: string) => awinLink(`https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`);
@@ -140,20 +140,15 @@ export default function OverwinteringLegumesGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Seasonal guide"
+          title="Overwintering broad beans & peas"
+          subtitle="One of growing's loveliest sleights of hand — tuck hardy broad beans and peas in as the year winds down, all but forget them, and they hand you a crop in late spring, weeks before anything sown in March."
+          image="/photos/guides/beanspeas-hero-trellis.webp"
+          color="allotment"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Seasonal guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Overwintering broad beans &amp; peas
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            Here&apos;s one of growing&apos;s loveliest sleights of hand: tuck a few hardy broad beans and peas into the
-            ground as the year winds down, all but forget about them, and they&apos;ll hand you a crop in late spring
-            weeks before anything you sow in March. They sit out the winter doing very little, then surge away the moment
-            the light returns &mdash; and they fill that lean stretch of late spring when the stores are empty and
-            nothing new is quite ready.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             It works best in milder, well-drained spots, so let your own weather guide you &mdash;{" "}
             <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
@@ -177,6 +172,15 @@ export default function OverwinteringLegumesGuide() {
               And it&apos;s one job off the towering spring to-do list.
             </p>
           </section>
+
+          <GuidePair
+            images={[
+              { src: "/photos/guides/beanspeas-pair-pods.webp", alt: "Pea plants heavy with pods against a jute net trellis" },
+              { src: "/photos/guides/beanspeas-pair-split.webp", alt: "Three pea pods split open showing rows of sweet green peas" },
+            ]}
+            caption="Sown in autumn, they surge away when the light returns — pods hanging heavy on the netting by late spring, and peas sweet enough to eat straight from the pod."
+            aspect="portrait"
+          />
 
           {/* Varieties */}
           <SectionDivider label="The right varieties" />
