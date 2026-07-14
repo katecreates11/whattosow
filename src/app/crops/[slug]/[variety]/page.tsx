@@ -63,7 +63,7 @@ export default async function VarietyPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Crops", item: "https://whattosow.co.uk/#explore-crops" },
+      { "@type": "ListItem", position: 1, name: "Crops", item: "https://whattosow.co.uk/crops" },
       { "@type": "ListItem", position: 2, name: crop.name, item: `https://whattosow.co.uk/crops/${slug}` },
       { "@type": "ListItem", position: 3, name: v.name, item: `https://whattosow.co.uk/crops/${slug}/${variety}` },
     ],

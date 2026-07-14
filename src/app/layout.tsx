@@ -74,6 +74,19 @@ export default function RootLayout({
         <meta name="pinterest-rich-pin" content="true" />
         <meta name="p:domain_verify" content="a0bbf0ace1ffe1f177e7a9ef497c3e2c" />
         <link rel="alternate" type="application/rss+xml" title="What To Sow Blog" href="/feed.xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "What To Sow",
+              url: "https://whattosow.co.uk",
+              description:
+                "Personalised UK sowing, planting and harvesting dates by postcode — free, instant, no signup.",
+            }),
+          }}
+        />
       </head>
       <body className={`${instrumentSans.variable} ${newsreader.variable} ${plexMono.variable} font-sans antialiased`}>
         <noscript>
