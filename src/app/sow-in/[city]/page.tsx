@@ -316,7 +316,7 @@ export default async function CityPage({
             {monthName} {year}
           </span>
           <h2 className="text-2xl sm:text-3xl font-serif text-earth tracking-tight mb-2">
-            What to sow in {city.name} right now
+            The crops to get going this month
           </h2>
           <p className="text-earth-light mb-8">
             Based on a last frost date of {formatFrostDateShort(frostDate)}, these are the crops
