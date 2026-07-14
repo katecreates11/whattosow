@@ -388,12 +388,7 @@ function HomepageAnswerReveal({
         >
           {placeName ? `See your full ${placeName} sowing list` : "See your full sowing list"} &rarr;
         </Link>
-        <Link
-          href="/my-garden"
-          className="font-serif italic text-base text-earth-light border-b border-earth/20 pb-px hover:text-allotment hover:border-amber focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
-        >
-          Set up your garden &rarr;
-        </Link>
+        {/* "Set up your garden" CTA removed 2026-07-14 — garden dashboard not public for now */}
       </div>
     </section>
   );

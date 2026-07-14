@@ -54,20 +54,7 @@ export default function SowPage() {
           </div>
         </section>
 
-        <section className="px-6 sm:px-10 lg:px-16 py-14 border-t border-earth/10">
-          <div className="max-w-5xl mx-auto">
-            <p className="font-serif text-2xl sm:text-3xl text-earth tracking-tight max-w-[22ch] mb-3">
-              Sown something? Let us keep an eye on it for you.
-            </p>
-            <p className="text-earth-light max-w-[48ch] mb-5 leading-relaxed">
-              Tell us what you&apos;ve sown and when, and we&apos;ll work out when it&apos;ll be ready — and remind you
-              along the way.
-            </p>
-            <a href="/my-plot" className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5">
-              Keep track of what you&apos;re growing &rarr;
-            </a>
-          </div>
-        </section>
+        {/* plot-tracker CTA removed 2026-07-14 — the garden dashboard is not public for now */}
       </main>
       <Footer />
     </div>

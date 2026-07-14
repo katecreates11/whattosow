@@ -230,9 +230,7 @@ export default function SuccessionSowingGuide() {
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Keep a note of what you sowed and when</strong> &mdash; it&apos;s the only
-                way to spot the gaps before they happen.{" "}
-                <Link href="/my-plot" className="text-rust underline decoration-rust/30 hover:text-earth">My plot</Link> tracks
-                it for you and works out the harvest dates.
+                way to spot the gaps before they happen.
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Follow one crop with another</strong> &mdash; plan what goes into each bed
@@ -277,10 +275,6 @@ export default function SuccessionSowingGuide() {
               </Link>
               <Link href="/guides/seed-starting" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Starting from seed</span>
-                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </Link>
-              <Link href="/my-plot" className="flex items-center justify-between py-5 border-b border-earth/8 group">
-                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Track your sowings on my plot</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
               <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">

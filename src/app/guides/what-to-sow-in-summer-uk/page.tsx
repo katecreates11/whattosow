@@ -277,8 +277,7 @@ export default function SummerSowingGuide() {
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <strong className="text-earth">Keep records</strong> &mdash; jot down what you sowed and when. It&apos;s
-                the only way to learn your garden&apos;s real timings, and{" "}
-                <Link href="/my-plot" className="text-rust underline decoration-rust/30 hover:text-earth">my plot</Link> makes it easy.
+                the only way to learn your garden&apos;s real timings.
               </li>
             </ul>
           </section>

@@ -103,12 +103,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/my-garden`,
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "daily",
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/calendar`,
       lastModified: new Date("2026-04-02"),
       changeFrequency: "monthly",
