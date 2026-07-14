@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero } from "@/components/GuideVisuals";
+import LoopClip from "@/components/LoopClip";
 import AffiliateLink from "@/components/AffiliateLink";
 
 const az = (q: string) => `https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}`;
@@ -98,18 +99,15 @@ export default function WateringWhileAwayGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Going away? Keeping everything watered while you're gone"
+          subtitle="The great unfairness of growing your own — the fortnight you're away is always the fortnight the sun finally arrives, just as the tomatoes hit their stride and the courgettes double by the day."
+          image="/photos/guides/sprinkler-watering.webp"
+          color="frost"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Growing guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Going away? How to keep everything watered while you&apos;re gone
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            It&apos;s the great unfairness of growing your own: the fortnight you&apos;re away is always the fortnight the
-            sun finally arrives. The tomatoes are just hitting their stride, the courgettes are doubling by the day, and
-            you&apos;re standing at the departure gate wondering if any of it will still be alive when you get back.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             The good news: a veg patch is tougher than it looks, and an hour of setting up before you leave covers almost
             everything. Here&apos;s what actually works, from free tricks to a timer that waters more faithfully than we do.
@@ -136,6 +134,17 @@ export default function WateringWhileAwayGuide() {
               So the plan is simple: put your effort where the risk is. Beds get a soak and a mulch. Pots get gathered,
               shaded and stood in water. The thirsty crops get whatever automation you can manage &mdash; or a neighbour.
             </p>
+
+            <figure className="mt-8 max-w-[24rem] mx-auto sm:mx-0">
+              <LoopClip
+                src="/videos/blog/lance-spray-loop.mp4"
+                poster="/videos/blog/lance-spray-loop-poster.webp"
+                alt="A watering lance arcing a fine mist over a freshly planted bed of seedlings"
+              />
+              <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+                The last proper soak before you go &mdash; a deep drink at the roots, then a mulch to hold it in.
+              </figcaption>
+            </figure>
           </section>
 
           <aside className="border-y border-earth/10 py-6 sm:py-7" aria-labelledby="holiday-watering-kit">
