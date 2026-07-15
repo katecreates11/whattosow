@@ -5,6 +5,7 @@ describe("crop buying advice", () => {
   const currentRollout = [
     "tomatoes",
     "carrots",
+    "basil",
     "courgettes",
     "maincrop-potatoes",
     "runner-beans",
@@ -17,6 +18,25 @@ describe("crop buying advice", () => {
 
     expect(getCropBuyingAdvice("lettuce")).toBeNull();
     expect(getCropBuyingAdvice("french-beans")).toBeNull();
+  });
+
+  it("gives basil a pot-focused buying note without selling a herb kit", () => {
+    const advice = getCropBuyingAdvice("basil");
+
+    expect(advice?.intro).toContain("warmth crop");
+    expect(advice?.items).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          kind: "worth-buying",
+          name: "Small 9cm pots",
+          product: "9cm square plant pots",
+        }),
+        expect.objectContaining({
+          kind: "skip-this",
+          name: "Big indoor herb kits",
+        }),
+      ]),
+    );
   });
 
   it("keeps linked recommendations bounded and skip items link-free", () => {

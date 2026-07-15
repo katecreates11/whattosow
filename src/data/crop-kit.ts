@@ -163,6 +163,25 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
       },
     ],
   },
+  basil: {
+    intro: "Basil is less a kit crop than a warmth crop. In the UK it usually does best in pots you can keep warm, move around, and pick from often.",
+    items: [
+      {
+        kind: "worth-buying",
+        name: "Small 9cm pots",
+        why: "Sow or pot basil into small pots rather than a cold open bed. You can keep them on a sunny windowsill, in the greenhouse, or beside tomatoes where they stay warm.",
+        href: az("9cm square plant pots"),
+        product: "9cm square plant pots",
+        cta: "Compare small basil pots",
+      },
+      {
+        kind: "skip-this",
+        name: "Big indoor herb kits",
+        why: "They look tidy on the packet, but basil mostly wants warmth, light and regular picking. The expensive tray is not the magic bit.",
+        instead: "Use a few small pots, fresh seed or a healthy plant, and keep taking the tips so it bushes out.",
+      },
+    ],
+  },
   courgettes: {
     intro: "Courgettes want rich soil, water and picking — almost nothing in a catalogue changes that. Two things earn their place.",
     items: [
