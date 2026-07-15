@@ -1231,6 +1231,15 @@ export const editorialPosts: EditorialPost[] = [
           "Did marigolds solve all my pest problems? No. Slugs still ate my lettuce seedlings. The cabbage white butterflies still found the brassicas. But the aphid pressure was noticeably lower, the pollinators were abundant, and the plot looked absolutely stunning.\n\nFor the cost of a few trays of plug plants (under a fiver), marigolds are the best investment you can make on an allotment. I will plant them every year from now on. The pest control benefits are real but modest — the beauty and the pollinators are the main reasons to grow them.",
       },
       {
+        type: "product",
+        content:
+          "For the sake of a few pounds, they are the easiest win on the plot. I buy mine as young plug plants — a tray gives you enough to border a whole bed, and they arrive ready to go straight in. If you would rather grow your own from seed, a single packet fills the entire allotment. Thompson & Morgan carry both.",
+        productName: "French marigolds (plugs or seed)",
+        productPrice: "from ~£5",
+        productBadge: "budget",
+        productUrl: "https://www.thompson-morgan.com/search?q=french+marigold",
+      },
+      {
         type: "tip",
         content:
           "Sow French marigold seeds indoors in April, or buy plug plants in May. Plant them 20-25cm apart around the edges of raised beds. Deadhead regularly to keep them flowering all season.",
