@@ -107,7 +107,8 @@ export default function UsZipTool() {
             </p>
           ) : (
             <p className="text-xs leading-relaxed text-earth-light">
-              We track the region, not your full ZIP, so Kate can see whether the US version is worth building properly.
+              Your ZIP is used only to give a broad regional steer. For exact local advice, check your cooperative
+              extension.
             </p>
           )}
         </form>

@@ -24,8 +24,8 @@ export default function UsPage() {
               What can I sow now in my ZIP code?
             </h1>
             <p className="mt-5 max-w-[58ch] font-serif text-xl sm:text-2xl italic leading-snug text-earth-light">
-              A first American doorway into the allotment brain: broad, honest, and useful enough to tell us whether
-              we should build the proper ZIP-code version.
+              A first American doorway into What To Sow: broad, honest, and clear about where local extension advice
+              still matters.
             </p>
           </section>
 
@@ -40,7 +40,7 @@ export default function UsPage() {
                 <p className="mt-4 leading-relaxed text-earth-light">
                   What To Sow is written from a UK allotment, so this page does not pretend to know every American
                   county yet. It uses your ZIP prefix to give a broad regional steer, then sends you into the same crop
-                  field guide while we learn whether US gardeners want the full version.
+                  field guide with a reminder to check your local cooperative extension for exact dates.
                 </p>
               </div>
               <div className="border-t border-earth/15 pt-5 md:pt-0">
@@ -48,8 +48,8 @@ export default function UsPage() {
                   The next proper build
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-earth-light">
-                  If ZIP searches show up in the data, the next pass should add county-level climate normals, USDA
-                  zones, extension links and US seed suppliers. No pretending before the data earns it.
+                  The fuller version would add county-level climate normals, USDA zones, extension links and US seed
+                  suppliers. This page stays deliberately broad until then.
                 </p>
               </div>
             </div>
