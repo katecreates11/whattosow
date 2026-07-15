@@ -40,6 +40,14 @@ export default function CropBuyingAdvice({ slug }: CropBuyingAdviceProps) {
   );
 }
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function AdviceItem({ item, slug }: { item: CropBuyingAdviceItem; slug: string }) {
   if (item.kind === "skip-this") {
     return (
@@ -73,7 +81,7 @@ function AdviceItem({ item, slug }: { item: CropBuyingAdviceItem; slug: string }
           href={item.href}
           product={item.product}
           type="gear"
-          position={`crop-buying-advice-${slug}`}
+          position={`crop-buying-advice-${slug}-${trackingSlug(item.product)}`}
           className="mt-3 sm:mt-1 inline-flex shrink-0 items-center gap-1.5 border border-earth/10 px-3 py-2 text-xs font-medium text-earth hover:border-allotment hover:text-allotment transition-colors"
         >
           {item.cta}

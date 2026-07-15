@@ -118,23 +118,23 @@ const HEATED_PROPAGATOR: KitItem = {
 
 const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
   tomatoes: {
-    intro: "Tomatoes do not need many gadgets. A little support, steady feeding once fruit sets, and regular attention do most of the work.",
+    intro: "Tomatoes do not need many gadgets. Spend on the two things that stop real summer problems: steady feeding once fruit sets, and soft support as the stems get heavy.",
     items: [
       {
         kind: "worth-buying",
         name: "Tomato feed",
-        why: "Once the first truss has set, a weekly high-potash feed helps the plant put its energy into fruit rather than more leafy growth.",
+        why: "Once the first truss has set, a weekly high-potash feed helps the plant put its energy into fruit. It is especially useful for pots, growbags and hungry greenhouse plants.",
         href: TOMORITE.amazonUrl,
         product: "tomato feed",
-        cta: "Check Tomorite-style tomato feed",
+        cta: "Compare high-potash tomato feed",
       },
       {
         kind: "worth-buying",
         name: "Soft plant ties or clips",
-        why: "Cordon tomatoes need tying in as they grow. Soft ties hold the stem without cutting into it on a windy day.",
+        why: "Cordon tomatoes need tying in all summer. Soft ties or clips hold the swelling stems without cutting in when the plant is heavy with fruit.",
         href: az("soft plant ties tomato clips"),
         product: "soft plant ties",
-        cta: "Compare soft ties and tomato clips",
+        cta: "Compare soft tomato ties and clips",
       },
       {
         kind: "skip-this",
