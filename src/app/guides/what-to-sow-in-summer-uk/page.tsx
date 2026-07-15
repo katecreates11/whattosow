@@ -314,8 +314,8 @@ export default function SummerSowingGuide() {
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What to sow in autumn &amp; winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
-              <Link href="/still-time" className="flex items-center justify-between py-5 border-b border-earth/8 group">
-                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What can you still sow?</span>
+              <Link href="/guides/sow-now-eat-all-winter" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Sow now, eat all winter</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
               <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">

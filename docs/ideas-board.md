@@ -48,7 +48,7 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 2. "Sow now, eat all winter" — the high-summer autumn/winter sowing guide
 - **Type:** content
-- **Status:** approved
+- **Status:** building
 - **Decided:** 2026-07-11 · via the potting bench
 - **Note (Kate):** This sounds good, can you tie it to using our postcode tool to plan when it will get cold where they are and if they are more cold locations, promote more cold kit stuff
 - **Score:** High payoff / Low effort

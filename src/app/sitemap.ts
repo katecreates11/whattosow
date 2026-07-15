@@ -181,6 +181,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/sow-now-eat-all-winter`,
+      lastModified: new Date("2026-07-15"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/guides/succession-sowing`,
       lastModified: new Date("2026-06-07"),
       changeFrequency: "monthly",
