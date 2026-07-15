@@ -463,7 +463,7 @@ export const varieties: Variety[] = [
       {
         name: "Beetroot hummus",
         description:
-          "Blitz roasted beetroot with chickpeas, tahini, garlic and lemon until impossibly pink and earthy. It makes a plate of raw vegetables disappear in no time.",
+          "Blitz roasted beetroot with chickpeas, tahini, garlic and lemon until impossibly pink and earthy. It has a way of making a plate of raw vegetables vanish.",
       },
     ],
     seedSuppliers: [],
@@ -1545,7 +1545,7 @@ export const varieties: Variety[] = [
     name: "Butternut",
     rarity: "common",
     personality:
-      "The one everyone knows and the one that reliably ripens in UK summers. Tan skin, orange flesh, and a sweetness that deepens in storage. Harvest in September, eat through Christmas. The kitchen workhorse of the squash world.",
+      "The one everyone grows, and the one that reliably ripens in UK summers. Tan skin, orange flesh, and a sweetness that deepens in storage. Harvest in September, eat through Christmas. The kitchen workhorse of the squash world.",
     recipes: [
       {
         name: "Roasted butternut squash soup",

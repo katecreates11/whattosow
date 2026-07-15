@@ -129,7 +129,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 9. National Allotments Week (10–16 August) — a page from the plot
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-13 · via the potting bench
+- **Note (Kate):** So this is purely traffic driving content? Sounds good as long as we use lots of photos and videos. I have learnt a lot since getting my allotment and feel much more connected to my food
 - **Score:** Medium payoff / Low effort
 - **Evidence:** National Allotments Week runs 10–16 August 2026, theme "Grow to Learn" (National Allotment Society). WTS has no allotment-culture or diary content at all — the site is entirely crop- and task-led — and `NEXT_PHASES.md` already flags that the auto-generated posts are being retired specifically so Kate's actual diary posts can carry `/blog`. This is the one week the whole allotment world is already talking, and the site currently has nothing to say back.
 - **Pitch:** not a piece about the awareness week — a genuine week from Kate's own plot in mid-August, written the way the blog is meant to read. Low effort, no new data, and exactly the kind of post that makes the diary feel like a diary rather than a template.
@@ -138,7 +140,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 10. Save your own flower seed — marigolds, nasturtiums, sunflowers
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-13 · via the potting bench
+- **Note (Kate):** Yes! But make sure it is all about companion planting, this is our most successful page. Use lots of photos and videos. People want to see what companion planting looks like. Make sure it is revenue generating, suggest what they can buy from envelopes to store etc.
 - **Source:** from-a-dream (The Dreamer, 2026-07-11)
 - **Score:** Medium payoff / Low effort
 - **Evidence:** Kate parked the veg seed-saving pitch (#3 above) specifically because Real Seeds already covers it well and our affiliate partners (Suttons, Dobies) sell mostly F1 seed, which sits oddly next to a save-your-own-veg-seed piece. In the same note she suggested the pivot herself: "maybe we can do a sunflower one and marigold etc?" Ornamental seed isn't the F1-heavy category the affiliate mismatch was about, and marigolds/nasturtiums are companion-planting flowers — a natural link into the site's #1-performing hub.
@@ -148,7 +152,9 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 11. "Good neighbours for your alliums" — a companion-planting tie-in for the autumn hub
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-13 · via the potting bench
+- **Note (Kate):** Yes sounds good, make sure it’s revenue focused with affiliate links.
 - **Source:** from-a-dream (The Dreamer, 2026-07-11)
 - **Score:** High payoff / Very low effort
 - **Evidence:** Idea #1 (autumn garlic & onion hub) was just approved with praise for pairing useful content and affiliate focus. The companion-planting hub is the site's #1-performing page, built on data already in `crops.ts`. No new build — just a section or internal link inside the already-approved hub pointing at good/bad allium neighbours, using data that exists today.

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Watering Vegetables — A Practical UK Guide | What To Sow",
   description:
-    "Learn how to water your vegetable garden properly. Covers when to water, how much, crop-by-crop needs, mulching, water butts, and signs of overwatering. Practical UK allotment advice.",
+    "When to water, how much, and which crops need what — plus mulching, water butts and the signs of overwatering. Practical UK advice for a thirsty veg patch.",
   keywords: [
     "watering vegetables UK",
     "how often to water allotment",

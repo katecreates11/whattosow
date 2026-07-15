@@ -11,6 +11,7 @@ describe("sitemap", () => {
     expect(urls).not.toContain("https://whattosow.co.uk/print");
     expect(urls).not.toContain("https://whattosow.co.uk/bed-planner");
     expect(urls).not.toContain("https://whattosow.co.uk/my-plot");
+    expect(urls).not.toContain("https://whattosow.co.uk/my-garden");
     expect(urls.some((url) => url.startsWith("https://whattosow.co.uk/pins"))).toBe(false);
   });
 
@@ -24,6 +25,5 @@ describe("sitemap", () => {
     expect(urls).toContain("https://whattosow.co.uk/guides/dealing-with-the-glut");
     expect(urls).toContain("https://whattosow.co.uk/crops/tomatoes");
     expect(urls).toContain("https://whattosow.co.uk/sow/july");
-    expect(urls).toContain("https://whattosow.co.uk/my-garden");
   });
 });

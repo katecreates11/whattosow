@@ -19,7 +19,7 @@ function trackingSlug(value: string): string {
 }
 
 export const metadata: Metadata = {
-  title: "Growing Winter Salad Leaves in the UK — Sow Now for Winter Picking | What To Sow",
+  title: "Growing Winter Salad Leaves in the UK | What To Sow",
   description:
     "How to grow winter salad leaves in the UK: the hardy cut-and-come-again leaves to sow in late summer and autumn for fresh salad right through the cold — winter lettuce, lamb's lettuce, mizuna, mustard and more.",
   keywords: [

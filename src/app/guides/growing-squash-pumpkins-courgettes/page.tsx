@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
+import { SectionDivider, TipBox, WarningBox, GuideHero, GuidePair } from "@/components/GuideVisuals";
 import AffiliateLink from "@/components/AffiliateLink";
 
 const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
@@ -182,19 +182,15 @@ export default function GrowingSquashGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header backLink={{ href: "/guides", label: "← Guides" }} />
       <main id="main-content">
+        <GuideHero
+          eyebrow="Growing guide"
+          title="Growing squash, pumpkins & courgettes"
+          subtitle="The great sprawlers of summer — big-leaved, bold and astonishingly generous. One courgette can feed you for weeks; a winter squash fills a corner with soups for the cold months. They ask for warmth, room, and more food and water than you'd think."
+          image="/photos/guides/squash-hero-pumpkin.webp"
+          color="amber"
+        />
+
         <div className="px-6 sm:px-10 lg:px-16">
-          <span className="text-xs font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 block">
-            Growing guide
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif text-earth tracking-tight mb-4 max-w-2xl">
-            Growing squash, pumpkins &amp; courgettes
-          </h1>
-          <p className="text-earth-light leading-relaxed mb-4 max-w-2xl">
-            The squash family are the great sprawlers of summer &mdash; big-leaved, bold and astonishingly generous once
-            they get going. A single courgette plant can feed you for weeks; a winter squash vine can fill a corner and
-            hand you a larder of soups for the cold months. They ask for just three things in return: warmth, room, and
-            more food and water than you&apos;d think.
-          </p>
           <p className="text-earth-light leading-relaxed mb-10 max-w-2xl">
             This is the family overview &mdash; for sowing dates and varieties of each, follow the links through to its
             own page.
@@ -217,6 +213,15 @@ export default function GrowingSquashGuide() {
               ))}
             </div>
           </section>
+
+          <GuidePair
+            images={[
+              { src: "/photos/guides/squash-pair-courgette.webp", alt: "A courgette plant in full flow, fruits and yellow flowers fanned out under the leaves" },
+              { src: "/photos/guides/squash-pair-pumpkin.webp", alt: "An orange pumpkin swelling on the membrane with the allotment behind" },
+            ]}
+            caption="The summer glut and the winter larder from one family: a courgette plant in full flow, and a pumpkin swelling on the membrane for the months of soup ahead."
+            aspect="portrait"
+          />
 
           {/* Sowing & growing */}
           <SectionDivider label="The method" />

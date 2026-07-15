@@ -500,7 +500,7 @@ export default async function CropPage({
         "@type": "ListItem",
         position: 2,
         name: "Crops",
-        item: "https://whattosow.co.uk/#explore-crops",
+        item: "https://whattosow.co.uk/crops",
       },
       {
         "@type": "ListItem",
@@ -573,7 +573,7 @@ export default async function CropPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
-      <Header backLink={{ href: "/#explore-crops", label: "\u2190 All crops" }} />
+      <Header backLink={{ href: "/crops", label: "\u2190 All crops" }} />
 
       <article id="main-content">
         <CropVerdictBand crop={crop} />

@@ -149,7 +149,7 @@ export default function SowPlanner({
         </button>
         {saved && (
           <span className="font-serif italic text-allotment">
-            Saved — <a href="/my-plot" className="border-b border-amber focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2">see it in My plot</a>
+            Saved &check;
           </span>
         )}
       </div>

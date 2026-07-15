@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 
 export const metadata: Metadata = {
-  title: "Preparing Your Allotment for Winter — Putting the Plot to Bed (UK) | What To Sow",
+  title: "Preparing Your Allotment for Winter (UK) | What To Sow",
   description:
     "How to put your allotment to bed for winter in the UK: clearing spent crops, mulching beds the no-dig way, protecting bare soil, lifting and storing, and the autumn jobs that pay off all next year.",
   keywords: [

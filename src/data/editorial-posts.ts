@@ -3032,8 +3032,9 @@ export const editorialPosts: EditorialPost[] = [
       "sweetcorn plugs planting out",
       "sweetcorn block planting",
     ],
-    heroImage: "/photos/blog/sweetcorn-planting-bed-wide.webp",
-    heroAlt: "The allotment on planting day — netted beds, marigolds, and the corn bed waiting under a bright sky",
+    heroImage: "/photos/blog/sweetcorn-cob-sunflowers.webp",
+    heroAlt:
+      "A just-picked sweetcorn cob held up among the sunflowers at the allotment",
     intro:
       "June was so hot that most jobs simply didn't happen, and my sweetcorn plugs sat waiting while the ground baked solid. They're in now — late, but in — thanks to a trick I first used on the potatoes: don't fight the dry soil, plant into pockets of fresh compost instead.",
     tags: ["allotment diary", "sweetcorn", "how I do it"],
@@ -3051,6 +3052,16 @@ export const editorialPosts: EditorialPost[] = [
         type: "text",
         content:
           "It's very simple. I run my tape measure along the bed and use the bulb planter to pop out a neat hole at each mark — about 35 to 40 centimetres apart, in a block rather than a row, because sweetcorn is pollinated by the wind and wants neighbours on every side.\n\nThen each hole gets filled with fresh compost, the corn plug goes into that, and everything gets watered in well. That's the whole method.",
+      },
+      {
+        type: "product",
+        content:
+          "The unglamorous hero of the whole trick. Thirty metres for a few pounds — run it down the edge of the bed, plant against it, and the block comes out even without any guessing. It lives in the shed bag now and comes out for every row I sow.",
+        productName: "AARACHI WOKIN 30m tape measure",
+        productPrice: "~\u00a310",
+        productUrl: "https://www.amazon.co.uk/dp/B097938GPZ?tag=whattosow21-21",
+        productBadge: "budget",
+        caption: "Plant against the tape and the spacing sorts itself.",
       },
       {
         type: "image",

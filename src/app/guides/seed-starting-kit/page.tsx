@@ -424,7 +424,7 @@ export default function SeedStartingKitGuide() {
                 name="LED grow light strip"
                 price="£15–25"
                 badge="upgrade"
-                description="A simple LED strip on a timer gives seedlings consistent light without the leggy stretch you get on a windowsill. Not essential if you have a good south-facing window, but a game-changer if you don't. Set it 5–10cm above the seedlings and run it for 14–16 hours a day."
+                description="A simple LED strip on a timer gives seedlings consistent light without the leggy stretch you get on a windowsill. Not essential if you have a good south-facing window, but it makes all the difference on a dark sill. Set it 5–10cm above the seedlings and run it for 14–16 hours a day."
                 amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=LED+grow+light+strip+seedlings"
                 position="seed-kit-detail-grow-light"
                 tip="Look for full-spectrum or 6500K — avoid the purple/pink ones, they're designed for flowering plants."
