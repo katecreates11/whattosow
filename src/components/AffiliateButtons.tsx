@@ -10,13 +10,8 @@ interface AffiliateButtonsProps {
   eventPrefix?: string;
 }
 
-export default function AffiliateButtons({ suppliers, variety, rarity, eventPrefix = "lucky-dip" }: AffiliateButtonsProps) {
+export default function AffiliateButtons({ suppliers, variety, eventPrefix = "lucky-dip" }: AffiliateButtonsProps) {
   const varietySlug = merchantSlug(variety);
-  const trackClick = (supplier: string) => {
-    if (typeof window !== "undefined" && (window as unknown as { umami?: { track: (event: string, data: Record<string, string>) => void } }).umami) {
-      (window as unknown as { umami: { track: (event: string, data: Record<string, string>) => void } }).umami.track(`${eventPrefix}-affiliate-click`, { variety, rarity, supplier });
-    }
-  };
 
   if (suppliers.length === 0) return null;
 
@@ -37,7 +32,6 @@ export default function AffiliateButtons({ suppliers, variety, rarity, eventPref
             data-umami-event-type="seed"
             data-umami-event-merchant={merchantSlug(s.name)}
             data-umami-event-position={`${eventPrefix}-seeds-${varietySlug}-${merchantSlug(s.name)}`}
-            onClick={() => trackClick(s.name)}
             className="flex-1 text-center text-sm font-semibold text-white bg-allotment hover:bg-allotment-dark transition-colors px-5 py-3"
           >
             {s.name} &rarr;

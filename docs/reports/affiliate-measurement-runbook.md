@@ -25,6 +25,13 @@ URL treatment, `rel="sponsored noopener noreferrer"`, and the event attributes
 above. Some older hand-placed links also emit `affiliate-click`; include them in
 the report if Umami sees them.
 
+Legacy commercial event names such as `gear-affiliate-click`,
+`crop-kit-click`, `variety-seed-click`, `sow-seed-click`,
+`companion-seed-click`, `lucky-dip-affiliate-click` and
+`card-detail-affiliate-click` may still appear in older Umami ranges. Treat
+them as historical commercial-click data only. Current outbound affiliate links
+should use `affiliate-click` with `merchant`, `product`, `type` and `position`.
+
 ## Monthly export Kate needs
 
 Export the last 30 days from Umami for the event `affiliate-click`.
@@ -43,6 +50,10 @@ Pull these views:
 6. Top 10 links by clicks.
 7. Zero-click links.
 8. Pages with affiliate links but no clicks.
+
+If the date range crosses the tracking cleanup, add a small "legacy commercial
+events" note with counts for old event names. Do not compare old event names
+against `affiliate-click` as if they were separate current surfaces.
 
 Then split the `position` view into readable groups. Recent tracking uses more
 specific position names so the report can tell whether a click came from a crop
