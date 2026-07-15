@@ -24,12 +24,18 @@ describe("crop buying advice", () => {
     const advice = getCropBuyingAdvice("basil");
 
     expect(advice?.intro).toContain("warmth crop");
+    expect(advice?.intro).toContain("Summer basil");
     expect(advice?.items).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           kind: "worth-buying",
           name: "Small 9cm pots",
           product: "9cm square plant pots",
+        }),
+        expect.objectContaining({
+          kind: "worth-buying",
+          name: "Fresh basil seed",
+          product: "basil seed",
         }),
         expect.objectContaining({
           kind: "skip-this",
@@ -71,6 +77,29 @@ describe("crop buying advice", () => {
         expect(item.cta.length).toBeGreaterThan(12);
       }
     }
+  });
+
+  it("uses real plot photos as trust proof on the expanded crop buying notes", () => {
+    expect(getCropBuyingAdvice("carrots")?.photo).toEqual(
+      expect.objectContaining({
+        src: "/photos/blog/carrot-harvest-crate.webp",
+      }),
+    );
+    expect(getCropBuyingAdvice("courgettes")?.photo).toEqual(
+      expect.objectContaining({
+        src: "/photos/blog/courgette-young-plant.webp",
+      }),
+    );
+    expect(getCropBuyingAdvice("maincrop-potatoes")?.photo).toEqual(
+      expect.objectContaining({
+        src: "/photos/blog/potato-rows-june-2026.webp",
+      }),
+    );
+    expect(getCropBuyingAdvice("runner-beans")?.photo).toEqual(
+      expect.objectContaining({
+        src: "/photos/crops/runner-beans-climbing.webp",
+      }),
+    );
   });
 
   it("keeps older crop kit rails aligned with trust-led skip advice", () => {

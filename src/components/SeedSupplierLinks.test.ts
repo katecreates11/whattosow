@@ -16,7 +16,11 @@ describe("SeedSupplierLinks", () => {
 
     expect(html).toContain("Where to buy tomatoes seeds");
     expect(html).toContain("Seeds at ");
-    expect(html).toContain('data-umami-event-position="sidebar"');
+    expect(html).toContain("font-serif text-rust underline");
+    expect(html).not.toContain("px-4 py-2.5 border border-earth/8");
+    expect(html).toContain(
+      'data-umami-event-position="seed-supplier-sidebar-tomatoes-thompson-morgan"',
+    );
     expect(html).toContain('data-umami-event-type="seed"');
     expect(html).toContain('rel="sponsored noopener noreferrer"');
   });
@@ -29,7 +33,10 @@ describe("SeedSupplierLinks", () => {
     );
 
     expect(html).toContain("Seeds at ");
-    expect(html).toContain('data-umami-event-position="variety-card"');
+    expect(html).toContain("font-serif text-rust underline");
+    expect(html).toContain(
+      'data-umami-event-position="seed-supplier-compact-tomatoes-thompson-morgan"',
+    );
     expect(html).not.toContain("Buy seeds");
   });
 
@@ -41,7 +48,10 @@ describe("SeedSupplierLinks", () => {
     );
 
     expect(html).toContain("Get tomatoes seeds");
-    expect(html).toContain('data-umami-event-position="inline"');
+    expect(html).toContain("font-serif text-rust underline");
+    expect(html).toContain(
+      'data-umami-event-position="seed-supplier-inline-tomatoes-thompson-morgan"',
+    );
     expect(html).toContain("lg:hidden");
   });
 });

@@ -14,8 +14,8 @@ describe("CompanionPlantingGuide", () => {
     expect(html).toContain("marigolds, calendula, nasturtiums or borage");
     expect(html).toContain("you have bare edges, bed ends or gaps around tomatoes, beans and brassicas");
     expect(html).not.toContain("Compare companion flower seeds");
-    expect(html).toContain('data-umami-event-position="companion-buyer-note"');
-    expect(html.match(/data-umami-event-position="companion-buyer-note"/g)).toHaveLength(1);
+    expect(html).toContain('data-umami-event-position="companion-buyer-note-flower-seeds"');
+    expect(html).not.toContain('data-umami-event-position="companion-buyer-note"');
     expect(html).toContain("Skip laminated companion charts");
   });
 });

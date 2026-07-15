@@ -1,5 +1,6 @@
 import { getCropBuyingAdvice, type CropBuyingAdviceItem } from "@/data/crop-kit";
 import AffiliateLink from "@/components/AffiliateLink";
+import Image from "next/image";
 
 interface CropBuyingAdviceProps {
   slug: string;
@@ -24,6 +25,24 @@ export default function CropBuyingAdvice({ slug }: CropBuyingAdviceProps) {
       <p className="text-earth-light leading-relaxed max-w-[62ch] mb-6">
         {advice.intro}
       </p>
+
+      {advice.photo && (
+        <figure className="mb-7 max-w-[34rem]">
+          <div className="aspect-[4/3] overflow-hidden bg-earth/5">
+            <Image
+              src={advice.photo.src}
+              alt={advice.photo.alt}
+              width={680}
+              height={510}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <figcaption className="mt-2 max-w-[52ch] font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+            {advice.photo.caption}
+          </figcaption>
+        </figure>
+      )}
 
       <div className="space-y-5">
         {advice.items.map((item) => (
@@ -80,9 +99,9 @@ function AdviceItem({ item, slug }: { item: CropBuyingAdviceItem; slug: string }
         <AffiliateLink
           href={item.href}
           product={item.product}
-          type="gear"
+          type={item.type ?? "gear"}
           position={`crop-buying-advice-${slug}-${trackingSlug(item.product)}`}
-          className="mt-3 sm:mt-1 inline-flex shrink-0 items-center gap-1.5 border border-earth/10 px-3 py-2 text-xs font-medium text-earth hover:border-allotment hover:text-allotment transition-colors"
+          className="mt-3 sm:mt-1 inline-flex min-h-11 shrink-0 items-center gap-1.5 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
         >
           {item.cta}
           <span aria-hidden="true">&rarr;</span>

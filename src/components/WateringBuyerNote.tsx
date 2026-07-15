@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AffiliateLink from "@/components/AffiliateLink";
 
 export default function WateringBuyerNote() {
@@ -18,10 +19,56 @@ export default function WateringBuyerNote() {
       </h2>
       <p className="mt-3 max-w-[62ch] text-earth-light">
         If you are buying one watering setup, buy for the water supply you
-        actually have. On some allotments you can use a hose while you stand
-        there holding it; on others you fill cans from a communal tank, dip
-        tank or trough and keep the water in your hand throughout.
+        actually have. Some plots are hose-friendly; others are easier with
+        cans from a tap, tank or trough. Check your own site rules before you
+        spend money on clever watering kit.
       </p>
+
+      <figure className="mt-6 max-w-[34rem]">
+        <div className="aspect-[4/3] overflow-hidden bg-earth/5">
+          <Image
+            src="/photos/blog/watering-lance-tomato-roots.webp"
+            alt="Watering lance aimed at the base of tomato plants on the allotment"
+            width={680}
+            height={510}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <figcaption className="mt-2 max-w-[52ch] font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+          Water at the roots first — the useful kit is whatever helps you do
+          that calmly.
+        </figcaption>
+      </figure>
+
+      <div className="mt-6 border-y border-earth/10 py-4">
+        <p className="font-serif text-lg text-earth">
+          Start with the job, not the gadget.
+        </p>
+        <ul className="mt-3 space-y-2 text-sm text-earth-light">
+          <li>
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Shared tap
+            </span>{" "}
+            If the problem is getting water from a shared tap to the bed,
+            sturdy cans or a lance earn their keep first.
+          </li>
+          <li>
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Rainwater
+            </span>{" "}
+            If the problem is keeping rainwater close by, buy storage before
+            you buy anything clever.
+          </li>
+          <li>
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Away
+            </span>{" "}
+            If the problem is holiday watering, sort the rules and the water
+            source before you buy a timer.
+          </li>
+        </ul>
+      </div>
 
       <div className="mt-7 divide-y divide-earth/10 border-t border-earth/10">
         <div className="py-5">
@@ -32,8 +79,8 @@ export default function WateringBuyerNote() {
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Buy if
             </span>{" "}
-            hoses are banned, busy or awkward. If your allotment tanks run dry
-            or the hoses are always in use, two cans are the difference between
+            hoses are banned, busy or awkward on your site. If the tap queue is
+            long or the hoses are always in use, two cans are the difference between
             watering properly and going home annoyed. A detachable rose gives
             seedlings a softer drink, and ordinary plastic is fine.{" "}
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
@@ -123,15 +170,15 @@ export default function WateringBuyerNote() {
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Buy if
             </span>{" "}
-            your plot has communal taps but the hoses are always in use, or
+            your plot has communal taps but the hoses are often in use, or
             you want a small reserve you can dip cans from. A dark, lidded tub
             keeps leaves, wildlife and mosquitoes out better than an open
             trough.{" "}
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
               Skip if
             </span>{" "}
-            your site does not allow stored water or you cannot put it on firm,
-            level ground.
+            your site rules do not allow stored water, or you cannot put it on
+            firm, level ground.
           </p>
           <AffiliateLink
             href="https://www.amazon.co.uk/s?k=lidded+garden+water+storage+tank"
@@ -149,9 +196,10 @@ export default function WateringBuyerNote() {
             Skip timers and sprinklers until you have checked
           </h3>
           <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
-            Soaker hoses, sprinklers and timers can be useful in the right
-            garden, but many allotments restrict them or forbid unattended
-            watering. Read the site rules before spending anything.
+            Do not buy a timer first. Soaker hoses, sprinklers and timers can
+            be useful in the right garden, but some allotments restrict hose
+            use or unattended watering. Read your own site rules before
+            spending anything.
           </p>
         </div>
       </div>

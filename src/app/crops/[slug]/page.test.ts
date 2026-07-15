@@ -8,7 +8,7 @@ describe("CropPage", () => {
       await CropPage({ params: Promise.resolve({ slug: "tomatoes" }) }),
     );
 
-    expect(html).toContain('data-umami-event-position="crop-playbook-tomatoes-spiral-tomato-supports"');
+    expect(html).toContain('data-umami-event-position="crop-playbook-tomatoes-soft-plant-ties"');
     expect(html).toContain('data-umami-event-position="crop-playbook-tomatoes-tomorite-tomato-feed"');
     expect(html).toContain('data-umami-event-position="crop-page-variety-seeds-tomatoes-sungold-thompson-and-morgan"');
   });

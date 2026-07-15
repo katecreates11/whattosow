@@ -78,7 +78,7 @@ export default function WateringWhileAwayGuide() {
         name: "Do tap timers and drip irrigation work for vegetables?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — a simple battery tap timer running a soaker hose or drip line along the beds is the most reliable hands-off option. Set it for early morning, test it for a week before you travel, and it will water more evenly than most of us manage by hand.",
+          text: "Yes, where your site rules allow unattended watering. A simple battery tap timer running a soaker hose or drip line along the beds can be very reliable, but set it up early, test it for a week before you travel, and avoid it on shared taps or sites that require hand watering.",
         },
       },
       {
@@ -158,6 +158,17 @@ export default function WateringWhileAwayGuide() {
               Buy for the way water is actually allowed to move on your plot. Pots need slow release. Beds need a
               tested line or a person. Anything unattended only makes sense if your site rules allow it.
             </p>
+            <div className="mb-5 border-y border-earth/10 py-4">
+              <p className="font-serif text-lg text-earth">
+                Choose the smallest system that covers the real risk.
+              </p>
+              <p className="mt-2 max-w-[62ch] text-sm text-earth-light leading-relaxed">
+                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Leaving tomorrow?</span>{" "}
+                spikes and a neighbour beat a complicated timer.{" "}
+                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Away for a fortnight?</span>{" "}
+                use a proper drip line only where rules allow, and test the line for several days first.
+              </p>
+            </div>
             <div className="divide-y divide-earth/10 border-t border-earth/10">
               <div className="py-4">
                 <h3 className="font-serif text-lg text-earth">For pots and growbags</h3>
@@ -205,7 +216,7 @@ export default function WateringWhileAwayGuide() {
                       <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
                       your rules allow unattended watering and you can watch a trial run.{" "}
                       <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
-                      the tap is shared or the hose has to stay in your hand.
+                      the tap is shared, the rules are unclear, or someone else may need the water.
                     </p>
                   <AffiliateLink
                     href={az("hozelock water timer tap")}
@@ -237,9 +248,9 @@ export default function WateringWhileAwayGuide() {
               <div className="py-4">
                 <p className="max-w-[62ch] text-sm text-earth-light leading-relaxed">
                   <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-rust">Skip this</span>{" "}
-                  Skip anything unattended if your site rules say water has to stay in your hand. If water has to stay
-                  in someone’s hand, make the neighbour deal simple: leave full cans by the tap, group the pots, and
-                  write down the three things that actually need watering.
+                  Skip anything unattended if your site rules do not allow it, or if the tap is shared and should not
+                  be tied up. If watering needs a person, make the neighbour deal simple: leave full cans by the tap,
+                  group the pots, and write down the three things that actually need watering.
                 </p>
               </div>
             </div>
@@ -296,9 +307,10 @@ export default function WateringWhileAwayGuide() {
               The kit that waters for you (a week or more)
             </h2>
             <p className="mb-3">
-              For a proper holiday &mdash; or just a busy August &mdash; a{" "}
+              Where site rules and water supply allow it, a proper holiday &mdash; or just a busy August &mdash; is
+              when a{" "}
               <strong className="text-earth">battery tap timer</strong> feeding a{" "}
-              <strong className="text-earth">soaker hose or drip line</strong> is the honest answer. It&apos;s not
+              <strong className="text-earth">soaker hose or drip line</strong> earns its keep. It&apos;s not
               complicated: the timer screws onto the tap, the hose runs along the beds, and every morning at six it
               quietly does the job better than most of us manage with a can.
             </p>
@@ -368,7 +380,7 @@ export default function WateringWhileAwayGuide() {
               </div>
               <div>
                 <h3 className="font-serif text-lg text-earth mb-1.5">Do tap timers really work?</h3>
-                <p className="text-[15px]">Yes &mdash; a battery tap timer running a soaker hose or drip line is the most reliable hands-off option, and it waters more evenly than most of us do by hand. The one rule: set it up a week early and watch it run before you trust it with the patch.</p>
+                <p className="text-[15px]">Yes, where your rules and water supply allow it &mdash; a battery tap timer running a soaker hose or drip line can water more evenly than most of us do by hand. The one rule: set it up a week early and watch it run before you trust it with the patch.</p>
               </div>
               <div>
                 <h3 className="font-serif text-lg text-earth mb-1.5">Should I harvest everything before going away?</h3>

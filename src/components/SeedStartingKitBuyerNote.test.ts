@@ -8,12 +8,18 @@ describe("SeedStartingKitBuyerNote", () => {
     const html = renderToStaticMarkup(createElement(SeedStartingKitBuyerNote));
 
     expect(html).toContain("The seed-starting kit worth buying first");
+    expect(html).toContain("%2Fphotos%2Fblog%2Fwindowsill-seedlings-cardboard.webp");
+    expect(html).toContain("Useful seed kit starts with ordinary trays");
     expect(html).toContain("Essential");
     expect(html).toContain("Only for heat-lovers");
     expect(html).toContain("Module trays");
     expect(html).toContain("Seed compost");
     expect(html).toContain("Plant labels");
     expect(html).toContain("Heated propagator");
+    expect(html).toContain("For tomatoes, start with modules and labels");
+    expect(html).toContain("For basil, small pots and warmth matter more than a full indoor kit");
+    expect(html).toContain("the first thing to buy before any heated gadget");
+    expect(html).toContain("basil or later-season tomatoes");
     expect(html).toContain("Skip for now");
     expect(html.match(/Buy if/g)).toHaveLength(4);
     expect(html.match(/Skip if/g)).toHaveLength(4);

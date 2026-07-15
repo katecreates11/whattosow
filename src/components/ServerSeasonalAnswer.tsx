@@ -84,9 +84,10 @@ function buildSowingRows(entries: CropEntry[], notes: Record<string, string> | u
   });
 }
 
-function SeedLink({ crop }: { crop: Crop }) {
+function SeedLink({ crop, lead }: { crop: Crop; lead: boolean }) {
   const seed = crop.seedSuppliers?.[0];
   if (!seed) return <span className="hidden sm:block" aria-hidden="true" />;
+  const positionPrefix = lead ? "sow-list-seeds-lead" : "sow-list-seeds";
 
   return (
       <AffiliateLink
@@ -94,12 +95,12 @@ function SeedLink({ crop }: { crop: Crop }) {
       product={`${crop.name} seeds`}
       type="seed"
       merchant={merchantSlug(seed.name)}
-      position={`sow-list-seeds-${crop.slug}-${trackingSlug(seed.name)}`}
+      position={`${positionPrefix}-${crop.slug}-${trackingSlug(seed.name)}`}
       data-umami-event-crop={crop.slug}
       aria-label={`${crop.name} seeds at ${seed.name}`}
       className="inline-flex min-h-[44px] items-center justify-end font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
     >
-      {crop.name} seeds at {seed.name} &rarr;
+      Seeds · {seed.name} &rarr;
     </AffiliateLink>
   );
 }
@@ -150,7 +151,7 @@ function SowingRowItem({ row, lead }: { row: SowingRow; lead: boolean }) {
             </p>
           )}
         </div>
-        <SeedLink crop={row.crop} />
+        <SeedLink crop={row.crop} lead={lead} />
       </div>
     </li>
   );

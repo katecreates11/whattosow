@@ -4,6 +4,7 @@
  */
 
 import AffiliateLink from "@/components/AffiliateLink";
+import Image from "next/image";
 
 interface GearPickProps {
   name: string;
@@ -60,7 +61,7 @@ export default function GearPick({
       )}
       <div className={image ? "flex gap-4 sm:gap-5 items-start" : ""}>
         {image && (
-          <img
+          <Image
             src={image}
             alt={imageAlt || name}
             width={128}
@@ -90,7 +91,7 @@ export default function GearPick({
         type="gear"
         merchant="amazon-uk"
         position={position ?? `gear-pick-${trackingSlug(name)}`}
-        className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-earth border border-earth/15 px-4 py-2.5 hover:border-allotment hover:text-allotment hover:bg-allotment/5 transition-all duration-200"
+        className="group inline-flex min-h-11 items-center gap-1.5 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
       >
         {ctaLabel ?? `Compare ${name}`}
         <svg

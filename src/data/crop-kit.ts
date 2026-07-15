@@ -20,6 +20,7 @@ export interface WorthBuyingAdviceItem {
   why: string;
   href: string;
   product: string;
+  type?: "seed" | "gear";
   cta: string;
 }
 
@@ -34,6 +35,11 @@ export type CropBuyingAdviceItem = WorthBuyingAdviceItem | SkipBuyingAdviceItem;
 
 export interface CropBuyingAdvice {
   intro: string;
+  photo?: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
   items: CropBuyingAdviceItem[];
 }
 
@@ -119,6 +125,11 @@ const HEATED_PROPAGATOR: KitItem = {
 const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
   tomatoes: {
     intro: "Tomatoes do not need many gadgets. Spend on the two things that stop real summer problems: steady feeding once fruit sets, and soft support as the stems get heavy.",
+    photo: {
+      src: "/photos/blog/tomato-bed-marigold-ring.webp",
+      alt: "Tomato plants growing in a bed edged with marigolds on the allotment",
+      caption: "Tomatoes and marigolds on the plot — support and steady feeding matter more than gadgets.",
+    },
     items: [
       {
         kind: "worth-buying",
@@ -145,12 +156,17 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
     ],
   },
   carrots: {
-    intro: "Carrots are simple until carrot fly arrives. Spend money on protection only if carrot fly is a real problem where you grow.",
+    intro: "Carrots are not a kit crop. The one thing that can earn its place is protection from carrot fly; everything else is mostly careful sowing and patience.",
+    photo: {
+      src: "/photos/blog/carrot-harvest-crate.webp",
+      alt: "Freshly harvested carrots with leafy tops in a crate",
+      caption: "Carrots reward a quiet start: fine soil, careful sowing and protection before carrot fly finds them.",
+    },
     items: [
       {
         kind: "worth-buying",
         name: "Fine insect mesh",
-        why: "Carrot fly finds bruised carrot foliage by scent and flies low. A fine mesh cover from sowing day is the calmest defence.",
+        why: "Carrot fly finds bruised foliage by scent and flies low over the bed. Fine mesh from sowing day is the calmest defence, especially on allotments where carrots have struggled before.",
         href: ENVIROMESH.amazonUrl,
         product: "fine insect mesh",
         cta: "Compare fine insect mesh",
@@ -159,12 +175,17 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         kind: "skip-this",
         name: "Seed tapes",
         why: "They are tidy, but often much dearer for fewer seeds, and the spacing is not magic.",
-        instead: "Sow thinly into fine soil, cover the row after sowing, and thin only if you must, preferably on a still evening.",
+        instead: "Sow thinly into fine soil, water the drill before sowing, cover the row afterwards, and thin only if you must, preferably on a still evening.",
       },
     ],
   },
   basil: {
-    intro: "Basil is less a kit crop than a warmth crop. In the UK it usually does best in pots you can keep warm, move around, and pick from often.",
+    intro: "Basil is less a kit crop than a warmth crop. Summer basil in the UK usually does best in pots you can keep warm, move around, and pick from often.",
+    photo: {
+      src: "/photos/crops/purple-basil-seedling.webp",
+      alt: "Small purple basil seedling growing in a pot",
+      caption: "Basil seedlings are small, quick and cheap — warmth and fresh seed do most of the work.",
+    },
     items: [
       {
         kind: "worth-buying",
@@ -175,6 +196,15 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         cta: "Compare small basil pots",
       },
       {
+        kind: "worth-buying",
+        name: "Fresh basil seed",
+        why: "Basil seed is cheap, quick and much better value than a big indoor herb kit. Sow a small pinch every few weeks in warm weather so you always have young plants coming on.",
+        href: az("basil seeds sweet genovese"),
+        product: "basil seed",
+        type: "seed",
+        cta: "Compare Genovese basil seed",
+      },
+      {
         kind: "skip-this",
         name: "Big indoor herb kits",
         why: "They look tidy on the packet, but basil mostly wants warmth, light and regular picking. The expensive tray is not the magic bit.",
@@ -183,39 +213,49 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
     ],
   },
   courgettes: {
-    intro: "Courgettes want rich soil, water and picking — almost nothing in a catalogue changes that. Two things earn their place.",
+    intro: "Courgettes earn their reputation by being generous, not fussy. Spend only on getting young plants safely established and keeping pot-grown plants fed.",
+    photo: {
+      src: "/photos/blog/courgette-young-plant.webp",
+      alt: "Young courgette plant settling into a prepared bed",
+      caption: "A young courgette is worth protecting for the first fortnight; after that, water and picking do most of the work.",
+    },
     items: [
       {
         kind: "worth-buying",
         name: "Organic slug pellets",
-        why: "The first fortnight after planting out is the dangerous one — a damp night's slugs can end a young courgette plant. Ferric phosphate pellets are organic-approved and get them through it.",
+        why: "The first fortnight after planting out is the vulnerable bit. A damp night's slugs can finish a young courgette before it gets going; ferric phosphate pellets are the practical, restrained defence.",
         href: az("organic slug pellets ferric phosphate"),
         product: "organic slug pellets",
-        cta: "Check ferric phosphate slug pellets",
+        cta: "Compare ferric phosphate slug pellets",
       },
       {
         kind: "worth-buying",
         name: "High-potash feed",
-        why: "Only really needed in pots, where the compost runs out of steam — a fortnightly tomato feed keeps a container courgette producing all summer.",
+        why: "Only really worth buying for pots and growbags, where compost runs out of steam. A fortnightly high-potash feed keeps a container courgette producing without fuss.",
         href: asin("B09RK3HPH5"),
         product: "tomato feed",
-        cta: "Check tomato feed for pot-grown courgettes",
+        cta: "Compare tomato feed for pot-grown courgettes",
       },
       {
         kind: "skip-this",
         name: "More than three plants' worth of seed",
         why: "One healthy plant makes a courgette every day or two in high summer. Six plants is not a plan, it is a glut with a fortnight's warning.",
-        instead: "Sow three, plant the best two, and spend what you saved on good compost for the planting holes.",
+        instead: "Sow three, plant the best two, and put your effort into compost, water and picking them small.",
       },
     ],
   },
   "maincrop-potatoes": {
-    intro: "Potatoes are the least gadget-hungry crop on the plot. Good seed potatoes, rich soil and a fork cover almost all of it.",
+    intro: "Potatoes are wonderfully unglamorous. Good seed potatoes, rich soil, water at tuber time and somewhere breathable to store the harvest do most of the work.",
+    photo: {
+      src: "/photos/blog/potato-rows-june-2026.webp",
+      alt: "Healthy potato rows growing on the allotment in June",
+      caption: "Maincrop potatoes ask for simple things: sound seed, steady growth and somewhere cool and breathable after lifting.",
+    },
     items: [
       {
         kind: "worth-buying",
         name: "Horticultural fleece",
-        why: "A late frost blackens young shoots just as they emerge. A night or two under fleece in a cold April snap protects weeks of growth.",
+        why: "A late frost can blacken fresh potato shoots just as they emerge. A night or two under fleece in a cold snap protects weeks of steady growth.",
         href: az("horticultural fleece plant frost protection"),
         product: "horticultural fleece",
         cta: "Compare frost fleece",
@@ -223,7 +263,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
       {
         kind: "worth-buying",
         name: "Hessian or paper storage sacks",
-        why: "The harvest is only half the job — stored dark and cool in breathable sacks, a good maincrop lift feeds you into the new year. Plastic bags sweat and spoil them.",
+        why: "The harvest is only half the job. Stored dark and cool in breathable sacks, a good maincrop lift can feed you into the new year; plastic bags sweat and spoil them.",
         href: az("hessian potato storage sacks"),
         product: "potato storage sacks",
         cta: "Compare breathable potato sacks",
@@ -237,12 +277,17 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
     ],
   },
   "runner-beans": {
-    intro: "One good frame and steady water grow the whole crop. The kit list is short and mostly rope and sticks.",
+    intro: "Runner beans need a strong frame, moist roots and regular picking. The useful kit is gloriously plain: tall canes and string.",
+    photo: {
+      src: "/photos/crops/runner-beans-climbing.webp",
+      alt: "Runner beans climbing up canes in summer",
+      caption: "The whole crop hangs from the frame by August, so the useful spend is tall canes and good twine.",
+    },
     items: [
       {
         kind: "worth-buying",
         name: "8ft bamboo canes",
-        why: "Runners climb seven feet and a full row in August carries real weight and real wind. Tall, sturdy canes, crossed and braced, are the crop's one piece of engineering.",
+        why: "Runners climb hard, and a full row in August carries real weight in real wind. Tall, sturdy canes, crossed and braced, are the crop's one piece of engineering.",
         href: az("bamboo canes 8ft garden"),
         product: "8ft bamboo canes",
         cta: "Compare tall bean canes",
@@ -250,10 +295,10 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
       {
         kind: "worth-buying",
         name: "Jute twine",
-        why: "For lashing the frame and the hundred small tying jobs a bean row invents. Biodegradable, so the autumn clear-up goes straight on the compost, strings and all.",
+        why: "For lashing the frame and the hundred small tying jobs a bean row invents. Jute is strong enough for the season and can go to compost with the spent haulms.",
         href: az("jute garden twine"),
         product: "jute twine",
-        cta: "Check biodegradable jute twine",
+        cta: "Compare biodegradable jute twine",
       },
       {
         kind: "skip-this",

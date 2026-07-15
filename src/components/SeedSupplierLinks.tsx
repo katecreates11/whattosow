@@ -10,6 +10,8 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
   if (!crop.seedSuppliers || crop.seedSuppliers.length === 0) return null;
 
   const seedLabel = (supplierName: string) => `Seeds at ${supplierName}`;
+  const seedPosition = (supplierName: string) =>
+    `seed-supplier-${variant}-${crop.slug}-${merchantSlug(supplierName)}`;
 
   if (variant === "compact") {
     return (
@@ -18,8 +20,8 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
         product={crop.name}
         type="seed"
         merchant={merchantSlug(crop.seedSuppliers[0].name)}
-        position="variety-card"
-        className="inline-flex items-center gap-1 text-xs text-allotment hover:text-allotment-dark transition-colors"
+        position={seedPosition(crop.seedSuppliers[0].name)}
+        className="inline-flex min-h-11 items-center gap-1 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-rust"
       >
         {seedLabel(crop.seedSuppliers[0].name)}
         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -31,14 +33,14 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
 
   if (variant === "sidebar") {
     return (
-      <div className="border border-earth/6 p-6 sm:p-8">
+      <div className="border-y border-earth/10 py-6 sm:py-7">
         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-earth-lighter mb-3 block">
           Seeds
         </span>
         <h2 className="font-semibold text-earth mb-4">
           Where to buy {crop.name.toLowerCase()} seeds
         </h2>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-col items-start gap-2">
           {crop.seedSuppliers.map((supplier) => (
             <AffiliateLink
               key={supplier.name}
@@ -46,8 +48,8 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
               product={crop.name}
               type="seed"
               merchant={merchantSlug(supplier.name)}
-              position="sidebar"
-              className="group inline-flex items-center gap-1.5 px-4 py-2.5 border border-earth/8 text-sm font-medium text-earth hover:border-allotment hover:text-allotment transition-colors duration-300"
+              position={seedPosition(supplier.name)}
+              className="group inline-flex min-h-11 items-center gap-1.5 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
             >
               {seedLabel(supplier.name)}
               <svg className="w-3.5 h-3.5 opacity-30 group-hover:opacity-60 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -67,11 +69,11 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
 
   // inline variant — after PersonalisedCropDates
   return (
-    <div className="lg:hidden border border-leaf/20 bg-leaf-bg/30 p-5 sm:p-6 mb-10">
+    <div className="lg:hidden border-y border-leaf/20 py-5 sm:py-6 mb-10">
       <h2 className="font-semibold text-earth mb-3">
         Get {crop.name.toLowerCase()} seeds
       </h2>
-      <div className="flex flex-wrap gap-2.5">
+      <div className="flex flex-col items-start gap-2">
         {crop.seedSuppliers.map((supplier) => (
           <AffiliateLink
             key={supplier.name}
@@ -79,8 +81,8 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
             product={crop.name}
             type="seed"
             merchant={merchantSlug(supplier.name)}
-            position="inline"
-            className="group inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-earth/8 text-sm font-medium text-earth hover:border-allotment hover:text-allotment transition-colors duration-200"
+            position={seedPosition(supplier.name)}
+            className="group inline-flex min-h-11 items-center gap-1.5 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
             {seedLabel(supplier.name)}
             <svg className="w-3.5 h-3.5 opacity-30 group-hover:opacity-60 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

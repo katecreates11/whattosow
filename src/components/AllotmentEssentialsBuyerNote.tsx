@@ -1,4 +1,5 @@
 import AffiliateLink from "@/components/AffiliateLink";
+import Image from "next/image";
 
 const firstBuys = [
   {
@@ -35,6 +36,14 @@ const firstBuys = [
   },
 ];
 
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function AllotmentEssentialsBuyerNote() {
   return (
     <aside
@@ -55,6 +64,28 @@ export default function AllotmentEssentialsBuyerNote() {
         protect your hands, carry water, and cover seedlings. Everything else
         can wait until the plot tells you what it needs.
       </p>
+      <p className="mt-3 max-w-[62ch] text-sm text-earth-light">
+        For the first month, buy the things that remove friction: the tool that
+        opens the soil, the gloves you will actually wear, water you can carry,
+        and cover for plants that need a bit of help.
+      </p>
+
+      <figure className="mt-6 max-w-[34rem]">
+        <div className="aspect-[4/3] overflow-hidden bg-earth/5">
+          <Image
+            src="/photos/blog/wheelbarrow-loaded-tools.webp"
+            alt="Wheelbarrow loaded with allotment tools on a path"
+            width={680}
+            height={510}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <figcaption className="mt-2 max-w-[52ch] font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+          First-year kit should earn its space — start with the tools you will
+          touch every visit.
+        </figcaption>
+      </figure>
 
       <div className="mt-7 divide-y divide-earth/10 border-t border-earth/10">
         {firstBuys.map((pick) => (
@@ -67,7 +98,7 @@ export default function AllotmentEssentialsBuyerNote() {
               href={pick.href}
               product={pick.product}
               type="gear"
-              position="allotment-essentials-top"
+              position={`allotment-essentials-top-${trackingSlug(pick.product)}`}
               className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
             >
               {pick.cta} &rarr;
@@ -83,6 +114,14 @@ export default function AllotmentEssentialsBuyerNote() {
         grow lights, seed tapes, fancy hand tools, premium wheelbarrows and
         anything sold as a full allotment starter bundle. Buy the boring useful
         things first, then fill the gaps from experience.
+      </p>
+      <p className="mt-3 max-w-[62ch] text-sm text-earth-light">
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+          Borrow before you buy
+        </span>{" "}
+        borrow the expensive or bulky things once if you can: wheelbarrows,
+        strimmers, broadforks and long ladders. Your plot will tell you which
+        ones deserve space in the shed.
       </p>
       <p className="mt-4 max-w-[62ch] font-mono text-[10px] leading-relaxed text-earth-lighter">
         These links help the allotment shed fund. The advice is the same whether

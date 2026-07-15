@@ -97,9 +97,9 @@ export const cropPlaybooks: Record<string, CropPlaybook> = {
           caption: "mid june · staked on planting day, marigolds on the edge",
         },
         buy: {
-          href: az("tomato spiral support"),
-          product: "spiral tomato supports",
-          label: "The spiral supports that make tying-in optional",
+          href: az("soft plant ties tomato clips"),
+          product: "soft plant ties",
+          label: "Soft ties and clips for staking tomatoes",
         },
       },
       {

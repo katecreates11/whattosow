@@ -1,4 +1,5 @@
 import AffiliateLink from "@/components/AffiliateLink";
+import Image from "next/image";
 
 const starterPicks = [
   {
@@ -9,7 +10,7 @@ const starterPicks = [
     position: "seed-starting-kit-module-trays",
     buyIf: "you are sowing tomatoes, brassicas, beans, salads or anything you will plant out as plugs.",
     skipIf: "you already have clean yoghurt pots or old trays with drainage holes.",
-    reason: "Reusable modules make seedlings easier to water, label and transplant without root damage.",
+    reason: "Reusable modules make seedlings easier to water, label and transplant without root damage. They are the first thing to buy before any heated gadget.",
     cta: "Compare reusable 24-cell module trays",
   },
   {
@@ -41,7 +42,7 @@ const starterPicks = [
     href: "https://www.amazon.co.uk/dp/B015WFRWUI",
     position: "seed-starting-kit-heated-propagator",
     buyIf: "you want reliable chillies, peppers or aubergines from seed in a normal UK house.",
-    skipIf: "you mainly sow brassicas, lettuce, peas, beans or later-season tomatoes.",
+    skipIf: "you mainly sow brassicas, lettuce, peas, beans, basil or later-season tomatoes.",
     reason: "Bottom heat is useful for true heat-lovers. It is not a starter tax for every seed packet.",
     cta: "Compare heated propagators for chillies",
   },
@@ -67,6 +68,27 @@ export default function SeedStartingKitBuyerNote() {
         failing: trays, compost and labels. Heat is an upgrade for chillies,
         peppers and aubergines, not a toll you pay for every seed.
       </p>
+      <p className="mt-3 max-w-[62ch] text-sm text-earth-light">
+        For tomatoes, start with modules and labels. For basil, small pots and
+        warmth matter more than a full indoor kit.
+      </p>
+
+      <figure className="mt-6 max-w-[34rem]">
+        <div className="aspect-[4/3] overflow-hidden bg-earth/5">
+          <Image
+            src="/photos/blog/windowsill-seedlings-cardboard.webp"
+            alt="Seedlings growing on a windowsill in simple reused trays"
+            width={680}
+            height={510}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <figcaption className="mt-2 max-w-[52ch] font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+          Useful seed kit starts with ordinary trays, labels and light — the
+          expensive bits can wait.
+        </figcaption>
+      </figure>
 
       <div className="mt-7 divide-y divide-earth/10 border-t border-earth/10">
         {starterPicks.map((pick) => (

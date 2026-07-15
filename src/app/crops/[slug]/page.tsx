@@ -982,7 +982,7 @@ export default async function CropPage({
           <div className="lg:w-[42%]">
             <div className="lg:sticky lg:top-20 space-y-8">
               {/* Seeds — the buy-point leads the sticky rail (click priority) */}
-              <div>
+              <div className="hidden lg:block">
                 <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment block mb-3">Start this crop</span>
                 <SeedSupplierLinks crop={crop} variant="sidebar" />
               </div>

@@ -10,7 +10,8 @@ import AffiliateLink from "@/components/AffiliateLink";
  * "Blight defence kit" — the shoppable strip at the foot of Blight Watch.
  *
  * Honesty drives the design: you can't buy your way out of blight mid-season,
- * so the two buy-points have different timing. We read the visitor's live risk
+ * so this keeps one immediate buy-point and points variety choice to the table
+ * below. We read the visitor's live risk
  * (same Hutton assessment as the banner) and:
  *   - when blight is in season AND building/high → lead with KEEPING LEAVES DRY
  *     (cover + fleece — the only thing that helps right now),
@@ -27,9 +28,6 @@ const linkCls =
 // the tracking automatically). Direct links, not searches.
 const SUTTONS = {
   fleece: "https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728",
-  graftedCrimsonCrush: "https://www.suttons.co.uk/vegetable-fruit-plants/tomato-plants/grafted-tomato-plant---f1-crimson-crush_mh5817",
-  crimsonCrushSeeds: "https://www.suttons.co.uk/vegetable-seeds/popular-seeds/tomato-seeds-f1-crimson-crush_MH-32561",
-  sarpoMira: "https://www.suttons.co.uk/potatoes-onions-garlic/potatoes/all/potato-sarpo-mira_mh-83821",
 };
 
 function CoverCard() {
@@ -63,7 +61,7 @@ function CoverCard() {
             position="blight-defence-fleece"
             className={linkCls}
           >
-            Check fleece for a humid week &rarr;
+            Compare fleece for a humid week &rarr;
           </AffiliateLink>
         </li>
       </ul>
@@ -79,46 +77,15 @@ function SeedsCard() {
       </h3>
       <p className="text-sm text-earth-light leading-relaxed mb-3">
         The surest long game is a variety bred to shrug blight off — they keep
-        cropping in a bad year while everything around them collapses. Still
-        mid-season? You can plant ready-grown grafted ones now; otherwise line
-        up the seeds for next spring.
+        cropping in a bad year while everything around them struggles. The
+        variety table below is the place to choose; this note is just the nudge
+        to plan before the next humid spell.
       </p>
       <ul className="space-y-1.5 text-sm">
         <li>
-          <AffiliateLink
-            href={SUTTONS.graftedCrimsonCrush}
-            product="grafted Crimson Crush tomato plant"
-            type="seed"
-            merchant="suttons"
-            position="blight-defence-grafted-crimson-crush"
-            className={linkCls}
-          >
-            Grafted Crimson Crush plants (this year) &rarr;
-          </AffiliateLink>
-        </li>
-        <li>
-          <AffiliateLink
-            href={SUTTONS.crimsonCrushSeeds}
-            product="Crimson Crush tomato seeds"
-            type="seed"
-            merchant="suttons"
-            position="blight-defence-crimson-crush-seeds"
-            className={linkCls}
-          >
-            Crimson Crush tomato seeds (next year) &rarr;
-          </AffiliateLink>
-        </li>
-        <li>
-          <AffiliateLink
-            href={SUTTONS.sarpoMira}
-            product="Sarpo Mira seed potatoes"
-            type="seed"
-            merchant="suttons"
-            position="blight-defence-sarpo-mira"
-            className={linkCls}
-          >
-            Sarpo Mira seed potatoes &rarr;
-          </AffiliateLink>
+          <a href="#resistant-varieties" className={linkCls}>
+            Jump to the resistant varieties &rarr;
+          </a>
         </li>
       </ul>
     </div>
