@@ -11,6 +11,21 @@ export interface CompanionItem {
   why: string;
 }
 
+export interface CompanionBuyerLink {
+  label: string;
+  url: string;
+  product: string;
+  type: "seed" | "gear";
+  merchant: "thompson-morgan" | "amazon-uk";
+}
+
+export interface CompanionBuyerNote {
+  title: string;
+  buy: string;
+  skip: string;
+  links: CompanionBuyerLink[];
+}
+
 export interface CompanionTopic {
   slug: string;
   /** <title> — keyword front-loaded */
@@ -32,6 +47,8 @@ export interface CompanionTopic {
   flowers?: CompanionItem[];
   /** Curated seed buy-points — label + a real merchant URL (wrapped by awinLink) */
   seedLinks?: { label: string; url: string }[];
+  /** One trust-led buyer note. Replaces the simple seed strip when present. */
+  buyerNote?: CompanionBuyerNote;
   faqs: { q: string; a: string }[];
   /** Related crop slugs to link through to crop pages */
   relatedCrops?: string[];
@@ -104,6 +121,17 @@ export const companionTopics: CompanionTopic[] = [
       { label: "Tomato seeds", url: tm("Tomato") },
       { label: "Basil seeds", url: tm("Basil") },
     ],
+    buyerNote: {
+      title: "Worth buying for tomatoes and basil",
+      buy:
+        "Buy basil seed if your tomatoes are in pots, growbags or a greenhouse border. A few basil plants earn their keep at picking time, and French marigolds are useful if whitefly or aphids visit every summer.",
+      skip:
+        "Skip vague companion mixes. A packet of basil plus one hard-working flower is clearer, cheaper and easier to fit around real tomato plants.",
+      links: [
+        { label: "Basil seeds", url: tm("Basil"), product: "basil seeds", type: "seed", merchant: "thompson-morgan" },
+        { label: "French marigold seeds", url: tm("French Marigold"), product: "French marigold seeds", type: "seed", merchant: "thompson-morgan" },
+      ],
+    },
     relatedCrops: ["tomatoes", "basil", "lettuce", "spring-onions"],
   },
 
@@ -166,6 +194,22 @@ export const companionTopics: CompanionTopic[] = [
       { label: "Carrot seeds", url: tm("Carrot") },
       { label: "Onion sets", url: tm("Onion%20Sets") },
     ],
+    buyerNote: {
+      title: "Worth buying for carrots",
+      buy:
+        "Buy fine insect mesh if carrot fly has spoiled your rows before. Onions and spring onions help, but mesh is the reliable bit.",
+      skip:
+        "Skip carrot seed tapes unless you really need the spacing help. Careful thin sowing is usually better value.",
+      links: [
+        {
+          label: "Fine mesh for carrot fly",
+          url: "https://www.amazon.co.uk/s?k=fine+mesh+carrot+fly",
+          product: "fine mesh for carrot fly",
+          type: "gear",
+          merchant: "amazon-uk",
+        },
+      ],
+    },
     relatedCrops: ["carrots", "onion-sets", "spring-onions", "leeks"],
   },
 
@@ -229,6 +273,17 @@ export const companionTopics: CompanionTopic[] = [
       { label: "Runner bean seeds", url: tm("Runner%20Bean") },
       { label: "Climbing French bean seeds", url: tm("Climbing%20French%20Bean") },
     ],
+    buyerNote: {
+      title: "Worth buying for beans",
+      buy:
+        "Buy nasturtium seed if blackfly usually finds your beans. It gives the aphids somewhere else to gather and still brings colour to the poles.",
+      skip:
+        "Skip bean inoculant for ordinary UK allotment soil unless you are starting on very poor, new ground.",
+      links: [
+        { label: "Nasturtium seeds", url: tm("Nasturtium"), product: "nasturtium seeds", type: "seed", merchant: "thompson-morgan" },
+        { label: "Sweet pea seeds", url: tm("Sweet Pea"), product: "sweet pea seeds", type: "seed", merchant: "thompson-morgan" },
+      ],
+    },
     relatedCrops: ["runner-beans", "french-beans", "sweetcorn", "pumpkins"],
   },
 
@@ -293,6 +348,22 @@ export const companionTopics: CompanionTopic[] = [
       { label: "Kale seeds", url: tm("Kale") },
       { label: "Cabbage seeds", url: tm("Cabbage") },
     ],
+    buyerNote: {
+      title: "Worth buying for brassicas",
+      buy:
+        "Buy fine butterfly netting if you are growing cabbage, kale or broccoli. Herbs and flowers help, but netting is what stops the eggs being laid.",
+      skip:
+        "Skip butterfly decoys and miracle sprays. Keep the mesh lifted off the leaves and spend the money there first.",
+      links: [
+        {
+          label: "Fine butterfly netting",
+          url: "https://www.amazon.co.uk/s?k=brassica+butterfly+netting+fine+mesh",
+          product: "fine butterfly netting",
+          type: "gear",
+          merchant: "amazon-uk",
+        },
+      ],
+    },
     relatedCrops: ["kale", "cabbage", "broccoli", "brussels-sprouts"],
   },
 

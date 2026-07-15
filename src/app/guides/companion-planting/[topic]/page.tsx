@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
 import PinButton from "@/components/PinButton";
 import SlotImage from "@/components/SlotImage";
-import { companionTopics, getCompanionTopic } from "@/data/companion-topics";
+import { companionTopics, getCompanionTopic, type CompanionTopic } from "@/data/companion-topics";
 import { crops } from "@/data/crops";
 import { awinLink } from "@/lib/awin";
 
@@ -16,6 +16,48 @@ function trackingSlug(value: string): string {
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+function CompanionBuyerNote({ topic }: { topic: CompanionTopic }) {
+  const note = topic.buyerNote;
+  if (!note) return null;
+
+  return (
+    <section className="mb-10 border-t border-b border-earth/10 py-7" aria-labelledby={`buyer-note-${topic.slug}`}>
+      <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter block mb-3">Worth buying / skip this</span>
+      <h2 id={`buyer-note-${topic.slug}`} className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-4">
+        {note.title}
+      </h2>
+      <div className="space-y-4">
+        <p className="text-[15px] text-earth-light leading-relaxed">
+          <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-allotment mr-2">Worth it</span>
+          {note.buy}
+        </p>
+        <p className="text-[15px] text-earth-light leading-relaxed">
+          <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-rust mr-2">Skip this</span>
+          {note.skip}
+        </p>
+      </div>
+      <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+        {note.links.map((link) => (
+          <AffiliateLink
+            key={link.label}
+            href={link.url}
+            product={link.product}
+            type={link.type}
+            merchant={link.merchant}
+            position={`companion-topic-buyer-${topic.slug}-${trackingSlug(link.label)}`}
+            className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
+          >
+            {link.label} &rarr;
+          </AffiliateLink>
+        ))}
+      </div>
+      <p className="mt-4 text-[13px] text-earth-lighter leading-relaxed">
+        Some links can earn a small shed-fund commission. The advice stays the same: buy only where it solves a real plot problem.
+      </p>
+    </section>
+  );
 }
 
 export async function generateStaticParams() {
@@ -189,8 +231,10 @@ export default async function CompanionTopicPage({
             </section>
           )}
 
+          <CompanionBuyerNote topic={t} />
+
           {/* Seed buy-points */}
-          {t.seedLinks && t.seedLinks.length > 0 && (
+          {!t.buyerNote && t.seedLinks && t.seedLinks.length > 0 && (
             <section className="mb-10">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">Seeds that fit this plan</span>
