@@ -117,6 +117,35 @@ export default function WateringBuyerNote() {
 
         <div className="py-5">
           <h3 className="font-serif text-xl text-earth">
+            A lidded dip tank or water storage tub
+          </h3>
+          <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Buy if
+            </span>{" "}
+            your plot has communal taps but the hoses are always in use, or
+            you want a small reserve you can dip cans from. A dark, lidded tub
+            keeps leaves, wildlife and mosquitoes out better than an open
+            trough.{" "}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">
+              Skip if
+            </span>{" "}
+            your site does not allow stored water or you cannot put it on firm,
+            level ground.
+          </p>
+          <AffiliateLink
+            href="https://www.amazon.co.uk/s?k=lidded+garden+water+storage+tank"
+            product="lidded garden water storage tank"
+            type="gear"
+            position="watering-buyer-note-dip-tank"
+            className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
+          >
+            Compare lidded water storage tubs &rarr;
+          </AffiliateLink>
+        </div>
+
+        <div className="py-5">
+          <h3 className="font-serif text-xl text-earth">
             Skip timers and sprinklers until you have checked
           </h3>
           <p className="mt-2 max-w-[62ch] text-sm text-earth-light">
