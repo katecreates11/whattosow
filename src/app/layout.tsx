@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Newsreader, IBM_Plex_Mono } from "next/font/google";
-import Script from "next/script";
+import AnalyticsScript from "@/components/AnalyticsScript";
 import UsBetaNudge from "@/components/UsBetaNudge";
 import "./globals.css";
 
@@ -97,11 +97,7 @@ export default function RootLayout({
         </noscript>
         {children}
         <UsBetaNudge />
-        <Script
-          src="https://cloud.umami.is/script.js"
-          data-website-id="586b28c5-fbaf-49af-9b2a-03d8fa56e325"
-          strategy="afterInteractive"
-        />
+        <AnalyticsScript />
       </body>
     </html>
   );
