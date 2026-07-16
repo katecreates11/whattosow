@@ -31,6 +31,7 @@ const GUIDE_IMG: Record<string, string> = {
   "/guides/spring-vegetables": "/photos/guides/spring-flowers-planter-allotment.webp",
   "/guides/autumn-winter-vegetables": "/photos/blog/plot-late-summer.webp",
   "/guides/what-to-sow-in-summer-uk": "/photos/guides/summer-golden-path.webp",
+  "/guides/sow-now-eat-all-winter": "/photos/guides/plot-autumn-marigolds.webp",
   "/guides/succession-sowing": "/photos/guides/salad-leaves-hand.webp",
   "/guides/growing-brassicas": "/photos/guides/brassicas-netted.webp",
   "/guides/growing-tomatoes-outdoors-vs-greenhouse": "/photos/guides/tomato-truss-ripening.webp",
@@ -216,6 +217,14 @@ const guides = [
     href: "/guides/what-to-sow-in-summer-uk",
     tag: "Seasonal",
     number: "17",
+  },
+  {
+    title: "Sow now, eat all winter",
+    description:
+      "High-summer soil is the warmest it gets all year — what's worth sowing this week, and when the cold actually reaches your own patch.",
+    href: "/guides/sow-now-eat-all-winter",
+    tag: "Seasonal",
+    number: "32",
   },
   {
     title: "Succession sowing",
