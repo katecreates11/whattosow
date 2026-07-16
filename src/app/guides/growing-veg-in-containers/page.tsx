@@ -100,13 +100,13 @@ function ContainerBuyerNote() {
           </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
             <AffiliateLink href={az("peat free multipurpose compost")} product="peat-free compost" type="gear" merchant="amazon-uk" position="containers-compost" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-              Compare peat-free compost for hungry pots &rarr;
+              Peat-free compost for hungry pots &rarr;
             </AffiliateLink>
             <AffiliateLink href={az("potato grow bags planter")} product="potato grow bags" type="gear" merchant="amazon-uk" position="containers-grow-bag" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-              Compare potato grow bags for deep roots
+              Grow bags deep enough for potatoes
             </AffiliateLink>
             <AffiliateLink href={az("liquid plant food vegetables")} product="liquid plant feed" type="gear" merchant="amazon-uk" position="containers-liquid-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-              Compare liquid feed for fruiting crops
+              Feed for fruiting crops in pots
             </AffiliateLink>
           </div>
         </div>

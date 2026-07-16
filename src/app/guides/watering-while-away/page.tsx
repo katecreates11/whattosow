@@ -187,7 +187,7 @@ export default function WateringWhileAwayGuide() {
                     position="holiday-watering-spikes"
                     className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare bottle spikes for pots &rarr;
+                    Bottle spikes for a short trip &rarr;
                   </AffiliateLink>
                   </div>
                   <div>
@@ -203,7 +203,7 @@ export default function WateringWhileAwayGuide() {
                     position="holiday-watering-drip-kit"
                     className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare container drip kits &rarr;
+                    Container drip kit for longer absences &rarr;
                   </AffiliateLink>
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export default function WateringWhileAwayGuide() {
                     position="holiday-watering-timer"
                     className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare tap timers for permitted unattended watering &rarr;
+                    Tap timer where rules allow it &rarr;
                   </AffiliateLink>
                   </div>
                   <div>
@@ -240,7 +240,7 @@ export default function WateringWhileAwayGuide() {
                     position="holiday-watering-soaker-hose"
                     className="mt-2 inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
                   >
-                    Compare soaker hoses for beds &rarr;
+                    Soaker hose for thirsty beds &rarr;
                   </AffiliateLink>
                   </div>
                 </div>

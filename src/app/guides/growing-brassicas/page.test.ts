@@ -11,7 +11,8 @@ describe("GrowingBrassicasGuide", () => {
     expect(html).toContain("Buy if");
     expect(html).toContain("Skip if");
     expect(html).toContain("Skip butterfly decoys");
-    expect(html).toContain("Compare brassica netting");
+    expect(html).toContain("Net brassicas before the butterflies arrive");
+    expect(html).not.toContain("Compare brassica netting");
     expect(html).toContain("cabbage whites or pigeons have ruined a crop before");
     expect(html).toContain('data-umami-event-position="growing-brassicas-seeds-kale"');
     expect(html).toContain('data-umami-event-position="growing-brassicas-seeds-cabbage"');

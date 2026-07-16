@@ -10,7 +10,8 @@ describe("CompanionPlantingGuide", () => {
     expect(html).toContain("Worth buying / skip this");
     expect(html).toContain("Buy if");
     expect(html).toContain("Skip if");
-    expect(html).toContain("Compare marigold, calendula and nasturtium seeds");
+    expect(html).toContain("Flowers for the gaps around veg");
+    expect(html).not.toContain("Compare marigold, calendula and nasturtium seeds");
     expect(html).toContain("marigolds, calendula, nasturtiums or borage");
     expect(html).toContain("you have bare edges, bed ends or gaps around tomatoes, beans and brassicas");
     expect(html).not.toContain("Compare companion flower seeds");

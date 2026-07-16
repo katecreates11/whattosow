@@ -30,7 +30,7 @@ export default function UsSeedBuyerNote({ source, regionKey }: UsSeedBuyerNotePr
           position={position}
           className="font-serif text-lg italic text-allotment underline decoration-amber decoration-2 underline-offset-4 focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream"
         >
-          Compare quick-crop seeds on Amazon &rarr;
+          Quick-crop seeds for US gardens &rarr;
         </AffiliateLink>
         <span className="text-xs leading-relaxed text-earth-light">
           Affiliate link; no extra cost to you.

@@ -103,7 +103,7 @@ function BrassicaBuyerNote() {
           you are only growing a few sacrificial leaves and you will check them often by hand.
         </p>
         <AffiliateLink href={az("brassica butterfly netting fine mesh")} product="brassica butterfly netting" type="gear" merchant="amazon-uk" position="brassica-protection-inline" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare brassica netting &rarr;
+          Net brassicas before the butterflies arrive &rarr;
         </AffiliateLink>
         <p className="text-earth-light">
           <span className="font-serif text-earth">Skip butterfly decoys.</span> They are charming, but checking leaves

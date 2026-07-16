@@ -14,7 +14,7 @@ describe("SeedSupplierLinks", () => {
       createElement(SeedSupplierLinks, { crop: tomatoes, variant: "sidebar" }),
     );
 
-    expect(html).toContain("Where to buy tomatoes seeds");
+    expect(html).toContain("Where to buy seeds for tomatoes");
     expect(html).toContain("Seeds at ");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).not.toContain("px-4 py-2.5 border border-earth/8");
@@ -47,7 +47,7 @@ describe("SeedSupplierLinks", () => {
       createElement(SeedSupplierLinks, { crop: tomatoes, variant: "inline" }),
     );
 
-    expect(html).toContain("Get tomatoes seeds");
+    expect(html).toContain("Get seeds for tomatoes");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).toContain(
       'data-umami-event-position="seed-supplier-inline-tomatoes-thompson-morgan"',

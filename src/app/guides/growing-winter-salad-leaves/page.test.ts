@@ -10,7 +10,8 @@ describe("WinterSaladGuide", () => {
     expect(html).toContain("Worth buying for winter salad");
     expect(html).toContain("Skip heated gadgets");
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain("Compare cloche tunnels");
+    expect(html).toContain("Cloches for winter salad rows");
+    expect(html).not.toContain("Compare cloche tunnels");
     expect(html).toContain('data-umami-event-position="winter-salad-seeds-lambs-lettuce-corn-salad"');
     expect(html).toContain('data-umami-event-position="winter-salad-seeds-spinach-hardy-types"');
     expect(html).not.toContain('data-umami-event-position="winter-salad-seeds"');

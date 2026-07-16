@@ -135,14 +135,14 @@ function BlightDetail({ point, onClose }: { point: BlightPoint; onClose: () => v
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
           {point.level === "high" || point.level === "building" ? (
             <AffiliateLink
-              href="https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728"
-              product="frost protection fleece"
+              href="https://www.amazon.co.uk/dp/B000TAFENY"
+              product="soaker hose"
               type="gear"
-              merchant="suttons"
-              position="blight-map-protect-plants"
+              merchant="amazon-uk"
+              position="blight-map-water-at-soil"
               className="font-mono text-[11px] uppercase tracking-[0.08em] text-rust border-b border-rust/40 hover:text-earth transition-colors"
             >
-              Protect your plants &rarr;
+              Water at soil level &rarr;
             </AffiliateLink>
           ) : (
             <a href="#resistant-varieties" className="font-mono text-[11px] uppercase tracking-[0.08em] text-rust border-b border-rust/40 hover:text-earth transition-colors">

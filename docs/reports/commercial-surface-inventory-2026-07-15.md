@@ -22,7 +22,7 @@ Rules:
 | Companion planting buyer note | One flower-seed moment after useful companion advice. | `companion-buyer-note-flower-seeds`. | Keep and measure; no extra companion pair monetisation. |
 | Watering buyer note | Job-led watering kit, with watering cans included for allotment realities. | `watering-buyer-note-*`. | Keep; this is the current model. |
 | Seed-starting kit guide | Explicit buying-guide intent. | `seed-kit-detail-*`. | Keep after pruning; now one strong pick per job. |
-| Blight Watch resistant varieties table | High-intent variety choice after free prevention advice. | `blight-resistant-varieties`. | Keep. BlightKit now points to it instead of duplicating variety links. |
+| Blight Watch resistant varieties table | High-intent variety choice after free prevention advice. | `blight-resistant-varieties`. | Keep. BlightKit now supports prevention rather than duplicating variety links. |
 
 ## Watch
 
@@ -31,7 +31,7 @@ Rules:
 | Crop page sidebar seed links | Useful on desktop, but could compete with crop buying advice lower down. Hidden on mobile to avoid duplicate generic seed CTAs. | Do desktop sidebar seed clicks convert, or do crop buying blocks perform better? |
 | Mobile inline crop seed links | Useful because the sidebar disappears on mobile. | Are mobile inline links earning clicks without hurting the crop answer flow? |
 | Seasonal kit edit | Editorial, but it can appear on multiple surfaces. | Which surface earns clicks: homepage, `/sow`, or crop rail? Keep at most two. |
-| BlightKit fleece link | The only immediate gear link on Blight Watch. | Does `blight-defence-fleece` earn, or should Blight Watch become resistant-varieties only? |
+| BlightKit soil-level watering link | The only immediate gear link on Blight Watch. | Does `blight-defence-soaker-hose` earn, or should Blight Watch become resistant-varieties only? |
 | Guide family buyer notes | Squash, containers, winter salad, brassicas and older guide notes use the same useful pattern but vary in density. | Which notes get clicks per 1,000 sessions? Prune zero-click notes after a fair read. |
 
 ## Prune Candidates
@@ -56,7 +56,7 @@ Rules:
 2. Does `sow-list-seeds-lead-*` outperform ordinary `/sow` rows?
 3. Do crop buying blocks outperform generic seed sidebars?
 4. Does Amazon US get clicks from the ZIP test?
-5. Does Blight Watch earn from resistant varieties, fleece, or neither?
+5. Does Blight Watch earn from resistant varieties, soil-level watering, or neither?
 6. Which GearPicks have traffic and zero clicks?
 
 No new affiliate block should be added until this inventory has been compared

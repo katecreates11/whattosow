@@ -23,11 +23,15 @@ describe("SeedStartingKitBuyerNote", () => {
     expect(html).toContain("Skip for now");
     expect(html.match(/Buy if/g)).toHaveLength(4);
     expect(html.match(/Skip if/g)).toHaveLength(4);
-    expect(html).toContain("Compare reusable 24-cell module trays");
-    expect(html).toContain("Compare white labels and garden pencils");
+    expect(html).toContain("Reusable modules before any gadget");
+    expect(html).toContain("Labels and pencil before you forget");
     expect(html).toContain("grow lights");
-    expect(html).toContain("Compare fine seed compost");
-    expect(html).toContain("Compare heated propagators for chillies");
+    expect(html).toContain("Fine compost for small seeds");
+    expect(html).toContain("Bottom heat for chillies and peppers");
+    expect(html).not.toContain("Compare reusable 24-cell module trays");
+    expect(html).not.toContain("Compare white labels and garden pencils");
+    expect(html).not.toContain("Compare fine seed compost");
+    expect(html).not.toContain("Compare heated propagators for chillies");
     expect(html).not.toContain("Get labels before you forget");
 
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(4);

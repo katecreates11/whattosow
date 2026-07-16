@@ -227,7 +227,7 @@ export default function LongestDayPage() {
                       position="longest-day-winter-seeds"
                       className="font-mono text-[11px] uppercase tracking-[0.06em] text-rust border-b border-rust/40 hover:text-earth transition-colors"
                     >
-                      Compare winter veg seeds &rarr;
+                      Winter veg seeds for midsummer sowing &rarr;
                     </AffiliateLink>
                   </div>
                 </div>

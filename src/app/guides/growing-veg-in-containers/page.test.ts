@@ -13,9 +13,12 @@ describe("GrowingInContainersGuide", () => {
     expect(html).toContain("Buy feed if");
     expect(html).toContain("Skip tiny decorative pots for food crops");
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain("Compare peat-free compost for hungry pots");
-    expect(html).toContain("Compare potato grow bags for deep roots");
-    expect(html).toContain("Compare liquid feed for fruiting crops");
+    expect(html).toContain("Peat-free compost for hungry pots");
+    expect(html).toContain("Grow bags deep enough for potatoes");
+    expect(html).toContain("Feed for fruiting crops in pots");
+    expect(html).not.toContain("Compare peat-free compost for hungry pots");
+    expect(html).not.toContain("Compare potato grow bags for deep roots");
+    expect(html).not.toContain("Compare liquid feed for fruiting crops");
     expect(html).toContain('data-umami-event-position="containers-seeds-lettuce"');
     expect(html).toContain('data-umami-event-position="containers-seeds-tomatoes"');
     expect(html).toContain('data-umami-event-position="containers-seeds-french-beans"');

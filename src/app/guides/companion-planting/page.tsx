@@ -751,7 +751,7 @@ export default function CompanionPlantingGuide() {
                       position="companion-buyer-note-flower-seeds"
                       className="inline-flex min-h-11 items-center font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust transition-colors"
                     >
-                      Compare marigold, calendula and nasturtium seeds &rarr;
+                      Flowers for the gaps around veg &rarr;
                     </AffiliateLink>
                   </div>
                 </div>

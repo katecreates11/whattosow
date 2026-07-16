@@ -21,23 +21,42 @@ function TomatoBuyerNote() {
         Buyer note
       </p>
       <h3 id="tomato-buyer-note" className="font-serif text-xl text-earth mb-3">
-        Worth buying for tomatoes
+        Worth buying / skip this
       </h3>
-      <div className="space-y-4 text-[15px] leading-relaxed">
-        <p className="text-earth">
-          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Buy if</span>{" "}
-          the first flowers have set into tiny tomatoes, especially in pots or growbags where nutrients run out fast.
-          One high-potash feed is the useful kind of tomato kit: simple, cheap, and aimed at fruit rather than extra
-          leaf.{" "}
-          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-earth">Skip if</span>{" "}
-          your plants are still all leaf and no fruit, or you already feed weekly with a high-potash liquid feed.
+      <p className="mb-4 max-w-xl text-[15px] leading-relaxed text-earth-light">
+        A couple of tomato bits earn their keep. Most clever-looking gadgets do not.
+      </p>
+      <div className="divide-y divide-earth/10 text-[15px] leading-relaxed">
+        <div className="grid gap-2 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+          <div>
+            <p className="font-serif text-lg text-earth">High-potash tomato feed</p>
+            <p className="text-earth-light">
+              Worth buying once the first flowers have set into tiny tomatoes, especially in pots or growbags where
+              nutrients run out fast. Skip if your plants are still all leaf and no fruit, or you already feed weekly.
+            </p>
+          </div>
+          <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon-uk" position="tomatoes-feed" className="inline-flex min-h-11 items-center text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth sm:justify-self-end sm:text-right">
+            Tomato feed for fruiting plants &rarr;
+          </AffiliateLink>
+        </div>
+        <div className="grid gap-2 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+          <div>
+            <p className="font-serif text-lg text-earth">Soft ties or garden twine</p>
+            <p className="text-earth-light">
+              Worth buying for cordons before the stems get heavy. Choose something soft enough not to bite into the
+              plant, then tie loosely and check it as the stem thickens. Skip if you are growing bush tomatoes in pots.
+            </p>
+          </div>
+          <AffiliateLink href={az("soft plant ties tomatoes")} product="soft plant ties" type="gear" merchant="amazon-uk" position="tomatoes-soft-ties" className="inline-flex min-h-11 items-center text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth sm:justify-self-end sm:text-right">
+            Soft ties for cordon stems &rarr;
+          </AffiliateLink>
+        </div>
+        <p className="py-4 text-earth-light">
+          <span className="font-serif text-earth">Skip tomato feeding gadgets.</span> A bottle of feed, a loose tie and
+          a steady weekly habit beat timers, probes and clever-looking dispensers.
         </p>
-        <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon-uk" position="tomatoes-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare high-potash tomato feed &rarr;
-        </AffiliateLink>
-        <p className="text-earth-light">
-          <span className="font-serif text-earth">Skip feeding gadgets.</span> A bottle of feed and a steady weekly
-          habit beat timers, probes and clever-looking dispensers.
+        <p className="pb-1 text-xs leading-relaxed text-earth-lighter">
+          Some links help fund the shed if you buy through them, at no extra cost to you.
         </p>
       </div>
     </aside>
@@ -86,7 +105,7 @@ export default function GrowingTomatoesGuide() {
     url: "https://whattosow.co.uk/guides/growing-tomatoes-outdoors-vs-greenhouse",
     publisher: { "@type": "Organization", name: "What To Sow", url: "https://whattosow.co.uk" },
     datePublished: "2026-06-07",
-    dateModified: "2026-06-07",
+    dateModified: "2026-07-16",
   };
 
   const faqJsonLd = {
@@ -203,13 +222,13 @@ export default function GrowingTomatoesGuide() {
                 Tie it to a cane or string, pinch out the side shoots that appear where each leaf meets the stem, and
                 &ldquo;stop&rdquo; it (nip the growing tip) once it has set four or five trusses outdoors, more under
                 glass. The classic greenhouse and supported-row tomato.{" "}
-                <AffiliateLink href={tm("Tomato%20Cordon")} product="cordon tomato seeds" type="seed" merchant="thompson-morgan" position="tomatoes-cordon-seeds" className="text-rust underline decoration-rust/30 hover:text-earth">Cordon tomato seeds at T&amp;M &rarr;</AffiliateLink>
+                <AffiliateLink href={tm("Tomato%20Cordon")} product="cordon tomato seeds" type="seed" merchant="thompson-morgan" position="tomatoes-cordon-seeds" className="text-rust underline decoration-rust/30 hover:text-earth">Choose cordon tomato seeds at T&amp;M &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Bush (determinate)</span> &mdash; branches low and sprawls to a
                 set size, then crops more or less all at once. No side-shooting, no stopping &mdash; just let it go.
                 Perfect for pots, hanging baskets and easy outdoor growing.{" "}
-                <AffiliateLink href={tm("Tomato%20Bush")} product="bush tomato seeds" type="seed" merchant="thompson-morgan" position="tomatoes-bush-seeds" className="text-rust underline decoration-rust/30 hover:text-earth">Bush tomato seeds at T&amp;M &rarr;</AffiliateLink>
+                <AffiliateLink href={tm("Tomato%20Bush")} product="bush tomato seeds" type="seed" merchant="thompson-morgan" position="tomatoes-bush-seeds" className="text-rust underline decoration-rust/30 hover:text-earth">Choose bush tomato seeds at T&amp;M &rarr;</AffiliateLink>
               </li>
             </ul>
           </section>

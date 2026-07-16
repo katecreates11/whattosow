@@ -14,7 +14,8 @@ describe("GearPick", () => {
       }),
     );
 
-    expect(html).toContain("Compare Dutch hoe");
+    expect(html).toContain(">Dutch hoe<");
+    expect(html).not.toContain("Compare Dutch hoe");
     expect(html).toContain("data-umami-event=\"affiliate-click\"");
     expect(html).toContain("data-umami-event-position=\"gear-pick-dutch-hoe\"");
     expect(html).toContain("rel=\"sponsored noopener noreferrer\"");

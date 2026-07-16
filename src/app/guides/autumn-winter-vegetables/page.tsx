@@ -301,12 +301,12 @@ export default function AutumnWinterGuide() {
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Horticultural fleece</span> &mdash; the cheapest few degrees
                 of frost protection there is. Drape it over hardy crops on cold nights.{" "}
-                <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon-uk" position="autumn-winter-fleece" className="text-rust underline decoration-rust/30 hover:text-earth">Compare horticultural fleece &rarr;</AffiliateLink>
+                <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon-uk" position="autumn-winter-fleece" className="text-rust underline decoration-rust/30 hover:text-earth">Fleece for young autumn plants &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">Cloches</span> &mdash; little tunnels or bell covers that keep
                 salad and seedlings snug and the worst of the rain off.{" "}
-                <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon-uk" position="autumn-winter-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Compare cloche tunnels &rarr;</AffiliateLink>
+                <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon-uk" position="autumn-winter-cloche" className="text-rust underline decoration-rust/30 hover:text-earth">Cloches for winter rows &rarr;</AffiliateLink>
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A cold frame or small greenhouse</span> &mdash; the proper

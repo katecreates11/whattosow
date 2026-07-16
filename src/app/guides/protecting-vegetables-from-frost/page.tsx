@@ -28,10 +28,10 @@ function FrostBuyerNote() {
         </p>
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
           <AffiliateLink href={az("horticultural fleece plant frost protection")} product="horticultural fleece" type="gear" merchant="amazon-uk" position="frost-protection-fleece" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-            Compare fleece for quick frost cover &rarr;
+            Fleece for sudden cold nights &rarr;
           </AffiliateLink>
           <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon-uk" position="frost-protection-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-            Compare cloche tunnels for salad rows &rarr;
+            Cloches for salad rows &rarr;
           </AffiliateLink>
         </div>
         <p className="text-earth-light">

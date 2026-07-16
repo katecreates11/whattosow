@@ -102,7 +102,7 @@ function WinterSaladBuyerNote() {
           rain. It keeps the crop clean and pickable, which matters more than extra heat.
         </p>
         <AffiliateLink href={az("garden cloche tunnel plant cover")} product="cloche tunnel" type="gear" merchant="amazon-uk" position="winter-salad-cloche" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare cloche tunnels &rarr;
+          Cloches for winter salad rows &rarr;
         </AffiliateLink>
         <p className="text-earth-light">
           <span className="font-serif text-earth">Skip heated gadgets.</span> Winter salad needs shelter and airflow, not

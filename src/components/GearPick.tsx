@@ -93,7 +93,7 @@ export default function GearPick({
         position={position ?? `gear-pick-${trackingSlug(name)}`}
         className="group inline-flex min-h-11 items-center gap-1.5 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
       >
-        {ctaLabel ?? `Compare ${name}`}
+        {ctaLabel ?? name}
         <svg
           className="w-3 h-3 opacity-40 group-hover:opacity-80 transition-opacity duration-200"
           fill="none"

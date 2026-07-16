@@ -137,7 +137,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Once the first truss has set, a weekly high-potash feed helps the plant put its energy into fruit. It is especially useful for pots, growbags and hungry greenhouse plants.",
         href: TOMORITE.amazonUrl,
         product: "tomato feed",
-        cta: "Compare high-potash tomato feed",
+        cta: "Tomato feed for fruiting plants",
       },
       {
         kind: "worth-buying",
@@ -145,7 +145,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Cordon tomatoes need tying in all summer. Soft ties or clips hold the swelling stems without cutting in when the plant is heavy with fruit.",
         href: az("soft plant ties tomato clips"),
         product: "soft plant ties",
-        cta: "Compare soft tomato ties and clips",
+        cta: "Soft ties for swelling stems",
       },
       {
         kind: "skip-this",
@@ -169,7 +169,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Carrot fly finds bruised foliage by scent and flies low over the bed. Fine mesh from sowing day is the calmest defence, especially on allotments where carrots have struggled before.",
         href: ENVIROMESH.amazonUrl,
         product: "fine insect mesh",
-        cta: "Compare fine insect mesh",
+        cta: "Fine mesh before carrot fly finds them",
       },
       {
         kind: "skip-this",
@@ -193,7 +193,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Sow or pot basil into small pots rather than a cold open bed. You can keep them on a sunny windowsill, in the greenhouse, or beside tomatoes where they stay warm.",
         href: az("9cm square plant pots"),
         product: "9cm square plant pots",
-        cta: "Compare small basil pots",
+        cta: "Small pots for warm basil starts",
       },
       {
         kind: "worth-buying",
@@ -202,7 +202,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         href: az("basil seeds sweet genovese"),
         product: "basil seed",
         type: "seed",
-        cta: "Compare Genovese basil seed",
+        cta: "Fresh Genovese basil seed",
       },
       {
         kind: "skip-this",
@@ -226,7 +226,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "The first fortnight after planting out is the vulnerable bit. A damp night's slugs can finish a young courgette before it gets going; ferric phosphate pellets are the practical, restrained defence.",
         href: az("organic slug pellets ferric phosphate"),
         product: "organic slug pellets",
-        cta: "Compare ferric phosphate slug pellets",
+        cta: "Slug protection for young courgettes",
       },
       {
         kind: "worth-buying",
@@ -234,7 +234,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Only really worth buying for pots and growbags, where compost runs out of steam. A fortnightly high-potash feed keeps a container courgette producing without fuss.",
         href: asin("B09RK3HPH5"),
         product: "tomato feed",
-        cta: "Compare tomato feed for pot-grown courgettes",
+        cta: "Tomato feed for pot-grown courgettes",
       },
       {
         kind: "skip-this",
@@ -258,7 +258,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "A late frost can blacken fresh potato shoots just as they emerge. A night or two under fleece in a cold snap protects weeks of steady growth.",
         href: az("horticultural fleece plant frost protection"),
         product: "horticultural fleece",
-        cta: "Compare frost fleece",
+        cta: "Fleece for late frost nights",
       },
       {
         kind: "worth-buying",
@@ -266,7 +266,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "The harvest is only half the job. Stored dark and cool in breathable sacks, a good maincrop lift can feed you into the new year; plastic bags sweat and spoil them.",
         href: az("hessian potato storage sacks"),
         product: "potato storage sacks",
-        cta: "Compare breathable potato sacks",
+        cta: "Breathable sacks for storing potatoes",
       },
       {
         kind: "skip-this",
@@ -290,7 +290,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Runners climb hard, and a full row in August carries real weight in real wind. Tall, sturdy canes, crossed and braced, are the crop's one piece of engineering.",
         href: az("bamboo canes 8ft garden"),
         product: "8ft bamboo canes",
-        cta: "Compare tall bean canes",
+        cta: "Tall canes for a proper bean frame",
       },
       {
         kind: "worth-buying",
@@ -298,7 +298,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "For lashing the frame and the hundred small tying jobs a bean row invents. Jute is strong enough for the season and can go to compost with the spent haulms.",
         href: az("jute garden twine"),
         product: "jute twine",
-        cta: "Compare biodegradable jute twine",
+        cta: "Jute twine for lashing bean canes",
       },
       {
         kind: "skip-this",

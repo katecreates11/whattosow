@@ -38,7 +38,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
           Seeds
         </span>
         <h2 className="font-semibold text-earth mb-4">
-          Where to buy {crop.name.toLowerCase()} seeds
+          Where to buy seeds for {crop.name.toLowerCase()}
         </h2>
         <div className="flex flex-col items-start gap-2">
           {crop.seedSuppliers.map((supplier) => (
@@ -71,7 +71,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
   return (
     <div className="lg:hidden border-y border-leaf/20 py-5 sm:py-6 mb-10">
       <h2 className="font-semibold text-earth mb-3">
-        Get {crop.name.toLowerCase()} seeds
+        Get seeds for {crop.name.toLowerCase()}
       </h2>
       <div className="flex flex-col items-start gap-2">
         {crop.seedSuppliers.map((supplier) => (

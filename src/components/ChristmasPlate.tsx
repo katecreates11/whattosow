@@ -47,7 +47,7 @@ export function christmasSeedCtaLabel(url: string): string {
   const merchant = christmasAffiliateMerchant(url);
   if (merchant === "suttons") return "Seeds at Suttons";
   if (merchant === "thompson-morgan") return "Seeds at T&M";
-  return "Compare seeds";
+  return "Seeds for this crop";
 }
 
 type Row = { crop: ChristmasCrop; status: PlateStatus; left: number | null };

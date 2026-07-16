@@ -244,8 +244,8 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
                 {post.primaryProduct.name}
                 {post.primaryProduct.price ? ` · ${post.primaryProduct.price}` : ""}
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.07em] text-cream bg-allotment px-4 py-2.5 whitespace-nowrap group-hover:bg-allotment-dark transition-colors">
-                {post.primaryProduct.ctaLabel ?? "Compare this pick"} &rarr;
+              <span className="font-serif text-rust underline decoration-rust/30 underline-offset-4 whitespace-nowrap transition-colors group-hover:text-earth">
+                {post.primaryProduct.ctaLabel ?? post.primaryProduct.name} &rarr;
               </span>
             </AffiliateLink>
             <p className="text-[11px] text-earth-lighter mt-1.5">Affiliate link — we may earn a little, at no extra cost to you.</p>

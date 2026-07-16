@@ -27,10 +27,14 @@ describe("WateringBuyerNote", () => {
     expect(html).toContain("Skip timers and sprinklers");
     expect(html).toContain("some allotments restrict hose use or unattended watering");
     expect(html).toContain("Do not buy a timer first");
-    expect(html).toContain("Compare sturdy 10L cans with removable roses");
-    expect(html).toContain("Compare the Gardena lance I use");
-    expect(html).toContain("Compare 200L water butts");
-    expect(html).toContain("Compare lidded water storage tubs");
+    expect(html).toContain("Two sturdy cans for tap-queue days");
+    expect(html).toContain("The lance for reaching tomato roots");
+    expect(html).toContain("A 200L butt with the stand included");
+    expect(html).toContain("A lidded dip tank for can-filling");
+    expect(html).not.toContain("Compare sturdy 10L cans");
+    expect(html).not.toContain("Compare the Gardena lance");
+    expect(html).not.toContain("Compare 200L water butts");
+    expect(html).not.toContain("Compare lidded water storage tubs");
     expect(html).not.toContain("Haws");
 
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(4);

@@ -8,8 +8,10 @@ describe("AutumnWinterGuide", () => {
     const html = renderToStaticMarkup(createElement(AutumnWinterGuide));
 
     expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain("Compare horticultural fleece");
-    expect(html).toContain("Compare cloche tunnels");
+    expect(html).toContain("Fleece for young autumn plants");
+    expect(html).toContain("Cloches for winter rows");
+    expect(html).not.toContain("Compare horticultural fleece");
+    expect(html).not.toContain("Compare cloche tunnels");
     expect(html).toContain('data-umami-event-position="autumn-winter-seeds-garlic"');
     expect(html).toContain('data-umami-event-position="autumn-winter-seeds-broad-beans"');
     expect(html).not.toContain('data-umami-event-position="autumn-winter-seeds"');

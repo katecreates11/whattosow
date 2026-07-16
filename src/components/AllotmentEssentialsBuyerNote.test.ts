@@ -18,7 +18,8 @@ describe("AllotmentEssentialsBuyerNote", () => {
     expect(html).toContain("borrow the expensive or bulky things once");
     expect(html).toContain("Check the classic Spear &amp; Jackson fork");
     expect(html).toContain("Get the gloves allotment people keep buying");
-    expect(html).toContain("Compare simple 10L cans with roses");
+    expect(html).toContain("Two simple cans for shared taps");
+    expect(html).not.toContain("Compare simple 10L cans with roses");
     expect(html).toContain("Check lightweight horticultural fleece");
     expect(html).toContain("Skip for now");
     expect(html).toContain("full allotment starter bundle");

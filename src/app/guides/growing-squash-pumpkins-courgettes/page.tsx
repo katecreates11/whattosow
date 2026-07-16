@@ -97,11 +97,11 @@ function SquashBuyerNote() {
           surface keeps pumpkins and winter squash from sulking in damp.
         </p>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
-          <AffiliateLink href={az("high potash tomato feed vegetables")} product="high-potash feed" type="gear" merchant="amazon-uk" position="squash-family-feed" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-            Compare high-potash feed &rarr;
+          <AffiliateLink href={az("high potash tomato feed vegetables")} product="high-potash feed" type="gear" merchant="amazon-uk" position="squash-family-feed" className="inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth transition-colors">
+            Feed for flowering courgettes &rarr;
           </AffiliateLink>
-          <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" merchant="amazon-uk" position="squash-family-membrane" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-            Compare ground cover membrane
+          <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" merchant="amazon-uk" position="squash-family-membrane" className="inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth transition-colors">
+            Ground cover for clean squash &rarr;
           </AffiliateLink>
         </div>
         <p className="text-earth-light">

@@ -11,7 +11,7 @@ const starterPicks = [
     buyIf: "you are sowing tomatoes, brassicas, beans, salads or anything you will plant out as plugs.",
     skipIf: "you already have clean yoghurt pots or old trays with drainage holes.",
     reason: "Reusable modules make seedlings easier to water, label and transplant without root damage. They are the first thing to buy before any heated gadget.",
-    cta: "Compare reusable 24-cell module trays",
+    cta: "Reusable modules before any gadget",
   },
   {
     name: "Seed compost",
@@ -22,7 +22,7 @@ const starterPicks = [
     buyIf: "your seedlings often stall, rot or emerge unevenly in ordinary multipurpose compost.",
     skipIf: "you only sow big seeds like beans and courgettes, which are less fussy.",
     reason: "Fine, low-feed compost gives small seeds close contact with moisture without overwhelming them.",
-    cta: "Compare fine seed compost",
+    cta: "Fine compost for small seeds",
   },
   {
     name: "Plant labels",
@@ -33,7 +33,7 @@ const starterPicks = [
     buyIf: "you are sowing more than one variety, or sowing the same crop twice a few weeks apart.",
     skipIf: "you are doing one tray today and can label it with masking tape for now.",
     reason: "A pencil label survives watering and saves you from guessing what the tray was meant to be.",
-    cta: "Compare white labels and garden pencils",
+    cta: "Labels and pencil before you forget",
   },
   {
     name: "Heated propagator",
@@ -44,7 +44,7 @@ const starterPicks = [
     buyIf: "you want reliable chillies, peppers or aubergines from seed in a normal UK house.",
     skipIf: "you mainly sow brassicas, lettuce, peas, beans, basil or later-season tomatoes.",
     reason: "Bottom heat is useful for true heat-lovers. It is not a starter tax for every seed packet.",
-    cta: "Compare heated propagators for chillies",
+    cta: "Bottom heat for chillies and peppers",
   },
 ];
 

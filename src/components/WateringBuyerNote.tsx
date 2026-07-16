@@ -96,7 +96,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note-cans"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Compare sturdy 10L cans with removable roses &rarr;
+            Two sturdy cans for tap-queue days &rarr;
           </AffiliateLink>
         </div>
 
@@ -124,7 +124,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note-lance"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Compare the Gardena lance I use &rarr;
+            The lance for reaching tomato roots &rarr;
           </AffiliateLink>
           <Link
             href="/blog/watering-lance-allotment"
@@ -158,7 +158,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note-butt"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Compare 200L water butts with stands &rarr;
+            A 200L butt with the stand included &rarr;
           </AffiliateLink>
         </div>
 
@@ -187,7 +187,7 @@ export default function WateringBuyerNote() {
             position="watering-buyer-note-dip-tank"
             className="mt-3 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
           >
-            Compare lidded water storage tubs &rarr;
+            A lidded dip tank for can-filling &rarr;
           </AffiliateLink>
         </div>
 

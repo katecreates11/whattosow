@@ -139,7 +139,7 @@ export default function GlutGuide() {
                 position="glut-harvest-trug"
                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
               >
-                Compare harvest trugs
+                Harvest trugs for heavy picking days
               </AffiliateLink>{" "}
               by the back door makes the little-and-often habit a pleasure rather than a chore.
             </p>
@@ -214,7 +214,7 @@ export default function GlutGuide() {
                 position="glut-maslin-pan"
                 className="font-serif italic text-rust border-b border-rust/30 pb-0.5 hover:text-earth transition-colors"
               >
-                Compare maslin pans
+                Maslin pan for jam days
               </AffiliateLink>{" "}
               turns a table of tomatoes into a shelf of chutney in an afternoon &mdash; and the green ones at
               season&apos;s end make the best chutney of all.

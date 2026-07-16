@@ -105,22 +105,6 @@ export default function SeedStartingKitGuide() {
           },
         },
       },
-      {
-        "@type": "ListItem",
-        position: 4,
-        item: {
-          "@type": "Product",
-          name: "Charles Dowding CD60 Module Trays",
-          description: "The trays Charles Dowding uses daily. 60 tapered cells with wide drainage holes. Rootballs slide out without sticking. Thick recycled polypropylene that lasts years.",
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "GBP",
-            price: "10",
-            availability: "https://schema.org/InStock",
-            url: "https://www.amazon.co.uk/dp/B0CB661NZP?tag=whattosow21-21",
-          },
-        },
-      },
     ],
   };
 
@@ -246,6 +230,7 @@ export default function SeedStartingKitGuide() {
                 description="The workhorse. Big enough for most seeds, small enough to fit on a windowsill. Nutley's are thicker plastic than the cheap ones — they last years and have proper drainage holes. Get a solid base tray underneath to catch water."
                 amazonUrl="https://www.amazon.co.uk/dp/B00844031K?tag=whattosow21-21"
                 position="seed-kit-detail-module-trays"
+                ctaLabel="The module trays to start with"
                 tip="3 trays gives you 72 cells — enough for most beginners. Buy 2 packs for a serious season."
               />
             </section>
@@ -270,6 +255,7 @@ export default function SeedStartingKitGuide() {
                 description="Fine, low-nutrient, free-draining. Exactly what tiny seedlings need. Levington is peat-free and widely available. Don't use multi-purpose for small seeds — it's too chunky and too rich. The seedlings drown or get burned."
                 amazonUrl="https://www.amazon.co.uk/dp/B0F3W9KC7N?tag=whattosow21-21"
                 position="seed-kit-detail-seed-compost"
+                ctaLabel="Fine compost for safer germination"
                 tip="One 20L bag does about 10 full trays — it goes further than you'd think."
               />
             </section>
@@ -298,6 +284,7 @@ export default function SeedStartingKitGuide() {
                 description="A small electric mat in the base that provides consistent bottom heat (around 22–25°C). The Garland One Top is the one everyone recommends — simple, reliable, fits a standard tray. Worth it for peppers, chillies, and aubergines — they need warmth to germinate and a cold windowsill at night can stall them for weeks."
                 amazonUrl="https://www.amazon.co.uk/dp/B015WFRWUI?tag=whattosow21-21"
                 position="seed-kit-detail-heated-propagator"
+                ctaLabel="Bottom heat for true heat-lovers"
                 tip="Not necessary for tomatoes, lettuce, or anything hardy — just the heat-lovers."
               />
             </section>
@@ -311,14 +298,17 @@ export default function SeedStartingKitGuide() {
                 is the safest approach &mdash; let the compost draw water up rather
                 than pouring it on top.
               </p>
-              <GearPick
-                name="Small watering can with fine rose"
-                price="~£8"
-                badge="our-pick"
-                description="A 1–2 litre can with a fine brass rose gives a gentle shower that won't flatten seedlings. Much better than using a jug or mug. The Haws Indoor can is beautiful if you want to treat yourself, but any small can with a rose works."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=small+watering+can+fine+rose+indoor"
-                position="seed-kit-detail-watering-can"
-              />
+              <div className="border-t border-earth/10 pt-5">
+                <h3 className="font-serif text-xl text-earth">
+                  Water with what you already have first
+                </h3>
+                <p className="mt-2 text-sm text-earth-light leading-relaxed max-w-2xl">
+                  A small can with a fine rose is nice, but it is not the first
+                  thing to buy. Stand trays in water for a few minutes, let the
+                  compost drink from below, then lift them out before they sit
+                  soggy.
+                </p>
+              </div>
             </section>
           </GearCategory>
 
@@ -337,15 +327,16 @@ export default function SeedStartingKitGuide() {
               <p className="text-sm text-earth-light leading-relaxed mb-6 max-w-2xl">
                 You will not remember what you sowed where. You think you will. You won&apos;t.
               </p>
-              <GearPick
-                name="White plastic plant labels"
-                price="~£3 for 50"
-                badge="essential"
-                description="Cheap, simple, effective. Write the variety and date sown on each one. Buy more than you think you need."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=white+plastic+plant+labels"
-                position="seed-kit-detail-plant-labels"
-                tip="Always use a pencil, not a marker — markers fade in sunlight within weeks."
-              />
+              <div className="border-t border-earth/10 pt-5">
+                <h3 className="font-serif text-xl text-earth">
+                  Label every tray, but do not buy a system
+                </h3>
+                <p className="mt-2 text-sm text-earth-light leading-relaxed max-w-2xl">
+                  A pencil and plain white labels are enough. Write the variety
+                  and sowing date before the tray leaves your hand; marker pen
+                  fades, and memory is not a labelling system.
+                </p>
+              </div>
             </section>
           </GearCategory>
 
@@ -359,15 +350,16 @@ export default function SeedStartingKitGuide() {
                 enough. If yours isn&apos;t, or if you&apos;re starting early in the year
                 when daylight hours are short, a grow light helps.
               </p>
-              <GearPick
-                name="LED grow light strip"
-                price="£15–25"
-                badge="upgrade"
-                description="A simple LED strip on a timer gives seedlings consistent light without the leggy stretch you get on a windowsill. Not essential if you have a good south-facing window, but it makes all the difference on a dark sill. Set it 5–10cm above the seedlings and run it for 14–16 hours a day."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=LED+grow+light+strip+seedlings"
-                position="seed-kit-detail-grow-light"
-                tip="Look for full-spectrum or 6500K — avoid the purple/pink ones, they're designed for flowering plants."
-              />
+              <div className="border-t border-earth/10 pt-5">
+                <h3 className="font-serif text-xl text-earth">
+                  Try the brightest windowsill before buying a light
+                </h3>
+                <p className="mt-2 text-sm text-earth-light leading-relaxed max-w-2xl">
+                  Grow lights can rescue a dark sill, but they are not a
+                  beginner tax. Sow a little later, turn trays daily and keep
+                  seedlings close to the glass before you buy more kit.
+                </p>
+              </div>
             </section>
           </GearCategory>
 
@@ -381,13 +373,16 @@ export default function SeedStartingKitGuide() {
                 pots. You&apos;ll know it&apos;s time when roots poke out the bottom
                 or growth stalls.
               </p>
-              <GearPick
-                name="1-litre pots"
-                price="~£6 for 20"
-                description="The next step up from modules for most seedlings. Tomatoes, peppers, and courgettes will spend a few weeks in these before planting out or moving up again."
-                amazonUrl="https://www.amazon.co.uk/s?tag=whattosow21-21&k=1+litre+plant+pots+plastic"
-                position="seed-kit-detail-one-litre-pots"
-              />
+              <div className="border-t border-earth/10 pt-5">
+                <h3 className="font-serif text-xl text-earth">
+                  Reuse clean pots before buying another stack
+                </h3>
+                <p className="mt-2 text-sm text-earth-light leading-relaxed max-w-2xl">
+                  Tomatoes, peppers and courgettes often need a bigger pot
+                  before planting out. Old nursery pots, yoghurt pots with holes
+                  and clean saved containers all do the job.
+                </p>
+              </div>
             </section>
           </GearCategory>
 

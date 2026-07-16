@@ -74,6 +74,7 @@ describe("crop buying advice", () => {
         if (item.kind !== "worth-buying") continue;
 
         expect(item.cta).not.toMatch(/^Find /);
+        expect(item.cta).not.toMatch(/^Compare /);
         expect(item.cta.length).toBeGreaterThan(12);
       }
     }

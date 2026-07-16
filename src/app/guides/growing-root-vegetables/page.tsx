@@ -100,7 +100,7 @@ function RootBuyerNote() {
           you are sowing a tiny late row and can risk it, or you already have fleece you can peg down tightly.
         </p>
         <AffiliateLink href={az("fine insect mesh netting carrot fly")} product="fine insect mesh" type="gear" merchant="amazon-uk" position="root-vegetables-carrot-fly-mesh" className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors">
-          Compare fine mesh for carrot fly &rarr;
+          Mesh carrots before carrot fly finds them &rarr;
         </AffiliateLink>
         <p className="text-earth-light">
           <span className="font-serif text-earth">Skip seed tapes.</span> They are tidy, but careful thin sowing is

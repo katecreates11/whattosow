@@ -42,9 +42,9 @@ function trackingSlug(value: string): string {
 }
 
 function KitItemCard({ cropSlug, item }: { cropSlug: string; item: KitItem }) {
-  const compareLabel = `Compare ${item.name
+  const linkLabel = item.name
     .replace(/\s*\([^)]*\)/g, "")
-    .toLowerCase()}`;
+    .trim();
 
   return (
     <div className="border-t border-earth/6 pt-3">
@@ -55,11 +55,11 @@ function KitItemCard({ cropSlug, item }: { cropSlug: string; item: KitItem }) {
           product={item.name}
           type="gear"
           position={`crop-kit-${cropSlug}-${trackingSlug(item.name)}`}
-          className="group shrink-0 inline-flex items-center gap-1 text-[11px] font-medium text-earth border border-earth/10 px-2.5 py-1.5 hover:border-allotment hover:text-allotment transition-colors duration-200"
+          className="group shrink-0 inline-flex min-h-11 items-center gap-1.5 font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
         >
-          {compareLabel}
+          {linkLabel}
           <svg
-            className="w-2.5 h-2.5 opacity-30 group-hover:opacity-70 transition-opacity duration-200"
+            className="w-3 h-3 opacity-40 group-hover:opacity-80 transition-opacity duration-200"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

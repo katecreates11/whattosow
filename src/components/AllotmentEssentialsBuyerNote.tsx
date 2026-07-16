@@ -24,7 +24,7 @@ const firstBuys = [
     href: "https://www.amazon.co.uk/s?tag=whattosow21-21&k=10+litre+watering+can+detachable+rose",
     reason:
       "Buy if hoses are banned, busy or awkward on your site. Two cans balance the walk, and a removable rose lets seedlings have a gentle drink.",
-    cta: "Compare simple 10L cans with roses",
+    cta: "Two simple cans for shared taps",
   },
   {
     name: "Horticultural fleece",

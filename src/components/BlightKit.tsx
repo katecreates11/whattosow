@@ -14,7 +14,7 @@ import AffiliateLink from "@/components/AffiliateLink";
  * below. We read the visitor's live risk
  * (same Hutton assessment as the banner) and:
  *   - when blight is in season AND building/high → lead with KEEPING LEAVES DRY
- *     (cover + fleece — the only thing that helps right now),
+ *     (cover + soil-level watering, where site rules allow it),
  *   - otherwise → lead with RESISTANT VARIETIES (a plan-for-next-year buy).
  *
  * If we have no location or the weather API is down, we fall back to the calm
@@ -24,11 +24,7 @@ import AffiliateLink from "@/components/AffiliateLink";
 const linkCls =
   "italic text-rust hover:text-earth transition-colors underline decoration-rust/30";
 
-// Real Suttons product pages (an active Awin advertiser — AffiliateLink wraps
-// the tracking automatically). Direct links, not searches.
-const SUTTONS = {
-  fleece: "https://www.suttons.co.uk/garden-equipment/all/frost-protection-fleece_MH4728",
-};
+const SOAKER_HOSE_URL = "https://www.amazon.co.uk/dp/B000TAFENY";
 
 function CoverCard() {
   return (
@@ -38,8 +34,9 @@ function CoverCard() {
       </h3>
       <p className="text-sm text-earth-light leading-relaxed mb-3">
         Blight needs wet leaves to take hold. Growing under cover is the single
-        biggest protection; outdoors, a fleece over the plants through a warm,
-        humid spell buys you time. This is protection, not a cure.
+        biggest protection; outdoors, water low at the soil and keep the leaves
+        dry. A soaker hose helps where your site rules allow it. This is
+        prevention, not a cure.
       </p>
       <ul className="space-y-1.5 text-sm">
         <li>
@@ -54,14 +51,14 @@ function CoverCard() {
         </li>
         <li>
           <AffiliateLink
-            href={SUTTONS.fleece}
-            product="frost protection fleece"
+            href={SOAKER_HOSE_URL}
+            product="soaker hose"
             type="gear"
-            merchant="suttons"
-            position="blight-defence-fleece"
+            merchant="amazon-uk"
+            position="blight-defence-soaker-hose"
             className={linkCls}
           >
-            Compare fleece for a humid week &rarr;
+            Soaker hose for soil-level watering &rarr;
           </AffiliateLink>
         </li>
       </ul>

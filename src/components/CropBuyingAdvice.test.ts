@@ -12,8 +12,8 @@ describe("CropBuyingAdvice", () => {
     expect(html).toContain("Worth buying, and what to skip");
     expect(html).toContain("%2Fphotos%2Fblog%2Ftomato-bed-marigold-ring.webp");
     expect(html).toContain("Tomatoes and marigolds on the plot");
-    expect(html).toContain("Compare high-potash tomato feed");
-    expect(html).toContain("Compare soft tomato ties and clips");
+    expect(html).toContain("Tomato feed for fruiting plants");
+    expect(html).toContain("Soft ties for swelling stems");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).toContain("Gimmicky growbag frames");
     expect(html).toContain("data-crop-buying-skip");
@@ -31,6 +31,7 @@ describe("CropBuyingAdvice", () => {
     ).toBeNull();
     expect(html.match(/data-umami-event-merchant="amazon-uk"/g)).toHaveLength(2);
     expect(html).not.toContain("Find tomato feed");
+    expect(html).not.toContain("Compare high-potash tomato feed");
     expect(html).not.toContain("border border-earth/10 px-3 py-2");
   });
 
@@ -39,7 +40,8 @@ describe("CropBuyingAdvice", () => {
       createElement(CropBuyingAdvice, { slug: "basil" }),
     );
 
-    expect(html).toContain("Compare Genovese basil seed");
+    expect(html).toContain("Fresh Genovese basil seed");
+    expect(html).toContain("Small pots for warm basil starts");
     expect(html).toContain("%2Fphotos%2Fcrops%2Fpurple-basil-seedling.webp");
     expect(html).toContain("Basil seedlings are small, quick and cheap");
     expect(html).toContain('data-umami-event-position="crop-buying-advice-basil-basil-seed"');

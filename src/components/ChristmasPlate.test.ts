@@ -12,7 +12,7 @@ describe("ChristmasPlate", () => {
     const html = renderToStaticMarkup(createElement(ChristmasPlate, { nowISO: "2026-07-12T09:00:00.000Z" }));
 
     expect(christmasSeedCtaLabel("https://www.suttons.co.uk/search?q=rocket")).toBe("Seeds at Suttons");
-    expect(christmasSeedCtaLabel("https://www.amazon.co.uk/s?k=potato+grow+bags")).toBe("Compare seeds");
+    expect(christmasSeedCtaLabel("https://www.amazon.co.uk/s?k=potato+grow+bags")).toBe("Seeds for this crop");
     expect(christmasAffiliateMerchant("https://www.amazon.co.uk/s?k=potato+grow+bags")).toBe("amazon-uk");
     expect(christmasAffiliateMerchant("https://www.amazon.com/s?k=potato+grow+bags")).toBe("amazon-us");
     expect(christmasAffiliateMerchant("https://www.suttons.co.uk/search?q=rocket")).toBe("suttons");
@@ -20,6 +20,7 @@ describe("ChristmasPlate", () => {
     expect(christmasAffiliatePosition("Christmas new potatoes", "kit")).toBe("christmas-plate-kit-christmas-new-potatoes");
     expect(christmasAffiliatePosition("Brussels sprouts", "seeds")).toBe("christmas-plate-seeds-brussels-sprouts");
     expect(html).not.toContain('data-umami-event-merchant="amazon"');
+    expect(html).not.toContain("Compare seeds");
     expect(html).not.toContain("Buy the seeds");
   });
 });

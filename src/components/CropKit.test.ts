@@ -15,9 +15,13 @@ describe("CropKit", () => {
     expect(html).toContain('data-umami-event-merchant="amazon-uk"');
     expect(html).toContain('data-umami-event-position="crop-kit-tomatoes-tomato-feed-tomorite"');
     expect(html).toContain('data-umami-event-position="crop-kit-tomatoes-soft-plant-ties"');
-    expect(html).toContain("Compare tomato feed");
-    expect(html).toContain("Compare soft plant ties");
+    expect(html).toContain("Tomato feed");
+    expect(html).toContain("Soft plant ties");
+    expect(html).toContain("font-serif text-rust underline");
+    expect(html).not.toContain("Compare tomato feed");
+    expect(html).not.toContain("Compare soft plant ties");
     expect(html).not.toContain("Compare options");
+    expect(html).not.toContain("border border-earth/10 px-2.5 py-1.5");
     expect(html).not.toContain(">Amazon<");
   });
 });

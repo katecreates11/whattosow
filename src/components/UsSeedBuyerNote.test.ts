@@ -13,7 +13,9 @@ describe("UsSeedBuyerNote", () => {
     expect(html).toContain("data-umami-event-type=\"seed\"");
     expect(html).toContain("data-umami-event-position=\"us-zip-seeds\"");
     expect(html).toContain("tag=whattosowus-20");
+    expect(html).toContain("Quick-crop seeds for US gardens");
     expect(html).toContain("Skip for now");
+    expect(html).not.toContain("Compare quick-crop seeds");
     expect(html).not.toContain("data-umami-event-position=\"us-zip-skip\"");
   });
 
