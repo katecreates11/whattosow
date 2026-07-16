@@ -6,6 +6,29 @@ import { applyVerdict, parseBoard, proposedIdeas } from "./bench";
 // Test against the real board so the parser and the Forager's format never drift apart.
 const board = readFileSync(join(process.cwd(), "docs/ideas-board.md"), "utf8");
 
+// applyVerdict needs a card that is still `proposed`. The real board may have none
+// at any given moment (Kate decides them all), so those tests use this fixture —
+// a valid card in the Forager's format — rather than depending on the live board.
+const fixtureBoard = `# Ideas Board
+
+## Proposed
+
+### A test idea for the bench
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / low effort
+- **Evidence:** A timely, testable reason to build.
+- **Pitch:** A short, useful, monetisable page.
+- **Added:** 2026-07-16 · **Run:** test
+
+### An already-decided idea
+- **Type:** content
+- **Status:** approved
+- **Decided:** 2026-07-09 · via the potting bench
+- **Pitch:** Kept so we can check other cards are left untouched.
+- **Added:** 2026-07-16 · **Run:** test
+`;
+
 describe("parseBoard", () => {
   it("finds the board's cards with their fields", () => {
     const cards = parseBoard(board);
@@ -26,10 +49,10 @@ describe("parseBoard", () => {
 });
 
 describe("applyVerdict", () => {
-  const target = proposedIdeas(board)[0];
+  const target = proposedIdeas(fixtureBoard)[0];
 
   it("sets the status, stamps the date, and records the note", () => {
-    const updated = applyVerdict(board, target.heading, "approved", "love this one", "2026-07-11T10:00:00Z");
+    const updated = applyVerdict(fixtureBoard, target.heading, "approved", "love this one", "2026-07-11T10:00:00Z");
     expect(updated).not.toBeNull();
     const card = parseBoard(updated!).find((c) => c.heading === target.heading)!;
     expect(card.status).toBe("approved");
@@ -38,8 +61,8 @@ describe("applyVerdict", () => {
   });
 
   it("leaves every other card untouched", () => {
-    const before = parseBoard(board);
-    const updated = applyVerdict(board, target.heading, "binned", "", "2026-07-11T10:00:00Z")!;
+    const before = parseBoard(fixtureBoard);
+    const updated = applyVerdict(fixtureBoard, target.heading, "binned", "", "2026-07-11T10:00:00Z")!;
     const after = parseBoard(updated);
     expect(after.length).toBe(before.length);
     for (const b of before) {
@@ -49,8 +72,8 @@ describe("applyVerdict", () => {
   });
 
   it("returns null for an unknown card or one already decided (stale click)", () => {
-    expect(applyVerdict(board, "Not a real idea", "approved", "", "2026-07-11")).toBeNull();
-    const once = applyVerdict(board, target.heading, "approved", "", "2026-07-11T10:00:00Z")!;
+    expect(applyVerdict(fixtureBoard, "Not a real idea", "approved", "", "2026-07-11")).toBeNull();
+    const once = applyVerdict(fixtureBoard, target.heading, "approved", "", "2026-07-11T10:00:00Z")!;
     expect(applyVerdict(once, target.heading, "binned", "", "2026-07-11T10:00:00Z")).toBeNull();
   });
 });

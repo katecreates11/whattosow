@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { BenchIdea, Verdict } from "@/lib/bench";
-import type { DreamBranch } from "@/app/api/bench/route";
+import type { DreamBranch, Build } from "@/app/api/bench/route";
 
 // The Potting Bench — Kate's thumb-friendly verdict page. Each proposed idea is a
 // card with Approve / Park / Bin. A tap commits the verdict to the board on main;
@@ -27,6 +27,7 @@ export default function BenchClient() {
   const [key, setKey] = useState("");
   const [ideas, setIdeas] = useState<BenchIdea[]>([]);
   const [dreams, setDreams] = useState<DreamBranch[]>([]);
+  const [builds, setBuilds] = useState<Build[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
@@ -44,9 +45,10 @@ export default function BenchClient() {
       .then(async (res) => {
         if (res.status === 401) return setPhase("nokey");
         if (!res.ok) return setPhase("error");
-        const json = (await res.json()) as { ideas: BenchIdea[]; dreams?: DreamBranch[] };
+        const json = (await res.json()) as { ideas: BenchIdea[]; dreams?: DreamBranch[]; builds?: Build[] };
         setIdeas(json.ideas);
         setDreams(json.dreams ?? []);
+        setBuilds(json.builds ?? []);
         setPhase("ready");
       })
       .catch(() => setPhase("error"));
@@ -70,6 +72,30 @@ export default function BenchClient() {
       }
     } catch {
       setToast("Couldn't merge just now — try again in a moment");
+    } finally {
+      setBusy(null);
+      setTimeout(() => setToast(null), 3500);
+    }
+  }
+
+  async function ship(build: Build) {
+    setBusy(build.branch);
+    try {
+      const res = await fetch("/api/bench", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ k: key, ship: build.branch }),
+      });
+      if (res.ok) {
+        setBuilds((prev) => prev.filter((b) => b.branch !== build.branch));
+        setToast("Shipped — live in a couple of minutes 🌱");
+      } else if (res.status === 409) {
+        setToast("This build clashes with main — it needs the laptop");
+      } else {
+        setToast("Couldn't ship just now — try again in a moment");
+      }
+    } catch {
+      setToast("Couldn't ship just now — try again in a moment");
     } finally {
       setBusy(null);
       setTimeout(() => setToast(null), 3500);
@@ -127,6 +153,42 @@ export default function BenchClient() {
           </div>
         )}
 
+        {phase === "ready" && builds.length > 0 && (
+          <section className="mt-8">
+            <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-earth-light">🌱 From the Night Gardener</p>
+            <ul className="mt-3 space-y-4">
+              {builds.map((b) => (
+                <li key={b.branch} className="rounded-2xl border border-allotment/25 bg-leaf-bg/50 p-5">
+                  <h2 className="font-serif text-lg leading-snug text-earth">{b.title}</h2>
+                  <p className="mt-1.5 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-earth-lighter">
+                    {b.date} · PR #{b.number} · {b.branch}
+                  </p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-earth-light">
+                    Built and waiting. Preview it live first, then ship it — that takes it straight onto the site.
+                  </p>
+                  <div className="mt-4 flex gap-2">
+                    <a
+                      href={b.previewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 rounded-full border border-earth/20 bg-white/70 py-3 text-center font-mono text-[0.62rem] uppercase tracking-[0.14em] text-earth transition-opacity active:opacity-80"
+                    >
+                      Preview
+                    </a>
+                    <button
+                      onClick={() => ship(b)}
+                      disabled={busy === b.branch}
+                      className="flex-1 rounded-full bg-allotment py-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream transition-opacity active:opacity-80 disabled:opacity-40"
+                    >
+                      {busy === b.branch ? "…" : "Ship it — take it live"}
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {phase === "ready" && dreams.length > 0 && (
           <section className="mt-8">
             <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-earth-light">🌙 From the Dreamer</p>
@@ -154,7 +216,7 @@ export default function BenchClient() {
           </section>
         )}
 
-        {phase === "ready" && ideas.length === 0 && dreams.length === 0 && (
+        {phase === "ready" && ideas.length === 0 && dreams.length === 0 && builds.length === 0 && (
           <div className="mt-12 rounded-2xl border border-earth/10 bg-white/60 p-8 text-center">
             <p className="font-serif text-xl text-earth">The bench is clear. 🌱</p>
             <p className="mt-2 text-sm text-earth-light">Nothing waiting on your word — the Forager pitches on Sunday morning.</p>

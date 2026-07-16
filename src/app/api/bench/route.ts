@@ -28,11 +28,22 @@ function authorised(key: string | null): boolean {
 /** Branches Kate can merge from the bench — the Dreamer's, and nothing else. */
 const MERGEABLE_PREFIX = "dreams/";
 
+/** PRs the Bench can take live — the Night Gardener's finished builds, and nothing else. */
+const SHIPPABLE_PREFIX = "night/";
+
 export interface DreamBranch {
   name: string;
   message: string; // last commit's subject line
   date: string; // YYYY-MM-DD of the last commit
   commits: number;
+}
+
+export interface Build {
+  number: number; // PR number
+  title: string;
+  branch: string; // head ref, e.g. "night/…"
+  date: string; // YYYY-MM-DD the PR was opened
+  previewUrl: string; // Netlify deploy preview — see it live before shipping
 }
 
 /** The Dreamer's branches that haven't been merged into main yet. */
@@ -57,6 +68,28 @@ async function unmergedDreams(): Promise<DreamBranch[]> {
   return out;
 }
 
+/** The Night Gardener's finished builds — open PRs from night/ branches.
+ *  Degrades quietly to [] if the token lacks "Pull requests: read", so the
+ *  rest of the bench keeps working. */
+async function openBuilds(): Promise<Build[]> {
+  try {
+    const res = await fetch(`${GH}/pulls?state=open&per_page=100`, { headers: ghHeaders(), cache: "no-store" });
+    if (!res.ok) return [];
+    const pulls = (await res.json()) as { number: number; title: string; created_at: string; head: { ref: string } }[];
+    return pulls
+      .filter((p) => p.head?.ref?.startsWith(SHIPPABLE_PREFIX))
+      .map((p) => ({
+        number: p.number,
+        title: p.title,
+        branch: p.head.ref,
+        date: (p.created_at ?? "").slice(0, 10),
+        previewUrl: `https://deploy-preview-${p.number}--whattosow.netlify.app`,
+      }));
+  } catch {
+    return [];
+  }
+}
+
 async function fetchBoard(): Promise<{ content: string; sha: string }> {
   const res = await fetch(`${API}?ref=main`, { headers: ghHeaders(), cache: "no-store" });
   if (!res.ok) throw new Error(`GitHub read failed (${res.status})`);
@@ -76,15 +109,15 @@ export async function GET(req: NextRequest) {
   if (!authorised(req.nextUrl.searchParams.get("k"))) return NextResponse.json({ error: "unauthorised" }, { status: 401 });
   if (!process.env.GITHUB_TOKEN) return NextResponse.json({ error: "not configured" }, { status: 503 });
   try {
-    const [{ content }, dreams] = await Promise.all([fetchBoard(), unmergedDreams()]);
-    return NextResponse.json({ ideas: proposedIdeas(content), dreams });
+    const [{ content }, dreams, builds] = await Promise.all([fetchBoard(), unmergedDreams(), openBuilds()]);
+    return NextResponse.json({ ideas: proposedIdeas(content), dreams, builds });
   } catch {
     return NextResponse.json({ error: "couldn't reach the board" }, { status: 502 });
   }
 }
 
 export async function POST(req: NextRequest) {
-  let body: { k?: string; heading?: string; verdict?: string; note?: string; merge?: string };
+  let body: { k?: string; heading?: string; verdict?: string; note?: string; merge?: string; ship?: string };
   try {
     body = await req.json();
   } catch {
@@ -113,6 +146,31 @@ export async function POST(req: NextRequest) {
       throw new Error(`GitHub merge failed (${res.status})`);
     } catch {
       return NextResponse.json({ error: "couldn't merge the dream" }, { status: 502 });
+    }
+  }
+
+  // Ship a finished Night Gardener build — merge its branch into main so Netlify
+  // deploys it live. Only night/ branches, nothing else. Same merge mechanism as
+  // the Dreamer, so it needs only the token's existing Contents: write.
+  if (body.ship) {
+    const branch = body.ship.trim();
+    if (!branch.startsWith(SHIPPABLE_PREFIX)) return NextResponse.json({ error: "bad request" }, { status: 400 });
+    try {
+      const res = await fetch(`${GH}/merges`, {
+        method: "POST",
+        headers: ghHeaders(),
+        body: JSON.stringify({
+          base: "main",
+          head: branch,
+          commit_message: `bench: Kate shipped ${branch} — live now`,
+        }),
+      });
+      if (res.ok) return NextResponse.json({ ok: true, shipped: branch });
+      if (res.status === 204) return NextResponse.json({ ok: true, shipped: branch, already: true });
+      if (res.status === 409) return NextResponse.json({ error: "conflict" }, { status: 409 });
+      throw new Error(`GitHub merge failed (${res.status})`);
+    } catch {
+      return NextResponse.json({ error: "couldn't ship the build" }, { status: 502 });
     }
   }
 
