@@ -26,6 +26,10 @@ function TomatoBuyerNote() {
       <p className="mb-4 max-w-xl text-[15px] leading-relaxed text-earth-light">
         A couple of tomato bits earn their keep. Most clever-looking gadgets do not.
       </p>
+      <p className="mb-4 max-w-xl border-l-2 border-rust/40 pl-4 font-serif text-lg leading-relaxed text-earth">
+        If you only buy one tomato thing, wait until the plant tells you:
+        feed after fruit sets, and buy ties only if you are growing cordons.
+      </p>
       <div className="divide-y divide-earth/10 text-[15px] leading-relaxed">
         <div className="grid gap-2 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
           <div>
@@ -35,8 +39,8 @@ function TomatoBuyerNote() {
               nutrients run out fast. Skip if your plants are still all leaf and no fruit, or you already feed weekly.
             </p>
           </div>
-          <AffiliateLink href={az("tomato feed high potash")} product="tomato feed" type="gear" merchant="amazon-uk" position="tomatoes-feed" className="inline-flex min-h-11 items-center text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth sm:justify-self-end sm:text-right">
-            Tomato feed for fruiting plants &rarr;
+          <AffiliateLink href={az("tomato feed high potash")} product="high-potash tomato feed" type="gear" merchant="amazon-uk" position="tomatoes-feed" className="inline-flex min-h-11 items-center text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth sm:justify-self-end sm:text-right">
+            High-potash feed for fruiting tomatoes &rarr;
           </AffiliateLink>
         </div>
         <div className="grid gap-2 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
@@ -47,8 +51,8 @@ function TomatoBuyerNote() {
               plant, then tie loosely and check it as the stem thickens. Skip if you are growing bush tomatoes in pots.
             </p>
           </div>
-          <AffiliateLink href={az("soft plant ties tomatoes")} product="soft plant ties" type="gear" merchant="amazon-uk" position="tomatoes-soft-ties" className="inline-flex min-h-11 items-center text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth sm:justify-self-end sm:text-right">
-            Soft ties for cordon stems &rarr;
+          <AffiliateLink href={az("soft plant ties tomatoes")} product="soft plant ties for tomatoes" type="gear" merchant="amazon-uk" position="tomatoes-soft-ties" className="inline-flex min-h-11 items-center text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth sm:justify-self-end sm:text-right">
+            Soft ties for tying in cordons &rarr;
           </AffiliateLink>
         </div>
         <p className="py-4 text-earth-light">

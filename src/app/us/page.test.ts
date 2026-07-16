@@ -13,5 +13,8 @@ describe("UsPage", () => {
     expect(html).toContain("/crops/french-beans");
     expect(html).toContain("data-umami-event=\"us-zip-start\"");
     expect(html).toContain("This is broad US guidance for now");
+    expect(html).not.toContain("Kate");
+    expect(html).not.toContain("full ZIP");
+    expect(html).not.toContain("worth building properly");
   });
 });

@@ -1,0 +1,48 @@
+import type { Crop } from "@/data/crops";
+
+const seedLinkLabels: Record<string, string> = {
+  "broad-beans": "Broad bean seed",
+  peas: "Pea seed",
+  lettuce: "Lettuce seed",
+  spinach: "Spinach seed",
+  radishes: "Radish seed",
+  carrots: "Carrot seed",
+  beetroot: "Beetroot seed",
+  onions: "Onion seed and sets",
+  "maincrop-potatoes": "Maincrop seed potatoes",
+  "early-potatoes": "Early seed potatoes",
+  kale: "Kale seed",
+  parsnips: "Parsnip seed",
+  "spring-onions": "Spring onion seed",
+  "swiss-chard": "Swiss chard seed",
+  turnips: "Turnip seed",
+  leeks: "Leek seed",
+  broccoli: "Broccoli seed",
+  cabbage: "Cabbage seed",
+  cauliflower: "Cauliflower seed",
+  "brussels-sprouts": "Brussels sprout seed",
+  garlic: "Garlic bulbs",
+  parsley: "Parsley seed",
+  sweetcorn: "Sweetcorn seed",
+  courgettes: "Courgette seed",
+  "french-beans": "Dwarf French bean seed",
+  squash: "Squash seed",
+  pumpkins: "Pumpkin seed",
+  coriander: "Coriander seed",
+  rocket: "Rocket seed",
+  "pak-choi": "Pak choi seed",
+  fennel: "Fennel seed",
+  celery: "Celery seed",
+  dill: "Dill seed",
+  tomatoes: "Tomato seed",
+  peppers: "Pepper seed",
+  chillies: "Chilli seed",
+  cucumbers: "Cucumber seed",
+  "runner-beans": "Runner bean seed",
+  aubergine: "Aubergine seed",
+  basil: "Basil seed",
+};
+
+export function seedLinkLabel(crop: Crop): string {
+  return seedLinkLabels[crop.slug] ?? `${crop.name} seed`;
+}

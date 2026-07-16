@@ -7,7 +7,8 @@ describe("OverwinteringLegumesGuide", () => {
   it("uses specific, measurable seed affiliate labels", () => {
     const html = renderToStaticMarkup(createElement(OverwinteringLegumesGuide));
 
-    expect(html).toContain("Seeds at T&amp;M");
+    expect(html).toContain(" seed at T&amp;M");
+    expect(html).not.toContain("Seeds at T&amp;M");
     expect(html).toContain('data-umami-event-position="overwinter-legumes-seeds-aquadulce-claudia"');
     expect(html).toContain('data-umami-event-position="overwinter-legumes-seeds-meteor"');
     expect(html).not.toContain('data-umami-event-position="overwinter-legumes-seeds"');

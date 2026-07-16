@@ -80,6 +80,21 @@ describe("crop buying advice", () => {
     }
   });
 
+  it("tracks courgette feed as courgette-specific high-potash intent", () => {
+    const advice = getCropBuyingAdvice("courgettes");
+
+    expect(advice?.items).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          kind: "worth-buying",
+          name: "High-potash feed",
+          product: "high-potash feed",
+          cta: "High-potash feed for pot-grown courgettes",
+        }),
+      ]),
+    );
+  });
+
   it("uses real plot photos as trust proof on the expanded crop buying notes", () => {
     expect(getCropBuyingAdvice("carrots")?.photo).toEqual(
       expect.objectContaining({

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import FrostZoneMapLoader from "@/components/FrostZoneMapLoader";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -59,14 +60,14 @@ export default function FrostMapPage() {
                 Sowing guides by location
               </h2>
               <p className="text-sm text-earth-light mb-4">
-                Get personalised sowing calendars for 50 UK cities, tailored to local frost dates.
+                Get a sowing answer tuned to your postcode and local frost pattern.
               </p>
-              <a
-                href="/sow-in"
+              <Link
+                href="/"
                 className="inline-block text-sm font-bold tracking-[0.1em] uppercase text-rust hover:text-earth transition-colors"
               >
-                Browse all city guides &rarr;
-              </a>
+                Enter your postcode &rarr;
+              </Link>
             </div>
 
             <div className="mt-10 mesh-sage px-6 py-6 text-sm text-earth-light space-y-2">

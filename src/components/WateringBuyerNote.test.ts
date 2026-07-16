@@ -8,8 +8,11 @@ describe("WateringBuyerNote", () => {
     const html = renderToStaticMarkup(createElement(WateringBuyerNote));
 
     expect(html).toContain("The watering kit worth buying first");
+    expect(html).toContain('id="watering-kit"');
     expect(html).toContain("%2Fphotos%2Fblog%2Fwatering-lance-tomato-roots.webp");
     expect(html).toContain("Water at the roots first");
+    expect(html).toContain("If you only buy one watering thing");
+    expect(html).toContain("buy the thing that fixes your water source");
     expect(html).toContain("Start with the job, not the gadget");
     expect(html).toContain("If the problem is getting water from a shared tap to the bed");
     expect(html).toContain("If the problem is keeping rainwater close by");

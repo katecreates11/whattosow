@@ -86,7 +86,7 @@ function SowRow({ item }: { item: SowItem }) {
             position={`autumn-winter-seeds-${trackingSlug(item.slug ?? item.name)}`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Seeds at T&amp;M &rarr;
+            {item.name} seed at T&amp;M &rarr;
           </AffiliateLink>
         )}
       </div>
@@ -384,8 +384,8 @@ export default function AutumnWinterGuide() {
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting guide</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
-              <Link href="/still-time" className="flex items-center justify-between py-5 border-b border-earth/8 group">
-                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">What can you still sow?</span>
+              <Link href="/sow" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">This week&apos;s sowing list</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
               <Link href="/" className="flex items-center justify-between py-5 border-b border-earth/8 group">

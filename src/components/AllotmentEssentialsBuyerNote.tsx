@@ -69,6 +69,10 @@ export default function AllotmentEssentialsBuyerNote() {
         opens the soil, the gloves you will actually wear, water you can carry,
         and cover for plants that need a bit of help.
       </p>
+      <p className="mt-4 max-w-[58ch] border-l-2 border-rust/40 pl-4 font-serif text-lg leading-relaxed text-earth">
+        If you only buy one thing first, make it the thing that removes your
+        biggest friction: digging, carrying water, or protecting young plants.
+      </p>
 
       <figure className="mt-6 max-w-[34rem]">
         <div className="aspect-[4/3] overflow-hidden bg-earth/5">

@@ -12,4 +12,11 @@ describe("WateringGuide", () => {
     expect(html).not.toContain('href="/crops/courgette"');
     expect(html).not.toContain('href="/crops/cucumber"');
   });
+
+  it("routes kit-minded readers to the existing watering shortlist", () => {
+    const html = renderToStaticMarkup(createElement(WateringGuide));
+
+    expect(html).toContain('href="#watering-kit"');
+    expect(html).toContain("Jump to the watering kit shortlist");
+  });
 });

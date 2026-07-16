@@ -27,7 +27,8 @@ describe("CropCardGrid", () => {
       createElement(CropCardGrid, { entries: [entry], showSeeds: true }),
     );
 
-    expect(html).toContain("Seeds at ");
+    expect(html).toContain("Tomato seed at ");
+    expect(html).toContain('data-umami-event-product="Tomato seed"');
     expect(html).toContain('data-umami-event-position="sow-card-seeds-tomatoes-thompson-and-morgan"');
     expect(html).toContain('data-umami-event-type="seed"');
     expect(html).toContain('rel="sponsored noopener noreferrer"');

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Newsreader, IBM_Plex_Mono } from "next/font/google";
+import AffiliateClickLedger from "@/components/AffiliateClickLedger";
 import AnalyticsScript from "@/components/AnalyticsScript";
 import UsBetaNudge from "@/components/UsBetaNudge";
 import "./globals.css";
@@ -96,6 +97,7 @@ export default function RootLayout({
           </div>
         </noscript>
         {children}
+        <AffiliateClickLedger />
         <UsBetaNudge />
         <AnalyticsScript />
       </body>

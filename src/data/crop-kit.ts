@@ -145,7 +145,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Cordon tomatoes need tying in all summer. Soft ties or clips hold the swelling stems without cutting in when the plant is heavy with fruit.",
         href: az("soft plant ties tomato clips"),
         product: "soft plant ties",
-        cta: "Soft ties for swelling stems",
+        cta: "Soft ties for tying in cordons",
       },
       {
         kind: "skip-this",
@@ -193,7 +193,7 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
         why: "Sow or pot basil into small pots rather than a cold open bed. You can keep them on a sunny windowsill, in the greenhouse, or beside tomatoes where they stay warm.",
         href: az("9cm square plant pots"),
         product: "9cm square plant pots",
-        cta: "Small pots for warm basil starts",
+        cta: "Small pots for basil on a warm sill",
       },
       {
         kind: "worth-buying",
@@ -231,10 +231,10 @@ const cropBuyingAdviceMap: Record<string, CropBuyingAdvice> = {
       {
         kind: "worth-buying",
         name: "High-potash feed",
-        why: "Only really worth buying for pots and growbags, where compost runs out of steam. A fortnightly high-potash feed keeps a container courgette producing without fuss.",
+        why: "Only really worth buying for pots and growbags, where compost runs out of steam. The same high-potash feed sold for tomatoes keeps a container courgette producing without fuss.",
         href: asin("B09RK3HPH5"),
-        product: "tomato feed",
-        cta: "Tomato feed for pot-grown courgettes",
+        product: "high-potash feed",
+        cta: "High-potash feed for pot-grown courgettes",
       },
       {
         kind: "skip-this",

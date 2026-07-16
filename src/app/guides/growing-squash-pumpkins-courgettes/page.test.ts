@@ -9,9 +9,12 @@ describe("GrowingSquashGuide", () => {
 
     expect(html).toContain("Worth buying for squash and courgettes");
     expect(html).toContain("Skip decorative supports");
-    expect(html).toContain("Seeds at T&amp;M");
-    expect(html).toContain("Feed for flowering courgettes");
-    expect(html).toContain("Ground cover for clean squash");
+    expect(html).toContain(" seed at T&amp;M");
+    expect(html).not.toContain("Seeds at T&amp;M");
+    expect(html).toContain("High-potash feed once courgettes flower");
+    expect(html).toContain("Ground cover for ripening squash");
+    expect(html).toContain('data-umami-event-product="high-potash feed for courgettes"');
+    expect(html).toContain('data-umami-event-product="ground cover membrane for squash"');
     expect(html).not.toContain("Compare high-potash feed");
     expect(html).not.toContain("Compare ground cover membrane");
     expect(html).toContain('data-umami-event-position="squash-family-seeds-courgettes"');

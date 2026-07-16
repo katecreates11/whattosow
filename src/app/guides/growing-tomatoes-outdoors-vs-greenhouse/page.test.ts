@@ -11,12 +11,16 @@ describe("GrowingTomatoesGuide", () => {
     expect(html).toContain("High-potash tomato feed");
     expect(html).toContain("Soft ties or garden twine");
     expect(html).toContain("Skip tomato feeding gadgets");
+    expect(html).toContain("If you only buy one tomato thing");
+    expect(html).toContain("wait until the plant tells you");
     expect(html).toContain("Skip if you are growing bush tomatoes in pots");
     expect(html).toContain("the first flowers have set into tiny tomatoes");
     expect(html).toContain("Choose cordon tomato seeds at T&amp;M");
     expect(html).toContain("Choose bush tomato seeds at T&amp;M");
-    expect(html).toContain("Tomato feed for fruiting plants");
-    expect(html).toContain("Soft ties for cordon stems");
+    expect(html).toContain("High-potash feed for fruiting tomatoes");
+    expect(html).toContain("Soft ties for tying in cordons");
+    expect(html).toContain('data-umami-event-product="high-potash tomato feed"');
+    expect(html).toContain('data-umami-event-product="soft plant ties for tomatoes"');
     expect(html).not.toContain("Compare tomato feed");
     expect(html).not.toContain("Compare soft plant ties");
     expect(html).toContain('data-umami-event-position="tomatoes-cordon-seeds"');

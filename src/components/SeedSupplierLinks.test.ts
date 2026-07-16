@@ -15,12 +15,14 @@ describe("SeedSupplierLinks", () => {
     );
 
     expect(html).toContain("Where to buy seeds for tomatoes");
-    expect(html).toContain("Seeds at ");
+    expect(html).toContain("Tomato seed at ");
+    expect(html).not.toContain("Seeds at ");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).not.toContain("px-4 py-2.5 border border-earth/8");
     expect(html).toContain(
       'data-umami-event-position="seed-supplier-sidebar-tomatoes-thompson-morgan"',
     );
+    expect(html).toContain('data-umami-event-product="Tomato seed"');
     expect(html).toContain('data-umami-event-type="seed"');
     expect(html).toContain('rel="sponsored noopener noreferrer"');
   });
@@ -32,11 +34,12 @@ describe("SeedSupplierLinks", () => {
       createElement(SeedSupplierLinks, { crop: tomatoes, variant: "compact" }),
     );
 
-    expect(html).toContain("Seeds at ");
+    expect(html).toContain("Tomato seed at ");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).toContain(
       'data-umami-event-position="seed-supplier-compact-tomatoes-thompson-morgan"',
     );
+    expect(html).toContain('data-umami-event-product="Tomato seed"');
     expect(html).not.toContain("Buy seeds");
   });
 
@@ -48,6 +51,7 @@ describe("SeedSupplierLinks", () => {
     );
 
     expect(html).toContain("Get seeds for tomatoes");
+    expect(html).toContain("Tomato seed at ");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).toContain(
       'data-umami-event-position="seed-supplier-inline-tomatoes-thompson-morgan"',

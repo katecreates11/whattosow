@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { plotStatuses, PLOT_EVENT, type PlantingStatus } from "@/lib/my-plot";
 
@@ -9,18 +10,19 @@ import { plotStatuses, PLOT_EVENT, type PlantingStatus } from "@/lib/my-plot";
  * first-time visitors and becomes personal the moment they add a planting.
  */
 export default function MyPlotSection({ lens }: { lens: "harvest" | "grow" }) {
-  const [items, setItems] = useState<PlantingStatus[]>([]);
-  const [mounted, setMounted] = useState(false);
+  const [items, setItems] = useState<PlantingStatus[] | undefined>(undefined);
 
   useEffect(() => {
     const refresh = () => setItems(plotStatuses());
-    refresh();
-    setMounted(true);
+    const initialRefresh = window.setTimeout(refresh, 0);
     window.addEventListener(PLOT_EVENT, refresh);
-    return () => window.removeEventListener(PLOT_EVENT, refresh);
+    return () => {
+      window.clearTimeout(initialRefresh);
+      window.removeEventListener(PLOT_EVENT, refresh);
+    };
   }, []);
 
-  if (!mounted) return null;
+  if (items === undefined) return null;
 
   const relevant =
     lens === "harvest"
@@ -49,9 +51,9 @@ export default function MyPlotSection({ lens }: { lens: "harvest" | "grow" }) {
             </a>
           ))}
         </div>
-        <a href="/my-plot" className="inline-block mt-5 font-serif italic text-allotment border-b border-amber pb-0.5">
-          See all of my plot &rarr;
-        </a>
+        <Link href="/sow" className="inline-block mt-5 font-serif italic text-allotment border-b border-amber pb-0.5">
+          See what else to sow &rarr;
+        </Link>
       </div>
     </section>
   );

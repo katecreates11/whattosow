@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { GardenPlot } from "@/lib/garden-storage";
 import { getVarietyById } from "@/data/varieties";
 import { crops } from "@/data/crops";
@@ -57,10 +58,10 @@ export default function GardenGrid({
             Your allotment is thriving!
           </p>
           <p className="text-sm text-earth-lighter mt-1">
-            Save your garden to unlock a new raised bed.
+            Find another crop to add next.
           </p>
-          <a
-            href="/my-garden"
+          <Link
+            href="/sow"
             className="
               inline-block mt-3
               text-[11px] font-bold tracking-[0.08em] uppercase
@@ -69,8 +70,8 @@ export default function GardenGrid({
               hover:bg-allotment-dark transition-colors duration-150
             "
           >
-            Save garden
-          </a>
+            See sowing list
+          </Link>
         </div>
       )}
     </div>

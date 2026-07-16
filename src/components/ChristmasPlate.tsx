@@ -43,11 +43,26 @@ export function christmasAffiliatePosition(cropName: string, kind: "seeds" | "ki
   return `christmas-plate-${kind}-${slugify(cropName)}`;
 }
 
+function christmasSeedSearchLabel(url: string): string {
+  try {
+    const parsed = new URL(url);
+    const query = parsed.searchParams.get("q") ?? parsed.searchParams.get("k");
+    if (!query) return "Seed";
+    return `${query
+      .replace(/\+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase())} seed`;
+  } catch {
+    return "Seed";
+  }
+}
+
 export function christmasSeedCtaLabel(url: string): string {
   const merchant = christmasAffiliateMerchant(url);
-  if (merchant === "suttons") return "Seeds at Suttons";
-  if (merchant === "thompson-morgan") return "Seeds at T&M";
-  return "Seeds for this crop";
+  if (merchant === "suttons") return `${christmasSeedSearchLabel(url)} at Suttons`;
+  if (merchant === "thompson-morgan") return `${christmasSeedSearchLabel(url)} at T&M`;
+  return "Seed for this crop";
 }
 
 type Row = { crop: ChristmasCrop; status: PlateStatus; left: number | null };

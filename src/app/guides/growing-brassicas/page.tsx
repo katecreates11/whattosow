@@ -75,7 +75,7 @@ function CropRow({ item, topic }: { item: CropItem; topic: string }) {
             position={`${topic}-seeds-${trackingSlug(item.slug ?? item.name)}`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Seeds at T&amp;M &rarr;
+            {item.name} seed at T&amp;M &rarr;
           </AffiliateLink>
         )}
       </div>

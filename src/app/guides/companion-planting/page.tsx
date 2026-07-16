@@ -722,13 +722,17 @@ export default function CompanionPlantingGuide() {
               />
             </div>
 
-            <aside className="mt-6 border-t border-b border-earth/10 py-5 sm:py-6" aria-labelledby="companion-buyer-note">
+            <aside id="companion-seeds" className="mt-6 scroll-mt-24 border-t border-b border-earth/10 py-5 sm:py-6" aria-labelledby="companion-buyer-note">
               <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter block mb-2">
                 Worth buying / skip this
               </span>
               <h3 id="companion-buyer-note" className="font-serif text-xl sm:text-2xl text-earth tracking-tight mb-4">
                 One thing worth buying for companion planting
               </h3>
+              <p className="mb-4 max-w-[62ch] border-l-2 border-rust/40 pl-4 font-serif text-lg leading-relaxed text-earth">
+                Best next action: walk the bed edge before you buy. If you can
+                see bare soil, flower seed has somewhere useful to go.
+              </p>
               <div className="divide-y divide-earth/10">
                 <div className="py-4 sm:grid sm:grid-cols-[8rem_1fr] sm:gap-6">
                   <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-allotment mb-2 sm:mb-0">

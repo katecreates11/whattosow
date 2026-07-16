@@ -72,7 +72,7 @@ function CropRow({ item }: { item: CropItem }) {
             position={`squash-family-seeds-${trackingSlug(item.name)}`}
             className="font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors shrink-0"
           >
-            Seeds at T&amp;M &rarr;
+            {item.name} seed at T&amp;M &rarr;
           </AffiliateLink>
         )}
       </div>
@@ -97,11 +97,11 @@ function SquashBuyerNote() {
           surface keeps pumpkins and winter squash from sulking in damp.
         </p>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
-          <AffiliateLink href={az("high potash tomato feed vegetables")} product="high-potash feed" type="gear" merchant="amazon-uk" position="squash-family-feed" className="inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth transition-colors">
-            Feed for flowering courgettes &rarr;
+          <AffiliateLink href={az("high potash tomato feed vegetables")} product="high-potash feed for courgettes" type="gear" merchant="amazon-uk" position="squash-family-feed" className="inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth transition-colors">
+            High-potash feed once courgettes flower &rarr;
           </AffiliateLink>
-          <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane" type="gear" merchant="amazon-uk" position="squash-family-membrane" className="inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth transition-colors">
-            Ground cover for clean squash &rarr;
+          <AffiliateLink href={az("ground cover membrane weed fabric")} product="ground cover membrane for squash" type="gear" merchant="amazon-uk" position="squash-family-membrane" className="inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth transition-colors">
+            Ground cover for ripening squash &rarr;
           </AffiliateLink>
         </div>
         <p className="text-earth-light">

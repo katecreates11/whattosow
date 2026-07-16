@@ -7,7 +7,8 @@ describe("AutumnWinterGuide", () => {
   it("uses clearer seed and frost-protection affiliate labels with measurable positions", () => {
     const html = renderToStaticMarkup(createElement(AutumnWinterGuide));
 
-    expect(html).toContain("Seeds at T&amp;M");
+    expect(html).toContain(" seed at T&amp;M");
+    expect(html).not.toContain("Seeds at T&amp;M");
     expect(html).toContain("Fleece for young autumn plants");
     expect(html).toContain("Cloches for winter rows");
     expect(html).not.toContain("Compare horticultural fleece");

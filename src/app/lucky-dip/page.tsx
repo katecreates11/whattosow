@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     url: "https://whattosow.co.uk/lucky-dip",
   },
   alternates: { canonical: "/lucky-dip" },
+  robots: { index: false, follow: false },
 };
 
 export default function LuckyDipPage() {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { CropEntry } from "@/lib/season-core";
 import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 import { cropImage } from "@/lib/crop-image";
+import { seedLinkLabel } from "@/lib/seed-link-label";
 import { RakedBedIllustration } from "@/components/SVGIllustrations";
 
 /**
@@ -57,6 +58,7 @@ export default function CropCardGrid({
         const img = cropImage(e.crop);
         const closing = e.status.state === "closing";
         const seed = showSeeds ? e.crop.seedSuppliers?.[0] : undefined;
+        const seedLabel = seed ? seedLinkLabel(e.crop) : null;
         return (
           <div key={`${e.crop.slug}-${e.no}`} className={compact ? "col-span-1" : `col-span-1 ${SPAN[i % SPAN.length]}`}>
             <a href={`/crops/${e.crop.slug}`} className="group block">
@@ -117,13 +119,13 @@ export default function CropCardGrid({
             {seed && (
               <AffiliateLink
                 href={seed.url}
-                product={e.crop.name}
+                product={seedLabel ?? e.crop.name}
                 type="seed"
                 merchant={merchantSlug(seed.name)}
                 position={`sow-card-seeds-${e.crop.slug}-${trackingSlug(seed.name)}`}
                 className="inline-block mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
               >
-                Seeds at {seed.name} &rarr;
+                {seedLabel} at {seed.name} &rarr;
               </AffiliateLink>
             )}
           </div>

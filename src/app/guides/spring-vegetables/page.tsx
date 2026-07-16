@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { crops } from "@/data/crops";
@@ -129,9 +130,9 @@ export default function SpringVegetablesGuide() {
             Spring is the busiest sowing season. But &ldquo;spring&rdquo; means
             something different in Devon and something different in Dundee. The
             key is your local last frost date &mdash;{" "}
-            <a href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
+            <Link href="/" className="text-rust hover:text-earth underline decoration-rust/30 transition-colors">
               enter your postcode
-            </a>{" "}
+            </Link>{" "}
             to find yours.
           </p>
         </div>
@@ -199,12 +200,12 @@ export default function SpringVegetablesGuide() {
               It depends entirely on where you are. A grower in Penzance can
               sow outdoors weeks before someone in Inverness. That&apos;s why
               we built this tool &mdash;{" "}
-              <a
+              <Link
                 href="/"
                 className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
               >
                 enter your postcode
-              </a>{" "}
+              </Link>{" "}
               and we&apos;ll calculate your frost date and tell you exactly
               what to sow this week.
             </p>
@@ -214,7 +215,7 @@ export default function SpringVegetablesGuide() {
           <SectionDivider label="Next" />
           <section>
             <div>
-              <a
+              <Link
                 href="/guides/what-to-sow-in-summer-uk"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -222,8 +223,8 @@ export default function SpringVegetablesGuide() {
                   What to sow in summer
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/calendar"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -231,17 +232,17 @@ export default function SpringVegetablesGuide() {
                   Sowing calendar
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
-                href="/still-time"
+              </Link>
+              <Link
+                href="/sow"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
-                  What can you still sow?
+                  This week&apos;s sowing list
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/frost-map"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -249,17 +250,17 @@ export default function SpringVegetablesGuide() {
                   UK frost map
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
-                href="/print"
+              </Link>
+              <Link
+                href="/calendar"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">
-                  Print chart
+                  Sowing calendar
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/seed-starting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -267,8 +268,8 @@ export default function SpringVegetablesGuide() {
                   Starting from seed
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/guides/companion-planting"
                 className="flex items-center justify-between py-5 border-b border-earth/8 group"
               >
@@ -276,7 +277,7 @@ export default function SpringVegetablesGuide() {
                   Companion planting
                 </span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

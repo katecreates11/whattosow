@@ -11,7 +11,8 @@ describe("GrowingRootsGuide", () => {
     expect(html).toContain("Buy if");
     expect(html).toContain("Skip if");
     expect(html).toContain("Skip seed tapes");
-    expect(html).toContain("Seeds at T&amp;M");
+    expect(html).toContain(" seed at T&amp;M");
+    expect(html).not.toContain("Seeds at T&amp;M");
     expect(html).toContain("Mesh carrots before carrot fly finds them");
     expect(html).not.toContain("Compare fine mesh for carrot fly");
     expect(html).toContain("you have lost carrots to rust-coloured tunnels before");

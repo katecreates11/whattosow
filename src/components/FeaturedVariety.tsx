@@ -82,13 +82,13 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
           {supplier && (
             <AffiliateLink
               href={supplier.url}
-              product={variety.name}
+              product={`${variety.name} seed`}
               type="seed"
               merchant={merchantSlug(supplier.name)}
               position={`featured-variety-seeds-${crop.slug}-${trackingSlug(variety.name)}-${trackingSlug(supplier.name)}`}
               className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
             >
-              Seeds at {supplier.name} &rarr;
+              {variety.name} seed at {supplier.name} &rarr;
             </AffiliateLink>
           )}
         </div>

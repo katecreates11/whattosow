@@ -11,7 +11,7 @@ function StickyNavBar() {
             <Link href="/calendar" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Calendar</Link>
             <Link href="/frost-map" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Frost map</Link>
             <Link href="/guides" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Guides</Link>
-            <Link href="/sow-in" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">By location</Link>
+            <Link href="/sow" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">Sow now</Link>
           </div>
           <a
             href="https://ko-fi.com/whattosow"
@@ -21,7 +21,7 @@ function StickyNavBar() {
             data-umami-event-location="sticky-nav"
             className="text-white/70 hover:text-white transition-colors whitespace-nowrap shrink-0 hidden sm:block"
           >
-            Support this tool &rarr;
+            Towards the shed &rarr;
           </a>
         </nav>
       </div>
@@ -54,7 +54,7 @@ export default function Footer() {
               <span className="font-serif text-xl text-white">What To Sow</span>
             </div>
             <p className="text-sm text-white/60 max-w-xs leading-relaxed mb-4">
-              Free UK planting calendar by postcode. Know exactly what to sow, right now, where you are.
+              Frost-aware sowing advice for UK gardens, written like a note from the plot.
             </p>
             <p className="text-xs text-white/60 italic">
               <SeasonalTagline />
@@ -67,11 +67,11 @@ export default function Footer() {
             <nav aria-label="Grow links" className="flex flex-col gap-2 text-sm">
               <Link href="/crops" className="text-white/70 hover:text-white transition-colors">Explore crops</Link>
               <Link href="/calendar" className="text-white/70 hover:text-white transition-colors">Sowing calendar</Link>
-              <Link href="/still-time" className="text-white/70 hover:text-white transition-colors">Still time to sow</Link>
+              <Link href="/sow" className="text-white/70 hover:text-white transition-colors">This week&apos;s sowing list</Link>
               <Link href="/guides" className="text-white/70 hover:text-white transition-colors">Guides</Link>
-              <Link href="/sow-in" className="text-white/70 hover:text-white transition-colors">Sow by location</Link>
+              <Link href="/" className="text-white/70 hover:text-white transition-colors">Use your postcode</Link>
               <Link href="/us?source=footer" className="text-white/70 hover:text-white transition-colors">US ZIP beta</Link>
-              <Link href="/print" className="text-white/70 hover:text-white transition-colors">Print chart</Link>
+              <Link href="/guides/companion-planting-chart" className="text-white/70 hover:text-white transition-colors">Companion chart</Link>
               <Link href="/blog" className="text-white/70 hover:text-white transition-colors">Blog</Link>
             </nav>
           </div>
@@ -93,7 +93,7 @@ export default function Footer() {
                 data-umami-event-location="footer"
                 className="text-white/70 hover:text-white transition-colors"
               >
-                Support this tool
+                Towards the shed
               </a>
             </nav>
           </div>

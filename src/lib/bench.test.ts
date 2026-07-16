@@ -36,7 +36,7 @@ describe("parseBoard", () => {
     for (const c of cards) {
       expect(c.heading).toBeTruthy();
       expect(["content", "feature", "monetisation"]).toContain(c.type.split(/[\s|]/)[0]);
-      expect(["proposed", "approved", "parked", "binned", "done"]).toContain(c.status);
+      expect(["proposed", "approved", "building", "parked", "binned", "done"]).toContain(c.status);
       expect(c.pitch).toBeTruthy();
     }
   });

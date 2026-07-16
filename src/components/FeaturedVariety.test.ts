@@ -34,8 +34,9 @@ describe("FeaturedVariety", () => {
   it("uses supplier-specific seed copy and a measurable position", () => {
     const html = renderToStaticMarkup(createElement(FeaturedVariety, { entry }));
 
-    expect(html).toContain("Seeds at Suttons");
+    expect(html).toContain("Gardeners Delight seed at Suttons");
     expect(html).toContain('data-umami-event="affiliate-click"');
+    expect(html).toContain('data-umami-event-product="Gardeners Delight seed"');
     expect(html).toContain('data-umami-event-type="seed"');
     expect(html).toContain('data-umami-event-position="featured-variety-seeds-tomatoes-gardeners-delight-suttons"');
   });

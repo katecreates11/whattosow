@@ -7,7 +7,8 @@ describe("SummerSowingGuide", () => {
   it("uses specific, measurable seed affiliate labels", () => {
     const html = renderToStaticMarkup(createElement(SummerSowingGuide));
 
-    expect(html).toContain("Seeds at T&amp;M");
+    expect(html).toContain(" seed at T&amp;M");
+    expect(html).not.toContain("Seeds at T&amp;M");
     expect(html).toContain('data-umami-event-position="summer-sowing-seeds-french-beans"');
     expect(html).toContain('data-umami-event-position="summer-sowing-seeds-kale"');
     expect(html).not.toContain('data-umami-event-position="summer-sowing-seeds"');

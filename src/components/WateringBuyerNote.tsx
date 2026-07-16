@@ -5,8 +5,9 @@ import AffiliateLink from "@/components/AffiliateLink";
 export default function WateringBuyerNote() {
   return (
     <aside
+      id="watering-kit"
       aria-labelledby="watering-buyer-note"
-      className="border-y border-earth/10 py-8 sm:py-10"
+      className="scroll-mt-24 border-y border-earth/10 py-8 sm:py-10"
     >
       <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-rust">
         Watering kit shortlist
@@ -22,6 +23,10 @@ export default function WateringBuyerNote() {
         actually have. Some plots are hose-friendly; others are easier with
         cans from a tap, tank or trough. Check your own site rules before you
         spend money on clever watering kit.
+      </p>
+      <p className="mt-4 max-w-[58ch] border-l-2 border-rust/40 pl-4 font-serif text-lg leading-relaxed text-earth">
+        If you only buy one watering thing, buy the thing that fixes your water source:
+        carrying, reaching or storing water beats clever gadgets.
       </p>
 
       <figure className="mt-6 max-w-[34rem]">

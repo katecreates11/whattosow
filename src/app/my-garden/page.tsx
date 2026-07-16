@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     url: "https://whattosow.co.uk/my-garden",
   },
   alternates: { canonical: "/my-garden" },
+  robots: { index: false, follow: false },
 };
 
 export default function MyGardenPage() {

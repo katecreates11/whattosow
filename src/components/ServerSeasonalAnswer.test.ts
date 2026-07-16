@@ -8,7 +8,8 @@ describe("ServerSeasonalAnswer", () => {
     const html = renderToStaticMarkup(createElement(ServerSeasonalAnswer));
 
     expect(html).toContain("The sowing list");
-    expect(html).toContain("Seeds at ");
+    expect(html).toContain(" seed at ");
+    expect(html).not.toContain("Seeds at ");
     expect(html).not.toContain("Seeds · ");
     expect(html).toContain("data-umami-event=\"affiliate-click\"");
     expect(html).toContain("data-umami-event-type=\"seed\"");

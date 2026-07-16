@@ -11,8 +11,8 @@ describe("ChristmasPlate", () => {
   it("uses specific, measurable Christmas seed affiliate labels", () => {
     const html = renderToStaticMarkup(createElement(ChristmasPlate, { nowISO: "2026-07-12T09:00:00.000Z" }));
 
-    expect(christmasSeedCtaLabel("https://www.suttons.co.uk/search?q=rocket")).toBe("Seeds at Suttons");
-    expect(christmasSeedCtaLabel("https://www.amazon.co.uk/s?k=potato+grow+bags")).toBe("Seeds for this crop");
+    expect(christmasSeedCtaLabel("https://www.suttons.co.uk/search?q=rocket")).toBe("Rocket seed at Suttons");
+    expect(christmasSeedCtaLabel("https://www.amazon.co.uk/s?k=potato+grow+bags")).toBe("Seed for this crop");
     expect(christmasAffiliateMerchant("https://www.amazon.co.uk/s?k=potato+grow+bags")).toBe("amazon-uk");
     expect(christmasAffiliateMerchant("https://www.amazon.com/s?k=potato+grow+bags")).toBe("amazon-us");
     expect(christmasAffiliateMerchant("https://www.suttons.co.uk/search?q=rocket")).toBe("suttons");

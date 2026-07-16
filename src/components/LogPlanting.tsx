@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import {
   addPlanting,
@@ -23,21 +24,22 @@ function today(): string {
 }
 
 export default function LogPlanting({ cropSlug, cropName }: { cropSlug: string; cropName: string }) {
-  const [tracked, setTracked] = useState<Planting | undefined>(undefined);
+  const [tracked, setTracked] = useState<Planting | null | undefined>(undefined);
   const [open, setOpen] = useState(false);
   const [method, setMethod] = useState<PlantMethod>("direct sow");
   const [date, setDate] = useState(today());
-  const [mounted, setMounted] = useState(false);
 
-  const refresh = useCallback(() => setTracked(trackedCrop(cropSlug)), [cropSlug]);
+  const refresh = useCallback(() => setTracked(trackedCrop(cropSlug) ?? null), [cropSlug]);
   useEffect(() => {
-    setMounted(true);
-    refresh();
+    const initialRefresh = window.setTimeout(refresh, 0);
     window.addEventListener(PLOT_EVENT, refresh);
-    return () => window.removeEventListener(PLOT_EVENT, refresh);
+    return () => {
+      window.clearTimeout(initialRefresh);
+      window.removeEventListener(PLOT_EVENT, refresh);
+    };
   }, [refresh]);
 
-  if (!mounted) return null; // avoid hydration mismatch (localStorage)
+  if (tracked === undefined) return null; // avoid hydration mismatch (localStorage)
 
   if (tracked) {
     const st = plantingStatus(tracked);
@@ -46,9 +48,9 @@ export default function LogPlanting({ cropSlug, cropName }: { cropSlug: string; 
         <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment mb-1.5">In your plot</div>
         <p className="font-serif text-lg text-earth leading-snug">{st ? st.label : `Sown ${tracked.sownOn}`}</p>
         <div className="mt-3 flex gap-4 items-center">
-          <a href="/my-plot" className="font-serif italic text-allotment border-b border-amber pb-0.5">
-            See my plot &rarr;
-          </a>
+          <Link href="/sow" className="font-serif italic text-allotment border-b border-amber pb-0.5">
+            See what else to sow &rarr;
+          </Link>
           <button
             onClick={() => removePlanting(tracked.id)}
             className="font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter hover:text-tomato transition-colors"

@@ -13,7 +13,7 @@ describe("CropBuyingAdvice", () => {
     expect(html).toContain("%2Fphotos%2Fblog%2Ftomato-bed-marigold-ring.webp");
     expect(html).toContain("Tomatoes and marigolds on the plot");
     expect(html).toContain("Tomato feed for fruiting plants");
-    expect(html).toContain("Soft ties for swelling stems");
+    expect(html).toContain("Soft ties for tying in cordons");
     expect(html).toContain("font-serif text-rust underline");
     expect(html).toContain("Gimmicky growbag frames");
     expect(html).toContain("data-crop-buying-skip");
@@ -41,7 +41,7 @@ describe("CropBuyingAdvice", () => {
     );
 
     expect(html).toContain("Fresh Genovese basil seed");
-    expect(html).toContain("Small pots for warm basil starts");
+    expect(html).toContain("Small pots for basil on a warm sill");
     expect(html).toContain("%2Fphotos%2Fcrops%2Fpurple-basil-seedling.webp");
     expect(html).toContain("Basil seedlings are small, quick and cheap");
     expect(html).toContain('data-umami-event-position="crop-buying-advice-basil-basil-seed"');
@@ -66,5 +66,19 @@ describe("CropBuyingAdvice", () => {
     expect(html).toContain("%2Fphotos%2Fblog%2Fpotato-rows-june-2026.webp");
     expect(html).toContain("%2Fphotos%2Fcrops%2Frunner-beans-climbing.webp");
     expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(7);
+  });
+
+  it("keeps courgette feed tracking distinct from tomato feed", () => {
+    const html = renderToStaticMarkup(
+      createElement(CropBuyingAdvice, { slug: "courgettes" }),
+    );
+
+    expect(html).toContain("High-potash feed for pot-grown courgettes");
+    expect(html).toContain(
+      'data-umami-event-position="crop-buying-advice-courgettes-high-potash-feed"',
+    );
+    expect(html).not.toContain(
+      'data-umami-event-position="crop-buying-advice-courgettes-tomato-feed"',
+    );
   });
 });

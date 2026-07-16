@@ -14,6 +14,8 @@ describe("AllotmentEssentialsBuyerNote", () => {
     expect(html).toContain("First-year kit should earn its space");
     expect(html).toContain("For the first month");
     expect(html).toContain("buy the things that remove friction");
+    expect(html).toContain("If you only buy one thing first");
+    expect(html).toContain("make it the thing that removes your biggest friction");
     expect(html).toContain("Borrow before you buy");
     expect(html).toContain("borrow the expensive or bulky things once");
     expect(html).toContain("Check the classic Spear &amp; Jackson fork");

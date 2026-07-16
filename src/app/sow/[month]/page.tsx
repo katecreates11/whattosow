@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
+import { createElement } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -62,9 +64,14 @@ const categoryDot: Record<string, string> = {
 function CropCard({ crop }: { crop: Crop }) {
   const imagePath = getCropImagePath(crop.slug);
   const Icon = getCropIcon(crop.slug);
+  const icon = Icon
+    ? createElement(Icon, {
+        className: "w-5 h-5 shrink-0 text-earth-lighter group-hover:text-allotment transition-colors duration-300",
+      })
+    : null;
 
   return (
-    <a
+    <Link
       href={`/crops/${crop.slug}`}
       className="group block border border-earth/6 p-5 sm:p-6 hover:border-earth/15 transition-colors duration-300"
     >
@@ -80,7 +87,7 @@ function CropCard({ crop }: { crop: Crop }) {
         ) : (
           <div className="flex items-center gap-1.5 shrink-0 mt-0.5">
             <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${categoryDot[crop.category]}`} />
-            {Icon && <Icon className="w-5 h-5 shrink-0 text-earth-lighter group-hover:text-allotment transition-colors duration-300" />}
+            {icon}
           </div>
         )}
         <div className="flex-1 min-w-0">
@@ -88,7 +95,7 @@ function CropCard({ crop }: { crop: Crop }) {
           <p className="text-sm text-earth-lighter leading-relaxed mt-1">{crop.tip}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -98,26 +105,26 @@ function MonthNav({ idx }: { idx: number }) {
 
   return (
     <nav className="flex justify-between items-center" aria-label="Month navigation">
-      <a
+      <Link
         href={`/sow/${MONTH_SLUGS[prev]}`}
         className="text-allotment hover:text-allotment-dark font-medium flex items-center gap-2 transition-colors duration-300"
         aria-label={`Previous month: ${MONTH_NAMES[prev]}`}
       >
         <span className="text-xl">&larr;</span> {MONTH_NAMES[prev]}
-      </a>
-      <a
+      </Link>
+      <Link
         href="/calendar"
         className="text-sm text-earth-lighter hover:text-allotment transition-colors duration-300"
       >
         Full calendar
-      </a>
-      <a
+      </Link>
+      <Link
         href={`/sow/${MONTH_SLUGS[next]}`}
         className="text-allotment hover:text-allotment-dark font-medium flex items-center gap-2 transition-colors duration-300"
         aria-label={`Next month: ${MONTH_NAMES[next]}`}
       >
         {MONTH_NAMES[next]} <span className="text-xl">&rarr;</span>
-      </a>
+      </Link>
     </nav>
   );
 }
@@ -187,9 +194,9 @@ export default async function MonthPage({
               <p className="text-earth-light mt-6 max-w-lg leading-relaxed">
                 Based on UK average frost date (mid-April). Enter your postcode on
                 the{" "}
-                <a href="/" className="text-allotment hover:underline">
+                <Link href="/" className="text-allotment hover:underline">
                   homepage
-                </a>{" "}
+                </Link>{" "}
                 for personalised dates.
               </p>
               <MonthDaylight monthIndex={idx} />
@@ -259,14 +266,14 @@ export default async function MonthPage({
 
           {/* Cross-links */}
           <div className="mt-16 sm:mt-20 grid sm:grid-cols-2 gap-4">
-            <a href="/still-time" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">
-              <span className="font-medium text-sm text-earth">Still time to sow?</span>
-              <span className="block text-xs text-earth-lighter mt-1">See which sowing windows are closing soon.</span>
-            </a>
-            <a href="/sow-in" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">
-              <span className="font-medium text-sm text-earth">Sow by location</span>
-              <span className="block text-xs text-earth-lighter mt-1">Dates vary across the UK. Find your nearest city guide.</span>
-            </a>
+            <Link href="/sow" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">
+              <span className="font-medium text-sm text-earth">This week&apos;s full sowing list</span>
+              <span className="block text-xs text-earth-lighter mt-1">See what is worth sowing now, including closing windows.</span>
+            </Link>
+            <Link href="/" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">
+              <span className="font-medium text-sm text-earth">Use your postcode</span>
+              <span className="block text-xs text-earth-lighter mt-1">Dates vary across the UK. Let the homepage tune this to your garden.</span>
+            </Link>
           </div>
 
           <div className="mt-10 pt-10 border-t border-earth/6">

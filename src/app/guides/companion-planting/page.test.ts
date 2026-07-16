@@ -8,6 +8,9 @@ describe("CompanionPlantingGuide", () => {
     const html = renderToStaticMarkup(createElement(CompanionPlantingGuide));
 
     expect(html).toContain("Worth buying / skip this");
+    expect(html).toContain('id="companion-seeds"');
+    expect(html).toContain("Best next action");
+    expect(html).toContain("walk the bed edge before you buy");
     expect(html).toContain("Buy if");
     expect(html).toContain("Skip if");
     expect(html).toContain("Flowers for the gaps around veg");

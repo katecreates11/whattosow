@@ -12,7 +12,8 @@ describe("GrowingInContainersGuide", () => {
     expect(html).toContain("Buy grow bags if");
     expect(html).toContain("Buy feed if");
     expect(html).toContain("Skip tiny decorative pots for food crops");
-    expect(html).toContain("Seeds at T&amp;M");
+    expect(html).toContain(" seed at T&amp;M");
+    expect(html).not.toContain("Seeds at T&amp;M");
     expect(html).toContain("Peat-free compost for hungry pots");
     expect(html).toContain("Grow bags deep enough for potatoes");
     expect(html).toContain("Feed for fruiting crops in pots");

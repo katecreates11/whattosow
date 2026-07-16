@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, GuideImage, ColorSection } from "@/components/GuideVisuals";
+import { TipBox, WarningBox, GuideHero, PullQuote, SectionDivider, FullBleedSection, ColorSection } from "@/components/GuideVisuals";
 import WateringBuyerNote from "@/components/WateringBuyerNote";
 import LoopClip from "@/components/LoopClip";
 
@@ -150,6 +150,12 @@ export default function WateringGuide() {
                 problems on your plot without even trying.
               </p>
             </div>
+            <Link
+              href="#watering-kit"
+              className="mt-5 inline-flex min-h-11 items-center font-serif text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rust"
+            >
+              Jump to the watering kit shortlist &rarr;
+            </Link>
           </section>
 
           <WateringBuyerNote />

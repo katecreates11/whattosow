@@ -141,10 +141,10 @@ function CropCard({ crop }: { crop: CropEntry }) {
       )}
       {crop.hasKit && (
         <a
-          href="/kit"
+          href="/guides/allotment-essentials"
           className="inline-block text-xs text-rust font-medium mt-2 hover:underline"
         >
-          See recommended kit &rarr;
+          See useful allotment kit &rarr;
         </a>
       )}
     </div>
@@ -878,12 +878,12 @@ export default async function BlogPostPage({
                 ))}
               </ul>
               <p className="mt-3">
-                <a
-                  href="/still-time"
+                <Link
+                  href="/sow"
                   className="text-rust font-medium text-sm hover:underline"
                 >
-                  See all closing windows live &rarr;
-                </a>
+                  See this week&apos;s full sowing list &rarr;
+                </Link>
               </p>
             </WarningBox>
           )}
@@ -902,10 +902,12 @@ export default async function BlogPostPage({
                   We have tested and reviewed the kit that actually matters.
                 </p>
                 <a
-                  href="/kit"
+                  href={post.sowIndoors.length > 0 ? "/guides/seed-starting-kit" : "/guides/allotment-essentials"}
                   className="inline-block text-sm text-rust font-medium hover:underline"
                 >
-                  Browse all recommended kit &rarr;
+                  {post.sowIndoors.length > 0
+                    ? "See the seed-starting kit guide \u2192"
+                    : "See the allotment essentials guide \u2192"}
                 </a>
               </section>
             </ColorSection>

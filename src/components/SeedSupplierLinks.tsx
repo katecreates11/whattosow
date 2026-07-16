@@ -1,5 +1,6 @@
 import type { Crop } from "@/data/crops";
 import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
+import { seedLinkLabel } from "@/lib/seed-link-label";
 
 interface SeedSupplierLinksProps {
   crop: Crop;
@@ -9,7 +10,8 @@ interface SeedSupplierLinksProps {
 export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupplierLinksProps) {
   if (!crop.seedSuppliers || crop.seedSuppliers.length === 0) return null;
 
-  const seedLabel = (supplierName: string) => `Seeds at ${supplierName}`;
+  const productLabel = seedLinkLabel(crop);
+  const seedLabel = (supplierName: string) => `${productLabel} at ${supplierName}`;
   const seedPosition = (supplierName: string) =>
     `seed-supplier-${variant}-${crop.slug}-${merchantSlug(supplierName)}`;
 
@@ -17,7 +19,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
     return (
       <AffiliateLink
         href={crop.seedSuppliers[0].url}
-        product={crop.name}
+        product={productLabel}
         type="seed"
         merchant={merchantSlug(crop.seedSuppliers[0].name)}
         position={seedPosition(crop.seedSuppliers[0].name)}
@@ -45,7 +47,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
             <AffiliateLink
               key={supplier.name}
               href={supplier.url}
-              product={crop.name}
+              product={productLabel}
               type="seed"
               merchant={merchantSlug(supplier.name)}
               position={seedPosition(supplier.name)}
@@ -78,7 +80,7 @@ export default function SeedSupplierLinks({ crop, variant = "inline" }: SeedSupp
           <AffiliateLink
             key={supplier.name}
             href={supplier.url}
-            product={crop.name}
+            product={productLabel}
             type="seed"
             merchant={merchantSlug(supplier.name)}
             position={seedPosition(supplier.name)}

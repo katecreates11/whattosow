@@ -158,7 +158,7 @@ function SowingMonths({ crop }: { crop: Crop }) {
         ))}
       </div>
       <p className="text-xs text-earth-lighter mt-3">
-        Based on UK average frost date. <Link href="/" className="text-rust hover:underline">Enter your postcode</Link> for exact dates, or <Link href="/sow-in" className="text-rust hover:underline">find your city</Link>.
+        Based on UK average frost date. <Link href="/" className="text-rust hover:underline">Enter your postcode</Link> for exact dates, or <Link href="/sow" className="text-rust hover:underline">see this week&apos;s full sowing list</Link>.
       </p>
     </div>
   );
