@@ -47,7 +47,16 @@ export function getCropStatus(crop: Crop, lastFrost: Date, now: Date = new Date(
 
   if (open.length === 0) return { state: "off", label: "waiting for its next sowing window", daysLeft: null, method: null };
 
-  const best = open.reduce((a, b) => (b.daysLeft > a.daysLeft ? b : a));
+  let best = open.reduce((a, b) => (b.daysLeft > a.daysLeft ? b : a));
+
+  // Once the soil's warm (past the last frost), you direct sow rather than start
+  // seeds indoors — so prefer an open direct-sow window over "sow indoors". This
+  // stops the homepage advising "sow peas indoors" in mid-July.
+  if (best.method === "sow indoors" && now > lastFrost) {
+    const direct = open.find((w) => w.method === "direct sow");
+    if (direct) best = direct;
+  }
+
   const d = best.daysLeft;
   if (d <= CLOSING_DAYS)
     return { state: "closing", label: `closing · ${d} day${d === 1 ? "" : "s"} left`, daysLeft: d, method: best.method };
