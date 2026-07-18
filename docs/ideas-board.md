@@ -162,6 +162,36 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 - **Ready-to-queue brief:** target = ride the autumn hub's own query, no new target needed; angle = one practical addition, not a new page; links → companion-planting hub; fold into idea #1's build rather than shipping separately.
 - **Added:** 2026-07-11 · **Run:** dream-2026-07-11
 
+### 12. Allotments and the hosepipe ban — what you can (and can't) do
+- **Type:** content
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-07-18)
+- **Score:** Medium payoff / Low effort
+- **Evidence:** approving "Every Drop" (card 8), Kate volunteered the actual
+  substance of this piece unprompted: allotments are generally exempt from
+  hosepipe restrictions for vegetable growing, but plot-holders are expected
+  to be responsible about it — no unattended soaker systems hogging a shared
+  standpipe all day. Three water companies (South East Water, Southern
+  Water, Anglian Water) are already restricting ~6.85 million people, with
+  Cambridge Water and Affinity Water joining 17 July — taking it towards 11
+  million, and the restrictions are active right now. No WTS page currently
+  answers "what am I actually allowed to do" — Every Drop (once built)
+  answers "how much rain could I harvest," a different question.
+- **Pitch:** a short, honest, factual piece — what the exemption actually
+  covers, what "being responsible" looks like in practice (no unattended
+  hoses, sensible watering times), and a nod to National Allotments Society
+  guidance if it's citable. Ends by pointing at water-butt/water-harvesting
+  as the responsible middle path, linking to Every Drop once it's live and
+  the existing `best-water-butts-uk` guide. Not a rewrite of Every Drop —
+  the factual companion piece it doesn't have room to carry.
+- **Ready-to-queue brief:** target "can i water my allotment hosepipe ban" /
+  "allotment hosepipe ban rules uk"; angle = clear answer first, water-butt
+  nudge second; links → best-water-butts-uk, Every Drop (once live); voice =
+  plain and reassuring, no scaremongering about the ban itself; cite real
+  sources for the exemption claim before publishing, don't take Kate's note
+  as verified fact on its own.
+- **Added:** 2026-07-18 · **Run:** dream-2026-07-18
+
 ## Approved
 
 _(empty)_
