@@ -192,6 +192,35 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
   as verified fact on its own.
 - **Added:** 2026-07-18 · **Run:** dream-2026-07-18
 
+---
+
+_Shortlist from the Forager's run of 19 July — ranked best-first. Checked against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above before pitching; nothing here repeats a proposed, approved, parked or binned idea, and none of it re-touches the drought/hosepipe story already on the board via cards 8 and 12._
+
+### 13. The curing trick — why some of the harvest goes in a dark cupboard, not a fruit bowl
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** `crops.ts` already flags `needsCuring: true` on onions, garlic, squash and pumpkins, and `harvest-weather.ts` already warns about curing conditions in the harvest planner — but no guide on the site explains what curing actually is or how to do it. Checked both `growing-onions-garlic-leeks` and `growing-squash-pumpkins-courgettes`: neither mentions curing or storage at all. Maincrop potatoes have the same need (2 weeks dry and dark to toughen the skin before store) but no dedicated storage guide exists either, confirmed by a full guide-slug check. Timing lines up: garlic and onions are lifting now, maincrop potatoes and squash/pumpkin follow through September. A genuine, data-confirmed gap sitting on ground the site already half-built.
+- **Pitch:** one warm, practical guide to the thing nobody explains — why you leave onions, garlic, squash and potatoes out to dry before you can trust them to keep, how long each one needs, and what happens if you skip it (they rot in weeks instead of keeping till spring). Per-crop timing notes, not a wall of identical instructions. Ends by pointing at what actually helps a crop cure well — good airflow, somewhere dry and out of direct sun — which is a genuine, honest first storage-specific buy-point (net/hessian sacks, a slatted tray) the site hasn't used yet.
+- **Ready-to-queue brief:** target "how to cure onions before storing" / "curing squash for storage" / "how to store maincrop potatoes uk"; angle = the thing that decides whether your harvest keeps or rots, told once, well; links ← growing-onions-garlic-leeks, growing-squash-pumpkins-courgettes, maincrop-potatoes crop page, → idea #1's autumn hub once live ("cure this year's garlic while you order next year's sets"); voice = plain and practical, one clear method per crop, no ceremony.
+- **Added:** 2026-07-19 · **Run:** forager-2026-07-19
+
+### 14. Which green manure? — a two-question picker for August's bare beds
+- **Type:** feature _(→ needs-spec on approval)_
+- **Score:** High payoff / Low–medium effort · extends the site's proven calculator DNA
+- **Evidence:** the `green-manures` guide is good and already carries affiliate seed links for five species (grazing rye, field beans, phacelia, clover, mustard) — but it's one long article the reader has to self-match against their own bed. RHS and Garden Organic both confirm most green manures want sowing before the beginning of September, so the decision window is open right now and closes soon. Kate has approved two calculator-DNA features already this run (Glut-o-meter, "Every Drop"), both praised for turning a static guide into something playful — this is the same move, at a fraction of the effort, on a page that already has the data and the links.
+- **Pitch:** two honest questions — how long is the bed free (till next spring, or you need it back by October?) and do you want it feeding the soil nitrogen or just smothering weeds — and it names one green manure, not a chart of five to weigh up. A bed-filling-in visual over the weeks it'll take, in the site's tactile-not-metric-tile style. Reuses the guide's own species data and seed links; no new commercial ground.
+- **Ready-to-queue brief:** feature → light spec (a small decision tree over the 5 species already in the green-manures guide, no new data needed); links → green-manures guide (stays the deep-dive); affiliate = the seed links already live on that page; design = one recommended answer first, the reasoning as a quiet line beneath, no five-way comparison table.
+- **Added:** 2026-07-19 · **Run:** forager-2026-07-19
+
+### 15. Don't compost the chilli plant — bringing tender crops through winter
+- **Type:** content
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** chillies, peppers and aubergines are all on the site as tender crops, and `protecting-vegetables-from-frost` (checked directly) doesn't mention any of them — it's written for outdoor veg, not for the plant itself surviving indoors. "Overwintering chilli plants" is a real, recurring UK query every September (SimplySeed, Rocket Gardens, Sea Spring Seeds, Chilli Chump all cover it) once night temperatures start dropping below 10°C — which is exactly the next 4–8 weeks. No UK gardening voice has made it feel as easy and worthwhile as it actually is.
+- **Pitch:** a short, encouraging piece on saving the plant, not just the crop — when to bring it in (before the first proper cold snap, not the first cool evening), a hard prune, a bright cool windowsill, water sparingly over winter, and the reward: a head start and a bigger plant next spring instead of starting from seed again in February. Same thrift-and-closing-the-loop voice as the flower-seed piece (card 10), applied to a plant instead of a seed.
+- **Ready-to-queue brief:** target "overwintering chilli plants uk" / "bring chilli plant indoors for winter"; angle = save the plant, not just this year's crop; links → chillies, peppers and aubergine crop pages, protecting-vegetables-from-frost; voice = reassuring, plain, no soil-science lecture — this is a windowsill job, not a greenhouse one.
+- **Added:** 2026-07-19 · **Run:** forager-2026-07-19
+
 ## Approved
 
 _(empty)_
