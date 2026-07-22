@@ -164,7 +164,8 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 12. Allotments and the hosepipe ban — what you can (and can't) do
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-07-22 · via the potting bench
 - **Source:** from-a-dream (The Dreamer, 2026-07-18)
 - **Score:** Medium payoff / Low effort
 - **Evidence:** approving "Every Drop" (card 8), Kate volunteered the actual
