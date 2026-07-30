@@ -36,6 +36,7 @@ const GUIDE_IMG: Record<string, string> = {
   "/guides/growing-brassicas": "/photos/guides/brassicas-netted.webp",
   "/guides/growing-tomatoes-outdoors-vs-greenhouse": "/photos/guides/tomato-truss-ripening.webp",
   "/guides/growing-onions-garlic-leeks": "/photos/guides/garlic-scapes-hand.webp",
+  "/guides/autumn-planting-garlic-onions": "/photos/guides/alliums-pair-rows.webp",
   "/guides/growing-winter-salad-leaves": "/photos/guides/lettuce-marigold-ring.webp",
   "/guides/preparing-your-plot-for-winter": "/photos/guides/plot-autumn-marigolds.webp",
   "/guides/protecting-vegetables-from-frost": "/photos/guides/cloche-dome-beaded.webp",
@@ -337,6 +338,14 @@ const guides = [
     href: "/guides/dealing-with-the-glut",
     tag: "Seasonal",
     number: "31",
+  },
+  {
+    title: "Order your garlic and onions now",
+    description:
+      "UK suppliers open their autumn catalogues in late July and August — why autumn-planted garlic and onions beat spring ones, hardneck vs softneck, and what's worth ordering before it sells through.",
+    href: "/guides/autumn-planting-garlic-onions",
+    tag: "Seasonal",
+    number: "33",
   },
 ];
 

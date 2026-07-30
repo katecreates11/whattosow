@@ -205,6 +205,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/autumn-planting-garlic-onions`,
+      lastModified: new Date("2026-07-17"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/guides/growing-brassicas`,
       lastModified: new Date("2026-06-07"),
       changeFrequency: "monthly",
