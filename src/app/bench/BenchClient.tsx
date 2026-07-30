@@ -20,6 +20,14 @@ const VERDICT_LABEL: Record<Verdict, string> = {
   binned: "Binned — the crew won't pitch it again",
 };
 
+const FAILURE_COPY = {
+  refresh: "It couldn't be refreshed against today's site.",
+  typecheck: "A code check needs another pass.",
+  test: "One of its checks failed.",
+  build: "The fresh preview couldn't be built.",
+  merge: "GitHub couldn't publish it after the checks passed.",
+} as const;
+
 type Phase = "loading" | "nokey" | "error" | "ready";
 
 export default function BenchClient() {
@@ -84,18 +92,28 @@ export default function BenchClient() {
       const res = await fetch("/api/bench", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ k: key, ship: build.branch }),
+        body: JSON.stringify({ k: key, ship: build.number }),
       });
-      if (res.ok) {
-        setBuilds((prev) => prev.filter((b) => b.branch !== build.branch));
+      const json = (await res.json()) as {
+        status?: "shipped" | "queued";
+      };
+      if (res.ok && json.status === "shipped") {
+        setBuilds((prev) => prev.filter((b) => b.number !== build.number));
         setToast("Shipped — live in a couple of minutes 🌱");
-      } else if (res.status === 409) {
-        setToast("This build clashes with main — it needs the laptop");
+      } else if (res.ok && json.status === "queued") {
+        setBuilds((prev) =>
+          prev.map((b) =>
+            b.number === build.number
+              ? { ...b, state: "queued", failureStage: undefined }
+              : b,
+          ),
+        );
+        setToast("Approved — the Night Gardener will repair it and publish it");
       } else {
-        setToast("Couldn't ship just now — try again in a moment");
+        setToast("Couldn't approve it just now — try again in a moment");
       }
     } catch {
-      setToast("Couldn't ship just now — try again in a moment");
+      setToast("Couldn't approve it just now — try again in a moment");
     } finally {
       setBusy(null);
       setTimeout(() => setToast(null), 3500);
@@ -164,25 +182,43 @@ export default function BenchClient() {
                     {b.date} · PR #{b.number} · {b.branch}
                   </p>
                   <p className="mt-2.5 text-sm leading-relaxed text-earth-light">
-                    Built and waiting. Preview it live first, then ship it — that takes it straight onto the site.
+                    {b.state === "ready"
+                      ? "Built and waiting. Preview it live first, then ship it — that takes it straight onto the site."
+                      : b.state === "queued"
+                        ? "You approved this build. The Night Gardener is preparing it against today's site."
+                        : FAILURE_COPY[b.failureStage ?? "merge"]}
                   </p>
-                  <div className="mt-4 flex gap-2">
-                    <a
-                      href={b.previewUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 rounded-full border border-earth/20 bg-white/70 py-3 text-center font-mono text-[0.62rem] uppercase tracking-[0.14em] text-earth transition-opacity active:opacity-80"
-                    >
-                      Preview
-                    </a>
+                  {b.state === "queued" ? (
+                    <p className="mt-4 rounded-xl bg-white/60 px-4 py-3 text-sm text-earth">
+                      Approved — refreshing it against today&apos;s site, then publishing.
+                    </p>
+                  ) : b.state === "failed" ? (
                     <button
                       onClick={() => ship(b)}
                       disabled={busy === b.branch}
-                      className="flex-1 rounded-full bg-allotment py-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream transition-opacity active:opacity-80 disabled:opacity-40"
+                      className="mt-4 w-full rounded-full bg-allotment py-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream transition-opacity active:opacity-80 disabled:opacity-40"
                     >
-                      {busy === b.branch ? "…" : "Ship it — take it live"}
+                      {busy === b.branch ? "…" : "Try again"}
                     </button>
-                  </div>
+                  ) : (
+                    <div className="mt-4 flex gap-2">
+                      <a
+                        href={b.previewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 rounded-full border border-earth/20 bg-white/70 py-3 text-center font-mono text-[0.62rem] uppercase tracking-[0.14em] text-earth transition-opacity active:opacity-80"
+                      >
+                        Preview
+                      </a>
+                      <button
+                        onClick={() => ship(b)}
+                        disabled={busy === b.branch}
+                        className="flex-1 rounded-full bg-allotment py-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream transition-opacity active:opacity-80 disabled:opacity-40"
+                      >
+                        {busy === b.branch ? "…" : "Ship it — take it live"}
+                      </button>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
