@@ -72,7 +72,10 @@ marker while retaining the approval marker until the pull request merges.
 ## Night Gardener behaviour
 
 The missing repository operating file `docs/agents/night-gardener.md` will be added as the
-source of truth the scheduled Night Gardener was intended to follow.
+source of truth the scheduled Night Gardener was intended to follow. The live Claude routine
+(`trig_017dHQjSt2eu4JX17acsUtrd`) currently carries a self-contained prompt, so that operative
+prompt must also be updated to tell the routine to follow this file; adding the file without
+updating the routine would leave the deadlock in place.
 
 At the start of every run:
 

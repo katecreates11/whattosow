@@ -30,6 +30,7 @@
 - Create `src/app/api/bench/route.test.ts`: mocked-GitHub route coverage for clean, conflicted, invalid and repeated ship requests.
 - Modify `src/app/bench/BenchClient.tsx`: send a PR number and render ready, queued and failed states.
 - Create `docs/agents/night-gardener.md`: repository-owned operating instructions, including repair-before-new-work.
+- Update Claude routine `trig_017dHQjSt2eu4JX17acsUtrd`: replace its drifting self-contained recovery rule with an instruction to follow the repository operating file.
 - Modify the six existing PR #2 files only as required to replay the garlic guide on current `main`.
 - Include the approved design and this plan in the repaired branch so the workflow remains documented.
 
@@ -66,18 +67,17 @@ git -C /private/tmp/whattosow-potting-bench status --short
 
 Expected: the second command prints nothing.
 
-- [ ] **Step 3: Copy only the two approved documentation commits**
+- [ ] **Step 3: Copy only the approved documentation commits**
 
 Run:
 
 ```bash
-git -C /private/tmp/whattosow-potting-bench cherry-pick 4a35f36
-cp /Users/kateallen/whattosow/docs/superpowers/plans/2026-07-30-potting-bench-ship-recovery.md /private/tmp/whattosow-potting-bench/docs/superpowers/plans/2026-07-30-potting-bench-ship-recovery.md
-git -C /private/tmp/whattosow-potting-bench add docs/superpowers/plans/2026-07-30-potting-bench-ship-recovery.md
-git -C /private/tmp/whattosow-potting-bench commit -m "Plan Potting Bench ship recovery"
+git -C /private/tmp/whattosow-potting-bench cherry-pick 4a35f36 ae8226f <documentation-correction-commit>
 ```
 
-Expected: only the approved design and implementation plan are added.
+Replace `<documentation-correction-commit>` with the commit created after the live Claude
+routine was found to use its own prompt. Expected: only the approved design and implementation
+plan are added.
 
 ---
 
@@ -648,6 +648,24 @@ Run:
 git add docs/agents/night-gardener.md
 git commit -m "Teach Night Gardener to repair approved builds"
 ```
+
+- [ ] **Step 4: Update the operative Claude routine**
+
+Open `https://claude.ai/code/routines`, select routine
+`trig_017dHQjSt2eu4JX17acsUtrd`, and replace its prompt with:
+
+```text
+Run the Night Gardener for katecreates11/whattosow. Fetch current main, then follow
+docs/agents/night-gardener.md exactly. That repository file is the operative source of truth.
+An open night/ pull request containing <!-- potting-bench:approved-to-ship --> is not a reason
+to stop: repair it, run the full verification gate, and merge it if green. An open night/
+pull request without that marker is waiting for Kate and must remain untouched. Never stack
+a second Night Gardener PR.
+```
+
+Keep the existing schedule, repository, model and Gmail connection unchanged. Save the
+routine, reopen it, and confirm the saved prompt contains
+`docs/agents/night-gardener.md` and `potting-bench:approved-to-ship`.
 
 ---
 
