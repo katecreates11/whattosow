@@ -72,12 +72,13 @@ Expected: the second command prints nothing.
 Run:
 
 ```bash
-git -C /private/tmp/whattosow-potting-bench cherry-pick 4a35f36 ae8226f <documentation-correction-commit>
+git -C /private/tmp/whattosow-potting-bench cherry-pick 4a35f36 ae8226f fd02cd1
+cp /Users/kateallen/whattosow/docs/superpowers/plans/2026-07-30-potting-bench-ship-recovery.md /private/tmp/whattosow-potting-bench/docs/superpowers/plans/2026-07-30-potting-bench-ship-recovery.md
+git -C /private/tmp/whattosow-potting-bench add docs/superpowers/plans/2026-07-30-potting-bench-ship-recovery.md
+git -C /private/tmp/whattosow-potting-bench commit -m "Finalize Potting Bench recovery plan"
 ```
 
-Replace `<documentation-correction-commit>` with the commit created after the live Claude
-routine was found to use its own prompt. Expected: only the approved design and implementation
-plan are added.
+Expected: only the approved design and implementation plan are added.
 
 ---
 
