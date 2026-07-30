@@ -1,8 +1,17 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import Home from "./page";
 
 describe("Home", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-07-15T12:00:00Z"));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it("tracks homepage plant-out affiliate links with specific positions", () => {
     const html = renderToStaticMarkup(Home());
 
