@@ -1,7 +1,7 @@
 # Potting Bench ship recovery — design
 
-**Date:** 2026-07-27  
-**Status:** Approved by Kate  
+**Date:** 2026-07-27
+**Status:** Approved by Kate
 **Scope:** The Potting Bench handoff from an approved Night Gardener preview to production
 
 ## Problem
