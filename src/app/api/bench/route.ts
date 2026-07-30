@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { applyVerdict, proposedIdeas, type Verdict } from "@/lib/bench";
+import {
+  approveBuild,
+  readBuildState,
+  type BuildState,
+  type FailureStage,
+} from "@/lib/bench-ship";
 
 // The Potting Bench API. GET lists the ideas awaiting Kate's call; POST records
 // her verdict by committing the change to docs/ideas-board.md on main.
@@ -44,6 +50,8 @@ export interface Build {
   branch: string; // head ref, e.g. "night/…"
   date: string; // YYYY-MM-DD the PR was opened
   previewUrl: string; // Netlify deploy preview — see it live before shipping
+  state: BuildState;
+  failureStage?: FailureStage;
 }
 
 /** The Dreamer's branches that haven't been merged into main yet. */
@@ -75,7 +83,13 @@ async function openBuilds(): Promise<Build[]> {
   try {
     const res = await fetch(`${GH}/pulls?state=open&per_page=100`, { headers: ghHeaders(), cache: "no-store" });
     if (!res.ok) return [];
-    const pulls = (await res.json()) as { number: number; title: string; created_at: string; head: { ref: string } }[];
+    const pulls = (await res.json()) as {
+      number: number;
+      title: string;
+      body: string | null;
+      created_at: string;
+      head: { ref: string };
+    }[];
     return pulls
       .filter((p) => p.head?.ref?.startsWith(SHIPPABLE_PREFIX))
       .map((p) => ({
@@ -84,6 +98,7 @@ async function openBuilds(): Promise<Build[]> {
         branch: p.head.ref,
         date: (p.created_at ?? "").slice(0, 10),
         previewUrl: `https://deploy-preview-${p.number}--whattosow.netlify.app`,
+        ...readBuildState(p.body),
       }));
   } catch {
     return [];
@@ -117,7 +132,14 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  let body: { k?: string; heading?: string; verdict?: string; note?: string; merge?: string; ship?: string };
+  let body: {
+    k?: string;
+    heading?: string;
+    verdict?: string;
+    note?: string;
+    merge?: string;
+    ship?: number;
+  };
   try {
     body = await req.json();
   } catch {
@@ -149,28 +171,77 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Ship a finished Night Gardener build — merge its branch into main so Netlify
-  // deploys it live. Only night/ branches, nothing else. Same merge mechanism as
-  // the Dreamer, so it needs only the token's existing Contents: write.
-  if (body.ship) {
-    const branch = body.ship.trim();
-    if (!branch.startsWith(SHIPPABLE_PREFIX)) return NextResponse.json({ error: "bad request" }, { status: 400 });
+  // Kate's tap is durable production approval. A clean Night Gardener PR merges
+  // immediately; a stale one keeps the approval marker for the Night Gardener
+  // to repair, verify and publish without asking Kate again.
+  if (body.ship !== undefined) {
+    const number = body.ship;
+    if (!Number.isInteger(number) || number <= 0) {
+      return NextResponse.json({ error: "bad request" }, { status: 400 });
+    }
+
     try {
-      const res = await fetch(`${GH}/merges`, {
-        method: "POST",
+      const prRes = await fetch(`${GH}/pulls/${number}`, {
+        headers: ghHeaders(),
+        cache: "no-store",
+      });
+      if (!prRes.ok) {
+        return NextResponse.json({ error: "build not found" }, { status: 404 });
+      }
+
+      const pr = (await prRes.json()) as {
+        state: string;
+        body: string | null;
+        head: { ref: string; sha: string };
+      };
+      if (pr.state !== "open" || !pr.head.ref.startsWith(SHIPPABLE_PREFIX)) {
+        return NextResponse.json({ error: "bad request" }, { status: 400 });
+      }
+
+      const approvedBody = approveBuild(pr.body);
+      if (approvedBody !== (pr.body ?? "")) {
+        const approvalRes = await fetch(`${GH}/pulls/${number}`, {
+          method: "PATCH",
+          headers: ghHeaders(),
+          body: JSON.stringify({ body: approvedBody }),
+        });
+        if (!approvalRes.ok) {
+          throw new Error(`GitHub approval write failed (${approvalRes.status})`);
+        }
+      }
+
+      const mergeRes = await fetch(`${GH}/pulls/${number}/merge`, {
+        method: "PUT",
         headers: ghHeaders(),
         body: JSON.stringify({
-          base: "main",
-          head: branch,
-          commit_message: `bench: Kate shipped ${branch} — live now`,
+          sha: pr.head.sha,
+          merge_method: "merge",
+          commit_title: `bench: Kate shipped ${pr.head.ref} — live now`,
         }),
       });
-      if (res.ok) return NextResponse.json({ ok: true, shipped: branch });
-      if (res.status === 204) return NextResponse.json({ ok: true, shipped: branch, already: true });
-      if (res.status === 409) return NextResponse.json({ error: "conflict" }, { status: 409 });
-      throw new Error(`GitHub merge failed (${res.status})`);
+
+      if (mergeRes.ok) {
+        const result = (await mergeRes.json()) as { merged?: boolean };
+        if (result.merged) {
+          return NextResponse.json({
+            ok: true,
+            status: "shipped",
+            number,
+          });
+        }
+      }
+      if ([405, 409, 422].includes(mergeRes.status)) {
+        return NextResponse.json(
+          { ok: true, status: "queued", number },
+          { status: 202 },
+        );
+      }
+      throw new Error(`GitHub merge failed (${mergeRes.status})`);
     } catch {
-      return NextResponse.json({ error: "couldn't ship the build" }, { status: 502 });
+      return NextResponse.json(
+        { error: "couldn't approve the build" },
+        { status: 502 },
+      );
     }
   }
 
