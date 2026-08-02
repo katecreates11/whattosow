@@ -240,6 +240,37 @@ _Shortlist from The Dreamer's run of 25 July — one small addition, tagged `fro
 - **Ready-to-queue brief:** fold into card 12's existing brief rather than shipping separately; no new target query; links/voice unchanged from card 12; the only change is the postcode read, gated the same cautious way as `ColdSnapNote` (a plain sentence for readers with no saved postcode, nothing invented for a region the data doesn't cover).
 - **Added:** 2026-07-25 · **Run:** dream-2026-07-25
 
+---
+
+_Shortlist from the Forager's run of 2 August — ranked best-first. Checked against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above before pitching; nothing here repeats a proposed, approved, parked or binned idea. Board reflects Kate's 25 July merge — cards 1, 2, 5, 7–12 approved/building, 3 and 6 parked, 13–16 still awaiting a call._
+
+### 17. A third SnapNote — heat stress and red spider mite, not just cold
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** the BBC reported an "explosion" of flower- and leaf-eating pests this summer — red spider mite breeds rapidly once it's hot, and the driest July on record (England received just 7% of its long-term average rainfall) has kept conditions exactly right for it, with GOV.UK's drought bulletin warning restrictions may extend into August as reservoirs sit ~9.5% below their long-term average. Checked the whole `/guides/pests` page directly: it covers slugs, aphids and blight in detail but has no spider mite content at all — a real, current gap, not a guess. Separately, `ColdSnapNote` (built for card 2, kept) is the one feature pattern Kate has approved and had built exactly as asked, twice — and `docs/dreams/wisdom.md` names it as an open thread: only two SnapNotes exist so far (cold arriving, heat stalling germination) and "no third pitch in this vein has appeared." This is that third pitch.
+- **Pitch:** a `HeatSnapNote` in the same shape as `ColdSnapNote` — no new page, no new design pattern. It reuses the weather plumbing that already powers Blight Watch and the watering guide to say plainly whether the reader's own patch has had the run of heat and dryness that breeds spider mite, names the tell (fine pale stippling on leaves, a faint webbing under close inspection, especially on tomatoes and cucumbers under glass), and leads with the free fix — a firm hose-down of the leaf undersides, since mites hate the humidity they can't stand. Only for a genuinely bad infestation does it mention the organic answer, predatory mites, as a bought-in fix. Sits on tomato, cucumber, courgette and pepper/chilli crop pages, plus a short new section in the pests guide it can link to.
+- **Ready-to-queue brief:** feature → light spec (reuse `ColdSnapNote`'s component shape and the existing `weather-intelligence`/`weather-history` data, no new infrastructure); needs one small addition to `/guides/pests` (a spider mite section — currently entirely absent); crops: tomatoes, cucumbers, courgettes, peppers/chillies; affiliate = predatory mite sachets, gated to the worst tier only, water advice always leads; voice = matter-of-fact and reassuring, no alarm about "an explosion of pests."
+- **Added:** 2026-08-02 · **Run:** forager-2026-08-02
+
+### 18. When are your apples actually ready? — the test nobody explains
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** read the entire `growing-fruit` guide directly (650 lines): it covers strawberries, raspberries, blackcurrants, gooseberries, redcurrants, blackberries and rhubarb — every soft fruit — and mentions apples or pears precisely nowhere. **The site has no top-fruit content at all.** RHS names "harvesting top fruit such as apples and pears" as one of September's headline jobs, and "how do I tell when an apple is ripe" is a real, recurring, evergreen query (colour lies — many varieties change colour weeks before they're actually ready) with no single brilliant UK answer currently ranking.
+- **Pitch:** a short, practical piece solving the actual frustration — the lift-and-twist test (cup it, lift, twist gently; it should come away clean with the stalk on; never pull straight down, it damages next year's fruiting spur), the pip check if you're still unsure (cut one open — brown pips mean ripe, pale means wait), and why picking a tree little and often beats stripping it in one go. A short closing note on storage — cool, dark, laid out not touching — because a bruised apple won't keep, whatever the tree told you. The site's first-ever fruit-tree page, on the exact week it matters.
+- **Ready-to-queue brief:** target "when are apples ripe uk" / "how to tell when to pick apples"; angle = the test, not the orchard science; links → growing-fruit guide (add a top-fruit cross-link once this exists), storage note can nod at the curing piece (card 13) if it's live by then; voice = plain, one concrete test, no lecture; **honest monetisation note:** no apple-specific product (picker, storage trays) exists in `kit.ts` yet — first draft should go affiliate-light rather than force a buy-point that isn't sourced.
+- **Added:** 2026-08-02 · **Run:** forager-2026-08-02
+
+### 19. Your first vegetable show — and how yours measures up
+- **Type:** content _(with a small feature companion → needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low–medium effort
+- **Evidence:** the RHS runs its own dedicated page, "Prizeworthy peas? Top tips for entering your first local show" — confirmation this is a real, standing query, not a niche guess. August–September is UK produce-show season: local allotment and village shows cluster here, and the Malvern Autumn Show's Canna UK National Giant Vegetables Championship (record leeks, parsnips, cabbages) runs in this window too. WTS has zero content on showing produce — checked, nothing exists. This sits right beside National Allotments Week (card 9, approved, 10–16 August) without repeating it: card 9 is Kate's own diary from her plot; this is practical, judge's-eye advice for anyone thinking of entering.
+- **Pitch:** a warm, practical how-to — read the schedule properly and enter exactly what it asks for (three courgettes means three, not four for luck), harvest as close to show day as you can bear, what a judge is actually looking for (uniformity, no blemishes, matched pairs, not just size). A small, gentle delight alongside it: one field where a reader can enter their own marrow, onion or courgette's weight or length and see it set against the real UK record-holders — styled as a simple ruler-or-scale line in the site's calculator voice, not a form or a leaderboard. The comparison stays kind ("yours is a third of the record — plenty to be proud of"), never competitive-mean.
+- **Ready-to-queue brief:** target "how to enter a vegetable show uk" / "tips for showing vegetables"; angle = the judge's eye, not a diary — keep this distinct from card 9; links → dealing-with-the-glut, growing-squash-pumpkins-courgettes; voice = warm and encouraging throughout, the record line especially; feature companion needs a light spec — one input, one comparison sentence, explicitly **no leaderboard or comparison table** (ANTI_PATTERNS §1/§3).
+- **Added:** 2026-08-02 · **Run:** forager-2026-08-02
+
 ## Approved
 
 _(empty)_
