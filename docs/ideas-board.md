@@ -233,7 +233,9 @@ _Shortlist from The Dreamer's run of 25 July — one small addition, tagged `fro
 
 ### 16. Make the hosepipe-ban piece (card 12) postcode-aware, not generic
 - **Type:** content _(scope addition to approved card 12, not yet built)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-04 · via the potting bench
+- **Note (Kate):** Be very careful with the tone of this. I say yeah, list out ways to water without hose. I used a bucket at the allotment and it was better than the watering cans but was rougher on the soil.  The taps at my allotment all have dipping tanks underneath them. When we got there, it was already filled. This was really great as we could dunk our buckets straight away. We turned on the tap so it refilled as we took out. And before we left made sure that it was filled for the next person. Also we focus
 - **Source:** from-a-dream (The Dreamer, 2026-07-25)
 - **Score:** High payoff / Very low effort
 - **Evidence:** two independent taste rules, both high-confidence, point the same way. Kate has twice asked for a climate piece to read the postcode/frost engine and personalise the answer rather than describe it in the abstract — once for cold arriving ("Sow now, eat all winter"), once for heat stalling germination ("Why your seeds won't come up"). Separately, "Every Drop"'s own approval evidence names specific water companies restricting specific regions (South East Water in Kent, Southern Water in Hampshire/IoW, Anglian Water across the East of England, Cambridge Water and Affinity Water joining 17 July) — restriction is regional, not national. Card 12 was pitched and approved as a plain factual explainer with no personalisation angle at all. Cheap to fold in now, before the Night Gardener builds it; awkward to retrofit after.
