@@ -221,7 +221,8 @@ _**Recovered by The Dreamer, 25 July** — this run committed to a branch (`idea
 
 ### 15. Don't compost the chilli plant — bringing tender crops through winter
 - **Type:** content
-- **Status:** proposed
+- **Status:** parked
+- **Decided:** 2026-08-04 · via the potting bench
 - **Score:** Medium–high payoff / Low effort
 - **Evidence:** chillies, peppers and aubergines are all on the site as tender crops, and `protecting-vegetables-from-frost` (checked directly) doesn't mention any of them — it's written for outdoor veg, not for the plant itself surviving indoors. "Overwintering chilli plants" is a real, recurring UK query every September (SimplySeed, Rocket Gardens, Sea Spring Seeds, Chilli Chump all cover it) once night temperatures start dropping below 10°C — which is exactly the next 4–8 weeks. No UK gardening voice has made it feel as easy and worthwhile as it actually is.
 - **Pitch:** a short, encouraging piece on saving the plant, not just the crop — when to bring it in (before the first proper cold snap, not the first cool evening), a hard prune, a bright cool windowsill, water sparingly over winter, and the reward: a head start and a bigger plant next spring instead of starting from seed again in February. Same thrift-and-closing-the-loop voice as the flower-seed piece (card 10), applied to a plant instead of a seed.
