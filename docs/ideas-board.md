@@ -210,7 +210,8 @@ _**Recovered by The Dreamer, 25 July** — this run committed to a branch (`idea
 
 ### 14. Which green manure? — a two-question picker for August's bare beds
 - **Type:** feature _(→ needs-spec on approval)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-04 · via the potting bench
 - **Score:** High payoff / Low–medium effort · extends the site's proven calculator DNA
 - **Evidence:** the `green-manures` guide is good and already carries affiliate seed links for five species (grazing rye, field beans, phacelia, clover, mustard) — but it's one long article the reader has to self-match against their own bed. RHS and Garden Organic both confirm most green manures want sowing before the beginning of September, so the decision window is open right now and closes soon. Kate has approved two calculator-DNA features already (Glut-o-meter, "Every Drop"), both praised for turning a static guide into something playful — this is the same move, at a fraction of the effort, on a page that already has the data and the links.
 - **Pitch:** two honest questions — how long is the bed free (till next spring, or you need it back by October?) and do you want it feeding the soil nitrogen or just smothering weeds — and it names one green manure, not a chart of five to weigh up. A bed-filling-in visual over the weeks it'll take, in the site's tactile-not-metric-tile style. Reuses the guide's own species data and seed links; no new commercial ground.
