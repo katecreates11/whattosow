@@ -2,7 +2,7 @@ import { createElement } from "react";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { metadata as bedPlannerMetadata } from "@/app/bed-planner/page";
 import CropsPage, { metadata as cropsMetadata } from "@/app/crops/page";
 import { metadata as luckyDipMetadata } from "@/app/lucky-dip/page";
@@ -86,20 +86,27 @@ describe("Search Console readiness guard", () => {
   });
 
   it("server-renders crawlable /sow and /crops links without the old SEO grid language", () => {
-    const sowHtml = renderToStaticMarkup(createElement(SowPage));
-    const cropsHtml = renderToStaticMarkup(createElement(CropsPage));
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-07-15T12:00:00Z"));
 
-    expect(sowMetadata.alternates).toEqual({ canonical: "/sow" });
-    expect(cropsMetadata.alternates).toEqual({ canonical: "/crops" });
-    expect(sowHtml).toContain("/crops/french-beans");
-    expect(sowHtml).toContain("/crops/carrots");
-    expect(sowHtml).toContain("/sow/july");
-    expect(sowHtml).toContain("/calendar");
-    expect(sowHtml).not.toContain("UK average answer");
-    expect(sowHtml).not.toContain("What to start indoors");
-    expect(cropsHtml).toContain("/crops/tomatoes");
-    expect(cropsHtml).toContain("/crops/basil");
-    expect(cropsHtml).toContain("/crops/french-beans");
+    try {
+      const sowHtml = renderToStaticMarkup(createElement(SowPage));
+      const cropsHtml = renderToStaticMarkup(createElement(CropsPage));
+
+      expect(sowMetadata.alternates).toEqual({ canonical: "/sow" });
+      expect(cropsMetadata.alternates).toEqual({ canonical: "/crops" });
+      expect(sowHtml).toContain("/crops/french-beans");
+      expect(sowHtml).toContain("/crops/carrots");
+      expect(sowHtml).toContain("/sow/july");
+      expect(sowHtml).toContain("/calendar");
+      expect(sowHtml).not.toContain("UK average answer");
+      expect(sowHtml).not.toContain("What to start indoors");
+      expect(cropsHtml).toContain("/crops/tomatoes");
+      expect(cropsHtml).toContain("/crops/basil");
+      expect(cropsHtml).toContain("/crops/french-beans");
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it("marks private, parked, and no-sitemap utility pages as noindex", () => {

@@ -326,6 +326,10 @@ export default function GrowingAlliumsGuide() {
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Crop rotation</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
+              <Link href="/guides/autumn-planting-garlic-onions" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Order your garlic and onions now</span>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </Link>
             </div>
           </section>
         </div>

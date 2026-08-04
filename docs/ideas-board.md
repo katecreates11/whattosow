@@ -37,7 +37,7 @@ _Shortlist from the Forager's first run — ranked best-first. Set each `Status`
 
 ### 1. Autumn-planting garlic & onions — a "plan & order now" hub
 - **Type:** monetisation
-- **Status:** approved
+- **Status:** done — built in PR #2 and published after Kate's Potting Bench approval.
 - **Decided:** 2026-07-11 · via the potting bench
 - **Note (Kate):** This is great, a good focus on getting those affiliate clicks as well as useful content.
 - **Score:** High payoff / Low–medium effort
@@ -152,7 +152,7 @@ _Shortlist from the Forager's run of 12 July — ranked best-first. Checked agai
 
 ### 11. "Good neighbours for your alliums" — a companion-planting tie-in for the autumn hub
 - **Type:** content
-- **Status:** approved
+- **Status:** done — folded into PR #2's autumn hub as a "good neighbours" section, cross-linking to the existing companion-plants-for-onions-garlic page rather than shipping separately.
 - **Decided:** 2026-07-13 · via the potting bench
 - **Note (Kate):** Yes sounds good, make sure it’s revenue focused with affiliate links.
 - **Source:** from-a-dream (The Dreamer, 2026-07-11)
