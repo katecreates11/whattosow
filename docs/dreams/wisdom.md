@@ -1,17 +1,16 @@
 # The Crew's Memory — Wisdom
 
 _Consolidated weekly by The Dreamer. Bounded to ~400 lines — prune, don't grow._
-_Last consolidated: 2026-07-25 (week 2)._
+_Last consolidated: 2026-08-01 (week 3)._
 
-**A note on this week:** thin week for board decisions — only one card moved
-(#12, approved 22 July) — so most taste ratings below are unchanged and stay
-capped at their existing confidence rather than being pushed up on a single
-data point. The real finding this week isn't a taste signal at all: reading
-the actual remote branches (not just main) turned up a broken pipeline —
-three Forager pitches from the 19 July run have been sitting invisible to
-Kate for six days because that run didn't follow its own updated
-instructions. See §5, first item. Recovered onto the board as part of this
-dream so they're finally visible.
+**A note on this week:** the quietest week yet — zero board decisions between
+25 July and 1 August, so every taste rule below is carried forward unchanged
+rather than re-tested. The real news is operational, not taste: the
+Forager's write-to-main fix broke a second time (see §5), the board's
+unreviewed pile has grown to seven cards, and PR #2 has now sat two full
+weeks past its ordering window opening while the hosepipe-ban story it
+answers has only gotten bigger. None of that is a taste signal, but all of
+it is worth Kate's attention, so it leads the open threads below.
 
 ---
 
@@ -20,174 +19,161 @@ dream so they're finally visible.
 ### Weave personalisation into content, don't just describe it
 - **Loves.** A pitch that promises to *use* the postcode/frost engine to give
   each reader a different answer, not sit beside it as static prose.
-- **Confidence:** high (unchanged — no new test this week; card 12, the only
-  card decided, is a plain factual piece with no personalisation angle, so it
-  neither confirms nor challenges this).
-- **Evidence:** two-for-two from weeks 0–1 — "Sow now, eat all winter" (cold/
-  frost tie-in) and "Why your seeds won't come up" (heat/thermo-dormancy
-  tie-in). Unchanged.
+- **Confidence:** high.
+- **Evidence:** three-for-three now, counting this week's stuck-but-real
+  pitch — "Sow now, eat all winter" (frost tie-in, built), "Why your seeds
+  won't come up" (heat tie-in, approved), and the still-unreviewed
+  catch-crop finder (card 17, this week's run) reasoning from this exact
+  rule. No new Kate verdict this week, so confidence holds rather than rises
+  on the Forager's own pitch — but it's the crew's best-tested playbook.
 
 ### An approval note asking for a specific tie-in gets built exactly as asked
-- **Confidence:** high (unchanged — no new Night Gardener build this week to
-  test it further; PR #2 is still sitting unshipped, see §5).
-- **Evidence:** unchanged from week 1 (`ColdSnapNote`, PR #1, merged and
-  kept).
+- **Confidence:** high.
+- **Evidence:** unchanged since week 1 (`ColdSnapNote`, PR #1, merged and
+  kept) — still the only build that has tested it.
 
-### Content near an already-monetised hub gets an explicit revenue instruction — but it's conditional, not universal
-- **Loves**, with a now-confirmed boundary.
-- **Confidence:** high (was high; the boundary itself moves from "caveat" to
-  tested).
-- **Evidence:** cards 10 and 11 (both commerce-adjacent — flower seed sales,
-  an alliums companion tie-in next to the garlic/onion hub) each got an
-  explicit revenue instruction on approval. Card 12 (the hosepipe-ban
-  explainer, also from-a-dream, approved 22 July) got **no note at all** —
-  and it's a plain factual/safety piece with no natural buy-point of its own
-  (it points *at* the water-butt guide, doesn't sell anything itself). Reads
-  as confirmation of the standing caveat: the revenue-instruction reflex
-  fires when a pitch sits near commercial ground, not on every approval.
+### Content near an already-monetised hub gets an explicit revenue instruction — conditional, not universal
+- **Confidence:** high.
+- **Evidence:** unchanged since week 2 (cards 10/11 got the note on
+  approval; card 12, no natural buy-point, got none).
 
-### Kate wants real photography and video, said twice (week 1)
-- **Confidence:** medium (unchanged — no new instance this week; nothing has
-  shipped yet to test whether the asset gap named last week actually got
-  addressed).
-- **Evidence:** unchanged from week 1 (cards 9 and 10).
+### Kate wants real photography and video, said twice
+- **Confidence:** medium, now a third week without a test. Starting to look
+  less like "hasn't come up yet" and more like nothing has shipped that
+  could test it either way. Worth downgrading if a fourth week passes with
+  no evidence.
+- **Evidence:** unchanged (cards 9, 10).
 
 ### Interactive features want a physical/visual metaphor, not just a form
-- **Confidence:** medium (unchanged — the Glut-o-meter that tests this is
-  still unbuilt, now two weeks after approval; see §5 urgency note).
-- **Evidence:** unchanged (Glut-o-meter: "I think it should have a visual like
-  it's weighing your harvest up").
+- **Confidence:** medium.
+- **Evidence:** unchanged (the Glut-o-meter's "weighing your harvest up"
+  note) — and echoed independently this week: the stuck giant-vegetable
+  pitch (card 18) reaches for the same instinct ("a filling bar or
+  silhouette... the same instinct Kate asked for on the Glut-o-meter") on
+  its own reading of the board, not a new Kate verdict. Confidence holds,
+  but worth noting two different agents converging on it unprompted.
 
-### Feature ideas that extend the existing calculator DNA land easily
-- **Confidence:** medium (unchanged — no new feature approval this week to
-  add a third data point).
-- **Evidence:** unchanged (Glut-o-meter, "Every Drop").
+### Feature ideas that extend the calculator DNA land easily
+- **Confidence:** medium. **Evidence:** unchanged (Glut-o-meter, Every Drop).
 
 ### Don't pitch content whose premise fights the site's own affiliate mix
-- **Confidence:** medium (unchanged — no new test).
-- **Evidence:** unchanged (parked veg seed-saving, F1/heirloom mismatch).
+- **Confidence:** medium. **Evidence:** unchanged (parked veg seed-saving).
 
 ### "Parked" can mean "not now, sequencing" rather than "no"
-- **Confidence:** high (unchanged — no parks this week).
-- **Evidence:** unchanged (companion-planting playground).
+- **Confidence:** high. **Evidence:** unchanged (companion-planting
+  playground).
 
 ### The Night Gardener defers undefined technical/design calls rather than guessing
-- **Confidence:** medium (unchanged — no new Night Gardener build this week).
-- **Evidence:** unchanged (PR #1's choice of idea #1 over idea #7).
+- **Confidence:** medium. **Evidence:** unchanged (PR #1's choice of idea #1
+  over idea #7).
+
+### NEW, low confidence: a growing unreviewed pile may itself be suppressing decisions
+- **Confidence:** low (n=1, a hypothesis, not a tested rule).
+- **Evidence:** the board had at least one decision every week since 11
+  July, then went to zero the same week the unreviewed pile grew past what
+  fits in one sitting — seven cards now sit `proposed` (13–16, plus this
+  week's 17–19 once recovered below). Correlation only; could just as
+  easily be Kate's own calendar and nothing to do with pile size. Worth
+  watching: if the pile keeps growing while decisions stay at zero, this is
+  worth actually fixing (a shorter, better-triaged bench view); if a normal
+  decision week follows, this was noise.
 
 ---
 
 ## 2. What works
 
 - **The Potting Bench as the decision surface.** Confidence: medium-high
-  (unchanged — only one verdict this week, card 12, decided cleanly with no
-  note needed).
-
+  (unchanged, untested this week — zero decisions to observe).
 - **A build that follows a specific approval note exactly gets kept, not
-  reverted.** Confidence: medium (n=1, unchanged — no second build this week;
-  PR #2 hasn't shipped yet to become a second test).
-
+  reverted.** Confidence: medium (n=1, unchanged — PR #2 still hasn't
+  shipped to become a second data point; see §5).
 - **Evidence-required cards with a named, current commercial/seasonal window
-  get approved fast.** Confidence: high (unchanged, four-for-four counting
-  card 12).
-
-- **Dreamt content connections (from-a-dream cards) land well.** Now **3/3**
-  approved (flower-seed-saving, alliums companion tie-in, and now the
-  hosepipe-ban piece), zero rejected, zero parked. Confidence: **high** (was
-  medium — three clean approvals in a row for the dreaming method itself, not
-  just for the ideas' content).
-
-- **NEW: dreamt board pitches sometimes anticipate independent SEO research.**
-  The Dreamer promoted the hosepipe-ban piece (card 12) on 18 July, reasoning
-  purely from Kate's own approval note on "Every Drop." The SEO Watchdog's
-  21 July report — working from live search data, with no visibility into
-  the board — independently named "hosepipe bans / watering restrictions:
-  strong current news, zero site coverage" as its #1 seasonal opportunity.
-  Two different agents, two different evidence bases, same gap. Confidence:
-  low (n=1, could be coincidence — hosepipe bans were genuinely the biggest
-  UK gardening story of the month, so both agents finding it isn't
-  surprising) but worth watching: if it happens again, it says the
-  consolidated-memory method surfaces real gaps, not just plausible-sounding
-  ones. **Practical upshot:** card 12 now has independent confirmation its
-  window is open *right now* — worth prioritising its build over older,
-  less time-pressured approved cards.
+  get approved fast.** Confidence: high (unchanged, still four-for-four; no
+  new decisions this week to extend the count).
+- **Dreamt content connections (from-a-dream cards) land well.** Still 3/3
+  approved (10, 11, 12) — unchanged this week, since card 16 (last week's
+  dreamt addition) hasn't been decided yet. Confidence: high, but the sample
+  hasn't grown; the next real test is whether card 16 gets the same clean
+  yes.
+- **Dreamt board pitches sometimes anticipate independent SEO research —
+  now two-for-two.** Week 2 recorded the hosepipe-ban pre-echo (card 12 vs.
+  the Watchdog's 21 July report). This week's Watchdog report (28 July)
+  independently named "when to lift maincrop potatoes" (foliage die-back,
+  skin-set wait) as a live content gap — and the curing/storage guide
+  already sitting recovered-but-unbuilt on the board (card 13, from 19
+  July) already plans to cover exactly that ground. Two different agents,
+  two different evidence bases (Kate's own notes vs. live search data), same
+  gap, twice running now. Confidence: medium (was low) — worth trusting the
+  consolidated-memory method's gap-finding a little more each time this
+  repeats.
 
 ---
 
-## 3. Self-score (against the 2026-07-18 dream)
+## 3. Self-score (against the 2026-07-25 dream)
 
-- **Promoted:** "Allotments and the hosepipe ban" (card 12). **Hit** —
-  approved 22 July, no note needed (see taste rule above — correctly
-  predicted as a low-effort, non-commercial approval).
-- **Carried forward, still pending:** the Glut-o-meter's weighing visual.
-  **Still not scoreable** — a second consecutive week unbuilt. This is
-  starting to look less like "hasn't come up yet" and more like a real
-  backlog problem; see §5.
-- **Connections 2–4 from the 2026-07-18 dream** (photo/video production note,
-  the "SnapNote" pattern-watch, the revenue-hygiene reading) — no new
-  evidence either way this week. Held, not scored; genuinely nothing
-  happened on any of the three fronts.
-
-Net: 1/1 scoreable prediction this week was a hit. Sample is still small (now
-3/4 promoted-or-predicted items resolved as hits across two weeks, one still
-pending). The real miss this week wasn't a wrong prediction — it was not
-having read the branches closely enough last week to notice the Forager's
-19 July run had gone to a branch instead of main. Recorded so future weeks
-check remote branches for silent drift, not just the board Kate can see.
+Nothing to score against real decisions this week — the first fully quiet
+week since the crew started (zero board verdicts between 25 July and 1
+August). Card 16 (the postcode-aware hosepipe addition, promoted last week)
+is still sitting `proposed`, unscored a second week running — not because a
+build hasn't happened yet, but because Kate hasn't been to the bench at all
+this week. The Glut-o-meter prediction is now three weeks unscored. Net: 0
+scoreable predictions this week, not because a guess was wrong, but because
+there was nothing to check a guess against. Recorded honestly rather than
+padded — see the new low-confidence taste hypothesis above about why the
+pile might be stalling.
 
 ---
 
 ## 4. Noted but not taste signal
 
-No new revenue-hygiene or maintenance work landed on `main` this week beyond
-the single board decision and last week's dream merge — the large
-affiliate-hygiene push recorded here in week 1 (`commercial-surface-
-inventory-2026-07-15.md`, `revenue-route-hygiene-2026-07-17.md`) had no
-sequel this week. Worth checking next week whether that was a one-off sprint
-or the start of a recurring cadence, as originally flagged.
-
-A real bug from week 1 (homepage advising "sow peas indoors" in mid-July,
-`e824382`) was re-checked by the Groundskeeper's 20 July report and
-confirmed not recurring — the fix held.
+No Groundskeeper report landed this week (last one: 20 July, roughly a
+fortnight gap now against its earlier weekly cadence) — worth checking next
+week whether that's a scheduling gap or the same kind of pipeline miss the
+Forager had; one missed week isn't yet enough to call it a pattern. The SEO
+Watchdog ran cleanly on 28 July: five FIX NOW items (a stale build-date bug
+on all 51 `/sow-in` city pages; FAQPage schema missing on 45/48 crop pages;
+oversized meta descriptions/titles on crop templates; `keywords` arrays
+still lingering in 54 files against CUT_LIST policy) and three seasonal
+opportunities (sweetcorn ready-to-pick test, potato lifting timing, and
+National Allotments Week — already covered above). None of this is a
+Kate-taste signal — it's engineering/content backlog — but it's real,
+evidenced work sitting ready for whoever picks it up next.
 
 ---
 
 ## 5. Open threads
 
-- **NEW, high-priority: the Forager's write-to-main pipeline broke, and
-  nobody would have caught it without reading remote branches directly.**
-  `docs/agents/forager.md` was updated 12 July (commit `dc6e15c`) to have
-  the Forager commit `docs/ideas-board.md` straight to `main`, specifically
-  because the bench reads the board off `main` and a branch-only pitch is
-  invisible to Kate. The 19 July run (cards 13–15: a curing/storage guide,
-  a green-manure picker, and an overwintering-chillies piece) did it the old
-  way anyway — pushed to `ideas/weekly-2026-07-19` and never merged. Six days
-  of real, evidence-backed pitches sat completely unseen. This dream recovers
-  them onto the board (see the board's new "Recovered" note on cards 13–15),
-  but the underlying cause — why that run didn't follow its own updated
-  instructions — is still unknown and worth someone checking directly,
-  otherwise it'll keep happening silently every week.
-
-- **The approved-but-unbuilt backlog is now a real risk, not a watch-item.**
-  Two weeks running: the Glut-o-meter (approved 11 Jul) is still unbuilt with
-  glut season now at its peak; "Every Drop" and the heat/lettuce piece
-  (approved 12 Jul) are unbuilt with the hosepipe bans they respond to still
-  active; National Allotments Week (approved 13 Jul, needs Kate's own diary
-  writing mid-August) has under three weeks left before its window. Plus:
-  PR #2 (the autumn allium hub) has had a green Netlify preview sitting ready
-  since **17 July — eight days now** — and the ordering window it targets
-  ("late July–August") is half gone already. One build per night, decided by
-  board position rather than deadline, may simply not be able to keep up with
-  how many dated windows are open at once right now.
-
-- **The photo/video ask is colliding with a real asset gap.** Unchanged from
-  week 1 — no new evidence either way (nothing shipped to test it against).
-
-- **The "SnapNote" pattern** (`ColdSnapNote` + the still-unbuilt heat-check)
-  — still just two, no third pitch in this vein has appeared. Unchanged.
-
-- **The F1/heirloom affiliate-conflict check** — still untested elsewhere, no
-  new data. Unchanged.
-
-- **The companion-planting playground / ReactGarden overlap** — still
-  parked, still unscheduled. Unchanged.
+- **Escalated: the Forager's write-to-main pipeline has now broken twice
+  since the fix landed, not once.** `docs/agents/forager.md` was updated 12
+  July (`dc6e15c`) to commit `docs/ideas-board.md` straight to `main`. The
+  19 July run broke this and was recovered by last week's dream, cause
+  unconfirmed. This week's 26 July run broke it again, the exact same way —
+  pushed to `ideas/weekly-2026-07-26` instead of `main`, despite the fixed
+  instructions being live on `main` for over two weeks by then. Two
+  breaks out of two runs since the fix landed is a pattern, not a fluke —
+  reading the branches by hand every week is catching it, but it means the
+  board Kate actually looks at cannot currently be trusted to be complete
+  without that manual check. Worth someone looking directly at *why* — a
+  tooling/permissions issue in how that run commits, not a wording problem
+  in the instructions, since the instructions are already correct.
+- **The approved-but-unbuilt backlog, now three weeks running and worse.**
+  PR #2 (autumn allium hub, cards #1 and #11) has been unmerged for 15 days
+  (since 17 July), and the window it targets has tightened further since it
+  was last flagged — Thames Water joined the hosepipe ban on 23 July (10.1m
+  customers, the largest single restriction yet), which the Forager's own
+  26 July run cited as a reason the older approved-but-unbuilt cards
+  (7, 8, 9, 10, 11, 12) need shipping urgently rather than being re-pitched.
+  The Glut-o-meter (approved 11 Jul) is unbuilt with glut season now past
+  its peak. National Allotments Week (approved 13 Jul) has nine days left.
+- **NEW: the board itself has stalled — zero decisions this week, pile now
+  at seven cards.** See §1's new low-confidence hypothesis; the practical
+  read is that the bench may need a smaller, better-triaged view rather
+  than one long list, if this repeats.
+- The photo/video ask colliding with a real asset gap — unchanged, a third
+  week untested either way.
+- The "SnapNote" pattern (`ColdSnapNote` + the still-unbuilt heat-check) —
+  still just two, no third instance.
+- The F1/heirloom affiliate-conflict check — still untested elsewhere.
+- The companion-planting playground / ReactGarden overlap — still parked,
+  still unscheduled.
+- Groundskeeper report cadence — missing this week; watch for a pattern.

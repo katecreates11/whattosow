@@ -240,6 +240,53 @@ _Shortlist from The Dreamer's run of 25 July — one small addition, tagged `fro
 - **Ready-to-queue brief:** fold into card 12's existing brief rather than shipping separately; no new target query; links/voice unchanged from card 12; the only change is the postcode read, gated the same cautious way as `ColdSnapNote` (a plain sentence for readers with no saved postcode, nothing invented for a region the data doesn't cover).
 - **Added:** 2026-07-25 · **Run:** dream-2026-07-25
 
+---
+
+_Shortlist from the Forager's run of 26 July — ranked best-first. Checked against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above before pitching; nothing here repeats a proposed, approved, parked or binned idea. Note: cards 7, 8, 9, 10, 11 and 12 are all approved and still unbuilt, and the hosepipe-ban evidence behind 8/12 has escalated sharply since they were written (Thames Water joined 23 July, ~10.1m customers — the largest ban yet, eight companies in force now) — not re-pitching them, just flagging the window is closing faster than it looked a fortnight ago._
+
+_**Recovered by The Dreamer, 1 August** — this run committed to a branch (`ideas/weekly-2026-07-26`) instead of straight to `main` as the Forager's own instructions say it should, for the second time since the write-to-main fix landed on 12 July. Recovered here, unedited, so they finally reach the bench — see `docs/dreams/wisdom.md` §5 for the pattern this is now confirming._
+
+### 17. "What's next for this bed?" — a catch-crop finder for the gap you've just cleared
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort
+- **Evidence:** three heatwaves and the driest UK spring since 1893 have pushed early crops off the ground weeks ahead of a normal year — broad beans, garlic, first earlies and bolted lettuce are coming out now, earlier than usual, leaving bare soil sitting empty right now. "Sow now, eat all winter" (card 2, still building) was written for exactly this pocket of the year, but it's one static list for everyone. Nothing on the site currently asks "what did you just pull up" and answers for the specific gap it left, at the reader's own postcode — and wisdom.md's single highest-confidence taste rule is precisely this: Kate has twice asked, unprompted, for content to *use* the postcode/frost engine rather than sit beside it (cards 2 and 7).
+- **Pitch:** a small interactive companion to "Sow now, eat all winter": pick what just came out (broad beans / garlic / first earlies / bolted lettuce / something else) and enter your postcode, and it names three or four things that will genuinely fit the weeks you've actually got left before your local first frost — plus the one it would sow itself. Same engine as the frost map and blight watch, so no new data source, just a new door onto data the site already has.
+- **Ready-to-queue brief:** needs-spec — reuses season-core + the existing frost engine; crop shortlist keyed off the outgoing-crop input, pulled from `crops.ts` sowing windows already in place; UI = a short either/or picker + postcode, one interpreted sentence out, mono footnote (the frost/season line) beneath, no metric tiles, no chip cloud, ruled rows or a single warm paragraph per DIRECTION §7; build after card 2 ships so it can link back rather than duplicate it.
+- **Added:** 2026-07-26 · **Run:** forager-2026-07-26
+
+### 18. "How does your veg measure up?" — a giant-vegetable comparison tool
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · high delight + shareability
+- **Evidence:** Worcester Show's Giant Vegetable section is judged 9 August 2026; National Allotments Week runs 10–16 August with the theme "Grow to Learn" (card 9, already approved, covers Kate's own diary week — this is a different, tool-shaped angle); the CANNA UK National Giant Vegetables Championship follows at Malvern Autumn Show in September. Three dated events in the next 4–8 weeks, and WTS currently has nothing to say about a genuinely popular, funny corner of UK allotment culture, despite already carrying every crop it's about (courgette/marrow, runner bean, onion, leek) as playbook crops. The real Guinness World Record numbers exist and are citable (116.4kg heaviest marrow, 89.7cm longest runner bean, 254g heaviest runner-bean pod) — nobody's built the thing that lets an ordinary grower hold their own veg up against them.
+- **Pitch:** enter what you've grown and its weight or length, and it places yours on a simple filling scale next to a typical allotment-sized one and the real world record, with one honest, kind line either way ("yours would need to more than double to trouble the record — and it'll taste better for staying this size" or genuine praise if it's a big one). Playful, harmless, screenshot-shaped, and it fits the site's existing calculator lineage (frost map, blight watch, longest day) rather than inventing a new kind of thing.
+- **Ready-to-queue brief:** needs-spec — scope to 4–5 crops with both a real record and a WTS playbook page (marrow/courgette, runner bean, onion, leek, pumpkin); visual = a filling bar or silhouette, not a numeric gauge — a physical metaphor, the same instinct Kate asked for on the Glut-o-meter ("weighing your harvest up"); one sentence of judgement first, record numbers whispered in mono beneath, never a leaderboard table; affiliate = the giant/exhibition variety seeds and high-potash feed already stocked at Suttons/Dobies, one buy-point framed as "if you fancy trying for size next year," not mid-tool.
+- **Added:** 2026-07-26 · **Run:** forager-2026-07-26
+
+### 19. "Why your tomatoes are splitting" — the drought-then-deluge rescue piece
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** 2026 is England's driest spring since 1893, with a third heatwave and a Met Office red extreme-heat warning approaching 40°C, and eight water companies are now under hosepipe restrictions — Thames Water's 10.1 million customers joined on 23 July, the single largest ban in force. That exact rhythm, dry soil followed by a downpour or a rushed catch-up watering, is the textbook cause of tomato splitting and blossom-end rot (confirmed by RHS advice), and it's happening at scale right now. WTS's tomato guide currently gives it one FAQ sentence; nobody's written the "yours are already doing this, don't panic" piece for this summer specifically.
+- **Pitch:** the same recipe as "Why your seeds won't come up" (card 7, approved): a real current weather record, a plain one-paragraph explanation of the mechanism, then calm and practical steps — what to do with fruit that's already split (still perfectly good, use it today), how to even out watering from here within whatever a local ban allows, and the mulch trick that buys the most protection for the least water. Tie the postcode tool in the same way card 7 asked for: note whether the reader's own area is under a ban and adjust the advice's tone accordingly.
+- **Ready-to-queue brief:** target "why are my tomatoes splitting" / "tomato skin cracking hosepipe ban"; angle = current-crisis reassurance, not generic growing advice; links → growing-tomatoes-outdoors-vs-greenhouse, watering, best-water-butts-uk; voice = calm, "it's happened to us too" register, no blame, no drought doom-mongering; verify the reader's postcode is checked against live ban status before publishing, don't assume every area is affected.
+- **Added:** 2026-07-26 · **Run:** forager-2026-07-26
+
+---
+
+_The Dreamer's run of 1 August — one small addition, tagged `from-a-dream`. Checked against everything above; this isn't new content, it's a scope addition to an already-pitched, not-yet-built card, so it gets its own yes rather than being assumed._
+
+### 20. Sharpen the curing/storage guide's (card 13) potato section — close the "when to lift maincrop potatoes" gap
+- **Type:** content _(scope addition to proposed card 13, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-08-01)
+- **Score:** High payoff / Very low effort
+- **Evidence:** the SEO Watchdog's 28 July report independently named "when to lift maincrop potatoes" (foliage die-back, then a two-week wait for skins to set before store) as a live, unaddressed search gap on `/crops/potatoes` — built from live search data, no visibility into the board. Card 13 (the curing/storage guide, recovered onto the board last week, still unbuilt) already plans to cover potato storage as one of four crops, but its brief doesn't currently name the specific foliage-die-back and skin-set signals the Watchdog flagged as missing. Two different agents, two different evidence bases, same gap — cheap to fold in now, before card 13 is written; awkward to retrofit after.
+- **Pitch:** no new page, no new research — a brief addition to card 13's build: the potato section should explicitly cover the two signals that decide *when* to lift (foliage dying back naturally, not cut early) and *when* it's safe to store (a fortnight left in the ground or in a dry spot afterwards for skins to set), not just how to cure once lifted. Everything else about card 13 stays as pitched.
+- **Ready-to-queue brief:** fold into card 13's existing brief rather than shipping separately; no new target query beyond what card 13 already carries plus "when to lift maincrop potatoes uk"; links/voice unchanged from card 13.
+- **Added:** 2026-08-01 · **Run:** dream-2026-08-01
+
 ## Approved
 
 _(empty)_
