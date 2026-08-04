@@ -201,7 +201,8 @@ _**Recovered by The Dreamer, 25 July** — this run committed to a branch (`idea
 
 ### 13. The curing trick — why some of the harvest goes in a dark cupboard, not a fruit bowl
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-04 · via the potting bench
 - **Score:** High payoff / Low effort
 - **Evidence:** `crops.ts` already flags `needsCuring: true` on onions, garlic, squash and pumpkins, and `harvest-weather.ts` already warns about curing conditions in the harvest planner — but no guide on the site explains what curing actually is or how to do it. Checked both `growing-onions-garlic-leeks` and `growing-squash-pumpkins-courgettes`: neither mentions curing or storage at all. Maincrop potatoes have the same need (2 weeks dry and dark to toughen the skin before store) but no dedicated storage guide exists either, confirmed by a full guide-slug check. Timing lines up: garlic and onions are lifting now, maincrop potatoes and squash/pumpkin follow through September. A genuine, data-confirmed gap sitting on ground the site already half-built.
 - **Pitch:** one warm, practical guide to the thing nobody explains — why you leave onions, garlic, squash and potatoes out to dry before you can trust them to keep, how long each one needs, and what happens if you skip it (they rot in weeks instead of keeping till spring). Per-crop timing notes, not a wall of identical instructions. Ends by pointing at what actually helps a crop cure well — good airflow, somewhere dry and out of direct sun — which is a genuine, honest first storage-specific buy-point (net/hessian sacks, a slatted tray) the site hasn't used yet.
