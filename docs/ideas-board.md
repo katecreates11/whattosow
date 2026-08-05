@@ -253,7 +253,9 @@ _**Recovered by The Dreamer, 1 August** — this run committed to a branch (`ide
 
 ### 17. "What's next for this bed?" — a catch-crop finder for the gap you've just cleared
 - **Type:** feature _(→ needs-spec on approval)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-05 · via the potting bench
+- **Note (Kate):** Focus on making this a visual experience alongside the personalisation
 - **Score:** High payoff / Medium effort
 - **Evidence:** three heatwaves and the driest UK spring since 1893 have pushed early crops off the ground weeks ahead of a normal year — broad beans, garlic, first earlies and bolted lettuce are coming out now, earlier than usual, leaving bare soil sitting empty right now. "Sow now, eat all winter" (card 2, still building) was written for exactly this pocket of the year, but it's one static list for everyone. Nothing on the site currently asks "what did you just pull up" and answers for the specific gap it left, at the reader's own postcode — and wisdom.md's single highest-confidence taste rule is precisely this: Kate has twice asked, unprompted, for content to *use* the postcode/frost engine rather than sit beside it (cards 2 and 7).
 - **Pitch:** a small interactive companion to "Sow now, eat all winter": pick what just came out (broad beans / garlic / first earlies / bolted lettuce / something else) and enter your postcode, and it names three or four things that will genuinely fit the weeks you've actually got left before your local first frost — plus the one it would sow itself. Same engine as the frost map and blight watch, so no new data source, just a new door onto data the site already has.
