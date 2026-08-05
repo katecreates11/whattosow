@@ -273,7 +273,8 @@ _**Recovered by The Dreamer, 1 August** — this run committed to a branch (`ide
 
 ### 19. "Why your tomatoes are splitting" — the drought-then-deluge rescue piece
 - **Type:** content
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-05 · via the potting bench
 - **Score:** High payoff / Low effort
 - **Evidence:** 2026 is England's driest spring since 1893, with a third heatwave and a Met Office red extreme-heat warning approaching 40°C, and eight water companies are now under hosepipe restrictions — Thames Water's 10.1 million customers joined on 23 July, the single largest ban in force. That exact rhythm, dry soil followed by a downpour or a rushed catch-up watering, is the textbook cause of tomato splitting and blossom-end rot (confirmed by RHS advice), and it's happening at scale right now. WTS's tomato guide currently gives it one FAQ sentence; nobody's written the "yours are already doing this, don't panic" piece for this summer specifically.
 - **Pitch:** the same recipe as "Why your seeds won't come up" (card 7, approved): a real current weather record, a plain one-paragraph explanation of the mechanism, then calm and practical steps — what to do with fruit that's already split (still perfectly good, use it today), how to even out watering from here within whatever a local ban allows, and the mulch trick that buys the most protection for the least water. Tie the postcode tool in the same way card 7 asked for: note whether the reader's own area is under a ban and adjust the advice's tone accordingly.
