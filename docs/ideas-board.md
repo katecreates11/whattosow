@@ -264,7 +264,9 @@ _**Recovered by The Dreamer, 1 August** — this run committed to a branch (`ide
 
 ### 18. "How does your veg measure up?" — a giant-vegetable comparison tool
 - **Type:** feature _(→ needs-spec on approval)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-05 · via the potting bench
+- **Note (Kate):** This is great, work on making this look good. If you need me to create visuals for you, let me know.  Can we also add a guide about how to measure your vegetables?
 - **Score:** High payoff / Medium effort · high delight + shareability
 - **Evidence:** Worcester Show's Giant Vegetable section is judged 9 August 2026; National Allotments Week runs 10–16 August with the theme "Grow to Learn" (card 9, already approved, covers Kate's own diary week — this is a different, tool-shaped angle); the CANNA UK National Giant Vegetables Championship follows at Malvern Autumn Show in September. Three dated events in the next 4–8 weeks, and WTS currently has nothing to say about a genuinely popular, funny corner of UK allotment culture, despite already carrying every crop it's about (courgette/marrow, runner bean, onion, leek) as playbook crops. The real Guinness World Record numbers exist and are citable (116.4kg heaviest marrow, 89.7cm longest runner bean, 254g heaviest runner-bean pod) — nobody's built the thing that lets an ordinary grower hold their own veg up against them.
 - **Pitch:** enter what you've grown and its weight or length, and it places yours on a simple filling scale next to a typical allotment-sized one and the real world record, with one honest, kind line either way ("yours would need to more than double to trouble the record — and it'll taste better for staying this size" or genuine praise if it's a big one). Playful, harmless, screenshot-shaped, and it fits the site's existing calculator lineage (frost map, blight watch, longest day) rather than inventing a new kind of thing.
