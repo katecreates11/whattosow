@@ -287,7 +287,8 @@ _The Dreamer's run of 1 August — one small addition, tagged `from-a-dream`. Ch
 
 ### 20. Sharpen the curing/storage guide's (card 13) potato section — close the "when to lift maincrop potatoes" gap
 - **Type:** content _(scope addition to proposed card 13, not yet built)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-05 · via the potting bench
 - **Source:** from-a-dream (The Dreamer, 2026-08-01)
 - **Score:** High payoff / Very low effort
 - **Evidence:** the SEO Watchdog's 28 July report independently named "when to lift maincrop potatoes" (foliage die-back, then a two-week wait for skins to set before store) as a live, unaddressed search gap on `/crops/potatoes` — built from live search data, no visibility into the board. Card 13 (the curing/storage guide, recovered onto the board last week, still unbuilt) already plans to cover potato storage as one of four crops, but its brief doesn't currently name the specific foliage-die-back and skin-set signals the Watchdog flagged as missing. Two different agents, two different evidence bases, same gap — cheap to fold in now, before card 13 is written; awkward to retrofit after.
