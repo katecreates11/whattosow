@@ -298,6 +298,33 @@ _The Dreamer's run of 1 August — one small addition, tagged `from-a-dream`. Ch
 - **Ready-to-queue brief:** fold into card 13's existing brief rather than shipping separately; no new target query beyond what card 13 already carries plus "when to lift maincrop potatoes uk"; links/voice unchanged from card 13.
 - **Added:** 2026-08-01 · **Run:** dream-2026-08-01
 
+---
+
+_The Dreamer's run of 8 August — one small addition, tagged `from-a-dream`.
+Checked against everything above; this isn't new content, it's a build note
+on an already-approved, not-yet-built card, so it gets its own yes rather
+than being assumed._
+
+### 21. Anchor card 18's giant-veg tool to Malvern, not Worcester
+- **Type:** feature _(scope addition to approved card 18, not yet built)_
+- **Status:** proposed
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 18 (approved 5 August) was pitched around two dated
+  shows — Worcester's Giant Vegetable class, judged 9 August, and the CANNA
+  UK National Giant Vegetables Championship at Malvern Autumn Show in
+  September. Worcester's judging lands the day after this dream, before the
+  Night Gardener can plausibly reach card 18 in the queue — six other
+  approved cards (13, 14, 16, 17, 19, 20) are ahead of it or arrived around
+  the same time (see wisdom.md §5). Malvern still has weeks of runway.
+- **Pitch:** no change to the tool itself — just lead the copy with Malvern
+  (September) as the live, upcoming event, and mention Worcester in the past
+  tense ("this year's Worcester winner already weighed in at...") rather
+  than as a countdown that will already have passed by the time this ships.
+- **Ready-to-queue brief:** fold into card 18's existing brief rather than
+  shipping separately; no new target query; the only change is which show
+  anchors the copy's tense.
+- **Added:** 2026-08-08 · **Run:** dream-2026-08-08
+
 ## Approved
 
 _(empty)_
