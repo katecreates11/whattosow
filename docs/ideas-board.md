@@ -298,6 +298,46 @@ _The Dreamer's run of 1 August — one small addition, tagged `from-a-dream`. Ch
 - **Ready-to-queue brief:** fold into card 13's existing brief rather than shipping separately; no new target query beyond what card 13 already carries plus "when to lift maincrop potatoes uk"; links/voice unchanged from card 13.
 - **Added:** 2026-08-01 · **Run:** dream-2026-08-01
 
+---
+
+_Shortlist from the Forager's run of 9 August — ranked best-first. Checked against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above before pitching; nothing here repeats a proposed, approved, parked or binned idea. Note for the bench: cards 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19 and 20 are all approved and still unbuilt — a genuinely large pile now. Not re-pitching any of it, just flagging it before adding four more._
+
+### 21. Order your spring bulbs now — daffodils, tulips and the plant-now-for-spring window
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** UK bulb suppliers (Bloms Bulbs, Bulbs.co.uk, DutchGrown, Jamieson Brothers) are already taking pre-orders for daffodil and tulip bulbs, shipping from September for autumn planting — daffodils plant now through October, tulips are best held to November to dodge tulip fire. WTS has zero bulb content anywhere: a direct grep across `src/data/crops.ts` and `src/app` confirms "daffodil" and "tulip" don't appear on the site once. Card 1 (the autumn garlic & onion hub) used exactly this plan-and-order-now shape and earned Kate's warmest note yet on the board ("good focus on getting those affiliate clicks as well as useful content") — bulbs are the same seasonal mechanic on ground WTS has never monetised before.
+- **Pitch:** a short seasonal hub in the same voice as the allium hub — why autumn planting gives real spring colour, the order-now-plant-later shape, a short shortlist (daffodils for naturalising, tulips to hold till November, ornamental alliums since the crop already sits right next to it), real affiliate links to a bulb supplier once availability is checked. Slots naturally next to the veg-beds story — colour at the allotment gate, not just food.
+- **Ready-to-queue brief:** target "when to plant daffodil bulbs uk" / "best time to order spring bulbs"; angle = plan-and-order-now, same shape as card 1; links → companion-planting (marigolds/nasturtiums already live there), autumn-planting-garlic-onions; voice = practical, gently timely, no "paradise/magical" language; **check Awin/affiliate partners stock spring bulbs before building — this is a new commercial category for WTS, not an extension of an existing one.**
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+### 22. Sweet peas: sow now for stronger, earlier flowers — and better beans next door
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** autumn-sown sweet peas (October–November, overwintered somewhere frost-free) flower three to four weeks earlier and grow stronger roots than spring-sown ones — a genuine, recurring "get ahead" UK query every autumn (BBC Gardeners' World, GrowVeg, SimplySeed all cover it). WTS's own companion-planting data already names sweet peas as a companion for runner beans and peas (checked `companion-planting/page.tsx` directly) — but there is no page anywhere on the site that tells a reader how to grow the sweet pea itself. A real, confirmed gap sitting right next to the site's #1-performing page.
+- **Pitch:** a warm, practical piece — why autumn sowing beats spring, a deep pot and a cold frame or unheated greenhouse over winter, pinching out the tip for a bushier plant, and the pay-off in June. Ends by turning the page back into the site's own strength: plant them by the beans and peas next spring, exactly as the companion data already promises.
+- **Ready-to-queue brief:** target "sow sweet peas autumn uk" / "autumn sown sweet peas vs spring"; angle = get-ahead, not a general grow-guide; links → companion-planting (the existing sweet-pea entries), peas, runner-beans; voice = "we've found" register, one concrete method, no soil-science lecture.
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+### 23. Bulb spacing & depth — a two-question planner for however many you've bought
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort · extends the site's calculator DNA onto new ground
+- **Evidence:** every bulb supplier's own advice page gives a rule of thumb (plant roughly 2–3× the bulb's own depth, about 3 bulb-widths apart) that a reader has to do the arithmetic on themselves, for their own bed and however many bulbs turned up in the bag. Kate has approved two calculator-DNA features already this summer specifically because they turn a static fact into something you play with (the Glut-o-meter's weighing metaphor, card 14's bed-filling green manure picker) — this is the same small move, a fraction of the effort of either, and it only earns its place if idea 21's bulb hub is approved first.
+- **Pitch:** pick a bulb type and roughly how many you've got (or the size of patch you want to fill), and it shows how deep and how far apart, with a simple filling-in bed visual — the same physical metaphor Kate has asked for twice now, applied to a bed filling with colour instead of a harvest or a green manure. No new data beyond what's already on any bulb's own packet.
+- **Ready-to-queue brief:** needs-spec — a small lookup table (5–6 common bulb types: daffodil, tulip, crocus, allium, hyacinth), a depth/spacing formula, one filling-bed visual, no metric tiles; only worth building once idea 21 exists to link from; affiliate = the same bulb supplier as idea 21.
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+### 24. Leaf mould — the free soil improver waiting in the corner you don't tidy
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort
+- **Evidence:** leaf fall properly begins late September into October, and every UK source on it (Garden Ninja, Garden UK, Selections) agrees the cage or bin-bag needs setting up before the leaves start coming down, not after. WTS's own composting guide (checked directly) never mentions leaf mould — it's a genuinely separate process (slow fungal breakdown, not the compost heap's bacterial one) and a free, evergreen thrift story the site hasn't told yet.
+- **Pitch:** a short, plain how-to — why leaves want their own quiet pile rather than the compost heap, the wire-cage or bin-bag method, how long to leave it (a year for mulch, two for a fine seed compost), and where it earns its keep on the plot. Same thrift-and-patience voice as the seed-saving pieces (cards 10/15), for free instead of a purchase.
+- **Ready-to-queue brief:** target "how to make leaf mould uk" / "what to do with autumn leaves"; angle = free soil improver, set the cage up before the leaves fall; links → composting, preparing-your-plot-for-winter; voice = plain and patient, no urgency-mongering — this is a slow, free thing, and the copy should feel unhurried.
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
 ## Approved
 
 _(empty)_
