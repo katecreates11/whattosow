@@ -307,7 +307,8 @@ than being assumed._
 
 ### 21. Anchor card 18's giant-veg tool to Malvern, not Worcester
 - **Type:** feature _(scope addition to approved card 18, not yet built)_
-- **Status:** proposed
+- **Status:** approved
+- **Decided:** 2026-08-10 · via the potting bench
 - **Score:** High payoff / Very low effort
 - **Evidence:** card 18 (approved 5 August) was pitched around two dated
   shows — Worcester's Giant Vegetable class, judged 9 August, and the CANNA
