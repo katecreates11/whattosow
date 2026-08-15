@@ -326,6 +326,123 @@ than being assumed._
   anchors the copy's tense.
 - **Added:** 2026-08-08 · **Run:** dream-2026-08-08
 
+---
+
+_**Recovered by The Dreamer, 15 August** — two more Forager runs (2 and 9
+August) committed to branches instead of `main`, the same pipeline bug that
+hit the 19 and 26 July runs. Recovered here, unedited apart from renumbering
+to avoid colliding with cards already added to the board in between (both
+runs branched before card 21 existed) — see `docs/dreams/wisdom.md` §5,
+which now treats this as a crew-wide bug, not a Forager-specific one._
+
+_Shortlist from the Forager's run of 2 August — ranked best-first. Note for
+the bench: cards 1, 2, 5, 7–20 were all approved or building by this point;
+not re-pitching any of it._
+
+### 22. A third SnapNote — heat stress and red spider mite, not just cold
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** the BBC reported an "explosion" of flower- and leaf-eating pests this summer — red spider mite breeds rapidly once it's hot, and the driest July on record (England received just 7% of its long-term average rainfall) has kept conditions exactly right for it, with GOV.UK's drought bulletin warning restrictions may extend into August as reservoirs sit ~9.5% below their long-term average. Checked the whole `/guides/pests` page directly: it covers slugs, aphids and blight in detail but has no spider mite content at all — a real, current gap, not a guess. Separately, `ColdSnapNote` (built for card 2, kept) is the one feature pattern Kate has approved and had built exactly as asked, twice — and `docs/dreams/wisdom.md` names it as an open thread: only two SnapNotes exist so far (cold arriving, heat stalling germination) and no third pitch in this vein had appeared yet. This is that third pitch.
+- **Pitch:** a `HeatSnapNote` in the same shape as `ColdSnapNote` — no new page, no new design pattern. It reuses the weather plumbing that already powers Blight Watch and the watering guide to say plainly whether the reader's own patch has had the run of heat and dryness that breeds spider mite, names the tell (fine pale stippling on leaves, a faint webbing under close inspection, especially on tomatoes and cucumbers under glass), and leads with the free fix — a firm hose-down of the leaf undersides, since mites hate the humidity they can't stand. Only for a genuinely bad infestation does it mention the organic answer, predatory mites, as a bought-in fix. Sits on tomato, cucumber, courgette and pepper/chilli crop pages, plus a short new section in the pests guide it can link to.
+- **Ready-to-queue brief:** feature → light spec (reuse `ColdSnapNote`'s component shape and the existing `weather-intelligence`/`weather-history` data, no new infrastructure); needs one small addition to `/guides/pests` (a spider mite section — currently entirely absent); crops: tomatoes, cucumbers, courgettes, peppers/chillies; affiliate = predatory mite sachets, gated to the worst tier only, water advice always leads; voice = matter-of-fact and reassuring, no alarm about "an explosion of pests."
+- **Added:** 2026-08-02 · **Run:** forager-2026-08-02
+
+### 23. When are your apples actually ready? — the test nobody explains
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** read the entire `growing-fruit` guide directly (650 lines): it covers strawberries, raspberries, blackcurrants, gooseberries, redcurrants, blackberries and rhubarb — every soft fruit — and mentions apples or pears precisely nowhere. **The site has no top-fruit content at all.** RHS names "harvesting top fruit such as apples and pears" as one of September's headline jobs, and "how do I tell when an apple is ripe" is a real, recurring, evergreen query (colour lies — many varieties change colour weeks before they're actually ready) with no single brilliant UK answer currently ranking.
+- **Pitch:** a short, practical piece solving the actual frustration — the lift-and-twist test (cup it, lift, twist gently; it should come away clean with the stalk on; never pull straight down, it damages next year's fruiting spur), the pip check if you're still unsure (cut one open — brown pips mean ripe, pale means wait), and why picking a tree little and often beats stripping it in one go. A short closing note on storage — cool, dark, laid out not touching — because a bruised apple won't keep, whatever the tree told you. The site's first-ever fruit-tree page, on the exact week it matters.
+- **Ready-to-queue brief:** target "when are apples ripe uk" / "how to tell when to pick apples"; angle = the test, not the orchard science; links → growing-fruit guide (add a top-fruit cross-link once this exists), storage note can nod at the curing piece (card 13) if it's live by then; voice = plain, one concrete test, no lecture; **honest monetisation note:** no apple-specific product (picker, storage trays) exists in `kit.ts` yet — first draft should go affiliate-light rather than force a buy-point that isn't sourced.
+- **Added:** 2026-08-02 · **Run:** forager-2026-08-02
+
+### 24. Your first vegetable show — and how yours measures up
+- **Type:** content _(with a small feature companion → needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low–medium effort
+- **Evidence:** the RHS runs its own dedicated page, "Prizeworthy peas? Top tips for entering your first local show" — confirmation this is a real, standing query, not a niche guess. August–September is UK produce-show season: local allotment and village shows cluster here, and the Malvern Autumn Show's Canna UK National Giant Vegetables Championship (record leeks, parsnips, cabbages) runs in this window too. WTS has zero content on showing produce — checked, nothing exists. This sits right beside National Allotments Week (card 9) without repeating it: card 9 is Kate's own diary from her plot; this is practical, judge's-eye advice for anyone thinking of entering.
+- **Pitch:** a warm, practical how-to — read the schedule properly and enter exactly what it asks for (three courgettes means three, not four for luck), harvest as close to show day as you can bear, what a judge is actually looking for (uniformity, no blemishes, matched pairs, not just size). A small, gentle delight alongside it: one field where a reader can enter their own marrow, onion or courgette's weight or length and see it set against the real UK record-holders — styled as a simple ruler-or-scale line in the site's calculator voice, not a form or a leaderboard. The comparison stays kind ("yours is a third of the record — plenty to be proud of"), never competitive-mean.
+- **Ready-to-queue brief:** target "how to enter a vegetable show uk" / "tips for showing vegetables"; angle = the judge's eye, not a diary — keep this distinct from card 9; links → dealing-with-the-glut, growing-squash-pumpkins-courgettes; voice = warm and encouraging throughout, the record line especially; feature companion needs a light spec — one input, one comparison sentence, explicitly **no leaderboard or comparison table** (ANTI_PATTERNS §1/§3). Note: overlaps card 18/21's giant-veg comparison tool in spirit — worth Kate deciding whether this folds into that tool's crop list rather than shipping a second comparison feature.
+- **Added:** 2026-08-02 · **Run:** forager-2026-08-02
+
+---
+
+_Shortlist from the Forager's run of 9 August — ranked best-first. Note for
+the bench: cards 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20 and 22–24
+were all approved and still unbuilt or freshly recovered by this point — a
+genuinely large pile. Not re-pitching any of it, just flagging it before
+adding four more._
+
+### 25. Order your spring bulbs now — daffodils, tulips and the plant-now-for-spring window
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** UK bulb suppliers (Bloms Bulbs, Bulbs.co.uk, DutchGrown, Jamieson Brothers) are already taking pre-orders for daffodil and tulip bulbs, shipping from September for autumn planting — daffodils plant now through October, tulips are best held to November to dodge tulip fire. WTS has zero bulb content anywhere: a direct grep across `src/data/crops.ts` and `src/app` confirms "daffodil" and "tulip" don't appear on the site once. Card 1 (the autumn garlic & onion hub) used exactly this plan-and-order-now shape and earned Kate's warmest note yet on the board ("good focus on getting those affiliate clicks as well as useful content") — bulbs are the same seasonal mechanic on ground WTS has never monetised before.
+- **Pitch:** a short seasonal hub in the same voice as the allium hub — why autumn planting gives real spring colour, the order-now-plant-later shape, a short shortlist (daffodils for naturalising, tulips to hold till November, ornamental alliums since the crop already sits right next to it), real affiliate links to a bulb supplier once availability is checked. Slots naturally next to the veg-beds story — colour at the allotment gate, not just food.
+- **Ready-to-queue brief:** target "when to plant daffodil bulbs uk" / "best time to order spring bulbs"; angle = plan-and-order-now, same shape as card 1; links → companion-planting (marigolds/nasturtiums already live there), autumn-planting-garlic-onions; voice = practical, gently timely, no "paradise/magical" language; **check Awin/affiliate partners stock spring bulbs before building — this is a new commercial category for WTS, not an extension of an existing one.**
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+### 26. Sweet peas: sow now for stronger, earlier flowers — and better beans next door
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** autumn-sown sweet peas (October–November, overwintered somewhere frost-free) flower three to four weeks earlier and grow stronger roots than spring-sown ones — a genuine, recurring "get ahead" UK query every autumn (BBC Gardeners' World, GrowVeg, SimplySeed all cover it). WTS's own companion-planting data already names sweet peas as a companion for runner beans and peas (checked `companion-planting/page.tsx` directly) — but there is no page anywhere on the site that tells a reader how to grow the sweet pea itself. A real, confirmed gap sitting right next to the site's #1-performing page.
+- **Pitch:** a warm, practical piece — why autumn sowing beats spring, a deep pot and a cold frame or unheated greenhouse over winter, pinching out the tip for a bushier plant, and the pay-off in June. Ends by turning the page back into the site's own strength: plant them by the beans and peas next spring, exactly as the companion data already promises.
+- **Ready-to-queue brief:** target "sow sweet peas autumn uk" / "autumn sown sweet peas vs spring"; angle = get-ahead, not a general grow-guide; links → companion-planting (the existing sweet-pea entries), peas, runner-beans; voice = "we've found" register, one concrete method, no soil-science lecture.
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+### 27. Bulb spacing & depth — a two-question planner for however many you've bought
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort · extends the site's calculator DNA onto new ground
+- **Evidence:** every bulb supplier's own advice page gives a rule of thumb (plant roughly 2–3× the bulb's own depth, about 3 bulb-widths apart) that a reader has to do the arithmetic on themselves, for their own bed and however many bulbs turned up in the bag. Kate has approved calculator-DNA features already this summer specifically because they turn a static fact into something you play with (the Glut-o-meter's weighing metaphor, card 14's bed-filling green manure picker) — this is the same small move, a fraction of the effort of either, and it only earns its place if card 25's bulb hub is approved first.
+- **Pitch:** pick a bulb type and roughly how many you've got (or the size of patch you want to fill), and it shows how deep and how far apart, with a simple filling-in bed visual — the same physical metaphor Kate has asked for twice now, applied to a bed filling with colour instead of a harvest or a green manure. No new data beyond what's already on any bulb's own packet.
+- **Ready-to-queue brief:** needs-spec — a small lookup table (5–6 common bulb types: daffodil, tulip, crocus, allium, hyacinth), a depth/spacing formula, one filling-bed visual, no metric tiles; only worth building once card 25 exists to link from; affiliate = the same bulb supplier as card 25.
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+### 28. Leaf mould — the free soil improver waiting in the corner you don't tidy
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort
+- **Evidence:** leaf fall properly begins late September into October, and every UK source on it (Garden Ninja, Garden UK, Selections) agrees the cage or bin-bag needs setting up before the leaves start coming down, not after. WTS's own composting guide (checked directly) never mentions leaf mould — it's a genuinely separate process (slow fungal breakdown, not the compost heap's bacterial one) and a free, evergreen thrift story the site hasn't told yet.
+- **Pitch:** a short, plain how-to — why leaves want their own quiet pile rather than the compost heap, the wire-cage or bin-bag method, how long to leave it (a year for mulch, two for a fine seed compost), and where it earns its keep on the plot. Same thrift-and-patience voice as the seed-saving pieces (cards 10/15), for free instead of a purchase.
+- **Ready-to-queue brief:** target "how to make leaf mould uk" / "what to do with autumn leaves"; angle = free soil improver, set the cage up before the leaves fall; links → composting, preparing-your-plot-for-winter; voice = plain and patient, no urgency-mongering — this is a slow, free thing, and the copy should feel unhurried.
+- **Added:** 2026-08-09 · **Run:** forager-2026-08-09
+
+---
+
+_The Dreamer's run of 15 August — one small addition, tagged `from-a-dream`.
+Checked against everything above; this isn't new content, it's a build note
+on an already-approved, not-yet-built card, so it gets its own yes rather
+than being assumed._
+
+### 29. Let card 9 be a look-back, not a live diary — its own week has passed
+- **Type:** content _(scope addition to approved card 9, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-08-15)
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 9 was approved 13 July, specifically for National
+  Allotments Week (10–16 August), with Kate's own note that she's "learnt a
+  lot" and feels "much more connected" to her food since getting the plot.
+  The Night Gardener hasn't opened a new build since 5 August (PR #3 has
+  held its one build slot since — see `docs/dreams/wisdom.md` §5), so the
+  week will end (tomorrow) with the piece unwritten. Card 21 already set the
+  precedent this week for handling an expired hook honestly rather than
+  dropping the idea: anchor the copy to whatever window still has runway,
+  in the past tense where the original one has closed.
+- **Pitch:** no change to the piece's substance — just don't write it as if
+  it's happening live once the week itself has passed. A genuine
+  look-back ("last week was National Allotments Week, and here's what mine
+  looked like") reads as truer diary voice than a dated post claiming to be
+  mid-week after the fact, and it's the one framing that stays honest
+  whenever the Night Gardener actually reaches it.
+- **Ready-to-queue brief:** fold into card 9's existing brief; the only
+  change is tense — past, not present — and dropping any line that implies
+  it published during the week itself; everything else (voice, links,
+  no-listicle instruction) stays as originally approved.
+- **Added:** 2026-08-15 · **Run:** dream-2026-08-15
+
 ## Approved
 
 _(empty)_
