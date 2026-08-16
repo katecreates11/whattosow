@@ -326,6 +326,37 @@ than being assumed._
   anchors the copy's tense.
 - **Added:** 2026-08-08 · **Run:** dream-2026-08-08
 
+---
+
+_Shortlist from the Forager's run of 16 August — ranked best-first. Checked against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above before pitching; nothing here repeats a proposed, approved, parked or binned idea. Note: cards 7–21 (bar 3, 6 and 15, all parked) are approved and still unbuilt — the backlog wisdom.md flags in §5 hasn't moved; not re-pitching any of them, just naming it so this run isn't read as ignoring it._
+
+### 22. "Bring it in, or leave it out?" — the first-frost rescue triage
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's calculator DNA
+- **Evidence:** Met Office HadUK-Grid averages (1991–2020) put the UK's first autumn frost anywhere from late October in the Scottish Highlands to December or later on the mild south-west coast, with most inland areas landing in the first ten days of November — a five-to-eight-week regional spread the site's frost-map already knows, but only for the *last* spring frost, never the first one coming back round. WTS has `protecting-vegetables-from-frost`, a solid static guide on fleece vs cloches, but it isn't personalised and doesn't triage what a reader is actually growing. Two of wisdom.md's highest-confidence taste rules point straight at the gap: personalising content through the postcode/frost engine rather than describing it (proven twice — cards 2 and 7) and interactive features wanting a physical, visual metaphor rather than a form (proven three times — the Glut-o-meter, the catch-crop finder, the giant-veg tool).
+- **Pitch:** reuse the frost-map's own regional data, run it forward instead of back, and ask one simple question — what are you still growing? (tomatoes, chillies and peppers, aubergines, squash and pumpkins still ripening, or "just the hardy stuff"). For each, a plain verdict against the reader's own first-frost estimate: bring it in this weekend, you've a fortnight yet, or it can stay put, it doesn't mind the cold. Visual metaphor: plants move from an outdoor bed into a cosy shed/windowsill scene as the countdown ticks down — the "weighing it up" instinct Kate asked for on the Glut-o-meter, applied to a calendar instead of a scale. A natural, honest home for the fleece/cloche links already sat in the frost-protection guide, now placed at the exact moment someone needs them.
+- **Ready-to-queue brief:** feature → needs-spec — reuses frost-map's regional frost-date data plus a short crop picker keyed to tender crops already in `crops.ts`; links → protecting-vegetables-from-frost (deep dive), relevant crop pages; affiliate = the fleece/cloche/cold-frame links already live on the frost guide, carried across, not duplicated; design = one verdict sentence first, the countdown whispered in mono beneath, a short honest list of crops rather than a chip cloud of every possible one; aim to ship by mid-September so it has runway through October and November.
+- **Added:** 2026-08-16 · **Run:** forager-2026-08-16
+
+### 23. Timing your pumpkin for Halloween, not for the compost heap
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** UK coverage of "when to pick a pumpkin for Halloween" and "how to store it so it lasts" is dense but shop- and pick-your-own-farm led (Foxes Farm, Hackney Gazette, Beck Evans Farm, Gardenninja) — every result assumes the reader bought or picked the pumpkin that week, none assume they grew it themselves from seed back in May. WTS's own pumpkins crop page already lists Jack O'Lantern as "the classic carving pumpkin," but nothing on the site tells a grower when to cut their own fruit so it survives to 31 October rather than going soft in the shed three weeks early — a genuinely different problem, since a home-grown pumpkin is still ripening on the vine right through September. Malvern Autumn Show's giant-pumpkin weekend (25–27 September, already anchoring card 18/21) sits in the same window.
+- **Pitch:** a short, practical piece for the grower, not the shopper — how to tell a pumpkin's properly ripe (skin gone hard, stem starting to shrivel, a hollow knock), why cutting it too early leaves it soft by the big night, curing it in the sun for a week to toughen the skin, then keeping it cool, dry and off damp ground until carving. A genuinely useful split: carving varieties (thick-skinned, showy, middling flavour) versus the ones worth saving for the pot (Crown Prince, Uchiki Kuri) — so nobody carves the good eating pumpkin by accident. Ties the postcode/frost tool in exactly the way wisdom.md's top-confidence rule asks for: a plain note on whether the reader's own first frost is likely to arrive before Halloween, since a frost can blacken an unharvested pumpkin overnight.
+- **Ready-to-queue brief:** target "when to pick a pumpkin for Halloween" / "how to store a pumpkin so it lasts" / "carving pumpkin vs eating pumpkin"; angle = the grow-your-own version nobody's written; links ← growing-squash-pumpkins-courgettes, → card 13's curing guide once live, /crops/pumpkins; affiliate = next year's carving-variety seeds as the forward-looking buy point once this year's is picked ("already planning next year's monster? here's the seed to order"), never mid-article; voice = plain and warm, no frost scare-mongering, ends facing forward to next year's seed order.
+- **Added:** 2026-08-16 · **Run:** forager-2026-08-16
+
+### 24. Leaf mould — the free compost hiding under every tree
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** a genuine, checked gap — WTS's `composting` and `soil` guides mention leaf mould only in passing (no dedicated page exists), while RHS, Thrive, Gardenninja and most of the competitor set carry a full how-to. Leaves start falling in volume from late September, and every source agrees on the same rule: collect them damp, from October, while they're falling — meaning the piece needs to exist before the leaves do, not after. Evergreen, needs no data, and it's thrift and closing-the-loop through and through, the register the site already writes best (seed-saving, the glut, curing) applied to the other free harvest of the year: what falls off the trees instead of what comes off the beds.
+- **Pitch:** a short, warm how-to — a black bin bag with a few fork-holes for a small garden, a simple wire cage for a bigger plot, why damp leaves rot faster than dry ones, and what a year (rough mulch) versus two years (fine, sieved, good enough for seed-sowing) actually gets you. Links back into the soil and composting guides rather than duplicating them, and gives the site's compost-and-thrift voice a proper home instead of two passing mentions.
+- **Ready-to-queue brief:** target "how to make leaf mould UK" / "what to do with autumn leaves"; angle = free soil improver, not a chore; links ← composting, soil, → crop-rotation; affiliate = a leaf-collection cage or heavy-duty leaf sacks as the one honest buy-point for anyone without space for a homemade wire bin; voice = plain, thrifty, "we've found" register, no ceremony.
+- **Added:** 2026-08-16 · **Run:** forager-2026-08-16
+
 ## Approved
 
 _(empty)_
