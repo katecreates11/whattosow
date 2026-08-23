@@ -443,6 +443,59 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 23 August — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked or
+binned idea. Note for the bench: the board is carrying a very large unbuilt
+pile now (cards 5, 7–14, 16–20, 22–29 all sitting approved or proposed) —
+not re-pitching any of it, and keeping this week's list to four cards
+rather than padding to five, since a fifth genuinely fresh, evidence-backed
+idea didn't clear the bar. The heat/drought story (cards 8, 12, 16, 19, 22)
+has escalated hard since it was last written — drought was formally
+declared across most of England on 10 August, and Kew hit 38.1°C on 13
+August, the UK's fifth-hottest day on record — but that's more reason to
+build what's already approved than to add a sixth card on the same topic._
+
+### 30. "What did your garden save you this year?" — a grow-your-own value check
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's proven calculator DNA
+- **Evidence:** 35% of UK shoppers say they've considered growing their own fruit or veg because of food prices (MyBuilder.com, reported this year), and UK food-price inflation is still running well above the long-term average. The commonly-cited numbers are concrete and checkable: a £2–3 packet of tomato seed can save roughly £50 a year against a weekly box, a lettuce packet roughly £40 a year in cut-and-come-again leaves. Checked the whole site directly: nothing on What To Sow currently answers "is this actually worth it" — every calculator so far (frost map, longest day, blight watch) is about timing or risk, never value. `docs/dreams/wisdom.md` names calculator-DNA features as the crew's single easiest sell to Kate, with zero rejections to date.
+- **Pitch:** pick what you're growing this year from a short list (tomatoes, courgettes, salad leaves, French beans, potatoes, a "something else" catch-all) and roughly how many you've got in, and it fills a trug with what that would have cost at the shops — one interpreted sentence first ("that's roughly £140 of veg, for about £15 of seed"), the running total whispered in mono beneath, never a spreadsheet of line items. Ends by naming the one seed packet that pays for itself fastest this month, with a real link. Honest about the catch: it asks nothing about time, tools or a bad slug year, and says so in one plain line rather than pretending the maths is the whole story.
+- **Ready-to-queue brief:** feature → needs-spec (a small crop→typical-yield→shop-price lookup, 6–8 crops to start, sourced from real supermarket prices rather than invented); design = a filling trug or basket, the physical metaphor Kate has asked for twice now (Glut-o-meter's weighing scale, the giant-veg tool's filling bar), never a table of numbers; affiliate = the seed link for whichever crop earns back its cost fastest, one buy-point, not one per crop; voice = plain and honest about the limits of the maths, no "unlock your savings" framing.
+- **Added:** 2026-08-23 · **Run:** forager-2026-08-23
+
+### 31. Don't compost them yet — what to do with green tomatoes before the first frost
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** read `growing-tomatoes-outdoors-vs-greenhouse` directly (all 298-odd lines): it covers splitting, feeding and ripening on the vine in detail, but says nothing about what to do with the fruit still green when the vines come out. This is a different moment from card 19 (approved, still unbuilt) — that piece is about splitting mid-season from drought-then-deluge; this is the end-of-season rescue, and it closes on a real date: the UK-average first autumn frost sits around 25 October, the same figure `ColdSnapNote` already uses. Every source we checked (Sunday Gardener, Grow a Good Life, Farmers' Almanac) agrees on the same two honest methods — paper bag with a banana, or the whole plant pulled and hung somewhere dark — and none of it is currently on the site.
+- **Pitch:** a short, reassuring piece for the exact moment the season turns: which tomatoes are worth saving (full-sized and just turning, not tiny green ones), the paper-bag trick, hanging the whole plant upside down in a shed or garage as the low-effort option, and a nod to green tomato chutney for the ones that never do ripen. Ends facing forward, not apologising for the calendar — this is the last good use of a plant that's given all summer, not a failure.
+- **Ready-to-queue brief:** target "what to do with green tomatoes before frost" / "how to ripen green tomatoes UK"; angle = the last good use, not a loss; links → growing-tomatoes-outdoors-vs-greenhouse, tomato-blight, and card 19's splitting piece once it's live; voice = "we've found" register, one or two concrete methods, no soil science; light monetisation only if it's genuinely earned (a chutney pan or preserving jars, one mention, never a hard sell).
+- **Added:** 2026-08-23 · **Run:** forager-2026-08-23
+
+### 32. When to pick your Halloween pumpkin — and how to keep it that way
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** read `growing-squash-pumpkins-courgettes` directly: it covers curing and storing eating squash in real detail, but never once mentions Halloween or carving — a completely different question with its own, very real failure mode (pick too early and a carved pumpkin has gone soft and sunken well before the 31st; leave it too late and there's nothing left to choose from). Every UK source checked agrees on the same window: pick uncarved in early-to-mid October, keep it cool and dry, and carve only in the final few days before Halloween. Zero mentions of "Halloween" or "carving" anywhere on the site currently — a clean, dated, family-friendly gap that closes on a fixed date.
+- **Pitch:** a short, warm piece answering the two real questions — when to cut yours from the plant (once it's fully coloured and the stem's begun to cork, same signal the site already uses for eating pumpkins) and how to make sure it's still good on the night (somewhere cool and dry until a few days before, carve late, not early). A gentle nod to the difference between a carving pumpkin and an eating one, since they're not always the same plant. Naturally links the site's existing pumpkin-growing content to a moment every family with a plot actually cares about.
+- **Ready-to-queue brief:** target "when to pick pumpkins for Halloween UK" / "how to keep a carved pumpkin fresh"; angle = timing, not growing-from-scratch (that's the existing guide's job); links → growing-squash-pumpkins-courgettes, card 18's giant-veg tool once it's live (pumpkins are one of its scoped crops); voice = warm and a little playful, this is the one guide on the site allowed a smile about a carved face; no affiliate push needed — a genuinely low-commerce, high-goodwill piece.
+- **Added:** 2026-08-23 · **Run:** forager-2026-08-23
+
+### 33. Order your soft fruit bare-root — raspberries, currants and rhubarb for winter planting
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low–medium effort
+- **Evidence:** UK fruit nurseries (Ashridge, D.T. Brown, Suttons, Dobies) are already taking pre-orders now for bare-root raspberry canes, currant and gooseberry bushes and rhubarb crowns, dispatching November through March while the plants are dormant — bare-root is both the cheapest way to buy them and the best-establishing. Checked `growing-fruit` directly: it mentions the November–March bare-root window as a factual FAQ line, but the site has never run a plan-and-order-now hub for it the way it does for alliums (card 1) and is about to for bulbs (card 25, proposed). Card 1 earned Kate's warmest note on the board for exactly this shape ("good focus on getting those affiliate clicks as well as useful content") — this is genuinely new commercial ground (soft fruit has no affiliate presence on the site today), not a repeat of an existing category.
+- **Pitch:** a short seasonal hub in the same voice as the allium hub — why bare-root beats a pot-grown plant for both price and how well it settles in, a shortlist of the easiest starts (raspberry canes, a blackcurrant bush, a rhubarb crown), and real links to order now for winter delivery. Sits naturally beside `growing-fruit` and gives the site's first real fruit-buying moment.
+- **Ready-to-queue brief:** target "bare root fruit bushes uk" / "when to order raspberry canes"; angle = plan-and-order-now, same shape as card 1; links → growing-fruit, dealing-with-the-glut (next year's glut starts here); voice = practical, gently timely, no "paradise" language; **check Awin/affiliate partners actually stock bare-root soft fruit before building — this is a new commercial category for WTS, not an extension of an existing one, same caution as card 25's bulbs.**
+- **Added:** 2026-08-23 · **Run:** forager-2026-08-23
+
+---
+
 ## Approved
 
 _(empty)_
