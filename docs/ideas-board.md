@@ -443,6 +443,45 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 30 August — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked or
+binned idea, including the drought/heat run (cards 7, 8, 12, 16, 19, 22)
+and the order-now pattern already live via cards 1 and 25. Three cards,
+not five — a fourth and fifth didn't clear the bar this week, and the
+build queue is already long (wisdom.md §5) without padding it further._
+
+### 30. Race the frost — how many days has your harvest got left?
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Low effort · extends the postcode/frost engine onto new ground
+- **Evidence:** England had its driest July on record and was 71.3% in drought by 10 August (National Drought Group) — but by 27 August, heavy rain had brought over 40 flood alerts, the same swing that's about to turn attention from "will it rain" to "when's the frost." `src/lib/frost.ts` already has `calculateFirstAutumnFrostDate` — a working first-autumn-frost estimate (base ~25 October at 50°N, adjusted per location) sitting behind the frost map, currently only used for the spring-frost display. Separately, "green tomato chutney" is a genuine, recurring UK autumn search every year — the classic problem is a vine still carrying 20–50 unripe tomatoes when the first frost is forecast — and a direct check of `dealing-with-the-glut` and `tomato-blight` found chutney mentioned only in passing, three one-line asides, never a dedicated piece answering "will mine make it, or should I pick now?"
+- **Pitch:** pick what's still out there — tomatoes, squash, chillies, French beans, a potted aubergine — enter your postcode, and it says plainly how many weeks of grace your own patch typically has left before the first frost, and the one honest thing to do about each crop (leave it, pick and ripen on a windowsill, or bring the pot in tonight). No new data or engine — just a new door onto the frost calculation the site already runs, in the site's countdown-not-metric-tile voice: one sentence of judgement, the days-left number whispered in mono beneath. Ends by pointing at the green tomato chutney piece (once written) for whatever comes off green.
+- **Ready-to-queue brief:** needs-spec — reuses `frost.ts`'s existing `calculateFirstAutumnFrostDate`, no new data source; crop list pulled from `crops.ts`'s tender/frost-sensitive flags already in place; UI = a short picker + postcode, one interpreted sentence, mono footnote beneath (days to first frost, worked out for the reader's own pattern), no metric tiles, no chip cloud, per DIRECTION §7; visual = a countdown or filling bar, the same physical-metaphor instinct behind the Glut-o-meter and the green-manure bed-filler; links → protecting-vegetables-from-frost, growing-tomatoes-outdoors-vs-greenhouse, the curing/storage guide (card 13) once live.
+- **Added:** 2026-08-30 · **Run:** forager-2026-08-30
+
+### 31. Order your bare-root fruit trees now — before the winter price rise
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** UK bare-root fruit trees are on sale now for the November–March planting season, and at least one major nursery (Blackmoor) is explicit that ordering now avoids an October price increase — the ordering window is open and narrowing right now. WTS's affiliate partners Suttons and Dobies (already Awin-linked, per card 1's evidence) both stock bare-root fruit trees. A direct check of `growing-fruit` (650 lines, read in full for card 23) confirms it covers every soft fruit and rhubarb but apples and pears appear nowhere — **WTS has zero top-fruit content of any kind**, commercial or editorial. This is a genuinely new commercial category, not an extension of one already monetised.
+- **Pitch:** a short seasonal hub in the shape that earned Kate's warmest note on the board (card 1: "good focus on getting those affiliate clicks as well as useful content") — why bare-root beats a container tree (cheaper, better root establishment, wider variety choice), what actually matters when choosing one for a small plot (rootstock size, not just the variety name), and a shortlist of easy, reliable apples and pears for UK gardens, with real links once availability's confirmed. Plants the seed now for delivery and planting once the bare-root season proper begins in November.
+- **Ready-to-queue brief:** target "bare root fruit trees uk" / "when to order fruit trees uk"; angle = order-now-plant-later, same shape as card 1; links → growing-fruit (add a top-fruit cross-link once this exists), card 23's apple-ripeness piece once live; voice = practical, gently timely, no "transform your garden" language; **check Awin has bare-root fruit tree products live at Suttons/Dobies before building — this is a new commercial category for WTS, not an extension of an existing one** (same caveat card 25 carried for bulbs, and for the same reason).
+- **Added:** 2026-08-30 · **Run:** forager-2026-08-30
+
+### 32. The rain's back — and so is blight
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** the same drought that pushed 71.3% of England into official drought by 10 August broke in the last week of August — heavy rain brought over 40 flood alerts by the 27th. Blight thrives on exactly this swing: UK growers track it by the Hutton Criteria, two consecutive days above 10°C overnight with six or more hours at 90% humidity, and a run of wet days after a long dry, muggy spell is precisely when spores spread fastest — risk is a June–September concern, so this is still live. WTS already built Blight Watch, a genuinely useful live risk map, but nothing on the site currently tells a reader *why now* — the existing `tomato-blight` guide explains the mechanism in general terms but carries no tie to this specific, current turn in the weather.
+- **Pitch:** the same recipe as cards 7, 19 and 22 (a real current weather turn, one plain paragraph on the mechanism, calm practical steps), but for the flip side of the drought story: the rain everyone's been glad of is exactly what blight was waiting for. Keep foliage dry from here (water the base, not overhead), check plants daily, and go and look at Blight Watch for your own area's current reading rather than guessing. A genuinely useful nudge toward a built tool that's had no editorial push behind it yet.
+- **Ready-to-queue brief:** target "blight risk after rain uk" / "will the rain cause blight"; angle = the story continues, don't scare, just explain; links → /blight-watch (the real point of the piece), tomato-blight, dealing-with-the-glut ("harvest ahead of it" advice already lives there); voice = calm, matter-of-fact, no scaremongering about the rain itself — everyone's glad of it, this is just the trade-off.
+- **Added:** 2026-08-30 · **Run:** forager-2026-08-30
+
+---
+
 ## Approved
 
 _(empty)_
