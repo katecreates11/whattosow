@@ -6,6 +6,9 @@ import ServerSeasonalAnswer from "@/components/ServerSeasonalAnswer";
 import SowGreeting from "@/components/SowGreeting";
 import { sowGreetingMonthPhrase } from "@/data/sow-greetings";
 import { getServerSeasonalAnswer } from "@/lib/server-seasonal-answer";
+import { getSeasonalTime } from "@/lib/seasonal-time";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "What to Sow Now — by your postcode | What To Sow",
@@ -15,7 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SowPage() {
-  const answer = getServerSeasonalAnswer();
+  const seasonal = getSeasonalTime();
+  const answer = getServerSeasonalAnswer(seasonal.now);
   const weekOf = answer.now.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
   const monthPhrase = sowGreetingMonthPhrase(answer.monthIndex);
 
@@ -50,7 +54,7 @@ export default function SowPage() {
 
         <section id="kit" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-t border-earth/10 bg-sage/25 scroll-mt-20">
           <div className="max-w-5xl mx-auto">
-            <SeasonalKitEdit variant="full" />
+            <SeasonalKitEdit variant="full" month={seasonal.monthIndex} />
           </div>
         </section>
 

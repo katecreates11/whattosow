@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LeafSprig } from "./SVGIllustrations";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 
 function StickyNavBar() {
   return (
@@ -30,7 +31,7 @@ function StickyNavBar() {
 }
 
 function SeasonalTagline() {
-  const month = new Date().getMonth();
+  const month = getSeasonalTime().monthIndex;
   if (month >= 2 && month <= 4) return "It\u2019s spring \u2014 the soil is waking up.";
   if (month >= 5 && month <= 7) return "It\u2019s summer \u2014 keep sowing, keep watering.";
   if (month >= 8 && month <= 10) return "It\u2019s autumn \u2014 harvest and plan ahead.";

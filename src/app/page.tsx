@@ -22,6 +22,9 @@ import AffiliateLink from "@/components/AffiliateLink";
 import WateringNote from "@/components/WateringNote";
 import { formatDaylight, getSunTimes } from "@/lib/astronomy";
 import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
+import { getSeasonalTime } from "@/lib/seasonal-time";
+
+export const revalidate = 3600;
 
 export default function Home() {
   const jsonLd = {
@@ -40,7 +43,8 @@ export default function Home() {
     },
   };
 
-  const now = new Date();
+  const seasonal = getSeasonalTime();
+  const now = seasonal.now;
   const daylight = formatDaylight(getSunTimes(now).daylightMinutes);
   const dateline = now.toLocaleDateString("en-GB", {
     weekday: "long",
@@ -49,12 +53,12 @@ export default function Home() {
   });
 
   // Seasonal field guide (server-side, UK-average frost; client refines by postcode later)
-  const featured = featuredEntry();
+  const featured = featuredEntry(undefined, now);
   // The three jobs of the week. Sow excludes plant-out (it has its own section).
-  const sowVeg = inSeasonCrops().filter((e) => e.status.method !== "plant out");
-  const plantOutVeg = plantOutCrops();
-  const harvestVeg = harvestCrops();
-  const varietyCounts = seasonCounts();
+  const sowVeg = inSeasonCrops(undefined, now).filter((e) => e.status.method !== "plant out");
+  const plantOutVeg = plantOutCrops(undefined, now);
+  const harvestVeg = harvestCrops(undefined, now);
+  const varietyCounts = seasonCounts(undefined, now);
 
   // Data-driven priority: lead with whichever job has the most live, time-
   // sensitive crops (closing/last-chance ones count double). A block only
@@ -359,7 +363,7 @@ export default function Home() {
               </a>
             </div>
 
-            {featured && <FeaturedVariety entry={featured} />}
+            {featured && <FeaturedVariety entry={featured} now={now} />}
           </div>
         </section>
 
@@ -383,7 +387,7 @@ export default function Home() {
         {/* Shop the season — the month's kit edit, funnels to the Sow page */}
         <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-20 bg-sage/25" aria-label="Shop the season">
           <div className="max-w-4xl mx-auto">
-            <SeasonalKitEdit variant="teaser" />
+            <SeasonalKitEdit variant="teaser" month={seasonal.monthIndex} />
           </div>
         </section>
 

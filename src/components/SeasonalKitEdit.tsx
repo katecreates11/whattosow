@@ -12,6 +12,7 @@ import Link from "next/link";
 import { kitForMonth, buyingGuideForMonth } from "@/data/seasonal-kit";
 import { getKit, amazonLink } from "@/data/kit";
 import GearPick from "@/components/GearPick";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 
 function trackingSlug(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -24,7 +25,7 @@ export default function SeasonalKitEdit({
   variant?: "full" | "teaser";
   month?: number;
 }) {
-  const m = month ?? new Date().getMonth();
+  const m = month ?? getSeasonalTime().monthIndex;
   const edit = kitForMonth(m);
   const guide = buyingGuideForMonth(m);
   const products = getKit(edit.kitIds);

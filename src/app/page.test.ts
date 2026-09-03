@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import Home from "./page";
+import Home, { revalidate } from "./page";
 
 describe("Home", () => {
   beforeEach(() => {
@@ -10,6 +10,10 @@ describe("Home", () => {
 
   afterEach(() => {
     vi.useRealTimers();
+  });
+
+  it("regenerates the seasonal homepage every hour", () => {
+    expect(revalidate).toBe(3600);
   });
 
   it("tracks homepage plant-out affiliate links with specific positions", () => {

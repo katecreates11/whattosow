@@ -21,7 +21,7 @@ function trackingSlug(value: string): string {
  * The "featured this week" variety — Natoora-style long-form: photo + dropcap
  * story (the variety's personality) + an editorial affiliate recommendation.
  */
-export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
+export default function FeaturedVariety({ entry, now = new Date() }: { entry: VarietyEntry; now?: Date }) {
   const { variety, crop, status, no, supplier, photo } = entry;
   const dropcap = variety.personality.charAt(0);
   const rest = variety.personality.slice(1);
@@ -31,9 +31,9 @@ export default function FeaturedVariety({ entry }: { entry: VarietyEntry }) {
       : "";
   // Monday of the current week — an editorial "issue date" that makes the
   // weekly rotation read as intentional. Set at render / the weekly rebuild.
-  const monday = new Date();
-  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
-  const weekOf = monday.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+  const monday = new Date(now);
+  monday.setUTCDate(monday.getUTCDate() - ((monday.getUTCDay() + 6) % 7));
+  const weekOf = monday.toLocaleDateString("en-GB", { day: "numeric", month: "long", timeZone: "UTC" });
 
   return (
     <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-14 items-center mt-12 sm:mt-16">
