@@ -88,7 +88,7 @@ export default function Home() {
 
   // Season-aware homepage chrome: the hero eyebrow and which interactive map
   // leads both shift with the calendar, so the site reads the season itself.
-  const nowMonth = now.getMonth();
+  const nowMonth = seasonal.monthIndex;
   const currentMonthName = MONTH_NAMES[nowMonth];
   const currentMonthSlug = MONTH_SLUGS[nowMonth];
   const isSummerSeason = nowMonth >= 5 && nowMonth <= 7; // Jun–Aug

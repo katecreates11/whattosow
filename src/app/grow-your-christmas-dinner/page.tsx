@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChristmasPlate from "@/components/ChristmasPlate";
 import ChristmasCountdown from "@/components/ChristmasCountdown";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 
 export const revalidate = 3600;
 
@@ -44,6 +45,7 @@ const faqs = [
 ];
 
 export default function ChristmasDinnerPage() {
+  const nowISO = getSeasonalTime().now.toISOString();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -100,13 +102,13 @@ export default function ChristmasDinnerPage() {
               can still grow yourself. Here&rsquo;s what&rsquo;s in time, told straight.
             </p>
             <div className="mt-12">
-              <ChristmasCountdown nowISO={new Date().toISOString()} />
+              <ChristmasCountdown nowISO={nowISO} />
             </div>
           </div>
         </section>
 
         <div className="py-10 sm:py-14">
-          <ChristmasPlate nowISO={new Date().toISOString()} />
+          <ChristmasPlate nowISO={nowISO} />
         </div>
 
         {/* A warm word */}

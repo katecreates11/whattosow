@@ -6,6 +6,9 @@ import { crops } from "@/data/crops";
 import { varietiesForCrop } from "@/lib/variety-routes";
 import { MONTH_SLUGS, MONTH_NAMES } from "@/lib/calendar";
 import { companionTopics } from "@/data/companion-topics";
+import { getSeasonalTime } from "@/lib/seasonal-time";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Pin board (internal)",
@@ -25,7 +28,7 @@ function companionDesc(title: string) {
 }
 
 export default function PinsBoard() {
-  const thisMonth = new Date().getMonth();
+  const thisMonth = getSeasonalTime().monthIndex;
 
   return (
     <div className="min-h-screen overflow-x-hidden">

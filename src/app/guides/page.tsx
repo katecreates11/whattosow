@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getWeatherState } from "@/lib/weather-intelligence";
 import { conditionsFrom, guideScore, whyNow } from "@/lib/guide-relevance";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 
 export const revalidate = 3600; // the page re-tunes itself to the weather every hour
 import Image from "next/image";
@@ -413,7 +414,7 @@ export default async function GuidesIndex() {
         <section className="bg-cream px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
           <div className="mx-auto max-w-6xl">
             <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-earth-light">
-              {new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "Europe/London" }).format(new Date())}
+              {new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "UTC" }).format(getSeasonalTime().now)}
               {" · "}
               {now.desc}
             </p>

@@ -18,6 +18,9 @@ import {
   MONTH_NAMES,
   MONTH_SLUGS,
 } from "@/lib/calendar";
+import { getSeasonalTime } from "@/lib/seasonal-time";
+
+export const revalidate = 3600;
 
 // --- Static generation ---
 
@@ -36,9 +39,9 @@ export async function generateMetadata({
   const city = cities.find((c) => c.slug === slug);
   if (!city) return {};
 
-  const now = new Date();
-  const monthName = MONTH_NAMES[now.getMonth()];
-  const year = now.getFullYear();
+  const now = getSeasonalTime().now;
+  const monthName = MONTH_NAMES[now.getUTCMonth()];
+  const year = now.getUTCFullYear();
   const frostDate = calculateLastFrostDate(city.latitude, city.longitude);
   const frostStr = formatDate(frostDate);
 
@@ -140,10 +143,10 @@ export default async function CityPage({
   const city = cities.find((c) => c.slug === slug);
   if (!city) notFound();
 
-  const now = new Date();
-  const currentMonth = now.getMonth();
+  const now = getSeasonalTime().now;
+  const currentMonth = now.getUTCMonth();
   const monthName = MONTH_NAMES[currentMonth];
-  const year = now.getFullYear();
+  const year = now.getUTCFullYear();
 
   const frostDate = calculateLastFrostDate(city.latitude, city.longitude);
   const autumnFrostDate = calculateFirstAutumnFrostDate(city.latitude, city.longitude);
@@ -209,7 +212,7 @@ export default async function CityPage({
       name: "What To Sow",
       url: "https://whattosow.co.uk",
     },
-    dateModified: new Date().toISOString().split("T")[0],
+    dateModified: now.toISOString().split("T")[0],
   };
 
   return (

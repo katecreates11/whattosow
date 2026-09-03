@@ -7,6 +7,7 @@ import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
 import { getPlaybook } from "@/data/crop-playbooks";
 import { varietySlug } from "@/lib/variety-routes";
 import { frostOffsetText, getCropNowAnswer, getCropVerdict, type CropVerdict } from "@/lib/crop-now-answer";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 import { londonMonth } from "@/lib/guide-relevance";
 import type { Metadata } from "next";
 
@@ -129,8 +130,8 @@ const actionLabels: Record<string, string> = {
   plantOut: "Plant out",
 };
 
-function SowingMonths({ crop }: { crop: Crop }) {
-  const frostDate = getAvgFrostDate();
+function SowingMonths({ crop, now }: { crop: Crop; now: Date }) {
+  const frostDate = getAvgFrostDate(now.getUTCFullYear());
   const actions = getCropActionMonths(crop, frostDate).filter(a => a.action !== "harvest");
   if (actions.length === 0) return null;
 
@@ -164,8 +165,8 @@ function SowingMonths({ crop }: { crop: Crop }) {
   );
 }
 
-function CropNowAnswerBlock({ crop }: { crop: Crop }) {
-  const answer = getCropNowAnswer(crop);
+function CropNowAnswerBlock({ crop, now }: { crop: Crop; now: Date }) {
+  const answer = getCropNowAnswer(crop, now);
   const headingId = `crop-now-answer-${crop.slug}`;
 
   return (
@@ -254,8 +255,8 @@ const verdictBandStyles: Record<CropVerdict["state"], { band: string; dot: strin
   },
 };
 
-function CropVerdictBand({ crop }: { crop: Crop }) {
-  const verdict = getCropVerdict(crop);
+function CropVerdictBand({ crop, now }: { crop: Crop; now: Date }) {
+  const verdict = getCropVerdict(crop, now);
   const styles = verdictBandStyles[verdict.state];
 
   return (
@@ -405,7 +406,7 @@ const THIRSTY = new Set([
 ]);
 
 // Re-render daily so the seasonal focus (sowing vs harvest) tracks the calendar.
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   return crops.map((crop) => ({ slug: crop.slug }));
@@ -462,6 +463,7 @@ export default async function CropPage({
   const { slug } = await params;
   const crop = crops.find((c) => c.slug === slug);
   if (!crop) notFound();
+  const now = getSeasonalTime().now;
 
   const otherCrops = crops.filter((c) => c.slug !== crop.slug);
   const sameCategoryCrops = otherCrops.filter((c) => c.category === crop.category);
@@ -576,7 +578,7 @@ export default async function CropPage({
       <Header backLink={{ href: "/crops", label: "\u2190 All crops" }} />
 
       <article id="main-content">
-        <CropVerdictBand crop={crop} />
+        <CropVerdictBand crop={crop} now={now} />
 
         {/* Hero photo — local allotment photography preferred, Unsplash fallback */}
         {cropPhoto ? (
@@ -662,7 +664,7 @@ export default async function CropPage({
               </div>
             </div>
 
-            <CropNowAnswerBlock crop={crop} />
+            <CropNowAnswerBlock crop={crop} now={now} />
 
             <YourDatesSection crop={crop} />
 
@@ -923,7 +925,7 @@ export default async function CropPage({
             <CompanionSection crop={crop} />
 
             {/* When to sow — month links */}
-            <SowingMonths crop={crop} />
+            <SowingMonths crop={crop} now={now} />
 
             {/* Go deeper — the crop's satellite guides */}
             {playbook?.guides && playbook.guides.length > 0 && (

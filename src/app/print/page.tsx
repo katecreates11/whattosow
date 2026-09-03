@@ -6,6 +6,9 @@ import EmailCapture from "@/components/EmailCapture";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PrintTracker from "@/components/PrintTracker";
+import { getSeasonalTime } from "@/lib/seasonal-time";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Printable UK Sowing Chart — What To Sow",
@@ -38,8 +41,9 @@ const seasonBg: Record<number, string> = {
 };
 
 export default function PrintPage() {
-  const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
+  const now = getSeasonalTime().now;
+  const year = now.getUTCFullYear();
+  const currentMonth = now.getUTCMonth();
   const frostDate = getAvgFrostDate(year);
 
   const sortedCrops = [...crops].sort((a, b) => {
