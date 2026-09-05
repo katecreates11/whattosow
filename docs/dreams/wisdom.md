@@ -1,48 +1,36 @@
 # The Crew's Memory — Wisdom
 
 _Consolidated weekly by The Dreamer. Bounded to ~400 lines — prune, don't grow._
-_Last consolidated: 2026-08-15 (week 5)._
+_Last consolidated: 2026-09-05 (week 8)._
 
-**A note on this week:** a quiet week for decisions (one: card 21, already
-decided before this dream ran) but the loudest week yet for what was sitting
-undiscovered. Local `git branch -r` after a fresh checkout shows only `main`
-— it does not list remote branches unless you fetch them by name or query
-the GitHub API directly. Last week's dream ran that check, saw nothing, and
-concluded three routines had gone quiet. They hadn't: the GitHub API (this
-week, `list_branches`) shows the Forager, Groundskeeper and SEO Watchdog all
-kept running weekly — they just kept landing on unmerged branches instead of
-`main`, the exact bug the crew has been calling "the Forager's pipeline
-bug" for a month. It isn't Forager-specific. See §5.
+**A note on this week:** the third fully silent decision week running (26
+days since card 21, the last decision, on 10 August). Both prior dream
+branches (08-22, 08-29) were still unmerged when this one started, so this
+run restated their content before adding anything new — the same tax as
+last week, now paid three times. The write-to-main bug produced its
+**third** confirmed duplicate pitch (a frost-countdown feature, pitched
+independently on 16 and 30 August). PR #3 has gone 31 days with zero
+comments of any kind. Full detail in §5; kept tight everywhere else this
+week since most of it is confirmation, not new discovery.
 
 ---
 
 ## 1. Kate's taste
 
 ### Weave personalisation into content, don't just describe it
-- **Confidence:** high. No new evidence this week — nothing built, nothing
-  freshly approved on this axis. Unchanged from last week.
+- **Confidence:** high. Four weeks with no new evidence either way — nothing built, nothing approved. Unchanged, not tested.
 
 ### Interactive features want a physical/visual metaphor, not just a form
-- **Confidence:** high. Unchanged; no new evidence this week.
+- **Confidence:** high. Four weeks unchanged.
 
 ### An approval note asking for a specific tie-in gets built exactly as asked
-- **Confidence:** high, still n=1 build (PR #1 / `ColdSnapNote`). Still
-  untested at scale — nothing from the 13–21 batch has shipped yet (the
-  Glut-o-meter that *has* shipped, PR #3, predates this batch and isn't a
-  tie-in-note case). See §5 for why the batch is stalled.
+- **Confidence:** high, still n=1 (PR #1 / `ColdSnapNote`). Untested at scale — the 13–21 batch remains entirely unbuilt, and PR #3 (the one build that has shipped since) still hasn't had a single review, 31 days now.
 
 ### Content near an already-monetised hub gets an explicit revenue instruction — conditional, not universal
 - **Confidence:** medium, unchanged.
 
-### Kate wants real photography and video, said twice
-- **Confidence:** low, and now dropping off active tracking. Six-plus weeks
-  and nine further decisions since the last mention. Not contradicted, just
-  no longer worth weighing until it resurfaces on its own.
-
 ### Feature ideas that extend the calculator DNA land easily
-- **Confidence:** high, unchanged. Zero rejections of a calculator-shaped
-  pitch to date; two more recovered this week (cards 27, spring-bulb
-  spacing) fit the same DNA and haven't been seen by Kate yet.
+- **Confidence:** high, unchanged. Zero rejections to date. Two more candidates recovered this week (cards 30/38, 40) fit the same DNA, unseen by Kate yet.
 
 ### Don't pitch content whose premise fights the site's own affiliate mix
 - **Confidence:** medium. Evidence unchanged (parked veg seed-saving, card 3).
@@ -54,119 +42,58 @@ bug" for a month. It isn't Forager-specific. See §5.
 - **Confidence:** medium. Evidence unchanged (PR #1).
 
 ### Dreamt scope-additions to already-pitched cards are the crew's single most reliable move
-- **Confidence:** high.
-- **Evidence:** now six for six. Card 21 (anchor the giant-veg tool to
-  Malvern, not Worcester) was approved 10 August, the day after this dream
-  promoted it — cards 10, 11, 12, 16, 20 and now 21 have all been approved,
-  no exceptions. Still the crew's best-performing move, better than the
-  Forager's own fresh pitches.
+- **Confidence:** high, unchanged. Still six for six (cards 10, 11, 12, 16, 20, 21) — no new test this week, since cards 29, 33, 34, 37 (all dreamt promotions, all still undecided) haven't reached Kate. Two more added this week (41, 42). Still the crew's best-performing move, worth leading with once decisions resume.
 
-### RETIRED: "three scheduled routines went quiet in the same week"
-Recorded last week as a flagged-not-concluded observation. Wrong, and wrong
-in the same shape as the *previous* retraction ("a growing pile suppresses
-decisions," retired the week before that): both times the instinct was to
-explain a gap with something about Kate's attention, and both times the real
-cause was mechanical. The Forager, Groundskeeper and SEO Watchdog all ran on
-schedule through the gap (branches dated 8/2, 8/3, 8/4, 8/9, 8/10, 8/11 all
-exist) — none of their output reached `main`. See §5 for the corrected,
-now-crew-wide diagnosis, and the note above on *why* last week's check
-missed it.
+### NEW: independently-converged pitches (2+ blind sources, same gap) deserve priority when decisions resume
+- **Confidence:** medium, on a clean and now-repeated pattern rather than a single instance.
+- **Evidence:** leaf mould pitched blind by three separate sources (Forager 9 Aug, Forager 16 Aug, SEO Watchdog 1 Sep — cards 28/32). Green tomatoes pitched blind by two (Forager 23 Aug, SEO Watchdog 1 Sep — card 35). Frost-countdown pitched blind by two (Forager 16 and 30 Aug — cards 30/38). None of these agents could see each other's work, so the overlap isn't copying — it's three different reads of real UK search/seasonal behaviour landing in the same place. Not yet tested against an actual Kate decision (nothing has been decided in three weeks), so held at medium, not high.
+
+### RETIRED: "Kate wants real photography and video, said twice"
+Said twice, back in July; no supporting signal since, well past the ~8-week decay point. Dropped entirely rather than carried in Open Threads — if it resurfaces, treat it as new evidence, not a revival of an old rule.
 
 ---
 
 ## 2. What works
 
 - **The Potting Bench as the decision surface.** Confidence: high, unchanged.
-- **Dreamt scope-additions to unbuilt cards get approved.** See §1 — 6/6.
-- **Evidence-required cards with a named, current commercial/seasonal
-  window get approved fast.** Confidence: high, unchanged this week (no new
-  batch to test it against — the pipeline is stalled, see §5).
-- **A build that follows a specific approval note exactly gets kept, not
-  reverted.** Confidence: medium, still n=1 (PR #1). Still the crew's
-  biggest untested-at-scale claim — the 13–21 batch remains entirely unbuilt.
-- **The Night Gardener's repair path handles one specific failure mode:
-  an *approved* PR that's gone stale against current `main`.** It does
-  **not** apply to a PR that's simply waiting for Kate's first review — that
-  case is working as designed (see PR #3 in §5), not stuck. Worth keeping
-  these two states distinct; conflating them was almost this week's mistake.
-- **Querying the GitHub API directly (`list_branches`, `list_pull_requests`)
-  finds work that local `git branch -r` misses after a fresh checkout.**
-  New this week, high confidence on one clean test: this is what surfaced
-  four stuck branches and one 10-day-old open PR that a plain local git
-  check would have missed entirely, again. Future Dreamer runs should treat
-  the API call as the real STEP 1, not a local git command.
+- **Dreamt scope-additions to unbuilt cards get approved.** See §1 — 6/6, two more pitched this week.
+- **Evidence-required cards with a named, current commercial/seasonal window get approved fast.** Confidence: high, untested for a month — the pipeline's been stalled since 10 August (see §5).
+- **A build that follows a specific approval note exactly gets kept, not reverted.** Confidence: medium, still n=1 (PR #1).
+- **The Night Gardener's repair path applies only to a *stale approved* PR, not one still waiting on its first review.** Confidence: high, unchanged — PR #3 is the latter case, working as designed, just now extremely slow.
+- **Reading the GitHub API directly (branches, PRs) rather than local git, and checking mechanically before assuming a behavioural cause, are both now standard practice for this routine** — settled over five weeks of clean tests, no longer worth a fresh bullet each week. This week the mechanical check came back clean for once: the silence really is Kate's, not a hidden branch (see §5).
+- **Independent re-confirmation across separate weekly Groundskeeper/SEO reports is reliable, low-noise evidence.** Confidence: high now — the same three Sarah Raven links have been independently re-checked and re-confirmed dead four separate weeks running (10, 17, 24, 31 August) by the same routine reading the live site fresh each time.
 
 ---
 
-## 3. Self-score (against the 2026-08-08 dream)
+## 3. Self-score (against the 2026-08-29 dream)
 
-One clean, scoreable prediction: card 21 (anchor the giant-veg tool to
-Malvern, not Worcester) was promoted as a dreamt scope-addition and approved
-10 August, exactly as predicted. **1/1 correct** — sixth in a row for this
-move, see §1.
-
-The other two forward-looking notes from last week's dream weren't actioned,
-but neither really had the chance to be: "write National Allotments Week as
-it happens" wasn't taken up (card 9 is still unbuilt — see §5, its window
-closes today), and "give the build queue an urgency order" couldn't be
-tested because the Night Gardener hasn't opened a *new* build since (PR #3
-has occupied its one-PR slot since 5 August). Not scored as misses — there
-was no build cycle for either idea to land in.
+Nothing scoreable, for the third week running. Cards 29, 33, 34 (promoted 15/22 August) and 37 (promoted 29 August) are all still undecided — no Potting Bench cycle has happened since 10 August for any prediction to land in. Fifth quiet-for-scoring week of eight (see scoreboard.md). Not scored as misses: there is nothing to be wrong about yet. Worth flagging once, plainly: whenever the Bench reopens, four dreamt promotions plus the Forager's own cards 22–40 will all resolve at once — a real backlog to score, not a string of small tests.
 
 ---
 
 ## 4. Season note
 
-15 August, UK. National Allotments Week (10–16 August) ends tomorrow; card 9
-(approved 13 July specifically for this week) has not been built and will
-not make it — see §5 for a reframe rather than letting it lapse silently.
-Malvern Autumn Show's giant-veg championship (card 18/21's anchor) is still
-weeks out. Chilli/tender-crop overwintering (parked card 15) starts to
-matter in the next 4–8 weeks but isn't urgent yet, and it's parked — not
-re-pitching it.
+5 September, UK. Malvern Autumn Show's giant-veg championship and
+giant-pumpkin weekend (25–27 September) are three weeks out — card 18/21,
+still unbuilt. The allium leaf miner/leek moth danger window (card 34) is
+open now, not approaching. Leaf fall proper begins within weeks (cards
+28/32). Bare-root tree/bulb ordering windows (cards 25, 36, 39, and the
+new index idea, card 41) are open and narrowing toward winter price rises.
+Card 23 (apple ripeness) and the newly-folded card 42 (apple/pear storage)
+sit in a live RHS harvest window right now. No fresher drought figure than
+25 August exists in anything read this week, so none is restated here.
 
 ---
 
 ## 5. Open threads
 
-- **URGENT — the write-to-main bug is crew-wide, not Forager-specific, and
-  unresolved after a month of being flagged.** Confirmed this week across
-  three routines: two more Forager runs (2 and 9 August — 7 cards, recovered
-  onto the board below as 22–28) never reached `main`; and *every single*
-  Groundskeeper and SEO Watchdog report found so far — 8/3, 8/10
-  (Groundskeeper) and 8/4, 8/11 (SEO Watchdog) — is sitting on its own
-  branch. `docs/reports/` on `main` has never once received one of these.
-  This has been treated for weeks as "the Forager's pipeline bug" and a
-  side-question about report cadence; it's neither — it's one mechanism
-  (agents finishing work but not landing it on `main`) hitting three
-  different crew members. Worth someone looking at what these routines
-  share in their write step, since the Night Gardener (which pushes real
-  branches and opens real PRs) doesn't have this problem.
-- **URGENT — PR #3 (the Glut-o-meter) has waited 10 days for a first
-  review, and the whole approved backlog is frozen behind it.** Built 5
-  August, still open, no approval marker — which is the Night Gardener
-  working correctly (it won't touch an unreviewed PR, by design), not a
-  repeat of the PR #2 problem. But its one-open-PR rule means nothing else
-  can build while it waits: cards 13, 14, 16, 17, 18, 19, 20, 21 — eight
-  approved, build-ready cards — are all stalled behind one review. This is
-  exactly the collision this dream predicted a week ago, now real.
-- **Card 9 (National Allotments Week) will miss its own week entirely** —
-  not "likely," as flagged last week, but now certain; the week ends
-  tomorrow and the Night Gardener hasn't built anything since PR #3. See the
-  dreamt reframe promoted to the board below.
-- **The Groundskeeper's 10 August report found three genuinely dead
-  affiliate links** (Sarah Raven: Uchiki Kuri squash, Genovese basil,
-  Champagne rhubarb — all real 404s, not bot-blocking) sitting unseen on its
-  branch for five days. Real, current revenue loss; worth Kate's eye
-  directly on that branch rather than waiting for a code fix to flow through
-  this memory.
-- **The SEO Watchdog's 11 August report carries a ten-item FIX NOW list**
-  (orphaned `/sow-in` cluster, a wrong canonical on `/kit`, `/privacy`
-  missing from the sitemap, oversized titles across most guides, and more)
-  — also unseen, also worth a direct look rather than summary-by-summary
-  relay here.
-- Photo/video ask (see §1) — dropped from active tracking, six-plus weeks
-  stale with no signal either way.
-- The companion-planting playground / ReactGarden overlap — still parked,
-  still unscheduled.
+- **URGENT — the write-to-main bug is now roughly eight weeks old, still unresolved, and has caused a third confirmed duplicate pitch.** Six branches now sit stuck and unreconciled: three Forager runs (16, 23, 30 August), two Groundskeeper reports (24, 31 August) and one SEO Watchdog report (1 September) — `docs/reports/` on `main` has still never once received one. New this week: the 30 August Forager run independently pitched a frost-countdown feature that duplicates card 30 from two weeks earlier (after leaf-mould and Halloween-pumpkin duplicated in the two weeks before that). Treat every 1–2 week gap in this bug being fixed as costing at least one duplicate pitch going forward, not just delay. An old, abandoned fix attempt still sits on `chore/forager-writes-board-to-main`, diverged too far from current `main` to use as-is — reviving the *intent*, not the diff, may be worth someone's time.
+- **URGENT — PR #3 (the Glut-o-meter) has now gone 31 days with zero activity of any kind** (opened 5 August; `updated_at` still equals `created_at`). Eleven approved, build-ready cards (13, 14, 16, 17, 18, 19, 20, 21, 29, 33, 34, 37) are frozen behind it. This is the single highest-leverage open item: a five-word verdict (merge it, or say what's wrong) unblocks more work than anything else on this list.
+- **The homepage's stale-cache bug looks fixed but probably isn't.** Found stale on 24 August, found correct on 31 August, but a direct code check this week found no `revalidate` export added to any of the affected routes in between — the most likely explanation is the cache's own TTL simply expired, not that anyone fixed the underlying ISR/revalidation gap. Expect it to drift stale again on its own schedule; worth a real fix, not just a lucky re-check.
+- **Four confirmed, unfixed revenue-loss items, all cheap.** The same three Sarah Raven links (Uchiki Kuri squash, Genovese basil, Champagne rhubarb) are dead a fourth week running (10, 17, 24, 31 Aug). The Amazon soaker-hose ASIN (`B000TAFENY`, used in three components) is dead a second week. All four are URL/ASIN swaps, not design or spec work — the cheapest fix on the whole list, still sitting on an unmerged Groundskeeper branch.
+- **This week's SEO Watchdog report (1 September) carries a one-line sitemap fix (`/privacy` missing) and two orphan pages worth linking** (`/grow-your-christmas-dinner`, seasonally live right now; `/still-time`, already scheduled for retirement on `CUT_LIST.md` — don't spend new links on a page that's leaving), plus a batch title/description trim across 29 `/guides` pages. Worth a direct look rather than summary-by-summary relay here.
+- **Fact, not a theory: Kate's last recorded repo action was merging the 15 August dream branch, on 18 August.** Three consecutive fully-silent decision weeks now (22, 29 August, 5 September). The mechanical check (branches, API) came back clean this week — there is no hidden bug explaining this particular silence, just logged plainly per the "check mechanical first" habit in §2.
+- Card 24 (the vegetable-show piece) still flagged as possibly overlapping card 18/21's giant-veg tool scope — still undecided.
+- The companion-planting playground / ReactGarden overlap — still parked, still unscheduled.
 - The F1/heirloom affiliate-conflict check — still untested elsewhere.
+- Card 38/30 (frost-countdown, duplicated) and card 23/13/42 (top-fruit, now three-way split) both need a single steer from Kate on which version to build — flagged, not resolved, in this week's board additions.
