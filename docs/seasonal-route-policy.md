@@ -13,9 +13,11 @@ guard.
 | `/print` | hourly | Current-month highlight and year |
 | `/pins` | hourly | Current monthly pin selection |
 | `/crops/[slug]` | hourly | Current crop verdict and answer |
+| `/crops/[slug]/[variety]` | hourly | Current variety sowing-status label |
 | `/grow-your-christmas-dinner` | hourly | Countdown and Christmas growing windows |
 | `/guides` | hourly | Existing weather-led guide relevance |
 | `/api/blight-map` | six hours | Existing live weather cache policy |
+| `/still-time/opengraph-image` | hourly | Social-preview "N crops you can still sow" count |
 
 Timeless editorial pages are intentionally excluded. Client-only tools calculate
 their own immediate browser state and are not server-cache policy entries.

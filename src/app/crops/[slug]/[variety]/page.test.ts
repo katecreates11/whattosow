@@ -1,8 +1,12 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import VarietyPage from "./page";
+import VarietyPage, { revalidate } from "./page";
 
 describe("VarietyPage", () => {
+  it("regenerates the variety sowing-status label every hour", () => {
+    expect(revalidate).toBe(3600);
+  });
+
   it("tracks variety seed supplier links with variety-specific positions", async () => {
     const html = renderToStaticMarkup(
       await VarietyPage({

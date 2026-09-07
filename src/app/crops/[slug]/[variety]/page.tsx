@@ -7,7 +7,12 @@ import PinButton from "@/components/PinButton";
 import { allVarietyParams, getVarietyByRoute, varietiesForCrop, varietySlug } from "@/lib/variety-routes";
 import { cropImage } from "@/lib/crop-image";
 import { getCropStatus, ukAverageFrost } from "@/lib/season-core";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
+
+// Re-render hourly so the sowing-status label tracks the calendar (matches
+// the seasonal route policy applied to /crops/[slug]).
+export const revalidate = 3600;
 
 const rarityLabel: Record<string, string> = {
   legendary: "legendary",
@@ -64,7 +69,7 @@ export default async function VarietyPage({
   const { variety: v, crop } = entry;
 
   const img = cropImage(crop);
-  const status = getCropStatus(crop, ukAverageFrost());
+  const status = getCropStatus(crop, ukAverageFrost(), getSeasonalTime().now);
   const related = varietiesForCrop(slug).filter((o) => o.id !== v.id);
 
   const breadcrumbJsonLd = {

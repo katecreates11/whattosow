@@ -2,13 +2,17 @@ import { ImageResponse } from "next/og";
 import { crops } from "@/data/crops";
 import { getCropUrgencies } from "@/lib/urgency";
 import { getAvgFrostDate } from "@/lib/calendar";
+import { getSeasonalTime } from "@/lib/seasonal-time";
 
 export const alt = "What Can You Still Sow? — Closing sowing windows this week";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Re-render hourly so the "N crops you can still sow" count tracks the calendar.
+export const revalidate = 3600;
+
 export default function OGImage() {
-  const now = new Date();
+  const now = getSeasonalTime().now;
   const frostDate = getAvgFrostDate();
   const { urgent } = getCropUrgencies(crops, now, frostDate);
   const count = urgent.length;
