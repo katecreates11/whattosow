@@ -443,6 +443,51 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 13 September — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked or binned
+idea. Note for the bench: the pile above (cards 13–29) is genuinely large and
+mostly unbuilt or undecided — not re-pitching any of it, just adding four
+fresh ones for the next 4–8 weeks._
+
+### 30. Bare-root season — order your fruit trees and hedging now, plant from November
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** checked Suttons and Dobies directly — both have bare-root fruit trees (apple, pear, plum, cherry and more) and bare-root hedging (native mixed hedge whips, laurel, box) live for sale right now, and Suttons is already an active Awin merchant WTS uses elsewhere (`crops.ts` links straight to `suttons.co.uk/search?q=...`). Nurseries are explicit that pre-ordering starts in August/September to join the despatch queue before popular varieties sell out, with delivery prioritised for early November — the proper planting window (mid-November to March, whenever the ground isn't frozen or waterlogged) hasn't opened yet, but the ordering window is open now. A full grep of `src/data` and `src/app` confirms **WTS has zero fruit-tree or hedging content anywhere** — a genuinely new commercial category, not an extension of one that exists.
+- **Pitch:** the same plan-and-order-now shape as card 1 (the autumn allium hub, Kate's warmest note on the board so far) — why bare-root beats pot-grown for cost and establishment, the order-now/plant-from-November timeline, a short shortlist (two or three easy fruit trees on dwarfing rootstock for a small plot, a native mixed hedge for a boundary), real Suttons/Dobies links. Slots naturally next to the `growing-fruit` guide and gives the plot's edges — not just its beds — something to grow.
+- **Ready-to-queue brief:** target "when to plant bare root fruit trees uk" / "order bare root hedging now"; angle = plan-and-order-now, same shape as card 1, not a how-to-plant piece (that comes later, at planting time); links → growing-fruit guide, crops/rhubarb (fruit cluster); voice = practical, gently timely, never hypey; **check Suttons/Dobies bare-root fruit tree and hedging Awin links are live and click-tested before building — this is a new commercial category for WTS, not an extension of an existing one.**
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+### 31. "How many, how far apart, and when" — a bare-root planting planner
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low–medium effort · extends the site's calculator DNA
+- **Evidence:** wisdom.md's single highest-confidence taste rule is weaving the postcode/frost engine into content rather than describing it, and "feature ideas that extend the calculator DNA land easily" is the crew's other top-confidence read (zero rejections so far, cards 14/17/27 all built on it). Bare-root planting has a twist bulbs (card 27) don't: timing isn't just a calendar date, it depends on the ground itself — you can't plant into frozen or waterlogged soil, whatever the calendar says. No existing WTS tool answers "is my ground actually plantable yet," and this only earns its place once card 30's hub exists to send it.
+- **Pitch:** enter your postcode and what's arriving — a tree, a bundle of hedging whips, a few soft-fruit bushes — plus roughly how much space, and it gives spacing (from the nurseries' own packing-slip rules) and an honest word on timing: reusing the frost/season engine to say plainly whether the ground's likely workable now or worth giving a fortnight after a wet spell. A simple filling-boundary visual, the same physical-metaphor instinct behind the Glut-o-meter and the green-manure bed-filler.
+- **Ready-to-queue brief:** needs-spec — a small lookup table for 3–4 bare-root categories (fruit tree, hedging whip, soft fruit bush) with spacing already gathered from grower guidance, no new data source beyond that; reuses season-core/frost engine same as card 17; visual = a filling boundary line, not a table or metric tiles; build only after card 30's hub exists; affiliate = the same Suttons/Dobies links as card 30.
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+### 32. Forcing rhubarb — the old trick for stems before Easter
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** checked the `growing-fruit` guide's rhubarb section and the `/crops/rhubarb` page directly — WTS covers ordinary rhubarb growing well but forcing (covering the dormant crown to trick it into early, pale, sweeter stems) is mentioned nowhere on the site. It's a genuine, recurring UK autumn/winter query (RHS, Gardeners' World, GrowVeg and Plantura all carry their own guide to it) and the setup window is opening now: you cover the crown once it's properly dormant, typically from November, with stems ready around eight weeks later — weeks ahead of the natural April crop.
+- **Pitch:** a warm how-to on the old trick — a bucket, a bin or a proper terracotta forcer over the crown, why the stems come out pink and sweeter for being grown in the dark, and the one rule that matters most: never force the same crown two winters running, so it's only worth starting with a second crown to rest it against. Same thrift-and-patience voice as the seed-saving pieces (cards 10/15).
+- **Ready-to-queue brief:** target "how to force rhubarb" / "forcing rhubarb for an early crop"; angle = the old trick, told plainly, not a science lecture; links ← growing-fruit's rhubarb section, /crops/rhubarb; voice = patient and unhurried, one method told well; honest note — don't force a crown younger than about three years, and never two winters running.
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+### 33. Check your bonfire before you light it
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Very low effort
+- **Evidence:** Bonfire Night (5 November) falls inside the next 4–8 weeks, and the same reminder runs every year across every UK wildlife body (RSPB, Hedgehog Street, the Wildlife Trusts, RHS) for good reason — a pile of garden waste left standing for weeks looks exactly like shelter to a hedgehog settling in for winter. Checked `preparing-your-plot-for-winter` directly: it already nods at "a heap of leaves… winter shelter for hedgehogs" in passing, but nothing on the site connects that to the specific, well-known risk of a plot's own bonfire pile. A small, evergreen, high-goodwill gap sitting right next to content that already exists, not a new subject.
+- **Pitch:** a short, gentle reminder rather than a lecture — build the pile as late as you can before lighting it, or better, build it on a base you can lift whole onto the fire at the last minute, and always check underneath with a torch first. Ties straight back to the "wild corner" line already in the winter-prep guide — hedgehogs get somewhere better to be than the bonfire itself.
+- **Ready-to-queue brief:** target "check bonfire for hedgehogs" / "bonfire night hedgehog safety"; angle = one practical habit, not a wildlife lecture; links ← preparing-your-plot-for-winter (the wild-corner line); voice = gentle and matter-of-fact, no guilt-tripping; no monetisation — this is a trust-and-delight moment, keep it link-light.
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
 ## Approved
 
 _(empty)_
