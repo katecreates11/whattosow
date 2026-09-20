@@ -443,6 +443,43 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 20 September — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked or binned
+idea. Note for the bench: the board is carrying a large pile of approved,
+still-unbuilt cards (13, 14, 16, 17, 18, 19, 20, 22–29) — not re-pitching any
+of it, just naming it before adding three more. Fewer than five cleared the
+bar this week, so three, not five — no padding._
+
+### 30. Order your bare-root fruit trees and bushes now — the November delivery window
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** UK bare-root nurseries (Ashridge, Frank P Matthews, R J Trees and Hedging, Keepers Nursery) are already taking pre-orders for the November 2026–March 2027 dormant season, with despatch queues opening from August and priority given to early pre-orders before popular varieties sell out. Read the whole `growing-fruit` guide directly (650 lines): it already tells readers, correctly, that raspberries, blackcurrants, gooseberries and redcurrants are cheapest and establish best bought bare-root in winter — but **carries not one single affiliate or supplier link, anywhere**, the only guide on the site in that state. The guide is teaching the exact behaviour it earns nothing from.
+- **Pitch:** don't write a new page — give the existing guide the order-now moment it's missing. A short seasonal section (or a standalone companion piece, whichever the guide's own shape prefers once opened) making the pre-order window explicit: why bare-root beats container-grown for both price and establishment, which of the site's five already-covered fruits (raspberries, blackcurrants, gooseberries, redcurrants, blackberries) are worth ordering this way, and real supplier links for once. Same plan-and-order-now shape that earned Kate's warmest note on the board (card 1) — applied to a fruit guide that's been sitting there fully written and entirely unmonetised since July.
+- **Ready-to-queue brief:** target "when to plant bare root fruit trees uk" / "order bare root fruit bushes"; angle = the guide already tells you this works, now here's where to buy; links ← growing-fruit guide itself, → relevant crop pages (raspberries, blackcurrants, gooseberries, redcurrants); voice = practical, gently timely, no "paradise/magical" language; **check which supplier(s) WTS can actually link to for bare-root stock before building — this is a new commercial category, not an extension of an existing affiliate relationship.**
+- **Added:** 2026-09-20 · **Run:** forager-2026-09-20
+
+### 31. "The Last Weekend" — a first-frost countdown for closing the plot
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's proven calculator DNA
+- **Evidence:** the practical UK average for first autumn frost is mid-October to early November in England and Wales, mid-to-late October in Scotland — and it's the one seasonal turning point WTS's frost engine has never pointed at: `/frost-map` only ever answers "when's the *last* spring frost, so I can plant out." Nothing on the site currently answers the autumn version of that same question. It lands in exactly the run of jobs every UK gardening source names for this window (lift dahlias after the first frost, bring in tender pots, get bare-root orders in, finish the plot clear-out) — right now those all read as separate, undated jobs-list items with no single moment tying them together.
+- **Pitch:** reuse the frost engine that already powers `/frost-map` and Blight Watch, pointed the other way: enter your postcode and it says, plainly, how many good weekends you've likely got left before your own first frost, not a countdown clock but the site's own gate-at-the-allotment motif — a small row of gateposts or a fence line that closes one post at a time as the weekends pass, the same tactile, filling-metaphor instinct Kate has approved twice already (the Glut-o-meter's weighing scale, the green-manure picker's filling bed). Under it, one plain sentence naming what's worth doing before the gate shuts: bring the tender pots in, get the bare-root order placed, lift anything that hates a hard frost. No new data source — the frost-map's own regional lookup, read backwards.
+- **Ready-to-queue brief:** needs-spec — reuses the existing frost-zone data and postcode plumbing (no new infrastructure); UI = one interpreted sentence first ("about three weekends left before your ground usually turns"), the visual beneath it, mono footnote for the actual date range; the "worth doing before it shuts" line should link out to whichever of card 30 (bare-root), the dahlia/tender-plant advice, and `protecting-vegetables-from-frost` are live by build time, not invent new content; no leaderboard, no metric tiles, UK-average fallback before a postcode is entered.
+- **Added:** 2026-09-20 · **Run:** forager-2026-09-20
+
+### 32. What to burn, what to bin, what to keep — the autumn clear-out (and checking before you light it)
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium-high payoff / Low effort
+- **Evidence:** the British Hedgehog Preservation Society's "Stop, Move, Check" bonfire campaign is already live for this Bonfire Night (5 November), asking people to build bonfires on the day they're lit and check them properly beforehand — hedgehog populations are down an estimated 75% in parts of the countryside since 2000, and this is one of their two big annual appeals. Separately, `tomato-blight` and `preparing-your-plot-for-winter` (both checked directly) tell readers to clear diseased haulm and old plant material off the plot, but neither says what to actually *do* with it once it's pulled — burn it, bin it, or compost it — and nowhere on the site mentions checking a bonfire pile before lighting it. A genuine, unaddressed gap sitting exactly where two existing guides stop short.
+- **Pitch:** a short, practical piece for the actual pile of stuff an autumn clear-out leaves behind — what's safe for the compost heap, what should go to the council green bin instead (blighted potato and tomato haulm, anything with clubroot or white rot, the things that shouldn't come back next year), and what's genuinely fine for a bonfire if a plot or garden still has one. Woven in naturally, not as a bolt-on PSA: if it's been sitting a few days before you light it, move it and check right through it first — hedgehogs and toads take exactly this kind of pile as a ready-made home over winter. Ends facing forward, the way the tone always does: a clean start for next spring's rotation.
+- **Ready-to-queue brief:** target "what to do with tomato blight plant" / "can you compost blighted potato haulm" / "bonfire night hedgehog check"; angle = the practical sorting question, safety woven in rather than bolted on; links ← tomato-blight, preparing-your-plot-for-winter, composting; voice = plain and kind, no doom about hedgehog decline, no scaremongering about bonfires — matter-of-fact and including ourselves ("we always move the pile before we light it, just in case"); no affiliate angle forced onto this one, it's a trust piece.
+- **Added:** 2026-09-20 · **Run:** forager-2026-09-20
+
 ## Approved
 
 _(empty)_
