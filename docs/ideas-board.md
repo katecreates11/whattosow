@@ -443,6 +443,44 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 27 September — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked or binned
+idea. Note for the bench: cards 7–29 are still sitting proposed or approved
+and unbuilt — a very large pile now (`docs/dreams/wisdom.md` §5 flags the
+write-to-main and one-open-PR bottlenecks behind this). Not re-pitching any
+of it, just flagging it before adding three more, all on ground the board
+hasn't touched yet: bare-root fruit._
+
+### 30. Bare-root fruit trees & bushes — order now, they arrive when the soil's ready
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** checked `growing-fruit` directly — it already tells readers bare-root fruit trees and bushes are "cheapest and establish best when planted in winter" and gives a full November–March bare-root table for currants, gooseberries, raspberries and rhubarb, but never once tells anyone to go and order some. A grep of `src/data/kit.ts` confirms it: no fruit tree, cane or bush appears anywhere in the affiliate catalogue — the only fruit-adjacent line is a dibber. Both existing Awin partners stock the exact category: Suttons and Dobies each run dedicated "bare root fruit trees" and "bare root fruit plants" ranges (apple, pear, cherry, plum, raspberry, gooseberry, blackcurrant, blueberry), and UK nursery advice is consistent that ordering opens now for despatch once the plants go dormant, from November. This is card 1's exact loved mechanic (Kate's warmest note on the board: "good focus on getting those affiliate clicks as well as useful content") applied to a commercial category WTS has never touched.
+- **Pitch:** a short seasonal hub in the autumn-hub's own voice — why bare-root beats a pot-grown plant for half the price and a stronger start, what's worth ordering now for a veg-bed-sized plot (a step-over or dwarf apple, a fan-trained plum against a fence, raspberry canes, a gooseberry or blackcurrant bush), and the one thing to get right (a hole wide enough, roots spread out, firmed in, watered well even in winter). Real Suttons/Dobies links once stock's confirmed live. Sits naturally next to `growing-fruit` and the site's other order-now-for-later hub (card 1) — the same shape, new ground.
+- **Ready-to-queue brief:** target "bare root fruit trees uk" / "when to plant bare root fruit trees"; angle = order-now-plant-when-dormant, same shape as card 1; links ← growing-fruit, → dealing-with-the-glut (next year's harvest); voice = practical, gently timely, no "paradise" language, be honest that patience is the trade for the lower price; **check Awin has bare-root fruit live at Suttons/Dobies for this despatch season before building — new commercial category, don't assume.**
+- **Added:** 2026-09-27 · **Run:** forager-2026-09-27
+
+### 31. The October green tomato problem — ripen them, or turn them into chutney
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** checked `growing-tomatoes-outdoors-vs-greenhouse` directly (the site's tomato guide) — it covers growing right through to "trusses ripen sweetly, red through green," but says nothing at all about what happens when the vines are still carrying twenty green fruit and the first frost is forecast, which is exactly where every outdoor grower stands in the next few weeks. Every UK gardening source we checked treats this as its own annual moment (Hartley Botanic's Lia Leendertz column runs it every October) with two honest answers — bring them in to ripen on a windowsill or in a drawer with a ripe banana, or stop waiting and make green tomato chutney — and no WTS page currently gives either. Distinct from card 19 (approved, unbuilt): that piece is about fruit splitting mid-season from drought-then-deluge; this is about what to do with the crop as the season closes.
+- **Pitch:** a short, reassuring piece for the exact moment the first frost warning lands — pick everything showing even a blush of colour before the frost gets it, which fruit is worth the windowsill (any with a hint of colour already) and which is better off in the chutney pan (the truly green ones), and the one trick that speeds ripening (a paper bag with a ripe banana). Ends warm and forward-looking, the way card 2 did: nothing wasted, one more jar for the shelf before next year's sowing starts again.
+- **Ready-to-queue brief:** target "how to ripen green tomatoes uk" / "green tomato chutney recipe"; angle = the two honest choices, not a scold about leaving it too late; links ← growing-tomatoes-outdoors-vs-greenhouse, → dealing-with-the-glut; voice = "we've found" register, thrift and closing-the-loop, same family as cards 10/13/28; no recipe card grid — one method, told well, per ANTI_PATTERNS §1.
+- **Added:** 2026-09-27 · **Run:** forager-2026-09-27
+
+### 32. Which bare-root fruit fits your plot? — a two-question picker
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort · extends the site's proven calculator DNA
+- **Evidence:** `growing-fruit` already carries the exact lookup table this would run on — sun, space and bare-root planting window per fruit — a reader currently has to cross-reference by eye. Kate has approved this precise move twice this summer for a fraction of the effort of a new page: card 14's green-manure picker and card 27's bulb-spacing planner both turn a table the reader would otherwise self-match into one named answer. This only earns its place once card 30 exists to send readers to it, exactly as card 27 was scoped to depend on card 25.
+- **Pitch:** two honest questions — how much sun does the spot get, and roughly how much space have you got (a fence line, a couple of square metres, a big corner) — and it names one fruit to order this bare-root season, not a table of six to weigh up: a fan-trained plum for a sunny fence, a gooseberry for a shadier corner, a step-over apple for a narrow bed edge. A small filling-in bed or trained-against-a-fence visual, the same physical metaphor Kate has asked for three times now (Glut-o-meter's weighing, the green manure bed filling, the bulb bed filling), applied to a fruit tree finding its spot.
+- **Ready-to-queue brief:** needs-spec — a small lookup table (5–6 common bare-root fruits already described in `growing-fruit`: apple, pear, plum, raspberry, gooseberry, blackcurrant), a sun/space decision tree, one visual, no metric tiles, no comparison table; only worth building once card 30 exists to link from; affiliate = the same Suttons/Dobies bare-root links as card 30.
+- **Added:** 2026-09-27 · **Run:** forager-2026-09-27
+
 ## Approved
 
 _(empty)_
