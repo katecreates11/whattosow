@@ -443,6 +443,584 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_**Recovered by The Dreamer, 22 August** — the 16 August Forager run
+committed to a branch (`ideas/weekly-2026-08-16`) instead of `main`, the
+same bug now confirmed crew-wide (see `docs/dreams/wisdom.md` §5). Recovered
+here, unedited, so it finally reaches the bench._
+
+### 30. "Bring it in, or leave it out?" — the first-frost rescue triage
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's calculator DNA
+- **Evidence:** Met Office HadUK-Grid averages (1991–2020) put the UK's first autumn frost anywhere from late October in the Scottish Highlands to December or later on the mild south-west coast, with most inland areas landing in the first ten days of November — a five-to-eight-week regional spread the site's frost-map already knows, but only for the *last* spring frost, never the first one coming back round. WTS has `protecting-vegetables-from-frost`, a solid static guide on fleece vs cloches, but it isn't personalised and doesn't triage what a reader is actually growing. Two of wisdom.md's highest-confidence taste rules point straight at the gap: personalising content through the postcode/frost engine rather than describing it (proven twice — cards 2 and 7) and interactive features wanting a physical, visual metaphor rather than a form (proven three times — the Glut-o-meter, the catch-crop finder, the giant-veg tool).
+- **Pitch:** reuse the frost-map's own regional data, run it forward instead of back, and ask one simple question — what are you still growing? (tomatoes, chillies and peppers, aubergines, squash and pumpkins still ripening, or "just the hardy stuff"). For each, a plain verdict against the reader's own first-frost estimate: bring it in this weekend, you've a fortnight yet, or it can stay put, it doesn't mind the cold. Visual metaphor: plants move from an outdoor bed into a cosy shed/windowsill scene as the countdown ticks down — the "weighing it up" instinct Kate asked for on the Glut-o-meter, applied to a calendar instead of a scale. A natural, honest home for the fleece/cloche links already sat in the frost-protection guide, now placed at the exact moment someone needs them.
+- **Ready-to-queue brief:** feature → needs-spec — reuses frost-map's regional frost-date data plus a short crop picker keyed to tender crops already in `crops.ts`; links → protecting-vegetables-from-frost (deep dive), relevant crop pages; affiliate = the fleece/cloche/cold-frame links already live on the frost guide, carried across, not duplicated; design = one verdict sentence first, the countdown whispered in mono beneath, a short honest list of crops rather than a chip cloud of every possible one; aim to ship by mid-September so it has runway through October and November.
+- **Added:** 2026-08-16 · **Run:** forager-2026-08-16
+
+### 31. Timing your pumpkin for Halloween, not for the compost heap
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** UK coverage of "when to pick a pumpkin for Halloween" and "how to store it so it lasts" is dense but shop- and pick-your-own-farm led (Foxes Farm, Hackney Gazette, Beck Evans Farm, Gardenninja) — every result assumes the reader bought or picked the pumpkin that week, none assume they grew it themselves from seed back in May. WTS's own pumpkins crop page already lists Jack O'Lantern as "the classic carving pumpkin," but nothing on the site tells a grower when to cut their own fruit so it survives to 31 October rather than going soft in the shed three weeks early — a genuinely different problem, since a home-grown pumpkin is still ripening on the vine right through September. Malvern Autumn Show's giant-pumpkin weekend (25–27 September, already anchoring card 18/21) sits in the same window.
+- **Pitch:** a short, practical piece for the grower, not the shopper — how to tell a pumpkin's properly ripe (skin gone hard, stem starting to shrivel, a hollow knock), why cutting it too early leaves it soft by the big night, curing it in the sun for a week to toughen the skin, then keeping it cool, dry and off damp ground until carving. A genuinely useful split: carving varieties (thick-skinned, showy, middling flavour) versus the ones worth saving for the pot (Crown Prince, Uchiki Kuri) — so nobody carves the good eating pumpkin by accident. Ties the postcode/frost tool in exactly the way wisdom.md's top-confidence rule asks for: a plain note on whether the reader's own first frost is likely to arrive before Halloween, since a frost can blacken an unharvested pumpkin overnight.
+- **Ready-to-queue brief:** target "when to pick a pumpkin for Halloween" / "how to store a pumpkin so it lasts" / "carving pumpkin vs eating pumpkin"; angle = the grow-your-own version nobody's written; links ← growing-squash-pumpkins-courgettes, → card 13's curing guide once live, /crops/pumpkins; affiliate = next year's carving-variety seeds as the forward-looking buy point once this year's is picked ("already planning next year's monster? here's the seed to order"), never mid-article; voice = plain and warm, no frost scare-mongering, ends facing forward to next year's seed order.
+- **Added:** 2026-08-16 · **Run:** forager-2026-08-16
+
+### 32. Leaf mould — the free compost hiding under every tree
+- **Type:** content
+- **Status:** proposed
+- **Note (The Dreamer):** ⚠️ likely a duplicate of card 28 ("Leaf mould — the free soil improver waiting in the corner you don't tidy"), pitched independently by the 9 August Forager run and recovered onto the board last week. Both runs branched blind to each other's leaf-mould pitch — this is the collision flagged in wisdom.md §5. Recovered here unedited, per the usual practice of not touching a recovered card's own words, but the two pitches say the same thing in a different voice. Kate probably only needs to act on one; card 28 has a slight head start (already sat through one dream cycle). Left as an open choice rather than binned unilaterally.
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** a genuine, checked gap — WTS's `composting` and `soil` guides mention leaf mould only in passing (no dedicated page exists), while RHS, Thrive, Gardenninja and most of the competitor set carry a full how-to. Leaves start falling in volume from late September, and every source agrees on the same rule: collect them damp, from October, while they're falling — meaning the piece needs to exist before the leaves do, not after. Evergreen, needs no data, and it's thrift and closing-the-loop through and through, the register the site already writes best (seed-saving, the glut, curing) applied to the other free harvest of the year: what falls off the trees instead of what comes off the beds.
+- **Pitch:** a short, warm how-to — a black bin bag with a few fork-holes for a small garden, a simple wire cage for a bigger plot, why damp leaves rot faster than dry ones, and what a year (rough mulch) versus two years (fine, sieved, good enough for seed-sowing) actually gets you. Links back into the soil and composting guides rather than duplicating them, and gives the site's compost-and-thrift voice a proper home instead of two passing mentions.
+- **Ready-to-queue brief:** target "how to make leaf mould UK" / "what to do with autumn leaves"; angle = free soil improver, not a chore; links ← composting, soil, → crop-rotation; affiliate = a leaf-collection cage or heavy-duty leaf sacks as the one honest buy-point for anyone without space for a homemade wire bin; voice = plain, thrifty, "we've found" register, no ceremony.
+- **Added:** 2026-08-16 · **Run:** forager-2026-08-16
+
+---
+
+_The Dreamer's run of 22 August — two small additions, tagged `from-a-dream`.
+Both are sourced from the SEO Watchdog's 18 August report rather than fresh
+research — that report cross-checked its own findings against the board
+before writing them up and confirmed neither duplicates an existing card.
+Both are data-file additions to pages that already exist and already rank,
+not new pages, in the same shape as cards 16/20/21: cheap, evidence-precise,
+queued behind PR #3 like everything else, but nothing left to spec._
+
+### 33. Spring cabbage overwintering — name the technique and the varieties people are actually searching for
+- **Type:** content _(data addition to the existing `cabbage` crop entry)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-08-22), evidence via the SEO Watchdog's 2026-08-18 report
+- **Score:** Medium payoff / Very low effort
+- **Evidence:** early-to-mid August is the sowing window for spring cabbage — sow now, overwinter as small plants, harvest March–May, weeks before any spring-sown crop comes in, a genuinely distinct technique from summer/autumn cabbage. The SEO Watchdog checked `src/data/crops.ts` directly: the `cabbage` entry's tip doesn't name this window or technique at all, and its variety list (Hispi, January King, Red Drumhead) doesn't include the cultivars gardeners actually search by name — Durham Early, April, Flower of Spring, Wintergreen. The page already exists and already ranks for "cabbage"; this closes a real, checked gap on it.
+- **Pitch:** no new page — add a tip naming the overwintering technique and its March–May payoff, and add the two or three named spring-cabbage varieties gardeners are actually looking for, to the existing crop entry.
+- **Ready-to-queue brief:** data-file change to `src/data/crops.ts`'s `cabbage` entry only; no new target query beyond what the page already ranks for; voice unchanged, matches the entry's existing tip register.
+- **Added:** 2026-08-22 · **Run:** dream-2026-08-22
+
+### 34. Allium leaf miner & leek moth — the exact window and the mesh size that actually works
+- **Type:** content _(data addition to two existing guides)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-08-22), evidence via the SEO Watchdog's 2026-08-18 report
+- **Score:** Medium payoff / Very low effort
+- **Evidence:** the danger period for allium leaf miner and leek moth is March–June and September–November — opening within the next few weeks. `growing-onions-garlic-leeks` already mentions "allium leaf miner & onion fly" with general mesh advice, but names neither the September–November window nor the mesh spec that actually matters: the RHS says the standard 1.3mm "fine" insect mesh sold for this isn't reliable against this specific pest, and 0.8mm is needed. The `pests` guide doesn't mention either pest at all, despite being the page most likely to catch a generic "allium leaf miner UK" search.
+- **Pitch:** no new page — add the precise autumn window and the 0.8mm mesh spec to `growing-onions-garlic-leeks`, and add a short allium leaf miner/leek moth section to the `pests` guide, timed to land before the window opens.
+- **Ready-to-queue brief:** content addition to two existing guides, not a new page; target "allium leaf miner uk" for the pests-guide addition; links between the two pages; voice matches each guide's existing register, plain and specific about the mesh size rather than generic "use fine mesh" advice.
+- **Added:** 2026-08-22 · **Run:** dream-2026-08-22
+
+---
+
+_**Recovered by The Dreamer, 29 August** — the 23 August Forager run
+committed to a branch (`ideas/weekly-2026-08-23`) instead of `main`, the
+same crew-wide bug. Recovered here; its third pitch (Halloween pumpkin
+timing) duplicated card 31 and is folded into the note there rather than
+added a second time._
+
+### 35. Don't compost them yet — what to do with green tomatoes before the first frost
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** read `growing-tomatoes-outdoors-vs-greenhouse` directly (all 298-odd lines): it covers splitting, feeding and ripening on the vine in detail, but says nothing about what to do with the fruit still green when the vines come out. This is a different moment from card 19 (approved, still unbuilt) — that piece is about splitting mid-season from drought-then-deluge; this is the end-of-season rescue, and it closes on a real date: the UK-average first autumn frost sits around 25 October, the same figure `ColdSnapNote` already uses. Every source we checked (Sunday Gardener, Grow a Good Life, Farmers' Almanac) agrees on the same two honest methods — paper bag with a banana, or the whole plant pulled and hung somewhere dark — and none of it is currently on the site.
+- **Pitch:** a short, reassuring piece for the exact moment the season turns: which tomatoes are worth saving (full-sized and just turning, not tiny green ones), the paper-bag trick, hanging the whole plant upside down in a shed or garage as the low-effort option, and a nod to green tomato chutney for the ones that never do ripen. Ends facing forward, not apologising for the calendar — this is the last good use of a plant that's given all summer, not a failure.
+- **Ready-to-queue brief:** target "what to do with green tomatoes before frost" / "how to ripen green tomatoes UK"; angle = the last good use, not a loss; links → growing-tomatoes-outdoors-vs-greenhouse, tomato-blight, and card 19's splitting piece once it's live; voice = "we've found" register, one or two concrete methods, no soil science; light monetisation only if it's genuinely earned (a chutney pan or preserving jars, one mention, never a hard sell).
+- **Added:** 2026-08-23 · **Run:** forager-2026-08-23
+
+### 36. Order your soft fruit bare-root — raspberries, currants and rhubarb for winter planting
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low–medium effort
+- **Evidence:** UK fruit nurseries (Ashridge, D.T. Brown, Suttons, Dobies) are already taking pre-orders now for bare-root raspberry canes, currant and gooseberry bushes and rhubarb crowns, dispatching November through March while the plants are dormant — bare-root is both the cheapest way to buy them and the best-establishing. Checked `growing-fruit` directly: it mentions the November–March bare-root window as a factual FAQ line, but the site has never run a plan-and-order-now hub for it the way it does for alliums (card 1) and is about to for bulbs (card 25, proposed). Card 1 earned Kate's warmest note on the board for exactly this shape ("good focus on getting those affiliate clicks as well as useful content") — this is genuinely new commercial ground (soft fruit has no affiliate presence on the site today), not a repeat of an existing category.
+- **Pitch:** a short seasonal hub in the same voice as the allium hub — why bare-root beats a pot-grown plant for both price and how well it settles in, a shortlist of the easiest starts (raspberry canes, a blackcurrant bush, a rhubarb crown), and real links to order now for winter delivery. Sits naturally beside `growing-fruit` and gives the site's first real fruit-buying moment.
+- **Ready-to-queue brief:** target "bare root fruit bushes uk" / "when to order raspberry canes"; angle = plan-and-order-now, same shape as card 1; links → growing-fruit, dealing-with-the-glut (next year's glut starts here); voice = practical, gently timely, no "paradise" language; **check Awin/affiliate partners actually stock bare-root soft fruit before building — this is a new commercial category for WTS, not an extension of an existing one, same caution as card 25's bulbs.**
+- **Added:** 2026-08-23 · **Run:** forager-2026-08-23
+
+---
+
+_The Dreamer's run of 29 August — one small addition, tagged `from-a-dream`.
+Checked against everything above; this isn't new content, it's a scope
+addition to an already-approved, not-yet-built card, so it gets its own yes
+rather than being assumed._
+
+### 37. Give card 18/21's giant-veg tool the exact Malvern giant-pumpkin weekend date
+- **Type:** feature _(scope addition to approved card 18/21, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-08-29)
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 21 (approved 10 August) anchored the giant-veg tool's copy to "Malvern Autumn Show in September," generically. This week's recovered pumpkin-timing pitch (card 31) independently surfaced a sharper figure: Malvern's giant-pumpkin weekend runs 25–27 September specifically. Same evidence chain as card 21 itself — a precise date beats a vague month, and it's cheap to fold in before the Night Gardener builds it, awkward to retrofit after.
+- **Pitch:** no change to the tool itself — swap "Malvern Autumn Show in September" for the exact giant-pumpkin weekend dates (25–27 September) wherever card 18/21's copy currently names the show generically.
+- **Ready-to-queue brief:** fold into card 18/21's existing brief rather than shipping separately; no new target query; the only change is the precision of the date.
+- **Added:** 2026-08-29 · **Run:** dream-2026-08-29
+
+---
+
+_**Recovered by The Dreamer, 5 September** — the 30 August Forager run
+committed to a branch (`ideas/weekly-2026-08-30`) instead of `main`, the
+same crew-wide bug, now confirmed for a sixth stuck run. It branched from
+`main` at card 29 — before either the 22 or 29 August dream had recovered
+cards 30–37 onto any board it could see — so its own numbering (30–32)
+collided with cards already claimed above. Renumbered 38–40 here, content
+otherwise unedited._
+
+### 38. Race the frost — how many days has your harvest got left?
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Note (The Dreamer):** ⚠️ this is the same idea as card 30 ("Bring it in, or leave it out?"), pitched independently — both ask the reader what's still growing and turn the site's frost-date engine into a countdown. This is the **third** independent duplicate pitch caused by the write-to-main bug (after leaf mould, cards 28/32, and Halloween pumpkin timing, card 31/its 23 August echo) — see `docs/dreams/wisdom.md` §5. Recovered unedited; Kate only needs one of these, and card 30 has the head start (one dream cycle already) plus the slightly stronger visual brief (a bed-to-shed scene vs. a countdown bar) — worth deciding between them rather than building both.
+- **Score:** High payoff / Low effort · extends the postcode/frost engine onto new ground
+- **Evidence:** England had its driest July on record and was 71.3% in drought by 10 August (National Drought Group) — but by 27 August, heavy rain had brought over 40 flood alerts, the same swing that's about to turn attention from "will it rain" to "when's the frost." `src/lib/frost.ts` already has `calculateFirstAutumnFrostDate` — a working first-autumn-frost estimate (base ~25 October at 50°N, adjusted per location) sitting behind the frost map, currently only used for the spring-frost display. Separately, "green tomato chutney" is a genuine, recurring UK autumn search every year — the classic problem is a vine still carrying 20–50 unripe tomatoes when the first frost is forecast — and a direct check of `dealing-with-the-glut` and `tomato-blight` found chutney mentioned only in passing, three one-line asides, never a dedicated piece answering "will mine make it, or should I pick now?"
+- **Pitch:** pick what's still out there — tomatoes, squash, chillies, French beans, a potted aubergine — enter your postcode, and it says plainly how many weeks of grace your own patch typically has left before the first frost, and the one honest thing to do about each crop (leave it, pick and ripen on a windowsill, or bring the pot in tonight). No new data or engine — just a new door onto the frost calculation the site already runs, in the site's countdown-not-metric-tile voice: one sentence of judgement, the days-left number whispered in mono beneath. Ends by pointing at the green tomato chutney piece (once written) for whatever comes off green.
+- **Ready-to-queue brief:** needs-spec — reuses `frost.ts`'s existing `calculateFirstAutumnFrostDate`, no new data source; crop list pulled from `crops.ts`'s tender/frost-sensitive flags already in place; UI = a short picker + postcode, one interpreted sentence, mono footnote beneath (days to first frost, worked out for the reader's own pattern), no metric tiles, no chip cloud, per DIRECTION §7; visual = a countdown or filling bar, the same physical-metaphor instinct behind the Glut-o-meter and the green-manure bed-filler; links → protecting-vegetables-from-frost, growing-tomatoes-outdoors-vs-greenhouse, the curing/storage guide (card 13) once live.
+- **Added:** 2026-08-30 · **Run:** forager-2026-08-30
+
+### 39. Order your bare-root fruit trees now — before the winter price rise
+- **Type:** monetisation
+- **Status:** proposed
+- **Note (The Dreamer):** distinct from card 36 (bare-root soft fruit — raspberries, currants, rhubarb): this is top fruit (apple/pear trees), a different plant category with a different affiliate lookup. Not a duplicate, but see the dream note on 5 September — this is now the fourth "order bare-root/bulbs now" hub pitch on the board (cards 1, 25, 36, 39), and they may be worth Kate deciding on as one family rather than four separate yeses.
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** UK bare-root fruit trees are on sale now for the November–March planting season, and at least one major nursery (Blackmoor) is explicit that ordering now avoids an October price increase — the ordering window is open and narrowing right now. WTS's affiliate partners Suttons and Dobies (already Awin-linked, per card 1's evidence) both stock bare-root fruit trees. A direct check of `growing-fruit` (650 lines, read in full for card 23) confirms it covers every soft fruit and rhubarb but apples and pears appear nowhere — **WTS has zero top-fruit content of any kind**, commercial or editorial. This is a genuinely new commercial category, not an extension of one already monetised.
+- **Pitch:** a short seasonal hub in the shape that earned Kate's warmest note on the board (card 1: "good focus on getting those affiliate clicks as well as useful content") — why bare-root beats a container tree (cheaper, better root establishment, wider variety choice), what actually matters when choosing one for a small plot (rootstock size, not just the variety name), and a shortlist of easy, reliable apples and pears for UK gardens, with real links once availability's confirmed. Plants the seed now for delivery and planting once the bare-root season proper begins in November.
+- **Ready-to-queue brief:** target "bare root fruit trees uk" / "when to order fruit trees uk"; angle = order-now-plant-later, same shape as card 1; links → growing-fruit (add a top-fruit cross-link once this exists), card 23's apple-ripeness piece once live; voice = practical, gently timely, no "transform your garden" language; **check Awin has bare-root fruit tree products live at Suttons/Dobies before building — this is a new commercial category for WTS, not an extension of an existing one** (same caveat card 25 carried for bulbs, and for the same reason).
+- **Added:** 2026-08-30 · **Run:** forager-2026-08-30
+
+### 40. The rain's back — and so is blight
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** the same drought that pushed 71.3% of England into official drought by 10 August broke in the last week of August — heavy rain brought over 40 flood alerts by the 27th. Blight thrives on exactly this swing: UK growers track it by the Hutton Criteria, two consecutive days above 10°C overnight with six or more hours at 90% humidity, and a run of wet days after a long dry, muggy spell is precisely when spores spread fastest — risk is a June–September concern, so this is still live. WTS already built Blight Watch, a genuinely useful live risk map, but nothing on the site currently tells a reader *why now* — the existing `tomato-blight` guide explains the mechanism in general terms but carries no tie to this specific, current turn in the weather.
+- **Pitch:** the same recipe as cards 7, 19 and 22 (a real current weather turn, one plain paragraph on the mechanism, calm practical steps), but for the flip side of the drought story: the rain everyone's been glad of is exactly what blight was waiting for. Keep foliage dry from here (water the base, not overhead), check plants daily, and go and look at Blight Watch for your own area's current reading rather than guessing. A genuinely useful nudge toward a built tool that's had no editorial push behind it yet.
+- **Ready-to-queue brief:** target "blight risk after rain uk" / "will the rain cause blight"; angle = the story continues, don't scare, just explain; links → /blight-watch (the real point of the piece), tomato-blight, dealing-with-the-glut ("harvest ahead of it" advice already lives there); voice = calm, matter-of-fact, no scaremongering about the rain itself — everyone's glad of it, this is just the trade-off.
+- **Added:** 2026-08-30 · **Run:** forager-2026-08-30
+
+---
+
+_The Dreamer's run of 5 September — two dreamt additions. Neither is new
+research; both connect evidence already sitting on the board or in this
+week's stuck agent reports. Checked against `docs/CUT_LIST.md` and
+everything above before pitching._
+
+### 41. One "order now for winter" index, not four separate hub decisions
+- **Type:** feature _(→ needs a light spec once at least two of its links exist)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-05)
+- **Score:** Medium payoff / Very low effort
+- **Evidence:** the board now carries four separate "buy your [X] now for [later] delivery" pitches, all the same mechanic: alliums (card 1, live), spring bulbs (card 25, proposed), bare-root soft fruit (card 36, proposed) and bare-root fruit trees (card 39, proposed). Card 1 earned Kate's warmest note on the whole board for this exact shape. Rather than Kate deciding on three more near-identical hubs one at a time — each needing its own Awin stock check — a single seasonal index page ties them together once they exist, the way `/sow/[month]` already indexes seasonal content rather than duplicating it.
+- **Pitch:** a short "what to order now, for spring and next year" page — one paragraph per category (alliums, bulbs, soft fruit, top fruit), each linking to its own hub once built, updated as each ships rather than waiting for all four. No new research or affiliate checks of its own; it's a doorway, not a fifth hub.
+- **Ready-to-queue brief:** needs a light spec once card 25 or 36 ships alongside card 1, so there's more than one door to index; links → card 1 (live), cards 25/36/39 (once built); no new target query — this rides the existing hubs' own queries; voice = plain, one line of judgement per category, no ranking of which to buy first.
+- **Added:** 2026-09-05 · **Run:** dream-2026-09-05
+
+### 42. Give card 13's curing guide a fifth crop: apples and pears
+- **Type:** content _(scope addition to approved card 13, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-05), evidence via the SEO Watchdog's 2026-09-01 report
+- **Score:** High payoff / Very low effort
+- **Evidence:** three independent agents have now converged on top fruit without seeing each other's work: card 23 (proposed, 2 August) pitched the ripeness test; card 39 above pitched ordering the trees; and this week's stuck SEO Watchdog report independently names "storing apples" as a live September–November search opportunity, noting `growing-fruit` covers growing but has zero mention of storage. Card 13 (curing/storage, approved 4 August, still unbuilt) already plans onions, garlic, squash and potatoes — apples and pears are the same seasonal job (cool, dark, laid out not touching) and card 13's build hasn't started, so this is cheap to fold in now rather than leaving storage to fragment across a fourth new page.
+- **Pitch:** no new page — add apples and pears as card 13's fifth crop, using the same "why you can't skip this" structure as its other four: don't stack them, check for bruises before storing (one bad apple really does spoil the barrel), lay out somewhere cool and dark. Card 23 (the ripeness test itself — when to pick) can stay a separate, smaller piece or fold in later; this only closes the storage half of the gap.
+- **Ready-to-queue brief:** fold into card 13's existing brief; add "how to store apples uk" / "storing apples for winter" to its target list; links ← growing-fruit, card 23 once it exists; voice unchanged from card 13's brief.
+- **Added:** 2026-09-05 · **Run:** dream-2026-09-05
+
+---
+
+_Shortlist from the Forager's run of 6 September. **A note on this board
+before anything else:** `main` was three commits and 27 cards behind reality
+before this run started — cards 30–42 above only existed on six unmerged
+branches (`ideas/weekly-2026-08-16`, `-08-23`, `-08-30` and
+`dreams/2026-08-22`, `-08-29`, `-09-05`). This run read all six directly
+(not `main`) to check its pitches against, and has copied their full,
+reconciled content onto this branch so nothing already found is lost again.
+The write-to-main bug itself is not this run's to fix — see
+`docs/dreams/wisdom.md` §5 — but until it is, whoever next merges anything
+should merge from here, not from `main`._
+
+_Checked against `docs/CUT_LIST.md`, all 42 cards above (proposed, approved
+and parked alike) and the site's actual guide/data coverage — grepped
+directly, not assumed — before pitching. Two cards, not five: most fresh
+angles this week (no-dig vs. dig, pigeon-netting for winter brassicas,
+grow-your-own Christmas wreaths, autumn-sown hardy annuals) turned out on
+inspection to already be well covered on the site or to sit too close to
+parked ground (card 15) to pitch again. Given 30 of the 42 cards above are
+still sitting unbuilt and undecided, padding to five felt like the wrong
+call this week — see the note to Kate below._
+
+### 43. The Dark Half — what the clocks going back actually means for your plot
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort · extends an existing, loved tool rather than building a new one
+- **Evidence:** British Summer Time ends at 2am on Sunday 25 October 2026 — clocks go back an hour, and evenings suddenly go dark at teatime. This is the single most *felt* turning point of the UK gardening year (more noticed day-to-day than the solstice itself, which passed with no fanfare in June), and it falls squarely in the next 4–8 weeks. Checked `/longest-day` directly: it's a genuinely lovely page, built around the summer solstice, with `DaylightArc`, `DaylightSwing`, `DaylightMap` and `LocalisePostcode` components already doing the hard work of showing a reader their own daylight, personalised to their postcode — but it has **no autumn or winter companion at all**. The site's own daylight tool, one of its three "gem" features per its own working principles, gets used once a year and then forgotten until next June.
+- **Pitch:** reuse `/longest-day`'s own components, recalculated for the reader's own patch at the moment the clocks actually change (not the solstice, which is two months later and less useful as a hook) — how much usable daylight they'll have after the change, when it'll next start lengthening, and what that means practically: which jobs move from "after work" to "at the weekend," and a nudge toward what's still sowable/doable by torchlight versus what genuinely wants a Saturday. No new data source, no new maths — the frost/season engine and the daylight components already exist; this is a new door onto both, at the one weekend of the year everyone's already thinking about the light.
+- **Ready-to-queue brief:** feature → needs-spec — reuses `DaylightArc`/`DaylightSwing`/`DaylightMap`/`LocalisePostcode` from `/longest-day`, anchored to 25 October instead of the solstice; one interpreted sentence first ("the light's going, but here's what's still worth doing"), mono footnote beneath (hours of daylight, days until it starts lengthening again), no metric-tile row; links → `/longest-day` (cross-link both ways, they're a pair), `preparing-your-plot-for-winter`, `protecting-vegetables-from-frost`; no forced buy-point — if one earns its place naturally it's a head-torch or a cold-frame, not a hard sell.
+- **Added:** 2026-09-06 · **Run:** forager-2026-09-06
+
+### 44. Dig them up before the frost takes them — dahlias and the tender bulbs worth saving
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** dahlia (and gladioli) tubers should only be lifted 10–14 days after the first frost blackens the foliage — typically early-to-mid November in most of the UK — because the tuber keeps bulking up right until then; lifting too early gives a smaller, weaker plant next year (BBC Gardeners' World, Longfield Gardens, Peter Nyssen all agree on this exact timing). Grepped `src/data/crops.ts` and the whole `src/app` tree directly: WTS has no dahlia or gladioli content anywhere — the only mention on the entire site is one poetic almanac whisper ("the dahlias have their last blaze," `seasons.ts`) with zero practical advice behind it. This is a different job from cards 30/38 (proposed, still undecided) — those are about deciding whether to harvest or shelter a *vegetable* still cropping; this is about lifting and storing an *ornamental tuber* once its season is over, a different plant category and a different action, not a re-pitch of either.
+- **Pitch:** a short, patient piece on not rushing it — wait for a proper frost to blacken the leaves first, then give it a fortnight before lifting, so the tuber gets everything it can from the dying foliage. Cut back, lift, shake off soil, dry upside-down for a day or two somewhere frost-free, then store in a box of dry compost or vermiculite somewhere cool and dark until spring. Same thrift-and-closing-the-loop register as the seed-saving pieces (cards 10/15's spirit, applied to a tuber instead of a seed) — this year's dahlia is next year's dahlia, for free. Personalise the "when" with the postcode/frost engine exactly as cards 2, 7 and 17 already do, rather than a single UK-wide date.
+- **Ready-to-queue brief:** target "when to lift dahlia tubers uk" / "storing dahlias for winter"; angle = patience, not urgency — the tuber isn't ready until the frost says so; links → companion-planting (a natural home for a short mention, since dahlias are a common cut-flower/companion bed plant), card 43 once live (both are "the light and the cold are changing" autumn moments); voice = plain, unhurried, no soil science; light monetisation only if genuinely earned — a bag of vermiculite or a proper storage box, one mention, never mid-paragraph.
+- **Added:** 2026-09-06 · **Run:** forager-2026-09-06
+
+---
+
+_The Dreamer's run of 12 September — two small additions, both dreamt scope-notes
+on cards already sitting on the board rather than new pitches, the crew's
+best-performing move (6/6 to date). Checked against everything above and
+`docs/CUT_LIST.md` before adding._
+
+### 45. Cards 30/38 and card 43 are the same seasonal turn — pair them, whichever gets built
+- **Type:** feature _(scope note across cards 30/38 and 43, none yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-12)
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 38's own evidence names `frost.ts`'s `calculateFirstAutumnFrostDate` baseline as **~25 October** — and card 43 (The Dark Half) is anchored to British Summer Time ending, also **25 October 2026**. Nobody pitching either card noticed the other: card 30/38 came from two blind Forager runs three weeks apart, card 43 from a third, separate run reading `/longest-day`. All three describe the same felt moment on the UK gardening calendar — the light going and the cold arriving, in the same week — using two different engines (frost date, daylight hours) the site already has, aimed at the same reader, on the same day.
+- **Pitch:** no new build, no new spec beyond what 30/38 and 43 already ask for — just cross-link them once any are built, and word each one's "worth doing this weekend" note with an eye to the other (a frost-triage piece that also nods at the shortening evenings; a daylight piece that also nods at what's still out in the beds). Whichever of 30/38 Kate picks doesn't change this — it's a pairing note, not a preference between them.
+- **Ready-to-queue brief:** no new target query; fold into whichever of card 30 or 38 gets built, and into card 43 if it's built separately — a "see also" link each way; no design change beyond the cross-link.
+- **Added:** 2026-09-12 · **Run:** dream-2026-09-12
+
+### 46. If the giant-veg tool can't beat Malvern's giant-pumpkin weekend, give it the same honest fallback card 21 already used
+- **Type:** feature _(pre-emptive scope note on approved cards 18/21/37, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-12)
+- **Score:** Medium payoff / Very low effort
+- **Evidence:** card 18/21/37's copy is anchored to Malvern's giant-pumpkin weekend, 25–27 September — thirteen days from today. PR #3 has now sat with zero reviews for 38 days and is still the only thing queued for build, so on current form card 18/21/37 has no realistic path to shipping before its own anchor date passes — the exact fate that already overtook card 9 (National Allotments Week, approved 13 July, missed its own week entirely; see card 29's fix). Card 21 already solved this once, for one line of copy: anchor to whichever window still has runway, tell the rest honestly in the past tense. Card 46 asks for the same fix, written in advance rather than discovered after the date's gone.
+- **Pitch:** no change to the tool's design or scope — just a fallback line ready for whoever builds it: if it ships after 27 September, lead with next year's Malvern date instead, and mention this year's actual giant-pumpkin winner in the past tense ("this year's heaviest at Malvern weighed in at...") rather than a countdown to a show that's already happened. Cheap to write now; awkward to notice only after publishing a tool counting down to a date already gone.
+- **Ready-to-queue brief:** fold into card 18/21/37's existing brief as a conditional fallback, not a rewrite; no new target query; only matters if the build slips past 27 September, which is likely but not certain.
+- **Added:** 2026-09-12 · **Run:** dream-2026-09-12
+
+---
+
+_**Recovered by The Dreamer, 19 September** — the 13 September Forager run
+committed to a branch (`ideas/weekly-2026-09-13`) instead of `main`, the
+same crew-wide bug, now roughly ten weeks old. It branched before card 30
+existed on any board it could see, so its own numbering (30–33) collided
+with cards already claimed above. Renumbered 47–50 here, content otherwise
+unedited._
+
+### 47. Bare-root season — order your fruit trees and hedging now, plant from November
+- **Type:** monetisation
+- **Status:** proposed
+- **Note (The Dreamer):** this is the fifth "order [X] bare-root/now"
+  pitch on the board (after cards 1, 25, 36, 39) and adds a new category
+  (hedging) to the fruit-tree one card 39 already covers — not an exact
+  duplicate, but part of the same family card 41 already proposed indexing
+  rather than deciding on one at a time. See `docs/dreams/wisdom.md` §5.
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** checked Suttons and Dobies directly — both have bare-root fruit trees (apple, pear, plum, cherry and more) and bare-root hedging (native mixed hedge whips, laurel, box) live for sale right now, and Suttons is already an active Awin merchant WTS uses elsewhere (`crops.ts` links straight to `suttons.co.uk/search?q=...`). Nurseries are explicit that pre-ordering starts in August/September to join the despatch queue before popular varieties sell out, with delivery prioritised for early November — the proper planting window (mid-November to March, whenever the ground isn't frozen or waterlogged) hasn't opened yet, but the ordering window is open now. A full grep of `src/data` and `src/app` confirms **WTS has zero fruit-tree or hedging content anywhere** — a genuinely new commercial category, not an extension of one that exists.
+- **Pitch:** the same plan-and-order-now shape as card 1 (the autumn allium hub, Kate's warmest note on the board so far) — why bare-root beats pot-grown for cost and establishment, the order-now/plant-from-November timeline, a short shortlist (two or three easy fruit trees on dwarfing rootstock for a small plot, a native mixed hedge for a boundary), real Suttons/Dobies links. Slots naturally next to the `growing-fruit` guide and gives the plot's edges — not just its beds — something to grow.
+- **Ready-to-queue brief:** target "when to plant bare root fruit trees uk" / "order bare root hedging now"; angle = plan-and-order-now, same shape as card 1, not a how-to-plant piece (that comes later, at planting time); links → growing-fruit guide, crops/rhubarb (fruit cluster); voice = practical, gently timely, never hypey; **check Suttons/Dobies bare-root fruit tree and hedging Awin links are live and click-tested before building — this is a new commercial category for WTS, not an extension of an existing one.**
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+### 48. "How many, how far apart, and when" — a bare-root planting planner
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low–medium effort · extends the site's calculator DNA
+- **Evidence:** wisdom.md's single highest-confidence taste rule is weaving the postcode/frost engine into content rather than describing it, and "feature ideas that extend the calculator DNA land easily" is the crew's other top-confidence read (zero rejections so far, cards 14/17/27 all built on it). Bare-root planting has a twist bulbs (card 27) don't: timing isn't just a calendar date, it depends on the ground itself — you can't plant into frozen or waterlogged soil, whatever the calendar says. No existing WTS tool answers "is my ground actually plantable yet," and this only earns its place once card 47's hub exists to send it.
+- **Pitch:** enter your postcode and what's arriving — a tree, a bundle of hedging whips, a few soft-fruit bushes — plus roughly how much space, and it gives spacing (from the nurseries' own packing-slip rules) and an honest word on timing: reusing the frost/season engine to say plainly whether the ground's likely workable now or worth giving a fortnight after a wet spell. A simple filling-boundary visual, the same physical-metaphor instinct behind the Glut-o-meter and the green-manure bed-filler.
+- **Ready-to-queue brief:** needs-spec — a small lookup table for 3–4 bare-root categories (fruit tree, hedging whip, soft fruit bush) with spacing already gathered from grower guidance, no new data source beyond that; reuses season-core/frost engine same as card 17; visual = a filling boundary line, not a table or metric tiles; build only after card 47's hub exists; affiliate = the same Suttons/Dobies links as card 47.
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+### 49. Forcing rhubarb — the old trick for stems before Easter
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** checked the `growing-fruit` guide's rhubarb section and the `/crops/rhubarb` page directly — WTS covers ordinary rhubarb growing well but forcing (covering the dormant crown to trick it into early, pale, sweeter stems) is mentioned nowhere on the site. It's a genuine, recurring UK autumn/winter query (RHS, Gardeners' World, GrowVeg and Plantura all carry their own guide to it) and the setup window is opening now: you cover the crown once it's properly dormant, typically from November, with stems ready around eight weeks later — weeks ahead of the natural April crop.
+- **Pitch:** a warm how-to on the old trick — a bucket, a bin or a proper terracotta forcer over the crown, why the stems come out pink and sweeter for being grown in the dark, and the one rule that matters most: never force the same crown two winters running, so it's only worth starting with a second crown to rest it against. Same thrift-and-patience voice as the seed-saving pieces (cards 10/15).
+- **Ready-to-queue brief:** target "how to force rhubarb" / "forcing rhubarb for an early crop"; angle = the old trick, told plainly, not a science lecture; links ← growing-fruit's rhubarb section, /crops/rhubarb; voice = patient and unhurried, one method told well; honest note — don't force a crown younger than about three years, and never two winters running.
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+### 50. Check your bonfire before you light it
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Very low effort
+- **Evidence:** Bonfire Night (5 November) falls inside the next 4–8 weeks, and the same reminder runs every year across every UK wildlife body (RSPB, Hedgehog Street, the Wildlife Trusts, RHS) for good reason — a pile of garden waste left standing for weeks looks exactly like shelter to a hedgehog settling in for winter. Checked `preparing-your-plot-for-winter` directly: it already nods at "a heap of leaves… winter shelter for hedgehogs" in passing, but nothing on the site connects that to the specific, well-known risk of a plot's own bonfire pile. A small, evergreen, high-goodwill gap sitting right next to content that already exists, not a new subject.
+- **Pitch:** a short, gentle reminder rather than a lecture — build the pile as late as you can before lighting it, or better, build it on a base you can lift whole onto the fire at the last minute, and always check underneath with a torch first. Ties straight back to the "wild corner" line already in the winter-prep guide — hedgehogs get somewhere better to be than the bonfire itself.
+- **Ready-to-queue brief:** target "check bonfire for hedgehogs" / "bonfire night hedgehog safety"; angle = one practical habit, not a wildlife lecture; links ← preparing-your-plot-for-winter (the wild-corner line); voice = gentle and matter-of-fact, no guilt-tripping; no monetisation — this is a trust-and-delight moment, keep it link-light.
+- **Added:** 2026-09-13 · **Run:** forager-2026-09-13
+
+---
+
+_The Dreamer's run of 19 September — one dreamt addition, not fresh research
+but an independent technical finding lined up against a decision
+`docs/CUT_LIST.md` §4 already flagged as pending. Checked against
+everything above before adding._
+
+### 51. The variety-page duplication is the evidence CUT_LIST §4 was waiting for
+- **Type:** monetisation _(a prune/de-duplicate decision, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-19), evidence via the SEO Watchdog's 2026-09-15 report
+- **Score:** Medium–high payoff / Low effort to decide, low–medium effort to action
+- **Evidence:** `docs/CUT_LIST.md` §4 already names the 181 variety pages as "on watch" — unique voice copy justifies keeping them, but "if the indexing data says Google won't touch them, thin the tail," marked ⛔ for a pending call. The SEO Watchdog's 15 September report checked the actual rendered text on both templates directly (`src/app/crops/[slug]/page.tsx` and `src/app/crops/[slug]/[variety]/page.tsx`) and found the variety page's entire unique content — its `personality` paragraph and recipe descriptions — is also rendered word-for-word on the parent crop page, which outranks it on authority. This isn't a new gap; it's the specific evidence CUT_LIST said would matter, arriving on its own.
+- **Pitch:** no new content — a decision between two known fixes, either of which resolves the CUT_LIST watch item: stop rendering the full variety text on the parent crop page (a short teaser + link out instead, keeping both pages useful and distinct), or treat this as the trigger to thin the 181-page tail per CUT_LIST's own contingency. Either way, it's Kate's call to make, not a build to spec blind.
+- **Ready-to-queue brief:** no new target query; whichever direction is chosen, implementation is confined to the two page templates named above; no voice or affiliate change either way.
+- **Added:** 2026-09-19 · **Run:** dream-2026-09-19
+
+
+
+---
+
+_**Recovered by The Dreamer, 26 September** — the 20 September Forager run
+committed to a branch (`ideas/weekly-2026-09-20`) instead of `main`, the
+same crew-wide bug, now roughly eleven weeks old. It branched before cards
+47–51 existed on any board it could see, so its own numbering (30–32)
+collided with cards already claimed above. Renumbered 52–54 here, content
+otherwise unedited — but flagged plainly where it repeats, because two of
+the three do._
+
+### 52. Order your bare-root fruit trees and bushes now — the November delivery window
+- **Type:** monetisation
+- **Status:** proposed
+- **Note (The Dreamer):** this is the same pitch as card 47 (order-now
+  bare-root fruit trees and hedging), written by the *previous* week's
+  Forager run and still unmerged when this run wrote its own board — same
+  suppliers, same angle, same delivery window. Not a new idea; the cleanest
+  evidence yet that the write-to-main bug hides each run's pitches from the
+  very next run, not just from `main`. See `docs/dreams/wisdom.md` §1/§5.
+  This also makes six pitches for the same "order bare-root/now" mechanic
+  (cards 1, 25, 36, 39, 47, this one) — card 41 already proposed deciding
+  them as one family rather than one at a time.
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** UK bare-root nurseries (Ashridge, Frank P Matthews, R J Trees and Hedging, Keepers Nursery) are already taking pre-orders for the November 2026–March 2027 dormant season, with despatch queues opening from August and priority given to early pre-orders before popular varieties sell out. Read the whole `growing-fruit` guide directly (650 lines): it already tells readers, correctly, that raspberries, blackcurrants, gooseberries and redcurrants are cheapest and establish best bought bare-root in winter — but **carries not one single affiliate or supplier link, anywhere**, the only guide on the site in that state. The guide is teaching the exact behaviour it earns nothing from.
+- **Pitch:** don't write a new page — give the existing guide the order-now moment it's missing. A short seasonal section (or a standalone companion piece, whichever the guide's own shape prefers once opened) making the pre-order window explicit: why bare-root beats container-grown for both price and establishment, which of the site's five already-covered fruits (raspberries, blackcurrants, gooseberries, redcurrants, blackberries) are worth ordering this way, and real supplier links for once. Same plan-and-order-now shape that earned Kate's warmest note on the board (card 1) — applied to a fruit guide that's been sitting there fully written and entirely unmonetised since July.
+- **Ready-to-queue brief:** target "when to plant bare root fruit trees uk" / "order bare root fruit bushes"; angle = the guide already tells you this works, now here's where to buy; links ← growing-fruit guide itself, → relevant crop pages (raspberries, blackcurrants, gooseberries, redcurrants); voice = practical, gently timely, no "paradise/magical" language; **check which supplier(s) WTS can actually link to for bare-root stock before building — this is a new commercial category, not an extension of an existing affiliate relationship.**
+- **Added:** 2026-09-20 · **Run:** forager-2026-09-20
+
+### 53. "The Last Weekend" — a first-frost countdown for closing the plot
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Note (The Dreamer):** a third pitch on the same ground as card 38
+  (the frost countdown) and card 45's already-proposed pairing of 38 with
+  card 43 — same frost engine read backwards, same "days/weekends left"
+  framing, same gate/boundary visual instinct. Recovered unedited; worth
+  deciding cards 38/45/53 together rather than in sequence.
+- **Score:** High payoff / Medium effort · extends the site's proven calculator DNA
+- **Evidence:** the practical UK average for first autumn frost is mid-October to early November in England and Wales, mid-to-late October in Scotland — and it's the one seasonal turning point WTS's frost engine has never pointed at: `/frost-map` only ever answers "when's the *last* spring frost, so I can plant out." Nothing on the site currently answers the autumn version of that same question. It lands in exactly the run of jobs every UK gardening source names for this window (lift dahlias after the first frost, bring in tender pots, get bare-root orders in, finish the plot clear-out) — right now those all read as separate, undated jobs-list items with no single moment tying them together.
+- **Pitch:** reuse the frost engine that already powers `/frost-map` and Blight Watch, pointed the other way: enter your postcode and it says, plainly, how many good weekends you've likely got left before your own first frost, not a countdown clock but the site's own gate-at-the-allotment motif — a small row of gateposts or a fence line that closes one post at a time as the weekends pass, the same tactile, filling-metaphor instinct Kate has approved twice already (the Glut-o-meter's weighing scale, the green-manure picker's filling bed). Under it, one plain sentence naming what's worth doing before the gate shuts: bring the tender pots in, get the bare-root order placed, lift anything that hates a hard frost. No new data source — the frost-map's own regional lookup, read backwards.
+- **Ready-to-queue brief:** needs-spec — reuses the existing frost-zone data and postcode plumbing (no new infrastructure); UI = one interpreted sentence first ("about three weekends left before your ground usually turns"), the visual beneath it, mono footnote for the actual date range; the "worth doing before it shuts" line should link out to whichever of card 30/52 (bare-root), the dahlia/tender-plant advice, and `protecting-vegetables-from-frost` are live by build time, not invent new content; no leaderboard, no metric tiles, UK-average fallback before a postcode is entered.
+- **Added:** 2026-09-20 · **Run:** forager-2026-09-20
+
+### 54. What to burn, what to bin, what to keep — the autumn clear-out (and checking before you light it)
+- **Type:** content
+- **Status:** proposed
+- **Note (The Dreamer):** overlaps card 50 (check your bonfire before you
+  light it, recovered from the 13 September run) on the hedgehog-check
+  core, but widens the scope to what to actually do with diseased plant
+  material (compost vs. council bin vs. bonfire) — genuinely adds something
+  card 50 doesn't cover. Worth Kate deciding whether this replaces card 50
+  outright or the two fold into one piece, rather than building both.
+- **Score:** Medium-high payoff / Low effort
+- **Evidence:** the British Hedgehog Preservation Society's "Stop, Move, Check" bonfire campaign is already live for this Bonfire Night (5 November), asking people to build bonfires on the day they're lit and check them properly beforehand — hedgehog populations are down an estimated 75% in parts of the countryside since 2000, and this is one of their two big annual appeals. Separately, `tomato-blight` and `preparing-your-plot-for-winter` (both checked directly) tell readers to clear diseased haulm and old plant material off the plot, but neither says what to actually *do* with it once it's pulled — burn it, bin it, or compost it — and nowhere on the site mentions checking a bonfire pile before lighting it. A genuine, unaddressed gap sitting exactly where two existing guides stop short.
+- **Pitch:** a short, practical piece for the actual pile of stuff an autumn clear-out leaves behind — what's safe for the compost heap, what should go to the council green bin instead (blighted potato and tomato haulm, anything with clubroot or white rot, the things that shouldn't come back next year), and what's genuinely fine for a bonfire if a plot or garden still has one. Woven in naturally, not as a bolt-on PSA: if it's been sitting a few days before you light it, move it and check right through it first — hedgehogs and toads take exactly this kind of pile as a ready-made home over winter. Ends facing forward, the way the tone always does: a clean start for next spring's rotation.
+- **Ready-to-queue brief:** target "what to do with tomato blight plant" / "can you compost blighted potato haulm" / "bonfire night hedgehog check"; angle = the practical sorting question, safety woven in rather than bolted on; links ← tomato-blight, preparing-your-plot-for-winter, composting; voice = plain and kind, no doom about hedgehog decline, no scaremongering about bonfires — matter-of-fact and including ourselves ("we always move the pile before we light it, just in case"); no affiliate angle forced onto this one, it's a trust piece.
+- **Added:** 2026-09-20 · **Run:** forager-2026-09-20
+
+---
+
+_The Dreamer's run of 26 September — two small scope-notes, the crew's
+best-performing move, not fresh research. Checked against everything above
+before adding._
+
+### 55. Card 46's hedge is now the fact — Malvern's weekend has passed with nothing built
+- **Type:** feature _(scope addition to approved card 18/21, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-26)
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 46 (promoted 12 September) pre-emptively asked for card
+  18/21's giant-veg tool to get the same honest fallback card 21 already
+  used, "if" it couldn't beat Malvern's 25–27 September giant-pumpkin
+  weekend. PR #3 has not moved in 52 days and nothing else has built since
+  5 August — the "if" has resolved. The weekend named in the tool's own
+  evidence has now happened with the tool unbuilt.
+- **Pitch:** no change to card 46's instruction — just note plainly that
+  it's no longer a contingency to plan for, it's the copy the tool needs on
+  day one whenever it's finally built: lead with last year's Malvern
+  result, past tense, and let next September's show be the live anchor
+  instead. Saves whoever specs this from re-deriving what card 21 already
+  worked out twice.
+- **Ready-to-queue brief:** fold into card 18/21/46's existing brief; no new
+  target query; the only change is that the fallback framing is now the
+  primary framing, not a hedge.
+- **Added:** 2026-09-26 · **Run:** dream-2026-09-26
+
+### 56. Six pitches, one commercial family — the bare-root/order-now cards need one decision, not six
+- **Type:** monetisation _(a sequencing decision, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-09-26)
+- **Score:** High payoff / Very low effort to decide
+- **Evidence:** cards 1 (live), 25, 36, 39, 47 and 52 are all the same
+  mechanic — order a plant category now, real Awin/supplier links, plant
+  later — reapplied to alliums, bulbs, soft fruit, fruit trees, and now
+  fruit trees again. Card 41 proposed an index over separate decisions three
+  weeks ago; card 52 (this week) demonstrates exactly why: the Forager
+  pitched the same fruit-tree idea twice, seven days apart, because the
+  pipeline bug hid the first pitch from the second run. This isn't asking
+  for anything new to be built — it's asking Kate to make one sequencing
+  call (a single "order now" index page linking out, or pick the two or
+  three worth building and park the rest) instead of working through six
+  near-identical cards individually whenever the Bench reopens.
+- **Pitch:** no build — a one-line steer from Kate on cards 1/25/36/39/47/52
+  as a group: build them as one linked index, pick a shortlist, or park the
+  rest. Whatever she decides, it's one decision instead of six, and it
+  stops a seventh version of the same pitch turning up next month.
+- **Ready-to-queue brief:** not applicable — this is a sequencing ask, not a
+  build brief.
+- **Added:** 2026-09-26 · **Run:** dream-2026-09-26
+
+---
+
+_**Recovered by The Dreamer, 3 October** — the 27 September Forager run
+committed to a branch (`ideas/weekly-2026-09-27`) instead of `main`, the
+same crew-wide bug, now roughly twelve weeks old. It branched from `main`
+at card 29 — before any of cards 30–56 existed on any board it could see —
+so its own numbering (30–32) collided repeatedly with cards already claimed
+above. Renumbered 57–59 here, content otherwise unedited — flagged plainly
+where it repeats, because one of the three does._
+
+### 57. Bare-root fruit trees & bushes — order now, they arrive when the soil's ready
+- **Type:** monetisation
+- **Status:** proposed
+- **Note (The Dreamer):** this is the same pitch as card 52 (itself a repeat
+  of card 47) — same mechanic, same suppliers, same despatch window, written
+  by a Forager run one week after card 52's. That makes this the **seventh**
+  card for one commercial mechanic (cards 1, 25, 36, 39, 47, 52, this one),
+  and the second time in a row the write-to-main bug has hidden the
+  *immediately preceding* week's pitch from the next run, not just an older
+  one. See `docs/dreams/wisdom.md` §1/§5 and card 56, which already asks
+  Kate for one steer across the whole family rather than a seventh review.
+- **Score:** High payoff / Low effort
+- **Evidence:** checked `src/data/kit.ts` directly — no fruit tree, cane or
+  bush appears anywhere in the affiliate catalogue, and `growing-fruit`
+  already tells readers bare-root is cheapest and establishes best, without
+  ever saying where to buy one. Suttons and Dobies (existing Awin partners)
+  both run dedicated bare-root fruit-tree ranges, live now for the
+  November–March dormant-season despatch.
+- **Pitch:** the same plan-and-order-now shape as card 1 — why bare-root
+  beats a pot-grown tree for half the price and a stronger start, what's
+  worth ordering now for a veg-bed-sized plot (step-over or dwarf apple,
+  fan-trained plum, raspberry canes, a gooseberry or blackcurrant bush), and
+  real Suttons/Dobies links once stock's confirmed live.
+- **Ready-to-queue brief:** target "bare root fruit trees uk"; angle =
+  order-now-plant-when-dormant; links ← growing-fruit, → dealing-with-the-glut;
+  **check Awin has bare-root fruit live at Suttons/Dobies before building.**
+  Given card 56 is still undecided, this probably shouldn't be built or
+  reviewed as its own item — it's the clearest argument yet for deciding
+  the family as one.
+- **Added:** 2026-09-27 · **Run:** forager-2026-09-27
+
+### 58. The October green tomato problem — ripen them, or turn them into chutney
+- **Type:** content
+- **Status:** proposed
+- **Note (The Dreamer):** distinct from card 19 (approved, unbuilt — mid-season
+  splitting from drought-then-deluge) and from card 35 (also recovered, also
+  about green tomatoes before frost) — this one leads with the two honest
+  choices (windowsill vs. chutney pan) rather than card 35's rescue-the-plant
+  framing. Close enough in subject that Kate may want to fold them into one
+  piece rather than build both; not an exact duplicate, so left as its own
+  card.
+- **Score:** High payoff / Low effort
+- **Evidence:** checked `growing-tomatoes-outdoors-vs-greenhouse` directly —
+  it covers growing through to ripening on the vine but says nothing about
+  what to do once the first frost is forecast and the vine's still carrying
+  green fruit, a genuine annual UK moment (Hartley Botanic's Lia Leendertz
+  column runs it every October).
+- **Pitch:** pick everything showing even a blush of colour before the frost
+  gets it; the windowsill-with-a-banana trick for anything with a hint of
+  colour already; chutney for the truly green ones. Ends warm and
+  forward-looking, the way card 2 did.
+- **Ready-to-queue brief:** target "how to ripen green tomatoes uk" / "green
+  tomato chutney recipe"; links ← growing-tomatoes-outdoors-vs-greenhouse, →
+  dealing-with-the-glut; voice = "we've found" register, one method told
+  well, no recipe-card grid (ANTI_PATTERNS §1); worth deciding alongside
+  card 35 rather than building both.
+- **Added:** 2026-09-27 · **Run:** forager-2026-09-27
+
+### 59. Which bare-root fruit fits your plot? — a two-question picker
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Note (The Dreamer):** the same mechanic as card 48's bare-root planting
+  planner, pitched independently by a different run — a two-question picker
+  over the same lookup table `growing-fruit` already holds. Only worth
+  building once the bare-root family (card 56) has an actual hub to link
+  from; folding this into card 48 rather than specifying both separately
+  is probably the right call whenever that's decided.
+- **Score:** Medium payoff / Low effort · extends the site's proven calculator DNA
+- **Evidence:** `growing-fruit` already carries the sun/space/bare-root-window
+  lookup table this would run on. Kate has approved this exact move twice
+  (card 14's green-manure picker, card 27's bulb planner) for a fraction of
+  the effort of a new page.
+- **Pitch:** two honest questions — sun and roughly how much space — and it
+  names one fruit to order this bare-root season, not a table of six to
+  weigh up. A filling-bed or trained-against-a-fence visual, the same
+  physical metaphor Kate has asked for three times now.
+- **Ready-to-queue brief:** needs-spec, folds naturally into card 48; no new
+  data beyond `growing-fruit`'s own table; affiliate = same Suttons/Dobies
+  links as card 57; only worth building once card 56 is decided.
+- **Added:** 2026-09-27 · **Run:** forager-2026-09-27
+
+---
+
+_The Dreamer's run of 3 October — two dreamt scope-notes on live or
+built cards, not fresh research, the crew's best-performing move. Both
+sourced from the SEO Watchdog's 2026-09-29 report, cross-checked against
+everything above and `docs/CUT_LIST.md` before adding._
+
+### 60. Card 4 (Grow Your Christmas Dinner) is about to repeat card 9's mistake — give it its links before its own season closes in
+- **Type:** feature _(scope addition to an already-built, live card, not a new build)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-10-03), evidence via the SEO Watchdog's 2026-09-29 report
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 4 shipped live in July, built specifically to catch this
+  year's Christmas season — but the SEO Watchdog's 29 September report
+  checked directly and found no page anywhere on the site links to
+  `/grow-your-christmas-dinner` (not the homepage, not a single guide or
+  crop page), and a `site:` search finds nothing from WTS for "grow your own
+  Christmas dinner" while Suttons, Kitchen Garden, Two Wests and Growseed
+  all rank for it. It's been sitting fully built and completely invisible
+  since July. This is the same shape of miss as card 9 (approved for
+  National Allotments Week, never built in time, fixed by card 29's
+  look-back reframe) — except here the page already exists and the fix is
+  pure plumbing, not new copy. Christmas-search interest rises through
+  November; indexing takes weeks, so the lead time is now, not in December.
+- **Pitch:** no change to the page itself — link it in context from
+  `autumn-winter-vegetables`, `sow-now-eat-all-winter` (once live),
+  `/crops/brussels-sprouts` and `/crops/parsnips` with the anchor "grow your
+  Christmas dinner"; link each crop on the page's own "plate" back to its
+  `/crops/<slug>` page so the weight flows both ways; add it to the
+  homepage's seasonal links from October; then request indexing.
+- **Ready-to-queue brief:** no new target query — the page already targets
+  "grow your own christmas dinner uk"; this is link and metadata plumbing
+  only, confined to the pages named above plus `sitemap.ts`'s existing entry;
+  no voice or design change.
+- **Added:** 2026-10-03 · **Run:** dream-2026-10-03
+
+### 61. Card 1's live autumn hub is showing stale summer copy during its own peak planting month
+- **Type:** monetisation _(fix to an already-built, live card, not a new build)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-10-03), evidence via the SEO Watchdog's 2026-09-29 report
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 1 — Kate's warmest-praised build on the whole board
+  ("good focus on getting those affiliate clicks as well as useful
+  content") — is live at `/guides/autumn-planting-garlic-onions`. The SEO
+  Watchdog's 29 September report checked it directly: the title and
+  description still read as July/August "pre-order" copy, the page is
+  missing from `guide-relevance.ts`'s META table entirely (so the "living"
+  `/guides` index ranks it at the bottom during its own peak month), and it
+  carries only two inbound links. The real UK planting window for garlic
+  and onion sets is mid-October to November — now, not when the copy was
+  written. Same shape as cards 21/55 (anchor to whichever window has
+  runway, not a stale one) — but this time it's a live, earning page
+  showing the wrong season to real visitors today, not an unbuilt card.
+- **Pitch:** no change to the hub's substance — update the title/description
+  to the planting-window framing ("When to Plant Garlic & Onion Sets in
+  Autumn (UK)" per the Watchdog's draft), add the page to
+  `guide-relevance.ts`'s META so it surfaces properly this month, and link
+  it from `/crops/garlic` and `/crops/onion-sets`. Small, mechanical,
+  reversible.
+- **Ready-to-queue brief:** no new target query — sharpens the one it
+  already has; confined to the one guide's metadata/config plus two crop
+  pages; no voice change beyond matching tone-of-voice.md's existing
+  register for the page.
+- **Added:** 2026-10-03 · **Run:** dream-2026-10-03
+
+---
+
 ## Approved
 
 _(empty)_
