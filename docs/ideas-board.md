@@ -443,6 +443,63 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 11 October — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked, done or
+binned idea. Note for the bench: cards 1–2, 5, 7–14, 16–29 are a large,
+mostly-unbuilt pile by this point (see `wisdom.md` §5's "URGENT" note on the
+build queue and the write-to-main bug) — not re-pitching any of it, and
+pushing this run to its own branch exactly as instructed, with the branch
+name going straight to Kate by email so it can't sit unseen the way earlier
+runs did._
+
+### 30. Twelve weeks to bloom — a backward planner for forcing bulbs into flower by Christmas
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's proven backward-planner DNA onto new ground
+- **Evidence:** hyacinths need potting late September–mid-October for Christmas-week flowers (10–12 weeks cold-and-dark rest at 4–9°C before any warmth or light); paperwhites need no chill but want potting by early November at the latest for a festive bloom (RHS: 6–10 weeks pot-to-flower, species-dependent). A direct check of the whole site confirms forcing bulbs for Christmas appears nowhere on WTS — no guide, no feature, nothing — despite the site already carrying the exact mechanic this wants: Grow Your Christmas Dinner's backward planner from 25 December is built and live. Suttons already sells specially prepared forcing hyacinths (several named cultivars — Delft Blue, Dark Dimension, Snow Crystal — around £10 each) confirming the commercial category is genuinely in stock, not a guess.
+- **Pitch:** pick what you want blooming and for when (hyacinths for Christmas week, paperwhites for New Year, amaryllis for either), and it counts backward from that date to say plainly when to pot up, how long it needs cold and dark, and when to bring it into the warm — the same date-arithmetic-done-for-you feeling as the Christmas dinner planner, just for scent and colour instead of a plate. One sentence of judgement first ("pot these up this week, or Christmas blooms slip to New Year"), a bulb filling with colour as it moves through cold → dark → warm rather than a progress bar, and a quiet affiliate line to prepared forcing bulbs where it's genuinely useful.
+- **Ready-to-queue brief:** needs-spec — three bulb types to start (hyacinth, paperwhite, amaryllis), a small lookup table of chill-weeks + warm-weeks per type, backward date maths off the reader's own target date (default 25 Dec); design = one interpreted sentence + a mono date beneath, no metric tiles, no "how this works" preamble; affiliate = prepared forcing hyacinths and bulb fibre — **check Suttons/Dobies stock and Awin links for all three bulb types before building; paperwhite and amaryllis availability is unconfirmed, hyacinth is the one we've verified.**
+- **Added:** 2026-10-11 · **Run:** forager-2026-10-11
+
+### 31. The gardener's Christmas list — gifts worth actually giving
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** every UK gardening title runs a Christmas gift guide by October — Which?'s 2026 guide, Lovely Greens' "Garden Gift Guide 2026", Idealhome's "what gardeners really want for Christmas" all confirm this is a proven, fully recurring seasonal commercial format elsewhere. A direct site search confirms it exists nowhere on WTS — no "gift guide" text anywhere. We're exactly in the research window now (11 October); gift buyers start looking six to eight weeks out, and this window closes itself by early December.
+- **Pitch:** not a generic top-10-gadgets round-up — a short, opinionated list in Kate's own voice, grouped by who's getting it (the one who's just started, the one who's been at it for years, the one stuck indoors over winter) rather than by price band. A handful of real picks with honest, specific reasoning for each ("a hori hori knife, because it does the job of four other tools and never goes missing in the shed"), real affiliate links, ending on the thing that costs nothing at all.
+- **Ready-to-queue brief:** target "christmas gifts for gardeners uk" / "what to buy a gardener for christmas"; angle = opinionated and specific, never a neutral buyer's-guide round-up; links → whatever's already stocked in `kit.ts`, `best-water-butts-uk`, `seed-starting-kit`; voice = Kate's own taste stated plainly, not a comparison table; **verify Awin/affiliate availability on each specific pick before publishing — don't recommend what can't be tracked.**
+- **Added:** 2026-10-11 · **Run:** forager-2026-10-11
+
+### 32. "What would they actually use?" — a two-question gift finder
+- **Type:** feature _(→ needs-spec on approval; only worth building once card 31 exists to draw from)_
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort · reuses Kate's two best-proven feature shapes at once
+- **Evidence:** Kate's two most reliably-approved feature shapes to date are the two-honest-questions picker (card 14, the green-manure finder: "how long is the bed free" + "what's it for" → one named answer, no comparison table) and the physical-metaphor visual (the Glut-o-meter's weighing scale, card 14's own bed-filling bar) — neither shape has been rejected once. A gift guide (card 31) can describe things well but can't choose for someone shopping for a specific gardener; a small picker can, for a fraction of card 31's own effort.
+- **Pitch:** two honest questions — what kind of growing do they do (veg patch, flowers, pots and a windowsill, mostly dreaming of it) and roughly what you want to spend — and it names one gift, not a list to weigh up, pulled straight from card 31's own picks. No new research and no new commercial ground: it's card 31's list wearing the shape Kate already likes.
+- **Ready-to-queue brief:** needs-spec — a small decision tree over card 31's picks, no new data needed; design = one named gift + one warm line on why, explicitly no comparison table and no leaderboard (ANTI_PATTERNS §1/§3); build straight after card 31, never before it.
+- **Added:** 2026-10-11 · **Run:** forager-2026-10-11
+
+### 33. Your pumpkin's second act — what to do with it once the candle's out
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** a direct check of the whole site confirms nothing on WTS answers "what to do with a pumpkin after Halloween," despite pumpkins and squash being an established WTS crop with their own guide. Halloween (31 October) falls inside this run's own 4–8 week window, and every UK lifestyle source covering this (Kitchen Garden, Yours, the Scottish Daily Express) agrees on the same handful of answers — compost it (chopped small, it rots faster), dry and save the seeds for next year, leave scraps out for foxes and birds, never bin it (one estimate puts 20-plus years to break down in landfill, releasing methane the whole time).
+- **Pitch:** a short, cheerful, practical piece for the week after Halloween — chop the spent lantern small for the compost heap, dry this year's seeds for next June's crop (the site's own favourite move: closing the loop), or leave the scraps out for the foxes rather than the bin. Ends by pointing straight at next spring: the seed saved from tonight's candle is next year's pumpkin bed.
+- **Ready-to-queue brief:** target "what to do with pumpkin after halloween" / "composting pumpkins uk"; angle = closing the loop, not a listicle of options; links → `growing-squash-pumpkins-courgettes`, `composting`; voice = plain and cheerful, no waste-guilt lecture; **publish in the last week of October so it's live in time, not retrospective.**
+- **Added:** 2026-10-11 · **Run:** forager-2026-10-11
+
+### 34. Build it kind — checking the bonfire before Bonfire Night
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort · a trust piece, not a commercial one
+- **Evidence:** every UK wildlife body covering this (the British Hedgehog Preservation Society, Countrylife, Staffordshire County Council) gives the same advice each year in late October/early November: build the pile the day you light it, not before; check it with a torch and a pole, never a fork or spade; light from one side so anything inside can get out. Hedgehog numbers have roughly halved since 2007. A direct check confirms WTS mentions hedgehogs generally (as garden wildlife, in the pests and winter-prep guides) and bonfires generally (season notes to "check the tender things") but nothing joins the two specifically — a genuine, timely, zero-cost-to-build gap landing right before 5 November.
+- **Pitch:** a short, gentle, practical piece — build on the day, not before; the torch-and-broom-handle check, never a fork; light from one side; what to do if you do find one curled up (a box, dry leaves, somewhere quiet, released once everything's properly cooled). No product anywhere in it — pure goodwill, the kind of piece that makes a reader trust everything else on the site a little more.
+- **Ready-to-queue brief:** target "check bonfire for hedgehogs" / "bonfire night wildlife safety uk"; angle = plain safety, said kindly, never a scolding; links → `preparing-your-plot-for-winter` (the wild-corner mention), `pests`; voice = gentle and genuinely caring, no guilt-tripping; **publish by 1 November so it's useful in time.**
+- **Added:** 2026-10-11 · **Run:** forager-2026-10-11
+
 ## Approved
 
 _(empty)_
