@@ -1238,6 +1238,66 @@ one rather than add a new one)._
 
 ---
 
+_Shortlist from the Forager's run of 18 October — ranked best-first.
+**Board base note:** `main`'s own `docs/ideas-board.md` is still 12+ weeks
+stale (29 cards, last moved 10 August) and `main` hasn't moved since 7
+September — see `docs/dreams/wisdom.md` §5, which flagged this run by name
+as the one to watch for whether the right base sticks a second week
+running. This run read the reconciled 72-card board on `dreams/2026-10-17`
+directly (not `main`) and used **that** as this file's base — the fix the
+4 October run applied once and the 11 October run dropped a week later.
+Checked against all 72 existing cards (proposed, approved, done and parked
+alike), `docs/CUT_LIST.md`, `docs/dreams/wisdom.md`, and a direct grep of
+`src/data/crops.ts`, `src/data/kit.ts` and the full `src/app` tree before
+pitching. Four cards, not five — a fifth candidate (moon-phase/biodynamic
+sowing timing) turned up in research but rests on forum anecdote rather
+than reliable UK evidence and risks the lyricism ceiling, so it's left off
+rather than padded in. None of what follows touches the Christmas cluster
+(nine cards deep already — 4, 60, 62, 63, 64, 66, 67, 68, 69), the
+bare-root family (seven cards — 1, 25, 36, 39, 47, 52, 57 — still awaiting
+Kate's one sequencing call per card 56), the frost-countdown family (30,
+38, 45, 53), the bonfire-safety pieces (50, 71), leaf mould, green
+tomatoes, top fruit, dahlias, giant veg, or the hosepipe-ban family — all
+still sitting undecided. Genuinely fresh ground only._
+
+### 73. Save your pelargoniums and fuchsias before the frost takes them
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** grepped `src/data/crops.ts` and the whole `src/app` tree directly — "pelargonium", "geranium" and "fuchsia" appear nowhere on the site. This is a different plant category from every tender-plant piece already on the board: card 15 (parked) is chilli/pepper plants, card 44 is dahlia tubers lifted *after* a frost blackens them. Pelargoniums and fuchsias want the opposite timing to a dahlia — the RHS is explicit that they should come in *before* the first frost touches them, since frost kills the top growth outright rather than signalling it's time to act. The UK's average first inland autumn frost sits around 25 October — about a week away.
+- **Pitch:** a short, warm piece on the two easy routes — lift and pot up the whole plant for a light, frost-free windowsill or porch, cutting it back hard if space is tight; or, cheaper and more reliable for next year, take a few softwood cuttings now and overwinter just those on a bright sill, letting the compost run dry between waterings. Ends on the pay-off: a free, bigger display next June instead of buying new bedding plants every spring — the same thrift-and-closing-the-loop register as the seed-saving pieces (cards 10/15's spirit).
+- **Ready-to-queue brief:** target "overwintering pelargoniums uk" / "bringing geraniums in before frost" / "overwintering fuchsias"; angle = act now, two easy routes, don't wait for the frost to decide for you; links → protecting-vegetables-from-frost (a nod, not a merge — that guide is about the veg bed, this is about pots by the door); voice = plain and encouraging, no personification of the plants or the cold; deliberately **not** wired to the postcode/frost engine — that mechanic already has four undecided pitches on the board (30/38/45/53) and doesn't need a fifth; a UK-wide "do this this week" framing is honest and enough.
+- **Added:** 2026-10-18 · **Run:** forager-2026-10-18
+
+### 74. What your bonfire gives back — using wood ash in the garden, safely
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** grepped the whole site directly — "wood ash" appears nowhere (the only "potash" hits are the high-potash tomato/courgette feed, a different product entirely). WTS already has two cards about bonfires on the board (card 50, 13 September, and its duplicate card 71, 11 October — both about checking the pile for hedgehogs before lighting it), but nothing about what's left once it's out. Bonfire Night falls 5 November, inside this run's window. The RHS is specific about the trade-off: ash is a genuine source of potassium and trace elements and acts as a mild liming agent, but it wants using sparingly, kept off acid-lovers (raspberries, blueberries) and away from ground that's already alkaline, and it's best dug into bare soil over winter rather than left out in the rain, which washes the potash straight out.
+- **Pitch:** a short, practical piece — what it's actually good for (hungry brassica and allium ground, the compost heap in moderation), what it should stay well away from (fruit beds, anywhere already limed), and the one rule that matters most: a little, dug in, not a heap left out in the wet. A genuinely satisfying thrift story — the bonfire you were having anyway, feeding next year's crop for free — in the same register as the leaf mould and seed-saving pieces already on the board.
+- **Ready-to-queue brief:** target "what to do with wood ash from bonfire" / "using wood ash in the garden uk"; angle = free soil feed, used carefully, not a product pitch; links ← preparing-your-plot-for-winter, card 50/71 once decided (the pile you checked is now the ash you're using); **no existing wood-ash or soil-pH product in `kit.ts`** — go affiliate-light on the first draft (a metal ash caddy or a soil pH test kit could earn a mention once sourced, same caution cards 23/25/36/39 carried for new categories); voice = plain and careful — the caution matters as much as the use.
+- **Added:** 2026-10-18 · **Run:** forager-2026-10-18
+
+### 75. "Does your ash belong here?" — a two-question wood-ash picker
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort · extends the site's proven two-question-picker DNA onto new ground
+- **Evidence:** card 74's own evidence is exactly the shape Kate has approved twice already without change (card 14's green manure picker, card 27's bulb planner) — a static answer that genuinely depends on the reader's own bed, which they currently have to work out for themselves. Only worth building once card 74 exists to anchor it.
+- **Pitch:** two honest questions — what's growing here (or going in next), and roughly how much ash you've got — and one plain answer: dig it in now, save it for the veg beds instead, or skip this bit of ground entirely. A simple visual in the site's physical-metaphor voice — a see-saw tipping gently toward "a little is fine," not a pH number or a gauge.
+- **Ready-to-queue brief:** needs-spec — a small lookup table (5–6 common beds: brassicas, alliums, fruit bushes, acid-loving crops, the compost heap, "not sure"); no new data beyond card 74's own research; links → card 74 once live; no metric tiles, no leaderboard; build only after card 74 exists to send it.
+- **Added:** 2026-10-18 · **Run:** forager-2026-10-18
+
+### 76. Carrots and beetroot: leave them in, or box them for the shed?
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** checked the `carrots` and `beetroot` entries in `src/data/crops.ts` directly — carrots' only tip is about carrot fly, and neither entry mentions storage or lifting at all, despite both being classic maincrop stores. This is a different technique from card 13's curing guide (approved, still unbuilt): onions, garlic, squash and potatoes want drying out before store; carrots and beetroot want the opposite — kept moist in sand, in the dark, or simply left in the ground under a thick mulch until needed. The RHS backs both routes and the timing: lift before the ground freezes or turns to mud, or leave them under straw/cardboard through to around March.
+- **Pitch:** a short, reassuring piece giving the reader the actual choice rather than one rule — free-draining soil and an easy walk to the plot, mulch thickly and leave them where they grew; heavy clay or a plot that floods, lift now and box them in a little damp sand somewhere cool, dark and frost-free, checking occasionally for any gone soft. Ends warm: either way, it's a free larder running right through winter.
+- **Ready-to-queue brief:** target "how to store carrots and beetroot for winter uk" / "leave carrots in the ground or lift them"; angle = the two honest options, matched to the reader's own plot rather than one-size-fits-all; links ← crops/carrots, crops/beetroot, card 13's curing guide once live (the storage family, told in two parts); voice = plain, no urgency-mongering — whichever route, there's time; light monetisation only if genuinely earned (a bag of horticultural sand), never forced.
+- **Added:** 2026-10-18 · **Run:** forager-2026-10-18
+
+---
+
 ## Approved
 
 _(empty)_
