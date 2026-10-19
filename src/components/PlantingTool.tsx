@@ -581,12 +581,12 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
           {!frostData && (
             <div className="max-w-md mx-auto lg:mx-0 mt-4">
               <div className="flex items-center gap-3 px-4 py-3 border border-white/10">
-                <svg className="w-4 h-4 shrink-0 text-leaf-light/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <svg className="w-4 h-4 shrink-0 text-leaf-light/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span className="text-sm text-white/50">
-                  e.g. <span className="text-white/70 font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season
+                <span className="text-sm text-white/85">
+                  e.g. <span className="text-white font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season
                 </span>
               </div>
             </div>
