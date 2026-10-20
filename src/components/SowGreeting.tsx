@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { calculateFrostData } from "@/lib/frost";
+import { frostPhase } from "@/lib/frost-phase";
 import { loadLocation } from "@/lib/location-storage";
 
 function formatDate(date: Date): string {
@@ -15,9 +16,16 @@ function personalGreeting(monthPhrase: string): string | null {
   const location = loadLocation();
   if (!location) return null;
   const frostData = calculateFrostData(location);
-  return `Growing in ${location.adminDistrict}, then - your last frost went on ${formatDate(
-    frostData.lastFrostDate
-  )}, and ${monthPhrase}.`;
+  const phase = frostPhase(frostData.lastFrostDate, frostData.firstAutumnFrostDate);
+  const frostLine =
+    phase === "autumn"
+      ? `your first frost usually turns up around ${formatDate(frostData.firstAutumnFrostDate)}`
+      : phase === "winter"
+        ? `your first frost is usually here by ${formatDate(frostData.firstAutumnFrostDate)}`
+        : phase === "spring"
+          ? `your last frost usually goes around ${formatDate(frostData.lastFrostDate)}`
+          : `your last frost went on ${formatDate(frostData.lastFrostDate)}`;
+  return `Growing in ${location.adminDistrict}, then - ${frostLine}, and ${monthPhrase}.`;
 }
 
 export default function SowGreeting({

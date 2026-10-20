@@ -6,7 +6,10 @@ import {
   lookupPostcode,
   calculateFrostData,
   getFrostForecast,
+  calculateLastFrostDate,
+  calculateFirstAutumnFrostDate,
   formatDate,
+  formatDateShort,
   type LocationData,
   type FrostData,
   type FrostForecast,
@@ -18,6 +21,7 @@ import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
 import { getWateringBalance } from "@/lib/watering";
 import { inSeasonCrops, plantOutCrops, type CropEntry } from "@/lib/season-core";
+import { frostPhase, ukAverageFrostPhase } from "@/lib/frost-phase";
 
 function categoryLabel(cat: Crop["category"]): string {
   switch (cat) {
@@ -221,9 +225,34 @@ function formatPlainDate(date: Date): string {
   });
 }
 
-function getAnswerGreeting(frostData: FrostData): string {
+// The sample line under the postcode box faces whichever frost is next.
+const BRISTOL = { lat: 51.45, long: -2.59 };
+
+function bristolExample(today: Date): string {
+  const last = calculateLastFrostDate(BRISTOL.lat, BRISTOL.long);
+  const autumn = calculateFirstAutumnFrostDate(BRISTOL.lat, BRISTOL.long);
+  const seasonDays = Math.round((autumn.getTime() - last.getTime()) / 86400000);
+  const phase = ukAverageFrostPhase(today);
+  const frost =
+    phase === "autumn" || phase === "winter"
+      ? `first frost ~${formatDateShort(autumn)}`
+      : `last frost ~${formatDateShort(last)}`;
+  return `${frost} · ${seasonDays}-day growing season`;
+}
+
+function getAnswerGreeting(frostData: FrostData, today: Date): string {
   const place = frostData.location.adminDistrict;
   const lastFrost = formatPlainDate(frostData.lastFrostDate);
+  const autumnFrost = formatPlainDate(frostData.firstAutumnFrostDate);
+  const phase = frostPhase(frostData.lastFrostDate, frostData.firstAutumnFrostDate, today);
+
+  if (phase === "autumn") {
+    return `Growing in ${place}, then — your first frost usually turns up around ${autumnFrost}, so it's time to bring in the tender things and find the fleece.`;
+  }
+
+  if (phase === "winter") {
+    return `Growing in ${place}, then — your first frost is usually here by ${autumnFrost}, so any clear, still night could bring one.`;
+  }
 
   if (frostData.growingSeasonDays >= 190) {
     return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so tender crops get a fair run.`;
@@ -236,7 +265,17 @@ function getAnswerGreeting(frostData: FrostData): string {
   return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so the season's properly open.`;
 }
 
-function getGardenInterpretation(frostData: FrostData): string {
+function getGardenInterpretation(frostData: FrostData, today: Date): string {
+  const phase = frostPhase(frostData.lastFrostDate, frostData.firstAutumnFrostDate, today);
+
+  if (phase === "autumn") {
+    return "Pick what's tender while it's still good, and sow the hardy things that like a winter under their belts.";
+  }
+
+  if (phase === "winter") {
+    return `Hardy crops sit it out happily under a little fleece, and there's still sowing to be had on the milder days; spring's last frost usually goes around ${formatPlainDate(frostData.lastFrostDate)}.`;
+  }
+
   if (frostData.growingSeasonDays >= 190) {
     return "Keep tender crops moving while the soil is warm; this is the kind stretch they like.";
   }
@@ -343,11 +382,11 @@ function HomepageAnswerReveal({
         tabIndex={-1}
         className="scroll-mt-24 font-serif text-2xl sm:text-3xl leading-tight text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-allotment"
       >
-        {getAnswerGreeting(frostData)}
+        {getAnswerGreeting(frostData, today)}
       </h2>
 
       <p className="mt-3 font-serif text-lg leading-snug text-earth-light">
-        {getGardenInterpretation(frostData)}
+        {getGardenInterpretation(frostData, today)}
       </p>
 
       <div className="mt-4 border-t border-earth/10 pt-4">
@@ -586,7 +625,7 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
                   <circle cx="12" cy="10" r="3" />
                 </svg>
                 <span className="text-sm text-white/85">
-                  e.g. <span className="text-white font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season
+                  e.g. <span className="text-white font-medium">Bristol</span> — {bristolExample(today)}
                 </span>
               </div>
             </div>

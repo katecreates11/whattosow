@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
-import { calculateLastFrostDate, formatDateShort } from "@/lib/frost";
+import { calculateFirstAutumnFrostDate, calculateLastFrostDate, formatDateShort } from "@/lib/frost";
+import { frostPhase } from "@/lib/frost-phase";
 
 /**
  * The location connection for the "what to sow this week" section: shows the
- * grower's place + their own last-frost date (from their saved postcode), or a
+ * grower's place + whichever of their frost dates is in play this season (from their saved postcode), or a
  * gentle prompt to enter one. Client-side so it reflects the visitor's plot.
  */
 export default function PlotStamp() {
@@ -19,7 +20,18 @@ export default function PlotStamp() {
       const loc = loadLocation();
       if (loc) {
         setPlace(loc.adminDistrict);
-        setFrost(formatDateShort(calculateLastFrostDate(loc.latitude, loc.longitude)));
+        const last = calculateLastFrostDate(loc.latitude, loc.longitude);
+        const autumn = calculateFirstAutumnFrostDate(loc.latitude, loc.longitude);
+        const phase = frostPhase(last, autumn);
+        setFrost(
+          phase === "autumn"
+            ? `your first frost is due ~${formatDateShort(autumn)}`
+            : phase === "winter"
+              ? `frost season, usually from ~${formatDateShort(autumn)}`
+              : phase === "spring"
+                ? `your last frost is due ~${formatDateShort(last)}`
+                : `your last frost was ~${formatDateShort(last)}`
+        );
       } else {
         setPlace(null);
         setFrost(null);
@@ -34,7 +46,7 @@ export default function PlotStamp() {
   if (ready && place) {
     return (
       <div className="font-serif italic text-lg text-allotment mb-2">
-        today on your veg patch &middot; {place} &middot; your last frost was ~{frost}
+        today on your veg patch &middot; {place} &middot; {frost}
       </div>
     );
   }

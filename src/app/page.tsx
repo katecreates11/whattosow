@@ -23,6 +23,7 @@ import WateringNote from "@/components/WateringNote";
 import { formatDaylight, getSunTimes } from "@/lib/astronomy";
 import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 import { getSeasonalTime } from "@/lib/seasonal-time";
+import { ukAverageFrostPhase } from "@/lib/frost-phase";
 
 export const revalidate = 3600;
 
@@ -175,34 +176,59 @@ export default function Home() {
     );
   };
 
+  // The frost questions face whichever frost is next: the last one in spring
+  // and summer, the first one from autumn until New Year.
+  const frostSeason = ukAverageFrostPhase(now);
+  const facingAutumnFrost = frostSeason === "autumn" || frostSeason === "winter";
+  const heroLine = facingAutumnFrost
+    ? "Enter your postcode for personalised sowing dates, and when your first frost is likely to land."
+    : "Enter your postcode for personalised sowing dates, based on your local frost date.";
+  const lastFrostFaq = {
+    q: "When is the last frost date in the UK?",
+    a: "It varies hugely depending on where you live. In the far south-west of England, the last frost is typically in early April. In London and the south-east, it's mid-to-late April. The Midlands and north of England see their last frost in early May. Scotland ranges from mid-May to early June.",
+    more: " Enter your postcode above for your specific date.",
+  };
+  const accuracyFaq = {
+    q: "How accurate are these frost dates?",
+    a: `Our estimates are calibrated against Met Office climate data and are typically accurate to within 5-7 days. However, frost dates are long-term averages — in any given year, the actual ${facingAutumnFrost ? "first" : "last"} frost could be earlier or later.`,
+    more: facingAutumnFrost
+      ? " Microclimates (sheltered gardens, frost pockets, urban heat islands) also affect your specific conditions. Clear, still evenings are the ones to watch."
+      : " Microclimates (sheltered gardens, frost pockets, urban heat islands) also affect your specific conditions. Always check the forecast before planting tender crops.",
+  };
+  const frostFaqs = facingAutumnFrost
+    ? [
+        {
+          q: "When is the first frost in the UK?",
+          a: "It comes in from the north. Scotland often sees its first frost in late September, the Midlands and north of England in early-to-mid October, and London and the south-east from mid-October. In Cornwall and the far south-west it can hold off until late October or even November.",
+          more: " Enter your postcode above for your own date.",
+        },
+        {
+          q: "What should I do before the first frost?",
+          a: "Pick the tender crops while they're still good — the last tomatoes, courgettes, beans and squash — because one clear, still night is enough to finish them. Keep a roll of fleece somewhere you can find it in the dark, and leave the hardy things be: kale, leeks, sprouts and parsnips sit through a frost happily, and the parsnips taste sweeter for it.",
+          more: "",
+        },
+        lastFrostFaq,
+        accuracyFaq,
+      ]
+    : [
+        lastFrostFaq,
+        {
+          q: "What can I plant before the last frost?",
+          a: "Hardy crops like broad beans, peas, onion sets, potatoes, lettuce, spinach, radishes, and kale can all go out before your last frost date. Tender crops like tomatoes, courgettes, runner beans, and peppers must wait until after the last frost.",
+          more: "",
+        },
+        accuracyFaq,
+      ];
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      {
+      ...frostFaqs.map((faq) => ({
         "@type": "Question",
-        name: "When is the last frost date in the UK?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "It varies hugely depending on where you live. In the far south-west of England, the last frost is typically in early April. In London and the south-east, it's mid-to-late April. The Midlands and north of England see their last frost in early May. Scotland ranges from mid-May to early June.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What can I plant before the last frost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Hardy crops like broad beans, peas, onion sets, potatoes, lettuce, spinach, radishes, and kale can all go out before your last frost date. Tender crops like tomatoes, courgettes, runner beans, and peppers must wait until after the last frost.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How accurate are these frost dates?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Our estimates are calibrated against Met Office climate data and are typically accurate to within 5-7 days. However, frost dates are long-term averages — in any given year, the actual last frost could be earlier or later.",
-        },
-      },
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
       {
         "@type": "Question",
         name: "Is this tool free?",
@@ -273,9 +299,7 @@ export default function Home() {
               <br />
               <span className="text-allotment">right now</span>
             </h1>
-            <p className="text-sm text-earth-light/70 leading-relaxed">
-              Enter your postcode for personalised sowing dates, based on your local frost date.
-            </p>
+            <p className="text-sm text-earth-light/70 leading-relaxed">{heroLine}</p>
           </div>
 
           {/* Image — full width on all sizes, with overlaid text on sm+ */}
@@ -303,9 +327,7 @@ export default function Home() {
                   <br />
                   <span className="text-allotment">right now</span>
                 </h1>
-                <p className="text-sm text-earth-light/70 max-w-[220px] leading-relaxed">
-                  Enter your postcode for personalised sowing dates, based on your local frost date.
-                </p>
+                <p className="text-sm text-earth-light/70 max-w-[220px] leading-relaxed">{heroLine}</p>
               </div>
             </div>
           </div>
@@ -413,46 +435,15 @@ export default function Home() {
             </h2>
 
             <div className="space-y-8 sm:space-y-10">
-              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
-                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
-                  When is the last frost date in the UK?
-                </h3>
-                <p className="text-earth-light leading-relaxed max-w-2xl">
-                  It varies hugely depending on where you live. In the far
-                  south-west of England, the last frost is typically in early
-                  April. In London and the south-east, it&apos;s mid-to-late
-                  April. The Midlands and north of England see their last frost in
-                  early May. Scotland ranges from mid-May to early June. Enter
-                  your postcode above for your specific date.
-                </p>
-              </div>
-
-              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
-                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
-                  What can I plant before the last frost?
-                </h3>
-                <p className="text-earth-light leading-relaxed max-w-2xl">
-                  Hardy crops like broad beans, peas, onion sets, potatoes,
-                  lettuce, spinach, radishes, and kale can all go out before your
-                  last frost date. They can tolerate cold nights and light frosts.
-                  Tender crops like tomatoes, courgettes, runner beans, and peppers
-                  must wait until after the last frost.
-                </p>
-              </div>
-
-              <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
-                <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
-                  How accurate are these frost dates?
-                </h3>
-                <p className="text-earth-light leading-relaxed max-w-2xl">
-                  Our estimates are calibrated against Met Office climate data and
-                  are typically accurate to within 5-7 days. However, frost dates
-                  are long-term averages — in any given year, the actual last frost
-                  could be earlier or later. Microclimates (sheltered gardens, frost
-                  pockets, urban heat islands) also affect your specific conditions.
-                  Always check the forecast before planting tender crops.
-                </p>
-              </div>
+              {frostFaqs.map((faq) => (
+                <div key={faq.q} className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
+                  <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">{faq.q}</h3>
+                  <p className="text-earth-light leading-relaxed max-w-2xl">
+                    {faq.a}
+                    {faq.more}
+                  </p>
+                </div>
+              ))}
 
               <div className="pl-6 sm:pl-8 border-l-2 border-l-rust py-1">
                 <h3 className="text-lg sm:text-xl font-serif text-earth mb-3">
