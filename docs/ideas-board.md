@@ -443,6 +443,56 @@ than being assumed._
   no-listicle instruction) stays as originally approved.
 - **Added:** 2026-08-15 · **Run:** dream-2026-08-15
 
+---
+
+_Shortlist from the Forager's run of 25 October — ranked best-first. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+before pitching; nothing here repeats a proposed, approved, parked or binned
+idea. Note for the bench: a very large pile (cards 5, 7–20, 22–29) is still
+sitting approved-or-proposed and unbuilt — not re-pitching any of it, just
+flagging the queue is long before adding four more. All four below are new
+ground: bare-root fruit, which the site has never monetised, and rhubarb
+forcing, a crop the site already carries but has never written about beyond
+its basic grow page._
+
+### 30. Order your bare-root fruit now — the cheapest way to plant a fruit bed
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort
+- **Evidence:** bare-root season opens now and runs to March (Thrive, Saga, Suttons all confirm November–March, with stock going in order first) — bare-root canes and bushes cost 30–50% less than container-grown (Thrive) because they're sold dormant and without soil. `crops.ts` already carries real affiliate links for raspberries, blackcurrants, gooseberries, redcurrants and blackberries (Thompson & Morgan, Sarah Raven, Suttons) and `growing-fruit`'s own copy makes the value case unprompted ("a row of ten canes costs under £20 bare-root and will produce 10–15kg of raspberries every year for a decade") — but a direct check of `growing-fruit/page.tsx` found **zero affiliate links on the page itself**, and nothing on the site currently tells a reader to act on the November window. Card 1 (the autumn garlic & onion hub) used exactly this plan-and-order-now shape and earned Kate's warmest note on the board yet ("good focus on getting those affiliate clicks as well as useful content") — this is the same mechanic, on fruit, which WTS has never run as a seasonal hub before.
+- **Pitch:** a short seasonal hub in the autumn-hub voice — why bare-root is the cheap, proper way in (not a lesser option, the better one), a shortlist of what's worth planting this way (raspberry canes, blackcurrant/gooseberry/redcurrant bushes, blackberries — all crops the site already grows), real links to the suppliers already live on those crop pages, and a plain note that popular varieties do sell out in a good bare-root year so it's worth ordering rather than waiting. Links back to each crop page and forward to the planting how-to (card 31, below).
+- **Ready-to-queue brief:** target "bare root fruit trees uk" / "when to plant bare root fruit bushes"; angle = plan-and-order-now, cheaper not lesser; links ← raspberries, blackcurrants, gooseberries, redcurrants, blackberries crop pages, growing-fruit guide, → card 31's planting guide once live; voice = practical, gently timely, no "unmissable deal" energy; **click-test the existing Thompson & Morgan / Sarah Raven / Suttons search links before building — card 1's evidence flagged unverified affiliate URLs as a standing risk, and these haven't been checked either.**
+- **Added:** 2026-10-25 · **Run:** forager-2026-10-25
+
+### 31. Plant it like you mean it — a bare-root fruit tree or bush, done properly
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** read `growing-fruit/page.tsx` directly (650 lines, every soft fruit covered) — it gives bare-root *planting dates* in a table for five crops but never explains *how* to plant one: soaking the roots, digging a hole wide enough to spread them out, firming in properly, staking, watering in well even in wet weather. Thrive, Idealhome and Saga (all checked this week) agree this is the one step that decides whether a cheap bare-root plant thrives or sulks — and none of them are a UK vegetable-and-allotment voice. A genuine instructional gap sitting right inside a guide the site already has, and the natural companion to card 30's ordering hub.
+- **Pitch:** a short, practical how-to — soak the roots in a bucket while you dig (not a quick dunk), spread them out in a hole wide rather than deep, firm the soil in stages as you backfill so there's no air pocket round the roots, water in well even if the ground's already wet, and stake anything that'll catch the wind. Ends with the pay-off: do this once, properly, and you won't touch the plant again for a decade.
+- **Ready-to-queue brief:** target "how to plant bare root fruit trees/bushes uk" / "planting bare root canes"; angle = the ten minutes that decide the next ten years; links ← growing-fruit guide, raspberries/currants/gooseberries/blackberries crop pages, ← card 30's ordering hub; voice = plain and practical, one concrete method, no soil-science lecture.
+- **Added:** 2026-10-25 · **Run:** forager-2026-10-25
+
+### 32. The forcing trick — a rhubarb crown, a dark corner, and the earliest stems on the plot
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** forcing rhubarb — covering an established crown after its first hard frost, then keeping it in the dark, which pulls pale, sweet, extra-early stems weeks before the uncovered plant would give you any — is a genuine, recurring UK gardening story every winter (Gardeners' World, RHS and the famous Yorkshire forcing-shed tradition all cover it), and the RHS's own November page names forcing (chicory, by the same trick) as one of the month's headline jobs. WTS already has a Rhubarb crop page with real affiliate links (Thompson & Morgan, Sarah Raven) — but a direct check found nothing on the site about forcing at all. The first hard frosts of the season are starting to arrive now, which is exactly the trigger the piece needs.
+- **Pitch:** a short, delighted piece on the oldest trick on the plot — once the first hard frost has done its job, cover the crown (an upturned bin, a terracotta forcer, anything that blocks the light) and leave it a few weeks; the stems come up pale, impossibly sweet, and weeks ahead of everyone else's. A nod to the Yorkshire rhubarb triangle's forcing sheds for the folklore, then the plain version anyone can do with a bucket. One honest caveat: force a crown and let it rest the following year, or you'll tire it out.
+- **Ready-to-queue brief:** target "how to force rhubarb uk" / "forcing rhubarb for early crop"; angle = the old trick, not the science; links ← rhubarb crop page, → card 33's forcing clock once live; voice = "we've found" register, delighted rather than technical; genuine new buy-point worth checking stock for — a terracotta rhubarb forcer (Suttons, Dobies and Burford both sell them) is a real, pretty, on-brand product the site has never linked to.
+- **Added:** 2026-10-25 · **Run:** forager-2026-10-25
+
+### 33. The Forcing Clock — how many weeks until your rhubarb's ready in the dark
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Low–medium effort · a new kind of calculator for the site — time and darkness, not space
+- **Evidence:** forcing rhubarb (card 32) takes roughly 4–8 weeks once a crown's covered after its first hard frost — a real waiting game with nothing to look at in the meantime, which is exactly the kind of quiet anticipation WTS's existing calculators (frost map, blight watch, longest day) already turn into something charming. Kate has approved every calculator-shaped pitch put in front of her this year with no rejections (`wisdom.md` §1, "feature ideas that extend the calculator DNA land easily") — but every one built or pitched so far (Glut-o-meter, Every Drop, the green-manure picker, the bulb planner) measures *space*: a bed filling up, a butt filling with rain. This is the first to measure *time in the dark* instead, which keeps the DNA fresh rather than repeating the same bed-filling visual a fourth time.
+- **Pitch:** tell it when you covered your crown (or let it guess from your postcode's first hard frost), and it shows a simple visual of the pot slowly filling with pale forced stems over the weeks, with one plain line underneath ("about three weeks left in the dark, if this one's typical") and a gentle note when it's ready to peek. No leaderboard, no metric tiles — one covered pot, slowly lightening into stems.
+- **Ready-to-queue brief:** needs-spec — a small date calculator (cover date + a 4–8 week typical range, informed by local frost timing where a postcode's saved) and one filling-pot visual, no new data source beyond the existing frost engine; links → card 32's forcing piece, rhubarb crop page; affiliate = the rhubarb forcer named in card 32's evidence, one quiet buy-point, never mid-tool; build only after card 32 exists to link from.
+- **Added:** 2026-10-25 · **Run:** forager-2026-10-25
+
+---
+
 ## Approved
 
 _(empty)_
