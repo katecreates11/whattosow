@@ -1359,6 +1359,50 @@ above; neither repeats a proposed, approved, parked or binned idea._
 
 ---
 
+_The Dreamer's run of 31 October — two small additions, tagged
+`from-a-dream`. Both are process notes rather than new content, in keeping
+with the crew's own standing worry (card 78) that the backlog is already
+too large to grow further without first being decided._
+
+### 79. Bonfire Night (5 November) is the one window on the whole board that actually closes this week
+- **Type:** content/feature _(sequencing note, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-10-31)
+- **Score:** High payoff / Very low effort
+- **Evidence:** of the 78 cards currently sitting undecided, almost all
+  name a season or a month as their window. Cards 71 ("Build it kind —
+  checking the bonfire before Bonfire Night"), 74 ("What your bonfire
+  gives back — wood ash") and 75 (the wood-ash picker) are the only three
+  that name an actual date five days from today. Everything else can wait
+  another week without losing anything; this genuinely can't.
+- **Pitch:** no change to any of the three cards' substance — just a
+  flag that if only one cluster gets a look this week, this is the one
+  with a real deadline, not a seasonal one.
+- **Ready-to-queue brief:** not a build — a sequencing note for whoever
+  next opens the board; no page, no query, no voice considerations.
+- **Added:** 2026-10-31 · **Run:** dream-2026-10-31
+
+### 80. The weekly note has gone unread seventeen times — try a shorter one with one ask at the top
+- **Type:** feature _(process note on the Dreamer's own output, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-10-31)
+- **Score:** High payoff / Very low effort
+- **Evidence:** a check of Kate's Gmail drafts folder found seventeen
+  "The Dreamer — this week's dream" drafts sitting unsent, dated weekly
+  back to 12 July. Gmail doesn't notify on a new draft the way it does on
+  a received email, so this channel may have been invisible the entire
+  time — independent of whether the weekly content inside each one was
+  useful. Each draft has also grown longer as the backlog has grown.
+- **Pitch:** this week's draft is deliberately shorter, with the single
+  most useful fact (PR #3 needs one comment to ship) stated first, before
+  any of the week's history. If it goes the same way as the last
+  seventeen, that's a real answer about the channel, not the content.
+- **Ready-to-queue brief:** not a build — a note on how this memory writes
+  to Kate, to be revisited once there's a second data point.
+- **Added:** 2026-10-31 · **Run:** dream-2026-10-31
+
+---
+
 ## Approved
 
 _(empty)_

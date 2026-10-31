@@ -1,51 +1,45 @@
 # The Crew's Memory — Wisdom
 
 _Consolidated weekly by The Dreamer. Bounded to ~400 lines — prune, don't grow._
-_Last consolidated: 2026-10-24 (week 15)._
+_Last consolidated: 2026-10-31 (week 16)._
 
-**Status, before any taste theory:** **75 days** since the last Potting
-Bench decision (card 21, 10 August) — the **eleventh** silent week
-running. **PR #3 at 80 days**, re-confirmed via the GitHub API directly
-this week: still zero reviews, one comment (the Netlify bot), merge state
-clean. `main` moved once since last week — not a Bench decision, but
-Kate's own hand: she pushed a fix directly to `main` on 19 October,
-refreshing the stale homepage editor's note and the postcode preview, the
-exact items the Groundskeeper had been flagging. The same day, on the
-`groundskeeper/2026-10-19` branch itself, she corrected a placeholder-text
-mistake in that week's report before anyone else saw it — the first sign
-in eleven weeks of a human hand on any crew branch that isn't a push to
-`main`. Treat this as real but singular: the crew has twice before (the
-"pile" theory, the "quiet routines" theory) mistaken a mechanical gap for
-a story about Kate's attention, and twice been wrong in the same
-direction. One engaged day is one engaged day, not a reopening. See §1 and
-§5.
+**Status, before any taste theory:** **82 days** since the last Potting
+Bench decision (card 21, 10 August) — the **twelfth** silent week running.
+**PR #3 at 87 days**, re-confirmed via the GitHub API directly: still zero
+reviews, one comment (the Netlify bot), mergeable state clean. `main` has
+not moved since 19 October. Two things happened instead: the 25 October
+Forager run relapsed to `main`'s stale 29-card board — breaking what had
+looked, one week ago, like a confirmed instance of this memory being read
+and acted on (see §1) — and a routine check of Kate's Gmail drafts found
+**seventeen** weekly "Dreamer" drafts sitting unsent and unread, back to
+12 July. Neither is a new problem — both are the same old problem
+(nothing the crew produces reliably reaches Kate) turning up in a channel
+nobody had checked before. See §5.
 
 ---
 
 ## 1. Kate's taste
 
-_Still no new Bench decision for the eleventh week running — nothing below
-is retested against an approve/park/bin call. One new, different kind of
-data point this week: a direct code fix, scored separately below._
+_Still no new Bench decision for the twelfth week running — nothing below
+is retested against an approve/park/bin call._
 
 ### Weave personalisation into content, don't just describe it
-- **Confidence:** high. Thirteen weeks with no new evidence. Built on cards 2, 7, 17.
+- **Confidence:** high. Fourteen weeks with no new evidence. Built on cards 2, 7, 17.
 
 ### Interactive features want a physical/visual metaphor, not just a form
 - **Confidence:** high. Unchanged, same reason.
 
 ### Feature ideas that extend the calculator DNA land easily
-- **Confidence:** high. Zero rejections to date across every batch (now including the two-question-picker shape on cards 14, 27, and 75).
+- **Confidence:** high. Zero rejections to date across every batch.
 
 ### Dreamt scope-additions to already-pitched or already-built cards are the crew's single most reliable move
 - **Confidence:** high, historical (6/6 on cards 10, 11, 12, 16, 20, 21).
-  Untested by an actual decision since 10 August — now twenty-two
-  promotions sit undecided (adding cards 72, 77, 78 this week). Still
-  worth leading with on the strength of the record, but the record itself
-  is now eleven weeks stale.
+  Untested by an actual decision since 10 August — twenty-four promotions
+  now sit undecided. Leading with it on the strength of the record alone;
+  the record itself is now twelve weeks stale.
 
 ### An approval note asking for a specific tie-in gets built exactly as asked
-- **Confidence:** medium, unchanged. Still n=1 (PR #1 / `ColdSnapNote`), now fifteen weeks with no second data point.
+- **Confidence:** medium, unchanged. Still n=1 (PR #1 / `ColdSnapNote`), sixteen weeks with no second data point.
 
 ### Content near an already-monetised hub gets an explicit revenue instruction — conditional, not universal
 - **Confidence:** medium, unchanged (card 1's note).
@@ -60,97 +54,129 @@ data point this week: a direct code fix, scored separately below._
 - **Confidence:** medium. Evidence unchanged (PR #1).
 
 ### Independently-converged pitches (2+ blind sources, same gap) deserve priority when decisions resume
-- **Confidence:** medium, strengthening. Leaf mould is now a three-way
-  convergence (Forager card 28, 9 Aug; SEO Watchdog's "Opportunities #3",
-  20 Oct, naming the same gap on the composting guide from a different
-  angle). Top fruit, the bare-root family, and the post-Halloween pumpkin
-  gap (folded into card 70) remain the other confirmed instances. Still
-  cheap to use — a sentence, not a new investigation — every time it's
-  spotted.
+- **Confidence:** medium, unchanged. Leaf mould (three-way), top fruit, the
+  post-Halloween pumpkin gap, and now rhubarb forcing (a three-way
+  convergence of its own — see §5) remain the confirmed instances.
 
 ### A repeated commercial mechanic was a process gap, not a taste signal
-- **Confidence:** high, unchanged. The bare-root/order-now family holds at
-  seven cards (1, 25, 36, 39, 47, 52, 57); no eighth instance this week.
+- **Confidence:** high, strengthened again. The bare-root/order-now family
+  already had its own card (56) explicitly asking Kate to decide it as one
+  family rather than pitch-by-pitch — and the 25 October Forager run
+  pitched into it a **ninth and tenth** time anyway (its cards 30 and 31,
+  an ordering hub and a planting how-to, both near-duplicates of cards
+  already on the board). A family that has already named its own
+  duplication problem is still collecting duplicates. Not re-added to the
+  board — see §5.
 
-### UPGRADED THIS WEEK: Kate acts directly and fast on clear technical bugs, even during a total content-decision freeze
-- **Confidence:** medium (was low). Now n=2: 3/7 September (unspecified
-  fix) and 19 October (the stale editor's-note/postcode-preview fix,
-  landed the same day she also corrected a report branch's placeholder
-  text). Both episodes are small, concrete, code-shaped asks rather than
-  taste calls — worth distinguishing from a Bench decision, which remains
-  at zero for eleven weeks. Don't fold this into "Kate is busy but
-  reachable for anything" — it's specifically technical, specifically
-  small, specifically something she noticed herself rather than something
-  routed to her as a decision.
+### DOWNGRADED THIS WEEK: "naming a specific future Forager run in wisdom.md gets it read and acted on"
+- **Confidence:** was medium, now low. Last week's dream ran this as a
+  deliberate, named experiment on the 25 October run specifically. It
+  failed: that run branched from `main`'s stale 29-card board, not the
+  reconciled 79-card state the call-out pointed at. Record stands at 1 of
+  2 — indistinguishable from coincidence. The one hit (18 October) may
+  simply have been whichever branch state that session's own tooling
+  happened to surface, not a response to being named. Not retired outright
+  — a third data point would settle it — but no longer worth leaning on.
 
-### The duplicate-pitch problem is intermittent, not solved, and not purely random either
-- **Confidence:** medium, new framing. Three weeks running now test
-  whether a Forager run uses the reconciled board as its base: clean (4
-  Oct) → relapse, three duplicates (11 Oct) → clean, zero duplicates (18
-  Oct). 2 of 3 clean. The 18 October run's own commit message shows it
-  explicitly read wisdom.md's call-out ("the run to watch for whether that
-  fix sticks a second week running") and named `dreams/2026-10-17` as its
-  base because of it — the first direct evidence that a Forager run reads
-  and acts on a named instruction in this file, not just the general
-  shape of past taste. Worth testing deliberately: does naming the next
-  run by date in this file keep working, or did it only work once?
+### UNCHANGED THIS WEEK: Kate acts directly and fast on clear technical bugs, even during a total content-decision freeze
+- **Confidence:** medium. Still n=2 (3/7 September, 19 October). No third
+  instance this week — `main` hasn't moved. Keep distinct from an actual
+  Bench decision, which remains at zero for twelve weeks.
 
-### RETIRED (superseded by the framing above): "one clean Forager run means the base-branch fix has stuck"
-Scored correctly as a miss last week when the 11 October run relapsed.
-Folded into the intermittent-but-responsive-to-being-named framing above
-rather than kept as its own entry.
+### NEW THIS WEEK: taste-rule reading and board-state reading are two different skills with two different reliability records
+- **Confidence:** medium, new. The 25 October Forager run's duplicate
+  pitches still landed squarely inside the site's proven calculator-DNA
+  and plan-and-order-now shapes — it read the *taste rules* in this file
+  correctly even while failing to find the *current board state*. Worth
+  tracking as separate: a run can get "what Kate likes" right while still
+  being blind to "what's already been pitched." The fix for one (keep
+  writing taste rules clearly) is not the fix for the other (branch
+  discovery is a mechanical, not an editorial, problem).
 
 ---
 
 ## 2. What works
 
-- **The Potting Bench as the decision surface.** Confidence: high in principle, untested in practice for 75 days.
-- **Dreamt scope-additions to unbuilt or already-live cards get approved.** 6/6 historically; twenty-two more pitched since, none yet tested.
-- **Naming a specific future run or date in wisdom.md and checking whether it responds.** New, one clean hit (the 18 October Forager run read the 17 October call-out and acted on it). Worth repeating deliberately rather than treating as a one-off.
-- **Report-writing agents checking their own prior weeks' sampling.** The Groundskeeper has now self-corrected its own narrow samples twice (weeks 11 and 14); the SEO Watchdog retracted an incorrect claim this week (green tomatoes) after re-verifying rather than re-asserting it. The rigor keeps improving even though the merge gap doesn't.
-- **The Night Gardener's repair path applies only to a stale *approved* PR, not one still waiting on its first review.** Confidence: high, unchanged — PR #3 is the latter case, working as designed, now at 80 days.
+- **The Potting Bench as the decision surface.** Confidence: high in principle, untested in practice for 82 days.
+- **Dreamt scope-additions to unbuilt or already-live cards get approved.** 6/6 historically; twenty-four more pitched since, none yet tested.
+- **Report-writing agents checking their own prior weeks' sampling and retracting stale claims.** The Groundskeeper and SEO Watchdog keep self-correcting even though the merge gap doesn't close.
+- **The Night Gardener's repair path applies only to a stale *approved* PR, not one still waiting on its first review.** Confidence: high, unchanged — PR #3 is the latter case, working as designed, now at 87 days.
+- **RETIRED THIS WEEK: naming a future run by date as a reliable nudge.** See §1 — one hit, one miss, not yet a technique.
 
 ---
 
 ## 3. Self-score
 
-Nothing scoreable against a Bench decision for an eleventh week — see
-`scoreboard.md`. One process item from last week's dream did resolve,
-favourably but not as a formal prediction: last week flagged the 18
-October run "as the one to watch" without predicting which way it would
-go, and it came back clean. Scoring this as *appropriately uncommitted*
-rather than a hit — the caution was right not to call it either way, and
-the new, genuinely useful finding (that the run read the named call-out
-directly) only surfaced because this memory checked rather than assumed.
+One clean, scoreable prediction from last week's dream, and it's a **miss**.
+The 24 October dream deliberately named the 25 October Forager run as a
+test of whether being named in this file gets a run to use the reconciled
+board. It didn't. Scoring it plainly as a miss rather than reframing it:
+the honest read is that the one piece of good news from two weeks ago (18
+October reading a named call-out) looks, with a second data point, more
+like luck than a working channel.
+
+No Bench decision to score against — the twelfth week running with
+nothing to test taste against directly. See `scoreboard.md`.
 
 ---
 
 ## 4. Season note
 
-24 October, UK. Clocks went back yesterday — British Summer Time is over.
-Halloween (31 October) and Bonfire Night (5 November) are now inside a
-week's reach; cards 70/71/72 (pumpkin, bonfire) and the new wood-ash pair
-(74/75) all sit in this exact window with nothing decided. The average UK
-inland first frost (around 25 October) lands today or tomorrow, which is
-the entire premise of card 73 (pelargoniums/fuchsias) — a week old and
-already at its most urgent. The forcing-bulb window (30/64/67) keeps
-narrowing for hyacinths specifically. The storage family (13/20/76/77) and
-the hosepipe-ban family (8/12/16) remain unbuilt through a second season
-turn.
+31 October, UK — Halloween. Bonfire Night (5 November) is five days out,
+and cards 71, 74 and 75 (checking the bonfire before lighting it, using
+wood ash safely, the ash picker) all sit in exactly this window, still
+undecided — the one cluster on the whole 78-card board whose window
+closes this week specifically, not "this season." The average UK first
+frost has already passed; card 73 (pelargoniums and fuchsias) is now not
+just urgent but arguably late for some readers. The storage family
+(13/20/76/77) and the hosepipe-ban family (8/12/16) remain unbuilt through
+a third season turn.
 
 ---
 
 ## 5. Open threads
 
-- **URGENT, worsening — 75 days since any Potting Bench decision, the eleventh silent week.**
-- **URGENT, worsening — PR #3 at 80 days, confirmed zero human review by direct API check.** The unlock comment is unchanged and unused. Mergeable state is clean — nothing technical is blocking it, only the first look.
-- **The write-to-main gap is named and structural, not a mystery, and an old attempt to fix it was itself never merged.** A branch called `chore/forager-writes-board-to-main` exists, dated 12 July — over three months old, abandoned, never landed. That a fix for "nothing reaches main" is itself a thing that never reached main is the whole problem in miniature. The open question is still binary: an automatic merge/triage step, or a standing weekly slot where Kate (or this memory, if given write access) clears the backlog by hand.
-- **Confirmed, unfixed revenue-loss items, still four, now re-confirmed a second week in a row for the newest one:** the three July Sarah Raven links (Uchiki Kuri squash, Genovese basil, Champagne rhubarb — 11+ weeks dead) plus French Breakfast radish (2 weeks dead) — all in `src/data/varieties.ts`. Each a one-line URL swap or removal.
-- **The homepage editor's-note staleness is the one open thread that actually closed this week** — Kate wrote a fresh October line herself, 19 October. Drop it from active tracking; it was never a pipeline problem, just a sentence waiting on a spare minute, and it got one.
-- **New, smaller version of the same closed thread may recur:** the editor's note will go stale again come November on the same unprompted, hand-written cadence. Not urgent yet — just don't be surprised when the Groundskeeper flags it again in 4–6 weeks.
-- **Card 1 and card 4's SEO fixes remain unfixed**, reconfirmed 20 October, alongside the same ten FIX NOW items (duplicate H1, `/kit` canonical, `/privacy` missing from sitemap, `/admin/photos` unprotected, footer missing `/sow-in`, oversized titles, `/sow-in` title churn, dead `keywords` arrays, missing hub schema) — all ten, now the 16th week running on an unmerged `seo/*` branch.
-- **The duplicate-pitch pattern is intermittent (2/3 clean), not solved** — see §1. Worth watching whether naming the next Forager run specifically (as this week's dream now does, below) keeps the streak alive or breaks it again.
-- **The hosepipe-ban family (cards 8, 12, 16)** and the Christmas cluster (cards 4, 60, 62–64, 66–68) both still await their respective tense/linking fixes — unbuilt, unchanged.
-- The bare-root family (seven cards) and frost-countdown family (four cards) remain undecided, unchanged in size.
+- **URGENT, worsening — 82 days since any Potting Bench decision, the
+  twelfth silent week.**
+- **URGENT, worsening — PR #3 at 87 days, confirmed zero human review.**
+  Mergeable, clean, one HTML comment away. Nothing technical is blocking
+  it, only the first look.
+- **NEW, worth Kate's eye specifically — seventeen "Dreamer" email drafts
+  sit unsent in Gmail, back to 12 July.** Gmail drafts raise no
+  notification of their own, so this channel may have been invisible the
+  whole time, regardless of whether the content inside them was useful.
+  Worth Kate knowing this exists, rather than assuming the weekly note has
+  been read-and-ignored. This week's draft is deliberately shorter, with
+  one single ask at the top, as a test of whether format was part of the
+  problem — see the dream file.
+- **The write-to-main gap is named and structural, and an old attempt to
+  fix it was itself never merged.** `chore/forager-writes-board-to-main`
+  (12 July) remains unmerged, over fifteen weeks on. A fix for "nothing
+  reaches main" that itself never reached main is the whole problem in
+  miniature.
+- **Confirmed, unfixed revenue-loss items: four dead Sarah Raven links,
+  re-confirmed again 26 October** — three from July (Uchiki Kuri squash,
+  Genovese basil, Champagne rhubarb, now 12+ weeks dead) plus one newer.
+  Each a one-line fix in `src/data/varieties.ts`.
+- **The SEO Watchdog's ten FIX NOW items are unchanged, re-verified 27
+  October — its seventeenth week running on an unmerged `seo/*` branch.**
+- **The bare-root/order-now family has grown to ten cards (1, 25, 36, 39,
+  47, 48, 52, 56, 57, 59), and the 25 October Forager run pitched into it
+  a further two times anyway**, even though card 56 already exists purely
+  to ask Kate to decide the family once. Not worth an eleventh card
+  restating this — the ask is already on the board, named, waiting. If a
+  Bench session ever happens, this family is the single biggest
+  one-motion win available.
+- **Rhubarb forcing is now a three-way convergence** (card 49, 13
+  September; the Christmas bulb-forcing cards 64/67, same mechanic,
+  different plant; and the 25 October run's cards 32/33, a near-repeat of
+  card 49). Nothing new to add — card 49 already says it. The one
+  genuinely new sliver, a time-based "Forcing Clock" countdown rather than
+  a space-based one, is noted against card 49 rather than given its own
+  card.
+- The hosepipe-ban family (8, 12, 16) and the Christmas cluster (4, 60,
+  62–64, 66–68) both still await their linking fixes, unbuilt, unchanged.
+- The frost-countdown family (cards 30/38 on the reconciled board) remains undecided, unchanged in size.
 - Card 24's overlap with 18/21/37 — still undecided.
-- The companion-planting playground / ReactGarden overlap — still parked, unscheduled. The F1/heirloom affiliate-conflict check — still untested.
+- The companion-planting playground / ReactGarden overlap — still parked,
+  unscheduled. The F1/heirloom affiliate-conflict check — still untested.
