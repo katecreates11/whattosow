@@ -1403,6 +1403,170 @@ too large to grow further without first being decided._
 
 ---
 
+_Shortlist from the Forager's run of 1 November — ranked best-first. This run
+branched from `dreams/2026-10-31` rather than `main`'s stale 29-card copy of
+this file, specifically to check against the full 80-card reconciled board
+(and `docs/CUT_LIST.md`, `docs/dreams/wisdom.md`) before pitching — see
+wisdom.md §1 and §5 on why reading board state, not just taste, is the thing
+that keeps going wrong. Nothing here repeats a proposed, approved, parked or
+binned idea; none of it touches the bare-root, Christmas, frost-countdown,
+storage, bonfire or giant-veg families already sitting undecided._
+
+### 81. The leafless job — winter-pruning your apple and pear trees
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** the RHS names winter pruning of apples and pears as the
+  headline job for free-standing (bush/standard) trees from November
+  through to March, with several sources (RHS, Woodland Trust, Notcutts)
+  narrowing the sweet spot to December–February on a dry, frost-free day
+  — and all of them stress that trained forms (espalier, fan, cordon) get
+  pruned in summer instead, a distinction gardeners commonly get wrong.
+  Checked `growing-fruit` directly (650+ lines, soft fruit only, confirmed
+  by card 23's own research) and the rest of the site by grep: no pruning
+  content exists anywhere, for any fruit. The bare-root ordering family
+  (cards 1, 25, 36, 39, 47, 52, 57 — already flagged in wisdom.md as
+  needing one Bench decision) is entirely about buying new trees; nothing
+  tells the owner of a tree already on the plot what to do with it, right
+  now, while it's bare.
+- **Pitch:** a plain, practical piece on the one job that decides next
+  year's crop — which trees want winter pruning (free-standing apples and
+  pears) versus which don't (trained forms; stone fruit like plums and
+  cherries, which are pruned in summer to avoid silver leaf disease), the
+  three cuts that matter in order (dead, diseased or crossing wood first;
+  then opening the centre to light; then shortening last year's new
+  growth), and why a few neglected years aren't a disaster, just a slower
+  tree. Ends facing forward, not scolding a reader who's let it go.
+- **Ready-to-queue brief:** target "when to prune apple trees uk" /
+  "winter pruning fruit trees"; angle = the one job, told plainly, not an
+  orchard-management lecture; links ← `growing-fruit`, → card 13/42's
+  curing-and-storage guide once live; voice = plain and patient, no blame
+  for a neglected tree; **honest monetisation note:** no secateurs or
+  pruning saw exists in `kit.ts` yet, so the first draft should go
+  affiliate-light rather than force an unsourced buy-point — the same
+  caveat card 23 already flagged for apples generally.
+- **Added:** 2026-11-01 · **Run:** forager-2026-11-01
+
+### 82. "Wrap it up" — a greenhouse insulation calculator for the first frosts
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's proven
+  calculator DNA onto genuinely new, unmonetised ground
+- **Evidence:** every UK source checked (Harrod Horticultural, Greenhouse
+  Stores, Crocus, Hartley Botanic) agrees on the fix — horticultural
+  bubble wrap, 20mm bubbles against the glass, cutting heat loss roughly
+  40–50% and adding 1–2°C overnight, with a second layer doing better
+  still. First frosts are arriving as the season note in wisdom.md
+  already flags (card 73's tender-plant lifting is "arguably late" for
+  some readers), and a direct check of `kit.ts` and the whole site
+  confirms zero greenhouse-insulation content and no bubble-wrap or
+  structure-fleece product anywhere. Calculator-DNA features have a
+  flawless approval record this year (Glut-o-meter, the green manure
+  picker, the bulb planner, the wood-ash picker) — this is the same shape
+  of idea, on ground the site has never monetised before rather than a
+  ninth pitch into an already-decided family.
+- **Pitch:** enter roughly your greenhouse or cold frame's size and it
+  answers in sentences, not a materials list, how much bubble wrap you'd
+  need and — if you can't do the whole structure — which bit to do first
+  (the north wall, the door, the propagator corner). A physical metaphor
+  of tucking the greenhouse in for the night, the same instinct behind
+  the Glut-o-meter's "weighing it up," not a metric tile. One honest line
+  keeps it from overpromising: bubble wrap insulates the structure, not
+  the plant — fleece over anything tender still matters. One buy-point,
+  framed as the job that pays for itself in a single cold night.
+- **Ready-to-queue brief:** needs-spec — a small size-to-metres lookup
+  (greenhouse/cold frame, a few size bands), no new infrastructure; links
+  → `protecting-vegetables-from-frost`, `growing-tomatoes-outdoors-vs-greenhouse`;
+  affiliate = horticultural bubble wrap, a new SKU category — **check
+  Awin/Suttons/Dobies or a specialist retailer stocks it before
+  building**; design = one filling/wrapping visual, never a metric row.
+- **Added:** 2026-11-01 · **Run:** forager-2026-11-01
+
+### 83. The too-wet-to-dig day — what to do when the plot's a swamp
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort
+- **Evidence:** November is reliably one of the UK's wettest months, and
+  every source checked (Allotment Online, Gardeners' World) gives the
+  same answer for a washed-out weekend — small jobs close to home:
+  cleaning tools, sorting pots and trays, sweeping the greenhouse floor,
+  and starting next year's seed order from the catalogues landing about
+  now. Checked `preparing-your-plot-for-winter` directly: it's entirely
+  about the beds, never about the gardener standing at the shed door with
+  nowhere dry to dig. A genuinely useful, very low-effort gap that also
+  gives the pruning piece above and the site's existing `crop-rotation`
+  guide somewhere warm to be pointed from.
+- **Pitch:** a short piece that starts from the actual frustration — rain
+  on, plot abandoned — and turns it into permission rather than a chore
+  list: this is the week for the jobs that were always indoor jobs
+  anyway. Cleaning and sharpening tools, wiping down pots, a look through
+  next year's seed catalogue, a note of what grew where this year before
+  it's forgotten. Ends facing forward to spring.
+- **Ready-to-queue brief:** target "what to do in the garden when it
+  rains" / "wet weather allotment jobs uk"; angle = permission, not a
+  chore list; links → `crop-rotation`, `composting` (tool-cleaning
+  overlaps), card 81 once live; voice = Pooh-warm, plain observation only
+  — "a wet, grey week," never a personified sky (COPY_REWRITES
+  calibration rule).
+- **Added:** 2026-11-01 · **Run:** forager-2026-11-01
+
+---
+
+_The Dreamer's run of 7 November — two additions, both process/scope notes
+rather than new research, matching the crew's own standing worry (card 78)
+that the backlog is already too large to grow without being decided first._
+
+### 84. Rhubarb forcing (card 49) just converged a fourth time, independently, from a different kind of evidence
+- **Type:** content _(scope note on proposed card 49, not yet built)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-11-07)
+- **Score:** High payoff / Very low effort
+- **Evidence:** card 49 (13 September) and cards 32/33 (25 October) are
+  three Forager pitches at the same gap. The SEO Watchdog's 3 November
+  report names "how to force rhubarb" as a live search opportunity too —
+  arrived at independently, from search-demand evidence with no
+  visibility into the ideas board at all. Three different evidence bases
+  (content research, feature ideation, SEO search-demand analysis), same
+  gap, four times. No other idea on the board has converged this many
+  times from this many independent angles.
+- **Pitch:** no change to card 49's substance — just a flag that if a
+  Bench session ever happens, this is the single most evidence-backed
+  undecided idea on the whole board, ahead of even the bare-root family
+  in weight of independent agreement (though smaller in commercial
+  stakes). Worth deciding first if anything is decided at all.
+- **Ready-to-queue brief:** fold into card 49's existing brief; no new
+  target query beyond what it already carries; voice/links unchanged.
+- **Added:** 2026-11-07 · **Run:** dream-2026-11-07
+
+### 85. Point new Forager/Groundskeeper/SEO runs at the latest `dreams/*` branch by default, not `main`
+- **Type:** feature _(process note on how the crew's own routines start, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-11-07)
+- **Score:** High payoff / Very low effort
+- **Evidence:** every clean, non-duplicate Forager run found so far (18
+  October, 1 November) branched from a `dreams/*` branch rather than
+  `main`'s stale copy of the board; every duplicate-heavy run traced
+  (19/26 July, 2/9 August, 20/27 September, 11/25 October) branched from
+  `main`. Naming a specific future run in this file was tried twice as
+  the fix (one hit, one miss — see wisdom.md §1) and has been downgraded;
+  which branch a run starts from looks like the real variable. The 1
+  November run did this correctly on its own initiative, without being
+  told to in this file, which suggests it may be fixable at the
+  configuration level (which branch these routines check out from) rather
+  than needing a weekly reminder here at all.
+- **Pitch:** not a build this memory can do itself — a note for whoever
+  next looks at how the Forager, Groundskeeper and SEO Watchdog routines
+  are invoked, to check whether their starting branch can simply default
+  to the latest `dreams/*` branch (or however that's configured) instead
+  of `main`. If so, this may be a sturdier fix than anything written into
+  wisdom.md ever could be.
+- **Ready-to-queue brief:** not a content or feature build — a
+  configuration question for Kate or whoever maintains the crew's
+  schedule/runner setup; no query, no voice considerations.
+- **Added:** 2026-11-07 · **Run:** dream-2026-11-07
+
+---
+
 ## Approved
 
 _(empty)_
