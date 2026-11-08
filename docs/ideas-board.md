@@ -1567,6 +1567,172 @@ that the backlog is already too large to grow without being decided first._
 
 ---
 
+_Shortlist from the Forager's run of 8 November — ranked best-first. This
+run branched from `dreams/2026-11-07` rather than `main`'s stale 29-card
+copy, specifically because card 85 (and wisdom.md §1/§2) names that as the
+one thing separating a clean run from a duplicate-heavy one. Checked
+against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and every card above
+(1–85) before pitching. Nothing here repeats a proposed, approved, parked
+or binned idea, and none of it touches the bare-root, Christmas-dinner,
+frost-countdown, giant-veg, bonfire/wood-ash, rhubarb-forcing, storage,
+fruit-pruning, greenhouse-insulation, hosepipe-ban, tender-plant,
+spring-bulb-ordering, companion-planting, seed-saving, sweet-pea,
+leaf-mould or apple-ripeness families already sitting on the board. Not
+re-flagging the backlog or the merge gap again — cards 78–80 and 85 already
+carry that note in full; this run is pitches only._
+
+### 86. "What a gardener actually wants" — a December gift guide that isn't a mug with a trowel on it
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** every UK gardening source checked this week runs some
+  version of this — Which?'s 2026 gift guide, Gardeners' World's own gift
+  product guide, Crocus's dedicated gift search, and lovelygreens' 2026
+  guide — and they converge on the same honest categories: a proper hand
+  tool (£15–£30, a hori-hori knife or good secateurs), a kneeler, copper or
+  wooden plant labels, a membership (RHS at £53/year), a magazine
+  subscription, a seed collection, a wildlife gift, a gardening book
+  (~£15). WTS has zero gift content anywhere — checked by grep, nothing
+  — despite already owning several of these exact categories honestly in
+  `kit.ts` (the Thistlewood kneeler, the Spear & Jackson carbon dibber, the
+  Kent & Stowe bulb planter, the Showa gloves) because Kate actually uses
+  them. December gift-buying is the one UK retail season bigger than
+  Black Friday, and it's a completely new commercial surface for a site
+  that currently monetises only seeds, kit-at-point-of-need and show
+  produce.
+- **Pitch:** not a grid of products — a short, curated "what we'd actually
+  give a gardener" piece in the same worth-buying/skip voice the crop pages
+  already use (DIRECTION §4), built almost entirely from what's already in
+  `kit.ts` plus two or three honestly-sourced new additions (a hori-hori
+  knife, a seed subscription) where the category is real but WTS doesn't
+  own a product yet — flagged affiliate-light exactly as cards 23/25/36/39
+  /81 have done for new categories. Written as doors, not a wall of
+  identical cards: one paragraph per gift, who it's actually for, why it
+  earns its place. The RHS membership and a magazine subscription get a
+  mention with no affiliate link at all, because that's the honest version
+  of this guide and it's what makes the rest of it believable.
+- **Ready-to-queue brief:** target "gifts for gardeners uk" / "christmas
+  gifts for allotment gardeners"; angle = curated and honest, not a sale
+  page — the test is "would Kate actually give this"; links → whichever
+  crop/guide pages the gifted tool relates to (dibber → bulb planting,
+  kneeler → weeding guides); affiliate = `kit.ts` items first, 2–3 new
+  honestly-sourced additions second, RHS membership unlinked; voice =
+  plain and specific per ANTI_PATTERNS §8 (no "game-changer", no star
+  ratings); **check which `kit.ts` items are actually in stock/available
+  to buy this December before publishing** — two amaryllis-retailer pages
+  checked this week were already showing "orders now arrive after
+  Christmas."
+- **Added:** 2026-11-08 · **Run:** forager-2026-11-08
+
+### 87. Pot up now for flowers on the table at Christmas — forcing amaryllis and paperwhites
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** the window is genuinely open right now and genuinely
+  closes soon. The RHS's own "Bulbs for Christmas flowering" advice names
+  prepared hyacinths, amaryllis and paperwhites as the three that work
+  without a fridge; UK growers and suppliers give amaryllis 6–8 weeks from
+  potting to bloom (the RHS's own figure of 10 weeks would already miss
+  Christmas from today), which makes early-to-mid November the real
+  cut-off, not a vague "do it sometime this autumn." Paperwhites are far
+  more forgiving — one to two weeks from potting to flower — making them
+  the safer, later-starting pick for anyone reading this after the
+  amaryllis window's gone. Checked the whole site by grep: "amaryllis" and
+  "paperwhite" appear nowhere on WTS. No UK competitor page currently
+  distinguishes the two bulbs' very different timings clearly, which is
+  the actual gap — most pages explain forcing in general, not "which one
+  do I buy today given what date it is."
+- **Pitch:** a short, practical piece that does the one thing competitors
+  don't: tells the reader which bulb to buy depending on how many weeks
+  they've got left before the date they actually want flowers on the
+  table. Amaryllis if there's still 6+ weeks in hand; paperwhites if
+  there's less, or if a fridge isn't an option (neither bulb needs
+  chilling — that's the other thing most pages bury). Covers potting
+  depth, the dark spell before the light, and the honest "don't throw the
+  amaryllis bulb away" closing note once it's finished. Satisfying in the
+  same register as the seed-saving and leaf-mould pieces — something you
+  watch happen on a windowsill through the darkest weeks of the year.
+- **Ready-to-queue brief:** target "forcing amaryllis for christmas uk" /
+  "when to plant paperwhites for christmas"; angle = which bulb, by which
+  date, not a generic how-to; links → card 86's gift guide once live (a
+  forced bulb is a gift as much as a houseplant project); voice = plain
+  and encouraging, Pooh-warm without personifying the bulb itself per
+  COPY_REWRITES' calibration rule; **verify at least one UK retailer still
+  has amaryllis/paperwhite bulbs in stock for November delivery before
+  publishing** — stock checked this week was patchy (several 2026 listings
+  already showing "after Christmas" delivery only).
+- **Added:** 2026-11-08 · **Run:** forager-2026-11-08
+
+### 88. "Lit by Christmas" — a pot-up-by countdown for forced bulbs
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low–medium effort · extends the site's
+  proven calculator DNA onto genuinely new ground
+- **Evidence:** calculator-DNA features have a flawless approval record
+  this year (the Glut-o-meter, the green manure picker, the bulb-spacing
+  planner, the wood-ash picker) specifically because they turn a reader's
+  own arithmetic into something they play with rather than work out
+  themselves — and card 87's own research is exactly that arithmetic:
+  amaryllis needs 6–8 weeks, paperwhites 1–2, counted back from whatever
+  date the reader actually wants flowers (Christmas Day, a party, New
+  Year). This is a different mechanic from card 4's Christmas-dinner
+  planner (that counts forward from sowing to harvest for food crops) and
+  from the frost-countdown family (cards 30/38, which count toward a frost
+  date) — new subject (forced bulbs), new question ("pot up by when"), no
+  overlap in data or page.
+- **Pitch:** pick the bulb (or "not sure yet," which just shows both) and
+  the date flowers are wanted by, and it answers in one sentence with the
+  latest safe pot-up date — plus, if that date's already passed for
+  amaryllis, a plain nudge toward paperwhites instead rather than a dead
+  end. Visual = a bulb filling with colour as the weeks count down, the
+  same physical-metaphor instinct Kate has asked for twice already
+  (the Glut-o-meter's weighing, the green manure picker's bed filling
+  in) — never a bare countdown number on its own.
+- **Ready-to-queue brief:** needs-spec — a tiny two-row lookup (amaryllis:
+  6–8 weeks; paperwhites: 1–2 weeks), a date picker, one filling-bulb
+  visual, no metric tiles; only worth building once card 87 exists to
+  anchor it and give it somewhere to link from; affiliate = whichever
+  bulbs are confirmed in stock for card 87; honest shelf-life note: this
+  year's amaryllis window is nearly gone by the time this could ship, so
+  it earns most of its value as an evergreen page for next November rather
+  than this one — worth building calmly rather than rushing it out before
+  the window closes.
+- **Added:** 2026-11-08 · **Run:** forager-2026-11-08
+
+### 89. Is it actually worth it? — a small, honest look at Black Friday gardening deals
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort — real but time-boxed and the
+  riskiest-to-get-wrong pitch this run
+- **Evidence:** Black Friday 2026 falls on 27 November, and UK gardening
+  retailers clearly treat it as a real season — Which?'s gardening editor
+  publishes an annual round-up (hoes, hedge trimmers, hoses, mowers,
+  pressure washers), and B&Q, The Range, Gardening Express and several
+  tool specialists all run dedicated Black Friday gardening pages. Which?
+  also does the useful, honest thing: it tracks each item's actual
+  average price over the past six months so a reader can tell a real
+  discount from a relisted one. WTS has no Black Friday content and no
+  deals content of any kind.
+- **Pitch:** the one version of this that doesn't read as a sale banner
+  bolted onto a periodical — a short, skeptical piece that does what
+  Which? does (price history, not just the sale sticker) for the handful
+  of `kit.ts` items Kate already owns and recommends, plus an honest "most
+  garden 'deals' aren't" framing that fits the site's trust-first voice
+  better than an enthusiastic round-up would. Deliberately small: three or
+  four items, not a marketplace page.
+- **Ready-to-queue brief:** target "black friday gardening deals uk"; angle
+  = "worth checking the price history before you buy," not "here's the
+  sale" — this is the one pitch this run that risks the product-buttons/
+  repeated-CTA anti-patterns if it's built any bigger than specified; links
+  → the relevant `kit.ts` product pages/guides; voice = skeptical and
+  brief, no urgency language ("hurry," "today only," "limited stock");
+  **time-boxed — needs a yes and a build slot before 27 November to be
+  worth doing at all; if the Night Gardener's queue can't reach it in
+  time, this is better parked for next year than rushed.**
+- **Added:** 2026-11-08 · **Run:** forager-2026-11-08
+
+---
+
 ## Approved
 
 _(empty)_
