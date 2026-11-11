@@ -91,6 +91,8 @@ export default function Home() {
   const nowMonth = seasonal.monthIndex;
   const currentMonthName = MONTH_NAMES[nowMonth];
   const currentMonthSlug = MONTH_SLUGS[nowMonth];
+  // Seasonal link to the Christmas dinner planner, 1 November to 25 December.
+  const christmasWindow = nowMonth === 10 || (nowMonth === 11 && now.getDate() <= 25);
   const isSummerSeason = nowMonth >= 5 && nowMonth <= 7; // Jun–Aug
   const heroEyebrow =
     nowMonth >= 2 && nowMonth <= 4
@@ -260,19 +262,22 @@ export default function Home() {
       <main id="main-content">
         {/* Hero — illustration banner with text */}
         <FullWidthSection className="relative overflow-hidden" innerClassName="relative">
+          {/* One real heading for search engines and screen readers; the two
+              visual copies below (mobile / desktop) are presentational. */}
+          <h1 className="sr-only">Know exactly what to plant, right now</h1>
           {/* Mobile: stacked text above image */}
           <div className="sm:hidden pt-10 pb-6 px-1">
             <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-allotment/70 mb-3 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
               {heroEyebrow}
             </span>
-            <h1 className="text-4xl font-serif text-earth tracking-tight leading-[0.95] mb-3">
+            <p aria-hidden="true" className="text-4xl font-serif text-earth tracking-tight leading-[0.95] mb-3">
               Know exactly
               <br />
               what to plant,
               <br />
               <span className="text-allotment">right now</span>
-            </h1>
+            </p>
             <p className="text-sm text-earth-light/70 leading-relaxed">
               Enter your postcode for personalised sowing dates, based on your local frost date.
             </p>
@@ -296,13 +301,13 @@ export default function Home() {
                   <span className="w-1.5 h-1.5 rounded-full bg-allotment animate-pulse" aria-hidden="true" />
                   {heroEyebrow}
                 </span>
-                <h1 className="text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-5">
+                <p aria-hidden="true" className="text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-5">
                   Know exactly
                   <br />
                   what to plant,
                   <br />
                   <span className="text-allotment">right now</span>
-                </h1>
+                </p>
                 <p className="text-sm text-earth-light/70 max-w-[220px] leading-relaxed">
                   Enter your postcode for personalised sowing dates, based on your local frost date.
                 </p>
@@ -325,6 +330,18 @@ export default function Home() {
             >
               {`See the full ${currentMonthName} sowing list`} &rarr;
             </Link>
+            {christmasWindow && (
+              <p className="mt-4 text-sm leading-relaxed text-earth-light">
+                Hoping for something home-grown on the 25th?{" "}
+                <Link
+                  href="/grow-your-christmas-dinner"
+                  className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment"
+                >
+                  See what there is still time to grow for Christmas dinner
+                </Link>
+                .
+              </p>
+            )}
           </div>
         </div>
 

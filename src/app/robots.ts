@@ -28,6 +28,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: "/admin",
       },
       // Keep our content out of AI training sets.
       {

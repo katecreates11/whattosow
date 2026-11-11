@@ -332,7 +332,9 @@ export default function AutumnWinterGuide() {
               <Link href="/guides/composting" className="text-rust underline decoration-rust/30 hover:text-earth">compost</Link>{" "}
               or well-rotted muck over the beds and let the worms work it in &mdash; the no-dig way. Clear away spent
               crops and the slugs&apos; winter hideouts. Sort and store your seeds somewhere cool and dry. And put the
-              plot to bed knowing the garlic and broad beans are already away.
+              plot to bed knowing the garlic and broad beans are already away. And if you would like something
+              home-grown on the table on the 25th, here is{" "}
+              <Link href="/grow-your-christmas-dinner" className="text-rust underline decoration-rust/30 hover:text-earth">what there is still time to grow for Christmas dinner</Link>.
             </p>
           </section>
 

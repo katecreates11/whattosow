@@ -8,6 +8,6 @@ describe("EditorNote", () => {
     const html = renderToStaticMarkup(createElement(EditorNote));
 
     expect(html).toContain("November 2026");
-    expect(html).toContain("carrots still in the ground for Christmas");
+    expect(html).toContain("left some carrots in to pick nearer Christmas");
   });
 });

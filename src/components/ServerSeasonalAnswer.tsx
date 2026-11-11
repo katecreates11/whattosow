@@ -159,11 +159,14 @@ function SowingRowItem({ row, lead }: { row: SowingRow; lead: boolean }) {
   );
 }
 
-function PlantOutRows({ entries }: { entries: CropEntry[] }) {
+function PlantOutRows({ entries, monthIndex }: { entries: CropEntry[]; monthIndex: number }) {
   if (entries.length === 0) {
+    const winter = monthIndex >= 10 || monthIndex <= 1;
     return (
       <p className="mt-3 max-w-[48ch] text-sm leading-relaxed text-earth-light">
-        Nothing urgent to plant out on the UK average this week; keep young plants watered and ready.
+        {winter
+          ? "Nothing to plant out on the UK average this week. That job comes round again in spring."
+          : "Nothing urgent to plant out on the UK average this week; keep young plants watered and ready."}
       </p>
     );
   }
@@ -208,7 +211,7 @@ function joinLinkedNextWindows(entries: AvoidSowingEntry[], prefix = "") {
         </a>{" "}
         in{" "}
         <a href={`/sow/${entry.nextMonthSlug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
-          {entry.nextMonthName?.toLowerCase()}
+          {entry.nextMonthName}
         </a>
       </span>
     ));
@@ -264,6 +267,10 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
   const sowRows = buildSowingRows([...answer.sowOutdoors, ...answer.startIndoors], weekly.notes, weekly.pick.slug);
   const weekOf = answer.now.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
   const pickLine = pickLineWithoutPrefix(weekly.pick.name, weekly.pick.line);
+  // The engine has no autumn-sowing window (e.g. November broad beans), so the
+  // editorial pick can land in the avoid list. The pick always wins.
+  const waitingEntries = answer.avoidSowingNow.filter((entry) => entry.crop.slug !== weekly.pick.slug);
+  const christmasWindow = answer.monthIndex === 10 || (answer.monthIndex === 11 && answer.now.getDate() <= 25);
 
   return (
     <section className={className} aria-labelledby="sow-list-heading">
@@ -312,7 +319,7 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
             <h2 id="plant-out-heading" className="font-mono text-[11px] uppercase tracking-[0.16em] text-earth-light">
               And plant out
             </h2>
-            <PlantOutRows entries={answer.plantOutNow} />
+            <PlantOutRows entries={answer.plantOutNow} monthIndex={answer.monthIndex} />
           </section>
 
           <section className="mt-8 border-t border-earth/10 pt-6" aria-labelledby="waiting-heading">
@@ -320,7 +327,7 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
               Worth waiting on
             </h2>
             <div className="mt-3">
-              <WorthWaitingOn entries={answer.avoidSowingNow} plantOutEntries={answer.plantOutNow} />
+              <WorthWaitingOn entries={waitingEntries} plantOutEntries={answer.plantOutNow} />
             </div>
           </section>
 
@@ -346,6 +353,15 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
                 monthly kit edit
               </a>
               .
+              {christmasWindow && (
+                <>
+                  {" "}And if you would like something home-grown on the table on the 25th, here is{" "}
+                  <a href="/grow-your-christmas-dinner" className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                    what there is still time to grow for Christmas dinner
+                  </a>
+                  .
+                </>
+              )}
             </p>
           </section>
         </aside>

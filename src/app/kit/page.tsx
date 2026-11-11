@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     description:
       "Honest equipment picks for UK allotment holders. No sponsorships, no freebies — just the stuff we'd lend you over the fence.",
     type: "website",
-    url: "https://whattosow.co.uk/guides",
+    url: "https://whattosow.co.uk/kit",
   },
   alternates: {
-    canonical: "/guides",
+    canonical: "/kit",
   },
 };
 
