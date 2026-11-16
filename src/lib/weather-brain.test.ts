@@ -22,6 +22,7 @@ import {
   ukDay,
   ukHour,
 } from "@/lib/weather-brain";
+import { buildArchiveUrl } from "@/lib/frost-record";
 import { forecastFixture, ukTime } from "@/lib/__tests__/weather-fixture";
 
 const TODAY = "2026-11-16";
@@ -242,5 +243,18 @@ describe("weather brain — nobody else fetches the forecast", () => {
       (path) => !ALLOWED.has(path) && readFileSync(path, "utf8").includes("api.open-meteo.com/v1/forecast")
     );
     expect(offenders).toEqual([]);
+  });
+});
+
+describe("weather brain — the live site lets the browser reach it", () => {
+  // `next start` and `next dev` don't apply netlify.toml headers, so a host
+  // missing from the Content-Security-Policy works on localhost and is blocked
+  // in production. (The frost archive was, on its first deploy.)
+  it("allows every host the brain fetches from in connect-src", () => {
+    const toml = readFileSync("netlify.toml", "utf8");
+    const connectSrc = /connect-src ([^;"]+)/.exec(toml)?.[1].split(/\s+/) ?? [];
+    for (const url of [buildForecastUrl(51.64, -0.17), buildArchiveUrl(51.64, -0.17), "https://api.postcodes.io/postcodes/X"]) {
+      expect(connectSrc, url).toContain(new URL(url).origin);
+    }
   });
 });
