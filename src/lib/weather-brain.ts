@@ -64,7 +64,6 @@ export interface LocalWeather {
     windMax: Series;
     gustsMax: Series;
     sunshineSeconds: Series;
-    weatherCode: Series;
   };
 }
 
@@ -275,7 +274,7 @@ export function buildForecastUrl(lat: number, lng: number): string {
     daily: [
       "temperature_2m_min", "temperature_2m_max", "precipitation_sum",
       "precipitation_probability_max", "et0_fao_evapotranspiration",
-      "wind_speed_10m_max", "wind_gusts_10m_max", "sunshine_duration", "weather_code",
+      "wind_speed_10m_max", "wind_gusts_10m_max", "sunshine_duration",
     ].join(","),
     past_days: String(PAST_DAYS),
     forecast_days: String(FORECAST_DAYS),
@@ -346,7 +345,6 @@ export function parseForecast(raw: unknown, lat: number, lng: number, fetchedAt:
       windMax: series(d.wind_speed_10m_max, dayTimes.length),
       gustsMax: series(d.wind_gusts_10m_max, dayTimes.length),
       sunshineSeconds: series(d.sunshine_duration, dayTimes.length),
-      weatherCode: series(d.weather_code, dayTimes.length),
     },
   };
 }
