@@ -4,12 +4,16 @@ import FrostZoneMapLoader from "@/components/FrostZoneMapLoader";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TimeOfDayBackground from "@/components/TimeOfDayBackground";
+import { cities } from "@/data/cities";
+import { modelFirstAutumnFrostDay, modelLastFrostDay } from "@/lib/frost";
 
 export const metadata: Metadata = {
-  title: "UK Frost Date Map — Last Frost by Region | What To Sow",
+  title: "Frost Dates by Postcode (UK) — Last & First Frost Map | What To Sow",
   description:
-    "Interactive map showing estimated last spring frost dates across the UK. See when it's safe to plant out in your area, from mild Cornwall to the Scottish Highlands.",
+    "Find your last spring frost and first autumn frost date by UK postcode. A frost map of the whole country, with dates for 50 towns and cities from Penzance to Inverness.",
   keywords: [
+    "frost date by postcode UK",
+    "first frost date by postcode",
     "UK frost date map",
     "last frost date by region",
     "frost map UK",
@@ -28,6 +32,70 @@ export const metadata: Metadata = {
     canonical: "/frost-map",
   },
 };
+
+function dayToDate(day: number): string {
+  const date = new Date(new Date().getFullYear(), 0);
+  date.setDate(day);
+  return date.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+}
+
+/**
+ * The map in words: frost dates for fifty places, earliest spring first. The
+ * map itself is drawn in the browser, so without this the page had almost no
+ * text — it ranked for "frost date by postcode" and gave a search engine
+ * nothing to show.
+ */
+function FrostDatesByPlace() {
+  const rows = cities
+    .map((city) => ({
+      city,
+      spring: modelLastFrostDay(city.latitude, city.longitude),
+      autumn: modelFirstAutumnFrostDay(city.latitude, city.longitude),
+    }))
+    .sort((a, b) => a.spring - b.spring || a.city.name.localeCompare(b.city.name));
+
+  return (
+    <section aria-labelledby="frost-dates-by-place" className="mt-12">
+      <h2 id="frost-dates-by-place" className="font-serif text-2xl sm:text-3xl text-earth tracking-tight">
+        Frost dates for {rows.length} UK towns and cities
+      </h2>
+      <p className="mt-3 max-w-[62ch] text-earth-light leading-relaxed">
+        The last spring frost is when tender plants can go outside; the first autumn frost is when
+        they are finished. A hill, a valley or a stretch of coast can shift either by a week or
+        more, so search your own postcode on the map above &mdash; or{" "}
+        <Link href="/" className="text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark">
+          on the front page
+        </Link>
+        , where we read ten years of real nights for your exact spot.
+      </p>
+      <table className="mt-6 w-full border-collapse text-left text-sm sm:text-base">
+        <thead>
+          <tr className="border-b border-earth/20 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+            <th scope="col" className="py-2 pr-3 font-normal">Place</th>
+            <th scope="col" className="py-2 pr-3 font-normal">Last spring frost</th>
+            <th scope="col" className="py-2 font-normal">Autumn frost from</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(({ city, spring, autumn }) => (
+            <tr key={city.slug} className="border-b border-earth/10">
+              <th scope="row" className="py-2.5 pr-3 font-normal">
+                <Link
+                  href={`/sow-in/${city.slug}`}
+                  className="font-serif text-lg text-earth underline decoration-amber/45 underline-offset-4 hover:text-allotment"
+                >
+                  {city.name}
+                </Link>
+              </th>
+              <td className="py-2.5 pr-3 text-earth-light">{dayToDate(spring)}</td>
+              <td className="py-2.5 text-earth-light">{dayToDate(autumn)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  );
+}
 
 export default function FrostMapPage() {
   return (
@@ -54,6 +122,8 @@ export default function FrostMapPage() {
         <div className="px-6 sm:px-10 lg:px-16 py-10 sm:py-14">
           <div className="max-w-4xl">
             <FrostZoneMapLoader />
+
+            <FrostDatesByPlace />
 
             <div className="mt-10 bg-sky px-6 py-6">
               <h2 className="font-serif text-lg text-earth mb-2">
