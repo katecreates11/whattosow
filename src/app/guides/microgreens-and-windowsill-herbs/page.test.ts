@@ -9,7 +9,12 @@ describe("MicrogreensGuide", () => {
   it("links straight to product pages, never to a search, each with its own tracked position", () => {
     expect(html).toContain('data-umami-event-position="microgreens-seeds-radish"');
     expect(html).toContain('data-umami-event-position="microgreens-seeds-pea-shoots"');
-    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(7);
+    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(14);
+    expect(html).toContain('data-umami-event-position="microgreens-buyer-note-range"');
+    expect(decodeURIComponent(html)).toContain("thompson-morgan.com/p/cress-extra-curled-seeds/623TM");
+    // discontinued or never stocked at T&M: no link is better than a dead one
+    expect(decodeURIComponent(html)).not.toContain("basil-genovese");
+    expect(html).not.toContain('data-umami-event-position="microgreens-seeds-sunflower-shoots"');
     expect(html).toContain('rel="sponsored');
     expect(html).not.toContain("amazon.");
     // the search subdomain redirects to an empty results page and drops the term

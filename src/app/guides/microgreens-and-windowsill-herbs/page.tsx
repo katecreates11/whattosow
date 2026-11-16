@@ -45,34 +45,34 @@ interface TrayCrop {
   days: string;
   note: string;
   /**
-   * A direct Thompson & Morgan PRODUCT page, never a search link: their search
-   * subdomain redirects to an empty results page and drops the term. Leave a
-   * crop without a link until a real product page is known.
+   * A direct Thompson & Morgan PRODUCT page, each one opened and checked by
+   * hand on 16 Nov 2026. Sunflower shoots and basil have none: T&M stocks no
+   * sunflower for shoots, and Basil Genovese is discontinued there.
    */
   seeds?: string;
   seedLabel?: string;
 }
 
 const trayCrops: TrayCrop[] = [
-  { name: "Cress", days: "5–7 days", note: "The quickest of all, and peppery. Grows on damp kitchen paper as happily as on compost." },
+  { name: "Cress", days: "5–7 days", note: "The quickest of all, and peppery. Grows on damp kitchen paper as happily as on compost.", seeds: "https://www.thompson-morgan.com/p/cress-extra-curled-seeds/623TM", seedLabel: "Cress Extra Curled seed" },
   { name: "Radish", days: "6–10 days", note: "Hot, crisp and nearly impossible to get wrong. The one to start with.", seeds: "https://www.thompson-morgan.com/p/radish-french-breakfast-3-seeds/542TM", seedLabel: "Radish French Breakfast seed" },
-  { name: "Mustard", days: "7–10 days", note: "A heat that builds. Red-leaved kinds look as good as they taste." },
+  { name: "Mustard", days: "7–10 days", note: "A heat that builds. Red-leaved kinds look as good as they taste.", seeds: "https://www.thompson-morgan.com/p/mustard-red-lace-microgreen-seeds/wkb5034TM", seedLabel: "Mustard Red Lace microgreen seed" },
   { name: "Rocket", days: "8–12 days", note: "The pepper of grown rocket in a softer leaf.", seeds: "https://www.thompson-morgan.com/p/wild-rocket-seeds/705TM", seedLabel: "Wild rocket seed" },
-  { name: "Broccoli and kale", days: "8–12 days", note: "Mild and cabbagey, and very even to grow. A good base for a mixed tray.", seeds: "https://www.thompson-morgan.com/p/kale-red-russian/kc2567TM", seedLabel: "Kale Red Russian seed" },
+  { name: "Broccoli and kale", days: "8–12 days", note: "Mild and cabbagey, and very even to grow. A good base for a mixed tray.", seeds: "https://www.thompson-morgan.com/p/kale-red-russian-microgreen-seeds/wkb5030TM", seedLabel: "Kale Red Russian microgreen seed" },
   { name: "Sunflower shoots", days: "8–12 days", note: "Nutty and crunchy. Soak the seed overnight, and pick the husks off as they open." },
   { name: "Pea shoots", days: "10–14 days", note: "Taste of fresh peas. Soak overnight before sowing; cut above the lowest leaf and they will often grow back once.", seeds: "https://www.thompson-morgan.com/p/pea-kelvedon-wonder-seeds/107TM", seedLabel: "Pea Kelvedon Wonder seed" },
   { name: "Beetroot and chard", days: "12–18 days", note: "Earthy, with magenta stems. Slower and a little patchier than the brassicas.", seeds: "https://www.thompson-morgan.com/p/beetroot-boltardy-globe-seeds/288TM", seedLabel: "Beetroot Boltardy seed" },
   { name: "Coriander", days: "14–21 days", note: "Slow to come up and worth the wait. Crush the round seed gently in two before sowing, or buy it ready split.", seeds: "https://www.thompson-morgan.com/p/coriander-calypso-seeds/4784TM", seedLabel: "Coriander Calypso seed" },
-  { name: "Basil", days: "14–21 days", note: "Needs real warmth, so it is a spring and summer tray. Sulks on a cold winter sill.", seeds: "https://www.thompson-morgan.com/p/basil-genovese/gwd0105TM", seedLabel: "Basil Genovese seed" },
+  { name: "Basil", days: "14–21 days", note: "Needs real warmth, so it is a spring and summer tray. Sulks on a cold winter sill." },
 ];
 
 /** Slower or fussier than the ten above — and all of them in our own seed box. */
 const seedBoxCrops: TrayCrop[] = [
-  { name: "Red amaranth", days: "8–12 days", note: "Tiny seed, vivid magenta stems, a mild earthy taste. Likes warmth, and colours a mixed tray like nothing else." },
-  { name: "Nasturtium", days: "10–14 days", note: "Round, peppery leaves that taste of watercress. The seed is as big as a pea: soak it overnight and cover it." },
-  { name: "Red-veined sorrel", days: "14–21 days", note: "Sharp and lemony, with a red vein down each small leaf. Slow, so give it a tray of its own." },
-  { name: "Garlic chives", days: "14–21 days", note: "Fine green threads with a gentle garlic taste. Slow to start, and often still wearing its black seed coat." },
-  { name: "Lemon balm", days: "14–21 days", note: "A soft lemon scent in a small crinkled leaf. One of the slowest, and good on fruit as well as salad." },
+  { name: "Red amaranth", days: "8–12 days", note: "Tiny seed, vivid magenta stems, a mild earthy taste. Likes warmth, and colours a mixed tray like nothing else.", seeds: "https://www.thompson-morgan.com/p/amaranthus-red-garnet-seeds/w76488TM", seedLabel: "Amaranthus Red Garnet seed" },
+  { name: "Nasturtium", days: "10–14 days", note: "Round, peppery leaves that taste of watercress. The seed is as big as a pea: soak it overnight and cover it.", seeds: "https://www.thompson-morgan.com/p/nasturtium-jewel-of-africa-seeds/1794TM", seedLabel: "Nasturtium Jewel of Africa seed" },
+  { name: "Red-veined sorrel", days: "14–21 days", note: "Sharp and lemony, with a red vein down each small leaf. Slow, so give it a tray of its own.", seeds: "https://www.thompson-morgan.com/p/sorrel-blood-veined-seeds/77TM", seedLabel: "Sorrel Blood Veined seed" },
+  { name: "Garlic chives", days: "14–21 days", note: "Fine green threads with a gentle garlic taste. Slow to start, and often still wearing its black seed coat.", seeds: "https://www.thompson-morgan.com/p/chives-garlic-microgreen-seeds/wkb5029TM", seedLabel: "Garlic chive microgreen seed" },
+  { name: "Lemon balm", days: "14–21 days", note: "A soft lemon scent in a small crinkled leaf. One of the slowest, and good on fruit as well as salad.", seeds: "https://www.thompson-morgan.com/p/lemon-balm-herb-seeds/866TM", seedLabel: "Lemon balm seed" },
 ];
 
 function TrayRow({ crop }: { crop: TrayCrop }) {
@@ -347,6 +347,16 @@ export default function MicrogreensGuide() {
                   sprouting and microgreens. Sown this thickly, an ordinary packet of radish or rocket fills one tray
                   and is gone. We buy ours by the 50 or 100 grams, and a bag lasts for months of trays.
                 </p>
+                <AffiliateLink
+                  href="https://www.thompson-morgan.com/seeds/microgreens"
+                  product="Microgreen seed range"
+                  type="seed"
+                  merchant="thompson-morgan"
+                  position="microgreens-buyer-note-range"
+                  className="inline-flex min-h-[44px] items-center font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark"
+                >
+                  {"Microgreen seed at Thompson & Morgan \u2192"}
+                </AffiliateLink>
                 <p className="text-earth-light">
                   <span className="font-serif text-earth">Skip the kits and the lights, to begin with.</span> A tray and
                   a windowsill grow everything on this page.

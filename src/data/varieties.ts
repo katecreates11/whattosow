@@ -712,7 +712,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/kale-red-russian/kc2567TM" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search-results?q=kale%20red%20russian" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/products/kale-red-russian" },
     ],
   },
@@ -2390,7 +2390,7 @@ export const varieties: Variety[] = [
       },
     ],
     seedSuppliers: [
-      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/p/basil-genovese/gwd0105TM" },
+      { name: "Thompson & Morgan", url: "https://www.thompson-morgan.com/search-results?q=basil%20seeds" },
       { name: "Suttons", url: "https://www.suttons.co.uk/vegetable-seeds/herb-seeds/herb-organic-seeds-basil-genovese_MH-49000" },
       { name: "Sarah Raven", url: "https://www.sarahraven.com/veg-fruit/seeds/herb-seeds/genovese-basil.htm" },
     ],
