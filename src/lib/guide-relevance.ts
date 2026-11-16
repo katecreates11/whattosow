@@ -81,6 +81,8 @@ const META: Record<string, GuideMeta> = {
   "/guides/growing-root-vegetables": { months: [3, 4, 5, 8, 9] },
   "/guides/growing-squash-pumpkins-courgettes": { months: [4, 5, 8, 9] },
   "/guides/growing-veg-in-containers": { months: [3, 4, 5], hotDry: 1, kit: true },
+  // the indoor crop: most wanted when the outdoor list is at its shortest
+  "/guides/microgreens-and-windowsill-herbs": { months: [9, 10, 11, 0, 1, 2], frost: 2 },
   "/guides/companion-planting-chart": { months: [3, 4, 5] },
   "/guides/watering-while-away": { months: [6, 7], hotDry: 4, kit: true },
   "/guides/dealing-with-the-glut": { months: [7, 8] },

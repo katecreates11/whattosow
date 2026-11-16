@@ -338,6 +338,10 @@ export default function GrowingInContainersGuide() {
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Companion planting for small gardens &amp; containers</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
               </Link>
+              <Link href="/guides/microgreens-and-windowsill-herbs" className="flex items-center justify-between py-5 border-b border-earth/8 group">
+                <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Micro salads &amp; herbs on the windowsill</span>
+                <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>
+              </Link>
               <Link href="/guides/growing-winter-salad-leaves" className="flex items-center justify-between py-5 border-b border-earth/8 group">
                 <span className="font-serif text-lg text-earth group-hover:text-rust transition-colors">Growing winter salad leaves</span>
                 <span className="text-earth/20 group-hover:text-rust transition-colors text-xl">&rarr;</span>

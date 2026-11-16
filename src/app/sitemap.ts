@@ -271,6 +271,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides/microgreens-and-windowsill-herbs`,
+      lastModified: new Date("2026-11-16"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/guides/growing-veg-in-containers`,
       lastModified: new Date("2026-06-08"),
       changeFrequency: "monthly",

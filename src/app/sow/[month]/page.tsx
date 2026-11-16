@@ -277,6 +277,17 @@ export default async function MonthPage({
             </p>
           )}
 
+          {(idx >= 9 || idx <= 1) && (
+            <p className="mt-10 max-w-[58ch] font-serif text-lg leading-snug text-earth-light">
+              Indoors, {name} is as good as any month. A tray of cress or pea shoots on the windowsill is ready in a
+              week or two:{" "}
+              <Link href="/guides/microgreens-and-windowsill-herbs" className="text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark">
+                micro salads and herbs on the windowsill
+              </Link>
+              .
+            </p>
+          )}
+
           {/* Cross-links */}
           <div className="mt-16 sm:mt-20 grid sm:grid-cols-2 gap-4">
             <Link href="/sow" className="block border border-earth/6 p-5 hover:border-allotment/30 transition-colors">

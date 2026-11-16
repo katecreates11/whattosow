@@ -6682,6 +6682,77 @@
    ],
    "q": 2,
    "date": "2022-04-17 18:04"
+  },
+  "IMG_6630.heic": {
+   "subject": "Indoor microgreens tray, angled: rows of seed on a brown fibre mat in a green tray, seed leaves just opening pale yellow",
+   "tags": [
+    "microgreens",
+    "indoors",
+    "tray",
+    "seedlings",
+    "sequence-microgreens-2025",
+    "year-2025"
+   ],
+   "q": 3,
+   "date": "2025-06-25 09:25",
+   "placed": "public/photos/guides/microgreens-tray-first-leaves.webp"
+  },
+  "IMG_6695.heic": {
+   "subject": "Same microgreens tray from directly above a day later: taller yellow seedlings, one row with pink stems",
+   "tags": [
+    "microgreens",
+    "indoors",
+    "tray",
+    "seedlings",
+    "overhead",
+    "sequence-microgreens-2025",
+    "year-2025"
+   ],
+   "q": 3,
+   "date": "2025-06-26 19:40",
+   "placed": "public/photos/guides/microgreens-tray-next-day.webp"
+  },
+  "IMG_6696.heic": {
+   "subject": "Same microgreens tray, overhead, seconds after IMG_6695 (near-duplicate, slightly closer)",
+   "tags": [
+    "microgreens",
+    "indoors",
+    "tray",
+    "overhead",
+    "sequence-microgreens-2025",
+    "year-2025",
+    "dupe-of-IMG_6695"
+   ],
+   "q": 2,
+   "date": "2025-06-26 19:40"
+  },
+  "IMG_6784.heic": {
+   "subject": "Same microgreens tray three days on, overhead: thick green seedlings with a band of deep pink ones, on a white checked cloth",
+   "tags": [
+    "microgreens",
+    "indoors",
+    "tray",
+    "overhead",
+    "hero-worthy",
+    "sequence-microgreens-2025",
+    "year-2025"
+   ],
+   "q": 3,
+   "date": "2025-06-29 10:27",
+   "placed": "public/photos/guides/microgreens-tray-greened-up.webp"
+  },
+  "IMG_6785.heic": {
+   "subject": "Same microgreens tray three days on, low angle down its length, green and pink seedlings standing upright",
+   "tags": [
+    "microgreens",
+    "indoors",
+    "tray",
+    "sequence-microgreens-2025",
+    "year-2025"
+   ],
+   "q": 3,
+   "date": "2025-06-29 10:27",
+   "placed": "public/photos/guides/microgreens-tray-ready-angle.webp"
   }
  }
 }

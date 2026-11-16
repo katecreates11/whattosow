@@ -353,6 +353,15 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
                 monthly kit edit
               </a>
               .
+              {(answer.monthIndex >= 9 || answer.monthIndex <= 1) && (
+                <>
+                  {" "}Indoors there is always something:{" "}
+                  <a href="/guides/microgreens-and-windowsill-herbs" className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                    micro salads and herbs on the windowsill
+                  </a>{" "}
+                  are ready in a week or two, in any month.
+                </>
+              )}
               {christmasWindow && (
                 <>
                   {" "}And if you would like something home-grown on the table on the 25th, here is{" "}

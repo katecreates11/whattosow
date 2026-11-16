@@ -16,7 +16,7 @@ import { crops, getCropsByAction, getMinSoilTemp, type Crop } from "@/data/crops
 import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import { ensureFrostRecord } from "@/lib/frost-record";
-import { answerGreeting, answerInterpretation, answerProvenance } from "@/lib/local-answer";
+import { answerGreeting, answerInterpretation, answerProvenance, showIndoorSowing } from "@/lib/local-answer";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
 import { getWateringBalance } from "@/lib/watering";
@@ -381,6 +381,18 @@ function HomepageAnswerReveal({
         <p className="mt-3 text-sm leading-relaxed text-earth-light">
           {practicalNote}
         </p>
+        {showIndoorSowing(today, frostData.lastFrostDate, frostData.firstAutumnFrostDate, entries.length) && (
+          <p className="mt-3 text-sm leading-relaxed text-earth-light">
+            Indoors, any week: a tray of cress or pea shoots on the windowsill is ready in a week or two.{" "}
+            <Link
+              href="/guides/microgreens-and-windowsill-herbs"
+              className="text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-allotment"
+            >
+              How to grow micro salads
+            </Link>
+            .
+          </p>
+        )}
       </div>
 
       <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">

@@ -258,7 +258,9 @@ export default function WinterSaladGuide() {
               </li>
               <li className="border-l-2 border-leaf/50 pl-4">
                 <span className="font-serif text-earth">A windowsill</span> &mdash; even a few pots of cut-and-come-again
-                leaves indoors keep a salad going when the garden is frozen solid.
+                leaves indoors keep a salad going when the garden is frozen solid. For the quickest indoor crop of all,
+                see{" "}
+                <Link href="/guides/microgreens-and-windowsill-herbs" className="text-rust underline decoration-rust/30 hover:text-earth">micro salads and herbs on the windowsill</Link>.
               </li>
             </ul>
             <WinterSaladBuyerNote />

@@ -256,3 +256,19 @@ export function answerProvenance(input: ProvenanceInput): string | null {
   }
   return parts.join(" · ");
 }
+
+/** The outdoor year is "quiet" this far, or further, ahead of the last frost. */
+const INDOOR_LINE_DAYS_BEFORE_FROST = 56;
+
+/**
+ * Indoors is always in season. The Answer says so when the outdoor list is at
+ * its shortest — through the frost season, in the weeks before spring gets
+ * going, and whenever there is nothing at all to sow outside — so that "what
+ * can I sow now?" has a true answer in every week of the year.
+ */
+export function showIndoorSowing(now: Date, lastFrost: Date, firstAutumnFrost: Date, outdoorListLength: number): boolean {
+  if (outdoorListLength === 0) return true;
+  const season = answerSeason(now, lastFrost, firstAutumnFrost);
+  if (season.phase === "frost-season") return true;
+  return season.phase === "before-last-frost" && season.daysToLastFrost > INDOOR_LINE_DAYS_BEFORE_FROST;
+}

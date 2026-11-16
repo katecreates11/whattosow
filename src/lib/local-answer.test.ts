@@ -5,6 +5,7 @@ import {
   answerProvenance,
   answerSeason,
   degrees,
+  showIndoorSowing,
 } from "@/lib/local-answer";
 import type { NightLow } from "@/lib/weather-brain";
 
@@ -182,5 +183,29 @@ describe("the Answer — provenance", () => {
 
   it("says nothing while the dates are still the latitude model's", () => {
     expect(answerProvenance({ ...base, source: "model", years: 0 })).toBeNull();
+  });
+});
+
+describe("the Answer — indoors is always in season", () => {
+  const at = (date: Date, listLength: number) => {
+    const year = frostYear(date);
+    return showIndoorSowing(date, year.lastFrost, year.firstAutumnFrost, listLength);
+  };
+
+  it("offers the windowsill through the frost season and the quiet weeks before spring", () => {
+    expect(at(new Date(2026, 10, 16), 1)).toBe(true); // November
+    expect(at(new Date(2026, 11, 20), 0)).toBe(true); // December
+    expect(at(new Date(2026, 0, 12), 0)).toBe(true); // January
+    expect(at(new Date(2026, 1, 9), 2)).toBe(true); // early February, ten weeks out
+  });
+
+  it("stays quiet once the outdoor list has plenty on it", () => {
+    expect(at(new Date(2026, 2, 23), 4)).toBe(false); // late March, four weeks out
+    expect(at(new Date(2026, 5, 10), 4)).toBe(false); // June
+    expect(at(new Date(2026, 8, 19), 4)).toBe(false); // September
+  });
+
+  it("always speaks up when there is nothing at all to sow outside", () => {
+    expect(at(new Date(2026, 5, 10), 0)).toBe(true);
   });
 });

@@ -45,6 +45,7 @@ const GUIDE_IMG: Record<string, string> = {
   "/guides/growing-root-vegetables": "/photos/guides/carrot-crate.webp",
   "/guides/growing-squash-pumpkins-courgettes": "/photos/guides/pumpkin-backlit.webp",
   "/guides/growing-veg-in-containers": "/photos/guides/strawberry-pots.webp",
+  "/guides/microgreens-and-windowsill-herbs": "/photos/guides/microgreens-tray-greened-up.webp",
   "/guides/companion-planting-chart": "/photos/guides/companion-bed-overhead.webp",
   "/guides/watering-while-away": "/photos/guides/sprinkler-watering.webp",
   "/guides/dealing-with-the-glut": "/photos/guides/harvest-glut-boxes.webp",
@@ -347,6 +348,14 @@ const guides = [
     href: "/guides/autumn-planting-garlic-onions",
     tag: "Seasonal",
     number: "33",
+  },
+  {
+    title: "Micro salads & herbs on the windowsill",
+    description:
+      "Fresh leaves in a week or two, in any month, with no garden needed. What to sow in a tray, how many days each takes, the method step by step, and herbs that earn a sill.",
+    href: "/guides/microgreens-and-windowsill-herbs",
+    tag: "Growing",
+    number: "34",
   },
 ];
 
