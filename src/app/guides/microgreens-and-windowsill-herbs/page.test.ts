@@ -6,14 +6,16 @@ import MicrogreensGuide from "@/app/guides/microgreens-and-windowsill-herbs/page
 describe("MicrogreensGuide", () => {
   const html = renderToStaticMarkup(createElement(MicrogreensGuide));
 
-  it("tracks every seed link with its own position, through the shared affiliate link", () => {
-    expect(html).toContain('data-umami-event-position="microgreens-seeds-cress"');
+  it("links straight to product pages, never to a search, each with its own tracked position", () => {
+    expect(html).toContain('data-umami-event-position="microgreens-seeds-radish"');
     expect(html).toContain('data-umami-event-position="microgreens-seeds-pea-shoots"');
-    expect(html).toContain('data-umami-event-position="microgreens-buyer-note-sprouting-seed"');
-    expect(html).toContain('data-umami-event-position="microgreens-seeds-red-amaranth"');
-    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(16);
+    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(7);
     expect(html).toContain('rel="sponsored');
     expect(html).not.toContain("amazon.");
+    // the search subdomain redirects to an empty results page and drops the term
+    expect(html).not.toContain("search.thompson-morgan.com");
+    expect(html).not.toContain("thompson-morgan.com%2Fsearch");
+    expect(decodeURIComponent(html)).toContain("thompson-morgan.com/p/radish-french-breakfast-3-seeds/542TM");
   });
 
   it("carries the safety warning, a real skip, and a disclosure", () => {

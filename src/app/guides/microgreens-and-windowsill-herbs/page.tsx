@@ -6,8 +6,6 @@ import Footer from "@/components/Footer";
 import AffiliateLink from "@/components/AffiliateLink";
 import { SectionDivider, TipBox, WarningBox } from "@/components/GuideVisuals";
 
-const tm = (q: string) => `https://search.thompson-morgan.com/seeds/${encodeURIComponent(q)}`;
-
 function trackingSlug(value: string): string {
   return value
     .toLowerCase()
@@ -46,30 +44,35 @@ interface TrayCrop {
   /** Days from sowing to cutting at ordinary room temperature. */
   days: string;
   note: string;
-  seeds: string;
-  seedLabel: string;
+  /**
+   * A direct Thompson & Morgan PRODUCT page, never a search link: their search
+   * subdomain redirects to an empty results page and drops the term. Leave a
+   * crop without a link until a real product page is known.
+   */
+  seeds?: string;
+  seedLabel?: string;
 }
 
 const trayCrops: TrayCrop[] = [
-  { name: "Cress", days: "5–7 days", note: "The quickest of all, and peppery. Grows on damp kitchen paper as happily as on compost.", seeds: tm("Cress"), seedLabel: "Cress seed" },
-  { name: "Radish", days: "6–10 days", note: "Hot, crisp and nearly impossible to get wrong. The one to start with.", seeds: tm("Radish"), seedLabel: "Radish seed" },
-  { name: "Mustard", days: "7–10 days", note: "A heat that builds. Red-leaved kinds look as good as they taste.", seeds: tm("Mustard"), seedLabel: "Mustard seed" },
-  { name: "Rocket", days: "8–12 days", note: "The pepper of grown rocket in a softer leaf.", seeds: tm("Rocket"), seedLabel: "Rocket seed" },
-  { name: "Broccoli and kale", days: "8–12 days", note: "Mild and cabbagey, and very even to grow. A good base for a mixed tray.", seeds: tm("Kale"), seedLabel: "Kale seed" },
-  { name: "Sunflower shoots", days: "8–12 days", note: "Nutty and crunchy. Soak the seed overnight, and pick the husks off as they open.", seeds: tm("Sunflower"), seedLabel: "Sunflower seed" },
-  { name: "Pea shoots", days: "10–14 days", note: "Taste of fresh peas. Soak overnight before sowing; cut above the lowest leaf and they will often grow back once.", seeds: tm("Pea%20Shoots"), seedLabel: "Pea seed" },
-  { name: "Beetroot and chard", days: "12–18 days", note: "Earthy, with magenta stems. Slower and a little patchier than the brassicas.", seeds: tm("Beetroot"), seedLabel: "Beetroot seed" },
-  { name: "Coriander", days: "14–21 days", note: "Slow to come up and worth the wait. Crush the round seed gently in two before sowing, or buy it ready split.", seeds: tm("Coriander"), seedLabel: "Coriander seed" },
-  { name: "Basil", days: "14–21 days", note: "Needs real warmth, so it is a spring and summer tray. Sulks on a cold winter sill.", seeds: tm("Basil"), seedLabel: "Basil seed" },
+  { name: "Cress", days: "5–7 days", note: "The quickest of all, and peppery. Grows on damp kitchen paper as happily as on compost." },
+  { name: "Radish", days: "6–10 days", note: "Hot, crisp and nearly impossible to get wrong. The one to start with.", seeds: "https://www.thompson-morgan.com/p/radish-french-breakfast-3-seeds/542TM", seedLabel: "Radish French Breakfast seed" },
+  { name: "Mustard", days: "7–10 days", note: "A heat that builds. Red-leaved kinds look as good as they taste." },
+  { name: "Rocket", days: "8–12 days", note: "The pepper of grown rocket in a softer leaf.", seeds: "https://www.thompson-morgan.com/p/wild-rocket-seeds/705TM", seedLabel: "Wild rocket seed" },
+  { name: "Broccoli and kale", days: "8–12 days", note: "Mild and cabbagey, and very even to grow. A good base for a mixed tray.", seeds: "https://www.thompson-morgan.com/p/kale-red-russian/kc2567TM", seedLabel: "Kale Red Russian seed" },
+  { name: "Sunflower shoots", days: "8–12 days", note: "Nutty and crunchy. Soak the seed overnight, and pick the husks off as they open." },
+  { name: "Pea shoots", days: "10–14 days", note: "Taste of fresh peas. Soak overnight before sowing; cut above the lowest leaf and they will often grow back once.", seeds: "https://www.thompson-morgan.com/p/pea-kelvedon-wonder-seeds/107TM", seedLabel: "Pea Kelvedon Wonder seed" },
+  { name: "Beetroot and chard", days: "12–18 days", note: "Earthy, with magenta stems. Slower and a little patchier than the brassicas.", seeds: "https://www.thompson-morgan.com/p/beetroot-boltardy-globe-seeds/288TM", seedLabel: "Beetroot Boltardy seed" },
+  { name: "Coriander", days: "14–21 days", note: "Slow to come up and worth the wait. Crush the round seed gently in two before sowing, or buy it ready split.", seeds: "https://www.thompson-morgan.com/p/coriander-calypso-seeds/4784TM", seedLabel: "Coriander Calypso seed" },
+  { name: "Basil", days: "14–21 days", note: "Needs real warmth, so it is a spring and summer tray. Sulks on a cold winter sill.", seeds: "https://www.thompson-morgan.com/p/basil-genovese/gwd0105TM", seedLabel: "Basil Genovese seed" },
 ];
 
 /** Slower or fussier than the ten above — and all of them in our own seed box. */
 const seedBoxCrops: TrayCrop[] = [
-  { name: "Red amaranth", days: "8–12 days", note: "Tiny seed, vivid magenta stems, a mild earthy taste. Likes warmth, and colours a mixed tray like nothing else.", seeds: tm("Amaranth"), seedLabel: "Amaranth seed" },
-  { name: "Nasturtium", days: "10–14 days", note: "Round, peppery leaves that taste of watercress. The seed is as big as a pea: soak it overnight and cover it.", seeds: tm("Nasturtium"), seedLabel: "Nasturtium seed" },
-  { name: "Red-veined sorrel", days: "14–21 days", note: "Sharp and lemony, with a red vein down each small leaf. Slow, so give it a tray of its own.", seeds: tm("Sorrel"), seedLabel: "Sorrel seed" },
-  { name: "Garlic chives", days: "14–21 days", note: "Fine green threads with a gentle garlic taste. Slow to start, and often still wearing its black seed coat.", seeds: tm("Garlic%20Chives"), seedLabel: "Garlic chive seed" },
-  { name: "Lemon balm", days: "14–21 days", note: "A soft lemon scent in a small crinkled leaf. One of the slowest, and good on fruit as well as salad.", seeds: tm("Lemon%20Balm"), seedLabel: "Lemon balm seed" },
+  { name: "Red amaranth", days: "8–12 days", note: "Tiny seed, vivid magenta stems, a mild earthy taste. Likes warmth, and colours a mixed tray like nothing else." },
+  { name: "Nasturtium", days: "10–14 days", note: "Round, peppery leaves that taste of watercress. The seed is as big as a pea: soak it overnight and cover it." },
+  { name: "Red-veined sorrel", days: "14–21 days", note: "Sharp and lemony, with a red vein down each small leaf. Slow, so give it a tray of its own." },
+  { name: "Garlic chives", days: "14–21 days", note: "Fine green threads with a gentle garlic taste. Slow to start, and often still wearing its black seed coat." },
+  { name: "Lemon balm", days: "14–21 days", note: "A soft lemon scent in a small crinkled leaf. One of the slowest, and good on fruit as well as salad." },
 ];
 
 function TrayRow({ crop }: { crop: TrayCrop }) {
@@ -80,6 +83,7 @@ function TrayRow({ crop }: { crop: TrayCrop }) {
         <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-earth-light">{crop.days}</span>
       </div>
       <p className="mt-1 text-[15px] leading-relaxed text-earth-light">{crop.note}</p>
+      {crop.seeds && crop.seedLabel && (
       <AffiliateLink
         href={crop.seeds}
         product={crop.seedLabel}
@@ -92,6 +96,7 @@ function TrayRow({ crop }: { crop: TrayCrop }) {
         {/* one string: separate text nodes lose their spaces inside inline-flex */}
         {`${crop.seedLabel} at Thompson & Morgan \u2192`}
       </AffiliateLink>
+      )}
     </li>
   );
 }
@@ -342,16 +347,6 @@ export default function MicrogreensGuide() {
                   sprouting and microgreens. Sown this thickly, an ordinary packet of radish or rocket fills one tray
                   and is gone. We buy ours by the 50 or 100 grams, and a bag lasts for months of trays.
                 </p>
-                <AffiliateLink
-                  href={tm("Sprouting%20Seeds")}
-                  product="Sprouting and microgreen seed"
-                  type="seed"
-                  merchant="thompson-morgan"
-                  position="microgreens-buyer-note-sprouting-seed"
-                  className="inline-flex min-h-[44px] items-center font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark"
-                >
-                  Sprouting and microgreen seed at Thompson &amp; Morgan &rarr;
-                </AffiliateLink>
                 <p className="text-earth-light">
                   <span className="font-serif text-earth">Skip the kits and the lights, to begin with.</span> A tray and
                   a windowsill grow everything on this page.
