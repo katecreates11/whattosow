@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
+import { getLocalWeather } from "@/lib/weather-brain";
 
 interface WeatherState {
   temp: number;
@@ -187,19 +188,16 @@ export default function Marquee() {
         const lng = saved?.longitude ?? -1.89;
         const locationName = saved?.adminDistrict ?? "the UK";
 
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,precipitation,wind_speed_10m,cloud_cover&timezone=Europe/London`
-        );
-        if (!res.ok) return;
-        const data = await res.json();
-        const current = data.current;
+        const snapshot = await getLocalWeather(lat, lng);
+        const current = snapshot?.current;
+        if (!current || current.temp === null || current.weatherCode === null) return;
 
         const weather: WeatherState = {
-          temp: current.temperature_2m,
-          code: current.weather_code,
-          precip: current.precipitation,
-          wind: current.wind_speed_10m,
-          cloud: current.cloud_cover,
+          temp: current.temp,
+          code: current.weatherCode,
+          precip: current.precipitation ?? 0,
+          wind: current.windSpeed ?? 0,
+          cloud: current.cloudCover ?? 0,
           location: locationName,
         };
 

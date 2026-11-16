@@ -7,6 +7,18 @@
 import { type Crop } from "@/data/crops";
 import { type Variety } from "@/data/varieties";
 import { type GardenPlot } from "@/lib/garden-storage";
+import { assessHutton } from "@/lib/blight";
+import {
+  WET_DAY_MM,
+  drySpellDays,
+  getLocalWeather,
+  huttonWindow,
+  nightLows,
+  rainLast24h,
+  rainNextHours,
+  ukDay,
+  type LocalWeather,
+} from "@/lib/weather-brain";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -75,116 +87,41 @@ const WEATHER_DESCRIPTIONS: Record<number, string> = {
   95: "Thunderstorm",
 };
 
-// ─── Cache ──────────────────────────────────────────────────────────────────
+// ─── Weather, from the shared brain ─────────────────────────────────────────
 
-const WEATHER_CACHE_KEY = "whattosow:weather-state";
-const WEATHER_CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+/** The garden dashboard's view of the shared weather snapshot. */
+export function weatherStateFrom(w: LocalWeather, now: Date = new Date()): WeatherState {
+  const today = w.daily.time.indexOf(ukDay(now));
+  const temperature = w.current.temp ?? 10;
+  const tonight = nightLows(w, 1, now)[0];
+  const temperatureMin = tonight?.min ?? temperature;
+  const maxToday = today >= 0 ? w.daily.tempMax[today] : null;
+  const temperatureMax = typeof maxToday === "number" ? maxToday : temperature;
+  const weatherCode = w.current.weatherCode ?? 0;
+  const hutton = huttonWindow(w, now);
 
-function getCachedWeather(): WeatherState | null {
-  try {
-    const raw = localStorage.getItem(WEATHER_CACHE_KEY);
-    if (!raw) return null;
-    const cached = JSON.parse(raw) as WeatherState;
-    if (Date.now() - cached.fetchedAt > WEATHER_CACHE_TTL) return null;
-    return cached;
-  } catch {
-    return null;
-  }
+  return {
+    temperature,
+    temperatureMin,
+    temperatureMax,
+    rain: w.current.rain ?? 0,
+    rainForecast: rainNextHours(w, 24, now) ?? 0,
+    humidity: w.current.humidity ?? 50,
+    windSpeed: w.current.windSpeed ?? 0,
+    weatherCode,
+    frostRisk: tonight?.frostRisk ?? false,
+    // One definition of blight weather site-wide: the Hutton Criteria.
+    blightRisk: assessHutton(hutton.time, hutton.temp, hutton.humidity, now).level === "high",
+    drySpell: drySpellDays(w, now),
+    recentRain: (rainLast24h(w, now) ?? 0) >= WET_DAY_MM,
+    description: WEATHER_DESCRIPTIONS[weatherCode] || "Variable conditions",
+    fetchedAt: w.fetchedAt,
+  };
 }
-
-function cacheWeather(state: WeatherState): void {
-  try {
-    localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify(state));
-  } catch { /* ignore */ }
-}
-
-// ─── Fetch weather ──────────────────────────────────────────────────────────
 
 export async function getWeatherState(lat: number, lng: number): Promise<WeatherState | null> {
-  const cached = getCachedWeather();
-  if (cached) return cached;
-
-  try {
-    // Fetch current conditions + daily forecast + recent precipitation
-    const [currentRes, dailyRes] = await Promise.all([
-      fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}` +
-        `&current=temperature_2m,relative_humidity_2m,rain,weather_code,wind_speed_10m` +
-        `&hourly=precipitation&forecast_hours=24`
-      ),
-      fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}` +
-        `&daily=temperature_2m_min,temperature_2m_max,precipitation_sum` +
-        `&past_days=7&forecast_days=2`
-      ),
-    ]);
-
-    if (!currentRes.ok || !dailyRes.ok) return null;
-
-    const current = await currentRes.json();
-    const daily = await dailyRes.json();
-
-    const temperature = current.current?.temperature_2m ?? 10;
-    const humidity = current.current?.relative_humidity_2m ?? 50;
-    const rain = current.current?.rain ?? 0;
-    const windSpeed = current.current?.wind_speed_10m ?? 0;
-    const weatherCode = current.current?.weather_code ?? 0;
-
-    // Forecast min/max for tomorrow
-    const forecastDays = daily.daily;
-    const tomorrowIdx = forecastDays?.temperature_2m_min?.length > 1 ? forecastDays.temperature_2m_min.length - 1 : 0;
-    const temperatureMin = forecastDays?.temperature_2m_min?.[tomorrowIdx] ?? temperature;
-    const temperatureMax = forecastDays?.temperature_2m_max?.[tomorrowIdx] ?? temperature;
-
-    // Rain forecast (next 24h from hourly)
-    const hourlyPrecip: number[] = current.hourly?.precipitation ?? [];
-    const rainForecast = hourlyPrecip.reduce((sum: number, v: number) => sum + (v || 0), 0);
-
-    // Dry spell — count consecutive days from today backwards with <2mm rain
-    const dailyPrecip: number[] = forecastDays?.precipitation_sum ?? [];
-    let drySpell = 0;
-    // Work backwards through the past days (skip the last entry which is the forecast)
-    for (let i = dailyPrecip.length - 3; i >= 0; i--) {
-      if ((dailyPrecip[i] ?? 0) < 2) {
-        drySpell++;
-      } else {
-        break;
-      }
-    }
-
-    // Recent rain — more than 2mm in the last 24 hours
-    const recentRain = (dailyPrecip[dailyPrecip.length - 2] ?? 0) >= 2;
-
-    // Frost risk — forecast min below 2°C
-    const frostRisk = temperatureMin < 2;
-
-    // Blight risk — warm + humid + wet for extended period
-    const blightRisk = temperature > 20 && humidity > 75 && drySpell < 2;
-
-    const description = WEATHER_DESCRIPTIONS[weatherCode] || "Variable conditions";
-
-    const state: WeatherState = {
-      temperature,
-      temperatureMin,
-      temperatureMax,
-      rain,
-      rainForecast,
-      humidity,
-      windSpeed,
-      weatherCode,
-      frostRisk,
-      blightRisk,
-      drySpell,
-      recentRain,
-      description,
-      fetchedAt: Date.now(),
-    };
-
-    cacheWeather(state);
-    return state;
-  } catch {
-    return null;
-  }
+  const weather = await getLocalWeather(lat, lng);
+  return weather ? weatherStateFrom(weather) : null;
 }
 
 // ─── Generate alerts ────────────────────────────────────────────────────────

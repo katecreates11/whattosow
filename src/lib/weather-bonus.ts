@@ -1,3 +1,5 @@
+import { getLocalWeather } from "@/lib/weather-brain";
+
 export type WeatherBonus = {
   type: "rain" | "sun" | "frost" | "monthly" | null;
   label: string | null;
@@ -36,15 +38,12 @@ export async function getWeatherBonus(lat: number | null, lng: number | null): P
     }
   } catch { /* ignore */ }
 
-  // Fetch current weather from Open-Meteo
+  // Current weather, from the shared brain
   try {
-    const res = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,rain,weathercode`
-    );
-    if (!res.ok) return noBonus;
-    const data = await res.json();
-    const temp = data.current?.temperature_2m ?? 10;
-    const rain = data.current?.rain ?? 0;
+    const weather = await getLocalWeather(lat, lng);
+    if (!weather) return noBonus;
+    const temp = weather.current.temp ?? 10;
+    const rain = weather.current.rain ?? 0;
 
     let bonus: WeatherBonus;
     if (temp < 5) {

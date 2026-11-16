@@ -1,3 +1,5 @@
+import { getLocalWeather, rainLast24h, rainNextHours, ukDay, type LocalWeather } from "@/lib/weather-brain";
+
 export type WateringNoteState =
   | "rained-properly"
   | "raining-now"
@@ -86,54 +88,39 @@ export function getWateringNoteState(
   return balance?.gaining ? "rained-properly" : "hot-dry-spell";
 }
 
+/** The watering note's view of the shared weather snapshot. */
+export function wateringWeatherFrom(w: LocalWeather, now: Date = new Date()): WateringWeather {
+  const today = w.daily.time.indexOf(ukDay(now));
+  const at = (series: (number | null)[], offset = 0): number | undefined => {
+    const v = today >= 0 ? series[today + offset] : null;
+    return typeof v === "number" ? v : undefined;
+  };
+  const maxToday = at(w.daily.tempMax);
+  const wind = at(w.daily.windMax);
+  const et = at(w.daily.et0);
+  const nextMaxes = [at(w.daily.tempMax, 1), at(w.daily.tempMax, 2)].filter(
+    (v): v is number => typeof v === "number"
+  );
+  const rain3 =
+    today >= 0
+      ? round1(w.daily.precipitation.slice(today, today + 3).reduce((sum: number, v) => sum + (v ?? 0), 0))
+      : undefined;
+
+  return {
+    weatherCode: w.current.weatherCode ?? undefined,
+    tempNow: w.current.temp === null ? undefined : round1(w.current.temp),
+    tempMaxToday: maxToday === undefined ? undefined : round1(maxToday),
+    tempMaxNextDays: nextMaxes.map(round1),
+    windMax: wind === undefined ? undefined : Math.round(wind),
+    soilTemp: w.current.soilTemp0cm === null ? undefined : round1(w.current.soilTemp0cm),
+    rainLast24h: rainLast24h(w, now) ?? undefined,
+    rainNext12h: rainNextHours(w, 12, now) ?? undefined,
+    rainfall3Days: rain3,
+    evapotranspiration: et === undefined ? undefined : round1(et),
+  };
+}
+
 export async function fetchWateringWeather(lat: number, lng: number): Promise<WateringWeather | null> {
-  try {
-    const params = new URLSearchParams({
-      latitude: String(lat),
-      longitude: String(lng),
-      current: "temperature_2m,weather_code,wind_speed_10m,soil_temperature_0cm",
-      hourly: "precipitation",
-      daily: "precipitation_sum,et0_fao_evapotranspiration,temperature_2m_max,wind_speed_10m_max",
-      past_days: "1",
-      forecast_days: "3",
-      timezone: "Europe/London",
-    });
-
-    const res = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
-    if (!res.ok) return null;
-
-    const data = await res.json();
-    const now = new Date();
-    const hourTimes: string[] = data.hourly?.time ?? [];
-    const precip: number[] = data.hourly?.precipitation ?? [];
-
-    const sumBetween = (from: Date, to: Date) =>
-      round1(
-        hourTimes.reduce((sum, time, index) => {
-          const t = new Date(time);
-          if (t > from && t <= to) return sum + (precip[index] ?? 0);
-          return sum;
-        }, 0)
-      );
-
-    const dailyPrecip: number[] = data.daily?.precipitation_sum ?? [];
-    const dailyEt: number[] = data.daily?.et0_fao_evapotranspiration ?? [];
-    const tempMax: number[] = data.daily?.temperature_2m_max ?? [];
-    const windMax: number[] = data.daily?.wind_speed_10m_max ?? [];
-
-    return {
-      weatherCode: data.current?.weather_code,
-      tempNow: typeof data.current?.temperature_2m === "number" ? round1(data.current.temperature_2m) : undefined,
-      tempMaxToday: typeof tempMax[0] === "number" ? round1(tempMax[0]) : undefined,
-      tempMaxNextDays: tempMax.slice(1).filter((value) => typeof value === "number").map(round1),
-      windMax: typeof windMax[0] === "number" ? Math.round(windMax[0]) : undefined,
-      soilTemp: typeof data.current?.soil_temperature_0cm === "number" ? round1(data.current.soil_temperature_0cm) : undefined,
-      rainLast24h: sumBetween(new Date(now.getTime() - 24 * 60 * 60 * 1000), now),
-      rainNext12h: sumBetween(now, new Date(now.getTime() + 12 * 60 * 60 * 1000)),
-      rainfall3Days: dailyPrecip.length > 0 ? round1(dailyPrecip.reduce((sum, value) => sum + (value ?? 0), 0)) : undefined,
-      evapotranspiration: typeof dailyEt[0] === "number" ? round1(dailyEt[0]) : undefined,
-    };
-  } catch {
-    return null;
-  }
+  const weather = await getLocalWeather(lat, lng);
+  return weather ? wateringWeatherFrom(weather) : null;
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
+import { getLocalWeather, huttonWindow } from "@/lib/weather-brain";
 import { assessHutton, type BlightLevel } from "@/lib/blight";
 import AffiliateLink from "@/components/AffiliateLink";
 
@@ -98,12 +99,10 @@ export default function BlightKit() {
     const lng = loc?.longitude ?? -1.89;
     (async () => {
       try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m,relative_humidity_2m&past_days=2&forecast_days=5&timezone=Europe/London`
-        );
-        if (!res.ok) return;
-        const h = (await res.json()).hourly;
-        setLevel(assessHutton(h.time, h.temperature_2m, h.relative_humidity_2m).level);
+        const weather = await getLocalWeather(lat, lng);
+        if (!weather) return;
+        const h = huttonWindow(weather);
+        setLevel(assessHutton(h.time, h.temp, h.humidity).level);
       } catch {
         /* silent — fall back to the calm framing */
       }

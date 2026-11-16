@@ -1,3 +1,6 @@
+import { getStoredFrostRecord, type FrostRecord } from "@/lib/frost-record";
+import { getLocalWeather, nightLows, soilTempNow, ukDay, ukHour, type LocalWeather } from "@/lib/weather-brain";
+
 export interface LocationData {
   postcode: string;
   latitude: number;
@@ -68,19 +71,18 @@ export async function lookupPostcode(
 }
 
 /**
- * Calculate the estimated last spring frost date for a UK location.
+ * The latitude model for the last spring frost, as a day of the year.
  *
- * Model calibrated against Met Office HadUK-Grid frost date data:
+ * Calibrated against Met Office HadUK-Grid frost date data:
  * - Base: ~April 10 (day 100) at latitude 50°N
  * - Rate: +6 days per degree north
  * - Gulf Stream adjustment: western locations are milder
  *
- * Accuracy: within ~5-7 days for most UK locations.
+ * It tracks the typical (median) last night at or below 2°C well for inland,
+ * low-lying places. It cannot see altitude or the coast — the frost record
+ * (frost-record.ts) corrects for those where we have one.
  */
-export function calculateLastFrostDate(lat: number, long: number): Date {
-  const year = new Date().getFullYear();
-
-  // Base model
+export function modelLastFrostDay(lat: number, long: number): number {
   let dayOfYear = 100 + (lat - 50) * 6;
 
   // Longitude/coastal adjustment (Gulf Stream effect)
@@ -95,24 +97,16 @@ export function calculateLastFrostDate(lat: number, long: number): Date {
   }
 
   // Clamp to reasonable UK range (late March to mid June)
-  dayOfYear = Math.max(85, Math.min(168, Math.round(dayOfYear)));
-
-  const date = new Date(year, 0); // Jan 1
-  date.setDate(dayOfYear);
-  return date;
+  return Math.max(85, Math.min(168, Math.round(dayOfYear)));
 }
 
 /**
- * Estimate the first autumn frost date
+ * The latitude model for the first autumn frost, as a day of the year.
+ * Base ~October 25 (day 298) at 50°N, about 5 days earlier per degree north.
+ * Deliberately cautious: against ten years of archive nights it sits close to
+ * the EARLIEST first frost of the decade, not the typical one.
  */
-export function calculateFirstAutumnFrostDate(
-  lat: number,
-  long: number
-): Date {
-  const year = new Date().getFullYear();
-
-  // Base: ~October 25 (day 298) at latitude 50°N
-  // Earlier by ~5 days per degree north
+export function modelFirstAutumnFrostDay(lat: number, long: number): number {
   let dayOfYear = 298 - (lat - 50) * 5;
 
   // Coastal adjustment (inverse of spring)
@@ -124,106 +118,186 @@ export function calculateFirstAutumnFrostDate(
     dayOfYear -= 2;
   }
 
-  dayOfYear = Math.max(245, Math.min(310, Math.round(dayOfYear)));
+  return Math.max(245, Math.min(310, Math.round(dayOfYear)));
+}
 
-  const date = new Date(year, 0);
+/**
+ * How far a place's own frost record may move its dates away from the model.
+ *
+ * Frost isn't the whole season: in a mild coastal garden the frosts may stop
+ * in early March, but the light and the soil are still March's, and seed sown
+ * five weeks "early" just sits there. So the record may pull spring dates at
+ * most two weeks earlier. Moving LATER is the safety-critical direction — a
+ * hill garden really does frost into May — so that gets four weeks. Autumn
+ * mirrors it: up to four weeks earlier (shorter season), two weeks later.
+ */
+export const FROST_RECORD_LIMITS = {
+  springEarlier: 14,
+  springLater: 28,
+  autumnEarlier: 28,
+  autumnLater: 14,
+} as const;
+
+function clampDay(day: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, Math.round(day)));
+}
+
+/** Last-spring-frost day for a place: its own record where we hold one, else the model. */
+export function lastFrostDay(lat: number, long: number, record: FrostRecord | null = getStoredFrostRecord(lat, long)): number {
+  const model = modelLastFrostDay(lat, long);
+  if (!record) return model;
+  return clampDay(
+    record.spring.typicalDay,
+    model - FROST_RECORD_LIMITS.springEarlier,
+    model + FROST_RECORD_LIMITS.springLater
+  );
+}
+
+/**
+ * First-autumn-frost day for a place. The model behaves like "the earliest it
+ * has come in a decade", so the record supplies the same cautious figure: the
+ * earliest first frost in its ten years.
+ */
+export function firstAutumnFrostDay(lat: number, long: number, record: FrostRecord | null = getStoredFrostRecord(lat, long)): number {
+  const model = modelFirstAutumnFrostDay(lat, long);
+  if (!record) return model;
+  return clampDay(
+    record.autumn.earliestDay ?? model + FROST_RECORD_LIMITS.autumnLater,
+    model - FROST_RECORD_LIMITS.autumnEarlier,
+    model + FROST_RECORD_LIMITS.autumnLater
+  );
+}
+
+function dateFromDay(dayOfYear: number, year: number = new Date().getFullYear()): Date {
+  const date = new Date(year, 0); // Jan 1
   date.setDate(dayOfYear);
   return date;
 }
 
 /**
- * Get frost forecast using Open-Meteo (free, no API key needed)
+ * The last spring frost date for a UK location, this year.
+ *
+ * Every sowing date on the site hangs off this one function, so it is also the
+ * one place personalisation enters: if the gardener's own ten-year frost
+ * record is held for exactly these coordinates, the date comes from it (within
+ * FROST_RECORD_LIMITS); otherwise from the latitude model. On the server, and
+ * for any coordinates that aren't the gardener's saved spot, it is always the
+ * model — so city pages and UK-average pages render identically for everyone.
  */
+export function calculateLastFrostDate(lat: number, long: number): Date {
+  return dateFromDay(lastFrostDay(lat, long));
+}
+
+/**
+ * The first autumn frost date for a UK location, this year (see above).
+ */
+export function calculateFirstAutumnFrostDate(
+  lat: number,
+  long: number
+): Date {
+  return dateFromDay(firstAutumnFrostDay(lat, long));
+}
+
+export interface LocalFrostStory {
+  /** Whether the dates come from this place's own record or the latitude model. */
+  source: "record" | "model";
+  /** How many days the record moved the spring date from the model (+ = later). */
+  springShiftDays: number;
+  autumnShiftDays: number;
+  years: number;
+  elevation: number | null;
+  /** The spread of real last frosts in the record, this year's calendar. */
+  earliestLastFrost: Date | null;
+  latestLastFrost: Date | null;
+  earliestFirstFrost: Date | null;
+}
+
+/** What we actually know about this place's frosts — for sentences, not tiles. */
+export function describeLocalFrost(lat: number, long: number): LocalFrostStory {
+  const record = getStoredFrostRecord(lat, long);
+  if (!record) {
+    return {
+      source: "model",
+      springShiftDays: 0,
+      autumnShiftDays: 0,
+      years: 0,
+      elevation: null,
+      earliestLastFrost: null,
+      latestLastFrost: null,
+      earliestFirstFrost: null,
+    };
+  }
+  const day = (d: number | null) => (d === null ? null : dateFromDay(d));
+  return {
+    source: "record",
+    springShiftDays: lastFrostDay(lat, long, record) - modelLastFrostDay(lat, long),
+    autumnShiftDays: firstAutumnFrostDay(lat, long, record) - modelFirstAutumnFrostDay(lat, long),
+    years: record.years,
+    elevation: record.elevation,
+    earliestLastFrost: day(record.spring.earliestDay),
+    latestLastFrost: day(record.spring.latestDay),
+    earliestFirstFrost: day(record.autumn.earliestDay),
+  };
+}
+
+/**
+ * Frost forecast and plot conditions, read from the shared weather brain
+ * (one request per place — see src/lib/weather-brain.ts).
+ */
+export function frostForecastFrom(w: LocalWeather, now: Date = new Date()): FrostForecast | null {
+  const nights = nightLows(w, 3, now);
+  if (nights.length < 2) return null;
+
+  const today = w.daily.time.indexOf(ukDay(now));
+  const at = (series: (number | null)[]): number | undefined => {
+    const v = today >= 0 ? series[today] : null;
+    return typeof v === "number" ? v : undefined;
+  };
+  const round1 = (v: number | undefined) => (v === undefined ? undefined : Math.round(v * 10) / 10);
+  const round0 = (v: number | undefined) => (v === undefined ? undefined : Math.round(v));
+
+  const soil = soilTempNow(w, now);
+  const hour = w.hourly.time.findIndex((t) => t.slice(0, 13) === ukHour(now));
+  let soilMoisture: number | undefined;
+  for (let i = hour; i >= 0; i--) {
+    const v = w.hourly.soilMoisture[i];
+    if (typeof v === "number") {
+      soilMoisture = Math.round(v * 10) / 10;
+      break;
+    }
+  }
+
+  let rainfall3Days: number | undefined;
+  if (today >= 0) {
+    const next = w.daily.precipitation.slice(today, today + 3);
+    if (next.length > 0) rainfall3Days = Math.round(next.reduce((a: number, b) => a + (b ?? 0), 0) * 10) / 10;
+  }
+
+  const sunshine = at(w.daily.sunshineSeconds);
+
+  return {
+    tonight: nights[0],
+    tomorrow: nights[1],
+    nextThreeDays: nights,
+    soilTemp: soil.surface ?? undefined,
+    soilTemp6cm: soil.seedDepth ?? undefined,
+    soilMoisture,
+    evapotranspiration: round1(at(w.daily.et0)),
+    windMax: round0(at(w.daily.windMax)),
+    windGustsMax: round0(at(w.daily.gustsMax)),
+    precipProbability: at(w.daily.precipProbability),
+    sunshineDuration: sunshine === undefined ? undefined : Math.round((sunshine / 3600) * 10) / 10,
+    tempMax: round1(at(w.daily.tempMax)),
+    rainfall3Days,
+  };
+}
+
 export async function getFrostForecast(
   lat: number,
   long: number
 ): Promise<FrostForecast | null> {
-  try {
-    const dailyParams = [
-      "temperature_2m_min", "temperature_2m_max", "precipitation_sum",
-      "et0_fao_evapotranspiration", "wind_speed_10m_max", "wind_gusts_10m_max",
-      "precipitation_probability_max", "sunshine_duration",
-    ].join(",");
-    const hourlyParams = [
-      "soil_temperature_0cm", "soil_temperature_6cm", "soil_moisture_0_to_7cm",
-    ].join(",");
-
-    const res = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=${dailyParams}&hourly=${hourlyParams}&timezone=Europe%2FLondon&forecast_days=3`
-    );
-    if (!res.ok) return null;
-
-    const data = await res.json();
-    const dates: string[] = data.daily.time;
-    const mins: number[] = data.daily.temperature_2m_min;
-    const precip: number[] = data.daily.precipitation_sum ?? [];
-
-    const days = dates.map((date: string, i: number) => ({
-      date,
-      min: Math.round(mins[i] * 10) / 10,
-      frostRisk: mins[i] <= 2,
-    }));
-
-    // Helper: get most recent hourly value up to now
-    const hourTimes: string[] = data.hourly?.time ?? [];
-    const nowIso = new Date().toISOString().slice(0, 13);
-    function latestHourly(arr: (number | null)[] | undefined): number | undefined {
-      if (!arr) return undefined;
-      for (let i = hourTimes.length - 1; i >= 0; i--) {
-        if (hourTimes[i] <= nowIso && arr[i] !== null) {
-          return Math.round(arr[i]! * 10) / 10;
-        }
-      }
-      return undefined;
-    }
-
-    const soilTemp = latestHourly(data.hourly?.soil_temperature_0cm);
-    const soilTemp6cm = latestHourly(data.hourly?.soil_temperature_6cm);
-    const soilMoisture = latestHourly(data.hourly?.soil_moisture_0_to_7cm);
-
-    // Daily values — today is index 0
-    const daily = data.daily;
-    const evapotranspiration = daily.et0_fao_evapotranspiration?.[0] != null
-      ? Math.round(daily.et0_fao_evapotranspiration[0] * 10) / 10
-      : undefined;
-    const windMax = daily.wind_speed_10m_max?.[0] != null
-      ? Math.round(daily.wind_speed_10m_max[0])
-      : undefined;
-    const windGustsMax = daily.wind_gusts_10m_max?.[0] != null
-      ? Math.round(daily.wind_gusts_10m_max[0])
-      : undefined;
-    const precipProbability = daily.precipitation_probability_max?.[0] ?? undefined;
-    const tempMax = daily.temperature_2m_max?.[0] != null
-      ? Math.round(daily.temperature_2m_max[0] * 10) / 10
-      : undefined;
-    // sunshine_duration comes in seconds — convert to hours
-    const sunshineDuration = daily.sunshine_duration?.[0] != null
-      ? Math.round((daily.sunshine_duration[0] / 3600) * 10) / 10
-      : undefined;
-
-    // Total rainfall over next 3 days
-    const rainfall3Days = precip.length > 0
-      ? Math.round(precip.reduce((a, b) => a + (b ?? 0), 0) * 10) / 10
-      : undefined;
-
-    return {
-      tonight: days[0],
-      tomorrow: days[1],
-      nextThreeDays: days,
-      soilTemp,
-      soilTemp6cm,
-      soilMoisture,
-      evapotranspiration,
-      windMax,
-      windGustsMax,
-      precipProbability,
-      sunshineDuration,
-      tempMax,
-      rainfall3Days,
-    };
-  } catch {
-    return null;
-  }
+  const weather = await getLocalWeather(lat, long);
+  return weather ? frostForecastFrom(weather) : null;
 }
 
 /**

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
+import { getLocalWeather, UK_MIDDLE } from "@/lib/weather-brain";
 import { getMoonPhaseData, getSunTimes, formatTime, formatDaylight } from "@/lib/astronomy";
 
 interface WX {
@@ -76,30 +77,24 @@ export default function WeatherCommandCenter() {
     const refresh = () => {
       const loc = loadLocation();
       setLocated(!!loc);
-      const lat = loc?.latitude ?? 52.48;
-      const lng = loc?.longitude ?? -1.89;
+      const lat = loc?.latitude ?? UK_MIDDLE.latitude;
+      const lng = loc?.longitude ?? UK_MIDDLE.longitude;
 
       const sun = getSunTimes(new Date(), lat, lng);
       setSky({ sunset: formatTime(sun.sunset), daylight: formatDaylight(sun.daylightMinutes) });
 
-      (async () => {
-        try {
-          const res = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,soil_temperature_0cm&timezone=Europe/London`
-          );
-          if (!res.ok) return;
-          const c = (await res.json()).current;
-          setWx({
-            temp: c.temperature_2m,
-            code: c.weather_code,
-            wind: c.wind_speed_10m,
-            windDir: c.wind_direction_10m,
-            soil: typeof c.soil_temperature_0cm === "number" ? c.soil_temperature_0cm : null,
-          });
-        } catch {
-          /* silent — section degrades to sun/moon only */
-        }
-      })();
+      getLocalWeather(lat, lng).then((weather) => {
+        // silent on failure — section degrades to sun/moon only
+        const c = weather?.current;
+        if (!c || c.temp === null || c.weatherCode === null) return;
+        setWx({
+          temp: c.temp,
+          code: c.weatherCode,
+          wind: c.windSpeed ?? 0,
+          windDir: c.windDirection ?? 0,
+          soil: c.soilTemp0cm,
+        });
+      });
     };
     refresh();
     window.addEventListener("whattosow:location-updated", refresh);

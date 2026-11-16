@@ -8,6 +8,7 @@ import { feature } from "topojson-client";
 import type { Topology } from "topojson-specification";
 import { lookupPostcode } from "@/lib/frost";
 import { loadLocation, saveLocation } from "@/lib/location-storage";
+import { getLocalWeather, huttonWindow } from "@/lib/weather-brain";
 import { assessHutton, type BlightLevel } from "@/lib/blight";
 import AffiliateLink from "@/components/AffiliateLink";
 
@@ -364,13 +365,10 @@ export default function BlightMap() {
 
       // Pin-sharp: read blight at the exact postcode coords, not the nearest sample
       try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${result.latitude}&longitude=${result.longitude}` +
-            `&hourly=temperature_2m,relative_humidity_2m&past_days=2&forecast_days=5&timezone=Europe/London`,
-        );
-        if (!res.ok) throw new Error("meteo");
-        const h = (await res.json()).hourly;
-        const a = assessHutton(h.time, h.temperature_2m, h.relative_humidity_2m);
+        const weather = await getLocalWeather(result.latitude, result.longitude);
+        if (!weather) throw new Error("meteo");
+        const h = huttonWindow(weather);
+        const a = assessHutton(h.time, h.temp, h.humidity);
         setSelected({
           slug: "your-spot",
           name: result.adminDistrict || "your area",

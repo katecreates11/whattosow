@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
+import { getLocalWeather, huttonWindow } from "@/lib/weather-brain";
 import { assessHutton, type BlightAssessment, type BlightLevel } from "@/lib/blight";
 
 type Variant = "full" | "compact" | "banner";
@@ -77,12 +78,10 @@ export default function BlightRisk({
     setPlace(placeName);
     (async () => {
       try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m,relative_humidity_2m&past_days=2&forecast_days=5&timezone=Europe/London`
-        );
-        if (!res.ok) return;
-        const h = (await res.json()).hourly;
-        setAssessment(assessHutton(h.time, h.temperature_2m, h.relative_humidity_2m));
+        const weather = await getLocalWeather(lat, lng);
+        if (!weather) return;
+        const h = huttonWindow(weather);
+        setAssessment(assessHutton(h.time, h.temp, h.humidity));
       } catch {
         /* silent */
       } finally {

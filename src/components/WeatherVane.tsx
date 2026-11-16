@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
+import { getLocalWeather } from "@/lib/weather-brain";
 
 interface WeatherData {
   temp: number;
@@ -47,18 +48,15 @@ export default function WeatherVane() {
         const saved = loadLocation();
         const lat = saved?.latitude ?? 52.48;
         const lng = saved?.longitude ?? -1.89;
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,soil_temperature_0cm&timezone=Europe/London`
-        );
-        if (!res.ok) return;
-        const data = await res.json();
-        const c = data.current;
+        const weather = await getLocalWeather(lat, lng);
+        const c = weather?.current;
+        if (!c || c.temp === null || c.weatherCode === null) return;
         setW({
-          temp: c.temperature_2m,
-          code: c.weather_code,
-          wind: c.wind_speed_10m,
-          windDir: c.wind_direction_10m,
-          soilTemp: c.soil_temperature_0cm,
+          temp: c.temp,
+          code: c.weatherCode,
+          wind: c.windSpeed ?? 0,
+          windDir: c.windDirection ?? 0,
+          soilTemp: c.soilTemp0cm ?? undefined,
         });
       } catch {
         // silent

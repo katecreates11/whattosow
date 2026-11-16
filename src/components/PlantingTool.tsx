@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   lookupPostcode,
   calculateFrostData,
+  describeLocalFrost,
   getFrostForecast,
   formatDate,
   type LocationData,
@@ -14,6 +15,8 @@ import {
 import { crops, getCropsByAction, getMinSoilTemp, type Crop } from "@/data/crops";
 import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
+import { ensureFrostRecord } from "@/lib/frost-record";
+import { answerGreeting, answerInterpretation, answerProvenance } from "@/lib/local-answer";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
 import { getWateringBalance } from "@/lib/watering";
@@ -214,38 +217,11 @@ function postcodePrefix(postcode: string): string {
   return postcode.trim().split(/\s+/)[0] || postcode;
 }
 
-function formatPlainDate(date: Date): string {
-  return date.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-  });
-}
-
-function getAnswerGreeting(frostData: FrostData): string {
-  const place = frostData.location.adminDistrict;
-  const lastFrost = formatPlainDate(frostData.lastFrostDate);
-
-  if (frostData.growingSeasonDays >= 190) {
-    return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so tender crops get a fair run.`;
-  }
-
-  if (frostData.growingSeasonDays <= 160) {
-    return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so the season asks for a little patience.`;
-  }
-
-  return `Growing in ${place}, then — your last frost is usually gone by ${lastFrost}, so the season's properly open.`;
-}
-
-function getGardenInterpretation(frostData: FrostData): string {
-  if (frostData.growingSeasonDays >= 190) {
-    return "Keep tender crops moving while the soil is warm; this is the kind stretch they like.";
-  }
-
-  if (frostData.growingSeasonDays <= 160) {
-    return "Hardy sowings can get on with it now; tender things still appreciate a little shelter while they settle.";
-  }
-
-  return "Hardy things can get on with it, and tender crops are happiest now the soil has warmed.";
+/** "Potatoes (maincrop)" reads as a label; in a sentence it's "maincrop potatoes". */
+function nameInSentence(name: string): string {
+  const lower = name.toLowerCase();
+  const labelled = /^(.+) \((.+)\)$/.exec(lower);
+  return labelled ? `${labelled[2]} ${labelled[1]}` : lower;
 }
 
 function methodForAnswer(entry: CropEntry): string {
@@ -304,12 +280,14 @@ function getPracticalAnswerNote(entries: CropEntry[]): string {
 
 function HomepageAnswerReveal({
   frostData,
+  forecast,
   today,
   onChangeLocation,
   sectionRef,
   headingRef,
 }: {
   frostData: FrostData;
+  forecast: FrostForecast | null;
   today: Date;
   onChangeLocation: () => void;
   sectionRef: RefObject<HTMLElement | null>;
@@ -319,6 +297,17 @@ function HomepageAnswerReveal({
   const sowingHeading = getSowingHeading(entries);
   const practicalNote = getPracticalAnswerNote(entries);
   const placeName = frostData.location.adminDistrict;
+  const frostYear = {
+    now: today,
+    lastFrost: frostData.lastFrostDate,
+    firstAutumnFrost: frostData.firstAutumnFrostDate,
+    growingSeasonDays: frostData.growingSeasonDays,
+  };
+  const provenance = answerProvenance({
+    ...frostYear,
+    place: placeName,
+    ...describeLocalFrost(frostData.location.latitude, frostData.location.longitude),
+  });
 
   return (
     <section
@@ -343,12 +332,25 @@ function HomepageAnswerReveal({
         tabIndex={-1}
         className="scroll-mt-24 font-serif text-2xl sm:text-3xl leading-tight text-earth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-allotment"
       >
-        {getAnswerGreeting(frostData)}
+        {answerGreeting({ ...frostYear, place: placeName })}
       </h2>
 
       <p className="mt-3 font-serif text-lg leading-snug text-earth-light">
-        {getGardenInterpretation(frostData)}
+        {answerInterpretation({
+          ...frostYear,
+          nights: forecast?.nextThreeDays,
+          soilTemp: forecast?.soilTemp6cm ?? forecast?.soilTemp,
+          directSow: entries
+            .filter((entry) => methodForAnswer(entry) === "direct sow")
+            .map((entry) => ({ name: nameInSentence(entry.crop.name), minSoilTemp: getMinSoilTemp(entry.crop) })),
+        })}
       </p>
+
+      {provenance && (
+        <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
+          {provenance}
+        </p>
+      )}
 
       <div className="mt-4 border-t border-earth/10 pt-4">
         <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-earth-light">
@@ -456,6 +458,19 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
     };
   }, [submitWithLocation]);
 
+  // When the frost record for this spot arrives (or changes), re-work the dates.
+  useEffect(() => {
+    const refresh = () => {
+      const saved = loadLocation();
+      if (!saved) return;
+      setFrostData((current) =>
+        current && current.location.postcode === saved.postcode ? calculateFrostData(saved) : current
+      );
+    };
+    window.addEventListener("whattosow:location-updated", refresh);
+    return () => window.removeEventListener("whattosow:location-updated", refresh);
+  }, []);
+
   useEffect(() => {
     if (!focusAnswerOnReveal || !frostData || showForm) return;
     window.requestAnimationFrame(() => {
@@ -490,6 +505,14 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
       setLoading(false);
       return;
     }
+
+    // Learn this spot's real frosts before answering, so the first dates the
+    // gardener sees are already their own. Never wait long for it: on a slow
+    // signal the model answers now and the record settles in when it lands.
+    await Promise.race([
+      ensureFrostRecord(result.latitude, result.longitude),
+      new Promise((resolve) => setTimeout(resolve, 1500)),
+    ]);
 
     saveLocation(result);
     setLoading(false);
@@ -596,6 +619,7 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
         showAnswerReveal && cropActions ? (
           <HomepageAnswerReveal
             frostData={frostData}
+            forecast={forecast}
             today={today}
             onChangeLocation={handleChangeLocation}
             sectionRef={answerSectionRef}
