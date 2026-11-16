@@ -53,4 +53,27 @@ describe("getUsBetaOffer", () => {
       }),
     ).toBe("nudge");
   });
+
+  it("never sends a UK visitor to the US page because of their browser's language list", () => {
+    // Chrome's default list in Britain
+    expect(
+      getUsBetaOffer({ pathname: "/", timeZone: "Europe/London", languages: ["en-GB", "en-US", "en"], choice: null }),
+    ).toBe("none");
+    // a UK machine left on US English
+    expect(
+      getUsBetaOffer({ pathname: "/", timeZone: "Europe/London", languages: ["en-US"], choice: null }),
+    ).toBe("none");
+    expect(
+      getUsBetaOffer({ pathname: "/crops/tomatoes", timeZone: "Europe/London", languages: ["en-US", "en"], choice: null }),
+    ).toBe("none");
+  });
+
+  it("still recognises American visitors by their clock, whatever their language", () => {
+    expect(
+      getUsBetaOffer({ pathname: "/", timeZone: "America/Denver", languages: ["es-MX", "en"], choice: null }),
+    ).toBe("redirect");
+    expect(
+      getUsBetaOffer({ pathname: "/", timeZone: "Pacific/Honolulu", languages: ["en-US"], choice: null }),
+    ).toBe("redirect");
+  });
 });

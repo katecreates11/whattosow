@@ -14,7 +14,16 @@ export function isLikelyUsVisitor({
   timeZone = "",
   languages = [],
 }: Pick<UsBetaOfferInput, "timeZone" | "languages">): boolean {
-  return timeZone.startsWith("America/") || languages.some((language) => language.toLowerCase() === "en-us");
+  // The clock is the evidence. A browser's language list is not: Chrome in
+  // Britain routinely carries "en-US" as a second language, and many UK
+  // machines are simply left on US English. Treating any "en-US" as American
+  // sent roughly three in ten UK homepage visitors to the US page (Umami,
+  // July–November 2026). So when the timezone is known it alone decides, and
+  // language is only a fallback — first choice only — when there is no clock.
+  if (timeZone) {
+    return timeZone.startsWith("America/") || timeZone.startsWith("US/") || timeZone === "Pacific/Honolulu";
+  }
+  return languages[0]?.toLowerCase() === "en-us";
 }
 
 export function getUsBetaOffer({
