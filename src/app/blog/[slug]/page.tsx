@@ -17,6 +17,8 @@ import GearPick from "@/components/GearPick";
 import LoopClip from "@/components/LoopClip";
 import PinButton from "@/components/PinButton";
 import AffiliateLink from "@/components/AffiliateLink";
+import { resolveCrop } from "@/lib/crop-links";
+import type { Crop } from "@/data/crops";
 import { getKit, amazonLink } from "@/data/kit";
 
 // ─── Static generation ──────────────────────────────────────────────────────
@@ -173,7 +175,21 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
   };
 
   // Other hand-written posts, for the "more from the shed" cross-links
-  const morePosts = editorialPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  // The three posts that follow this one in the list, wrapping round — so every
+  // post is linked from three others. (Taking the first three for everyone left
+  // most posts with a single way in: the blog index.)
+  const position = editorialPosts.findIndex((p) => p.slug === post.slug);
+  const morePosts =
+    position < 0
+      ? editorialPosts.slice(0, 3)
+      : [1, 2, 3]
+          .map((step) => editorialPosts[(position + step) % editorialPosts.length])
+          .filter((p, i, all) => p.slug !== post.slug && all.findIndex((q) => q.slug === p.slug) === i);
+
+  // Only link crops that have a growing guide; posts also tag flowers we don't cover.
+  const relatedCropLinks = post.relatedCrops
+    .map((slug) => resolveCrop(slug))
+    .filter((crop, i, all): crop is Crop => crop !== null && all.findIndex((c) => c?.slug === crop.slug) === i);
 
   // Review structured data — a genuine first-person review of a third-party
   // product, so Google can show star ratings (lifts click-through).
@@ -299,19 +315,19 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
           )}
 
           {/* Related crops */}
-          {post.relatedCrops.length > 0 && (
+          {relatedCropLinks.length > 0 && (
             <div className="border-t border-earth/10 pt-8 mt-12">
               <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-earth-lighter block mb-3">
                 Related growing guides
               </span>
               <div className="flex flex-wrap gap-2">
-                {post.relatedCrops.map((slug) => (
+                {relatedCropLinks.map((crop) => (
                   <a
-                    key={slug}
-                    href={`/crops/${slug}`}
+                    key={crop.slug}
+                    href={`/crops/${crop.slug}`}
                     className="text-sm text-rust hover:text-earth font-medium underline decoration-rust/30 transition-colors"
                   >
-                    {slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                    {crop.name}
                   </a>
                 ))}
               </div>

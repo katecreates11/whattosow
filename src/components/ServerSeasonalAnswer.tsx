@@ -267,8 +267,8 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
   const sowRows = buildSowingRows([...answer.sowOutdoors, ...answer.startIndoors], weekly.notes, weekly.pick.slug);
   const weekOf = answer.now.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
   const pickLine = pickLineWithoutPrefix(weekly.pick.name, weekly.pick.line);
-  // The engine has no autumn-sowing window (e.g. November broad beans), so the
-  // editorial pick can land in the avoid list. The pick always wins.
+  // An editorial pick can still land in the avoid list (it is chosen by hand,
+  // a month at a time). The pick always wins.
   const waitingEntries = answer.avoidSowingNow.filter((entry) => entry.crop.slug !== weekly.pick.slug);
   const christmasWindow = answer.monthIndex === 10 || (answer.monthIndex === 11 && answer.now.getDate() <= 25);
 

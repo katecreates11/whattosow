@@ -233,7 +233,7 @@ export default function TomatoBlightGuide() {
               </ul>
               <div className="mt-6 flex gap-5 flex-wrap font-serif italic text-allotment">
                 <a href="/crops/tomatoes" className="border-b border-amber pb-0.5">Tomato varieties &rarr;</a>
-                <a href="/crops/potatoes" className="border-b border-amber pb-0.5">Potato varieties &rarr;</a>
+                <a href="/crops/maincrop-potatoes" className="border-b border-amber pb-0.5">Potato varieties &rarr;</a>
                 <a href="/blight-watch" className="border-b border-amber pb-0.5">Live blight risk map &rarr;</a>
               </div>
             </div>

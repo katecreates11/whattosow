@@ -167,7 +167,7 @@ export default function BeginnersGuide() {
               <li className="flex gap-5">
                 <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">3</span>
                 <div>
-                  <a href="/crops/courgette" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                  <a href="/crops/courgettes" className="text-lg font-serif text-earth hover:text-rust transition-colors">
                     Courgettes
                   </a>
                   <p className="text-sm mt-1.5">
@@ -194,7 +194,7 @@ export default function BeginnersGuide() {
               <li className="flex gap-5">
                 <span className="text-3xl font-serif text-rust/30 leading-none shrink-0 w-8 pt-1">5</span>
                 <div>
-                  <a href="/crops/potato" className="text-lg font-serif text-earth hover:text-rust transition-colors">
+                  <a href="/crops/early-potatoes" className="text-lg font-serif text-earth hover:text-rust transition-colors">
                     Potatoes
                   </a>
                   <p className="text-sm mt-1.5">

@@ -144,10 +144,10 @@ export default function CropRotationGuide() {
       name: "Alliums & others",
       color: "bg-purple-50/50",
       crops: [
-        { name: "Onions", slug: "onions" },
+        { name: "Onions", slug: "onion-sets" },
         { name: "Garlic", slug: "garlic" },
         { name: "Leeks", slug: "leeks" },
-        { name: "Potatoes", slug: "potatoes" },
+        { name: "Potatoes", slug: "maincrop-potatoes" },
         { name: "Squash", slug: "squash" },
       ],
       note: "Heavy feeders, add compost",
@@ -194,14 +194,14 @@ export default function CropRotationGuide() {
                 in the soil. Once it&apos;s there, it can persist for 20 years.
                 The same goes for white rot with{" "}
                 <Link
-                  href="/crops/onions"
+                  href="/crops/onion-sets"
                   className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   onions
                 </Link>{" "}
                 and blight with{" "}
                 <Link
-                  href="/crops/potatoes"
+                  href="/crops/maincrop-potatoes"
                   className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                 >
                   potatoes
@@ -396,7 +396,7 @@ export default function CropRotationGuide() {
                   </Link>
                   ,{" "}
                   <Link
-                    href="/crops/potatoes"
+                    href="/crops/maincrop-potatoes"
                     className="text-rust hover:text-earth underline decoration-rust/30 transition-colors"
                   >
                     potatoes

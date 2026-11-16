@@ -92,7 +92,8 @@ export default function RootLayout({
       <body className={`${instrumentSans.variable} ${newsreader.variable} ${plexMono.variable} font-sans antialiased`}>
         <noscript>
           <div style={{ padding: "2rem", textAlign: "center", fontFamily: "sans-serif" }}>
-            <h1>What To Sow</h1>
+            {/* not an <h1>: every page already has its own, and this made two */}
+            <p style={{ fontSize: "1.5rem", fontWeight: 700 }}>What To Sow</p>
             <p>The UK sowing advice below works without JavaScript. Enable JavaScript if you want postcode-personalised dates for your own patch.</p>
           </div>
         </noscript>

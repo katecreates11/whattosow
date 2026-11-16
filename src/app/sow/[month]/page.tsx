@@ -1,13 +1,10 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { createElement } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-import { getCropIcon } from "@/components/SVGIllustrations";
-import { getCropImagePath } from "@/lib/crop-images";
+import AffiliateLink, { merchantSlug } from "@/components/AffiliateLink";
+import { seedLinkLabel } from "@/lib/seed-link-label";
 import {
   MONTH_SLUGS,
   MONTH_NAMES,
@@ -55,47 +52,58 @@ export async function generateMetadata({
   };
 }
 
-const categoryDot: Record<string, string> = {
-  hardy: "bg-leaf",
-  "half-hardy": "bg-amber",
-  tender: "bg-tomato",
-};
+const cropLinkClass =
+  "font-serif text-xl sm:text-2xl leading-tight text-earth underline decoration-amber/45 underline-offset-4 hover:text-allotment focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment";
 
-function CropCard({ crop }: { crop: Crop }) {
-  const imagePath = getCropImagePath(crop.slug);
-  const Icon = getCropIcon(crop.slug);
-  const icon = Icon
-    ? createElement(Icon, {
-        className: "w-5 h-5 shrink-0 text-earth-lighter group-hover:text-allotment transition-colors duration-300",
-      })
-    : null;
+function trackingSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/**
+ * The same quiet seed link the weekly /sow list carries. The month pages get
+ * as many readers as /sow and, until now, offered no way to act on what they
+ * read: /sow readers followed a seed link on about one visit in fifteen, month
+ * page readers on none (Umami, July–November 2026).
+ */
+function SeedLink({ crop, month, list }: { crop: Crop; month: string; list: string }) {
+  const seed = crop.seedSuppliers?.[0];
+  if (!seed) return null;
+  const label = seedLinkLabel(crop);
 
   return (
-    <Link
-      href={`/crops/${crop.slug}`}
-      className="group block border border-earth/6 p-5 sm:p-6 hover:border-earth/15 transition-colors duration-300"
+    <AffiliateLink
+      href={seed.url}
+      product={label}
+      type="seed"
+      merchant={merchantSlug(seed.name)}
+      position={`month-list-seeds-${month}-${list}-${crop.slug}-${trackingSlug(seed.name)}`}
+      data-umami-event-crop={crop.slug}
+      aria-label={`${label} at ${seed.name}`}
+      className="inline-flex min-h-[44px] items-center font-mono text-[10px] uppercase tracking-[0.12em] text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-allotment sm:justify-end sm:text-right"
     >
-      <div className="flex items-start gap-3 mb-2">
-        {imagePath ? (
-          <Image
-            src={imagePath}
-            alt={`Illustration of ${crop.name}`}
-            width={48}
-            height={48}
-            className="shrink-0 object-contain"
-          />
-        ) : (
-          <div className="flex items-center gap-1.5 shrink-0 mt-0.5">
-            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${categoryDot[crop.category]}`} />
-            {icon}
-          </div>
-        )}
-        <div className="flex-1 min-w-0">
-          <span className="font-medium text-earth">{crop.name}</span>
-          <p className="text-sm text-earth-lighter leading-relaxed mt-1">{crop.tip}</p>
+      {label} at {seed.name} &rarr;
+    </AffiliateLink>
+  );
+}
+
+/** One crop as a line of the listing: name, the tip, and where to get the seed. */
+function CropRow({ crop, month, list }: { crop: Crop; month: string; list?: string }) {
+  return (
+    <li className="border-t border-earth/10 py-4 sm:py-5">
+      <div className="grid gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto] sm:items-start">
+        <div>
+          <Link href={`/crops/${crop.slug}`} className={cropLinkClass}>
+            {crop.name}
+          </Link>
+          <p className="mt-1.5 max-w-[58ch] text-sm leading-relaxed text-earth-light">{crop.tip}</p>
         </div>
+        {list && <SeedLink crop={crop} month={month} list={list} />}
       </div>
-    </Link>
+    </li>
   );
 }
 
@@ -206,12 +214,10 @@ export default async function MonthPage({
 
         <div className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20"><div className="max-w-4xl mx-auto">
           {!hasAnyCrops ? (
-            <div className="border border-earth/6 p-10 sm:p-14 text-center">
-              <p className="text-earth-light text-lg leading-relaxed">
-                Not much to sow outdoors in {name} — but it&apos;s a great time to
-                plan and order seeds!
-              </p>
-            </div>
+            <p className="max-w-[48ch] font-serif text-xl leading-snug text-earth-light">
+              Not much wants sowing in {name}. It&apos;s a good month to plan the
+              beds and get the seed order in.
+            </p>
           ) : (
             <div className="space-y-16 sm:space-y-20">
               {sowIndoors.length > 0 && (
@@ -222,11 +228,11 @@ export default async function MonthPage({
                       Sow indoors
                     </h2>
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                  <ul className="border-b border-earth/10">
                     {sowIndoors.map((crop) => (
-                      <CropCard key={crop.slug} crop={crop} />
+                      <CropRow key={crop.slug} crop={crop} month={month} list="indoors" />
                     ))}
-                  </div>
+                  </ul>
                 </div>
               )}
 
@@ -238,11 +244,11 @@ export default async function MonthPage({
                       Direct sow outdoors
                     </h2>
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                  <ul className="border-b border-earth/10">
                     {directSow.map((crop) => (
-                      <CropCard key={crop.slug} crop={crop} />
+                      <CropRow key={crop.slug} crop={crop} month={month} list="direct" />
                     ))}
-                  </div>
+                  </ul>
                 </div>
               )}
 
@@ -254,14 +260,21 @@ export default async function MonthPage({
                       Plant out
                     </h2>
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                  <ul className="border-b border-earth/10">
                     {plantOut.map((crop) => (
-                      <CropCard key={crop.slug} crop={crop} />
+                      <CropRow key={crop.slug} crop={crop} month={month} />
                     ))}
-                  </div>
+                  </ul>
                 </div>
               )}
             </div>
+          )}
+
+          {hasAnyCrops && (
+            <p className="mt-8 max-w-[62ch] text-xs leading-relaxed text-earth-lighter">
+              The seed links are affiliate links. If you buy through them, a little
+              goes towards a proper shed for the allotment, at no extra cost to you.
+            </p>
           )}
 
           {/* Cross-links */}

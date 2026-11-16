@@ -142,3 +142,41 @@ describe("Search Console readiness guard", () => {
     expect(offenders).toEqual([]);
   });
 });
+
+describe("internal crop links", () => {
+  function tsxFiles(dir: string): string[] {
+    return readdirSync(dir).flatMap((entry) => {
+      const fullPath = path.join(dir, entry);
+      if (statSync(fullPath).isDirectory()) return tsxFiles(fullPath);
+      return /\.(ts|tsx)$/.test(entry) && !/\.test\.tsx?$/.test(entry) ? [fullPath] : [];
+    });
+  }
+
+  it("never hard-codes a link to a crop page that doesn't exist", async () => {
+    const { crops } = await import("@/data/crops");
+    const { allVarietyParams } = await import("@/lib/variety-routes");
+    const cropSlugs = new Set(crops.map((crop) => crop.slug));
+    const varietyPaths = new Set(allVarietyParams().map((route) => `${route.slug}/${route.variety}`));
+    const broken: string[] = [];
+    for (const file of tsxFiles("src")) {
+      const source = readFileSync(file, "utf8");
+      for (const match of source.matchAll(/["'`(]\/crops\/([a-z0-9-]+)(?:\/([a-z0-9-]+))?["'`)#?]/g)) {
+        const [, crop, variety] = match;
+        if (!cropSlugs.has(crop) || (variety && !varietyPaths.has(`${crop}/${variety}`))) {
+          broken.push(`${file}: /crops/${crop}${variety ? `/${variety}` : ""}`);
+        }
+      }
+    }
+    expect(broken).toEqual([]);
+  });
+
+  it("resolves the everyday names posts use to real crop pages, and drops what we don't cover", async () => {
+    const { resolveCrop } = await import("@/lib/crop-links");
+    expect(resolveCrop("potatoes")?.slug).toBe("maincrop-potatoes");
+    expect(resolveCrop("aubergines")?.slug).toBe("aubergine");
+    expect(resolveCrop("onions")?.slug).toBe("onion-sets");
+    expect(resolveCrop("tomatoes")?.slug).toBe("tomatoes");
+    expect(resolveCrop("sunflowers")).toBeNull();
+    expect(resolveCrop("marigolds")).toBeNull();
+  });
+});

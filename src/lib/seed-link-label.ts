@@ -9,6 +9,7 @@ const seedLinkLabels: Record<string, string> = {
   carrots: "Carrot seed",
   beetroot: "Beetroot seed",
   onions: "Onion seed and sets",
+  "onion-sets": "Onion sets",
   "maincrop-potatoes": "Maincrop seed potatoes",
   "early-potatoes": "Early seed potatoes",
   kale: "Kale seed",
