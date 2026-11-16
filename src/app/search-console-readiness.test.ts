@@ -180,3 +180,24 @@ describe("internal crop links", () => {
     expect(resolveCrop("marigolds")).toBeNull();
   });
 });
+
+describe("one address for the site", () => {
+  it("sends every whattosow.com address to the same page on whattosow.co.uk, permanently", () => {
+    const toml = readFileSync("netlify.toml", "utf8");
+    const blocks = toml.split("[[redirects]]").slice(1).map((block) => block.split("[[")[0]);
+    for (const from of [
+      "https://whattosow.com/*",
+      "https://www.whattosow.com/*",
+      "http://whattosow.com/*",
+      "http://www.whattosow.com/*",
+    ]) {
+      const block = blocks.find((candidate) => candidate.includes(`from = "${from}"`));
+      expect(block, from).toBeDefined();
+      expect(block).toContain('to = "https://whattosow.co.uk/:splat"');
+      expect(block).toContain("status = 301");
+      expect(block).toContain("force = true");
+    }
+    // and never the other way round
+    expect(toml).not.toMatch(/from = "https?:\/\/(www\.)?whattosow\.co\.uk/);
+  });
+});

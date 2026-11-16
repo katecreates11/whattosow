@@ -5,6 +5,34 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# One address for the site. whattosow.com used to serve a full second copy,
+# and Bing and DuckDuckGo had indexed both, so the two competed with each
+# other. Everything on the .com now goes, permanently, to the same page on
+# the .co.uk.
+[[redirects]]
+  from = "https://whattosow.com/*"
+  to = "https://whattosow.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.whattosow.com/*"
+  to = "https://whattosow.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://whattosow.com/*"
+  to = "https://whattosow.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.whattosow.com/*"
+  to = "https://whattosow.co.uk/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
