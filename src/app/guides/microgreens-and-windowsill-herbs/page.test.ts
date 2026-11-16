@@ -10,7 +10,8 @@ describe("MicrogreensGuide", () => {
     expect(html).toContain('data-umami-event-position="microgreens-seeds-cress"');
     expect(html).toContain('data-umami-event-position="microgreens-seeds-pea-shoots"');
     expect(html).toContain('data-umami-event-position="microgreens-buyer-note-sprouting-seed"');
-    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(11);
+    expect(html).toContain('data-umami-event-position="microgreens-seeds-red-amaranth"');
+    expect(html.match(/data-umami-event="affiliate-click"/g)).toHaveLength(16);
     expect(html).toContain('rel="sponsored');
     expect(html).not.toContain("amazon.");
   });

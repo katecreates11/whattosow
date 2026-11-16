@@ -59,8 +59,17 @@ const trayCrops: TrayCrop[] = [
   { name: "Sunflower shoots", days: "8–12 days", note: "Nutty and crunchy. Soak the seed overnight, and pick the husks off as they open.", seeds: tm("Sunflower"), seedLabel: "Sunflower seed" },
   { name: "Pea shoots", days: "10–14 days", note: "Taste of fresh peas. Soak overnight before sowing; cut above the lowest leaf and they will often grow back once.", seeds: tm("Pea%20Shoots"), seedLabel: "Pea seed" },
   { name: "Beetroot and chard", days: "12–18 days", note: "Earthy, with magenta stems. Slower and a little patchier than the brassicas.", seeds: tm("Beetroot"), seedLabel: "Beetroot seed" },
-  { name: "Coriander", days: "14–21 days", note: "Slow to come up and worth the wait. Crush the round seed gently in two before sowing.", seeds: tm("Coriander"), seedLabel: "Coriander seed" },
+  { name: "Coriander", days: "14–21 days", note: "Slow to come up and worth the wait. Crush the round seed gently in two before sowing, or buy it ready split.", seeds: tm("Coriander"), seedLabel: "Coriander seed" },
   { name: "Basil", days: "14–21 days", note: "Needs real warmth, so it is a spring and summer tray. Sulks on a cold winter sill.", seeds: tm("Basil"), seedLabel: "Basil seed" },
+];
+
+/** Slower or fussier than the ten above — and all of them in our own seed box. */
+const seedBoxCrops: TrayCrop[] = [
+  { name: "Red amaranth", days: "8–12 days", note: "Tiny seed, vivid magenta stems, a mild earthy taste. Likes warmth, and colours a mixed tray like nothing else.", seeds: tm("Amaranth"), seedLabel: "Amaranth seed" },
+  { name: "Nasturtium", days: "10–14 days", note: "Round, peppery leaves that taste of watercress. The seed is as big as a pea: soak it overnight and cover it.", seeds: tm("Nasturtium"), seedLabel: "Nasturtium seed" },
+  { name: "Red-veined sorrel", days: "14–21 days", note: "Sharp and lemony, with a red vein down each small leaf. Slow, so give it a tray of its own.", seeds: tm("Sorrel"), seedLabel: "Sorrel seed" },
+  { name: "Garlic chives", days: "14–21 days", note: "Fine green threads with a gentle garlic taste. Slow to start, and often still wearing its black seed coat.", seeds: tm("Garlic%20Chives"), seedLabel: "Garlic chive seed" },
+  { name: "Lemon balm", days: "14–21 days", note: "A soft lemon scent in a small crinkled leaf. One of the slowest, and good on fruit as well as salad.", seeds: tm("Lemon%20Balm"), seedLabel: "Lemon balm seed" },
 ];
 
 function TrayRow({ crop }: { crop: TrayCrop }) {
@@ -104,8 +113,8 @@ const trayPhotos = [
   },
   {
     src: "/photos/guides/microgreens-tray-greened-up.webp",
-    alt: "The same tray three days later, now thick with green seedlings and a band of deep pink ones",
-    caption: "29 June. Green, upright and close to cutting. Four days separate the first photo from this one.",
+    alt: "The same tray three days later, now thick with green seedlings and a band of deep pink red amaranth",
+    caption: "29 June. Green, upright and close to cutting; the deep pink band is red amaranth. Four days separate the first photo from this one.",
     width: 1000,
     height: 1333,
   },
@@ -241,6 +250,20 @@ export default function MicrogreensGuide() {
                 <TrayRow key={crop.name} crop={crop} />
               ))}
             </ul>
+            <h3 className="mt-10 font-serif text-xl text-earth">Five more from our own seed box</h3>
+            <p className="mt-2 mb-2">
+              Once the quick ones are easy, these are the ones that make a tray interesting. Most are slower, so sow
+              them apart from the radish and rocket, which would be over before these have started.
+            </p>
+            <ul className="mt-4 border-b border-earth/10">
+              {seedBoxCrops.map((crop) => (
+                <TrayRow key={crop.name} crop={crop} />
+              ))}
+            </ul>
+            <p className="mt-4 mb-2">
+              A ready-made spicy mix is worth a look as well: mustards, rocket and radish blended to come up together,
+              which saves working out the timings yourself.
+            </p>
             <p className="mt-4 text-xs leading-relaxed text-earth-lighter">
               The seed links are affiliate links. If you buy through them, a little goes towards a proper shed for the
               allotment, at no extra cost to you.
@@ -315,8 +338,9 @@ export default function MicrogreensGuide() {
               </h3>
               <div className="space-y-4 text-[15px] leading-relaxed">
                 <p className="text-earth">
-                  <span className="font-serif">Worth buying:</span> seed in the larger packets sold for sprouting and
-                  microgreens. Sown this thickly, an ordinary packet of radish or rocket fills one tray and is gone.
+                  <span className="font-serif">Worth buying:</span> seed by weight, in the larger packets sold for
+                  sprouting and microgreens. Sown this thickly, an ordinary packet of radish or rocket fills one tray
+                  and is gone. We buy ours by the 50 or 100 grams, and a bag lasts for months of trays.
                 </p>
                 <AffiliateLink
                   href={tm("Sprouting%20Seeds")}
