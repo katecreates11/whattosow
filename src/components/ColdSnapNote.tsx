@@ -66,7 +66,7 @@ export default function ColdSnapNote() {
   if (!reading) {
     return (
       <p className="text-earth-light leading-relaxed" aria-live="polite">
-        Most of the UK doesn&apos;t see a proper frost until around 25 October, so a
+        Across most of the UK the first frost can come from around 25 October, so a
         seed going in this week still has ten or eleven clear weeks of growing
         before the cold shows up.{" "}
         <a
@@ -85,8 +85,8 @@ export default function ColdSnapNote() {
       {reading.tier === "cold" && (
         <p className="text-earth-light leading-relaxed">
           Growing in {reading.place}, the cold tends to arrive early &mdash; the
-          first frost is usually around {reading.frostDate}, sooner than most of
-          the country gets it. That&apos;s still roughly {reading.weeksLeft} weeks
+          first frost can come from around {reading.frostDate}, sooner than most
+          of the country gets it. That&apos;s still roughly {reading.weeksLeft} weeks
           of growing from today, and a length of{" "}
           <AffiliateLink
             href={az("horticultural fleece plant protection")}
@@ -115,7 +115,7 @@ export default function ColdSnapNote() {
       )}
       {reading.tier === "typical" && (
         <p className="text-earth-light leading-relaxed">
-          Growing in {reading.place}, the first frost tends to arrive around{" "}
+          Growing in {reading.place}, the first frost can come from around{" "}
           {reading.frostDate} &mdash; a fairly average finish to the season, so
           this week&apos;s sowing gets the usual run at it: about{" "}
           {reading.weeksLeft} weeks of growing before the cold has its say.
@@ -124,7 +124,7 @@ export default function ColdSnapNote() {
       {reading.tier === "mild" && (
         <p className="text-earth-light leading-relaxed">
           Growing in {reading.place}, you&apos;re on the mild side &mdash; the
-          first frost doesn&apos;t usually show up until around{" "}
+          first frost rarely shows up before{" "}
           {reading.frostDate}, later than most of the UK gets it. That&apos;s
           close to {reading.weeksLeft} weeks of growing from today, more slack
           than most gardens have for this week&apos;s sowing.

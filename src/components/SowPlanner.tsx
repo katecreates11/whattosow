@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { loadLocation } from "@/lib/location-storage";
 import { calculateLastFrostDate } from "@/lib/frost";
 import { ukAverageFrost } from "@/lib/season-core";
+// Calendar-safe: millisecond maths slips a day across the March clock change.
+import { addDays } from "@/lib/crop-windows";
 import { addPlanting } from "@/lib/my-plot";
 
 /**
@@ -20,7 +22,6 @@ const iso = (d: Date) => {
   return z.toISOString().slice(0, 10);
 };
 const parse = (s: string) => new Date(s + "T00:00:00");
-const addDays = (d: Date, n: number) => new Date(d.getTime() + n * MS_DAY);
 const fmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
 
 export default function SowPlanner({

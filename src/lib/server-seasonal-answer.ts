@@ -136,6 +136,9 @@ function nextYearFrostDate(frostDate: Date) {
   return new Date(frostDate.getFullYear() + 1, frostDate.getMonth(), frostDate.getDate());
 }
 
+/** How far ahead an overwintering sowing starts being announced as "wait until…". */
+const AUTUMN_SOWING_NOTICE_DAYS = 42;
+
 function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>): AvoidSowingEntry[] {
   return crops
     .filter((crop) => !activeSlugs.has(crop.slug))
@@ -162,6 +165,10 @@ function avoidSowingEntries(frostDate: Date, now: Date, activeSlugs: Set<string>
       }
 
       if (next) {
+        // A crop with a second, overwintering sowing (broad beans) spends the
+        // summer between its two sowings. That isn't worth one of six
+        // "not now" places until the autumn sowing is nearly here.
+        if (crop.autumnSow && daysBetween(now, next.openAt) > AUTUMN_SOWING_NOTICE_DAYS) return null;
         const nextMonth = monthFromTime(next.openAt);
         return {
           crop,

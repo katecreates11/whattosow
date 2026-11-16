@@ -1,3 +1,5 @@
+import { effectiveSowWeeks } from "@/lib/crop-windows";
+
 export type CropCategory = "hardy" | "half-hardy" | "tender";
 
 export type SowingMethod = "direct" | "indoors" | "both";
@@ -18,6 +20,12 @@ export interface Crop {
   successionWeeks?: number;
   /** Override the default four-week seed-starting window when UK guidance needs a longer named season */
   sowWindowWeeks?: number;
+  /**
+   * A second, overwintering direct sowing made the autumn before (broad beans).
+   * `weeks` is relative to the following spring's last frost, like the other
+   * offsets; it is anchored to the autumn frost by sowingOpenAt().
+   */
+  autumnSow?: { weeks: number; windowWeeks: number };
   /** Quick growing tip */
   tip: string;
   /** What the crop needs in simple terms */
@@ -58,6 +66,8 @@ export const crops: Crop[] = [
     directSowWeeks: -8,
     plantOutWeeks: -4,
     harvestWeeks: 14,
+    // Overwintering sowing: mid-October to mid-November on the UK average.
+    autumnSow: { weeks: -26, windowWeeks: 5 },
     tip: "Pinch out the growing tips once the first pods form to discourage blackfly. They'll also ripen faster.",
     needs: "Sun or partial shade. Supports for taller varieties.",
     spacingCm: 23,
@@ -562,6 +572,8 @@ export const crops: Crop[] = [
     directSowWeeks: -26,
     plantOutWeeks: null,
     harvestWeeks: 36,
+    // Six weeks from mid-October: the "Oct-Nov" the tip below promises.
+    sowWindowWeeks: 6,
     tip: "Plant individual cloves Oct-Nov, pointed end up, 2.5cm deep. Garlic needs a cold period to form bulbs. Harvest when lower leaves yellow.",
     needs: "Full sun. Well-drained soil. No fresh manure. Very low maintenance.",
     spacingCm: 15,
@@ -614,6 +626,8 @@ export const crops: Crop[] = [
     directSowWeeks: 1,
     plantOutWeeks: 2,
     harvestWeeks: 17,
+    // Sweetcorn seed needs 10°C to germinate reliably, not the half-hardy default of 8.
+    minSoilTempC: 10,
     sowWindowWeeks: 5,
     tip: "Plant in a block, not a row — they're wind-pollinated and need neighbours. Each plant gives you 1-2 cobs, so don't be stingy with numbers.",
     needs: "Full sun. Sheltered spot. Rich soil.",
@@ -665,6 +679,8 @@ export const crops: Crop[] = [
     directSowWeeks: 1,
     plantOutWeeks: 2,
     harvestWeeks: 9,
+    // French beans rot in cold soil — wait for 12°C, not the half-hardy default of 8.
+    minSoilTempC: 12,
     successionWeeks: 3,
     tip: "Dwarf varieties need no support. Pick every few days — once they start producing, they don't stop (unless you let pods go to seed).",
     needs: "Sun. Sheltered spot. Decent soil.",
@@ -1290,9 +1306,13 @@ export function getCropsByAction(
       }
     }
 
-    // Check direct sow
-    if (crop.directSowWeeks !== null) {
-      const targetWeeksBeforeFrost = -crop.directSowWeeks;
+    // Check direct sow — including a second, overwintering sowing (broad
+    // beans), with autumn sowings counted from the autumn frost (crop-windows).
+    const directOffsets = [crop.directSowWeeks, crop.autumnSow?.weeks ?? null].filter(
+      (weeks): weeks is number => weeks !== null
+    );
+    for (const offset of directOffsets) {
+      const targetWeeksBeforeFrost = -effectiveSowWeeks(offset, lastFrostDate);
       const diff = weeksToFrost - targetWeeksBeforeFrost;
 
       if (diff >= -windowWeeks && diff <= windowWeeks) {

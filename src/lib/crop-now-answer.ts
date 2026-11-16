@@ -3,6 +3,7 @@ import { MONTH_NAMES, MONTH_SLUGS } from "@/lib/calendar";
 import {
   cropWindows,
   daysBetween,
+  isAutumnSown,
   type CropWindow as ActionWindow,
 } from "@/lib/crop-windows";
 
@@ -185,7 +186,20 @@ function guideForCrop(crop: Crop): CropNowAnswer["guideLink"] {
   return null;
 }
 
+/** An autumn sowing overwinters; the advice for a closing spring window doesn't fit it. */
+function isOverwinteringSowing(crop: Crop, when: Date): boolean {
+  const overwinters =
+    Boolean(crop.autumnSow) || (crop.directSowWeeks !== null && isAutumnSown(crop.directSowWeeks));
+  return overwinters && when.getMonth() >= 8; // September onwards
+}
+
 function practicalNote(crop: Crop, action: Action, state: AnswerState, window: ActionWindow | null): string {
+  if (action === "direct sow" && window && isOverwinteringSowing(crop, window.openAt)) {
+    return state === "last-chance"
+      ? `Get it in this week if you can, while the soil is still workable, and pick a variety sold for autumn planting.`
+      : `Plant into well-drained soil now and leave it to the winter; pick a variety sold for autumn planting.`;
+  }
+
   if (action === "direct sow") {
     return state === "last-chance"
       ? `Sow a small row now, water the drill first if the soil is dry, and choose the quickest ${crop.name.toLowerCase()} variety you have.`
@@ -366,7 +380,9 @@ export function getCropVerdict(crop: Crop, now: Date = new Date()): CropVerdict 
       actionLabel: labelForVerdictAction(answer.action),
       copy:
         answer.state === "last-chance"
-          ? `Yes, but do it soon. The UK average window for ${cropName} is closing, so keep the sowing small and choose a quick variety if you have one.`
+          ? answer.action === "direct sow" && isOverwinteringSowing(crop, now)
+            ? `Yes, but do it soon. The UK average window for ${cropName} is closing, and this is one to have in the ground before the soil turns cold and wet.`
+            : `Yes, but do it soon. The UK average window for ${cropName} is closing, so keep the sowing small and choose a quick variety if you have one.`
           : `Yes. The UK average window is open now, so ${answer.action === "direct sow" ? "direct sow outdoors" : "sow indoors"} while the soil and season are on your side.`,
       primaryLink: currentMonthLink,
       alternativeCrops: [],

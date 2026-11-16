@@ -53,34 +53,56 @@ line. All pure functions, tested for every week of the year.
 - The garden dashboard called it blight weather above 20°C and 75% humidity;
   the blight page used the Hutton Criteria. One definition now.
 
-## Waiting on Kate's yes (found by simulating the year; not changed)
+## Engine fixes — approved by Kate, 16 Nov 2026
 
-Each is recorded as an `it.todo` in `src/lib/season-year.test.ts`.
+Found by simulating the year; fixed in `src/lib/crop-windows.ts` (the shared
+window engine), with `calendar.ts` and `getCropsByAction` pointed at it. Every
+promise below is a test in `src/lib/season-year.test.ts`.
 
-1. **Garlic runs backwards up the country.** Autumn planting is keyed to the
-   *spring* frost, so Penzance is told mid-October and Aberdeen late
-   November–December. Cold gardens should go first. Fix: key autumn sowings
-   to the first autumn frost.
-2. **Late plant-outs.** The plant-out window stays open twelve weeks, so
-   Aberdeen is offered "plant out peppers, chillies, aubergines" on 31 August,
-   three weeks before its first frost.
-3. **Sowing closes on 25 October everywhere.** `sowingCloseAt` and
-   `calendar.ts` hard-code it, so Aberdeen gets Penzance's last-sowing dates.
-   A blanket fix was tried and reverted: applied to hardy crops it emptied
-   Aberdeen's June list of peas and beetroot. The right fix applies each
-   garden's own autumn to tender and half-hardy crops only.
-4. **No autumn-sown broad beans.** They only appear February–March; the
-   October–November sowing isn't in the data.
-5. **Soil minimums look low for two crops.** French beans and sweetcorn
-   inherit 8°C from "half-hardy"; most guidance says 10–12°C. One line each
-   (`minSoilTempC`) if Kate agrees.
-6. **"The first frost is usually around…"** (ColdSnapNote). The autumn date
-   behaves like the *earliest* first frost in ten years, not the usual one.
-   The copy could say "can come from".
-7. **Open-Meteo licence.** The free tier is for non-commercial use, and its
-   daily limit is per IP address. Visitors' browsers are fine; the two
-   server-side callers (`/guides`, `/api/blight-map`) share Netlify's
-   addresses. Worth reading their terms before leaning on it harder.
+**The UK-average garden did not move.** Its windows are identical to the day,
+bar two deliberate additions: broad beans now appear in October–November, and
+garlic's window runs six weeks (the "Oct-Nov" its own tip promised) not four.
+
+1. **Garlic runs the right way up the country.** Autumn sowings are counted
+   from the autumn frost, not back from spring (`sowingOpenAt`). Aberdeen:
+   mid-September. Barnet: mid-October. Penzance: late October.
+2. **Each garden has its own autumn** (`autumnFrostFor`): 25 October for the
+   average garden, about five days earlier for every six days its spring frost
+   runs late.
+3. **Tender and half-hardy sowings close by the garden's own autumn; hardy
+   crops keep 25 October.** A blanket version was tried first and emptied
+   Aberdeen's June list of peas and beetroot — hardy crops stand through the
+   first frosts. No sowing is ever squeezed below a fortnight.
+4. **Tender plant-outs get the same run-up to frost everywhere**
+   (`plantOutCloseAt`). Aberdeen is no longer offered peppers on 31 August; its
+   tender plant-out window now ends in late June. Always at least three weeks
+   past the ideal date.
+5. **Autumn broad beans** — a second, overwintering sowing (`autumnSow` on the
+   crop). Their crop page gets an "Or sow in autumn" date.
+6. **Soil minimums:** French beans 12°C, sweetcorn 10°C.
+7. **ColdSnapNote** says the first frost "can come from" its date, which is
+   what the date means.
+
+Also fixed, because verifying the above exposed it: **dates slipped a day
+across the March clock change.** Week arithmetic was done in milliseconds, so
+the server rendered "sow carrots from 25 March" and a UK browser corrected it
+to "24 March" as the page loaded (a hydration error on most crop pages).
+`addDays`/`addWeeks` are calendar-safe now and `SowPlanner` uses them.
+
+### Still open
+
+- **Open-Meteo licence.** The free tier is for non-commercial use, and its
+  daily limit is per IP address. Visitors' browsers are fine; the two
+  server-side callers (`/guides`, `/api/blight-map`) share Netlify's
+  addresses. Worth reading their terms before leaning on it harder.
+- **Two older date engines are untouched:** `src/lib/sowable.ts` and the
+  lucky-dip game still count garlic from the spring frost, on the UK average
+  only. They agree with the main engine for the average garden.
+- **Verdict grammar** on crop pages predates this work: "garlic are near the
+  end of their direct sow window".
+- **Sow-in-[city] pages** are server-rendered from the model, so northern
+  cities' month lists now shift a little with their own autumn. Worth a skim
+  of one northern and one southern city page.
 
 ## Step 3 — weather that changes the list (not built)
 

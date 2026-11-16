@@ -1,4 +1,5 @@
 import { crops, type Crop } from "@/data/crops";
+import { effectiveSowWeeks, frostToBeat } from "@/lib/crop-windows";
 
 export type SowingAction = "sowIndoors" | "directSow" | "plantOut" | "harvest";
 
@@ -26,7 +27,7 @@ export function frostWeekToMonth(frostWeek: number, frostDate: Date): number {
 }
 
 function latestSuccessionSowWeek(crop: Crop, frostDate: Date): number {
-  const autumnFrost = new Date(frostDate.getFullYear(), 9, 25);
+  const autumnFrost = frostToBeat(crop, frostDate);
   const latestByHarvest = autumnFrost.getTime() - crop.harvestWeeks * MS_WEEK;
   return Math.floor((latestByHarvest - frostDate.getTime()) / MS_WEEK);
 }
@@ -53,14 +54,32 @@ export function getCropActionMonths(
     { key: "plantOut", weeks: crop.plantOutWeeks },
   ];
 
-  for (const { key, weeks } of actions) {
-    if (weeks === null) continue;
+  for (const { key, weeks: rawWeeks } of actions) {
+    if (rawWeeks === null) continue;
+    // Autumn sowings (garlic) are counted from the autumn frost, not the spring one.
+    const weeks = key === "plantOut" ? rawWeeks : effectiveSowWeeks(rawWeeks, frostDate);
     const months = new Set<number>();
     const closeWeek = actionCloseWeek(crop, key, weeks, frostDate, windowWeeks);
     for (let w = weeks; w <= closeWeek; w++) {
       months.add(frostWeekToMonth(w, frostDate));
     }
     results.push({ action: key, months: Array.from(months) });
+  }
+
+  // A second, overwintering sowing (broad beans in October–November).
+  if (crop.autumnSow) {
+    const open = effectiveSowWeeks(crop.autumnSow.weeks, frostDate);
+    const autumnMonths: number[] = [];
+    for (let w = open; w <= open + crop.autumnSow.windowWeeks; w++) {
+      const month = frostWeekToMonth(w, frostDate);
+      if (!autumnMonths.includes(month)) autumnMonths.push(month);
+    }
+    const direct = results.find((result) => result.action === "directSow");
+    if (direct) {
+      for (const month of autumnMonths) if (!direct.months.includes(month)) direct.months.push(month);
+    } else {
+      results.push({ action: "directSow", months: autumnMonths });
+    }
   }
 
   // Harvest: starts at the earliest sowing action + harvestWeeks

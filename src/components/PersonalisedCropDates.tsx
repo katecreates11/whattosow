@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { calculateLastFrostDate, formatDateShort, type LocationData } from "@/lib/frost";
 import type { Crop } from "@/data/crops";
 import { loadLocation } from "@/lib/location-storage";
+import { isAutumnSown, sowingOpenAt } from "@/lib/crop-windows";
 
 function weeksToDate(frostDate: Date, weeks: number): Date {
   const d = new Date(frostDate);
@@ -44,7 +45,14 @@ function DateCard({
   subtitle: string;
 }) {
   const hasPersonalised = frostDate && location;
-  const targetDate = frostDate ? weeksToDate(frostDate, weeks) : null;
+  // Autumn sowings (garlic, overwintering broad beans) are timed from the
+  // autumn frost, not counted back from spring — see sowingOpenAt().
+  const autumnSown = label !== "Plant out" && isAutumnSown(weeks);
+  const targetDate = frostDate
+    ? autumnSown
+      ? sowingOpenAt(weeks, frostDate)
+      : weeksToDate(frostDate, weeks)
+    : null;
 
   return (
     <div className="border border-earth/6 p-5 hover:border-earth/15 transition-colors duration-300">
@@ -60,9 +68,13 @@ function DateCard({
             From around {formatDateShort(targetDate)}
           </p>
           <p className="text-xs text-earth-lighter mt-1">
-            {hasPersonalised
-              ? `${weeksToText(weeks)} (${formatDateShort(frostDate)})`
-              : `${weeksToText(weeks)} on the UK average`}
+            {autumnSown
+              ? hasPersonalised
+                ? "in autumn, timed to when your first frosts can come"
+                : "in autumn, on the UK average"
+              : hasPersonalised
+                ? `${weeksToText(weeks)} (${formatDateShort(frostDate)})`
+                : `${weeksToText(weeks)} on the UK average`}
           </p>
         </>
       ) : (
@@ -150,6 +162,16 @@ export default function PersonalisedCropDates({ crop }: { crop: Crop }) {
             frostDate={frostDate}
             location={location}
             subtitle="Sow directly into prepared soil"
+          />
+        )}
+
+        {crop.autumnSow && (
+          <DateCard
+            label="Or sow in autumn"
+            weeks={crop.autumnSow.weeks}
+            frostDate={frostDate}
+            location={location}
+            subtitle="An overwintering sowing, for an earlier crop next year"
           />
         )}
 
