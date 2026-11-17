@@ -340,7 +340,11 @@ export default function ServerSeasonalAnswer({ className = "" }: { className?: s
               <a href={`/sow/${answer.monthSlug}`} className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
                 {answer.monthName} sowing page
               </a>{" "}
-              covers the whole month. The{" "}
+              covers the whole month, and{" "}
+              <a href="/still-time" className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
+                still time to sow
+              </a>{" "}
+              gathers every window that is about to close. The{" "}
               <a href="/calendar" className="text-rust underline decoration-rust/30 underline-offset-4 hover:text-earth">
                 calendar
               </a>{" "}

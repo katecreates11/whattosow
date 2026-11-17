@@ -1,76 +1,31 @@
 import { type Crop } from "@/data/crops";
+import { cropWindows, daysBetween, ukAverageFrost } from "@/lib/crop-windows";
 
 /**
- * Check if a crop is currently sowable based on UK average last frost date (~April 15).
+ * "Can this crop be sown or planted out right now?" on the UK average.
+ *
+ * A thin adapter over the site's one window engine (crop-windows.ts), so the
+ * garden game and Lucky Dip can never disagree with the sowing lists. This
+ * file used to carry its own copy of the maths: a single spring window per
+ * crop, which never knew about autumn sowings like garlic and broad beans.
+ *
+ * Deliberately one argument: these are passed straight to Array.filter, which
+ * would otherwise hand the array index in as a date.
  */
-export function isSowableNow(crop: Crop): boolean {
+function openWindows(crop: Crop) {
   const now = new Date();
-  const year = now.getFullYear();
-  const avgLastFrost = new Date(year, 3, 15);
-  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  const weeksToFrost = (avgLastFrost.getTime() - now.getTime()) / msPerWeek;
-  const weeksAfterFrost = -weeksToFrost;
-  const window = 3;
-
-  if (crop.sowIndoorsWeeks !== null) {
-    const target = -crop.sowIndoorsWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) return true;
-  }
-  if (crop.directSowWeeks !== null) {
-    const target = -crop.directSowWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) return true;
-  }
-  if (crop.plantOutWeeks !== null) {
-    const diff = weeksAfterFrost - crop.plantOutWeeks;
-    if (diff >= -window && diff <= window) return true;
-  }
-  return false;
+  return cropWindows(crop, now, ukAverageFrost(now)).filter(
+    (window) => now >= window.openAt && now <= window.closeAt
+  );
 }
 
-/**
- * Get the number of days remaining in a crop's sowing window.
- * Returns null if not currently sowable.
- */
+export function isSowableNow(crop: Crop): boolean {
+  return openWindows(crop).length > 0;
+}
+
+/** Days left in the crop's soonest-closing open window, or null if none is open. */
 export function daysLeftToSow(crop: Crop): number | null {
   const now = new Date();
-  const year = now.getFullYear();
-  const avgLastFrost = new Date(year, 3, 15);
-  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  const msPerDay = 24 * 60 * 60 * 1000;
-  const weeksToFrost = (avgLastFrost.getTime() - now.getTime()) / msPerWeek;
-  const weeksAfterFrost = -weeksToFrost;
-  const window = 3;
-
-  let minDaysLeft = Infinity;
-
-  if (crop.sowIndoorsWeeks !== null) {
-    const target = -crop.sowIndoorsWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) {
-      const endDate = new Date(avgLastFrost.getTime() - (target - window) * msPerWeek);
-      const daysLeft = Math.ceil((endDate.getTime() - now.getTime()) / msPerDay);
-      if (daysLeft > 0 && daysLeft < minDaysLeft) minDaysLeft = daysLeft;
-    }
-  }
-  if (crop.directSowWeeks !== null) {
-    const target = -crop.directSowWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) {
-      const endDate = new Date(avgLastFrost.getTime() - (target - window) * msPerWeek);
-      const daysLeft = Math.ceil((endDate.getTime() - now.getTime()) / msPerDay);
-      if (daysLeft > 0 && daysLeft < minDaysLeft) minDaysLeft = daysLeft;
-    }
-  }
-  if (crop.plantOutWeeks !== null) {
-    const diff = weeksAfterFrost - crop.plantOutWeeks;
-    if (diff >= -window && diff <= window) {
-      const endDate = new Date(avgLastFrost.getTime() + (crop.plantOutWeeks + window) * msPerWeek);
-      const daysLeft = Math.ceil((endDate.getTime() - now.getTime()) / msPerDay);
-      if (daysLeft > 0 && daysLeft < minDaysLeft) minDaysLeft = daysLeft;
-    }
-  }
-
-  return minDaysLeft === Infinity ? null : minDaysLeft;
+  const days = openWindows(crop).map((window) => daysBetween(now, window.closeAt));
+  return days.length > 0 ? Math.min(...days) : null;
 }

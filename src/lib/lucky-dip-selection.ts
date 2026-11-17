@@ -37,7 +37,7 @@ export function selectVariety(
   isFirstDiscovery: boolean
 ): SelectedVariety | null {
   // Find all sowable crops
-  const sowableSlugs = new Set(crops.filter(isSowableNow).map((c) => c.slug));
+  const sowableSlugs = new Set(crops.filter((crop) => isSowableNow(crop)).map((c) => c.slug));
   if (sowableSlugs.size === 0) return null;
 
   // Filter varieties to sowable ones

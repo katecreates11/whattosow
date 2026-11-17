@@ -43,6 +43,18 @@ to a shed. It is never a dashboard, a directory, or a content farm in a nice fon
 - **Voice** — the 181 variety personalities passed; 2 seasonal guides + the
   sweetcorn diary post live; governance docs in place.
 
+## 2a. What changed in November 2026 (read these before Phase work)
+
+- **Weather & frost:** one shared weather reading per postcode, frost dates
+  from each garden's own ten years of nights, and a sowing engine that knows
+  each garden's autumn. See `docs/plans/weather-brain-2026-11.md`.
+- **Money & traffic:** Phase 12's first analysis is done, and it found that
+  every Thompson & Morgan search link was broken (now fixed centrally in
+  `src/lib/awin.ts`). See `docs/plans/affiliate-findings-2026-11.md`, which
+  also holds the monthly pull and the merchant-link check still owed.
+- **Shipped:** month pages as listings with seed links; crawlable text on
+  /calendar and /frost-map; the .com redirect; the microgreens guide.
+
 ## 3. The biggest remaining problems — bluntly
 
 1. **The "Browse the crops" page is forty equal beige boxes** — the exact

@@ -1,5 +1,8 @@
 "use client";
 
+import { getCropStatus } from "@/lib/season-core";
+import { cropWindows, ukAverageFrost } from "@/lib/crop-windows";
+
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useGarden } from "@/hooks/useGarden";
@@ -51,36 +54,21 @@ function categoryLabel(cat: Crop["category"]): string {
 
 function generateWhyNow(crop: Crop, varietyName: string): string {
   const now = new Date();
-  const year = now.getFullYear();
-  const avgLastFrost = new Date(year, 3, 15);
-  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  const weeksToFrost = (avgLastFrost.getTime() - now.getTime()) / msPerWeek;
-  const weeksAfterFrost = -weeksToFrost;
-  const window = 3;
   const month = MONTH_NAMES[now.getMonth()];
+  // Same engine as the sowing lists, so the reason given always matches them.
+  const status = getCropStatus(crop, ukAverageFrost(now), now);
+  const plantOut = cropWindows(crop, now, ukAverageFrost(now)).some(
+    (window) => window.action === "plant out" && now >= window.openAt && now <= window.closeAt
+  );
 
-  // Check which sowing action is currently active
-  if (crop.sowIndoorsWeeks !== null) {
-    const target = -crop.sowIndoorsWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) {
-      return `${month} is the perfect time to start ${varietyName} indoors. Get them going on a warm windowsill now and they'll be ready to plant out after the last frost.`;
-    }
+  if (status.method === "sow indoors") {
+    return `${month} is the perfect time to start ${varietyName} indoors. Get them going on a warm windowsill now and they'll be ready to plant out after the last frost.`;
   }
-
-  if (crop.directSowWeeks !== null) {
-    const target = -crop.directSowWeeks;
-    const diff = weeksToFrost - target;
-    if (diff >= -window && diff <= window) {
-      return `${varietyName} can go straight in the ground right now. ${month} conditions are just right — sow directly where they're going to grow and let nature do the rest.`;
-    }
+  if (status.method === "direct sow") {
+    return `${varietyName} can go straight in the ground right now. ${month} conditions are just right — sow directly where they're going to grow and let nature do the rest.`;
   }
-
-  if (crop.plantOutWeeks !== null) {
-    const diff = weeksAfterFrost - crop.plantOutWeeks;
-    if (diff >= -window && diff <= window) {
-      return `Time to get ${varietyName} outside. The frost risk is fading and they'll love the longer days. Plant them out now and they'll establish quickly.`;
-    }
+  if (plantOut) {
+    return `Time to get ${varietyName} outside. The frost risk is fading and they'll love the longer days. Plant them out now and they'll establish quickly.`;
   }
 
   // Fallback

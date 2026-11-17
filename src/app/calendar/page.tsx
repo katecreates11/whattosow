@@ -70,7 +70,11 @@ function CalendarByMonth() {
         <Link href="/" className="text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark">
           Add your postcode
         </Link>{" "}
-        and the dates become your own.
+        and the dates become your own. For the windows about to close this week, see{" "}
+        <Link href="/still-time" className="text-allotment underline decoration-amber/60 underline-offset-4 hover:text-allotment-dark">
+          still time to sow
+        </Link>
+        .
       </p>
       <div className="mt-6">
         {MONTH_NAMES.map((name, index) => {
