@@ -14,6 +14,8 @@ import {
 } from "@/lib/calendar";
 import { type Crop } from "@/data/crops";
 import MonthDaylight from "@/components/MonthDaylight";
+import Image from "next/image";
+import { getMonthPhoto } from "@/data/month-photos";
 import { getSeasonalAccent } from "@/lib/seasons";
 
 export async function generateStaticParams() {
@@ -151,6 +153,7 @@ export default async function MonthPage({
   const { sowIndoors, directSow, plantOut } = getCropsForMonth(idx, frostDate);
   const hasAnyCrops = sowIndoors.length > 0 || directSow.length > 0 || plantOut.length > 0;
   const seasonal = getSeasonalAccent(idx);
+  const monthPhoto = getMonthPhoto(idx);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -209,6 +212,22 @@ export default async function MonthPage({
               </p>
               <MonthDaylight monthIndex={idx} />
             </div>
+
+            {monthPhoto && (
+              <figure className="mt-10 sm:mt-12 max-w-2xl">
+                <Image
+                  src={monthPhoto.src}
+                  alt={monthPhoto.alt}
+                  width={monthPhoto.width}
+                  height={monthPhoto.height}
+                  sizes="(max-width: 768px) 100vw, 672px"
+                  className={`w-full h-auto img-grade ${monthPhoto.height > monthPhoto.width ? "max-h-[70vh] object-cover" : ""}`}
+                />
+                <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+                  {monthPhoto.caption} &middot; {name}, from our plot
+                </figcaption>
+              </figure>
+            )}
           </div>
         </div>
 

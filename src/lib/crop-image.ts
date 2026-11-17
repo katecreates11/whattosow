@@ -18,6 +18,11 @@ const OUR_PHOTOS: Record<string, string> = {
   tomatoes: "/photos/crops/tomatoes-cherry-on-vine.webp",
   borage: "/photos/crops/borage-flowers-bee.webp",
   sunflowers: "/photos/crops/sunflower-blue-sky.webp",
+  squash: "/photos/blog/squash-seedling-membrane.webp",
+  garlic: "/photos/guides/garlic-scapes-hand.webp",
+  "maincrop-potatoes": "/photos/blog/potatoes-june-allotment.webp",
+  "early-potatoes": "/photos/blog/potato-rows-growing.webp",
+  "spring-onions": "/photos/guides/alliums-hero-onions.webp",
 };
 
 export function cropImage(crop: Crop): { src: string; ours: boolean } | null {

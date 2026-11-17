@@ -22,6 +22,7 @@ import PinButton from "@/components/PinButton";
 import UnsplashHero from "@/components/UnsplashHero";
 
 import { getCropPhoto } from "@/lib/crop-photos";
+import { getPlotPhotos } from "@/data/plot-photos";
 import { getMinSoilTemp } from "@/data/crops";
 import SeedSupplierLinks from "@/components/SeedSupplierLinks";
 import CropKit from "@/components/CropKit";
@@ -165,73 +166,6 @@ function SowingMonths({ crop, now }: { crop: Crop; now: Date }) {
   );
 }
 
-function CropNowAnswerBlock({ crop, now }: { crop: Crop; now: Date }) {
-  const answer = getCropNowAnswer(crop, now);
-  const headingId = `crop-now-answer-${crop.slug}`;
-
-  return (
-    <section
-      className="border border-earth/10 bg-cream/70 p-5 sm:p-6 mb-10"
-      aria-labelledby={headingId}
-    >
-      <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-allotment mb-2">
-        UK average answer
-      </div>
-      <h2 id={headingId} className="font-serif text-2xl sm:text-3xl text-earth tracking-tight mb-3">
-        Can I sow {crop.name.toLowerCase()} now?
-      </h2>
-      <p className="text-earth-light leading-relaxed max-w-[62ch]">
-        {answer.summary}
-      </p>
-
-      <dl className="mt-5 grid gap-3 sm:grid-cols-3">
-        <div className="border border-earth/8 bg-white/45 px-4 py-3">
-          <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
-            Status
-          </dt>
-          <dd className="font-serif text-lg text-earth mt-1">{answer.stateLabel}</dd>
-        </div>
-        <div className="border border-earth/8 bg-white/45 px-4 py-3">
-          <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
-            Best next step
-          </dt>
-          <dd className="font-serif text-lg text-earth mt-1">{answer.actionLabel}</dd>
-        </div>
-        <div className="border border-earth/8 bg-white/45 px-4 py-3">
-          <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
-            Usual window
-          </dt>
-          <dd className="font-serif text-lg text-earth mt-1">{answer.windowText}</dd>
-        </div>
-      </dl>
-
-      <p className="mt-5 text-sm text-earth-light leading-relaxed max-w-[62ch]">
-        <span className="font-semibold text-earth">What I&apos;d do now:</span>{" "}
-        {answer.practicalNote}
-      </p>
-      <p className="mt-4 text-sm text-earth-light leading-relaxed max-w-[62ch]">
-        For the broader month view, see{" "}
-        <Link href={answer.monthLink.href} className="text-rust underline decoration-rust/30 hover:text-earth">
-          {answer.monthLink.label}
-        </Link>
-        , or use the{" "}
-        <Link href="/calendar" className="text-rust underline decoration-rust/30 hover:text-earth">
-          UK sowing calendar
-        </Link>
-        {answer.guideLink ? (
-          <>
-            . For more detail, read the{" "}
-            <Link href={answer.guideLink.href} className="text-rust underline decoration-rust/30 hover:text-earth">
-              {answer.guideLink.label}
-            </Link>
-          </>
-        ) : null}
-        .
-      </p>
-    </section>
-  );
-}
-
 const verdictBandStyles: Record<CropVerdict["state"], { band: string; dot: string; label: string }> = {
   "too-early": {
     band: "border-frost/35 bg-frost-bg",
@@ -255,52 +189,77 @@ const verdictBandStyles: Record<CropVerdict["state"], { band: string; dot: strin
   },
 };
 
-function CropVerdictBand({ crop, now }: { crop: Crop; now: Date }) {
+/**
+ * The top of the crop page: one answer, in a sentence, then the numbers on one
+ * quiet line. Approved by Kate on 17 Nov 2026 (plan item C). It replaces a
+ * verdict band, a four-box stats grid and a second "UK average answer" box
+ * that asked and answered "Can I sow it now?" a second time. Nothing that was
+ * in those boxes is lost: it is all here, once.
+ */
+function CropIntro({
+  crop,
+  now,
+  heading,
+  hasHero,
+  pin,
+}: {
+  crop: Crop;
+  now: Date;
+  heading: string;
+  hasHero: boolean;
+  pin?: React.ReactNode;
+}) {
   const verdict = getCropVerdict(crop, now);
+  const answer = getCropNowAnswer(crop, now);
   const styles = verdictBandStyles[verdict.state];
+  const facts = [
+    answer.windowText,
+    `ready in about ${crop.harvestWeeks} weeks`,
+    `${crop.spacingCm} cm apart`,
+    `soil from ${getMinSoilTemp(crop)}°C`,
+  ];
+  const linkClass =
+    "font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors";
 
   return (
     <section
-      aria-label={`UK sowing verdict for ${crop.name}`}
+      aria-labelledby={`crop-title-${crop.slug}`}
       data-crop-verdict-band={crop.slug}
-      className={`border-y ${styles.band} px-6 sm:px-10 lg:px-16`}
+      className={`${categoryHeaderBg(crop.category)} ${hasHero ? "-mt-16 relative z-10" : ""} px-6 sm:px-10 lg:px-16`}
     >
-      <div className="max-w-4xl mx-auto py-4 sm:py-5">
-        <div className="grid gap-4 md:grid-cols-[1fr_14rem] md:items-center">
-          <div>
-            <div className={`font-mono text-[10px] uppercase tracking-[0.14em] ${styles.label} mb-2`}>
-              <span className={`inline-block h-2 w-2 rounded-full ${styles.dot} mr-2 align-middle`} aria-hidden="true" />
-              {verdict.stateLabel}
-            </div>
-            <p className="font-serif text-2xl sm:text-3xl text-earth tracking-tight leading-tight">
-              Can I sow {crop.name.toLowerCase()} now?
-            </p>
-            <p className="mt-2 text-sm sm:text-[15px] text-earth-light leading-relaxed max-w-[64ch]">
-              {verdict.copy}
-            </p>
-          </div>
-
-          <dl className="border border-earth/10 bg-white/45 px-4 py-3">
-            <dt className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-earth-lighter">
-              Best next action
-            </dt>
-            <dd className="font-serif text-xl text-earth mt-1 leading-tight">{verdict.actionLabel}</dd>
-          </dl>
+      <div className={`max-w-4xl mx-auto ${hasHero ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}>
+        <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-earth-light mb-5">
+          <span className={`inline-block h-2 w-2 rounded-full ${styles.dot} mr-2 align-middle`} aria-hidden="true" />
+          <span className={styles.label}>{verdict.stateLabel}</span>
+          <span aria-hidden="true"> &middot; </span>
+          {categoryLabel(crop.category)}
         </div>
+        <h1
+          id={`crop-title-${crop.slug}`}
+          className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95]"
+        >
+          {heading}
+        </h1>
 
-        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-earth-light">
-          {seasonFocus() === "harvest" && (
-            <a
-              href={`#your-dates-${crop.slug}`}
-              className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
-            >
-              Already growing it? See when yours will be ready &rarr;
-            </a>
-          )}
-          <Link
-            href={verdict.primaryLink.href}
-            className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark focus-visible:outline-2 focus-visible:outline-allotment focus-visible:outline-offset-2 transition-colors"
-          >
+        <p className="mt-6 font-serif text-xl sm:text-2xl text-earth leading-snug max-w-[42ch]">
+          {verdict.copy}
+        </p>
+        <p className="mt-3 text-earth-light leading-relaxed max-w-[62ch]">
+          {answer.practicalNote}
+        </p>
+
+        <p className="mt-6 border-t border-earth/15 pt-3 font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.1em] leading-relaxed text-earth-lighter max-w-[70ch]">
+          {facts.join(" \u00b7 ")}
+        </p>
+
+        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-earth-light">
+          <a href={`#your-dates-${crop.slug}`} className={linkClass}>
+            {seasonFocus() === "harvest"
+              ? "Already growing it? See when yours will be ready"
+              : "Your dates, worked out for your postcode"}{" "}
+            &rarr;
+          </a>
+          <Link href={verdict.primaryLink.href} className={linkClass}>
             {verdict.primaryLink.label} &rarr;
           </Link>
           {verdict.alternativeCrops.length > 0 && (
@@ -319,6 +278,65 @@ function CropVerdictBand({ crop, now }: { crop: Crop; now: Date }) {
               ))}
             </div>
           )}
+        </div>
+
+        <p className="mt-8 font-serif text-lg sm:text-xl text-earth-light leading-relaxed max-w-2xl">
+          {crop.tip}
+        </p>
+        <p className="mt-4 text-sm text-earth-light leading-relaxed max-w-[62ch]">
+          For the month view, see{" "}
+          <Link href={answer.monthLink.href} className="text-rust underline decoration-rust/30 hover:text-earth">
+            {answer.monthLink.label}
+          </Link>
+          , or the{" "}
+          <Link href="/calendar" className="text-rust underline decoration-rust/30 hover:text-earth">
+            UK sowing calendar
+          </Link>
+          {answer.guideLink ? (
+            <>
+              . For more depth, read the{" "}
+              <Link href={answer.guideLink.href} className="text-rust underline decoration-rust/30 hover:text-earth">
+                {answer.guideLink.label}
+              </Link>
+            </>
+          ) : null}
+          . These dates use the UK average;{" "}
+          <Link href="/" className="text-rust underline decoration-rust/30 hover:text-earth">
+            your postcode
+          </Link>{" "}
+          tunes them to your garden.
+        </p>
+        {pin && <div className="mt-5">{pin}</div>}
+      </div>
+    </section>
+  );
+}
+
+/** "From the plot": two or three of Kate's own photos of this crop (plan item B). */
+function FromThePlot({ crop }: { crop: Crop }) {
+  const photos = getPlotPhotos(crop.slug);
+  if (photos.length === 0) return null;
+  return (
+    <section aria-label={`${crop.name} on our plot`} className="px-6 sm:px-10 lg:px-16 pt-10 sm:pt-12">
+      <div className="max-w-4xl mx-auto">
+        <div className="font-serif italic text-lg text-allotment mb-4">from the plot</div>
+        <div className={`grid gap-3 sm:gap-4 ${photos.length >= 3 ? "grid-cols-3" : "grid-cols-2"}`}>
+          {photos.map((photo) => (
+            <figure key={photo.src} className="m-0">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 640px) 33vw, 300px"
+                  className="object-cover img-grade"
+                />
+              </div>
+              <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-earth-lighter">
+                {photo.caption}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
@@ -469,9 +487,8 @@ export default async function CropPage({
   const sameCategoryCrops = otherCrops.filter((c) => c.category === crop.category);
   const otherCategoryCrops = otherCrops.filter((c) => c.category !== crop.category);
 
-  // Field-guide framing: specimen number, our-photo flag, and the standout
+  // Field-guide framing: our-photo flag and the standout
   // variety (for the editorial pull-quote, if this crop has a legendary pick).
-  const cropNo = crops.findIndex((c) => c.slug === crop.slug) + 1;
   const cropPhoto = getCropPhoto(crop.slug);
   const legendaryVariety = varieties.find((v) => v.cropSlug === crop.slug && v.rarity === "legendary");
   const playbook = getPlaybook(crop.slug);
@@ -578,8 +595,6 @@ export default async function CropPage({
       <Header backLink={{ href: "/crops", label: "\u2190 All crops" }} />
 
       <article id="main-content">
-        <CropVerdictBand crop={crop} now={now} />
-
         {/* Hero photo — local allotment photography preferred, Unsplash fallback */}
         {cropPhoto ? (
           <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
@@ -592,9 +607,6 @@ export default async function CropPage({
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            <span className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-white/90 border border-white/40 px-3 py-1.5">
-              No. {cropNo} &middot; {categoryLabel(crop.category)}
-            </span>
             <span className="absolute left-4 bottom-4 font-mono text-[9px] uppercase tracking-[0.1em] text-white/90 bg-allotment-dark/70 px-2 py-1">
               from our plot
             </span>
@@ -603,69 +615,28 @@ export default async function CropPage({
           <UnsplashHero unsplashId={crop.unsplashId} cropName={crop.name} />
         ) : null}
 
-        {/* Crop Header — overlaps photo */}
-        <div
-          className={`${categoryHeaderBg(crop.category)} ${getCropPhoto(crop.slug) || crop.unsplashId ? "-mt-16 relative z-10" : ""} px-6 sm:px-10 lg:px-16`}
-        >
-          <div className={`max-w-4xl mx-auto ${getCropPhoto(crop.slug) || crop.unsplashId ? "pt-10 sm:pt-12" : "pt-12 sm:pt-20"} pb-12`}>
-            <div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2.5 mb-6">
-                  <span className={`w-2 h-2 rounded-full ${categoryDot[crop.category]}`} />
-                  <span className="text-xs font-semibold tracking-[0.1em] uppercase text-earth-lighter">
-                    {categoryLabel(crop.category)}
-                  </span>
-                </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-earth tracking-tight leading-[0.95] mb-6">
-                  {playbook ? "How to grow" : "When to plant"}<br />
-                  <span className="font-normal">{(playbook?.titleName ?? crop.name).toLowerCase()}</span> in the UK
-                </h1>
-                <p className="font-serif text-xl text-earth-light leading-relaxed max-w-2xl">
-                  <span className="float-left font-serif text-[58px] leading-[0.6] pr-3 pt-2 text-allotment">
-                    {crop.tip.charAt(0)}
-                  </span>
-                  {crop.tip.slice(1)}
-                </p>
-                {(getCropPhoto(crop.slug) || crop.unsplashId) && (
-                  <div className="mt-5">
-                    <PinButton
-                      path={`/crops/${crop.slug}`}
-                      image={`/pins/crops/${crop.slug}/full`}
-                      description={`When to sow ${crop.name.toLowerCase()} in the UK — sowing dates for your postcode, the best varieties, and where to buy seeds. #${crop.name.toLowerCase().replace(/\s+/g, "")} #vegetablegarden #allotment #ukgardening #growyourown`}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
+        <CropIntro
+          crop={crop}
+          now={now}
+          heading={`${playbook ? "How to grow" : "When to plant"} ${(playbook?.titleName ?? crop.name).toLowerCase()} in the UK`}
+          hasHero={Boolean(getCropPhoto(crop.slug) || crop.unsplashId)}
+          pin={
+            getCropPhoto(crop.slug) || crop.unsplashId ? (
+              <PinButton
+                path={`/crops/${crop.slug}`}
+                image={`/pins/crops/${crop.slug}/full`}
+                description={`When to sow ${crop.name.toLowerCase()} in the UK — sowing dates for your postcode, the best varieties, and where to buy seeds. #${crop.name.toLowerCase().replace(/\s+/g, "")} #vegetablegarden #allotment #ukgardening #growyourown`}
+              />
+            ) : null
+          }
+        />
+
+        <FromThePlot crop={crop} />
 
         {/* Two-column layout */}
         <div className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16"><div className="max-w-4xl mx-auto lg:flex lg:gap-12">
           {/* Main content */}
           <div className="lg:w-[58%]">
-            {/* Specimen data strip — herbarium tag, real fields only */}
-            <div className="flex flex-wrap border border-earth/15 mb-10">
-              <div className="flex-1 min-w-[110px] px-4 py-3 border-r border-earth/10">
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">Type</div>
-                <div className="font-serif text-xl text-earth capitalize mt-1 leading-none">{categoryLabel(crop.category)}</div>
-              </div>
-              <div className="flex-1 min-w-[110px] px-4 py-3 border-r border-earth/10">
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">To harvest</div>
-                <div className="font-serif text-xl text-earth mt-1 leading-none">{crop.harvestWeeks} <span className="text-[13px] text-earth-light">wks</span></div>
-              </div>
-              <div className="flex-1 min-w-[110px] px-4 py-3 border-r border-earth/10">
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">Spacing</div>
-                <div className="font-serif text-xl text-earth mt-1 leading-none">{crop.spacingCm} <span className="text-[13px] text-earth-light">cm</span></div>
-              </div>
-              <div className="flex-1 min-w-[110px] px-4 py-3">
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-earth-lighter">Min soil</div>
-                <div className="font-serif text-xl text-earth mt-1 leading-none">{getMinSoilTemp(crop)}<span className="text-[13px] text-earth-light">&deg;C</span></div>
-              </div>
-            </div>
-
-            <CropNowAnswerBlock crop={crop} now={now} />
-
             <YourDatesSection crop={crop} />
 
             {/* Inline seed CTA — mobile-visible, high engagement position */}

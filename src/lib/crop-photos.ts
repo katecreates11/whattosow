@@ -51,9 +51,29 @@ const cropPhotos: Record<string, CropPhoto> = {
     hero: "/photos/crops/lettuce-with-marigolds.webp",
     alt: "Rows of lettuce growing alongside bright orange marigolds in a raised bed",
   },
-  // No `squash` entry: our only close photo is a courgette, and a courgette
-  // captioned as squash is exactly the mislabelling we're trying to avoid.
-  // Squash falls back to its own hero image until we have a real squash photo.
+  // Kate confirmed 17 Nov 2026: a squash ("probably a patty pan"), so the alt
+  // names squash and nothing narrower.
+  squash: {
+    hero: "/photos/blog/squash-seedling-membrane.webp",
+    alt: "A young squash plant set into a hole cut in weed membrane on the allotment",
+  },
+  garlic: {
+    hero: "/photos/guides/garlic-scapes-hand.webp",
+    alt: "A hand holding a bunch of curling garlic scapes picked from the bed",
+  },
+  "maincrop-potatoes": {
+    hero: "/photos/blog/potatoes-june-allotment.webp",
+    alt: "Three rows of potato plants in full leaf on the allotment in June",
+  },
+  "early-potatoes": {
+    hero: "/photos/blog/potato-rows-growing.webp",
+    alt: "Rows of young potato plants growing on the allotment",
+  },
+  // Confirmed by Kate 17 Nov 2026: spring onions (the file is named "onions").
+  "spring-onions": {
+    hero: "/photos/guides/alliums-hero-onions.webp",
+    alt: "A bunch of spring onions, roots and all, held up against the setting sun",
+  },
 };
 
 export function getCropPhoto(slug: string): CropPhoto | null {

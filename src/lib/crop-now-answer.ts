@@ -217,7 +217,7 @@ function practicalNote(crop: Crop, action: Action, state: AnswerState, window: A
   }
 
   if (state === "too-early" && window) {
-    return `Hold off until ${monthName(window.openAt).toLowerCase()}; sowing earlier is more likely to make weak plants than earlier harvests.`;
+    return `Hold off until ${monthName(window.openAt)}; sowing earlier is more likely to make weak plants than earlier harvests.`;
   }
 
   if (window) {
