@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Marquee from "@/components/Marquee";
 import WeatherVane from "@/components/WeatherVane";
 
 const NAV_LINKS = [
@@ -104,7 +105,7 @@ export default function Header({ backLink }: { backLink?: { href: string; label:
           </div>
         </nav>
       )}
-      {/* The scrolling ticker was retired on 17 Nov 2026 (Kate: the site felt AI-made). */}
+      <Marquee />
     </header>
   );
 }

@@ -13,6 +13,8 @@ import SeasonalKitEdit from "@/components/SeasonalKitEdit";
 import { featuredEntry, inSeasonCrops, plantOutCrops, harvestCrops } from "@/lib/variety-status";
 import AffiliateLink from "@/components/AffiliateLink";
 import WateringNote from "@/components/WateringNote";
+import WeatherCommandCenter from "@/components/WeatherCommandCenter";
+import PlotStamp from "@/components/PlotStamp";
 import HomeHero from "@/components/home/HomeHero";
 import WeekList from "@/components/home/WeekList";
 import { formatDaylight, getSunTimes } from "@/lib/astronomy";
@@ -236,6 +238,14 @@ export default function Home() {
         </section>
 
         <WateringNote initialDateIso={now.toISOString()} />
+
+        {/* The weather panel: your place, your frost, the week's sky */}
+        <section id="your-weather" className="px-6 sm:px-10 lg:px-16 pt-14 sm:pt-20" aria-label="This week's weather on your plot">
+          <div className="max-w-5xl mx-auto">
+            <PlotStamp />
+            <WeatherCommandCenter />
+          </div>
+        </section>
 
         {/* Midsummer moment — self-gates to the week around the solstice */}
         <LongestDayBand />

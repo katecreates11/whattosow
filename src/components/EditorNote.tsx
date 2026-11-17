@@ -2,7 +2,7 @@ import Image from "next/image";
 import { editorNote } from "@/data/editor-note";
 
 /**
- * Kate's note from the plot: the most human thing on the front page, so it is
+ * The editor's note from the plot: the most human thing on the front page, so it is
  * set like a letter, in her words, signed with her name.
  */
 export default function EditorNote() {
@@ -12,7 +12,7 @@ export default function EditorNote() {
         <div className="relative aspect-[4/5] overflow-hidden md:sticky md:top-24">
           <Image
             src="/photos/blog/plot-early-spring.webp"
-            alt="Kate's allotment beds, dug and planted, early in the year"
+            alt="Our allotment beds, dug and planted, early in the year"
             fill
             sizes="(max-width: 768px) 100vw, 380px"
             className="object-cover img-grade"
@@ -25,7 +25,6 @@ export default function EditorNote() {
           <p className="mt-5 font-serif text-[1.35rem] sm:text-[1.6rem] leading-[1.45] text-earth max-w-[34ch] sm:max-w-[38ch]">
             {editorNote.text}
           </p>
-          <p className="mt-8 font-serif italic text-[2rem] leading-none text-allotment">Kate</p>
         </div>
       </div>
     </aside>

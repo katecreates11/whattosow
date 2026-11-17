@@ -200,7 +200,7 @@ function EditorialPostPage({ post }: { post: EditorialPost }) {
           "@type": "Review",
           itemReviewed: { "@type": "Product", name: post.primaryProduct.name },
           reviewRating: { "@type": "Rating", ratingValue: post.rating, bestRating: 5 },
-          author: { "@type": "Person", name: "Kate, What To Sow" },
+          author: { "@type": "Organization", name: "What To Sow" },
           publisher: { "@type": "Organization", name: "What To Sow" },
           datePublished: post.publishDate.toISOString(),
           name: post.title,
