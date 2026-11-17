@@ -272,3 +272,43 @@ export function showIndoorSowing(now: Date, lastFrost: Date, firstAutumnFrost: D
   if (season.phase === "frost-season") return true;
   return season.phase === "before-last-frost" && season.daysToLastFrost > INDOOR_LINE_DAYS_BEFORE_FROST;
 }
+
+export interface ListWeather {
+  /** Soil temperature at seed depth (°C). */
+  soilTemp?: number | null;
+  /** The coming nights, tonight first (from the weather brain). */
+  nights?: NightLow[];
+}
+
+export interface ListItem {
+  /** How the Answer list is sowing it. */
+  method: "direct sow" | "start in modules" | "plant out" | string;
+  /** getMinSoilTemp(crop). */
+  minSoilTemp: number;
+  category: "hardy" | "half-hardy" | "tender";
+}
+
+/**
+ * The weather's word on one line of the Answer list: null when the calendar
+ * and the sky agree, or a short instruction when they don't.
+ *
+ *  - Sowing outdoors into soil below what the seed needs: wait for the soil.
+ *  - Planting out anything frost-tender with a frost due this week: wait
+ *    until the night after the last frost in the forecast.
+ *
+ * Hardy plant-outs and indoor sowings never wait on the weather here.
+ */
+export function weatherHold(item: ListItem, weather: ListWeather): string | null {
+  const soil = weather.soilTemp;
+  if (item.method === "direct sow" && typeof soil === "number" && soil < item.minSoilTemp) {
+    return `when soil reaches ${item.minSoilTemp}°`;
+  }
+  if (item.method === "plant out" && item.category !== "hardy") {
+    const frosts = (weather.nights ?? []).filter((night) => night.frostRisk);
+    if (frosts.length > 0) {
+      const last = frosts[frosts.length - 1];
+      return `after ${weekday(last.date)}\u2019s frost`;
+    }
+  }
+  return null;
+}

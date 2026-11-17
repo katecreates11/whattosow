@@ -6,6 +6,7 @@ import {
   answerSeason,
   degrees,
   showIndoorSowing,
+  weatherHold,
 } from "@/lib/local-answer";
 import type { NightLow } from "@/lib/weather-brain";
 
@@ -207,5 +208,32 @@ describe("the Answer — indoors is always in season", () => {
 
   it("always speaks up when there is nothing at all to sow outside", () => {
     expect(at(new Date(2026, 5, 10), 0)).toBe(true);
+  });
+});
+
+describe("the Answer list — the weather has its say on each line", () => {
+  const carrots = { method: "direct sow", minSoilTemp: 5, category: "hardy" as const };
+  const frenchBeans = { method: "direct sow", minSoilTemp: 12, category: "half-hardy" as const };
+  const courgettes = { method: "plant out", minSoilTemp: 8, category: "half-hardy" as const };
+  const cabbage = { method: "plant out", minSoilTemp: 5, category: "hardy" as const };
+  const tomatoesIndoors = { method: "start in modules", minSoilTemp: 12, category: "tender" as const };
+  const clear = [night("2027-05-10", 8), night("2027-05-11", 9), night("2027-05-12", 7)];
+  const frostThursday = [night("2027-05-10", 6), night("2027-05-11", 4), night("2027-05-13", 1), night("2027-05-14", 5)];
+
+  it("holds an outdoor sowing until the soil is warm enough for that seed", () => {
+    expect(weatherHold(frenchBeans, { soilTemp: 9, nights: clear })).toBe("when soil reaches 12°");
+    expect(weatherHold(carrots, { soilTemp: 9, nights: clear })).toBeNull();
+    expect(weatherHold(carrots, { soilTemp: 4.6, nights: clear })).toBe("when soil reaches 5°");
+  });
+
+  it("holds a tender plant-out until after the last frost in the week's forecast", () => {
+    expect(weatherHold(courgettes, { soilTemp: 14, nights: frostThursday })).toBe("after Thursday\u2019s frost");
+    expect(weatherHold(courgettes, { soilTemp: 14, nights: clear })).toBeNull();
+  });
+
+  it("never holds hardy plant-outs or indoor sowings, and says nothing without weather", () => {
+    expect(weatherHold(cabbage, { soilTemp: 3, nights: frostThursday })).toBeNull();
+    expect(weatherHold(tomatoesIndoors, { soilTemp: 3, nights: frostThursday })).toBeNull();
+    expect(weatherHold(frenchBeans, {})).toBeNull();
   });
 });

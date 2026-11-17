@@ -22,6 +22,8 @@ export interface FrostForecast {
   tonight: { min: number; frostRisk: boolean };
   tomorrow: { min: number; frostRisk: boolean };
   nextThreeDays: { date: string; min: number; frostRisk: boolean }[];
+  /** The coming week of nights (up to 7), for holding plant-outs back. */
+  nightsAhead?: { date: string; min: number; frostRisk: boolean }[];
   soilTemp?: number; // current soil temperature at surface (°C)
   soilTemp6cm?: number; // seed-depth soil temp (°C)
   soilMoisture?: number; // volumetric moisture 0-7cm (m³/m³)
@@ -279,6 +281,7 @@ export function frostForecastFrom(w: LocalWeather, now: Date = new Date()): Fros
     tonight: nights[0],
     tomorrow: nights[1],
     nextThreeDays: nights,
+    nightsAhead: nightLows(w, 7, now),
     soilTemp: soil.surface ?? undefined,
     soilTemp6cm: soil.seedDepth ?? undefined,
     soilMoisture,

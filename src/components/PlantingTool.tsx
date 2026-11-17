@@ -16,7 +16,7 @@ import { crops, getCropsByAction, getMinSoilTemp, type Crop } from "@/data/crops
 import { SnowflakeIcon, SunIcon } from "@/components/SVGIllustrations";
 import { getSoilType, type SoilData } from "@/lib/soil";
 import { ensureFrostRecord } from "@/lib/frost-record";
-import { answerGreeting, answerInterpretation, answerProvenance, showIndoorSowing } from "@/lib/local-answer";
+import { answerGreeting, answerInterpretation, answerProvenance, showIndoorSowing, weatherHold } from "@/lib/local-answer";
 import EmailCapture from "@/components/EmailCapture";
 import { saveLocation, loadLocation } from "@/lib/location-storage";
 import { getWateringBalance } from "@/lib/watering";
@@ -265,12 +265,17 @@ function getSowingHeading(entries: CropEntry[]): string {
   return "Start this week";
 }
 
-function getPracticalAnswerNote(entries: CropEntry[]): string {
+function getPracticalAnswerNote(entries: CropEntry[], held: Set<string> = new Set()): string {
   if (entries.length === 0) {
     return "Use the pause to clear a little space, then follow the full list for your next good window.";
   }
 
-  const closing = entries.find((entry) => entry.status.state === "closing");
+  const ready = entries.filter((entry) => !held.has(entry.crop.slug));
+  if (ready.length === 0) {
+    return "The weather says wait on all of these for a few days. The dates still stand; check back after the cold snap.";
+  }
+
+  const closing = ready.find((entry) => entry.status.state === "closing");
   if (closing) {
     return `If you only sow one thing, start with ${closing.crop.name.toLowerCase()} — that window is closest to closing.`;
   }
@@ -295,7 +300,20 @@ function HomepageAnswerReveal({
 }) {
   const entries = answerEntries(frostData, today);
   const sowingHeading = getSowingHeading(entries);
-  const practicalNote = getPracticalAnswerNote(entries);
+  // The weather's word on each line: hold sowings for cold soil, plant-outs for frost.
+  const listWeather = {
+    soilTemp: forecast?.soilTemp6cm ?? forecast?.soilTemp,
+    nights: forecast?.nightsAhead ?? forecast?.nextThreeDays,
+  };
+  const holds = new Map<string, string>();
+  for (const entry of entries) {
+    const hold = weatherHold(
+      { method: methodForAnswer(entry), minSoilTemp: getMinSoilTemp(entry.crop), category: entry.crop.category },
+      listWeather
+    );
+    if (hold) holds.set(entry.crop.slug, hold);
+  }
+  const practicalNote = getPracticalAnswerNote(entries, new Set(holds.keys()));
   const placeName = frostData.location.adminDistrict;
   const frostYear = {
     now: today,
@@ -372,7 +390,13 @@ function HomepageAnswerReveal({
                 {" "}
                 <span className="shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.12em] text-earth-lighter">
                   {methodForAnswer(entry)}
-                  {entry.status.state === "closing" ? " · closing" : ""}
+                  {holds.has(entry.crop.slug) ? (
+                    <span className="block text-rust">{holds.get(entry.crop.slug)}</span>
+                  ) : entry.status.state === "closing" ? (
+                    " · closing"
+                  ) : (
+                    ""
+                  )}
                 </span>
               </li>
             ))}
