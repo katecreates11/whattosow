@@ -217,14 +217,14 @@ export default function Marquee() {
   const items = [...messages, ...messages];
 
   return (
-    <div className="bg-[#003b44] overflow-hidden py-2.5 select-none" aria-hidden="true">
+    <div className="bg-allotment-dark border-t border-white/10 overflow-hidden py-2.5 select-none" aria-hidden="true">
       <div className="flex animate-marquee whitespace-nowrap">
         {items.map((msg, i) => (
           <span key={i} className="inline-flex items-center gap-6 mx-8">
             <span className="font-mono text-[11px] tracking-[0.1em] text-[#f2f2eb]/60">
               {msg}
             </span>
-            <span className="text-[#00d975]/50 text-[7px]">◆</span>
+            <span className="text-leaf/50 text-[7px]">◆</span>
           </span>
         ))}
       </div>

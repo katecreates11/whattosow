@@ -36,7 +36,7 @@ export default function FeaturedVariety({ entry, now = new Date() }: { entry: Va
   const weekOf = monday.toLocaleDateString("en-GB", { day: "numeric", month: "long", timeZone: "UTC" });
 
   return (
-    <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-14 items-center mt-20 sm:mt-24 pt-14 sm:pt-16 border-t border-earth/12">
+    <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-14 items-center mt-14 sm:mt-16 pt-12 sm:pt-14 border-t border-earth/12">
       <div className="relative aspect-[4/5] overflow-hidden bg-sage">
         {photo && (
           <Image

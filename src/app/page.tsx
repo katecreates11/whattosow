@@ -219,46 +219,16 @@ export default function Home() {
       <main id="main-content">
         <HomeHero monthIndex={nowMonth} dateline={dateline} daylight={daylight} />
 
-        {/* Your garden: the postcode, and the Answer it becomes */}
-        <section className="px-6 sm:px-10 lg:px-16 pt-14 sm:pt-20 pb-14 sm:pb-20" aria-labelledby="your-garden">
-          <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-14 items-start">
-            <div>
-              <h2 id="your-garden" className="font-serif text-[2rem] sm:text-[2.6rem] text-earth leading-[1.05] tracking-[-0.015em] max-w-[16ch]">
-                Make it your garden
-              </h2>
-              <p className="mt-4 text-[17px] text-earth-light leading-relaxed max-w-[40ch]">
-                Put in your postcode and this page works from your own frosts, your own ten years of
-                weather, and tonight&apos;s sky where you are.
-              </p>
-            </div>
-            <div>
-              <PlantingTool answerOnly />
-            </div>
-          </div>
-        </section>
-
-        <WateringNote initialDateIso={now.toISOString()} />
-
-        {/* The weather panel: your place, your frost, the week's sky */}
-        <section id="your-weather" className="px-6 sm:px-10 lg:px-16 pt-14 sm:pt-20" aria-label="This week's weather on your plot">
-          <div className="max-w-5xl mx-auto">
-            <PlotStamp />
-            <WeatherCommandCenter />
-          </div>
-        </section>
-
-        {/* Midsummer moment — self-gates to the week around the solstice */}
-        <LongestDayBand />
-
         {/* This week: the jobs, photo-led, lead job first */}
-        <section id="this-week" className="px-6 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-16 sm:pb-20 scroll-mt-20" aria-labelledby="this-week-heading">
+        <section id="this-week" className="px-6 sm:px-10 lg:px-16 pt-14 sm:pt-20 pb-14 sm:pb-16 scroll-mt-20" aria-labelledby="this-week-heading">
           <div className="max-w-5xl mx-auto">
-            <h2 id="this-week-heading" className="font-serif text-[3rem] sm:text-[4.5rem] text-earth leading-[0.95] tracking-[-0.025em]">
+            {/* The hero already says "What to sow this week" with the date: the
+                heading stays for screen readers, not repeated on screen. */}
+            <h2 id="this-week-heading" className="sr-only">
               This week
             </h2>
-            <p className="mt-4 text-[17px] text-earth-light leading-relaxed max-w-[52ch]">
-              For the week of {dateline.split(" ").slice(1).join(" ")}, on the UK average. Your
-              postcode, above, tunes it to your garden.
+            <p className="text-[17px] text-earth-light leading-relaxed max-w-[52ch]">
+              Dates here are for the UK as a whole. Your postcode, just below, makes them yours.
             </p>
 
             {/* Blight warning — only renders when the Hutton risk is high */}
@@ -274,7 +244,7 @@ export default function Home() {
               </div>
             )}
 
-            <p className="mt-14 text-[17px] text-earth-light leading-relaxed max-w-[60ch]">
+            <p className="mt-10 text-[17px] text-earth-light leading-relaxed max-w-[60ch]">
               <Link href={`/sow/${currentMonthSlug}`} className={ilink}>
                 Everything for {currentMonthName}
               </Link>
@@ -302,25 +272,51 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Your garden: the postcode, and the Answer it becomes */}
+        <section className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16 border-t border-earth/10" aria-labelledby="your-garden">
+          <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-14 items-start">
+            <div>
+              <h2 id="your-garden" className="font-serif text-[2rem] sm:text-[2.6rem] text-earth leading-[1.05] tracking-[-0.015em] max-w-[16ch]">
+                Make it your garden
+              </h2>
+              <p className="mt-4 text-[17px] text-earth-light leading-relaxed max-w-[40ch]">
+                Put in your postcode and this page works from your own frosts, your own ten years of
+                weather, and tonight&apos;s sky where you are.
+              </p>
+            </div>
+            <div>
+              <PlantingTool answerOnly />
+            </div>
+          </div>
+        </section>
+
+        <WateringNote initialDateIso={now.toISOString()}>
+          <PlotStamp quiet />
+          <WeatherCommandCenter embedded />
+        </WateringNote>
+
+        {/* Midsummer moment — self-gates to the week around the solstice */}
+        <LongestDayBand />
+
         {/* Shop the season — the month's kit edit, funnels to the Sow page */}
-        <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 bg-sage/30" aria-label="Kit for the month">
+        <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 bg-sage/30" aria-label="Kit for the month">
           <div className="max-w-5xl mx-auto">
             <SeasonalKitEdit variant="teaser" month={seasonal.monthIndex} />
           </div>
         </section>
 
-        {/* Editor's Note — Kate's letter from the plot */}
+        {/* The note from the plot */}
         <EditorNote />
 
         {/* The shed fund — affiliate as editorial recommendation */}
-        <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 border-t border-earth/10" aria-label="The shed fund">
+        <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-t border-earth/10" aria-label="The shed fund">
           <div className="max-w-5xl mx-auto">
             <ShedFund />
           </div>
         </section>
 
         {/* Common questions — the FAQ, quiet and open on tap */}
-        <section id="common-questions" className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 scroll-mt-20 border-t border-earth/10" aria-labelledby="faq-heading">
+        <section id="common-questions" className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 scroll-mt-20 border-t border-earth/10" aria-labelledby="faq-heading">
           <div className="max-w-3xl mx-auto">
             <h2 id="faq-heading" className="font-serif text-[2rem] sm:text-[2.6rem] text-earth tracking-[-0.015em] mb-8">
               Common questions

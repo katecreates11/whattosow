@@ -67,7 +67,7 @@ function MoonGlyph({ phase }: { phase: number }) {
   );
 }
 
-export default function WeatherCommandCenter() {
+export default function WeatherCommandCenter({ embedded = false }: { embedded?: boolean } = {}) {
   const [wx, setWx] = useState<WX | null>(null);
   const [sky, setSky] = useState<Sky | null>(null);
   const [located, setLocated] = useState(false);
@@ -108,6 +108,25 @@ export default function WeatherCommandCenter() {
     sky ? `sunset ${sky.sunset}` : null,
     sky ? `${sky.daylight} daylight` : null,
   ].filter(Boolean);
+
+  if (embedded) {
+    // Inside tonight's note: no loading line, no second postcode prompt.
+    return (
+      <div className="mt-8 border-t border-earth/15 pt-6" aria-live="polite">
+        {wx && sky && (
+          <p className="font-serif text-earth text-[1.2rem] sm:text-[1.35rem] leading-snug max-w-[44ch]">
+            {weatherLine(wx.temp, wx.code, sky.sunset)}
+          </p>
+        )}
+        <div className={`${wx && sky ? "mt-4 " : ""}flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[12px] text-earth-light`}>
+          {metricLine.length > 0 && <span>{metricLine.join(" · ")}</span>}
+          <span className="inline-flex items-center gap-2 text-allotment">
+            <MoonGlyph phase={moon.phase} /> {moon.name.toLowerCase()} &middot; {Math.round(moon.illumination * 100)}%
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="border-y border-earth/15 py-7 sm:py-8" aria-live="polite">

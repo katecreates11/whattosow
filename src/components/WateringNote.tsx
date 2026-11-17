@@ -13,6 +13,8 @@ import {
 
 interface WateringNoteProps {
   initialDateIso: string;
+  /** Rendered under the sentence: the sky panel, so tonight is one block. */
+  children?: React.ReactNode;
 }
 
 interface NoteState {
@@ -53,7 +55,7 @@ function footnoteFor(state: WateringNoteState, weather: WateringWeather | null):
   return parts.length > 0 ? parts.join(" · ") : fallback;
 }
 
-export default function WateringNote({ initialDateIso }: WateringNoteProps) {
+export default function WateringNote({ initialDateIso, children }: WateringNoteProps) {
   const initialDate = useMemo(() => new Date(initialDateIso), [initialDateIso]);
   const initialState = getWateringNoteState(null, initialDate);
   const [note, setNote] = useState<NoteState>({
@@ -118,9 +120,13 @@ export default function WateringNote({ initialDateIso }: WateringNoteProps) {
         <p className="mt-3 font-serif text-[1.75rem] sm:text-[2.35rem] text-earth leading-[1.2] tracking-[-0.01em] max-w-[30ch]">
           {copy.sentence}
         </p>
-        <p className="mt-5 font-mono text-[12px] text-earth-lighter">
-          {footnoteFor(note.state, note.weather)}
-        </p>
+        {/* Only the measured footnote: the fallback line repeats the sentence. */}
+        {note.weather && (
+          <p className="mt-5 font-mono text-[12px] text-earth-lighter">
+            {footnoteFor(note.state, note.weather)}
+          </p>
+        )}
+        {children}
       </div>
     </section>
   );

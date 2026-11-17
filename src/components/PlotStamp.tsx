@@ -9,7 +9,7 @@ import { calculateLastFrostDate, formatDateShort } from "@/lib/frost";
  * grower's place + their own last-frost date (from their saved postcode), or a
  * gentle prompt to enter one. Client-side so it reflects the visitor's plot.
  */
-export default function PlotStamp() {
+export default function PlotStamp({ quiet = false }: { quiet?: boolean } = {}) {
   const [place, setPlace] = useState<string | null>(null);
   const [frost, setFrost] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
@@ -30,6 +30,16 @@ export default function PlotStamp() {
     window.addEventListener("whattosow:location-updated", update);
     return () => window.removeEventListener("whattosow:location-updated", update);
   }, []);
+
+  if (quiet) {
+    // Homepage: only when it knows the plot; the postcode box is just above.
+    if (!(ready && place && frost)) return null;
+    return (
+      <p className="mt-4 text-[15px] text-earth-light">
+        Your last frost is usually around {frost}.
+      </p>
+    );
+  }
 
   if (ready && place) {
     return (
