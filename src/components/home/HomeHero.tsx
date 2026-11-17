@@ -59,14 +59,14 @@ export default function HomeHero({ monthIndex, dateline, daylight }: { monthInde
           className="object-cover object-[50%_60%] img-grade"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[#1b1611]/85 via-[#1b1611]/25 to-[#1b1611]/10"
+          className="absolute inset-0 bg-gradient-to-t from-[#1b1611]/85 via-[#1b1611]/30 to-[#1b1611]/35"
           aria-hidden="true"
         />
         <div className="absolute inset-x-0 bottom-0 px-6 sm:px-10 lg:px-16 pb-9 sm:pb-14">
           <div className="max-w-6xl mx-auto home-rise">
             <p className="text-[15px] sm:text-base text-white/85">
               {dateline}
-              <span className="text-white/55"> &middot; {daylight} of daylight</span>
+              <span className="text-white/70"> &middot; {daylight} of daylight</span>
             </p>
             <h1
               id="home-title"
@@ -76,7 +76,7 @@ export default function HomeHero({ monthIndex, dateline, daylight }: { monthInde
             </h1>
           </div>
         </div>
-        <p className="absolute right-4 top-4 sm:right-6 sm:top-5 font-serif italic text-[13px] sm:text-sm text-white/80">
+        <p className="absolute right-4 top-4 sm:right-6 sm:top-5 font-serif italic text-[13px] sm:text-sm text-white/90 [text-shadow:0_1px_6px_rgba(0,0,0,.55)]">
           {photo.caption}, on our plot
         </p>
       </div>
