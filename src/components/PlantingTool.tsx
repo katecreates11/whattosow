@@ -620,15 +620,13 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
                 data-umami-event="postcode-search"
                 className="px-6 py-3 bg-allotment text-white font-semibold rounded-xl hover:bg-allotment-dark focus:outline-none focus:ring-2 focus:ring-allotment focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-50 transition-colors text-base whitespace-nowrap"
               >
-                {loading ? "Checking…" : "Go"}
+                {loading ? "Checking…" : "Show me"}
               </button>
             </div>
             {error && (
               <p className="mt-2 text-sm text-tomato" role="alert">{error}</p>
             )}
-            <p className="mt-3 font-mono text-[10px] tracking-[0.08em] text-earth-lighter">
-              we&apos;ll work out your frosts, your season, and what makes sense tonight
-            </p>
+
             {loading && (
               <p className="mt-2 text-sm font-serif italic text-earth-light" aria-live="polite">
                 reading your sky… checking your frosts…
@@ -638,17 +636,10 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
 
           {/* Sample result preview for first-time visitors */}
           {!frostData && (
-            <div className="max-w-md mx-auto lg:mx-0 mt-4">
-              <div className="flex items-center gap-3 px-4 py-3 border border-white/10">
-                <svg className="w-4 h-4 shrink-0 text-leaf-light/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                <span className="text-sm text-white/85">
-                  e.g. <span className="text-white font-medium">Bristol</span> — last frost 18 Apr &middot; 179-day growing season
-                </span>
-              </div>
-            </div>
+            <p className="max-w-md mx-auto lg:mx-0 mt-4 text-[15px] leading-relaxed text-earth-light">
+              For example, <span className="text-earth">Bristol</span>: last frost around 18 April, and a
+              179-day growing season.
+            </p>
           )}
         </div>
       ) : frostData ? (

@@ -28,6 +28,11 @@ function placeLabel(place: string | null | undefined): string {
   return cleaned ? cleaned.toUpperCase() : DEFAULT_PLACE;
 }
 
+/** "BARNET" → "Barnet"; "HIGH PEAK" → "High Peak". */
+function titleCase(place: string): string {
+  return place.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 function formatAmount(value: number | undefined, suffix: string): string | null {
   if (value == null) return null;
   return `${value}${suffix}`;
@@ -102,26 +107,19 @@ export default function WateringNote({ initialDateIso }: WateringNoteProps) {
 
   return (
     <section
-      className="px-6 sm:px-10 lg:px-16 py-8 sm:py-10 border-y border-earth/10 bg-ochre/40"
+      className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 bg-ochre/45"
       aria-labelledby="watering-note-heading"
       data-watering-note={note.state}
     >
-      <div className="max-w-4xl mx-auto relative pl-5 sm:pl-7">
-        <span className="absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-amber" aria-hidden="true" />
-        <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-allotment mb-3">
-          TONIGHT&apos;S WATERING · {note.place}
-        </p>
-        <h2 id="watering-note-heading" className="sr-only">
-          Tonight&apos;s watering note
+      <div className="max-w-5xl mx-auto">
+        <h2 id="watering-note-heading" className="text-[15px] text-earth-light">
+          Tonight{note.place === DEFAULT_PLACE ? ", in the middle of the country" : ` in ${titleCase(note.place)}`}
         </h2>
-        <p className="font-serif text-xl sm:text-2xl text-earth leading-snug max-w-[38ch]">
+        <p className="mt-3 font-serif text-[1.75rem] sm:text-[2.35rem] text-earth leading-[1.2] tracking-[-0.01em] max-w-[30ch]">
           {copy.sentence}
         </p>
-        <p className="mt-4 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-earth-lighter">
+        <p className="mt-5 font-mono text-[12px] text-earth-lighter">
           {footnoteFor(note.state, note.weather)}
-        </p>
-        <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-earth-lighter">
-          &mdash; pinned to the shed door
         </p>
       </div>
     </section>

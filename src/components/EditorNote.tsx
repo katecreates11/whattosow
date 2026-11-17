@@ -1,17 +1,31 @@
+import Image from "next/image";
 import { editorNote } from "@/data/editor-note";
 
+/**
+ * Kate's note from the plot: the most human thing on the front page, so it is
+ * set like a letter, in her words, signed with her name.
+ */
 export default function EditorNote() {
   return (
-    <aside className="px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="border-l-2 border-[#003b44] pl-6 sm:pl-8 max-w-2xl">
-          <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#003b44]/40 mb-4">
-            Editor&apos;s Note — {editorNote.date}
-          </p>
-          <p className="text-[#003b44]/80 text-base sm:text-lg leading-relaxed">
+    <aside className="px-6 sm:px-10 lg:px-16 py-20 sm:py-28" aria-labelledby="editor-note-heading">
+      <div className="max-w-5xl mx-auto grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] md:gap-16 items-start">
+        <div className="relative aspect-[4/5] overflow-hidden md:sticky md:top-24">
+          <Image
+            src="/photos/blog/plot-early-spring.webp"
+            alt="Kate's allotment beds, dug and planted, early in the year"
+            fill
+            sizes="(max-width: 768px) 100vw, 380px"
+            className="object-cover img-grade"
+          />
+        </div>
+        <div>
+          <h2 id="editor-note-heading" className="text-[15px] text-earth-light">
+            From the plot &middot; {editorNote.date}
+          </h2>
+          <p className="mt-5 font-serif text-[1.35rem] sm:text-[1.6rem] leading-[1.45] text-earth max-w-[34ch] sm:max-w-[38ch]">
             {editorNote.text}
           </p>
-          <p className="mt-4 font-serif italic text-[#003b44]/50 text-sm">— K</p>
+          <p className="mt-8 font-serif italic text-[2rem] leading-none text-allotment">Kate</p>
         </div>
       </div>
     </aside>

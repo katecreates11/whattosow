@@ -12,21 +12,20 @@ export default function ShedFund() {
         <p className="font-serif text-2xl sm:text-3xl md:text-[38px] leading-[1.18] tracking-tight text-earth max-w-[18ch] mb-5">
           Somewhere to keep the tools dry, and make tea in the rain.
         </p>
-        <p className="text-earth-light max-w-[48ch] mb-4 leading-relaxed">
+        <p className="text-[17px] text-earth-light max-w-[46ch] leading-relaxed">
           Everything here is free. If you buy seeds or kit through our links, a little goes towards a
-          proper shed for the allotment &mdash; no ads, just the things we actually use, honestly told.
-        </p>
-        <p className="font-serif italic text-earth-light max-w-[48ch] leading-relaxed">
-          That&apos;s the whole plan: every link is a small step towards a dry place to sit out the rain.
+          proper shed for the allotment. No ads, just the things we actually use, honestly told.
         </p>
 
-        <a
-          href="/guides"
-          data-umami-event="shed-kit-click"
-          className="inline-block mt-6 font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
-        >
-          Browse the kit we actually use &rarr;
-        </a>
+        <p className="mt-6 text-[17px]">
+          <a
+            href="/guides"
+            data-umami-event="shed-kit-click"
+            className="text-allotment underline decoration-allotment/30 underline-offset-4 hover:decoration-allotment"
+          >
+            The kit we actually use
+          </a>
+        </p>
       </div>
 
       <div className="relative">
@@ -39,7 +38,7 @@ export default function ShedFund() {
           className="w-full h-auto img-grade"
         />
         <span className="absolute -bottom-3 right-1.5 font-serif italic text-[15px] text-allotment bg-cream px-3 py-1">
-          our dream shed
+          the shed we&apos;re saving for
         </span>
       </div>
     </div>

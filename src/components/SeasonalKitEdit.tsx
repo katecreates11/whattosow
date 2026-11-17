@@ -37,41 +37,34 @@ export default function SeasonalKitEdit({
     return (
       <div className="grid md:grid-cols-[1fr_0.82fr] gap-8 md:gap-12 items-center">
         <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-allotment">
-            The {edit.month} edit
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-earth tracking-tight leading-[0.98] mt-3 mb-4 max-w-[20ch]">
+          <p className="text-[15px] text-earth-light">{`The ${edit.month} kit`}</p>
+          <h2 className="font-serif text-[2.2rem] sm:text-[2.8rem] text-earth tracking-[-0.015em] leading-[1.02] mt-2 mb-5 max-w-[16ch]">
             Kit for the jobs ahead
           </h2>
-          <p className="font-serif text-lg text-earth-light leading-relaxed max-w-[52ch] mb-6">
+          <p className="font-serif text-[1.2rem] text-earth-light leading-relaxed max-w-[48ch]">
             {edit.intro}
           </p>
-          <ul className="flex flex-wrap gap-x-2 gap-y-2 mb-7">
-            {products.map((p) => (
-              <li
-                key={p.id}
-                className="font-mono text-[11px] uppercase tracking-[0.06em] text-earth-light border border-earth/15 px-3 py-1.5"
-              >
-                {p.name}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/sow#kit"
-            data-umami-event="shop-season-teaser-click"
-            className="font-serif italic text-lg text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors"
-          >
-            See the {edit.month} edit &amp; what to sow now &rarr;
-          </Link>
-          <p className="mt-5 pt-5 border-t border-earth/10 text-sm text-earth-light max-w-[52ch]">
+          <p className="mt-5 text-[15px] text-earth-light leading-relaxed max-w-[52ch]">
+            {`This month: ${products.map((p) => p.name).join(", ")}.`}
+          </p>
+          <p className="mt-6 text-[17px]">
+            <Link
+              href="/sow#kit"
+              data-umami-event="shop-season-teaser-click"
+              className="text-allotment underline decoration-allotment/30 underline-offset-4 hover:decoration-allotment"
+            >
+              {`The ${edit.month} kit, and what to sow now`}
+            </Link>
+          </p>
+          <p className="mt-5 pt-5 border-t border-earth/10 text-[15px] text-earth-light max-w-[52ch] leading-relaxed">
             {guide.hook}{" "}
             <Link
               href={guide.href}
               data-umami-event="seasonal-buying-guide-click"
               data-umami-event-product={guide.label}
-              className="font-serif italic text-allotment border-b border-amber pb-0.5 hover:text-allotment-dark transition-colors whitespace-nowrap"
+              className="text-allotment underline decoration-allotment/30 underline-offset-4 hover:decoration-allotment"
             >
-              {guide.label} &rarr;
+              {guide.label}
             </Link>
           </p>
         </div>
