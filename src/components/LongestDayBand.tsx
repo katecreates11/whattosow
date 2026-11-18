@@ -59,7 +59,7 @@ export default function LongestDayBand() {
               {!view.place && (
                 <>
                   {" "}
-                  <a href="#main-content" className="text-rust underline decoration-rust/30 hover:text-earth transition-colors">
+                  <a href="#postcode" className="text-rust underline decoration-rust/30 hover:text-earth transition-colors">
                     Add your postcode
                   </a>{" "}
                   for your own.

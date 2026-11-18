@@ -54,7 +54,7 @@ export default function PlotStamp({ quiet = false }: { quiet?: boolean } = {}) {
       <div className="font-serif italic text-lg text-allotment mb-2">
         today on your veg patch &mdash;{" "}
         <a
-          href="#main-content"
+          href="/#postcode"
           className="not-italic font-mono text-[12px] uppercase tracking-[0.08em] border-b border-amber pb-0.5"
         >
           enter your postcode to tune it to your veg beds

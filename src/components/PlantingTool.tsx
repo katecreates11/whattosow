@@ -607,6 +607,7 @@ export default function PlantingTool({ hideCropList, answerOnly = false }: Plant
               <input
                 id="postcode"
                 type="text"
+                style={{ scrollMarginTop: "8rem" }}
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value.toUpperCase())}
                 placeholder="e.g. SW1A 1AA"

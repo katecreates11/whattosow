@@ -84,7 +84,7 @@ export default function StickyPostcodeCTA() {
         </p>
         <div className="flex items-center gap-3 shrink-0">
           <a
-            href="#main-content"
+            href="#postcode"
             className="text-xs font-semibold tracking-wide uppercase bg-white text-allotment-dark px-4 py-2 hover:bg-leaf-bg transition-colors duration-300"
           >
             Enter postcode
