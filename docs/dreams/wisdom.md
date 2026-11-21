@@ -1,219 +1,215 @@
 # The Crew's Memory — Wisdom
 
 _Consolidated weekly by The Dreamer. Bounded to ~400 lines — prune, don't grow._
-_Last consolidated: 2026-11-14 (week 18)._
+_Last consolidated: 2026-11-21 (week 19)._
 
-**Status, before any taste theory:** **96 days** since the last Potting
-Bench decision (card 21, 10 August) — the **fourteenth** silent week
-running. **PR #3 at 101 days**, still zero reviews, zero human comments.
-But `main` moved for the first time in 23 days on **11 November** — and
-not quietly: it fixed five of the SEO Watchdog's top-ranked FIX NOW items,
-in the report's own order, one day after that report landed. This is the
-best news this memory has had in three months, and it changes the shape
-of the "nothing reaches Kate" theory rather than confirming it. See §1 and
-§5.
+**Status, before any taste theory:** **103 days** since the last Potting
+Bench decision (card 21, 10 August) — the **fifteenth** silent week
+running. **PR #3 at 108 days**, still zero reviews. But `main` didn't stop
+at last week's five-item fix: between 16–17 November it took **fourteen
+more commits** — a whole weather/frost feature, a full affiliate-revenue
+audit, and a 511-link bug fix bigger than anything the crew has ever
+flagged. Kate's own direct engineering is no longer an exception to the
+freeze; this week it's the main event, and it's teaching this memory more
+than the crew's own branches are. See §1.
 
 ---
 
 ## 1. Kate's taste
 
-_Still no new Bench decision for the fourteenth week running — the rules
-below about content/feature taste are retested by nothing new this week.
-Dates and confidence carried forward unchanged unless noted. One genuinely
-new kind of evidence arrived this week, scored under its own heading
-below rather than folded into the untested taste rules._
+_Still no new Bench decision for the fifteenth week running. Taste rules
+below are carried forward unchanged unless noted — but this week's `main`
+activity is rich enough to revise two live theories and add one new one._
 
-### NEW THIS WEEK: the freeze has a channel that works — a flat, ranked, line-item checklist, not a review or a draft
-- **Confidence:** medium, n=1 but a clean one. On 11 November, `main`
-  moved for the first time since 19 October. The fix (`3060827`, "Batch
-  A") resolved the SEO Watchdog's FIX NOW items #1–#5 from the 10
-  November report (`seo/2026-11-10`) — in that exact rank order:
-  `/grow-your-christmas-dinner` linked from the homepage/`/sow`/the
-  autumn-winter guide; the duplicate homepage H1 fixed; `/kit`'s canonical
-  corrected; `/privacy` added to the sitemap; `/admin` disallowed in
-  robots. One day's turnaround, on the exact items a report ranked highest,
-  is too clean to be coincidence — whether Kate read that branch directly
-  or a session of hers found the same five issues independently, the
-  shape of what got fixed matches a checklist, not a narrative. Contrast
-  with the two channels that have had eighteen-plus silent weeks each: a
-  PR asking for review (PR #3) and a long/short prose email (both Gmail
-  draft formats, see §5). The working channel so far has one property the
-  other two don't: no judgement call, just a yes/no per line.
-- **Evidence:** `3060827` vs `seo/2026-11-10`, direct comparison above.
+### REVISED — last week's "the freeze has a working channel: any flat checklist" theory was too broad; narrow it
+- **Confidence:** medium (down from the "strongest lead this quarter"
+  framing last week). The 11 November fix did match the SEO Watchdog's
+  checklist, in order — that evidence still stands. But this week supplies
+  a clean counter-case: the Groundskeeper's dead-Sarah-Raven-links finding
+  is the same shape (flat, ranked, one-line-per-item, file-and-line named)
+  and has been sitting on crew branches since **August**, repeated in at
+  least four separate weekly reports, including this week's — and it is
+  still unfixed. Two checklists, same shape, opposite outcomes. The
+  difference isn't format. It's that the SEO fix landed inside work Kate's
+  own session was already doing on that exact area (the November SEO/money
+  push); the Sarah Raven fix lives only on a branch nobody's session has
+  opened. Revised rule: **a finding gets acted on when it falls inside
+  work Kate (or her session) is already doing, not because it's shaped as
+  a checklist.** Format may still help once something's in front of her;
+  it doesn't get it in front of her.
+- **Evidence:** `3060827` fixed SEO items #1–#5 same week as a matching SEO
+  push; the Sarah Raven links (flagged 10 Aug, repeated ~9 Nov, repeated
+  again 16 Nov in `groundskeeper/2026-11-16`, now a *fourth* consecutive
+  report) remain unfixed despite being individually smaller and simpler
+  than anything in Batch A.
 
-### UNCHANGED, now strengthened: Kate acts directly and fast on clear technical bugs, even during a total content-decision freeze
-- **Confidence:** high (upgraded from medium). Now n=4: 3 September, 7
-  September, 19 October, 11 November. Every instance is Kate (or a Claude
-  Code session of hers) committing straight to `main`, never through a
-  crew branch. 11 November is the strongest instance yet — see above.
+### STRENGTHENED — Kate's own direct sessions are the primary active channel on this project, not a side exception
+- **Confidence:** high, n=6+. 3 Sep, 7 Sep, 19 Oct, 11 Nov, then a
+  fourteen-commit burst 16–17 Nov: a full weather/frost-date feature
+  (`weather-brain-2026-11.md`), a Phase 12 affiliate-revenue audit that
+  found and fixed **511 broken Thompson & Morgan links across 253 pages**
+  (wrong URL pattern — far bigger than any single finding the crew's
+  Groundskeeper has produced in nineteen weeks), a wrong US-visitor
+  redirect, a `.com` duplicate, month pages rebuilt as listings, a new
+  windowsill-microgreens guide, and a date-engine unification. None of
+  this touched `docs/ideas-board.md` or any crew branch. This is now the
+  dominant mode this memory should assume, not a footnote to "the freeze."
 
-### Feature ideas that extend the calculator DNA land easily
-- **Confidence:** high. Historically confirmed across every batch that
-  reached a decision (Glut-o-meter, "Every Drop," the green-manure
-  picker). Zero rejections to date. No new decision this week to test it
-  further — cards 82 and 88 are the latest pitches in this shape, both
-  still undecided — but this isn't being decayed: it's frozen by the
-  Bench freeze, not unsupported.
+### NEW — real analytics now back the monetisation rulebook's oldest, least-tested rule
+- **Confidence:** high (upgraded from "theoretical"). Phase 12's numbers:
+  buying guides convert at 23.7% of UK visits (compost bins 35%) against
+  2–6% everywhere else; in-flow/comparison-table links outsell rail links,
+  exactly as the monetisation rulebook predicted on no data at all; Amazon
+  *search* links barely sell (15 of 16 Amazon sales were not the searched
+  item); postcode-entering readers click 5.7% vs 3.4%. First real evidence
+  for a rule this memory has been citing on instinct since week 1.
 
-### Dreamt scope-additions to already-pitched or already-built cards are the crew's single most reliable move
-- **Confidence:** high, historical (6/6 on cards 10, 11, 12, 16, 20, 21).
-  Untested by an actual decision since 10 August — twenty-eight
-  promotions now sit undecided (adding cards 90–91 this week). Same
-  frozen-not-decayed treatment as above: the record is real, just stale.
+### NEW CONNECTION — the SEO Watchdog may be chasing the wrong search engine
+- **Confidence:** medium, one data point but a striking one. Phase 12's
+  traffic breakdown: UK sessions by source are DuckDuckGo 1,509 · Bing
+  1,074 · Google 1,053 · Ecosia 555 · Yahoo 364 — Google is *third*, not
+  first. The SEO Watchdog's own 17 November report calls its indexing
+  section "the weakest part of this report" for lack of Search Console
+  access, and has spent nineteen weeks assuming Google is the audience.
+  Worth the next SEO Watchdog run reading Phase 12 before writing another
+  Google-indexing section.
 
-### Independently-converged pitches (2+ blind sources, same gap) deserve priority when decisions resume
-- **Confidence:** high. Rhubarb forcing (card 49) is a confirmed four-way
-  convergence (two Forager runs, one Forager feature idea, one SEO
-  Watchdog finding, from three separate evidence bases). No fifth
-  instance this week. If one card on the whole board gets decided first,
-  this is still the one with the strongest evidence behind it.
+### UNCHANGED — Forager runs that branch from the latest `dreams/*` branch produce clean, non-duplicate pitches
+- **Confidence:** high, now n=3. The 15 November run (cards 92–95)
+  branched from `dreams/2026-11-14` for a third straight time, two of
+  those times by explicit instruction, and again produced zero duplicates
+  against all ~17 existing pitch families. This is the single most
+  reliable mechanical finding in the whole memory.
 
-### A Forager run that branches from the latest `dreams/*` branch instead of `main` produces clean, non-duplicate pitches
-- **Confidence:** high, strengthened to n=3. The 1 November run did this
-  unprompted; the 8 November run did it explicitly because card 85 named
-  it — and also produced zero duplicates and avoided every one of the
-  seventeen-ish families already on the board (bare-root, Christmas,
-  frost-countdown, giant-veg, bonfire, rhubarb-forcing, storage,
-  fruit-pruning, greenhouse-insulation, hosepipe-ban, tender-plant,
-  spring-bulb, companion-planting, seed-saving, sweet-pea, leaf-mould,
-  apple-ripeness). Two clean runs out of two since this was first spotted;
-  the "naming in wisdom.md works" theory it replaced is still retired (see
-  the 25 October miss), but pointing a run at the right *branch*, whether
-  by instruction or by its own initiative, keeps working.
-
-### DECAYING — no supporting evidence in 15+ weeks, downgraded this week
-- **An approval note asking for a specific tie-in gets built exactly as
-  asked.** medium → low. Still n=1 (PR #1 / `ColdSnapNote`, mid-July).
-- **Content near an already-monetised hub gets an explicit revenue
-  instruction.** medium → low. Still n=1 (card 1's note, 11 July).
-- **Don't pitch content whose premise fights the site's own affiliate
-  mix.** medium → low. Still n=1 (parked veg seed-saving, card 3).
-- **The Night Gardener defers undefined technical/design calls rather
-  than guessing.** medium → low. Still n=1 (PR #1).
-  These four were never contradicted — they're just single data points
-  that have had no chance to be retested for nearly four months, because
-  nothing with a decision attached to it has moved. Worth a look if a
-  second instance ever turns up; not worth citing as medium-confidence
-  taste until then.
-
-### "Parked" can mean "not now, sequencing" rather than "no"
-- **Confidence:** high, unchanged. No new evidence; nothing contradicts it.
+### UNCHANGED — the rest of the frozen taste rules
+Feature ideas extending the calculator DNA (Glut-o-meter, "Every Drop," the
+green-manure picker) land easily, zero rejections to date; dreamt
+scope-additions to already-pitched/built cards are 6/6 historically;
+independently-converged pitches (rhubarb forcing, card 49, still a
+confirmed four-way convergence, now with chicory-forcing — card 94 — making
+a third unrelated sighting of the same "deny a dormant thing light or
+warmth" mechanic, see §season); "parked" still means "not now," never
+re-pitched. All untested by an actual decision for fifteen weeks; none
+contradicted. Four single-instance rules from July (approval notes built
+exactly as asked; revenue instructions near a monetised hub; affiliate-mix
+pitch avoidance; Night Gardener deferring undefined calls) have now had
+zero retest opportunity for four months — kept as low-confidence footnotes
+rather than written out in full again; see week 18 for their original
+evidence if they ever resurface.
 
 ---
 
 ## 2. What works
 
-- **The Potting Bench as the decision surface.** High confidence in
-  principle; untested in practice for 96 days.
-- **A flat, ranked, one-line-per-item checklist gets acted on fast.**
-  New this week, n=1 — see §1. The strongest lead this memory has had on
-  the "why doesn't anything land" question.
-- **Dreamt scope-additions to unbuilt or already-live cards get
-  approved.** 6/6 historically; twenty-eight more pitched since, none
-  yet retested.
-- **Report-writing agents checking their own prior weeks' sampling and
-  retracting stale claims.** The Groundskeeper and SEO Watchdog keep
-  self-correcting (e.g. this week's Groundskeeper distinguishing a
-  genuine 403 bot-wall from a real dead link) even though the merge gap
-  doesn't close.
-- **The Night Gardener's repair path applies only to a stale *approved*
-  PR, not one still waiting on its first review.** Confirmed again — PR
-  #3 is the latter case, working as designed, now at 101 days.
-- **A Forager run on the right branch produces clean pitches.** See §1,
-  n=3.
+- **Kate's own direct engineering sessions.** The real channel, confirmed
+  again this week at far greater scale than any crew branch has ever
+  produced. See §1.
+- **Work that falls inside whatever Kate's session is already focused on**
+  gets fixed fast, whatever its format. Work that sits only on a crew
+  branch doesn't, whatever its format. (Narrows last week's "checklists
+  work" claim — see §1.)
+- **In-flow/buying-guide monetisation over rail placement.** Now backed by
+  real numbers, not just the rulebook's instinct.
+- **A Forager run on the `dreams/*` branch produces clean pitches.** n=3.
+- **Report-writing agents self-correcting their own prior sampling** — the
+  Groundskeeper again distinguished a 403 bot-wall from a real 404 this
+  week, cleanly, for at least the third week running.
+- **The Potting Bench as the decision surface, in principle.** Untested in
+  practice for 103 days.
 
 ---
 
-## 3. Self-score (against the 2026-11-07 dream)
+## 3. Self-score (against the 2026-11-14 dream)
 
-One scoreable call: would card 85 (point future runs at the latest
-`dreams/*` branch) get followed? **Hit, though confounded** — the 8
-November run followed it explicitly and named card 85 in its own commit
-note. But the 1 November run had already done the same thing unprompted,
-so this isn't clean proof the written instruction is what's doing the
-work rather than whatever made the 1 November run reliable in the first
-place. Recorded as a hit, not a strong one.
+**Hit, n=3:** card 85's instruction (branch future runs from `dreams/*`)
+was followed a third time, 15 November, without even needing to be
+re-named this week — it's becoming habit rather than a one-off compliance.
 
-One framing to correct, not a clean miss: last week's dream said
-"nothing in this system has reached you in three months through any
-channel it controls." That held for the Potting Bench, PR #3 and all
-eighteen Gmail drafts — but something else reached Kate four days later,
-just not through anything this memory or the crew's branches control.
-The honest correction: the freeze is real and specific to the channels
-this memory has been testing (drafts, PR review, the Bench), not a
-blanket statement about Kate's attention. She is still here, still
-fixing things, just through her own sessions and on her own schedule.
-That's a better, more hopeful diagnosis than "nothing reaches her" — and
-it points at what might actually work (§1), rather than only at what
-doesn't.
+**Downgrade, not a clean miss:** last week's dream treated "a flat
+checklist gets acted on" as the strongest lead of the quarter on n=1. This
+week supplied a same-shape counter-example (Sarah Raven links, unfixed a
+fourth time) that the dream didn't anticipate and couldn't have, on the
+evidence it had. The honest correction is in §1 — it isn't the format,
+it's whether the finding sits inside work already underway. Recorded as a
+theory correction, not a prediction failure, since nothing last week
+committed to a falsifiable claim beyond "format, not channel, might be
+the variable" — but worth being more cautious next time before calling
+n=1 the strongest lead of the quarter.
 
-No Bench decision to score taste against — the fourteenth week running
-with nothing to test it on. See `scoreboard.md`.
+**Not yet scoreable:** card 90 (link rhubarb/bulb forcing once built) and
+card 91 (checklist PR #3) — neither has had anything built or touched to
+score against. Carried forward.
+
+See `scoreboard.md` for this week's row.
 
 ---
 
 ## 4. Season note
 
-14 November, UK. Christmas is 41 days out; `/grow-your-christmas-dinner`
-is no longer orphaned as of 11 November — the single most time-sensitive
-SEO finding of the autumn is now fixed, three days before this dream.
-Rhubarb forcing (card 49) and bulb forcing for Christmas (card 87) are
-both live, open seasonal windows right now — see card 90, promoted this
-week. The bare-root family, the storage family, the hosepipe-ban family
-and the frost-countdown family all remain unbuilt through a fifth season
-turn.
+21 November, UK. Christmas is 34 days out. The new weather-brain feature
+(frost dates from each garden's own ten years of nights) ships just as
+frost genuinely starts to matter. Rhubarb forcing (card 49/84) and bulb
+forcing (card 87/88) remain open, undecided windows; chicory forcing (card
+94, this week's Forager pitch) makes a third independent sighting of the
+same "trick a dormant thing into growth out of season" mechanic — rhubarb,
+bulbs, now a salad crop — still nobody's connected all three, not even the
+one-sentence link already promoted (card 90) covers all three. The seed-
+potato ordering window (card 92) opens properly in January but the "order
+now" messaging season (per card 1's own precedent) starts now. The bare-
+root, storage, hosepipe-ban and frost-countdown families remain unbuilt
+through a sixth season turn.
 
 ---
 
 ## 5. Open threads
 
-- **URGENT, worsening — 96 days since any Potting Bench decision, the
-  fourteenth silent week.**
-- **URGENT, worsening — PR #3 at 101 days, confirmed zero human review.**
-  Still one comment away from unblocking cards 13, 14, 16–21 and
-  everything queued behind it since. See card 91 (new this week): try
-  describing what merging it changes as a flat checklist, the one format
-  that's actually worked this quarter.
-- **Partially resolved — the SEO Watchdog's FIX NOW list.** Items #1–#5
-  fixed directly on `main`, 11 November (see §1). Items #6–#10 (footer
-  link to `/sow-in`, guide-title suffix trim, timeless `/sow-in/[city]`
-  titles, 57 files' `keywords` arrays, missing schema on `/crops` and
-  `/sow`) are the same shape of small, low-judgement fixes and still
-  open as of the 10 November report.
-- **Eighteen "Dreamer" Gmail drafts remain unsent, back to 12 July, and
-  this week's dream adds a nineteenth** (see the note sent alongside
-  this one) **— but this week also tries a different channel alongside
-  it**, given two format experiments (long, short) have both produced an
-  identical null result on the drafts themselves. Worth watching whether
-  a channel outside Gmail does any better before trying a third wording
-  of the same email.
-- **The write-to-main gap is still structural.**
-  `chore/forager-writes-board-to-main` (12 July) remains unmerged, over
-  seventeen weeks on. `docs/ideas-board.md` on `main` itself still shows
-  only cards 1–29; cards 30–91 exist solely on branches, recovered here
-  (see the board's own recovery note).
-- **A possible silent revenue leak, still unresolved after two cycles.**
-  The Groundskeeper's reports (2 and 9 November) both found Suttons,
-  Thompson & Morgan and Dobies return 403 to automated checks — a
-  Cloudflare bot-wall, not confirmed dead links, but six specific Suttons
-  product URLs (the blight-watch tomato/potato varieties) are worth one
-  real click. Sarah Raven itself is confirmed clean (200) both weeks —
-  the "zero search results" worry raised 2 November wasn't repeated in
-  the 9 November report and should be treated as resolved/false-alarm
-  unless it recurs.
-- **Confirmed, unfixed revenue-loss items: four dead Sarah Raven product
-  links** (Uchiki Kuri squash, Genovese basil, Champagne rhubarb, French
-  Breakfast radish) — each a one-line fix in `src/data/varieties.ts`, not
-  re-checked this specific week but unresolved as of the last check that
-  was.
+- **URGENT, worsening — 103 days since any Potting Bench decision, the
+  fifteenth silent week.**
+- **URGENT, worsening — PR #3 at 108 days, confirmed zero human review.**
+  Still unblocks cards 13, 14, 16–21 and everything queued behind it. Card
+  91's checklist suggestion is unactioned and, per §1's revision, may not
+  be the fix anyway — nobody's current session is "already in" the
+  Glut-o-meter's area the way November's sessions were in SEO/money.
+- **Confirmed a fourth time, still unfixed: four dead Sarah Raven product
+  links** (`squash-uchiki-kuri`, `basil-genovese`, `rhubarb-champagne`,
+  `radishes-french-breakfast`, all in `src/data/varieties.ts`) — three
+  since August, one newly confirmed 16 November. This is now the single
+  cleanest test case left in this whole memory for the channel question in
+  §1: it is small, true, checklist-shaped, and has had four separate
+  chances to be seen. If it's still unfixed next week, that's further
+  evidence it's not about format at all.
+- **New real-money findings from Kate's own Phase 12 audit (`docs/plans/
+  affiliate-findings-2026-11.md`), decisions explicitly waiting on her:**
+  pick one real product per buying-guide row (prefer Thompson & Morgan,
+  8% convert vs Amazon's 3.4%); join a specialist merchant programme for
+  big-ticket items; decide on email capture (43 signups, capture mostly
+  off). None of these route through the crew; noted here only so this
+  memory doesn't lose track of them.
+- **The SEO Watchdog has no memory of its own prior weeks.** Its 17
+  November report opens "First watchdog run, so there's no prior report to
+  diff against" — it branched from `main`, not from the latest `dreams/*`
+  branch, unlike the Forager (§1). Worth it doing what the Forager now
+  does by habit.
+- **Eighteen-plus "Dreamer" Gmail drafts remain unopened**, back to 12
+  July; this week adds a twentieth. Two format experiments (long, short)
+  and the "something else reached her instead" correction from last week
+  both still hold: this channel has never once been the thing that worked.
+- **The write-to-main gap is still structural and now eighteen+ weeks
+  old.** `chore/forager-writes-board-to-main` remains unmerged.
+  `docs/ideas-board.md` on `main` itself still shows only cards 1–29;
+  cards 30–95 exist solely on branches, recovered here.
 - **Rhubarb forcing (card 49/84) is still the single most evidence-backed
-  undecided idea on the board** — four independent sources, still
-  waiting on a Bench session that would only need to say yes once.
+  undecided idea on the board** — now a near-five-way convergence with
+  chicory forcing (card 94) added this week.
 - The hosepipe-ban family (8, 12, 16), the Christmas cluster (4, 60, 62–64,
-  66–68 — card 4 itself now un-orphaned, see above), the bonfire-hedgehog
-  family (50, 74, 75, past their own window), the frost-countdown family
-  (30, 38) and the storage family (13, 20, 76, 77) all still await a
-  single Bench session, unbuilt, unchanged in size.
-- Card 24's overlap with 18/21/37 — still undecided. The
-  companion-planting playground / ReactGarden overlap — still parked,
-  unscheduled. The F1/heirloom affiliate-conflict check — still untested.
+  66–68, 86–89), the bonfire-hedgehog family (50, 74, 75, past their own
+  window), the frost-countdown family (30, 38), the storage family (13,
+  20, 76, 77) and the seed-potato pitch (92) all still await a single
+  Bench session. Card 24's overlap with 18/21/37 — still undecided. The
+  companion-planting playground / ReactGarden overlap — still parked. The
+  F1/heirloom affiliate-conflict check — still untested.
+- **NEW — where this memory itself sits.** Nobody's November session
+  touched `docs/dreams/` or `docs/ideas-board.md` while doing fourteen
+  commits of real work three clicks away. This memory's own channel (a
+  `dreams/*` branch) is in exactly the same unread state as the crew's
+  other four. See card 96, promoted this week.

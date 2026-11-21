@@ -1798,6 +1798,70 @@ first._
 - **Ready-to-queue brief:** not applicable — process note only.
 - **Added:** 2026-11-14 · **Run:** dream-2026-11-14
 
+---
+
+_Shortlist from the Forager's run of 15 November — ranked best-first. Branched from `dreams/2026-11-14` rather than `main`, per card 85/wisdom.md's own recommendation, so this is checked against the full 91-card board, not the stale 1–29 that `main` itself still shows. Checked against `docs/CUT_LIST.md` and every card above; nothing here repeats a proposed, approved, parked or binned idea, and none of it adds a sixth pitch to the bare-root, Christmas-gift or frost-countdown families the board is already carrying plenty of. Recovered onto this board by the Dreamer, 2026-11-21 — this run's own branch never reached `main`._
+
+### 92. Order your seed potatoes now — first earlies before the January rush
+- **Type:** monetisation
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** UK seed potato suppliers (Simply Seed, Marshalls, Kings Seeds, grownlocal) open ordering for first-early varieties from early January, several listing a 31 January cut-off with despatch running into February; Which? advises buying early and watching for "potato days" at local garden centres because the good varieties go first. WTS already carries seed-potato-specific kit — a chitting tray on the `early-potatoes` kit list, hessian storage sacks on `maincrop-potatoes` (`crop-kit.ts`, checked directly) — but no page anywhere tells a reader the ordering window exists or which varieties to choose. This is the exact "plan & order now" shape that earned Kate's warmest note on the whole board (card 1, the autumn allium hub: "good focus on getting those affiliate clicks as well as useful content") — same mechanic, a vegetable category WTS has never monetised before rather than another tree or bulb pitch. A direct grep of `crops.ts` and `src/app` confirms no seed-potato ordering content exists.
+- **Pitch:** a short seasonal hub in the same shape as card 1 — why seed potatoes (not supermarket leftovers) give a clean, virus-free start; a plain shortlist by cropping time (first earlies for the quickest new potatoes, second earlies and maincrop for the store); when to order (now through January), when to chit (six weeks before planting, a bright frost-free windowsill), when to plant (once the soil's workable, the old Good Friday rule of thumb). Real affiliate links to a seed-potato supplier once the coming season's stock is confirmed live; links the chitting tray and storage sacks already sitting in `crop-kit.ts`.
+- **Ready-to-queue brief:** target "when to order seed potatoes uk" / "best seed potatoes for allotment"; angle = plan-and-order-now, same shape as card 1; links → `maincrop-potatoes` and `early-potatoes` crop pages (both already have kit lists), `growing-root-vegetables`; voice = practical, gently timely, never hypey; **check Awin/affiliate partner has the coming season's seed potatoes listed before building — new commercial category, not an extension of an existing one.**
+- **Added:** 2026-11-15 · **Run:** forager-2026-11-15
+
+### 93. "Your Growing Year" — a New Year's look back at what your plot actually did
+- **Type:** feature  _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · high delight + shareability, no new data source
+- **Evidence:** `GardenPlot` records in `garden-storage` already log a variety, a sow/plant-out date and a harvested-at date for everything a reader has logged on `/my-garden` (confirmed directly in `HarvestLog.tsx` and `LogPlanting.tsx`) — the raw material for a retrospective already sits unused on every returning reader's own device. The turn of the year is the one moment UK culture already does "my year in review" at scale, and no UK gardening site currently offers a personal one built from a reader's own logged data — every competitor's "2026 in the garden" piece is editorial, never personal. WTS has never shipped a feature that reads back a reader's own history rather than their postcode.
+- **Pitch:** a page (or a card on `/my-garden`) that turns a season of logged sowings and harvests into one page worth keeping: first thing sown, first thing harvested, what took longest, what came fastest, a plain count ("you grew 14 things this year") — one interpreted sentence per fact, no stat-tile row, styled as a stamped diary page rather than a dashboard. A reader with nothing logged yet gets a warm invitation to start for next year, never a locked door. Genuinely screenshot-shaped, and it rewards the exact behaviour (logging on `/my-garden`) the site wants more of.
+- **Ready-to-queue brief:** needs-spec — reuses `garden-storage`/`GardenPlot` data already in `localStorage`, no new tracking, no server data; design = a diary-stamp register (DIRECTION §7's editorial-details line), one number per moment, mono footnotes only, no metric tiles; gate behind a reader having at least one logged plot, otherwise the warm empty state; sits naturally inside the `/my-garden` noticeboard (NEXT_PHASES Phase 5) rather than as an eleventh homepage slot.
+- **Added:** 2026-11-15 · **Run:** forager-2026-11-15
+
+### 94. Forcing chicory — the easiest "forced" crop nobody here is growing
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium–high payoff / Low effort
+- **Evidence:** a direct grep of the whole codebase (`crops.ts`, every guide, every variety) turns up zero mentions of chicory, Witloof, radicchio or forcing chicons — a genuine, confirmed gap. RHS, Garden Organic and Gardeners' World all carry current guides to forcing Witloof chicory: lift the roots from early December, trim the foliage back, then force a few roots at a time in a dark, cool spot for fresh chicons through to March — exactly the "trick a dormant root into growth out of season" move that's already the board's single best-converging idea (rhubarb forcing, a confirmed four-way convergence per card 84). `growing-winter-salad-leaves` (checked directly, 340 lines) covers oriental leaves, lamb's lettuce and winter lettuce but never mentions chicory or forcing at all.
+- **Pitch:** a short, practical how-to for the crop that proves Kate already likes this shape of trick — lift a few roots now, trim them back, tuck them somewhere dark for a plate of fresh, crunchy chicons when the rest of the salad bed has nothing left to give. Honest about timing (a next-autumn sowing for most readers, a right-now forcing for anyone who already grows the roots) and ends by nodding at rhubarb forcing (card 49) once that's live — the same trick, a different crop.
+- **Ready-to-queue brief:** target "how to force chicory uk" / "growing witloof chicory"; angle = the same old trick, a different crop, told plainly; links → `growing-winter-salad-leaves`, `growing-root-vegetables`; cross-link to card 49's rhubarb-forcing piece once it exists; voice = plain and practical, no soil-science lecture — a windowsill-and-a-bucket job, not a greenhouse one; **plain observation only, no personifying the dark cupboard or the dormant root** (COPY_REWRITES calibration rule).
+- **Added:** 2026-11-15 · **Run:** forager-2026-11-15
+
+### 95. Don't bin the tree — what it gives the beds once Twelfth Night comes
+- **Type:** content
+- **Status:** proposed
+- **Score:** Medium payoff / Low effort
+- **Evidence:** Forestry England runs an annual "Treecycling for Twelfth Night" push, and the Carbon Trust is widely cited as finding that chipping a real Christmas tree cuts its carbon footprint by up to 80% against landfill — a genuine, citable, current fact nobody on WTS has used. The site already has the thrift/free-soil-improver voice down (leaf mould, composting) but has never mentioned the one piece of free organic matter that arrives in every house with a real tree every December. A direct grep confirms zero existing mentions anywhere on the site.
+- **Pitch:** a short, plain piece timed for the week after Christmas — strip the tree of lights and decorations, then three honest options: chip it yourself if you own or can borrow a chipper (instant mulch for the beds), take it to a council or garden-centre collection point that chips for mulch anyway, or lay whole branches over tender crowns as rough winter cover before it goes. Not a sales piece — the free option leads, the same rule as every worth-buying/skip entry on the site.
+- **Ready-to-queue brief:** target "what to do with christmas tree after uk" / "chip christmas tree mulch garden"; angle = free soil improver, same family as leaf mould; links → `composting`, `preparing-your-plot-for-winter`; voice = plain and unhurried, no urgency, no product push — if a chipper gets mentioned at all, it's "borrow one if you can" before "buy one"; keep any council/Twelfth Night date claims generic, never year-specific (collection dates vary by council and change yearly).
+- **Added:** 2026-11-15 · **Run:** forager-2026-11-15
+
+---
+
+_Dreamt this week by The Dreamer, 2026-11-21 — two process notes, not new content or features, same restraint as recent weeks given the size of the existing backlog._
+
+### 96. Point whoever next updates `docs/NEXT_PHASES.md` at the latest `dreams/*` branch
+- **Type:** feature _(process note on this memory's own channel, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-11-21)
+- **Score:** unscored — a process observation, not a pitch for Kate to approve or bin
+- **Evidence:** the one mechanical fix this memory has clean, repeated evidence for is "point a run at the latest `dreams/*` branch instead of `main`" — the Forager has now done this three weeks running (1, 8, 15 November), the third time unprompted. This memory's own channel is in exactly the same unread state as the crew's other branches: nobody's November session has opened `docs/dreams/` while doing fourteen commits of real work three clicks away. `docs/NEXT_PHASES.md` is the one file with direct, self-reported evidence that Kate's own sessions read it before doing phase work (its own November addendum says "read these before Phase work") — a better-evidenced bet than Gmail (twenty unopened drafts) or PR #3 (108 days, zero reviews).
+- **Pitch:** nothing for Kate to decide — a note for whoever next edits `docs/NEXT_PHASES.md`: add one line pointing at the latest `dreams/*` branch, the same fix that already works for the Forager, in a file proven to be read by the sessions actually doing the project's real work.
+- **Ready-to-queue brief:** not applicable — process note only.
+- **Added:** 2026-11-21 · **Run:** dream-2026-11-21
+
+### 97. The Sarah Raven four-link fix is the cleanest live test of "checklist format" vs. "inside Kate's current focus"
+- **Type:** feature _(process/diagnostic note, not new content)_
+- **Status:** proposed
+- **Source:** from-a-dream (The Dreamer, 2026-11-21)
+- **Score:** unscored — a process observation, not a pitch for Kate to approve or bin
+- **Evidence:** on 11 November, `main` fixed the SEO Watchdog's top five FIX NOW items in rank order, a day after that report landed — last week's dream read this as "a flat checklist is the channel that works." This week's Groundskeeper report (`groundskeeper/2026-11-16`) found the exact same four dead Sarah Raven links (three since August, confirmed a fourth time) still unfixed, despite being the same flat, ranked, file-and-line shape — smaller and simpler than anything in the SEO fix. Two checklists, identical shape, opposite outcomes four months apart. The variable looks like whether the finding sits inside work a session is already doing (SEO/money, which November's sessions were deep in), not the checklist format itself.
+- **Pitch:** nothing for Kate to decide — a flag that this specific four-line fix (`src/data/varieties.ts`: `squash-uchiki-kuri`, `basil-genovese`, `rhubarb-champagne`, `radishes-french-breakfast`) is now this memory's single best instrument for settling the question. If it's still unfixed after a fifth report, that's strong evidence format was never the variable; if it gets fixed without any new SEO/money work happening first, that would be evidence format alone can work after all.
+- **Ready-to-queue brief:** not applicable — process note only.
+- **Added:** 2026-11-21 · **Run:** dream-2026-11-21
+
 ## Approved
 
 _(empty)_
