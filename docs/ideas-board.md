@@ -1862,6 +1862,49 @@ _Dreamt this week by The Dreamer, 2026-11-21 — two process notes, not new cont
 - **Ready-to-queue brief:** not applicable — process note only.
 - **Added:** 2026-11-21 · **Run:** dream-2026-11-21
 
+---
+
+_Shortlist from the Forager's run of 22 November. Branched from `dreams/2026-11-21`
+(per card 85) rather than `main` — `main` still shows only cards 1–29; cards 30–97
+above exist solely on branches and are reconciled here so nothing already found is
+lost again. Checked against `docs/CUT_LIST.md`, `docs/dreams/wisdom.md` and all 97
+cards above (including the Dreamer's two process notes, 96 and 97, added the day
+before this run) before pitching — new pitches below are renumbered 98/99 to avoid
+colliding with those._
+
+_**A note on this week, before the pitches:** 103 days and fifteen straight silent
+weeks since the last Potting Bench decision (card 21, 10 August), and the board now
+carries 95 unreviewed cards. Most of the obvious, well-evidenced gaps in the next
+4–8 weeks — bare-root trees, rhubarb/bulb/chicory forcing, storage, frost and
+first-cold-snap triage, the Christmas and gift clusters, Boxing-week tree recycling,
+seed potatoes — are already pitched and waiting. A genuine search for fresh ground
+this week also ruled out a few: Christmas wreath-making from garden foliage (a real,
+well-covered UK query) was already considered and dropped by the 6 September run as
+too close to ground the site already covers; "order by this date for Christmas
+delivery" was ruled out here as tipping into the urgency-theatre pattern DIRECTION
+forbids by name; "how to get on an allotment waiting list" was ruled out as
+council-bureaucracy content with no real hook in this site's weather-and-growing
+voice. Two cards cleared the bar, not five — padding a 95-deep pile felt like the
+wrong call._
+
+### 98. How much seed do you actually need? — a right-sizing planner for the January order
+- **Type:** feature _(→ needs-spec on approval)_
+- **Status:** proposed
+- **Score:** High payoff / Medium effort · extends the site's calculator DNA onto genuinely new ground
+- **Evidence:** checked directly — US sites (Urban Farmer's "how much seed do I need?", Omni Calculator's vegetable-yield tool) confirm real demand for this exact question, but neither is UK-specific and both want feet and US spacing. No UK gardening site answers it in a UK voice, and WTS has nothing at all: a reader either buys one packet of everything and ends up with nine-tenths of it going stale (feeding card 99 below) or under-orders and runs short mid-row. The site already holds the raw ingredients — `crops.ts` carries spacing per crop, and the seed-supplier affiliate links (Suttons/Dobies/Thompson & Morgan) are already live on crop pages. Kate's own Phase 12 audit (per `docs/dreams/wisdom.md`) found buying-guide and in-flow links converting at up to 23.7% against 2–6% elsewhere, and postcode-personalised readers clicking at 5.7% vs 3.4% — this is that exact proven shape, applied to the one question every reader has the week they sit down with a seed catalogue.
+- **Pitch:** pick what you're growing and roughly how much row or bed you've got, and it says plainly how much seed that actually takes — "one packet covers this with seed left for a second sowing" rather than a guess — with the bed filling in as you add crops, the same physical-metaphor Kate has approved three times now (the Glut-o-meter's weighing, the green-manure bed-filling visual, the bulb-bed visual). Ends by pointing at the exact right-sized pack already linked from that crop's page — no new commercial ground, just a better-aimed door onto it.
+- **Ready-to-queue brief:** needs-spec — reuses `crops.ts` spacing data; a small seeds-per-metre lookup for 10–12 common crops to start (carrots, beetroot, French beans, peas, parsnips, spring onions, lettuce, radish, spinach, chard); UI = pick crop + row length, one filling-row visual, one sentence of judgement first, mono footnote beneath (packet count, seed left over); affiliate = the seed-supplier links already live per crop, right-sized rather than new; no metric tiles, no five-crop comparison table.
+- **Added:** 2026-11-22 · **Run:** forager-2026-11-22
+
+### 99. Testing last year's seeds before you order more
+- **Type:** content
+- **Status:** proposed
+- **Score:** High payoff / Low effort
+- **Evidence:** a real, confirmed, evergreen gap — GrowVeg, Vital Seeds, Homes & Gardens and Gardening Know How all carry a January seed-viability test (damp paper towel, count the sprouts out of ten), and every source agrees winter is the right moment to run it, before buying anything new. Checked WTS's own `seed-starting` and `seed-starting-kit` guides directly — both assume a reader is starting from fresh seed; neither mentions testing what's already in the tin. Timed to land just before card 98's ordering season opens, and distinct from card 92 (seed potatoes specifically): this is the half-empty packets of everything else.
+- **Pitch:** a short, plain how-to — the damp-paper-towel test, roughly how many of ten need to sprout before it's worth sowing rather than binning, and which seeds keep for years (squash, tomato) against which fade fast (onion, parsnip) so a reader knows what's actually worth testing. Ends by sending anyone whose seed failed the test toward card 98's planner, once it exists, rather than a guess at how much to reorder.
+- **Ready-to-queue brief:** target "how to test old seeds uk" / "are my seeds still good"; angle = check the tin before the catalogue, thrift not lecture; links → `seed-starting`, `seed-starting-kit`, → card 98 once live; voice = plain, "we've found" register, no stern tone about what to throw away.
+- **Added:** 2026-11-22 · **Run:** forager-2026-11-22
+
 ## Approved
 
 _(empty)_
